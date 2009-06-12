@@ -1,0 +1,10 @@
+#ifndef MIZUIRO_RAW_CONTAINER_HPP_INCLUDED
+#define MIZUIRO_RAW_CONTAINER_HPP_INCLUDED
+
+namespace mizuiro
+{
+
+
+}
+
+#endif
