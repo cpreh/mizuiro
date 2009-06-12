@@ -75,6 +75,8 @@ private:
 	equal(
 		linear_iterator const &
 	) const;
+
+	pointer data_;
 };
 
 }

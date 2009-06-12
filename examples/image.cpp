@@ -3,6 +3,7 @@
 #include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
+#include <mizuiro/image/linear_iterator_impl.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <boost/cstdint.hpp>

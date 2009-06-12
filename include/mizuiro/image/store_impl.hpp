@@ -2,6 +2,7 @@
 #define MIZUIRO_IMAGE_STORE_IMPL_HPP_INCLUDED
 
 #include <mizuiro/image/store_decl.hpp>
+#include <mizuiro/image/raw_container_impl.hpp>
 
 template<
 	typename Format

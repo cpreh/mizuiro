@@ -49,9 +49,29 @@ public:
 	const_pointer
 	data() const;
 
+	pointer
+	data_end();
+
+	const_pointer
+	data_end() const;
+
 	size_type
 	size() const;
 private:
+	void
+	allocate(
+		size_type
+	);
+
+	void
+	copy(
+		raw_container const &
+	);
+
+	void
+	destroy();
+
+	allocator_type allocator;
 	pointer
 		data_,
 		data_end_;

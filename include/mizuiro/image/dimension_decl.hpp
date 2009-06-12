@@ -4,6 +4,13 @@
 #include <mizuiro/image/dimension_fwd.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/tr1/array.hpp>
+#include <boost/preprocessor/arithmetic/inc.hpp>
+#include <boost/preprocessor/repetition/enum_params.hpp>
+#include <boost/preprocessor/repetition/repeat.hpp>
+
+#ifndef MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_MAX_SIZE
+#define MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_MAX_SIZE 3
+#endif
 
 namespace mizuiro
 {
@@ -28,12 +35,27 @@ public:
 	typedef typename array_type::iterator iterator;
 	typedef typename array_type::const_iterator const_iterator;
 
-	// TODO: ctor!
-	dimension(
-		int,
-		int,
-		int
+	#define MIZUIRO_IMAGE_DIMENSION_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL(\
+		z,\
+		n,\
+		text\
+	)\
+	dimension(\
+		BOOST_PP_ENUM_PARAMS(\
+			BOOST_PP_INC(n),\
+			const_reference param\
+		)\
 	);
+
+	BOOST_PP_REPEAT(
+		MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_MAX_SIZE,
+		MIZUIRO_IMAGE_DIMENSION_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL,
+		void
+	)
+
+	#undef MIZUIRO_IMAGE_DIMENSION_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL
+
+	dimension();
 	
 	iterator
 	begin();

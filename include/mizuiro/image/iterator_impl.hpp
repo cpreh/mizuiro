@@ -1,5 +1,5 @@
 #include <mizuiro/image/iterator_decl.hpp>
-#include <algorithm>
+#include <numeric>
 #include <functional>
 
 template<
