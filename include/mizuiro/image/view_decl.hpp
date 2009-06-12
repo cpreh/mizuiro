@@ -9,31 +9,23 @@ namespace image
 {
 
 template<
-	typename Format,
-	typename Constness
+	typename Iterator
 >
 class view {
 public:
-	typedef Format format;
+	typedef Iterator iterator;
+	typedef typename iterator::format format;
 
-	typedef typename Format::dim_type dim_type;
-
-	typedef typename detail::const_cond<
-		typename Format::pointer,
-		Constness
-	>::type pointer;
-
-	typedef image::iterator<
-		format,
-		Constness
-	> iterator;
+	typedef typename format::dim_type dim_type;
+	typedef typename format::pitch_type pitch_type;
 
 	typedef typename iterator::reference reference;
+	typedef typename iterator::pointer pointer;
 
 	view(
 		dim_type const &,
-		pointer begin,
-		pointer data
+		pointer data,
+		pitch_type const &
 	);
 
 	dim_type const
@@ -57,6 +49,7 @@ public:
 private:
 	dim_type dim_;
 	pointer data_;
+	pitch_type pitch_;
 };
 
 }

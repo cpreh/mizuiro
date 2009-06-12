@@ -2,7 +2,11 @@
 #define MIZUIRO_IMAGE_STORE_DECL_HPP_INCLUDED
 
 #include <mizuiro/image/store_fwd.hpp>
-#include <mizuiro/raw_container.hpp>
+#include <mizuiro/image/view_fwd.hpp>
+#include <mizuiro/image/linear_iterator_decl.hpp> // TODO
+#include <mizuiro/image/raw_container_decl.hpp>
+#include <mizuiro/detail/const_tag.hpp>
+#include <mizuiro/detail/nonconst_tag.hpp>
 
 namespace mizuiro
 {
@@ -20,18 +24,22 @@ public:
 	typedef typename Format::dim_type dim_type;
 
 	typedef image::view<
-		Format,
-		detail::nonconst_tag
+		linear_iterator<
+			Format,	
+			mizuiro::detail::nonconst_tag
+		>
 	> view_type;
 
 	typedef image::view<
-		Format,
-		detail::const_tag
+		linear_iterator<
+			Format,
+			mizuiro::detail::const_tag
+		>
 	> const_view_type;
 	
-	image();
+	store();
 
-	explicit image(
+	explicit store(
 		dim_type const &
 	);
 	
@@ -51,6 +59,9 @@ public:
 
 	const_view_type const
 	view() const;
+
+	dim_type const &
+	dim() const;
 private:
 	dim_type dim_;
 

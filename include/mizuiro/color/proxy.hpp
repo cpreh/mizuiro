@@ -1,21 +1,21 @@
 #ifndef MIZUIRO_COLOR_PROXY_HPP_INCLUDED
 #define MIZUIRO_COLOR_PROXY_HPP_INCLUDED
 
+#include <mizuiro/color/proxy_fwd.hpp>
+
 namespace mizurio
 {
 namespace color
 {
 
 template<
-	typename Color
+	typename Channels
 >
 class proxy {
 public:
-	proxy(
-		raw_pointer
+	explicit proxy(
+		pointer data_
 	);
-
-	value_type operator() const;
 
 	template<
 		typename Channel
@@ -23,7 +23,7 @@ public:
 	void
 	set(
 		typename boost::mpl::find<
-			typename Color::channels,
+			Channels,
 			Channel
 		>::ref_type
 	);
@@ -32,12 +32,12 @@ public:
 		typename Channel
 	>
 	typename boost::mpl::find<
-		typename Color::channels,
+		Channels,
 		Channel
 	>::ref_type
 	get() const;
 private:
-	
+	pointer data_;	
 };
 
 }

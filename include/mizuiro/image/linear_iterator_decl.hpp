@@ -1,7 +1,7 @@
-#ifndef MIZUIRO_IMAGE_ITERATOR_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ITERATOR_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_LINEAR_ITERATOR_DECL_HPP_INCLUDED
+#define MIZUIRO_IMAGE_LINEAR_ITERATOR_DECL_HPP_INCLUDED
 
-#include <mizuiro/image/iterator_fwd.hpp>
+#include <mizuiro/image/linear_iterator_fwd.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
 
 namespace mizuiro
@@ -13,10 +13,10 @@ template<
 	typename Format,
 	typename Constness
 >
-class iterator 
+class linear_iterator
 :
 	public detail::iterator_base<
-		iterator<
+		linear_iterator<
 			Format,
 			Constness
 		>,
@@ -25,20 +25,16 @@ class iterator
 	>::type
 {
 public:
-	typedef typename Format format;
+	typedef Format format;
 
 	typedef typename detail::iterator_base<
-		iterator<
+		linear_iterator<
 			format,
 			Constness
-		>
+		>,
+		Format,
+		Constness
 	>::type base;
-
-	typedef typename format::dim_type dim_type;
-
-	typedef typename detail::pitch_type<
-		dim_type
-	> pitch_type;
 
 	typedef typename base::value_type value_type;
 	typedef typename base::reference reference;
@@ -46,7 +42,10 @@ public:
 	typedef typename base::difference_type difference_type;
 	typedef typename base::iterator_category iterator_category;
 
-	iterator(
+	typedef typename format::dim_type dim_type;
+	typedef typename format::pitch_type pitch_type;
+
+	linear_iterator(
 		dim_type const &,
 		pointer data,
 		pointer begin,
@@ -66,7 +65,7 @@ private:
 
 	difference_type
 	distance_to(
-		iterator const &
+		linear_iterator const &
 	) const;
 
 	reference
@@ -74,12 +73,8 @@ private:
 
 	bool
 	equal(
-		iterator const &
+		linear_iterator const &
 	) const;
-
-	dim_type dim_;
-	pointer data_;
-	pitch_type pitch_;
 };
 
 }

@@ -1,10 +1,10 @@
-#include <mizuiro/image/store.hpp>
+#include <mizuiro/image/store_impl.hpp>
 #include <mizuiro/image/format.hpp>
-#include <mizuiro/image/view.hpp>
+#include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/interleaved.hpp>
-#include <mizuiro/image/dimension.hpp>
-#include <mizuiro/color/channel.hpp>
+#include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
+#include <mizuiro/color/homogenous.hpp>
 #include <boost/cstdint.hpp>
 
 int main()
@@ -14,10 +14,8 @@ int main()
 			3
 		>,
 		mizuiro::image::interleaved<
-			mizurio::color::format<
-				mizuiro::color::channel<
-					boost::uint8_t
-				>,
+			mizuiro::color::homogenous<
+				boost::uint8_t,
 				mizuiro::color::layout::rgba
 			>
 		>

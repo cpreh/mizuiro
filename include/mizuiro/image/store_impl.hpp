@@ -69,20 +69,30 @@ mizuiro::image::store<Format>::view()
 {
 	return view_type(
 		dim(),
-		data()
+		data(),
+		view_type::pitch_type::null()
 	);
 }
 
 template<
 	typename Format
 >
-typename mizuiro::image::store<Format>::const_view_type
+typename mizuiro::image::store<Format>::const_view_type const
 mizuiro::image::store<Format>::view() const
 {
 	return const_view_type(
 		dim(),
-		data()
+		data(),
+		view_type::pitch_type::null()
 	);
+}
+template<
+	typename Format
+>
+typename mizuiro::image::store<Format>::dim_type const &
+mizuiro::image::store<Format>::dim() const
+{
+	return dim_;
 }
 
 #endif
