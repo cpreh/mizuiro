@@ -2,24 +2,36 @@
 #define MIZUIRO_IMAGE_VIEW_IMPL_HPP_INCLUDED
 
 #include <mizuiro/image/view_decl.hpp>
+#include <stdexcept>
 
-/*
 template<
-	typename Format,
-	typename Constness
+	typename Iterator
 >
-typename mizuiro::image::view<Format, Constness>::dim_type const &
-mizuiro::image::view<Format, Constness>::dim() const
+mizuiro::image::view<Iterator>::view(
+	dim_type const &dim_,
+	pointer const data_,
+	pitch_type const &pitch_
+)
+:
+	dim_(dim_),
+	data_(data_),
+	pitch_(pitch_)
+{}
+
+template<
+	typename Iterator
+>
+typename mizuiro::image::view<Iterator>::dim_type const &
+mizuiro::image::view<Iterator>::dim() const
 {
 	return dim_;
 }
 
 template<
-	typename Format,
-	typename Constness
+	typename Iterator
 >
-typename mizuiro::image::view<Format, Constness>::iterator
-mizuiro::image::view<Format, Constness>::begin() const
+typename mizuiro::image::view<Iterator>::iterator const
+mizuiro::image::view<Iterator>::begin() const
 {
 	return iterator(
 		dim(),
@@ -30,21 +42,19 @@ mizuiro::image::view<Format, Constness>::begin() const
 }
 
 template<
-	typename Format,
-	typename Constness
+	typename Iterator
 >
-typename mizuiro::image::view<Format, Constness>::iterator
-mizuiro::image::view<Format, Constness>::end() const
+typename mizuiro::image::view<Iterator>::iterator const
+mizuiro::image::view<Iterator>::end() const
 {
 	return begin() + dim().content();
 }
 
 template<
-	typename Format,
-	typename Constness
+	typename Iterator
 >
-typename mizuiro::image::view<Format, Constness>::reference
-mizuiro::image::view<Format, Constness>::operator[](
+typename mizuiro::image::view<Iterator>::reference
+mizuiro::image::view<Iterator>::operator[](
 	dim_type const &index
 ) const
 {
@@ -52,11 +62,10 @@ mizuiro::image::view<Format, Constness>::operator[](
 }
 
 template<
-	typename Format,
-	typename Constness
+	typename Iterator
 >
-typename mizuiro::image::view<Format, Constness>::reference
-mizuiro::image::view<Format, Constness>::at(
+typename mizuiro::image::view<Iterator>::reference
+mizuiro::image::view<Iterator>::at(
 	dim_type const &index
 ) const
 {
@@ -66,10 +75,9 @@ mizuiro::image::view<Format, Constness>::at(
 		++i
 	)
 		if(index[i] >= dim[i])
-			throw foobar();
+			throw std::range_error();
 	
 	return (*this)[index];
 }
-*/
 
 #endif

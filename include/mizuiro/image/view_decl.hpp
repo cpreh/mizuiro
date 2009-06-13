@@ -28,13 +28,13 @@ public:
 		pitch_type const &
 	);
 
-	dim_type const
-	dim();
+	dim_type const &
+	dim() const;
 
-	iterator
+	iterator const
 	begin() const;
 
-	iterator
+	iterator const
 	end() const;
 
 	reference
