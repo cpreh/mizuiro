@@ -7,7 +7,7 @@ namespace color
 {
 
 template<
-	typename Channels
+	typename Layout
 >
 class proxy;
 

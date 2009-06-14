@@ -4,6 +4,10 @@
 #include <mizuiro/detail/const_tag.hpp>
 #include <mizuiro/detail/nonconst_tag.hpp>
 #include <boost/type_traits/add_const.hpp>
+#include <boost/type_traits/is_reference.hpp>
+#include <boost/type_traits/remove_reference.hpp>
+#include <boost/type_traits/add_reference.hpp>
+#include <boost/mpl/if.hpp>
 
 namespace mizuiro
 {
@@ -23,11 +27,23 @@ struct apply_const<
 	BaseType,
 	const_tag
 >
-:
-boost::add_const<
-	BaseType
->
-{};
+{
+	typedef typename boost::mpl::if_<
+		boost::is_reference<
+			BaseType
+		>,
+		typename boost::add_reference<
+			typename boost::add_const<
+				typename boost::remove_reference<
+					BaseType
+				>::type
+			>::type
+		>::type,
+		typename boost::add_const<
+			BaseType
+		>::type
+	>::type type;
+};
 
 template<
 	typename BaseType

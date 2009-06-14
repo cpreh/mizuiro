@@ -6,6 +6,7 @@
 #include <mizuiro/image/linear_iterator_impl.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/proxy_impl.hpp>
 #include <boost/cstdint.hpp>
 
 int main()
@@ -39,4 +40,21 @@ int main()
 	view_type const view(
 		img.view()
 	);
+
+	typedef view_type::iterator iterator;
+
+	for(
+		iterator it(
+			view.begin()
+		);
+		it != view.end();
+		++it
+	)
+	{
+		(*it).set<
+			mizuiro::color::channel::red
+		>(
+			static_cast<unsigned char>(10)
+		);
+	}
 }

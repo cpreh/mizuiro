@@ -12,6 +12,7 @@ template<
 	typename Order
 >
 struct additive {
+	typedef Order order;
 };
 
 }

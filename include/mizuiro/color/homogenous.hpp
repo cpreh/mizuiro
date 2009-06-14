@@ -2,6 +2,7 @@
 #define MIZUIRO_COLOR_HOMOGENOUS_HPP_INCLUDED
 
 #include <mizuiro/color/proxy_fwd.hpp>
+#include <mizuiro/color/detail/homogenous_layout.hpp>
 
 namespace mizuiro
 {
@@ -20,8 +21,20 @@ struct homogenous {
 	typedef Layout layout;
 
 	typedef proxy<
-		layout
+		detail::homogenous_layout<
+			channel_type &,
+			pointer,
+			layout
+		>
 	> reference;
+
+	typedef proxy<
+		detail::homogenous_layout<
+			channel_type const &,
+			const_pointer,
+			layout
+		>
+	> const_reference;
 };
 
 }

@@ -52,6 +52,8 @@ public:
 		pitch_type const &
 	);
 private:
+	friend class boost::iterator_core_access;
+
 	void
 	advance(
 		difference_type
