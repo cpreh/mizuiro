@@ -37,5 +37,26 @@ mizuiro::color::proxy<Layout>::set(
 		data_	
 	) = ref;
 }
+template<
+	typename Layout
+>
+template<
+	typename Channel
+>
+typename mizuiro::color::detail::channel_ref<
+	Layout,
+	Channel,
+	mizuiro::detail::const_tag
+>::type
+mizuiro::color::proxy<Layout>::get() const
+{
+	return detail::extract_channel<
+		layout,
+		Channel,
+		mizuiro::detail::const_tag
+	>::execute(
+		data_
+	);
+}
 
 #endif

@@ -8,6 +8,8 @@
 #include <mizuiro/color/homogenous.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <boost/cstdint.hpp>
+#include <iostream>
+#include <ostream>
 
 int main()
 {
@@ -57,4 +59,24 @@ int main()
 			static_cast<unsigned char>(10)
 		);
 	}
+
+	for(
+		iterator it(
+			view.begin()
+		);
+		it != view.end();
+		++it
+	)
+	{
+		std::cout
+			<< static_cast<
+				unsigned
+			>(
+				(*it).get<
+					mizuiro::color::channel::red
+				>()
+			)
+			<< ' ';
+	}
+
 }

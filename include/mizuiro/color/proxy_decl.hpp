@@ -33,16 +33,15 @@ public:
 		>::type 
 	);
 
-	/*
 	template<
 		typename Channel
 	>
 	typename detail::channel_ref<
-		channels,
-		Channel
+		layout,
+		Channel,
+		mizuiro::detail::const_tag
 	>::type
 	get() const;
-	*/
 private:
 	pointer data_;	
 };
