@@ -4,23 +4,21 @@
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/linear_iterator_impl.hpp>
-#include <mizuiro/color/layout/rgba.hpp>
+#include <mizuiro/color/layout/gray.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <boost/cstdint.hpp>
-#include <iostream>
-#include <ostream>
 
 int main()
 {
 	typedef mizuiro::image::format<
 		mizuiro::image::dimension<
-			3
+			2
 		>,
 		mizuiro::image::interleaved<
 			mizuiro::color::homogenous<
 				boost::uint8_t,
-				mizuiro::color::layout::rgba
+				mizuiro::color::layout::gray
 			>
 		>
 	> format;
@@ -31,9 +29,8 @@ int main()
 
 	store img(
 		store::dim_type(
-			129,
-			64,
-			32
+			32,
+			64
 		)
 	);
 
@@ -54,28 +51,9 @@ int main()
 	)
 	{
 		(*it).set<
-			mizuiro::color::channel::red
+			mizuiro::color::channel::gray
 		>(
-			static_cast<unsigned char>(10)
+			static_cast<unsigned char>(20)
 		);
-	}
-
-	for(
-		iterator it(
-			view.begin()
-		);
-		it != view.end();
-		++it
-	)
-	{
-		std::cout
-			<< static_cast<
-				unsigned
-			>(
-				(*it).get<
-					mizuiro::color::channel::red
-				>()
-			)
-			<< ' ';
 	}
 }
