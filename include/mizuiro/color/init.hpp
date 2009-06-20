@@ -5,5 +5,6 @@
 #include <mizuiro/color/init/green.hpp>
 #include <mizuiro/color/init/blue.hpp>
 #include <mizuiro/color/init/alpha.hpp>
+#include <mizuiro/color/init/gray.hpp>
 
 #endif
