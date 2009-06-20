@@ -54,13 +54,16 @@ public:
 
 	#undef MIZUIRO_COLOR_OBJECT_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL
 
+	typedef typename Layout::reference proxy;
+	typedef typename Layout::const_reference const_proxy;
+
 	template<
 		typename Channel
 	>
 	void
 	set(
 		typename detail::channel_ref<
-			layout,
+			typename proxy::layout,
 			Channel,
 			mizuiro::detail::const_tag
 		>::type 
@@ -70,15 +73,11 @@ public:
 		typename Channel
 	>
 	typename detail::channel_ref<
-		layout,
+		typename const_proxy::layout,
 		Channel,
 		mizuiro::detail::const_tag
 	>::type
 	get() const;
-
-	typedef mizuiro::color::proxy<
-		Layout
-	> proxy_type;
 private:
 	typedef typename Layout::store store;
 

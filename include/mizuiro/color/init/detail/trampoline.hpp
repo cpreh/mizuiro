@@ -1,6 +1,8 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_TRAMPOLINE_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_TRAMPOLINE_HPP_INCLUDED
 
+#include <mizuiro/color/detail/init_channel.hpp>
+
 namespace mizuiro
 {
 namespace color
@@ -23,7 +25,7 @@ struct trampoline {
 	> const
 	operator=(
 		Value const &value
-	)
+	) const
 	{
 		return color::detail::init_channel<
 			Value,

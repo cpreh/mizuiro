@@ -21,12 +21,10 @@ mizuiro::color::object<Layout>::object()
 	n,\
 	text\
 )\
-proxy_type(\
-	data_\
-).set<\
+set<\
 	typename T##n::channel\
 >(\
-	t##n\
+	t##n.value()\
 );
 
 #define MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_IMPL(\
@@ -69,7 +67,6 @@ BOOST_PP_REPEAT(
 #undef MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_IMPL
 #undef MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_ASSIGN
 
-
 template<
 	typename Layout
 >
@@ -79,14 +76,14 @@ template<
 void
 mizuiro::color::object<Layout>::set(
 	typename detail::channel_ref<
-		layout,
+		typename proxy::layout,
 		Channel,
 		mizuiro::detail::const_tag
 	>::type const ref
 )
 {
-	proxy_type(
-		data_
+	proxy(
+		data_.data()
 	).set<
 		Channel
 	>(
@@ -101,14 +98,14 @@ template<
 	typename Channel
 >
 typename mizuiro::color::detail::channel_ref<
-	Layout,
+	typename mizuiro::color::object<Layout>::const_proxy::layout,
 	Channel,
 	mizuiro::detail::const_tag
 >::type
 mizuiro::color::object<Layout>::get() const
 {
-	return proxy_type(
-		data_
+	return const_proxy(
+		data_.data()
 	).get<
 		Channel
 	>();
