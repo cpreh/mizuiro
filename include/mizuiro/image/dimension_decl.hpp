@@ -41,9 +41,10 @@ public:
 		text\
 	)\
 	dimension(\
-		BOOST_PP_ENUM_PARAMS(\
+		BOOST_PP_ENUM_PARAMS_Z(\
 			BOOST_PP_INC(n),\
-			const_reference param\
+			const_reference param,\
+			text\
 		)\
 	);
 

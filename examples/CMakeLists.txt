@@ -11,5 +11,6 @@ MACRO (BUILD_EXAMPLE example)
 	ADD_EXECUTABLE (${example} ${example}.cpp)
 ENDMACRO()
 
+BUILD_EXAMPLE(convert)
 BUILD_EXAMPLE(gray)
 BUILD_EXAMPLE(image)

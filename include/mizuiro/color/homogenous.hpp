@@ -3,8 +3,10 @@
 
 #include <mizuiro/color/proxy_fwd.hpp>
 #include <mizuiro/color/detail/homogenous_layout.hpp>
+#include <mizuiro/color/detail/max_channel.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/mpl/size.hpp>
+#include <boost/tr1/array.hpp>
 
 namespace mizuiro
 {
@@ -42,6 +44,19 @@ struct homogenous {
 		= boost::mpl::size<
 			typename layout::order
 		>::value;
+	
+	typedef std::tr1::array<
+		ChannelType,
+		element_count
+	> store;
+
+	static value_type
+	channel_max()
+	{
+		return detail::max_channel<
+			value_type
+		>::get();
+	}
 };
 
 }
