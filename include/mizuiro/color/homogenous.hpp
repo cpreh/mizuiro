@@ -3,7 +3,8 @@
 
 #include <mizuiro/color/proxy_fwd.hpp>
 #include <mizuiro/color/detail/homogenous_layout.hpp>
-#include <mizuiro/color/detail/max_channel.hpp>
+#include <mizuiro/color/detail/channel_min.hpp>
+#include <mizuiro/color/detail/channel_max.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/mpl/size.hpp>
 #include <boost/tr1/array.hpp>
@@ -51,9 +52,17 @@ struct homogenous {
 	> store;
 
 	static value_type
+	channel_min()
+	{
+		return detail::channel_min<
+			value_type
+		>::get();
+	}
+
+	static value_type
 	channel_max()
 	{
-		return detail::max_channel<
+		return detail::channel_max<
 			value_type
 		>::get();
 	}

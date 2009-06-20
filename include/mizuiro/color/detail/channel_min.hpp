@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_COLOR_DETAIL_MAX_CHANNEL_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_MAX_CHANNEL_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_DETAIL_CHANNEL_MIN_HPP_INCLUDED
+#define MIZUIRO_COLOR_DETAIL_CHANNEL_MIN_HPP_INCLUDED
 
 #include <boost/type_traits/is_integral.hpp>
 #include <boost/type_traits/is_floating_point.hpp>
@@ -17,12 +17,12 @@ template<
 	typename T,
 	typename Enable = void
 >
-struct max_channel;
+struct channel_min;
 
 template<
 	typename T
 >
-struct max_channel<
+struct channel_min<
 	T,
 	typename boost::enable_if<
 		boost::is_integral<
@@ -36,14 +36,14 @@ struct max_channel<
 	{
 		return std::numeric_limits<
 			T
-		>::max();
+		>::min();
 	}
 };
 
 template<
 	typename T
 >
-struct max_channel<
+struct channel_min<
 	T,
 	typename boost::enable_if<
 		boost::is_floating_point<
@@ -58,7 +58,7 @@ struct max_channel<
 		return static_cast<
 			T
 		>(
-			1.0
+			0.
 		);
 	}
 };
