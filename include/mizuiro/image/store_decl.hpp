@@ -43,11 +43,6 @@ public:
 		dim_type const &
 	);
 	
-	void
-	resize(
-		dim_type const &
-	);
-	
 	pointer
 	data();
 

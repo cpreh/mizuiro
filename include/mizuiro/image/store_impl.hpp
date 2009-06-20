@@ -27,22 +27,9 @@ mizuiro::image::store<Format>::store(
 	),
 	data_(
 		dim_.content()
+		* Format::image_format::color_format::element_count
 	)
 {}
-
-template<
-	typename Format
->
-void
-mizuiro::image::store<Format>::resize(
-	dim_type const &ndim
-)
-{
-	dim_ = ndim;
-	data_.resize(
-		dim_.content()
-	);
-}
 
 template<
 	typename Format

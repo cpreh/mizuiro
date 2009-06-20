@@ -3,6 +3,8 @@
 
 #include <mizuiro/color/proxy_fwd.hpp>
 #include <mizuiro/color/detail/homogenous_layout.hpp>
+#include <mizuiro/size_type.hpp>
+#include <boost/mpl/size.hpp>
 
 namespace mizuiro
 {
@@ -35,6 +37,11 @@ struct homogenous {
 			layout
 		>
 	> const_reference;
+
+	static size_type const element_count
+		= boost::mpl::size<
+			typename layout::order
+		>::value;
 };
 
 }
