@@ -6,6 +6,7 @@
 #include <mizuiro/color/detail/channel_ref.hpp>
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_binary_params.hpp>
+#include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
 
 #ifndef MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_MAX_SIZE
@@ -24,24 +25,30 @@ class object {
 public:
 	typedef Layout layout;
 
+	object();
+
 	#define MIZUIRO_COLOR_OBJECT_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL(\
 		z,\
 		n,\
 		text\
 	)\
-	object(\
-		BOOST_PP_ENUM_BINARY_PARAMS_Z(\
+	template<\
+		BOOST_PP_ENUM_PARAMS(\
 			BOOST_PP_INC(n),\
-			detail::init_channel<\
-				T\
-			> const &,\
-			t\
+			typename T\
+		)\
+	>\
+	object(\
+		BOOST_PP_ENUM_BINARY_PARAMS(\
+			BOOST_PP_INC(n),\
+			T,\
+			const &t\
 		)\
 	);
 
 	BOOST_PP_REPEAT(
 		MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_MAX_SIZE,
-		IMZUIRO_COLOR_OBJECT_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL,
+		MIZUIRO_COLOR_OBJECT_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL,
 		void
 	)
 

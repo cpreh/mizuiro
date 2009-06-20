@@ -3,26 +3,51 @@
 
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
+#include <boost/preprocessor/arithmetic/inc.hpp>
+#include <boost/preprocessor/repetition/enum_binary_params.hpp>
+#include <boost/preprocessor/repetition/enum_params.hpp>
+#include <boost/preprocessor/repetition/repeat.hpp>
+
+template<
+	typename Layout
+>
+mizuiro::color::object<Layout>::object()
+:
+	data_()
+{}
 
 #define MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_ASSIGN(\
 	z,\
 	n,\
 	text\
 )\
-data_[n] = text##n;
+proxy_type(\
+	data_\
+).set<\
+	typename T##n::channel\
+>(\
+	t##n\
+);
 
 #define MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_IMPL(\
 	z,\
 	n,\
 	text\
 )\
-template< \
-	mizuiro::size_type Dim\
+template<\
+	typename Layout\
 >\
-mizuiro::image::dimension<Dim>::dimension(\
+template<\
 	BOOST_PP_ENUM_PARAMS(\
 		BOOST_PP_INC(n),\
-		const_reference param\
+		typename T\
+	)\
+>\
+mizuiro::color::object<Layout>::object(\
+	BOOST_PP_ENUM_BINARY_PARAMS(\
+		BOOST_PP_INC(n),\
+		T,\
+		const &t\
 	)\
 )\
 :\
@@ -31,7 +56,7 @@ mizuiro::image::dimension<Dim>::dimension(\
 	BOOST_PP_REPEAT(\
 		BOOST_PP_INC(n),\
 		MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_ASSIGN,\
-		param\
+		t\
 	)\
 }
 
@@ -45,7 +70,8 @@ BOOST_PP_REPEAT(
 #undef MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_ASSIGN
 
 
-template< typename Layout
+template<
+	typename Layout
 >
 template<
 	typename Channel

@@ -14,6 +14,8 @@ template<
 >
 class init_channel {
 public:
+	typedef Channel channel;
+
 	explicit init_channel(
 		Value const &value_
 	)
