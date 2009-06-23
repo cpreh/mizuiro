@@ -11,6 +11,24 @@ namespace mizuiro
 namespace color
 {
 
+template
+<
+	typename
+	<
+		typename
+	>
+	class Color
+>
+void max_alpha(
+	Color &c)
+{
+	c.set<channel::alpha>();
+}
+struct max_alpha
+{
+	void operator()()
+};
+
 template<
 	typename Dest,
 	typename Base,
