@@ -51,6 +51,9 @@ struct homogenous {
 		element_count
 	> store;
 
+	template<
+		typename Channel
+	>
 	static value_type
 	channel_min()
 	{
@@ -59,6 +62,9 @@ struct homogenous {
 		>::get();
 	}
 
+	template<
+		typename Channel
+	>
 	static value_type
 	channel_max()
 	{

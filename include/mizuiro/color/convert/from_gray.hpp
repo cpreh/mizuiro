@@ -32,7 +32,9 @@ convert(
 		homogenous<
 			Base,
 			layout::gray
-		>::channel_max()
+		>::template channel_max<
+			channel::gray
+		>()
 	);
 
 	Dest dest;
