@@ -1,6 +1,9 @@
 #ifndef MIZUIRO_COLOR_DENORMALIZE_HPP_INCLUDED
 #define MIZUIRO_COLOR_DENORMALIZE_HPP_INCLUDED
 
+#include <mizuiro/color/detail/channel_ref.hpp>
+#include <mizuiro/detail/const_tag.hpp>
+
 namespace mizuiro
 {
 namespace color
