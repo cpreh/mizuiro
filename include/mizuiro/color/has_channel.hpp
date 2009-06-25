@@ -4,6 +4,7 @@
 #include <boost/type_traits/is_same.hpp>
 #include <boost/mpl/find.hpp>
 #include <boost/mpl/end.hpp>
+#include <boost/mpl/not.hpp>
 
 namespace mizuiro
 {
@@ -16,17 +17,20 @@ template
 >
 struct has_channel
 :
-boost::is_same
+boost::mpl::not_
 <
-	typename boost::mpl::find
+	boost::is_same
 	<
-		typename Color::layout::order, 
-		Channel
-	>::type, 
-	typename boost::mpl::end
-	<
-		typename Color::layout::order
-	>::type
+		typename boost::mpl::find
+		<
+			typename Color::layout::order, 
+			Channel
+		>::type, 
+		typename boost::mpl::end
+		<
+			typename Color::layout::order
+		>
+	>
 >
 {
 };

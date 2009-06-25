@@ -41,7 +41,7 @@ convert(
 {
 	Dest dest;
 
-	max_alpha
+	detail::max_alpha
 	(
 		dest
 	);
