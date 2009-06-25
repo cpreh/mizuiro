@@ -29,7 +29,7 @@ boost::mpl::not_
 		typename boost::mpl::end
 		<
 			typename Color::layout::order
-		>
+		>::type
 	>
 >
 {
