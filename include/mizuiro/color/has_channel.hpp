@@ -9,18 +9,23 @@ namespace mizuiro
 {
 namespace color
 {
+template
+<
+	typename Color,
+	typename Channel
+>
 struct has_channel
 :
 boost::is_same
 <
-	typename mpl::find
+	typename boost::mpl::find
 	<
-		typename Layout::order, 
-		channel
+		typename Color::layout::order, 
+		Channel
 	>::type, 
-	typename mpl::end
+	typename boost::mpl::end
 	<
-		typename Layout::order
+		typename Color::layout::order
 	>::type
 >
 {
