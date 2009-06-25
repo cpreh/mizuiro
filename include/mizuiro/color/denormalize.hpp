@@ -22,7 +22,6 @@ typename detail::channel_ref
 >::type
 denormalize
 (
-	Color &c,
 	Float const f
 )
 {
@@ -37,19 +36,19 @@ denormalize
 	return 
 		static_cast<target_type>
 		(
-			typename Color::layout::template channel_min
+			Color::layout::template channel_min
 			<
 				Channel
 			>()
 			+
 			f*
 			(
-				typename Color::layout::template channel_max
+				Color::layout::template channel_max
 				<
 					Channel
 				>()
 				-
-				typename Color::layout::template channel_min
+				Color::layout::template channel_min
 				<
 					Channel
 				>()

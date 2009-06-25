@@ -37,7 +37,7 @@ normalize
 			-
 			static_cast<Float>
 			(
-				typename Color::layout::template channel_min
+				Color::layout::template channel_min
 				<
 					Channel
 				>()
@@ -47,7 +47,7 @@ normalize
 		(
 			static_cast<Float>
 			(
-				typename Color::layout::template channel_max
+				Color::layout::template channel_max
 				<
 					Channel
 				>()
@@ -55,7 +55,7 @@ normalize
 			-
 			static_cast<Float>
 			(
-				typename Color::layout::template channel_min
+				Color::layout::template channel_min
 				<
 					Channel
 				>()
