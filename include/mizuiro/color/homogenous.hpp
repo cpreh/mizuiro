@@ -35,7 +35,7 @@ struct homogenous {
 
 	typedef proxy<
 		detail::homogenous_layout<
-			channel_type const &,
+			channel_type,
 			const_pointer,
 			layout
 		>
