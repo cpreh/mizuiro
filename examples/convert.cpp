@@ -25,17 +25,48 @@ int main()
 		>
 	> gray_color;
 
-	gray_color test1(
+	gray_color const test_gray(
 		(mizuiro::color::init::gray = 42)
 	);
 
-	rgba_color const test2(
+	rgba_color const test_rgb(
 		mizuiro::color::convert<
 			rgba_color
 		>(
-			test1
+			test_gray
 		)
 	);
 
-	std::cout << test2 << '\n';
+	std::cout 
+		<< "gray value was: " 
+		<< test_gray 
+		<< " and was converted to" 
+		<< test_rgb
+		<< '\n';
+	
+	typedef 
+		mizuiro::color::object
+		<
+			mizuiro::color::homogenous
+			<
+				float,
+				mizuiro::color::layout::rgba
+			>
+		> rgba_float_color;
+
+	rgba_float_color test_float
+	(
+		mizuiro::color::convert
+		<
+			rgba_float_color
+		>
+		(
+			test_rgb
+		)
+	);
+
+	std::cout 
+		<< "converted the rgb value to floats: "
+		<< test_float
+		<< '\n';
 }

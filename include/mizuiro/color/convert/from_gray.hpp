@@ -17,10 +17,10 @@ namespace color
 
 template
 <
-	class BaseDest,
-	class BaseSrc,
 	template<class>
 	class ColorDest,
+	class BaseDest,
+	class BaseSrc,
 	template<class>
 	class ColorSrc
 >

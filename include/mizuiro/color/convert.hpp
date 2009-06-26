@@ -3,5 +3,6 @@
 
 #include <mizuiro/color/convert/identity.hpp>
 #include <mizuiro/color/convert/from_gray.hpp>
+#include <mizuiro/color/convert/from_rgb.hpp>
 
 #endif

@@ -32,7 +32,7 @@ copy_and_convert_channel
 			(
 				src.template get<Channel>()
 			)
-		);
+		)
 	);
 }
 }

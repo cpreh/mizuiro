@@ -15,10 +15,20 @@ namespace mizuiro
 {
 namespace color
 {
+/*
 template
 <
-	typename Src,
-	typename Dest
+	template<class>
+	class Gray,
+	class Color
+>
+*/
+
+
+template
+<
+	typename Dest,
+	typename Src
 >
 typename
 boost::enable_if
@@ -43,7 +53,7 @@ convert
 		float
 	>
 	(
-		src,
+		s,
 		dest
 	);
 
@@ -53,7 +63,7 @@ convert
 		float
 	>
 	(
-		src,
+		s,
 		dest
 	);
 
@@ -63,13 +73,13 @@ convert
 		float
 	>
 	(
-		src,
+		s,
 		dest
 	);
 
 	detail::copy_or_max_alpha
 	(
-		src,
+		s,
 		dest
 	);
 	

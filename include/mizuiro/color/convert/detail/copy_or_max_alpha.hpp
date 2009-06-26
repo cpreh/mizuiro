@@ -3,7 +3,7 @@
 
 #include <mizuiro/color/has_channel.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
-#include <mizuiro/color/convert/detail/max_channel.hpp>
+#include <mizuiro/color/convert/detail/max_alpha.hpp>
 #include <mizuiro/color/convert/detail/copy_and_convert_channel.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/mpl/or.hpp>
@@ -28,12 +28,12 @@ boost::enable_if
 	<
 		has_channel
 		<
-			Src,
+			typename Src::layout,
 			channel::alpha
 		>,
 		has_channel
 		<
-			Dest,
+			typename Dest::layout,
 			channel::alpha
 		>
 	>,
@@ -41,14 +41,18 @@ boost::enable_if
 >::type
 copy_or_max_alpha(
 	Src const &src,
-	Dest &d)
+	Dest &dest)
 {
 	copy_and_convert_channel
 	<
 		channel::alpha,
 		// FIXME: do we want float here?
 		float
-	>();
+	>
+	(
+		src,
+		dest
+	);
 }
 
 // source doesn't have an alpha channel, but destination has, so max out destination alpha
@@ -66,13 +70,13 @@ boost::enable_if
 		<
 			has_channel
 			<
-				Src,
+				typename Src::layout,
 				channel::alpha
 			>
 		>,
 		has_channel
 		<
-			Dest,
+			typename Dest::layout,
 			channel::alpha
 		>
 	>,
@@ -94,7 +98,7 @@ template
 typename
 boost::enable_if
 <
-	boost::mpl::or
+	boost::mpl::or_
 	<
 		boost::mpl::not_
 		<
@@ -102,12 +106,12 @@ boost::enable_if
 			<
 				has_channel
 				<
-					Src,
+					typename Src::layout,
 					channel::alpha
 				>,
 				has_channel
 				<
-					Dest,
+					typename Dest::layout,
 					channel::alpha
 				>
 			>
