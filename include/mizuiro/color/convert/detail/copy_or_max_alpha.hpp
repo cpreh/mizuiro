@@ -120,7 +120,7 @@ boost::enable_if
 		<
 			has_channel
 			<
-				Dest,
+				typename Dest::layout,
 				channel::alpha
 			>
 		>
