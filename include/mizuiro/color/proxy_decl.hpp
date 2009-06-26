@@ -3,6 +3,7 @@
 
 #include <mizuiro/color/proxy_fwd.hpp>
 #include <mizuiro/color/detail/channel_ref.hpp>
+#include <mizuiro/detail/apply_const.hpp>
 
 namespace mizuiro
 {
@@ -10,12 +11,16 @@ namespace color
 {
 
 template<
-	typename Layout
+	typename Layout,
+	typename Constness
 >
 class proxy {
 public:
 	typedef Layout layout;
-	typedef typename layout::pointer pointer;
+	typedef typename mizuiro::detail::apply_const<
+		typename layout::pointer,
+		Constness
+	>::type pointer;
 
 	explicit proxy(
 		pointer data

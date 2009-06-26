@@ -3,6 +3,7 @@
 
 #include <mizuiro/color/detail/channel_ref.hpp>
 #include <mizuiro/detail/index_of.hpp>
+#include <mizuiro/detail/apply_const.hpp>
 
 namespace mizuiro
 {
@@ -23,7 +24,10 @@ struct extract_channel {
 		Constness
 	>::type reference;
 
-	typedef typename Layout::pointer pointer;
+	typedef typename mizuiro::detail::apply_const<
+		typename Layout::pointer,
+		Constness
+	>::type pointer;
 
 	static reference
 	execute(
@@ -32,7 +36,7 @@ struct extract_channel {
 	{
 		return ptr[
 			mizuiro::detail::index_of<
-				typename Layout::channels::order,
+				typename Layout::layout::order,
 				Channel
 			>::value
 		];

@@ -7,7 +7,8 @@ namespace color
 {
 
 template<
-	typename Layout
+	typename Layout,
+	typename Constness
 >
 class proxy;
 
