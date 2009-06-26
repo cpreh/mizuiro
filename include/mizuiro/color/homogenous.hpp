@@ -35,7 +35,7 @@ struct homogenous {
 
 	typedef proxy<
 		detail::homogenous_layout<
-			channel_type,
+			channel_type const &,
 			const_pointer,
 			layout
 		>
@@ -72,6 +72,13 @@ struct homogenous {
 			value_type
 		>::get();
 	}
+
+	template<
+		typename Channel
+	>
+	struct channel_value_type {
+		typedef value_type type;
+	};
 };
 
 }

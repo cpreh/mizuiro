@@ -5,7 +5,7 @@
 #include <boost/mpl/distance.hpp>
 #include <boost/mpl/find.hpp>
 
-namespace mizuiro
+namespace mizuiro 
 {
 namespace detail
 {
