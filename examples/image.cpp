@@ -7,6 +7,7 @@
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
+#include <mizuiro/color/output.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>
@@ -67,15 +68,7 @@ int main()
 		it != view.end();
 		++it
 	)
-	{
-		std::cout
-			<< static_cast<
-				unsigned
-			>(
-				(*it).get<
-					mizuiro::color::channel::red
-				>()
-			)
-			<< ' ';
-	}
+		std::cout << *it << ' ';
+	
+	std::cout << '\n';
 }

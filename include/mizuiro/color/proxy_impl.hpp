@@ -5,9 +5,10 @@
 #include <mizuiro/color/detail/extract_channel.hpp>
 
 template<
-	typename Layout
+	typename Layout,
+	typename Constness
 >
-mizuiro::color::proxy<Layout>::proxy(
+mizuiro::color::proxy<Layout, Constness>::proxy(
 	pointer const data_
 )
 :
@@ -15,13 +16,14 @@ mizuiro::color::proxy<Layout>::proxy(
 {}
 
 template<
-	typename Layout
+	typename Layout,
+	typename Constness
 >
 template<
 	typename Channel
 >
 void
-mizuiro::color::proxy<Layout>::set(
+mizuiro::color::proxy<Layout, Constness>::set(
 	typename detail::channel_ref<
 		layout,
 		Channel,
@@ -38,7 +40,8 @@ mizuiro::color::proxy<Layout>::set(
 	) = ref;
 }
 template<
-	typename Layout
+	typename Layout,
+	typename Constness
 >
 template<
 	typename Channel
@@ -48,7 +51,7 @@ typename mizuiro::color::detail::channel_ref<
 	Channel,
 	mizuiro::detail::const_tag
 >::type
-mizuiro::color::proxy<Layout>::get() const
+mizuiro::color::proxy<Layout, Constness>::get() const
 {
 	return detail::extract_channel<
 		layout,

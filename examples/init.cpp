@@ -2,6 +2,7 @@
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/init.hpp>
+#include <mizuiro/color/output.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>
@@ -24,9 +25,5 @@ int main()
 		mizuiro::color::init::alpha = static_cast<channel>(53)
 	);
 
-	std::cout
-		<< static_cast<unsigned>(testcolor.get<mizuiro::color::channel::red>())
-		<< ' '
-		<< static_cast<unsigned>(testcolor.get<mizuiro::color::channel::blue>())
-		<< '\n';
+	std::cout << testcolor << '\n';
 }

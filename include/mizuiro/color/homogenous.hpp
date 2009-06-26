@@ -2,9 +2,11 @@
 #define MIZUIRO_COLOR_HOMOGENOUS_HPP_INCLUDED
 
 #include <mizuiro/color/proxy_fwd.hpp>
-#include <mizuiro/color/detail/homogenous_layout.hpp>
 #include <mizuiro/color/detail/channel_min.hpp>
 #include <mizuiro/color/detail/channel_max.hpp>
+#include <mizuiro/detail/const_tag.hpp>
+#include <mizuiro/detail/nonconst_tag.hpp>
+#include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/mpl/size.hpp>
 #include <boost/tr1/array.hpp>
@@ -25,20 +27,31 @@ struct homogenous {
 	typedef value_type const *const_pointer;
 	typedef Layout layout;
 
-	typedef proxy<
-		detail::homogenous_layout<
+	template<
+		typename Channel,
+		typename Constness
+	>
+	struct channel_reference {
+		typedef typename mizuiro::detail::apply_const<
 			channel_type &,
-			pointer,
+			Constness
+		>::type type;
+	};
+
+	typedef proxy<
+		homogenous<
+			channel_type,
 			layout
-		>
+		>,
+		mizuiro::detail::nonconst_tag
 	> reference;
 
 	typedef proxy<
-		detail::homogenous_layout<
-			channel_type const &,
-			const_pointer,
+		homogenous<
+			channel_type,
 			layout
-		>
+		>,
+		mizuiro::detail::const_tag
 	> const_reference;
 
 	static size_type const element_count

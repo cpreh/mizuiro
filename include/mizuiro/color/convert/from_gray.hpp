@@ -1,7 +1,6 @@
 #ifndef MIZUIRO_COLOR_CONVERT_FROM_GRAY_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_FROM_GRAY_HPP_INCLUDED
 
-#include <mizuiro/color/convert/fwd.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <mizuiro/color/is_rgb.hpp>
