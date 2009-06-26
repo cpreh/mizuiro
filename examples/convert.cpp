@@ -11,22 +11,18 @@
 
 int main()
 {
-	typedef mizuiro::color::homogenous<
-		boost::uint8_t,
-		mizuiro::color::layout::rgba
-	> rgba_format;
-
 	typedef mizuiro::color::object<
-		rgba_format
+		mizuiro::color::homogenous<
+			boost::uint8_t,
+			mizuiro::color::layout::rgba
+		>
 	> rgba_color;
 
-	typedef mizuiro::color::homogenous<
-		boost::uint8_t,
-		mizuiro::color::layout::gray
-	> gray_format;
-
 	typedef mizuiro::color::object<
-		gray_format
+		mizuiro::color::homogenous<
+			boost::uint8_t,
+			mizuiro::color::layout::gray
+		>
 	> gray_color;
 
 	gray_color test1(
