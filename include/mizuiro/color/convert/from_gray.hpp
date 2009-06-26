@@ -8,12 +8,71 @@
 #include <mizuiro/color/layout/gray.hpp>
 #include <mizuiro/color/convert/detail/max_alpha.hpp>
 #include <mizuiro/color/normalize.hpp>
+#include <mizuiro/color/channel/gray.hpp>
 #include <mizuiro/color/denormalize.hpp>
 
 namespace mizuiro
 {
 namespace color
 {
+
+template
+<
+	class BaseDest,
+	class BaseSrc,
+	template<class>
+	class ColorDest,
+	template<class>
+	class ColorSrc
+>
+ColorDest
+<
+	homogenous<BaseDest,layout::gray>
+> const
+convert
+(
+	ColorSrc
+	<
+		homogenous<BaseSrc,layout::gray>
+	> const &src
+)
+{
+	ColorDest
+	<
+		homogenous
+		<
+			BaseDest,
+			layout::gray
+		>
+	> dest;
+
+	dest.template set<channel::gray>
+	(
+		denormalize
+		<
+			ColorDest
+			<
+				homogenous<BaseDest,layout::gray>
+			>,
+			channel::gray,
+			float
+		>
+		(
+			normalize
+			<
+				ColorSrc
+				<
+					homogenous<BaseSrc,layout::gray>
+				>,
+				channel::gray,
+				float
+			>
+			(
+				src.template get<channel::gray>()
+			)
+		)
+	);
+}
 
 template
 <
