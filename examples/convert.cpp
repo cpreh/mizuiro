@@ -54,6 +54,7 @@ int main()
 			>
 		> rgba_float_color;
 
+	/*
 	rgba_float_color test_float
 	(
 		mizuiro::color::convert
@@ -64,9 +65,10 @@ int main()
 			test_rgb
 		)
 	);
-
+	
 	std::cout 
 		<< "converted the rgb value to floats: "
 		<< test_float
 		<< '\n';
+	*/
 }

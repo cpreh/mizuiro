@@ -3,6 +3,7 @@
 
 #include <mizuiro/image/dimension_decl.hpp>//fwd.hpp>
 #include <mizuiro/size_type.hpp>
+#include <mizuiro/difference_type.hpp>
 
 namespace mizuiro
 {
@@ -21,18 +22,25 @@ template<
 >
 struct pitch_type<
 	dimension<
-		Dim
+		Dim,
+		mizuiro::size_type
 	>
 >
 {
 	typedef dimension<
-		Dim - 1
+		Dim - 1,
+		mizuiro::difference_type
 	> type;
 };
 
-template<>
+template<
+	typename T
+>
 struct pitch_type<
-	dimension<0>
+	dimension<
+		0,
+		T
+	>
 >
 {};
 

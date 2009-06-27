@@ -18,17 +18,18 @@ namespace image
 {
 
 template<
-	mizuiro::size_type Dim
+	mizuiro::size_type Dim,
+	typename ValueType
 >
 class dimension {
 public:
-	typedef mizuiro::size_type value_type;
+	typedef ValueType value_type;
 	typedef mizuiro::size_type size_type;
 	typedef value_type &reference;
 	typedef value_type const &const_reference;
 
 	typedef std::tr1::array<
-		size_type,
+		value_type,
 		Dim
 	> array_type;
 

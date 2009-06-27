@@ -22,9 +22,10 @@ data_[n] = text##n;
 	text\
 )\
 template< \
-	mizuiro::size_type Dim\
+	mizuiro::size_type Dim,\
+	typename ValueType\
 >\
-mizuiro::image::dimension<Dim>::dimension(\
+mizuiro::image::dimension<Dim, ValueType>::dimension(\
 	BOOST_PP_ENUM_PARAMS(\
 		BOOST_PP_INC(n),\
 		const_reference param\
@@ -50,63 +51,70 @@ BOOST_PP_REPEAT(
 #undef MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_ASSIGN
 
 template<
-	mizuiro::size_type Dim
+	mizuiro::size_type Dim,
+	typename ValueType
 >
-mizuiro::image::dimension<Dim>::dimension()
+mizuiro::image::dimension<Dim, ValueType>::dimension()
 :
 	data_()
 {}
 
 template<
-	mizuiro::size_type Dim
+	mizuiro::size_type Dim,
+	typename ValueType
 >
-typename mizuiro::image::dimension<Dim>::iterator
-mizuiro::image::dimension<Dim>::begin()
+typename mizuiro::image::dimension<Dim, ValueType>::iterator
+mizuiro::image::dimension<Dim, ValueType>::begin()
 {
 	return data_.begin();
 }
 
 template<
-	mizuiro::size_type Dim
+	mizuiro::size_type Dim,
+	typename ValueType
 >
-typename mizuiro::image::dimension<Dim>::iterator
-mizuiro::image::dimension<Dim>::end()
+typename mizuiro::image::dimension<Dim, ValueType>::iterator
+mizuiro::image::dimension<Dim, ValueType>::end()
 {
 	return data_.end();
 }
 
 template<
-	mizuiro::size_type Dim
+	mizuiro::size_type Dim,
+	typename ValueType
 >
-typename mizuiro::image::dimension<Dim>::const_iterator
-mizuiro::image::dimension<Dim>::begin() const
+typename mizuiro::image::dimension<Dim, ValueType>::const_iterator
+mizuiro::image::dimension<Dim, ValueType>::begin() const
 {
 	return data_.begin();
 }
 
 template<
-	mizuiro::size_type Dim
+	mizuiro::size_type Dim,
+	typename ValueType
 >
-typename mizuiro::image::dimension<Dim>::const_iterator
-mizuiro::image::dimension<Dim>::end() const
+typename mizuiro::image::dimension<Dim, ValueType>::const_iterator
+mizuiro::image::dimension<Dim, ValueType>::end() const
 {
 	return data_.end();
 }
 
 template<
-	mizuiro::size_type Dim
+	mizuiro::size_type Dim,
+	typename ValueType
 >
-typename mizuiro::image::dimension<Dim>::size_type
-mizuiro::image::dimension<Dim>::size() const
+typename mizuiro::image::dimension<Dim, ValueType>::size_type
+mizuiro::image::dimension<Dim, ValueType>::size() const
 {
 	return data_.size();
 }
 
 template<
-	mizuiro::size_type Dim
+	mizuiro::size_type Dim,
+	typename ValueType
 >
-typename mizuiro::image::dimension<Dim>::size_type
-mizuiro::image::dimension<Dim>::content() const
+typename mizuiro::image::dimension<Dim, ValueType>::size_type
+mizuiro::image::dimension<Dim, ValueType>::content() const
 {
 	return std::accumulate(
 		begin(),
@@ -119,10 +127,11 @@ mizuiro::image::dimension<Dim>::content() const
 }
 
 template<
-	mizuiro::size_type Dim
+	mizuiro::size_type Dim,
+	typename ValueType
 >
-typename mizuiro::image::dimension<Dim>::reference
-mizuiro::image::dimension<Dim>::operator[](
+typename mizuiro::image::dimension<Dim, ValueType>::reference
+mizuiro::image::dimension<Dim, ValueType>::operator[](
 	size_type const index
 )
 {
@@ -130,10 +139,11 @@ mizuiro::image::dimension<Dim>::operator[](
 }
 
 template<
-	mizuiro::size_type Dim
+	mizuiro::size_type Dim,
+	typename ValueType
 >
-typename mizuiro::image::dimension<Dim>::const_reference
-mizuiro::image::dimension<Dim>::operator[](
+typename mizuiro::image::dimension<Dim, ValueType>::const_reference
+mizuiro::image::dimension<Dim, ValueType>::operator[](
 	size_type const index
 ) const
 {
@@ -141,10 +151,11 @@ mizuiro::image::dimension<Dim>::operator[](
 }
 
 template<
-	mizuiro::size_type Dim
+	mizuiro::size_type Dim,
+	typename ValueType
 >
-mizuiro::image::dimension<Dim> const
-mizuiro::image::dimension<Dim>::null()
+mizuiro::image::dimension<Dim, ValueType> const
+mizuiro::image::dimension<Dim, ValueType>::null()
 {
 	dimension ret;
 
