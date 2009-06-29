@@ -46,6 +46,9 @@ public:
 	at(
 		dim_type const &
 	) const;
+
+	pointer
+	data() const;
 private:
 	dim_type dim_;
 	pointer data_;

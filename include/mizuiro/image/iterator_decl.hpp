@@ -25,7 +25,8 @@ class iterator
 	>::type
 {
 public:
-	typedef typename Format format;
+	typedef Format format;
+	typedef Constness constness; 
 
 	typedef typename detail::iterator_base<
 		iterator<

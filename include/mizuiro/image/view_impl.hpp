@@ -80,4 +80,13 @@ mizuiro::image::view<Iterator>::at(
 	return (*this)[index];
 }
 
+template<
+	typename Iterator
+>
+typename mizuiro::image::view<Iterator>::pointer
+mizuiro::image::view<Iterator>::data() const
+{
+	return data_;
+}
+
 #endif
