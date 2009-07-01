@@ -18,17 +18,17 @@ mizuiro::image::iterator<Format, Constness>::advance(
 	)
 		data_ += (
 			(diff +
-				(data_ - begin)
+				(data_ - begin_)
 				% std::accumulate(
-					dim.begin(),
-					dim.begin() + i + 1,
+					dim_.begin(),
+					dim_.begin() + i + 1,
 					1,
 					std::multiplies<
 						size_type
 					>()
 				)
-			) / dim[i]
-		) * pitch[i];
+			) / dim_[i]
+		) * pitch_[i];
 
 	data_ += diff;
 }
@@ -59,7 +59,7 @@ template<
 >
 typename mizuiro::image::iterator<Format, Constness>::difference_type
 mizuiro::image::iterator<Format, Constness>::distance_to(
-	iterator const &
+	iterator const &other
 ) const
 {
 	return other.data_ - data_;

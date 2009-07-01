@@ -18,14 +18,26 @@ namespace color
 
 template<
 	typename ChannelType,
-	typename Layout
+	typename Layout,
+	typename Pointer = ChannelType *
 >
 struct homogenous {
 	typedef ChannelType channel_type;
 	typedef channel_type value_type;
-	typedef value_type *pointer;
-	typedef value_type const *const_pointer;
+	typedef Pointer pointer;
+	typedef Pointer const const_pointer;
 	typedef Layout layout;
+
+	template<
+		typename T
+	>
+	struct replace_pointer {
+		typedef homogenous<
+			ChannelType,
+			Layout,
+			T
+		> type;
+	};
 
 	template<
 		typename Channel,
@@ -41,7 +53,8 @@ struct homogenous {
 	typedef proxy<
 		homogenous<
 			channel_type,
-			layout
+			layout,
+			Pointer
 		>,
 		mizuiro::detail::nonconst_tag
 	> reference;
@@ -49,7 +62,8 @@ struct homogenous {
 	typedef proxy<
 		homogenous<
 			channel_type,
-			layout
+			layout,
+			Pointer
 		>,
 		mizuiro::detail::const_tag
 	> const_reference;

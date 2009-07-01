@@ -38,7 +38,7 @@ public:
 
 	typedef typename base::value_type value_type;
 	typedef typename base::reference reference;
-	typedef typename base::pointer pointer;
+	typedef typename format::pointer pointer;
 	typedef typename base::difference_type difference_type;
 	typedef typename base::iterator_category iterator_category;
 

@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_IMAGE_ITERATOR_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ITERATOR_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_ITERATOR_DECL_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ITERATOR_DECL_HPP_INCLUDED
 
 #include <mizuiro/image/iterator_fwd.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
@@ -31,8 +31,10 @@ public:
 	typedef typename detail::iterator_base<
 		iterator<
 			format,
-			Constness
-		>
+			constness
+		>,
+		format,
+		constness
 	>::type base;
 
 	typedef typename format::dim_type dim_type;
@@ -43,7 +45,7 @@ public:
 
 	typedef typename base::value_type value_type;
 	typedef typename base::reference reference;
-	typedef typename base::pointer pointer;
+	typedef typename format::pointer pointer;
 	typedef typename base::difference_type difference_type;
 	typedef typename base::iterator_category iterator_category;
 
@@ -79,7 +81,9 @@ private:
 	) const;
 
 	dim_type dim_;
-	pointer data_;
+	pointer
+		data_,
+		begin_;
 	pitch_type pitch_;
 };
 

@@ -39,6 +39,7 @@ mizuiro::color::proxy<Layout, Constness>::set(
 		data_	
 	) = ref;
 }
+
 template<
 	typename Layout,
 	typename Constness
