@@ -14,24 +14,17 @@ template
 	class Channel,
 	class Float
 >
-typename detail::channel_ref
-<
-	typename Color::proxy::layout,
-	Channel,
-	mizuiro::detail::const_tag
->::type
+typename 
+Color::layout::template channel_value_type<Channel>::type
 denormalize
 (
 	Float const f
 )
 {
 	typedef 
-		typename detail::channel_ref
-		<
-			typename Color::proxy::layout,
-			Channel,
-			mizuiro::detail::const_tag
-		>::type target_type;
+		typename 
+		Color::layout::template channel_value_type<Channel>::type
+		target_type;
 
 	return 
 		static_cast<target_type>

@@ -138,7 +138,7 @@ convert(
 	(
 		denormalize<Dest,channel::blue,float>
 		(
-			0.11 * src_normalized
+			0.11f * src_normalized
 		)
 	);
 
