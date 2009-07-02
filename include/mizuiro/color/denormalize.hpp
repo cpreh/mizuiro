@@ -36,22 +36,31 @@ denormalize
 	return 
 		static_cast<target_type>
 		(
-			Color::layout::template channel_min
-			<
-				Channel
-			>()
-			+
-			f*
+			static_cast<Float>
 			(
-				Color::layout::template channel_max
-				<
-					Channel
-				>()
-				-
 				Color::layout::template channel_min
 				<
 					Channel
 				>()
+			)
+			+
+			f*
+			(
+				static_cast<Float>
+				(
+					Color::layout::template channel_max
+					<
+						Channel
+					>()
+				)
+				-
+				static_cast<Float>
+				(
+					Color::layout::template channel_min
+					<
+						Channel
+					>()
+				)
 			)
 		);
 }
