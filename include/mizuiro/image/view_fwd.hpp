@@ -7,7 +7,8 @@ namespace image
 {
 
 template<
-	typename Iterator
+	typename Format,
+	typename Constness
 >
 class view;
 

@@ -1,13 +1,9 @@
-#ifndef MIZUIRO_IMAGE_ITERATOR_DECL_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ITERATOR_DECL_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_PITCH_ITERATOR_DECL_HPP_INCLUDED
+#define MIZUIRO_IMAGE_PITCH_ITERATOR_DECL_HPP_INCLUDED
 
-#include <mizuiro/image/iterator_fwd.hpp>
-#include <mizuiro/image/pitch_iterator_decl.hpp>
-#include <mizuiro/image/linear_iterator_decl.hpp>
+#include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/detail/apply_const.hpp>
-#include <sge/variant/object_decl.hpp>
-#include <boost/mpl/vector.hpp>
 
 namespace mizuiro
 {
@@ -18,10 +14,10 @@ template<
 	typename Format,
 	typename Constness
 >
-class iterator
+class pitch_iterator 
 :
 	public detail::iterator_base<
-		iterator<
+		pitch_iterator<
 			Format,
 			Constness
 		>,
@@ -31,28 +27,22 @@ class iterator
 {
 public:
 	typedef Format format;
+	typedef Constness constness; 
 
 	typedef typename detail::iterator_base<
-		linear_iterator<
+		pitch_iterator<
 			format,
-			Constness
+			constness
 		>,
-		Format,
-		Constness
+		format,
+		constness
 	>::type base;
 
-	typedef sge::variant::object<
-		boost::mpl::vector<
-			pitch_iterator<
-				Format,
-				Constness
-			>,
-			linear_iterator<
-				Format,
-				Constness
-			>
-		>
-	> internal_type;
+	typedef typename format::dim_type dim_type;
+
+	typedef typename detail::pitch_type<
+		dim_type
+	>::type pitch_type;
 
 	typedef typename base::value_type value_type;
 	typedef typename base::reference reference;
@@ -65,12 +55,12 @@ public:
 	typedef typename base::difference_type difference_type;
 	typedef typename base::iterator_category iterator_category;
 
-	explicit iterator(
-		internal_type const &
+	pitch_iterator(
+		dim_type const &,
+		pointer data,
+		pointer begin,
+		pitch_type const &
 	);
-
-	internal_type const &
-	internal() const;
 private:
 	friend class boost::iterator_core_access;
 
@@ -87,7 +77,7 @@ private:
 
 	difference_type
 	distance_to(
-		iterator const &
+		pitch_iterator const &
 	) const;
 
 	reference
@@ -95,10 +85,14 @@ private:
 
 	bool
 	equal(
-		iterator const &
+		pitch_iterator const &
 	) const;
 
-	internal_type internal_;
+	dim_type dim_;
+	pointer
+		data_,
+		begin_;
+	pitch_type pitch_;
 };
 
 }

@@ -8,10 +8,7 @@ template<
 	typename Constness
 >
 mizuiro::image::linear_iterator<Format, Constness>::linear_iterator(
-	dim_type const &,
-	pointer const data_,
-	pointer,
-	pitch_type const &
+	pointer const data_
 )
 :
 	data_(data_)

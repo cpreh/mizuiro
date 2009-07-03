@@ -9,6 +9,7 @@ ENDIF()
 
 MACRO (BUILD_EXAMPLE example)
 	ADD_EXECUTABLE (${example} ${example}.cpp)
+	TARGET_LINK_LIBRARIES( ${example} sgecore)
 ENDMACRO()
 
 BUILD_EXAMPLE(convert)

@@ -3,7 +3,6 @@
 
 #include <mizuiro/image/store_fwd.hpp>
 #include <mizuiro/image/view_fwd.hpp>
-#include <mizuiro/image/linear_iterator_decl.hpp> // TODO
 #include <mizuiro/image/raw_container_decl.hpp>
 #include <mizuiro/detail/const_tag.hpp>
 #include <mizuiro/detail/nonconst_tag.hpp>
@@ -24,17 +23,13 @@ public:
 	typedef typename Format::dim_type dim_type;
 
 	typedef image::view<
-		linear_iterator<
-			Format,	
-			mizuiro::detail::nonconst_tag
-		>
+		Format,	
+		mizuiro::detail::nonconst_tag
 	> view_type;
 
 	typedef image::view<
-		linear_iterator<
-			Format,
-			mizuiro::detail::const_tag
-		>
+		Format,
+		mizuiro::detail::const_tag
 	> const_view_type;
 	
 	store();

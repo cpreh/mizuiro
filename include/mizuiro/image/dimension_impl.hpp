@@ -8,6 +8,7 @@
 #include <boost/foreach.hpp>
 #include <numeric>
 #include <functional>
+#include <algorithm>
 
 #define MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_ASSIGN(\
 	z,\
@@ -166,6 +167,36 @@ mizuiro::image::dimension<Dim, ValueType>::null()
 		r = 0;
 	
 	return ret;
+}
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+bool
+mizuiro::image::operator==(
+	dimension<Dim, ValueType> const &a,
+	dimension<Dim, ValueType> const &b
+)
+{
+	return std::equal(
+		a.begin(),
+		a.end(),
+		b.begin()
+	);
+}
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+bool
+mizuiro::image::operator!=(
+	dimension<Dim, ValueType> const &a,
+	dimension<Dim, ValueType> const &b
+)
+{
+	return !(a == b);
 }
 
 #endif

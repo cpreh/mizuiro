@@ -3,26 +3,46 @@
 #include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
-#include <mizuiro/image/linear_iterator_impl.hpp>
+#include <mizuiro/image/algorithm/for_each.hpp>
 #include <mizuiro/color/layout/gray.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
+//#include <boost/spirit/home/phoenix/bind/bind_function.hpp>
+//#include <boost/spirit/home/phoenix/core/argument.hpp>
+#include <boost/bind.hpp>
 #include <boost/cstdint.hpp>
+
+namespace
+{
+
+typedef mizuiro::image::format<
+	mizuiro::image::dimension<
+		2
+	>,
+	mizuiro::image::interleaved<
+		mizuiro::color::homogenous<
+			boost::uint8_t,
+			mizuiro::color::layout::gray
+		>
+	>
+> format;
+
+void
+set_color(
+	format::reference t
+)
+{
+	t.set<
+		mizuiro::color::channel::gray
+	>(
+		static_cast<unsigned char>(20)
+	);
+}
+
+}
 
 int main()
 {
-	typedef mizuiro::image::format<
-		mizuiro::image::dimension<
-			2
-		>,
-		mizuiro::image::interleaved<
-			mizuiro::color::homogenous<
-				boost::uint8_t,
-				mizuiro::color::layout::gray
-			>
-		>
-	> format;
-
 	typedef mizuiro::image::store<
 		format
 	> store;
@@ -42,18 +62,11 @@ int main()
 
 	typedef view_type::iterator iterator;
 
-	for(
-		iterator it(
-			view.begin()
-		);
-		it != view.end();
-		++it
-	)
-	{
-		(*it).set<
-			mizuiro::color::channel::gray
-		>(
-			static_cast<unsigned char>(20)
-		);
-	}
+	mizuiro::image::algorithm::for_each(
+		view,
+		boost::bind(
+			set_color,
+			_1
+		)
+	);
 }

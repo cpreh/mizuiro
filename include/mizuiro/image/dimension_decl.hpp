@@ -33,6 +33,8 @@ public:
 		Dim
 	> array_type;
 
+	static size_type const static_size = Dim;
+
 	typedef typename array_type::iterator iterator;
 	typedef typename array_type::const_iterator const_iterator;
 
@@ -91,6 +93,26 @@ public:
 private:
 	array_type data_;
 };
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+bool
+operator==(
+	dimension<Dim, ValueType> const &,
+	dimension<Dim, ValueType> const &
+);
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+bool
+operator!=(
+	dimension<Dim, ValueType> const &,
+	dimension<Dim, ValueType> const &
+);
 
 }
 }

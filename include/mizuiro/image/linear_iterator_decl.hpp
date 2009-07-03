@@ -3,6 +3,7 @@
 
 #include <mizuiro/image/linear_iterator_fwd.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
+#include <mizuiro/detail/apply_const.hpp>
 
 namespace mizuiro
 {
@@ -38,18 +39,19 @@ public:
 
 	typedef typename base::value_type value_type;
 	typedef typename base::reference reference;
-	typedef typename format::pointer pointer;
+
+	typedef typename mizuiro::detail::apply_const<
+		typename format::pointer,
+		Constness
+	>::type pointer;
+
 	typedef typename base::difference_type difference_type;
 	typedef typename base::iterator_category iterator_category;
 
-	typedef typename format::dim_type dim_type;
 	typedef typename format::pitch_type pitch_type;
 
-	linear_iterator(
-		dim_type const &,
-		pointer data,
-		pointer begin,
-		pitch_type const &
+	explicit linear_iterator(
+		pointer data
 	);
 private:
 	friend class boost::iterator_core_access;
