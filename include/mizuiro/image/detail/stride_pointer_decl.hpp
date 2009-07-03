@@ -1,13 +1,15 @@
-#ifndef MIZUIRO_IMAGE_STRIDE_POINTER_HPP_INCLUDED
-#define MIZUIRO_IMAGE_STRIDE_POINTER_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_STRIDE_POINTER_DECL_HPP_INCLUDED
+#define MIZUIRO_IMAGE_STRIDE_POINTER_DECL_HPP_INCLUDED
 
-//#include <mizuiro/image/stride_pointer_fwd.hpp>
+#include <mizuiro/image/detail/stride_pointer_fwd.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/difference_type.hpp>
 
 namespace mizuiro
 {
 namespace image
+{
+namespace detail
 {
 
 template<
@@ -17,7 +19,7 @@ template<
 class stride_pointer {
 public:
 	stride_pointer(
-		T *
+		T
 	);
 
 	stride_pointer &
@@ -36,7 +38,14 @@ public:
 	stride_pointer &
 	operator--();
 private:
-	T *base_;
+	static difference_type const sstride =
+		static_cast<
+			difference_type
+		>(
+			Stride
+		);
+
+	T base_;
 };
 
 template<
@@ -59,6 +68,7 @@ operator==(
 	stride_pointer<T, Stride> const &
 );
 
+}
 }
 }
 

@@ -3,7 +3,7 @@
 
 #include <mizuiro/image/store_fwd.hpp>
 #include <mizuiro/image/view_fwd.hpp>
-#include <mizuiro/image/raw_container_decl.hpp>
+#include <mizuiro/image/detail/raw_container_decl.hpp>
 #include <mizuiro/detail/const_tag.hpp>
 #include <mizuiro/detail/nonconst_tag.hpp>
 
@@ -55,7 +55,7 @@ public:
 private:
 	dim_type dim_;
 
-	typedef raw_container<
+	typedef detail::raw_container<
 		value_type
 	> container;
 

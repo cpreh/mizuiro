@@ -1,7 +1,9 @@
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
+#include <mizuiro/image/raw_pointer.hpp>
 #include <mizuiro/image/raw_view.hpp>
+#include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/size_type.hpp>
@@ -39,13 +41,22 @@ int main()
 
 	raw_array raw_data;
 
-	mizuiro::image::raw_view<
-		format
-	>(
-		raw_data.data(),
-		dim_type(
-			width,
-			height
+	typedef mizuiro::image::raw_view<
+		format,
+		mizuiro::image::raw_pointer
+	>::type view_type;
+
+	view_type const view(
+		mizuiro::image::make_raw_view<
+			format
+		>(
+			raw_data.data(),
+			dim_type(
+				width,
+				height
+			),
+			view_type::pitch_type::null()
 		)
+
 	);
 }

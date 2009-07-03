@@ -25,6 +25,18 @@ struct format {
 	typedef typename color_format::pointer pointer;
 	typedef typename color_format::reference reference;
 	typedef typename color_format::const_pointer const_pointer;
+
+	template<
+		typename T
+	>
+	struct replace_pointer {
+		typedef format<
+			Dim,
+			typename ImageFormat::template replace_pointer<
+				T
+			>::type
+		> type;
+	};
 };
 
 }

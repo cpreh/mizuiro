@@ -11,6 +11,18 @@ template<
 >
 struct interleaved {
 	typedef ColorFormat color_format;
+
+	template<
+		typename T
+	>
+	struct replace_pointer {
+		typedef interleaved<
+			typename color_format::template replace_pointer<
+				T
+			>::type
+		> type;
+
+	};
 };
 
 }

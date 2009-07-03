@@ -1,11 +1,13 @@
-#ifndef MIZUIRO_IMAGE_RAW_CONTAINER_FWD_HPP_INCLUDED
-#define MIZUIRO_IMAGE_RAW_CONTAINER_FWD_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_DETAIL_RAW_CONTAINER_FWD_HPP_INCLUDED
+#define MIZUIRO_IMAGE_DETAIL_RAW_CONTAINER_FWD_HPP_INCLUDED
 
 #include <memory>
 
 namespace mizuiro
 {
 namespace image
+{
+namespace detail
 {
 
 template<
@@ -14,6 +16,7 @@ template<
 >
 class raw_container;
 
+}
 }
 }
 
