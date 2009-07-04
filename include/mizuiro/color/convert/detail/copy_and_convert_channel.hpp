@@ -30,7 +30,7 @@ copy_and_convert_channel
 		(
 			normalize<Src,Channel,Float>
 			(
-				src.template get<Channel>()
+				src
 			)
 		)
 	);

@@ -67,7 +67,7 @@ convert
 				float
 			>
 			(
-				src.template get<channel::gray>()
+				src
 			)
 		)
 	);

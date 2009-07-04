@@ -15,14 +15,67 @@ namespace mizuiro
 {
 namespace color
 {
-/*
 template
 <
 	template<class>
 	class Gray,
+	class Base,
 	class Color
 >
-*/
+typename
+boost::enable_if
+<
+	is_rgb<Color>,
+	Gray
+	<
+		homogenous<Base,layout::gray>
+	> const
+>::type
+convert
+(
+	Color const &src
+)
+{
+	typedef 
+		Gray
+		<
+			homogenous<Base,layout::gray>
+		> Dest;
+
+	Dest dest;
+
+	float const sum = 
+		normalize
+		<
+			Color,
+			channel::red,
+			float
+		>(src)
+		+
+		normalize
+		<
+			Color,
+			channel::green,
+			float
+		>(src)
+		+
+		normalize
+		<
+			Color,
+			channel::blue,
+			float
+		>(src);
+	
+	dest.template set<channel::gray>
+	(
+		denormalize<Dest,channel::gray,float>
+		(
+			sum/3.0f
+		)
+	);
+
+	return dest;
+}
 
 
 template
