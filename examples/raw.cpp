@@ -5,6 +5,7 @@
 #include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/tr1/array.hpp>
@@ -39,7 +40,7 @@ int main()
 		width * height
 	> raw_array;
 
-	raw_array raw_data;
+	raw_array raw_data = {{ 0 }};
 
 	typedef mizuiro::image::raw_view<
 		format,
@@ -57,6 +58,9 @@ int main()
 			),
 			view_type::pitch_type::null()
 		)
-
 	);
+
+	(*view.begin()).get<
+		mizuiro::color::channel::red
+	>();
 }

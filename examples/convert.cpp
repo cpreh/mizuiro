@@ -70,6 +70,7 @@ int main()
 		<< test_float
 		<< '\n';
 	
+	/*
 	gray_color test_gray2(
 		mizuiro::color::convert<gray_color>
 		(
@@ -81,4 +82,5 @@ int main()
 		<< "converted back to gray: "
 		<< test_gray2
 		<< '\n';
+	*/
 }
