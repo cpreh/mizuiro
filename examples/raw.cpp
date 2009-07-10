@@ -9,6 +9,7 @@
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/tr1/array.hpp>
+#include <algorithm>
 #include <iostream>
 #include <ostream>
 
@@ -41,7 +42,24 @@ int main()
 		width * height
 	> raw_array;
 
-	raw_array raw_data = {{ 1, 2, 3, 4, 5, 6, 7, 8 }};
+	raw_array raw_data = {{ 0 }};
+
+	{
+		float const test = 0.5f;
+
+		unsigned char const *raw(
+			reinterpret_cast<
+				unsigned char const *
+			>(
+				&test
+			)
+		);
+		std::copy(
+			raw,
+			raw + sizeof(test),
+			raw_data.data()
+		);
+	}
 
 	typedef mizuiro::image::raw_view<
 		format,
