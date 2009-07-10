@@ -2,8 +2,6 @@
 #define MIZUIRO_COLOR_PROXY_DECL_HPP_INCLUDED
 
 #include <mizuiro/color/proxy_fwd.hpp>
-#include <mizuiro/color/detail/channel_ref.hpp>
-#include <mizuiro/detail/apply_const.hpp>
 
 namespace mizuiro
 {
@@ -17,8 +15,8 @@ template<
 class proxy {
 public:
 	typedef Layout layout;
-	typedef typename mizuiro::detail::apply_const<
-		typename layout::pointer,
+
+	typedef typename Layout:: template pointer<
 		Constness
 	>::type pointer;
 
@@ -31,8 +29,7 @@ public:
 	>
 	void
 	set(
-		typename detail::channel_ref<
-			layout,
+		typename layout::template channel_reference<
 			Channel,
 			mizuiro::detail::const_tag
 		>::type 
@@ -41,8 +38,7 @@ public:
 	template<
 		typename Channel
 	>
-	typename detail::channel_ref<
-		layout,
+	typename layout:: template channel_reference<
 		Channel,
 		mizuiro::detail::const_tag
 	>::type

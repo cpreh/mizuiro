@@ -19,6 +19,23 @@ template<
 	typename T,
 	mizuiro::size_type Stride
 >
+template<
+	typename OtherT
+>
+mizuiro::image::detail::stride_pointer<T, Stride>::stride_pointer(
+	stride_pointer<
+		OtherT,
+		Stride
+	> const &other
+)
+:
+base_(other.get())
+{}
+
+template<
+	typename T,
+	mizuiro::size_type Stride
+>
 mizuiro::image::detail::stride_pointer<T, Stride> &
 mizuiro::image::detail::stride_pointer<T, Stride>::operator+=(
 	difference_type const diff
@@ -112,6 +129,16 @@ mizuiro::image::detail::stride_pointer<T, Stride>::operator==(
 ) const
 {
 	return base_ == other.base_;
+}
+
+template<
+	typename T,
+	mizuiro::size_type Stride
+>
+T
+mizuiro::image::detail::stride_pointer<T, Stride>::get() const
+{
+	return base_;
 }
 
 template<

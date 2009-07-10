@@ -2,7 +2,6 @@
 #define MIZUIRO_COLOR_PROXY_IMPL_HPP_INCLUDED
 
 #include <mizuiro/color/proxy_decl.hpp>
-#include <mizuiro/color/detail/extract_channel.hpp>
 
 template<
 	typename Layout,
@@ -24,15 +23,13 @@ template<
 >
 void
 mizuiro::color::proxy<Layout, Constness>::set(
-	typename detail::channel_ref<
-		layout,
+	typename layout:: template channel_reference<
 		Channel,
 		mizuiro::detail::const_tag
 	>::type ref
 )
 {
-	detail::extract_channel<
-		layout,
+	layout:: template extract_channel<
 		Channel,
 		mizuiro::detail::nonconst_tag
 	>::execute(
@@ -47,15 +44,13 @@ template<
 template<
 	typename Channel
 >
-typename mizuiro::color::detail::channel_ref<
-	Layout,
+typename Layout:: template channel_reference<
 	Channel,
 	mizuiro::detail::const_tag
 >::type
 mizuiro::color::proxy<Layout, Constness>::get() const
 {
-	return detail::extract_channel<
-		layout,
+	return layout:: template extract_channel<
 		Channel,
 		mizuiro::detail::const_tag
 	>::execute(

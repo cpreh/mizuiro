@@ -3,7 +3,8 @@
 
 #include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
-#include <mizuiro/color/detail/channel_ref.hpp>
+#include <mizuiro/detail/nonconst_tag.hpp>
+#include <mizuiro/detail/const_tag.hpp>
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_binary_params.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
@@ -54,16 +55,20 @@ public:
 
 	#undef MIZUIRO_COLOR_OBJECT_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL
 
-	typedef typename Layout::reference proxy;
-	typedef typename Layout::const_reference const_proxy;
+	typedef typename Layout:: template reference<
+		mizuiro::detail::nonconst_tag
+	>::type proxy;
+
+	typedef typename Layout:: template reference<
+		mizuiro::detail::const_tag
+	>::type const_proxy;
 
 	template<
 		typename Channel
 	>
 	void
 	set(
-		typename detail::channel_ref<
-			typename proxy::layout,
+		typename layout:: template channel_reference<
 			Channel,
 			mizuiro::detail::const_tag
 		>::type 
@@ -72,8 +77,7 @@ public:
 	template<
 		typename Channel
 	>
-	typename detail::channel_ref<
-		typename const_proxy::layout,
+	typename layout:: template channel_reference<
 		Channel,
 		mizuiro::detail::const_tag
 	>::type

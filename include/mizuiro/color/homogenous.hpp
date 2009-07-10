@@ -2,6 +2,7 @@
 #define MIZUIRO_COLOR_HOMOGENOUS_HPP_INCLUDED
 
 #include <mizuiro/color/proxy_fwd.hpp>
+#include <mizuiro/color/detail/normal_access.hpp>
 #include <mizuiro/color/detail/channel_min.hpp>
 #include <mizuiro/color/detail/channel_max.hpp>
 #include <mizuiro/detail/const_tag.hpp>
@@ -19,23 +20,25 @@ namespace color
 template<
 	typename ChannelType,
 	typename Layout,
-	typename Pointer = ChannelType *
+	typename AccessTypes =
+		detail::normal_access<
+			ChannelType,
+			Layout
+		>
 >
 struct homogenous {
-	typedef ChannelType channel_type;
-	typedef channel_type value_type;
-	typedef Pointer pointer;
-	typedef Pointer const const_pointer;
+	typedef AccessTypes access_types;
+	typedef typename access_types::channel_type channel_type;
 	typedef Layout layout;
 
 	template<
-		typename T
+		typename Access
 	>
-	struct replace_pointer {
+	struct replace_access {
 		typedef homogenous<
 			ChannelType,
 			Layout,
-			T
+			Access
 		> type;
 	};
 
@@ -43,30 +46,47 @@ struct homogenous {
 		typename Channel,
 		typename Constness
 	>
-	struct channel_reference {
-		typedef typename mizuiro::detail::apply_const<
-			channel_type &,
+	struct channel_reference
+	:
+	AccessTypes:: template channel_reference<
+		Channel,
+		Constness
+	>
+	{};
+
+	template<
+		typename Channel
+	>
+	struct channel_value_type
+	:
+	AccessTypes:: template channel_value_type<
+		Channel
+	>
+	{};
+
+	template<
+		typename Constness
+	>
+	struct pointer
+	:
+	AccessTypes:: template pointer<
+		Constness
+	>
+	{};
+
+	template<
+		typename Constness
+	>
+	struct reference {
+		typedef proxy<
+			homogenous<
+				channel_type,
+				layout,
+				AccessTypes
+			>,
 			Constness
-		>::type type;
+		> type;
 	};
-
-	typedef proxy<
-		homogenous<
-			channel_type,
-			layout,
-			Pointer
-		>,
-		mizuiro::detail::nonconst_tag
-	> reference;
-
-	typedef proxy<
-		homogenous<
-			channel_type,
-			layout,
-			Pointer
-		>,
-		mizuiro::detail::const_tag
-	> const_reference;
 
 	static size_type const element_count
 		= boost::mpl::size<
@@ -74,38 +94,47 @@ struct homogenous {
 		>::value;
 	
 	typedef std::tr1::array<
-		ChannelType,
+		channel_type,
 		element_count
 	> store;
 
 	template<
+		typename Channel,
+		typename Constness
+	>
+	struct extract_channel
+	:
+	access_types:: template extract_channel<
+		Channel,
+		Constness
+	>
+	{};
+
+	template<
 		typename Channel
 	>
-	static value_type
+	static typename channel_value_type<Channel>::type
 	channel_min()
 	{
 		return detail::channel_min<
-			value_type
+			typename channel_value_type<
+				Channel
+			>::type
 		>::get();
 	}
 
 	template<
 		typename Channel
 	>
-	static value_type
+	static typename channel_value_type<Channel>::type
 	channel_max()
 	{
 		return detail::channel_max<
-			value_type
+			typename channel_value_type<
+				Channel
+			>::type
 		>::get();
 	}
-
-	template<
-		typename Channel
-	>
-	struct channel_value_type {
-		typedef value_type type;
-	};
 };
 
 }

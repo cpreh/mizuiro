@@ -32,6 +32,16 @@ public:
 		T
 	);
 
+	template<
+		typename OtherT
+	>
+	stride_pointer(
+		stride_pointer<
+			OtherT,
+			Stride
+		> const &
+	);
+
 	stride_pointer &
 	operator+=(
 		difference_type
@@ -65,6 +75,9 @@ public:
 	operator==(
 		stride_pointer const &
 	) const;
+
+	T
+	get() const;
 private:
 	static difference_type const sstride =
 		static_cast<

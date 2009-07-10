@@ -75,8 +75,7 @@ template<
 >
 void
 mizuiro::color::object<Layout>::set(
-	typename detail::channel_ref<
-		typename proxy::layout,
+	typename Layout::template channel_reference<
 		Channel,
 		mizuiro::detail::const_tag
 	>::type const ref
@@ -97,8 +96,7 @@ template<
 template<
 	typename Channel
 >
-typename mizuiro::color::detail::channel_ref<
-	typename mizuiro::color::object<Layout>::const_proxy::layout,
+typename Layout:: template channel_reference<
 	Channel,
 	mizuiro::detail::const_tag
 >::type

@@ -12,9 +12,6 @@
 #include <boost/bind.hpp>
 #include <boost/cstdint.hpp>
 
-namespace
-{
-
 typedef mizuiro::image::format<
 	mizuiro::image::dimension<
 		2
@@ -26,20 +23,6 @@ typedef mizuiro::image::format<
 		>
 	>
 > format;
-
-void
-set_color(
-	format::reference t
-)
-{
-	t.set<
-		mizuiro::color::channel::gray
-	>(
-		static_cast<unsigned char>(20)
-	);
-}
-
-}
 
 int main()
 {
@@ -62,11 +45,11 @@ int main()
 
 	typedef view_type::iterator iterator;
 
-	mizuiro::image::algorithm::for_each(
+	/*mizuiro::image::algorithm::for_each(
 		view,
 		boost::bind(
 			set_color,
 			_1
 		)
-	);
+	);*/
 }

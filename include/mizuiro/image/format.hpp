@@ -2,6 +2,8 @@
 #define MIZUIRO_IMAGE_FORMAT_HPP_INCLUDED
 
 #include <mizuiro/image/detail/pitch_type.hpp>
+#include <mizuiro/detail/nonconst_tag.hpp>
+#include <mizuiro/detail/const_tag.hpp>
 
 namespace mizuiro
 {
@@ -21,18 +23,24 @@ struct format {
 	>::type pitch_type;
 
 	typedef typename image_format::color_format color_format;
-	typedef typename color_format::value_type value_type;
-	typedef typename color_format::pointer pointer;
-	typedef typename color_format::reference reference;
-	typedef typename color_format::const_pointer const_pointer;
+
+	typedef typename color_format::channel_type channel_type;
+
+	typedef typename color_format:: template pointer<
+		mizuiro::detail::nonconst_tag
+	>::type pointer;
+
+	typedef typename color_format:: template pointer<
+		mizuiro::detail::const_tag
+	>::type const_pointer;
 
 	template<
 		typename T
 	>
-	struct replace_pointer {
+	struct replace_access {
 		typedef format<
 			Dim,
-			typename ImageFormat::template replace_pointer<
+			typename ImageFormat::template replace_access<
 				T
 			>::type
 		> type;

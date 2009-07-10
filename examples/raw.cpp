@@ -9,7 +9,8 @@
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/tr1/array.hpp>
-#include <boost/cstdint.hpp>
+#include <iostream>
+#include <ostream>
 
 int main()
 {
@@ -21,7 +22,7 @@ int main()
 		dim_type,
 		mizuiro::image::interleaved<
 			mizuiro::color::homogenous<
-				boost::uint8_t,
+				float,
 				mizuiro::color::layout::rgba
 			>
 		>
@@ -40,7 +41,7 @@ int main()
 		width * height
 	> raw_array;
 
-	raw_array raw_data = {{ 0 }};
+	raw_array raw_data = {{ 1, 2, 3, 4, 5, 6, 7, 8 }};
 
 	typedef mizuiro::image::raw_view<
 		format,
@@ -60,7 +61,10 @@ int main()
 		)
 	);
 
-	(*view.begin()).get<
-		mizuiro::color::channel::red
-	>();
+	std::cout
+		<<
+			(*view.begin()).get<
+				mizuiro::color::channel::red
+			>()
+		<< '\n';
 }

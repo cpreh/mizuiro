@@ -15,9 +15,9 @@ struct interleaved {
 	template<
 		typename T
 	>
-	struct replace_pointer {
+	struct replace_access {
 		typedef interleaved<
-			typename color_format::template replace_pointer<
+			typename color_format::template replace_access<
 				T
 			>::type
 		> type;

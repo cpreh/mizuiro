@@ -17,7 +17,7 @@ template<
 >
 class store {
 public:
-	typedef typename Format::value_type value_type;
+	typedef typename Format::channel_type channel_type;
 	typedef typename Format::pointer pointer;
 	typedef typename Format::const_pointer const_pointer;
 	typedef typename Format::dim_type dim_type;
@@ -56,7 +56,7 @@ private:
 	dim_type dim_;
 
 	typedef detail::raw_container<
-		value_type
+		channel_type
 	> container;
 
 	container data_;

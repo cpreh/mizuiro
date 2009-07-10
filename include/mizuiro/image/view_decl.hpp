@@ -3,7 +3,6 @@
 
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/iterator_fwd.hpp>
-#include <mizuiro/detail/apply_const.hpp>
 
 namespace mizuiro
 {
@@ -23,12 +22,16 @@ public:
 
 	typedef Format format;
 
+	typedef typename format::color_format color_format;
+
 	typedef typename format::dim_type dim_type;
 	typedef typename format::pitch_type pitch_type;
+	
+	typedef typename color_format:: template reference<
+		Constness
+	>::type reference;
 
-	//typedef typename iterator::reference reference;
-	typedef typename mizuiro::detail::apply_const<
-		typename format::pointer,
+	typedef typename color_format:: template pointer<
 		Constness
 	>::type pointer;
 
@@ -47,7 +50,6 @@ public:
 	iterator const
 	end() const;
 
-	/*
 	reference
 	operator[](
 		dim_type const &
@@ -57,7 +59,6 @@ public:
 	at(
 		dim_type const &
 	) const;
-	*/
 
 	pointer
 	data() const;
