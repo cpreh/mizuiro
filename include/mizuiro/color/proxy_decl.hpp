@@ -33,7 +33,7 @@ public:
 			Channel,
 			mizuiro::detail::const_tag
 		>::type 
-	);
+	) const;
 
 	template<
 		typename Channel

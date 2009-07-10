@@ -27,7 +27,7 @@ mizuiro::color::proxy<Layout, Constness>::set(
 		Channel,
 		mizuiro::detail::const_tag
 	>::type ref
-)
+) const
 {
 	layout:: template extract_channel<
 		Channel,

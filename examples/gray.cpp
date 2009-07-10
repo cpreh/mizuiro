@@ -24,6 +24,25 @@ typedef mizuiro::image::format<
 	>
 > format;
 
+struct set_color {
+	typedef void result_type;
+
+	template<
+		typename T
+	>
+	result_type
+	operator()(
+		T const &t
+	) const
+	{
+		t. template set<
+			mizuiro::color::channel::gray
+		>(
+			42
+		);
+	}
+};
+
 int main()
 {
 	typedef mizuiro::image::store<
@@ -45,11 +64,8 @@ int main()
 
 	typedef view_type::iterator iterator;
 
-	/*mizuiro::image::algorithm::for_each(
+	mizuiro::image::algorithm::for_each(
 		view,
-		boost::bind(
-			set_color,
-			_1
-		)
-	);*/
+		set_color()
+	);
 }
