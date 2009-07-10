@@ -16,6 +16,10 @@ public:
 	typedef Layout layout;
 	typedef Channel channel;
 
+	typedef typename layout:: template channel_value_type<
+		Channel
+	>::type value_type;
+
 	typedef typename layout:: template pointer<
 		Constness
 	>::type pointer;
@@ -26,14 +30,10 @@ public:
 
 	channel_proxy &
 	operator=(
-		typename layout:: template channel_value_type<
-			channel
-		>::type
+		value_type
 	);
 
-	operator typename layout:: template channel_value_type<
-		channel
-	>::type () const;
+	operator value_type() const;
 private:
 	pointer data_;	
 };

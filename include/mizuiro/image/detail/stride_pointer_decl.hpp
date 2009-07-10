@@ -5,6 +5,7 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/difference_type.hpp>
 #include <boost/type_traits/remove_pointer.hpp>
+#include <iterator>
 
 namespace mizuiro
 {
