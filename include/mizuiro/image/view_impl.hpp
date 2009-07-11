@@ -5,6 +5,7 @@
 #include <mizuiro/image/iterator_impl.hpp>
 #include <mizuiro/image/pitch_iterator_impl.hpp>
 #include <mizuiro/image/linear_iterator_impl.hpp>
+#include <mizuiro/image/iterator_pair_impl.hpp>
 #include <stdexcept>
 
 template<
@@ -69,6 +70,19 @@ typename mizuiro::image::view<Format, Constness>::iterator const
 mizuiro::image::view<Format, Constness>::end() const
 {
 	return begin() + dim().content();
+}
+
+template<
+	typename Format,
+	typename Constness
+>
+typename mizuiro::image::view<Format, Constness>::iterator_pair const
+mizuiro::image::view<Format, Constness>::range() const
+{
+	return iterator_pair(
+		begin(),
+		end()
+	);
 }
 
 /*

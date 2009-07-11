@@ -3,6 +3,7 @@
 
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/iterator_fwd.hpp>
+#include <mizuiro/image/iterator_pair_fwd.hpp>
 
 namespace mizuiro
 {
@@ -19,6 +20,10 @@ public:
 		Format,
 		Constness
 	> iterator;
+
+	typedef image::iterator_pair<
+		iterator
+	> iterator_pair;
 
 	typedef Format format;
 
@@ -49,6 +54,9 @@ public:
 
 	iterator const
 	end() const;
+
+	iterator_pair const
+	range() const;
 
 	reference
 	operator[](
