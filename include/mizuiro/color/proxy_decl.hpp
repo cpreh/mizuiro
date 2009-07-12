@@ -24,6 +24,11 @@ public:
 		pointer data
 	);
 
+	proxy &
+	operator=(
+		proxy const &
+	) const;
+
 	template<
 		typename Channel
 	>

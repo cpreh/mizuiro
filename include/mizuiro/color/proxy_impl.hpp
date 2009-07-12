@@ -2,6 +2,8 @@
 #define MIZUIRO_COLOR_PROXY_IMPL_HPP_INCLUDED
 
 #include <mizuiro/color/proxy_decl.hpp>
+#include <mizuiro/color/detail/copy_channel.hpp>
+#include <boost/mpl/for_each.hpp>
 
 template<
 	typename Layout,
@@ -13,6 +15,32 @@ mizuiro::color::proxy<Layout, Constness>::proxy(
 :
 	data_(data_)
 {}
+
+template<
+	typename Layout,
+	typename Constness
+>
+mizuiro::color::proxy<Layout, Constness> &
+mizuiro::color::proxy<Layout, Constness>::operator=(
+	proxy const &other
+) const
+{
+	boost::mpl::for_each<
+		typename layout::layout::order
+	>(
+		detail::copy_channel<
+			proxy<
+				Layout,
+				Constness
+			>
+		>(
+			*this,
+			other
+		)
+	);
+
+	return *this;	
+}
 
 template<
 	typename Layout,
