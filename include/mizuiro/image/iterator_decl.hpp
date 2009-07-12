@@ -33,7 +33,7 @@ public:
 	typedef Format format;
 
 	typedef typename detail::iterator_base<
-		linear_iterator<
+		iterator<
 			format,
 			Constness
 		>,

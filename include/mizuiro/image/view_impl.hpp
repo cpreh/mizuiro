@@ -40,25 +40,12 @@ template<
 typename mizuiro::image::view<Format, Constness>::iterator const
 mizuiro::image::view<Format, Constness>::begin() const
 {
-	return pitch_ == pitch_type::null()
+	return is_linear()
 		? iterator(
-			linear_iterator<
-				Format,
-				Constness
-			>(
-				data_
-			)
+			linear_begin()
 		)
 		: iterator(
-			pitch_iterator<
-				Format,
-				Constness
-			>(
-				dim(),
-				data_,
-				data_,
-				pitch_
-			)
+			pitch_begin()	
 		);
 }
 
@@ -79,15 +66,24 @@ template<
 typename mizuiro::image::view<Format, Constness>::iterator_pair const
 mizuiro::image::view<Format, Constness>::range() const
 {
-	return iterator_pair(
-		begin(),
-		end()
-	);
+	return is_linear()
+		? iterator_pair(
+			linear_iterator_pair(
+				linear_begin(),
+				linear_end()
+			)
+		)
+		: iterator_pair(
+			pitch_iterator_pair(
+				pitch_begin(),
+				pitch_end()
+			)
+		);
 }
 
-/*
 template<
-	typename Format, Constness
+	typename Format,
+	typename Constness
 >
 typename mizuiro::image::view<Format, Constness>::reference
 mizuiro::image::view<Format, Constness>::operator[](
@@ -98,7 +94,8 @@ mizuiro::image::view<Format, Constness>::operator[](
 }
 
 template<
-	typename Format, Constness
+	typename Format,
+	typename Constness
 >
 typename mizuiro::image::view<Format, Constness>::reference
 mizuiro::image::view<Format, Constness>::at(
@@ -115,7 +112,6 @@ mizuiro::image::view<Format, Constness>::at(
 	
 	return (*this)[index];
 }
-*/
 
 template<
 	typename Format,
@@ -125,6 +121,63 @@ typename mizuiro::image::view<Format, Constness>::pointer
 mizuiro::image::view<Format, Constness>::data() const
 {
 	return data_;
+}
+
+template<
+	typename Format,
+	typename Constness
+>
+bool
+mizuiro::image::view<Format, Constness>::is_linear() const
+{
+	return pitch_ == pitch_type::null();
+}
+
+template<
+	typename Format,
+	typename Constness
+>
+typename mizuiro::image::view<Format, Constness>::linear_iterator const
+mizuiro::image::view<Format, Constness>::linear_begin() const
+{
+	return linear_iterator(
+		data_
+	);
+}
+
+template<
+	typename Format,
+	typename Constness
+>
+typename mizuiro::image::view<Format, Constness>::linear_iterator const
+mizuiro::image::view<Format, Constness>::linear_end() const
+{
+	return linear_begin() + dim().content();
+}
+
+template<
+	typename Format,
+	typename Constness
+>
+typename mizuiro::image::view<Format, Constness>::pitch_iterator const
+mizuiro::image::view<Format, Constness>::pitch_begin() const
+{
+	return pitch_iterator(
+		dim(),
+		data_,
+		data_,
+		pitch_
+	);
+}
+
+template<
+	typename Format,
+	typename Constness
+>
+typename mizuiro::image::view<Format, Constness>::pitch_iterator const
+mizuiro::image::view<Format, Constness>::pitch_end() const
+{
+	return pitch_begin() + dim().content();
 }
 
 #endif

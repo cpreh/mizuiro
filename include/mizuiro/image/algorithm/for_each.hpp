@@ -2,7 +2,7 @@
 #define MIZUIRO_IMAGE_ALGORITHM_FOR_EACH_HPP_INCLUDED
 
 #include <mizuiro/image/algorithm/detail/apply_iteration.hpp>
-#include <sge/variant/apply_binary.hpp>
+#include <sge/variant/apply_unary.hpp>
 
 namespace mizuiro
 {
@@ -21,14 +21,13 @@ for_each(
 	Fun const &fun
 )
 {
-	sge::variant::apply_binary(
+	sge::variant::apply_unary(
 		detail::apply_iteration<
 			Fun
 		>(
 			fun
 		),
-		view.begin().internal(),
-		view.end().internal()
+		view.range()
 	);
 
 	return fun;

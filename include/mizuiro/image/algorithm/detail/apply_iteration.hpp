@@ -29,29 +29,19 @@ public:
 	>
 	result_type
 	operator()(
-		T begin,
-		T const &end
+		T const &range
 	) const
 	{
-		while(
-			begin != end
+		for(
+			typename T::iterator it(
+				range.begin()
+			);
+			it != range.end();
+			++it
 		)
 			fun(
-				*begin++
+				*it
 			);
-	}
-
-	template<
-		typename T1,
-		typename T2
-	>
-	result_type
-	operator()(
-		T1,
-		T2
-	) const
-	{
-		// TODO: error!
 	}
 private:
 	Function const fun;

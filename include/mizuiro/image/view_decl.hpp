@@ -4,6 +4,10 @@
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/iterator_fwd.hpp>
 #include <mizuiro/image/iterator_pair_fwd.hpp>
+#include <mizuiro/image/pitch_iterator_fwd.hpp>
+#include <mizuiro/image/linear_iterator_fwd.hpp>
+#include <sge/variant/object_fwd.hpp>
+#include <boost/mpl/vector.hpp>
 
 namespace mizuiro
 {
@@ -21,8 +25,29 @@ public:
 		Constness
 	> iterator;
 
+	typedef image::pitch_iterator<
+		Format,
+		Constness
+	> pitch_iterator;
+
+	typedef image::linear_iterator<
+		Format,
+		Constness
+	> linear_iterator;
+
 	typedef image::iterator_pair<
-		iterator
+		pitch_iterator
+	> pitch_iterator_pair;
+
+	typedef image::iterator_pair<
+		linear_iterator
+	> linear_iterator_pair;
+	
+	typedef sge::variant::object<
+		boost::mpl::vector<
+			linear_iterator_pair,
+			pitch_iterator_pair
+		>
 	> iterator_pair;
 
 	typedef Format format;
@@ -71,6 +96,20 @@ public:
 	pointer
 	data() const;
 private:
+	bool is_linear() const;
+
+	linear_iterator const
+	linear_begin() const;
+
+	linear_iterator const
+	linear_end() const;
+
+	pitch_iterator const
+	pitch_begin() const;
+
+	pitch_iterator const
+	pitch_end() const;
+
 	dim_type dim_;
 	pointer data_;
 	pitch_type pitch_;
