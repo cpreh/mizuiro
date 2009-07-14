@@ -20,8 +20,8 @@ public:
 	typedef mizuiro::size_type size_type;
 
 	typedef dimension<
-		value_type,
-		Dim
+		Dim,
+		value_type
 	> dim_type;
 
 	bound(
@@ -36,8 +36,8 @@ public:
 	dimensions();
 private:
 	dim_type
-		positions,
-		dimensions;
+		positions_,
+		dimensions_;
 };
 
 }

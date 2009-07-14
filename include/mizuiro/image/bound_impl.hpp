@@ -21,8 +21,8 @@ template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-mizuiro::image::bound<Dim, ValueType>::	dim_type const &
-mizuiro::image::bound<Dim, ValueType>::	positions()
+typename mizuiro::image::bound<Dim, ValueType>::dim_type const &
+mizuiro::image::bound<Dim, ValueType>::positions()
 {
 	return positions_;
 }

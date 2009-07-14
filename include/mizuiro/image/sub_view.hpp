@@ -1,33 +1,25 @@
 #ifndef MIZUIRO_IMAGE_SUB_VIEW_HPP_INCLUDED
 #define MIZUIRO_IMAGE_SUB_VIEW_HPP_INCLUDED
 
+#include <mizuiro/image/view_impl.hpp>
+
 namespace mizuiro
 {
 namespace image
 {
 
 template<
-	typename Format,
 	typename View,
 	typename Bound
 >
-view<
-	iterator<
-		Format,
-		typename View::constness
-	>
-> const
+View const
 sub_view(
 	View const &view,
 	Bound const &bound
 )
 {
-	return view<
-		iterator<
-			Format,
-			typename View::constness
-		>
-	>(
+#if 0
+	return View(
 		view.dim(),
 		view.data(),
 		view.data()
@@ -40,6 +32,7 @@ sub_view(
 			bound
 		)
 	);
+#endif
 }
 
 }

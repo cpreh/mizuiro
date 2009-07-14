@@ -6,6 +6,7 @@
 #include <mizuiro/image/iterator_pair_fwd.hpp>
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/linear_iterator_fwd.hpp>
+#include <mizuiro/image/bound_fwd.hpp>
 #include <sge/variant/object_fwd.hpp>
 #include <boost/mpl/vector.hpp>
 
@@ -55,6 +56,12 @@ public:
 	typedef typename format::color_format color_format;
 
 	typedef typename format::dim_type dim_type;
+
+	typedef bound<
+		dim_type::static_size,
+		typename dim_type::value_type
+	> bound_type;
+
 	typedef typename format::pitch_type pitch_type;
 	
 	typedef typename color_format:: template reference<
