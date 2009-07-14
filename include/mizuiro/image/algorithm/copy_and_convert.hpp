@@ -25,7 +25,9 @@ copy_and_convert(
 	sge::variant::apply_binary(
 		detail::apply_binary_iteration<
 			detail::copy_and_convert
-		>(),
+		>(
+			detail::copy_and_convert()
+		),
 		dest.range(),
 		src.range()
 	);

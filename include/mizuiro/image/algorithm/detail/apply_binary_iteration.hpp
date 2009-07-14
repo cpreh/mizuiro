@@ -15,6 +15,11 @@ template<
 >
 class apply_binary_iteration {
 public:
+	apply_binary_iteration()
+	:
+		fun()
+	{}
+
 	explicit apply_binary_iteration(
 		Function const &fun
 	)

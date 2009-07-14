@@ -9,14 +9,15 @@ namespace detail
 {
 
 template<
-	typename Color
+	typename Dest,
+	typename Src
 >
 struct copy_channel {
 	typedef void result_type;
 
 	copy_channel(
-		Color const &dest,
-		Color const &src
+		Dest const &dest,
+		Src const &src
 	)
 	:
 		dest(dest),
@@ -40,9 +41,8 @@ struct copy_channel {
 		);
 	}
 private:
-	Color const
-		&dest,
-		&src;
+	Dest const &dest;
+	Src const &src;
 };
 
 }

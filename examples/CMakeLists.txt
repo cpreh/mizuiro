@@ -12,6 +12,7 @@ MACRO (BUILD_EXAMPLE example)
 	TARGET_LINK_LIBRARIES( ${example} sgecore)
 ENDMACRO()
 
+BUILD_EXAMPLE(algorithm)
 BUILD_EXAMPLE(convert)
 BUILD_EXAMPLE(gray)
 BUILD_EXAMPLE(image)

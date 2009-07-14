@@ -24,9 +24,12 @@ public:
 		pointer data
 	);
 
-	proxy &
+	template<
+		typename Other
+	>
+	proxy const &
 	operator=(
-		proxy const &
+		Other const &
 	) const;
 
 	template<

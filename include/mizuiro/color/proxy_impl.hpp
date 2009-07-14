@@ -20,9 +20,12 @@ template<
 	typename Layout,
 	typename Constness
 >
-mizuiro::color::proxy<Layout, Constness> &
+template<
+	typename Other
+>
+mizuiro::color::proxy<Layout, Constness> const &
 mizuiro::color::proxy<Layout, Constness>::operator=(
-	proxy const &other
+	Other const &other
 ) const
 {
 	boost::mpl::for_each<
@@ -32,14 +35,15 @@ mizuiro::color::proxy<Layout, Constness>::operator=(
 			proxy<
 				Layout,
 				Constness
-			>
+			>,
+			Other
 		>(
 			*this,
 			other
 		)
 	);
 
-	return *this;	
+	return *this;
 }
 
 template<
