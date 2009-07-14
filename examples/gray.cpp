@@ -7,9 +7,6 @@
 #include <mizuiro/color/layout/gray.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
-//#include <boost/spirit/home/phoenix/bind/bind_function.hpp>
-//#include <boost/spirit/home/phoenix/core/argument.hpp>
-#include <boost/bind.hpp>
 #include <boost/cstdint.hpp>
 
 typedef mizuiro::image::format<

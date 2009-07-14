@@ -11,14 +11,17 @@ namespace detail
 {
 
 struct copy {
+	typedef void result_type;
+
 	template<
 		typename Src,
 		typename Dest
 	>
+	result_type
 	operator()(
 		Src const &src,
 		Dest const &dest
-	)
+	) const
 	{
 		dest = src;
 	}

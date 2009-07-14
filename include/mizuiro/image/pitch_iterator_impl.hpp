@@ -31,6 +31,10 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 	difference_type const diff
 )
 {
+	size_type const stride(
+		Format::color_format::element_count
+	);
+
 	for(
 		size_type i = 0;
 		i < pitch_type::static_size;
@@ -48,9 +52,10 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 					>()
 				)
 			) / dim_[i]
-		) * pitch_[i];
+		) * pitch_[i]
+		* stride;
 
-	data_ += diff;
+	data_ += diff * stride;
 }
 
 template<

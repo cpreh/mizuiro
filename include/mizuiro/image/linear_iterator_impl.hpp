@@ -23,7 +23,7 @@ mizuiro::image::linear_iterator<Format, Constness>::advance(
 	difference_type	const diff
 )
 {
-	data_ += diff;
+	data_ += diff * Format::color_format::element_count;
 }
 	
 template<
@@ -33,7 +33,7 @@ template<
 void
 mizuiro::image::linear_iterator<Format, Constness>::increment()
 {
-	++data_;
+	advance(1);
 }
 
 template<
@@ -43,7 +43,7 @@ template<
 void
 mizuiro::image::linear_iterator<Format, Constness>::decrement()
 {
-	--data_;
+	advance(-1);
 }
 
 template<

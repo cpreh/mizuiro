@@ -31,9 +31,9 @@ int main()
 
 	store img(
 		store::dim_type(
-			129,
-			64,
-			32
+			3,
+			2,
+			1	
 		)
 	);
 

@@ -6,6 +6,7 @@
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
 #include <boost/foreach.hpp>
+#include <boost/static_assert.hpp>
 #include <numeric>
 #include <functional>
 #include <algorithm>
@@ -35,6 +36,10 @@ mizuiro::image::dimension<Dim, ValueType>::dimension(\
 :\
 	data_()\
 {\
+	BOOST_STATIC_ASSERT(( \
+		Dim == BOOST_PP_INC(n) \
+	)); \
+\
 	BOOST_PP_REPEAT(\
 		BOOST_PP_INC(n),\
 		MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_ASSIGN,\
