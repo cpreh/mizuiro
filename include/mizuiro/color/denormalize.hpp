@@ -3,6 +3,7 @@
 
 namespace mizuiro
 {
+// foobar
 namespace color
 {
 template
