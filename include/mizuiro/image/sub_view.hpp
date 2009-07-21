@@ -24,12 +24,13 @@ sub_view(
 		view.outer_dim(),
 		bound.dimensions(),
 		view.data(),
-		detail::subview_offset(
-			view.data(),
-			view.pitch(),
-			view.dim(),
-			bound
-		),
+		view.begin() +
+			detail::subview_offset(
+				view.data(),
+				view.pitch(),
+				view.dim(),
+				bound
+			),
 		detail::subview_pitch(
 			view.pitch(),
 			view.dim(),

@@ -9,27 +9,37 @@ namespace detail
 {
 
 template<
-	typename View,
-	typename Constness
+	typename View
 >
 typename View::dim_type::value_type
 subview_offset(
-	typename View::pitch_type const &pitch,
-	typename View::dim_type const &dim,
+	View const &view,
 	typename View::bound_type const &bound
 )
 {
-/*
-	return pitch_iterator<
-		Format,
-		Constness
-	>(
-		dim,
-		data,
-		begin,
-		pitch
+	typedef typename View::dim_type dim_type;
+
+	typename dim_type::value_type ret(0);
+
+	dim_type const &dim(
+		view.dim()
 	);
-*/
+
+	for(
+		typename dim_type::size_type i = 0;
+		i < dim_type::static_dim;
+		++i
+	)
+		ret +=
+			std::accumulate(
+				dim.begin(),
+				dim.begin() + i,
+				1,
+				std::multiplies<
+					typename dim_type::size_type
+				>()
+			);
+	return ret;
 }
 
 }
