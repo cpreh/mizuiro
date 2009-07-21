@@ -32,6 +32,8 @@ make_raw_view(
 		Pointer
 	>::type(
 		dim,
+		dim,
+		data,
 		data,
 		pitch
 	);

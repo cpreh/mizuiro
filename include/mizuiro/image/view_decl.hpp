@@ -74,12 +74,22 @@ public:
 
 	view(
 		dim_type const &,
+		pointer data
+	);
+
+	view(
+		dim_type const &outer_dim,
+		dim_type const &dim_,
 		pointer data,
+		pointer sub_data,
 		pitch_type const &
 	);
 
 	dim_type const &
 	dim() const;
+
+	dim_type const &
+	outer_dim() const;
 
 	iterator const
 	begin() const;
@@ -102,6 +112,9 @@ public:
 
 	pointer
 	data() const;
+
+	pointer
+	sub_data() const;
 private:
 	bool is_linear() const;
 
@@ -117,8 +130,12 @@ private:
 	pitch_iterator const
 	pitch_end() const;
 
-	dim_type dim_;
-	pointer data_;
+	dim_type 
+		outer_dim_,
+		dim_;
+	pointer
+		data_,
+		sub_data_;
 	pitch_type pitch_;
 };
 

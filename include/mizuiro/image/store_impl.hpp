@@ -57,8 +57,7 @@ mizuiro::image::store<Format>::view()
 {
 	return view_type(
 		dim(),
-		data(),
-		view_type::pitch_type::null()
+		data()
 	);
 }
 
@@ -70,8 +69,7 @@ mizuiro::image::store<Format>::view() const
 {
 	return const_view_type(
 		dim(),
-		data(),
-		view_type::pitch_type::null()
+		data()
 	);
 }
 template<
