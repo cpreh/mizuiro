@@ -22,7 +22,7 @@ subview_offset(
 	typename dim_type::value_type ret(0);
 
 	dim_type const &dim(
-		view.dim()
+		bound.offsets()
 	);
 
 	for(

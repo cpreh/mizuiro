@@ -17,7 +17,6 @@ mizuiro::image::view<Format, Constness>::view(
 	pointer const data_
 )
 :
-	outer_dim_(dim_),
 	dim_(dim_),
 	data_(data_),
 	sub_data_(data_),
@@ -29,14 +28,12 @@ template<
 	typename Constness
 >
 mizuiro::image::view<Format, Constness>::view(
-	dim_type const &outer_dim_,
 	dim_type const &dim_,
 	pointer const data_,
 	pointer const sub_data_,
 	pitch_type const &pitch_
 )
 :
-	outer_dim_(outer_dim_),
 	dim_(dim_),
 	data_(data_),
 	sub_data_(sub_data_),

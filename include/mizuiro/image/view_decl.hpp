@@ -78,7 +78,6 @@ public:
 	);
 
 	view(
-		dim_type const &outer_dim,
 		dim_type const &dim_,
 		pointer data,
 		pointer sub_data,
@@ -87,9 +86,6 @@ public:
 
 	dim_type const &
 	dim() const;
-
-	dim_type const &
-	outer_dim() const;
 
 	iterator const
 	begin() const;
@@ -130,9 +126,7 @@ private:
 	pitch_iterator const
 	pitch_end() const;
 
-	dim_type 
-		outer_dim_,
-		dim_;
+	dim_type dim_;
 	pointer
 		data_,
 		sub_data_;

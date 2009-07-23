@@ -26,9 +26,7 @@ sub_view(
 		view.data(),
 		view.begin() +
 			detail::subview_offset(
-				view.data(),
-				view.pitch(),
-				view.dim(),
+				view,
 				bound
 			),
 		detail::subview_pitch(
