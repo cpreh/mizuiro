@@ -61,6 +61,9 @@ public:
 		pointer begin,
 		pitch_type const &
 	);
+
+	pointer
+	data() const;
 private:
 	friend class boost::iterator_core_access;
 

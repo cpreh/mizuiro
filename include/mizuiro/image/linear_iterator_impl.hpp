@@ -18,6 +18,16 @@ template<
 	typename Format,
 	typename Constness
 >
+typename mizuiro::image::linear_iterator<Format, Constness>::pointer
+mizuiro::image::linear_iterator<Format, Constness>::data() const
+{
+	return data_;
+}
+
+template<
+	typename Format,
+	typename Constness
+>
 void
 mizuiro::image::linear_iterator<Format, Constness>::advance(
 	difference_type	const diff

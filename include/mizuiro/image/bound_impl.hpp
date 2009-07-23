@@ -22,7 +22,7 @@ template<
 	typename ValueType
 >
 typename mizuiro::image::bound<Dim, ValueType>::dim_type const &
-mizuiro::image::bound<Dim, ValueType>::positions()
+mizuiro::image::bound<Dim, ValueType>::positions() const
 {
 	return positions_;
 }
@@ -32,7 +32,7 @@ template<
 	typename ValueType
 >
 typename mizuiro::image::bound<Dim, ValueType>::dim_type const &
-mizuiro::image::bound<Dim, ValueType>::dimensions()
+mizuiro::image::bound<Dim, ValueType>::dimensions() const
 {
 	return dimensions_;
 }

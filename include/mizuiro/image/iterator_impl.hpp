@@ -11,6 +11,7 @@
 #include <mizuiro/image/detail/iterator_difference.hpp>
 #include <mizuiro/image/detail/dereference_iterator.hpp>
 #include <mizuiro/image/detail/compare_iterator.hpp>
+#include <mizuiro/image/detail/iterator_data.hpp>
 
 template<
 	typename Format,
@@ -31,6 +32,21 @@ typename mizuiro::image::iterator<Format, Constness>::internal_type const &
 mizuiro::image::iterator<Format, Constness>::internal() const
 {
 	return internal_;
+}
+
+template<
+	typename Format,
+	typename Constness
+>
+typename mizuiro::image::iterator<Format, Constness>::pointer
+mizuiro::image::iterator<Format, Constness>::data() const
+{
+	return sge::variant::apply_unary(
+		detail::iterator_data<
+			pointer
+		>(),
+		internal_
+	);
 }
 
 template<

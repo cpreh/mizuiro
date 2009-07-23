@@ -2,8 +2,9 @@
 #define MIZUIRO_IMAGE_SUB_VIEW_HPP_INCLUDED
 
 #include <mizuiro/image/view_impl.hpp>
+#include <mizuiro/image/bound_impl.hpp>
 #include <mizuiro/image/detail/subview_offset.hpp>
-//#include <mizuiro/image/detail/subview_pitch.hpp>
+#include <mizuiro/image/detail/subview_pitch.hpp>
 
 namespace mizuiro
 {
@@ -19,23 +20,20 @@ sub_view(
 	typename View::bound_type const &bound
 )
 {
-#if 0
 	return View(
-		view.outer_dim(),
 		bound.dimensions(),
 		view.data(),
-		view.begin() +
+		(view.begin() +
 			detail::subview_offset(
 				view,
 				bound
-			),
+			)
+		).data(),
 		detail::subview_pitch(
-			view.pitch(),
-			view.dim(),
+			view,
 			bound
 		)
 	);
-#endif
 }
 
 }

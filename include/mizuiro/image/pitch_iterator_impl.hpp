@@ -22,6 +22,17 @@ mizuiro::image::pitch_iterator<Format, Constness>::pitch_iterator(
 	pitch_(pitch_)
 {}
 
+
+template<
+	typename Format,
+	typename Constness
+>
+typename mizuiro::image::pitch_iterator<Format, Constness>::pointer
+mizuiro::image::pitch_iterator<Format, Constness>::data() const
+{
+	return data_;
+}
+
 template<
 	typename Format,
 	typename Constness

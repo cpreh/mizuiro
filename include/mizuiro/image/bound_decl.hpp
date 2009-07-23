@@ -30,10 +30,10 @@ public:
 	);
 
 	dim_type const &
-	positions();
+	positions() const;
 
 	dim_type const &
-	dimensions();
+	dimensions() const;
 private:
 	dim_type
 		positions_,

@@ -1,5 +1,5 @@
-#ifndef MIZURIO_IMAGE_DETAIL_SUB_VIEW_OFFSET_HPP_INCLUDED
-#define MIZURIO_IMAGE_DETAIL_SUB_VIEW_OFFSET_HPP_INCLUDED
+#ifndef MIZURIO_IMAGE_DETAIL_SUBVIEW_OFFSET_HPP_INCLUDED
+#define MIZURIO_IMAGE_DETAIL_SUBVIEW_OFFSET_HPP_INCLUDED
 
 namespace mizuiro
 {
@@ -22,12 +22,12 @@ subview_offset(
 	typename dim_type::value_type ret(0);
 
 	dim_type const &dim(
-		bound.offsets()
+		bound.positions()
 	);
 
 	for(
 		typename dim_type::size_type i = 0;
-		i < dim_type::static_dim;
+		i < dim_type::static_size;
 		++i
 	)
 		ret +=

@@ -71,6 +71,9 @@ public:
 
 	internal_type const &
 	internal() const;
+
+	pointer
+	data() const;
 private:
 	friend class boost::iterator_core_access;
 

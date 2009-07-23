@@ -53,6 +53,9 @@ public:
 	explicit linear_iterator(
 		pointer data
 	);
+
+	pointer
+	data() const;
 private:
 	friend class boost::iterator_core_access;
 
