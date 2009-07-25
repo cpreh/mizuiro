@@ -1,7 +1,7 @@
 #ifndef MIZUIRO_IMAGE_ALGORITM_FILL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITM_FILL_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/detail/apply_iteration.hpp>
+#include <mizuiro/image/algorithm/detail/apply_unary_iteration.hpp>
 #include <mizuiro/image/algorithm/detail/fill.hpp>
 #include <sge/variant/apply_unary.hpp>
 
@@ -23,11 +23,7 @@ fill(
 )
 {
 	sge::variant::apply_unary(
-		detail::apply_iteration<
-			detail::fill<
-				Color
-			>
-		>(
+		detail::apply_unary_iteration(
 			detail::fill<
 				Color
 			>(

@@ -1,7 +1,7 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_FOR_EACH_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_FOR_EACH_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/detail/apply_iteration.hpp>
+#include <mizuiro/image/algorithm/detail/apply_unary_iteration.hpp>
 #include <sge/variant/apply_unary.hpp>
 
 namespace mizuiro
@@ -22,9 +22,7 @@ for_each(
 )
 {
 	sge::variant::apply_unary(
-		detail::apply_iteration<
-			Fun
-		>(
+		detail::apply_unary_iteration(
 			fun
 		),
 		view.range()

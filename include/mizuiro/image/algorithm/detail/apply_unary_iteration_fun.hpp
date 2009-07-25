@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_APPLY_ITERATION_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ALGORITHM_DETAIL_APPLY_ITERATION_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_APPLY_UNARY_ITERATION_FUN_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ALGORITHM_DETAIL_APPLY_UNARY_ITERATION_FUN_HPP_INCLUDED
 
 namespace mizuiro
 {
@@ -13,9 +13,9 @@ namespace detail
 template<
 	typename Function
 >
-class apply_iteration {
+class apply_unary_iteration_fun {
 public:
-	explicit apply_iteration(
+	explicit apply_unary_iteration_fun(
 		Function const &fun
 	)
 	:
