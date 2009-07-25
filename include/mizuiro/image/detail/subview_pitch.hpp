@@ -32,8 +32,8 @@ subview_pitch(
 		i < pitch_type::static_size;
 		++i
 	)
-		ret[i] = 
-			std::distance(
+		ret[i] = view.dim()[i] > 1
+			? std::distance(
 				iterator_position(
 					view,
 					edge_pos_end(
@@ -49,7 +49,8 @@ subview_pitch(
 						i
 					)
 				).data()
-			);
+			)
+			: 0;
 
 	return ret;
 }
