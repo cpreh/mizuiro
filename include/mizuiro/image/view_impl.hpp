@@ -112,7 +112,7 @@ mizuiro::image::view<Format, Constness>::operator[](
 	dim_type const &index
 ) const
 {
-	return iterator_position(
+	return *iterator_position(
 		*this,
 		index
 	);
@@ -129,11 +129,12 @@ mizuiro::image::view<Format, Constness>::at(
 {
 	for(
 		size_type i = 0;
-		i < dim_type::dim_wrapper::value;
+		i < dim_type::static_size;
 		++i
 	)
-		if(index[i] >= dim[i])
-			throw std::range_error();
+		// TODO: replace this with our own exception and add a better error message!
+		if(index[i] >= dim()[i])
+			throw std::range_error("view::at out of range");
 	
 	return (*this)[index];
 }

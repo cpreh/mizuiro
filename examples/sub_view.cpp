@@ -6,6 +6,8 @@
 #include <mizuiro/image/bound_impl.hpp>
 #include <mizuiro/image/sub_view.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
+#include <mizuiro/color/init.hpp>
+#include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <boost/cstdint.hpp>
 
@@ -38,6 +40,41 @@ int main()
 	typedef store::view_type view_type;
 
 	typedef view_type::bound_type bound_type;
+
+	// TODO: create an algorithm for this!
+	
+	{
+		view_type const view(
+			img.view()
+		);
+
+		typedef view_type::dim_type dim_type;
+
+		typedef dim_type::size_type size_type;
+
+		dim_type const dim(
+			img.view().dim()
+		);
+
+		for(size_type x = 0; x < dim[0]; ++x)
+			for(size_type y = 0; y < dim[1]; ++y)
+				for(size_type z = 0; z < dim[2]; ++z)
+					view.at(
+						dim_type(
+							x,
+							y,
+							z
+						)
+					)
+					= mizuiro::color::object<
+						format::color_format
+					>(
+						mizuiro::color::init::red = x,
+						mizuiro::color::init::green = y,
+						mizuiro::color::init::blue = z,
+						mizuiro::color::init::alpha = 255
+					);
+	}
 
 	view_type const sub_view(
 		mizuiro::image::sub_view(
