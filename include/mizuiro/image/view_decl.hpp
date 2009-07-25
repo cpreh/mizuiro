@@ -78,10 +78,11 @@ public:
 	);
 
 	view(
-		dim_type const &dim_,
+		dim_type const &,
 		pointer data,
 		pointer sub_data,
-		pitch_type const &
+		pitch_type const &root_pitch,
+		pitch_type const &sub_pitch
 	);
 
 	dim_type const &
@@ -111,6 +112,9 @@ public:
 
 	pointer
 	sub_data() const;
+
+	pitch_type const &
+	root_pitch() const;
 private:
 	bool is_linear() const;
 
@@ -130,7 +134,9 @@ private:
 	pointer
 		data_,
 		sub_data_;
-	pitch_type pitch_;
+	pitch_type
+		pitch_,
+		root_pitch_;
 };
 
 }

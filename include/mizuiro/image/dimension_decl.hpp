@@ -98,6 +98,16 @@ template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
+dimension<Dim, ValueType> const
+operator+(
+	dimension<Dim, ValueType> const &,
+	dimension<Dim, ValueType> const &
+);
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
 bool
 operator==(
 	dimension<Dim, ValueType> const &,

@@ -34,7 +34,10 @@ make_raw_view(
 		dim,
 		data,
 		data,
-		pitch
+		pitch,
+		detail::pitch_type<
+			Dim
+		>::type::null()
 	);
 }
 

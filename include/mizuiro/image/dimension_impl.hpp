@@ -178,6 +178,30 @@ template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
+mizuiro::image::dimension<Dim, ValueType> const
+mizuiro::image::operator+(
+	dimension<Dim, ValueType> const &a,
+	dimension<Dim, ValueType> const &b
+)
+{
+	typedef dimension<Dim, ValueType> dim;
+
+	dim ret;
+
+	for(
+		typename dim::size_type i = 0;
+		i < dim::static_size;
+		++i
+	)
+		ret[i] = a[i] + b[i];
+	
+	return ret;
+}
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
 bool
 mizuiro::image::operator==(
 	dimension<Dim, ValueType> const &a,
