@@ -176,7 +176,9 @@ template<
 bool
 mizuiro::image::view<Format, Constness>::is_linear() const
 {
-	return pitch_ == pitch_type::null();
+	return
+		pitch_ == pitch_type::null()
+		&& root_pitch_ == pitch_type::null();
 }
 
 template<
@@ -210,7 +212,7 @@ mizuiro::image::view<Format, Constness>::pitch_begin() const
 {
 	return pitch_iterator(
 		dim(),
-		data_,
+		sub_data_,
 		data_,
 		pitch_ + root_pitch_
 	);
