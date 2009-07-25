@@ -5,11 +5,14 @@
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/bound_impl.hpp>
 #include <mizuiro/image/sub_view.hpp>
+#include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <boost/cstdint.hpp>
+#include <iostream>
+#include <ostream>
 
 int main()
 {
@@ -76,6 +79,15 @@ int main()
 					);
 	}
 
+	std::cout << "whole image:\n";
+
+	mizuiro::image::algorithm::print(
+		std::cout,
+		img.view()
+	);
+
+	std::cout << '\n';
+
 	view_type const sub_view(
 		mizuiro::image::sub_view(
 			img.view(),
@@ -93,4 +105,13 @@ int main()
 			)
 		)
 	);
+
+	std::cout << "sub image:\n";
+
+	mizuiro::image::algorithm::print(
+		std::cout,
+		sub_view
+	);
+
+	std::cout << '\n';
 }

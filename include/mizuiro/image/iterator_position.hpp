@@ -24,15 +24,20 @@ iterator_position(
 
 	typedef typename View::dim_type dim_type;
 
+	dim_type const dim(
+		view.dim()
+	);
+
 	for(
 		typename dim_type::size_type i = 0;
 		i < dim_type::static_size;
 		++i
 	)
-		ret +=
+		ret += 
+			pos[i] *
 			std::accumulate(
-				pos.begin(),
-				pos.begin() + i,
+				dim.begin(),
+				dim.begin() + i,
 				1,
 				std::multiplies<
 					typename dim_type::size_type
