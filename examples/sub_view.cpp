@@ -98,7 +98,7 @@ int main()
 					0
 				),
 				bound_type::dim_type(
-					1,
+					2,
 					1,
 					1
 				)
