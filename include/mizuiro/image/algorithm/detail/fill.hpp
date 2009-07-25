@@ -11,16 +11,16 @@ namespace detail
 {
 
 template<
-	typename Color
+	typename Fun
 >
 struct fill {
 	typedef void result_type;
 
 	explicit fill(
-		Color const &color
+		Fun const &fun
 	)
 	:
-		color(color)
+		fun(fun)
 	{}
 
 	template<
@@ -31,10 +31,10 @@ struct fill {
 		Dest const &dest
 	) const
 	{
-		dest = color;
+		dest = fun();
 	}
 private:
-	Color const &color;
+	Fun const &fun;
 };
 
 }

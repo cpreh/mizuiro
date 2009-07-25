@@ -4,7 +4,7 @@
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
-#include <mizuiro/image/algorithm/fill.hpp>
+#include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/argb.hpp>
@@ -67,7 +67,7 @@ int main()
 		dim
 	);
 
-	mizuiro::image::algorithm::fill(
+	mizuiro::image::algorithm::fill_c(
 		img1.view(),
 		mizuiro::color::object<
 			format1::color_format

@@ -14,20 +14,20 @@ namespace algorithm
 
 template<
 	typename ViewD,
-	typename Color
+	typename Fun
 >
 void
 fill(
 	ViewD const &dest,
-	Color const &color
+	Fun const &fun
 )
 {
 	sge::variant::apply_unary(
 		detail::apply_unary_iteration(
 			detail::fill<
-				Color
+				Fun	
 			>(
-				color
+				fun	
 			)
 		),
 		dest.range()
