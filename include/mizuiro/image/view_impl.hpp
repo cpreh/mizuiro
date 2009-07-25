@@ -6,6 +6,7 @@
 #include <mizuiro/image/pitch_iterator_impl.hpp>
 #include <mizuiro/image/linear_iterator_impl.hpp>
 #include <mizuiro/image/iterator_pair_impl.hpp>
+#include <mizuiro/image/iterator_position.hpp>
 #include <stdexcept>
 
 template<
@@ -111,7 +112,10 @@ mizuiro::image::view<Format, Constness>::operator[](
 	dim_type const &index
 ) const
 {
-	// TODO: do the same stuff as in the iterator here?
+	return iterator_position(
+		*this,
+		index
+	);
 }
 
 template<

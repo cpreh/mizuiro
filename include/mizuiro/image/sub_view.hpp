@@ -3,7 +3,7 @@
 
 #include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/bound_impl.hpp>
-#include <mizuiro/image/detail/subview_offset.hpp>
+#include <mizuiro/image/iterator_position.hpp>
 #include <mizuiro/image/detail/subview_pitch.hpp>
 
 namespace mizuiro
@@ -23,11 +23,9 @@ sub_view(
 	return View(
 		bound.dimensions(),
 		view.data(),
-		(view.begin() +
-			detail::subview_offset(
-				view,
-				bound
-			)
+		iterator_position(
+			view,
+			bound.positions()
 		).data(),
 		view.root_pitch(),
 		detail::subview_pitch(
