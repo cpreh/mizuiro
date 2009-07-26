@@ -2,6 +2,7 @@
 #define MIZUIR_IMAGE_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 
 #include <mizuiro/image/pitch_iterator_decl.hpp>
+#include <mizuiro/image/iterator_position.hpp>
 #include <numeric>
 #include <functional>
 
@@ -59,7 +60,15 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 	{
 		size_type temp = (
 			(diff * stride +
-				(data_ - begin_)
+				(
+					*this -
+					pitch_iterator(
+						dim_,
+						begin_,
+						begin_,
+						pitch_
+					)
+				)
 				% (
 					std::accumulate(
 						dim_.begin(),
@@ -119,6 +128,51 @@ mizuiro::image::pitch_iterator<Format, Constness>::distance_to(
 	pitch_iterator const &other
 ) const
 {
+	dim_type const
+		pos(
+			iterator_position(
+				*this
+			)
+		),
+		otherpos(
+			iterator_position(
+				other
+			)
+		);
+
+	difference_type ret = 0;
+
+	for(
+		size_type i = 0;
+		i < dim_type::static_size;
+		++i
+	)
+		ret +=
+			(
+				static_cast<
+					difference_type
+				>(
+					otherpos[i]
+				)
+				- static_cast<
+					difference_type
+				>(
+					pos[i]
+				)
+			)
+			* static_cast<
+			 	difference_type
+			>(
+			 	std::accumulate(
+					dim_.begin(),
+					dim_.begin() + 1,
+					1,
+					std::multiplies<
+						size_type
+					>()
+				)
+			);
+
 	return other.data_ - data_;
 }
 
