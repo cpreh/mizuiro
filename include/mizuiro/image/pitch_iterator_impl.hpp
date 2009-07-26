@@ -68,13 +68,13 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 					+ std::accumulate(
 						pitch_.begin(),
 						pitch_.begin() + i + 1,
-						1,
+						0,
 						std::plus<
 							size_type
 						>()
 					)
 				)
-			) / (dim_[i] * stride)
+			) / (std::accumulate(dim_.begin(),dim_.begin()+i+1,1,std::multiplies<size_type>()) * stride)
 		) * pitch_[i];
 
 	data_ += add;
