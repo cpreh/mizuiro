@@ -94,13 +94,13 @@ int main()
 			bound_type(
 				bound_type::dim_type(
 					0,
-					1,
-					1
+					0,
+					0
 				),
 				bound_type::dim_type(
-					2,
 					1,
-					2
+					1,
+					1
 				)
 			)
 		)

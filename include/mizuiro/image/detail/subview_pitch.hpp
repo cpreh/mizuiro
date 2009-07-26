@@ -7,6 +7,8 @@
 #include <mizuiro/image/bound_impl.hpp>
 #include <iterator>
 
+//#include <iostream>
+
 namespace mizuiro
 {
 namespace image
@@ -32,6 +34,23 @@ subview_pitch(
 		i < pitch_type::static_size;
 		++i
 	)
+	/*
+	{
+		std::cout
+			<< "pos: "
+			<< i
+			<<
+			edge_pos_end(
+				bound,
+				i
+			)
+			<< ' '
+			<< edge_pos_begin(
+				bound,
+				i
+			)
+			<< '\n';
+	*/
 		ret[i] = view.dim()[i] > 1
 			? std::distance(
 				iterator_position(
@@ -51,6 +70,7 @@ subview_pitch(
 			)
 			: 0;
 
+	//}
 	return ret;
 }
 
