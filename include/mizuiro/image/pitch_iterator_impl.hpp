@@ -45,12 +45,14 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 		Format::color_format::element_count
 	);
 
+	size_type add = diff * stride;
+
 	for(
 		size_type i = 0;
 		i < pitch_type::static_size;
 		++i
 	)
-		data_ += (
+		add += (
 			(diff * stride +
 				(data_ - begin_)
 				% (std::accumulate(
@@ -64,7 +66,7 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 			) / (dim_[i] * stride)
 		) * pitch_[i];
 
-	data_ += diff * stride;
+	data_ += add;
 }
 
 template<
