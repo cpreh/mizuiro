@@ -18,7 +18,7 @@ int main()
 {
 	typedef mizuiro::image::format<
 		mizuiro::image::dimension<
-			2	
+			3	
 		>,
 		mizuiro::image::interleaved<
 			mizuiro::color::homogenous<
@@ -35,7 +35,8 @@ int main()
 	store img(
 		store::dim_type(
 			3,
-			3	
+			3,
+			3
 		)
 	);
 
@@ -60,20 +61,22 @@ int main()
 
 		for(size_type x = 0; x < dim[0]; ++x)
 			for(size_type y = 0; y < dim[1]; ++y)
-				view.at(
-					dim_type(
-						x,
-						y
+				for(size_type z = 0; z < dim[2]; ++z)
+					view.at(
+						dim_type(
+							x,
+							y,
+							z
+						)
 					)
-				)
-				= mizuiro::color::object<
-					format::color_format
-				>(
-					mizuiro::color::init::red = x,
-					mizuiro::color::init::green = y,
-					mizuiro::color::init::blue = 255,
-					mizuiro::color::init::alpha = 255
-				);
+					= mizuiro::color::object<
+						format::color_format
+					>(
+						mizuiro::color::init::red = x,
+						mizuiro::color::init::green = y,
+						mizuiro::color::init::blue = z,
+						mizuiro::color::init::alpha = 255
+					);
 	}
 
 	std::cout << "whole image:\n";
@@ -91,11 +94,13 @@ int main()
 			bound_type(
 				bound_type::dim_type(
 					0,
+					1,
 					1
 				),
 				bound_type::dim_type(
 					2,
-					1
+					1,
+					2
 				)
 			)
 		)
