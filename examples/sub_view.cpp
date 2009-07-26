@@ -128,8 +128,6 @@ int main()
 
 		std::cout << *test1 << '\n';
 
-		if(test1 != test2)
-		{
 			std::cerr << "test1: " << *test1 << ", test2: " << *test2 << "\n";
 			return 0;
 		}
