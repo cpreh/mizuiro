@@ -13,6 +13,7 @@ template<
 >
 typename Bound::dim_type const
 edge_pos_begin(
+	Bound const &bound,
 	typename Bound::size_type const index
 )
 {
@@ -26,9 +27,11 @@ edge_pos_begin(
 		++i
 	)
 		ret[i] =
-			i == index + 1
-			? 1
-			: 0;
+			(i == index + 1)
+			? bound.positions()[i] + 1
+			: bound.positions()[i];
+	
+	return ret;
 }
 
 }

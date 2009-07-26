@@ -43,9 +43,8 @@ subview_pitch(
 				).data(),
 				iterator_position(
 					view,
-					edge_pos_begin<
-						typename View::bound_type
-					>(
+					edge_pos_begin(
+						bound,
 						i
 					)
 				).data()

@@ -29,7 +29,7 @@ edge_pos_end(
 		ret[i] =
 			i <= index
 			? bound.dimensions()[i] + bound.positions()[i]
-			: 0;
+			: bound.positions()[i];
 	
 	return ret;
 }
