@@ -116,14 +116,14 @@ int main()
 			);
 
 		test1 += 4;
-		++test2;
-		++test2;
+		//++test2;
+		//++test2;
 
 		std::cout << *test1 << '\n';
 
-		if(test1 != test2)
+		//if(test1 != test2)
 		{
-			std::cerr << "OH NO! :(\n";
+		//	std::cerr << "OH NO! :(\n";
 			return 0;
 		}
 	}

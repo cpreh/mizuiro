@@ -5,6 +5,8 @@
 #include <numeric>
 #include <functional>
 
+#include <iostream>
+
 template<
 	typename Format,
 	typename Constness
@@ -41,6 +43,8 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 	difference_type const diff
 )
 {
+	std::cout << "advance: " << diff << '\n';
+
 	size_type const stride(
 		Format::color_format::element_count
 	);
@@ -52,7 +56,8 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 		i < pitch_type::static_size;
 		++i
 	)
-		add += (
+	{
+		size_type temp = (
 			(diff * stride +
 				(data_ - begin_)
 				% (
@@ -68,7 +73,7 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 					+ std::accumulate(
 						pitch_.begin(),
 						pitch_.begin() + i + 1,
-						1,
+						0,
 						std::plus<
 							size_type
 						>()
@@ -76,6 +81,11 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 				)
 			) / (dim_[i] * stride)
 		) * pitch_[i];
+
+		std::cout << "add (" << i << "): " << temp << '\n';
+
+		add += temp;
+	}
 
 	data_ += add;
 }
