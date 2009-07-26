@@ -61,7 +61,7 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 						size_type
 					>()
 				) * stride + pitch_[i])
-			) / dim_[i]
+			) / (dim_[i] * stride)
 		) * pitch_[i];
 
 	data_ += diff * stride;
