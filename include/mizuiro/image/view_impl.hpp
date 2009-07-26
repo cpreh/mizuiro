@@ -6,7 +6,7 @@
 #include <mizuiro/image/pitch_iterator_impl.hpp>
 #include <mizuiro/image/linear_iterator_impl.hpp>
 #include <mizuiro/image/iterator_pair_impl.hpp>
-#include <mizuiro/image/iterator_position.hpp>
+#include <mizuiro/image/move_iterator.hpp>
 #include <stdexcept>
 
 template<
@@ -109,7 +109,7 @@ mizuiro::image::view<Format, Constness>::operator[](
 	dim_type const &index
 ) const
 {
-	return *iterator_position(
+	return *move_iterator(
 		*this,
 		index
 	);

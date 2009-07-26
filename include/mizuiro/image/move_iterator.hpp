@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_IMAGE_ITERATOR_POSITION_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ITERATOR_POSITION_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_MOVE_ITERATOR_HPP_INCLUDED
+#define MIZUIRO_IMAGE_MOVE_ITERATOR_HPP_INCLUDED
 
 #include <numeric>
 #include <functional>
@@ -13,7 +13,7 @@ template<
 	typename View
 >
 typename View::iterator
-iterator_position(
+move_iterator(
 	View const &view,
 	typename View::dim_type const &pos
 )

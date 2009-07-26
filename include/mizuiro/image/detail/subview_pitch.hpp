@@ -5,6 +5,7 @@
 #include <mizuiro/image/detail/edge_pos_begin.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/bound_impl.hpp>
+#include <mizuiro/image/move_iterator.hpp>
 #include <iterator>
 
 //#include <iostream>
@@ -53,14 +54,14 @@ subview_pitch(
 	*/
 		ret[i] = view.dim()[i] > 1
 			? std::distance(
-				iterator_position(
+				move_iterator(
 					view,
 					edge_pos_end(
 						bound,
 						i
 					)
 				).data(),
-				iterator_position(
+				move_iterator(
 					view,
 					edge_pos_begin(
 						bound,
