@@ -53,14 +53,14 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 		data_ += (
 			(diff * stride +
 				(data_ - begin_)
-				% std::accumulate(
+				% (std::accumulate(
 					dim_.begin(),
 					dim_.begin() + i + 1,
 					1,
 					std::multiplies<
 						size_type
 					>()
-				)
+				) * stride + pitch_[i])
 			) / dim_[i]
 		) * pitch_[i];
 
