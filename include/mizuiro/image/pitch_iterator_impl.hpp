@@ -58,6 +58,18 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 		++i
 	)
 	{
+		size_type const stacked_dim(
+			std::accumulate(
+				dim_.begin(),
+				dim_.begin() + i + 1,
+				1,
+				std::multiplies<
+					size_type
+				>()
+			)
+			* stride
+		);
+
 		size_type temp = (
 			(diff * stride +
 				(
@@ -70,15 +82,7 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 					)
 				)
 				% (
-					std::accumulate(
-						dim_.begin(),
-						dim_.begin() + i + 1,
-						1,
-						std::multiplies<
-							size_type
-						>()
-					)
-					* stride
+					stacked_dim
 					+ std::accumulate(
 						pitch_.begin(),
 						pitch_.begin() + i + 1,
@@ -88,7 +92,7 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 						>()
 					)
 				)
-			) / (std::accumulate(dim_.begin(),dim_.begin()+i+1,1,std::multiplies<size_type>()) * stride)
+			) / stacked_dim
 		) * pitch_[i];
 
 		std::cout << "add (" << i << "): " << temp << '\n';
