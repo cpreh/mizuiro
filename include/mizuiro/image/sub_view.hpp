@@ -27,7 +27,6 @@ sub_view(
 			view,
 			bound.positions()
 		).data(),
-		view.root_pitch(),
 		detail::subview_pitch(
 			view,
 			bound

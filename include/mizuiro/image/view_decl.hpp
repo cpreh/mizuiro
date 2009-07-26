@@ -81,8 +81,7 @@ public:
 		dim_type const &,
 		pointer data,
 		pointer sub_data,
-		pitch_type const &root_pitch,
-		pitch_type const &sub_pitch
+		pitch_type const &
 	);
 
 	dim_type const &
@@ -115,9 +114,6 @@ public:
 
 	pitch_type const &
 	pitch() const;
-
-	pitch_type const &
-	root_pitch() const;
 private:
 	bool is_linear() const;
 
@@ -137,9 +133,7 @@ private:
 	pointer
 		data_,
 		sub_data_;
-	pitch_type
-		pitch_,
-		root_pitch_;
+	pitch_type pitch_;
 };
 
 }
