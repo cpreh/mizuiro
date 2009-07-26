@@ -34,9 +34,9 @@ int main()
 
 	store img(
 		store::dim_type(
-			3,
-			3,
-			3
+			4,
+			4,
+			4
 		)
 	);
 
@@ -98,13 +98,35 @@ int main()
 					0
 				),
 				bound_type::dim_type(
-					1,
-					1,
+					2,
+					3,
 					1
 				)
 			)
 		)
 	);
+
+	{
+		view_type::iterator
+			test1(
+				sub_view.begin()
+			),
+			test2(
+				test1
+			);
+
+		test1 += 4;
+		++test2;
+		++test2;
+
+		std::cout << *test1 << '\n';
+
+		if(test1 != test2)
+		{
+			std::cerr << "OH NO! :(\n";
+			return 0;
+		}
+	}
 
 	std::cout
 		<< "sub image (with pitch "
