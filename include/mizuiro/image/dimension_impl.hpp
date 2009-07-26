@@ -10,6 +10,7 @@
 #include <numeric>
 #include <functional>
 #include <algorithm>
+#include <ostream>
 
 #define MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_ASSIGN(\
 	z,\
@@ -226,6 +227,44 @@ mizuiro::image::operator!=(
 )
 {
 	return !(a == b);
+}
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType,
+	typename Ch,
+	typename Traits
+>
+std::basic_ostream<Ch, Traits> &
+mizuiro::image::operator<<(
+	std::basic_ostream<Ch, Traits> &s,
+	dimension<Dim, ValueType> const &d
+)
+{
+	typedef dimension<
+		Dim,
+		ValueType
+	> dim_type;
+
+	s << s.widen('(');
+
+	for(
+		typename dim_type::size_type i = 0;
+		i < dim_type::static_size;
+		++i
+	)
+	{
+		s << d[i];
+
+		if(
+			i != dim_type::static_size - 1
+		)
+			s << s.widen(',');
+	}
+
+	s << s.widen(')');
+
+	return s;
 }
 
 #endif

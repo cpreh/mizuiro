@@ -114,6 +114,9 @@ public:
 	sub_data() const;
 
 	pitch_type const &
+	pitch() const;
+
+	pitch_type const &
 	root_pitch() const;
 private:
 	bool is_linear() const;

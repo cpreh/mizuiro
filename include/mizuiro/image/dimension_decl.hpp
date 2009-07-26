@@ -7,6 +7,7 @@
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
+#include <iosfwd>
 
 #ifndef MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_MAX_SIZE
 #define MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_MAX_SIZE 3
@@ -121,6 +122,18 @@ template<
 bool
 operator!=(
 	dimension<Dim, ValueType> const &,
+	dimension<Dim, ValueType> const &
+);
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType,
+	typename Ch,
+	typename Traits
+>
+std::basic_ostream<Ch, Traits> &
+operator<<(
+	std::basic_ostream<Ch, Traits> &,
 	dimension<Dim, ValueType> const &
 );
 

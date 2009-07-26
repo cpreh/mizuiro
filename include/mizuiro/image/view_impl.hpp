@@ -33,8 +33,8 @@ mizuiro::image::view<Format, Constness>::view(
 	dim_type const &dim_,
 	pointer const data_,
 	pointer const sub_data_,
-	pitch_type const &pitch_,
-	pitch_type const &root_pitch_
+	pitch_type const &root_pitch_,
+	pitch_type const &pitch_
 )
 :
 	dim_(dim_),
@@ -157,6 +157,16 @@ typename mizuiro::image::view<Format, Constness>::pointer
 mizuiro::image::view<Format, Constness>::sub_data() const
 {
 	return sub_data_;
+}
+
+template<
+	typename Format,
+	typename Constness
+>
+typename mizuiro::image::view<Format, Constness>::pitch_type const &
+mizuiro::image::view<Format, Constness>::pitch() const
+{
+	return pitch_;
 }
 
 template<

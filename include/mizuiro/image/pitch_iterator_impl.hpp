@@ -22,7 +22,6 @@ mizuiro::image::pitch_iterator<Format, Constness>::pitch_iterator(
 	pitch_(pitch_)
 {}
 
-
 template<
 	typename Format,
 	typename Constness
