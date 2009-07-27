@@ -36,9 +36,11 @@ struct d2_format {
 
 int main()
 {
+	typedef boost::uint8_t channel_type;
+
 	typedef d2_format<
 		mizuiro::color::homogenous<
-			boost::uint8_t,
+			channel_type,
 			mizuiro::color::layout::rgba
 		>
 	>::type format1;
@@ -72,10 +74,10 @@ int main()
 		mizuiro::color::object<
 			format1::color_format
 		>(
-			mizuiro::color::init::red = 42,
-			mizuiro::color::init::blue = 150,
-			mizuiro::color::init::green = 80,
-			mizuiro::color::init::alpha = 255
+			mizuiro::color::init::red = static_cast<channel_type>(42),
+			mizuiro::color::init::blue = static_cast<channel_type>(150),
+			mizuiro::color::init::green = static_cast<channel_type>(80),
+			mizuiro::color::init::alpha = static_cast<channel_type>(255)
 		)
 	);
 

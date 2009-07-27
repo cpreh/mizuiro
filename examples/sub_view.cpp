@@ -16,13 +16,15 @@
 
 int main()
 {
+	typedef boost::uint8_t channel_type;
+
 	typedef mizuiro::image::format<
 		mizuiro::image::dimension<
 			3	
 		>,
 		mizuiro::image::interleaved<
 			mizuiro::color::homogenous<
-				boost::uint8_t,
+				channel_type,
 				mizuiro::color::layout::rgba
 			>
 		>
@@ -72,10 +74,10 @@ int main()
 					= mizuiro::color::object<
 						format::color_format
 					>(
-						mizuiro::color::init::red = x,
-						mizuiro::color::init::green = y,
-						mizuiro::color::init::blue = z,
-						mizuiro::color::init::alpha = 255
+						mizuiro::color::init::red = static_cast<channel_type>(x),
+						mizuiro::color::init::green = static_cast<channel_type>(y),
+						mizuiro::color::init::blue = static_cast<channel_type>(z),
+						mizuiro::color::init::alpha = static_cast<channel_type>(255)
 					);
 	}
 

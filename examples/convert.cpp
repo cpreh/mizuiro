@@ -26,7 +26,7 @@ int main()
 	> gray_color;
 
 	gray_color test_gray(
-		(mizuiro::color::init::gray = 42)
+		(mizuiro::color::init::gray = static_cast<boost::uint8_t>(42))
 	);
 
 	rgba_color const test_rgb(
