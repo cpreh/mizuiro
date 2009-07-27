@@ -1,6 +1,7 @@
 #ifndef MIZUIR_IMAGE_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 #define MIZUIR_IMAGE_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 
+#include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
 #include <mizuiro/image/iterator_position.hpp>
 #include <numeric>
