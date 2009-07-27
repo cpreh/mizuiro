@@ -15,15 +15,25 @@ template<
 mizuiro::image::pitch_iterator<Format, Constness>::pitch_iterator(
 	dim_type const &dim_,
 	pointer const data_,
-	pointer const begin_,
+	pointer const root_data_,
 	pitch_type const &pitch_
 )
 :
 	dim_(dim_),
 	data_(data_),
-	begin_(begin_),
+	root_data_(root_data_),
 	pitch_(pitch_)
 {}
+
+template<
+	typename Format,
+	typename Constness
+>
+typename mizuiro::image::pitch_iterator<Format, Constness>::dim_type const &
+mizuiro::image::pitch_iterator<Format, Constness>::dim() const
+{
+	return dim_;
+}
 
 template<
 	typename Format,
@@ -33,6 +43,26 @@ typename mizuiro::image::pitch_iterator<Format, Constness>::pointer
 mizuiro::image::pitch_iterator<Format, Constness>::data() const
 {
 	return data_;
+}
+
+template<
+	typename Format,
+	typename Constness
+>
+typename mizuiro::image::pitch_iterator<Format, Constness>::pointer
+mizuiro::image::pitch_iterator<Format, Constness>::root_data() const
+{
+	return root_data_;
+}
+
+template<
+	typename Format,
+	typename Constness
+>
+typename mizuiro::image::pitch_iterator<Format, Constness>::pitch_type const &
+mizuiro::image::pitch_iterator<Format, Constness>::pitch() const
+{
+	return pitch_;
 }
 
 template<
@@ -76,8 +106,8 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 					*this -
 					pitch_iterator(
 						dim_,
-						begin_,
-						begin_,
+						root_data_,
+						root_data_,
 						pitch_
 					)
 				)

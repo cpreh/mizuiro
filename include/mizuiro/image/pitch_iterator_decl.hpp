@@ -62,8 +62,17 @@ public:
 		pitch_type const &
 	);
 
+	dim_type const &
+	dim() const;
+
 	pointer
 	data() const;
+
+	pointer
+	root_data() const;
+
+	pitch_type const &
+	pitch() const;
 private:
 	friend class boost::iterator_core_access;
 
@@ -94,7 +103,7 @@ private:
 	dim_type dim_;
 	pointer
 		data_,
-		begin_;
+		root_data_;
 	pitch_type pitch_;
 };
 
