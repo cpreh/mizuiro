@@ -117,7 +117,7 @@ int main()
 				test1
 			);
 
-		test1 += 4;
+		//test1 += 4;
 		std::cerr << "test2 before: " << *test2 << "\n";
 		++test2;
 		std::cerr << "test2 1: " << *test2 << "\n";
@@ -128,9 +128,9 @@ int main()
 		++test2;
 		std::cerr << "test2 4: " << *test2 << "\n";
 
-		std::cout << *test1 << '\n';
+		//std::cout << *test1 << '\n';
 
-		std::cerr << "test1: " << *test1 << ", test2: " << *test2 << "\n";
+		//std::cerr << "test1: " << *test1 << ", test2: " << *test2 << "\n";
 		return 0;
 	}
 

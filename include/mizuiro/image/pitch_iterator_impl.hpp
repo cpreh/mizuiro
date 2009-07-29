@@ -200,7 +200,7 @@ mizuiro::image::pitch_iterator<Format, Constness>::distance_to(
 			>(
 			 	std::accumulate(
 					dim_.begin(),
-					dim_.begin() + 1,
+					dim_.begin() + i,
 					1,
 					std::multiplies<
 						size_type
