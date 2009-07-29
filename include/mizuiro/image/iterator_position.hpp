@@ -36,9 +36,11 @@ dim_size(
 		pitch_iterator<
 			Format,
 			Constness
-		>::dim_type::size_type size_type;
+		>::dim_type dim_type;
+	typedef typename 
+		dim_type::size_type size_type;
 
-	if (i == static_cast<size_type>(it.dim().static_size-1))
+	if (i == static_cast<size_type>(-1))
 		return static_cast<size_type>(1);
 	
 	return 
@@ -64,21 +66,20 @@ numerator(
 	>::dim_type::size_type const i
 )
 {
-	if (i == it.dim().static_size)
+	typedef typename 
+		pitch_iterator<
+			Format,
+			Constness
+		>::dim_type dim_type;
+	typedef typename 
+		dim_type::size_type size_type;
+	
+	if (i == static_cast<size_type>(dim_type::static_size-1))
 		return it.data() - it.root_data();
 	return 
 		numerator(
 			it,
-			static_cast
-			<
-				typename pitch_iterator
-				<
-					Format,
-					Constness
-				>::dim_type::size_type
-			>
-			(
-				i+1)
+			static_cast<size_type> (i+1)
 			) 
 			% 
 			dim_size
@@ -139,7 +140,7 @@ iterator_position(
 )
 {
 	typename Format::dim_type d;
-	for (typename pitch_iterator<Format,Constness>::dim_type::size_type i = 0; i < it.dim().static_size; ++i)
+	for (typename pitch_iterator<Format,Constness>::dim_type::size_type i = 0; i < pitch_iterator<Format,Constness>::dim_type::static_size; ++i)
 		d[i] = detail::numerator(it,i)/detail::denominator(it,i);
 	return d;
 }
