@@ -208,7 +208,7 @@ mizuiro::image::pitch_iterator<Format, Constness>::distance_to(
 				)
 			);
 
-	return other.data_ - data_;
+	return ret;
 }
 
 template<
