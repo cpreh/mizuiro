@@ -83,6 +83,16 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 
 	size_type add = diff * stride;
 
+	difference_type const diff_to_begin(
+		*this -
+		pitch_iterator(
+			dim_,
+			root_data_,
+			root_data_,
+			pitch_
+		)
+	);
+
 	for(
 		size_type i = 0;
 		i < pitch_type::static_size;
@@ -103,15 +113,7 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 
 		size_type temp = (
 			(diff * stride +
-				(
-					*this -
-					pitch_iterator(
-						dim_,
-						root_data_,
-						root_data_,
-						pitch_
-					)
-				)
+				diff_to_begin
 				% (
 					stacked_dim
 					+ std::accumulate(
@@ -174,6 +176,8 @@ mizuiro::image::pitch_iterator<Format, Constness>::distance_to(
 				other
 			)
 		);
+
+	std::cout << "iterator_pos: " << pos << '\n';
 
 	difference_type ret = 0;
 
