@@ -43,10 +43,9 @@ dim_size(
 	return 
 		i == static_cast<size_type>(-1)
 		?
-			static_cast<size_type>(1)
+			static_cast<size_type>(Format::color_format::element_count)
 		: 
 			it.dim()[i]
-			* Format::color_format::element_count
 			* dim_size(
 				it,
 				static_cast<
@@ -164,8 +163,7 @@ iterator_position(
 	)
 		d[i] =
 			(detail::numerator(it,i)
-			/ detail::denominator(it,i))
-			/ Format::color_format::element_count;
+			/ detail::denominator(it,i));
 	return d;
 }
 
