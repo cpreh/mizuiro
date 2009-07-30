@@ -110,22 +110,22 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 					size_type
 				>()
 			)
-			* stride
+			//* stride
 		);
 
 		size_type temp = (
-			(diff * stride +
+			(diff + // * stride +
 				diff_to_begin
 				% (
 					stacked_dim
-					+ std::accumulate(
+					/*+ std::accumulate(
 						pitch_.begin(),
 						pitch_.begin() + i + 1,
 						0,
 						std::plus<
 							size_type
 						>()
-					)
+					)*/
 				)
 			) / stacked_dim
 		) * pitch_[i];

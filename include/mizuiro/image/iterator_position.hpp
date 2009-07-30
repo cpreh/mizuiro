@@ -40,11 +40,22 @@ dim_size(
 	typedef typename 
 		dim_type::size_type size_type;
 
-	if (i == static_cast<size_type>(-1))
-		return static_cast<size_type>(1);
-	
 	return 
-		it.dim()[i]*dim_size(it,static_cast<size_type>(i-1))+it.pitch()[i];
+		i == static_cast<size_type>(-1)
+		?
+			static_cast<size_type>(1)
+		: 
+			it.dim()[i]
+			* Format::color_format::element_count
+			* dim_size(
+				it,
+				static_cast<
+					size_type
+				>(
+					i-1
+				)
+			)
+			+ it.pitch()[i];
 }
 
 template<
@@ -152,8 +163,9 @@ iterator_position(
 		++i
 	)
 		d[i] =
-			detail::numerator(it,i)
-			/ detail::denominator(it,i);
+			(detail::numerator(it,i)
+			/ detail::denominator(it,i))
+			/ Format::color_format::element_count;
 	return d;
 }
 

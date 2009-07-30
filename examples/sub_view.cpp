@@ -127,6 +127,14 @@ int main()
 		std::cerr << "test2 3: " << *test2 << "\n";
 		++test2;
 		std::cerr << "test2 4: " << *test2 << "\n";
+		++test2;
+		std::cerr << "test2 5: " << *test2 << "\n";
+		++test2;
+		std::cerr << "test2 6: " << *test2 << "\n";
+		++test2;
+		std::cerr << "test2 7: " << *test2 << "\n";
+		++test2;
+		std::cerr << "test2 8: " << *test2 << "\n";
 
 		//std::cout << *test1 << '\n';
 
