@@ -139,9 +139,21 @@ iterator_position(
 	> const &it
 )
 {
-	typename Format::dim_type d;
-	for (typename pitch_iterator<Format,Constness>::dim_type::size_type i = 0; i < pitch_iterator<Format,Constness>::dim_type::static_size; ++i)
-		d[i] = detail::numerator(it,i)/detail::denominator(it,i);
+	typedef typename pitch_iterator<
+		Format,
+		Constness
+	>::dim_type dim_type;
+
+	dim_type d;
+
+	for (
+		typename dim_type::size_type i = 0;
+		i < dim_type::static_size;
+		++i
+	)
+		d[i] =
+			detail::numerator(it,i)
+			/ detail::denominator(it,i);
 	return d;
 }
 

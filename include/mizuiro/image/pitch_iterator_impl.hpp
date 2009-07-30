@@ -93,6 +93,8 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 		)
 	);
 
+	std::cout << "diff_to_begin: " << diff_to_begin << '\n';
+
 	for(
 		size_type i = 0;
 		i < pitch_type::static_size;
