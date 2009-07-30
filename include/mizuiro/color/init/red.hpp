@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_COLOR_CHANNEL_INIT_RED_HPP_INCLUDED
-#define MIZUIRO_COLOR_CHANNEL_INIT_RED_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_INIT_RED_HPP_INCLUDED
+#define MIZUIRO_COLOR_INIT_RED_HPP_INCLUDED
 
 #include <mizuiro/color/init/detail/make.hpp>
 #include <mizuiro/color/channel/red.hpp>

@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_IMAGE_ALGORITM_FILL_C_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ALGORITM_FILL_C_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_ALGORITHM_FILL_C_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ALGORITHM_FILL_C_HPP_INCLUDED
 
 #include <mizuiro/image/algorithm/fill.hpp>
 #include <boost/spirit/home/phoenix/core/value.hpp>

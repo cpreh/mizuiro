@@ -1,5 +1,5 @@
-#ifndef MIZURIO_IMAGE_DETAIL_SUBVIEW_PITCH_HPP_INCLUDED
-#define MIZURIO_IMAGE_DETAIL_SUBVIEW_PITCH_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_DETAIL_SUBVIEW_PITCH_HPP_INCLUDED
+#define MIZUIRO_IMAGE_DETAIL_SUBVIEW_PITCH_HPP_INCLUDED
 
 #include <mizuiro/image/detail/edge_pos_end.hpp>
 #include <mizuiro/image/detail/edge_pos_begin.hpp>
