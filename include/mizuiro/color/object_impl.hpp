@@ -23,19 +23,21 @@ mizuiro::color::object<Layout>::object()
 	n,\
 	text\
 )\
-BOOST_STATIC_ASSERT((\
-	boost::is_same<\
-		typename layout:: template channel_value_type<\
-			typename T##n::channel\
-		>::type,\
-		typename T##n::value_type\
-	>::value\
-));\
-set<\
-	typename T##n::channel\
->(\
-	t##n.value()\
-);
+{\
+	BOOST_STATIC_ASSERT((\
+		boost::is_same<\
+			typename layout:: template channel_value_type<\
+				typename T##n::channel\
+			>::type,\
+			typename T##n::value_type\
+		>::value\
+	));\
+	set<\
+		typename T##n::channel\
+	>(\
+		t##n.value()\
+	);\
+}
 
 #define MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_IMPL(\
 	z,\

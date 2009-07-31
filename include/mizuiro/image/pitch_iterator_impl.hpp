@@ -77,7 +77,7 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 		Format::color_format::element_count
 	);
 
-	size_type add = diff * stride;
+	difference_type add = diff * stride;
 
 	difference_type const diff_to_begin(
 		*this -

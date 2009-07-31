@@ -10,7 +10,7 @@
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/homogenous.hpp>
-#include <boost/cstdint.hpp>
+//#include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>
 
