@@ -7,8 +7,6 @@
 #include <numeric>
 #include <functional>
 
-#include <iostream>
-
 template<
 	typename Format,
 	typename Constness
@@ -75,8 +73,6 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 	difference_type const diff
 )
 {
-	std::cout << "advance: " << diff << '\n';
-
 	size_type const stride(
 		Format::color_format::element_count
 	);
@@ -93,8 +89,6 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 		)
 	);
 
-	std::cout << "diff_to_begin: " << diff_to_begin << '\n';
-
 	for(
 		size_type i = 0;
 		i < pitch_type::static_size;
@@ -110,29 +104,14 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 					size_type
 				>()
 			)
-			//* stride
 		);
 
-		size_type temp = (
-			(diff + // * stride +
+		add += (
+			(diff +
 				diff_to_begin
-				% (
-					stacked_dim
-					/*+ std::accumulate(
-						pitch_.begin(),
-						pitch_.begin() + i + 1,
-						0,
-						std::plus<
-							size_type
-						>()
-					)*/
-				)
+				% stacked_dim
 			) / stacked_dim
 		) * pitch_[i];
-
-		std::cout << "add (" << i << "): " << temp << '\n';
-
-		add += temp;
 	}
 
 	data_ += add;
@@ -178,8 +157,6 @@ mizuiro::image::pitch_iterator<Format, Constness>::distance_to(
 				other
 			)
 		);
-
-	std::cout << "iterator_pos: " << pos << '\n';
 
 	difference_type ret = 0;
 

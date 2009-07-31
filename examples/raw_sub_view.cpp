@@ -13,6 +13,8 @@
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/tr1/array.hpp>
+#include <iostream>
+#include <ostream>
 
 int main()
 {
