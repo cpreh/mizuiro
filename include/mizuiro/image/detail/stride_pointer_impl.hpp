@@ -113,7 +113,7 @@ mizuiro::image::detail::stride_pointer<T, Stride>::operator-(
 ) const
 {
 	assert(
-		(base_ - other._base) % sstride == 0
+		(base_ - other.base_) % sstride == 0
 	);
 
 	return (base_ - other.base_) / sstride;

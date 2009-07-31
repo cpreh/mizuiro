@@ -55,10 +55,9 @@ template<
 >
 void
 mizuiro::color::proxy<Layout, Constness>::set(
-	typename layout:: template channel_reference<
-		Channel,
-		mizuiro::detail::const_tag
-	>::type ref
+	typename layout::template channel_value_type<
+		Channel
+	>::type const &ref
 ) const
 {
 	layout:: template extract_channel<

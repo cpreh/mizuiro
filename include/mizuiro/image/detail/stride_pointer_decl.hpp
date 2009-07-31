@@ -28,6 +28,9 @@ public:
 
 	typedef mizuiro::size_type size_type;
 	typedef mizuiro::difference_type difference_type;
+	typedef T pointer;
+
+	typedef std::random_access_iterator_tag iterator_category;
 
 	stride_pointer(
 		T

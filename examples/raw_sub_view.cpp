@@ -1,28 +1,30 @@
-#include <mizuiro/image/store_impl.hpp>
-#include <mizuiro/image/format.hpp>
-#include <mizuiro/image/view_impl.hpp>
-#include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
-#include <mizuiro/image/bound_impl.hpp>
+#include <mizuiro/image/format.hpp>
+#include <mizuiro/image/interleaved.hpp>
+#include <mizuiro/image/raw_pointer.hpp>
+#include <mizuiro/image/raw_view.hpp>
+#include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/sub_view.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
-#include <mizuiro/color/layout/rgba.hpp>
+#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object_impl.hpp>
-#include <mizuiro/color/homogenous.hpp>
-#include <boost/cstdint.hpp>
-#include <iostream>
-#include <ostream>
+#include <mizuiro/color/layout/rgba.hpp>
+#include <mizuiro/size_type.hpp>
+#include <boost/tr1/array.hpp>
 
 int main()
 {
 	//typedef boost::uint8_t channel_type;
 	typedef float channel_type;
 
+	typedef mizuiro::image::dimension<
+		3	
+	> dim_type;
+
 	typedef mizuiro::image::format<
-		mizuiro::image::dimension<
-			3	
-		>,
+		dim_type,
 		mizuiro::image::interleaved<
 			mizuiro::color::homogenous<
 				channel_type,
@@ -31,35 +33,50 @@ int main()
 		>
 	> format;
 
-	typedef mizuiro::image::store<
-		format
-	> store;
-
-	store img(
-		store::dim_type(
-			4,
-			4,
+	mizuiro::size_type const
+		width(
 			4
-		)
-	);
+		),
+		height(
+			4
+		),
+		depth(
+			4	
+		);
 
-	typedef store::view_type view_type;
+	std::tr1::array<
+		unsigned char,
+		width * height * depth * sizeof(float) * format::color_format::element_count
+	> raw_data;
+
+	typedef mizuiro::image::raw_view<
+		format,
+		mizuiro::image::raw_pointer
+	>::type view_type;
 
 	typedef view_type::bound_type bound_type;
 
-	// TODO: create an algorithm for this!
-	
-	{
-		view_type const view(
-			img.view()
-		);
+	view_type const view(
+		mizuiro::image::make_raw_view<
+			format
+		>(
+			raw_data.data(),
+			dim_type(
+				width,
+				height,
+				depth
+			),
+			view_type::pitch_type::null()
+		)
+	);
 
+	{
 		typedef view_type::dim_type dim_type;
 
 		typedef dim_type::size_type size_type;
 
 		dim_type const dim(
-			img.view().dim()
+			view.dim()
 		);
 
 		for(size_type x = 0; x < dim[0]; ++x)
@@ -82,18 +99,9 @@ int main()
 					);
 	}
 
-	std::cout << "whole image:\n";
-
-	mizuiro::image::algorithm::print(
-		std::cout,
-		img.view()
-	);
-
-	std::cout << '\n';
-
 	view_type const sub_view(
 		mizuiro::image::sub_view(
-			img.view(),
+			view,
 			bound_type(
 				bound_type::dim_type(
 					0,
@@ -109,15 +117,8 @@ int main()
 		)
 	);
 
-	std::cout
-		<< "sub image (with pitch "
-		<< sub_view.pitch()
-		<< ")\n";
-
 	mizuiro::image::algorithm::print(
 		std::cout,
 		sub_view
 	);
-
-	std::cout << '\n';
 }

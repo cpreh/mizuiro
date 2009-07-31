@@ -37,10 +37,9 @@ public:
 	>
 	void
 	set(
-		typename layout::template channel_reference<
-			Channel,
-			mizuiro::detail::const_tag
-		>::type 
+		typename layout::template channel_value_type<
+			Channel
+		>::type const &
 	) const;
 
 	template<
