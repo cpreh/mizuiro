@@ -7,6 +7,7 @@
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/linear_iterator_fwd.hpp>
 #include <mizuiro/image/bound_fwd.hpp>
+#include <mizuiro/detail/nonconst_tag.hpp>
 #include <sge/variant/object_fwd.hpp>
 #include <boost/mpl/vector.hpp>
 
@@ -82,6 +83,13 @@ public:
 		pointer data,
 		pointer sub_data,
 		pitch_type const &
+	);
+
+	view(
+		view<
+			Format,
+			mizuiro::detail::nonconst_tag
+		> const &
 	);
 
 	dim_type const &

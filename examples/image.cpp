@@ -3,6 +3,7 @@
 #include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
+#include <mizuiro/image/const_view.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
@@ -60,11 +61,21 @@ int main()
 		);
 	}
 
+	typedef mizuiro::image::const_view<
+		view_type
+	>::type const_view_type;
+
+	const_view_type const_view(
+		view
+	);
+
+	typedef const_view_type::iterator const_iterator;
+
 	for(
-		iterator it(
-			view.begin()
+		const_iterator it(
+			const_view.begin()
 		);
-		it != view.end();
+		it != const_view.end();
 		++it
 	)
 		std::cout << *it << ' ';
