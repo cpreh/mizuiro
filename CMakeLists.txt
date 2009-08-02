@@ -31,18 +31,7 @@ ELSE()
 		"-DBOOST_ROOT= to tell cmake where your boost installation is.")
 ENDIF()
 
-MACRO (INSTALL_HEADERS subpath)
-	FILE (GLOB headers include/${subpath}/*.hpp)
-	INSTALL (FILES ${headers} DESTINATION ${CMAKE_INSTALL_PREFX}include/${subpath})
-ENDMACRO ()
-
-INSTALL_HEADERS(mizuiro)
-INSTALL_HEADERS(mizuiro/detail)
-INSTALL_HEADERS(mizuiro/color)
-INSTALL_HEADERS(mizuiro/color/channel)
-INSTALL_HEADERS(mizuiro/color/layout)
-INSTALL_HEADERS(mizuiro/image)
-INSTALL_HEADERS(mizuiro/image/detail)
+INSTALL (DIRECTORY include/ DESTINATION include/)
 
 OPTION (BUILD_EXAMPLES "Build the examples" ON)
 

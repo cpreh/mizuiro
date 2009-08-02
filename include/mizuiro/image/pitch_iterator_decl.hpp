@@ -3,6 +3,7 @@
 
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
+#include <mizuiro/image/detail/pitch_type.hpp>
 #include <mizuiro/detail/apply_const.hpp>
 
 namespace mizuiro
