@@ -4,6 +4,7 @@
 #include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/make_const_view.hpp>
+#include <mizuiro/image/is_raw_view.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
@@ -86,6 +87,12 @@ int main()
 		view
 	);
 
+	std::cout
+		<< mizuiro::image::is_raw_view<
+			view_type
+		>::value
+		<< '\n';
+	
 	std::cout
 		<<
 			(*view.begin()).get<
