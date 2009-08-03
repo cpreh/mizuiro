@@ -11,26 +11,24 @@ namespace mizuiro
 {
 namespace color
 {
+
 template
 <
-	class Color
+	typename Color
 >
 struct is_rgb
 :
 boost::mpl::and_
 <
-	boost::mpl::and_
+	has_channel
 	<
-		has_channel
-		<
-			typename Color::layout,
-			channel::red
-		>,
-		has_channel
-		<
-			typename Color::layout,
-			channel::green
-		>
+		typename Color::layout,
+		channel::red
+	>,
+	has_channel
+	<
+		typename Color::layout,
+		channel::green
 	>,
 	has_channel
 	<
@@ -40,6 +38,7 @@ boost::mpl::and_
 >
 {
 };
+
 }
 }
 

@@ -10,9 +10,9 @@ namespace color
 {
 template
 <
-	typename Color,
 	typename Channel,
-	typename Float
+	typename Float,
+	typename Color
 >
 typename
 boost::enable_if

@@ -1,14 +1,14 @@
 #ifndef MIZUIRO_COLOR_CONVERT_FROM_GRAY_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_FROM_GRAY_HPP_INCLUDED
 
-#include <mizuiro/color/proxy_impl.hpp>
-#include <mizuiro/color/homogenous.hpp>
-#include <mizuiro/color/is_rgb.hpp>
-#include <mizuiro/color/layout/gray.hpp>
 #include <mizuiro/color/convert/detail/max_alpha.hpp>
 #include <mizuiro/color/normalize.hpp>
-#include <mizuiro/color/channel/gray.hpp>
 #include <mizuiro/color/denormalize.hpp>
+#include <mizuiro/color/channel/gray.hpp>
+#include <mizuiro/color/is_rgb.hpp>
+#include <mizuiro/color/is_gray.hpp>
+#include <boost/mpl/and.hpp>
+#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
@@ -17,52 +17,45 @@ namespace color
 
 template
 <
-	template<class>
-	class ColorDest,
-	class BaseDest,
-	class BaseSrc,
-	template<class>
-	class ColorSrc
+	class Dest,
+	class Src 
 >
-ColorDest
+typename boost::enable_if
 <
-	homogenous<BaseDest,layout::gray>
-> const
+	boost::mpl::and_
+	<
+		is_gray
+		<
+			Dest
+		>,
+		is_gray
+		<
+			Src
+		>
+	>,
+	Dest const
+>::type
 convert
 (
-	ColorSrc
-	<
-		homogenous<BaseSrc,layout::gray>
-	> const &src
+	Src const &src
 )
 {
-	ColorDest
-	<
-		homogenous
-		<
-			BaseDest,
-			layout::gray
-		>
-	> dest;
+	Dest dest;
 
-	dest.template set<channel::gray>
+	dest.template set
+	<
+		channel::gray
+	>
 	(
 		denormalize
 		<
-			homogenous<
-				BaseDest,
-				layout::gray
-			>,
+			typename Dest::layout,
 			channel::gray,
 			float
 		>
 		(
 			normalize
 			<
-				ColorSrc
-				<
-					homogenous<BaseSrc,layout::gray>
-				>,
 				channel::gray,
 				float
 			>
@@ -71,30 +64,33 @@ convert
 			)
 		)
 	);
+
+	return dest;
 }
 
 template
 <
 	class Dest,
-	class Base,
-	template<class T>
-	class Color
+	class Src
 >
 typename
 boost::enable_if
 <
-	is_rgb<Dest>,
+	boost::mpl::and_
+	<
+		is_rgb
+		<
+			Dest
+		>,
+		is_gray
+		<
+			Src
+		>
+	>,
 	Dest const
 >::type
 convert(
-	Color
-	<
-		homogenous
-		<
-			Base,
-			layout::gray
-		>
-	> const &src
+	Src const &src
 )
 {
 	Dest dest;
@@ -109,10 +105,6 @@ convert(
 	float const src_normalized = 
 		normalize
 		<
-			Color
-			<
-				homogenous<Base,layout::gray>
-			>,
 			channel::gray,
 			float
 		>

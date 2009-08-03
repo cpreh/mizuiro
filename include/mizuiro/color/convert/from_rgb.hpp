@@ -1,15 +1,18 @@
 #ifndef MIZUIRO_COLOR_CONVERT_FROM_RGB_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_FROM_RGB_HPP_INCLUDED
 
-#include <boost/mpl/and.hpp>
-#include <boost/utility/enable_if.hpp>
 #include <mizuiro/color/convert/detail/copy_and_convert_channel.hpp>
 #include <mizuiro/color/convert/detail/copy_or_max_alpha.hpp>
+#include <mizuiro/color/normalize.hpp>
+#include <mizuiro/color/denormalize.hpp>
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/blue.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/is_rgb.hpp>
+#include <mizuiro/color/is_gray.hpp>
+#include <boost/mpl/and.hpp>
+#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
@@ -17,60 +20,63 @@ namespace color
 {
 template
 <
-	template<class>
-	class Gray,
-	class Base,
-	class Color
+	typename Dest,
+	typename Src
 >
 typename
 boost::enable_if
 <
-	is_rgb<Color>,
-	Gray
-	<
-		homogenous<Base,layout::gray>
-	> const
+	boost::mpl::and_<
+		is_gray
+		<
+			Dest
+		>,
+		is_rgb
+		<
+			Src
+		>
+	>,
+	Dest const
 >::type
 convert
 (
-	Color const &src
+	Src const &src
 )
 {
-	typedef 
-		Gray
-		<
-			homogenous<Base,layout::gray>
-		> Dest;
-
 	Dest dest;
 
 	float const sum = 
 		normalize
 		<
-			Color,
 			channel::red,
 			float
 		>(src)
 		+
 		normalize
 		<
-			Color,
 			channel::green,
 			float
 		>(src)
 		+
 		normalize
 		<
-			Color,
 			channel::blue,
 			float
 		>(src);
 	
-	dest.template set<channel::gray>
+	dest.template set
+	<
+		channel::gray
+	>
 	(
-		denormalize<Dest,channel::gray,float>
+		denormalize
+		<
+			typename Dest::layout,
+			channel::gray,
+			float
+		>
 		(
-			sum/3.0f
+			sum / 3.0f
 		)
 	);
 
@@ -88,8 +94,14 @@ boost::enable_if
 <
 	boost::mpl::and_
 	<
-		is_rgb<Src>,
-		is_rgb<Dest>
+		is_rgb
+		<
+			Dest
+		>,
+		is_rgb
+		<
+			Src
+		>
 	>,
 	Dest const
 >::type

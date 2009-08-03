@@ -43,7 +43,7 @@ public:
 			typename T\
 		)\
 	>\
-	object(\
+	explicit object(\
 		BOOST_PP_ENUM_BINARY_PARAMS(\
 			BOOST_PP_INC(n),\
 			T,\

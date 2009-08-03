@@ -3,6 +3,7 @@
 
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
+#include <mizuiro/color/has_channel.hpp>
 
 namespace mizuiro
 {
@@ -10,6 +11,8 @@ namespace color
 {
 namespace detail
 {
+
+// TODO: what is this doing here?
 template
 <
 	class Color
@@ -43,7 +46,8 @@ boost::enable_if
 	void
 >::type 
 max_alpha(
-	Color &c)
+	Color &c
+)
 {
 	c.template set
 	<
