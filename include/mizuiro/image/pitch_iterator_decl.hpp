@@ -4,7 +4,6 @@
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/image/detail/pitch_type.hpp>
-#include <mizuiro/detail/apply_const.hpp>
 
 namespace mizuiro
 {
@@ -48,8 +47,7 @@ public:
 	typedef typename base::value_type value_type;
 	typedef typename base::reference reference;
 
-	typedef typename mizuiro::detail::apply_const<
-		typename format::pointer,
+	typedef typename format::color_format::template pointer<
 		Constness
 	>::type pointer;
 

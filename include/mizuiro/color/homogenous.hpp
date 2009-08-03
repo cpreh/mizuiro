@@ -5,12 +5,8 @@
 #include <mizuiro/color/detail/normal_access.hpp>
 #include <mizuiro/color/detail/channel_min.hpp>
 #include <mizuiro/color/detail/channel_max.hpp>
-#include <mizuiro/detail/const_tag.hpp>
-#include <mizuiro/detail/nonconst_tag.hpp>
-#include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/mpl/size.hpp>
-#include <boost/tr1/array.hpp>
 
 namespace mizuiro
 {
@@ -93,10 +89,7 @@ struct homogenous {
 			typename layout::order
 		>::value;
 	
-	typedef std::tr1::array<
-		channel_type,
-		element_count
-	> store;
+	typedef typename AccessTypes::store store;
 
 	template<
 		typename Channel,

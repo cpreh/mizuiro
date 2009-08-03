@@ -2,6 +2,7 @@
 #define MIZUIRO_IMAGE_MAKE_RAW_VIEW_HPP_INCLUDED
 
 #include <mizuiro/image/raw_view.hpp>
+#include <mizuiro/image/raw_pointer.hpp>
 #include <mizuiro/image/iterator_impl.hpp>
 #include <mizuiro/image/linear_iterator_impl.hpp>
 
@@ -10,26 +11,26 @@ namespace mizuiro
 namespace image
 {
 
+// TODO: make this work with const_raw_pointer, too!
+
 template<
-	typename Format,
-	typename Pointer,
-	typename Dim
+	typename Format
 >
 typename raw_view<
-	Format,
-	Pointer
+	Format
 >::type const
 make_raw_view(
-	Pointer const data,
-	Dim const &dim,
-	typename detail::pitch_type<
-		Dim
-	>::type const &pitch
+	raw_pointer const data,
+	typename raw_view<
+		Format
+	>::type::dim_type const &dim,
+	typename raw_view<
+		Format
+	>::type::pitch_type const &pitch
 )
 {
 	return typename raw_view<
-		Format,
-		Pointer
+		Format
 	>::type(
 		dim,
 		data,

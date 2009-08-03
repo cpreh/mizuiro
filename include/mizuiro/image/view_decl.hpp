@@ -7,7 +7,6 @@
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/linear_iterator_fwd.hpp>
 #include <mizuiro/image/bound_fwd.hpp>
-#include <mizuiro/detail/nonconst_tag.hpp>
 #include <sge/variant/object_fwd.hpp>
 #include <boost/mpl/vector.hpp>
 
@@ -86,9 +85,16 @@ public:
 	);
 
 	view(
+		view const &
+	);
+
+	template<
+		typename OtherConstness
+	>
+	explicit view(
 		view<
 			Format,
-			mizuiro::detail::nonconst_tag
+			OtherConstness
 		> const &
 	);
 

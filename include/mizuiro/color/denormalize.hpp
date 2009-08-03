@@ -8,12 +8,12 @@ namespace color
 {
 template
 <
-	class Color,
+	class Layout,
 	class Channel,
 	class Float
 >
 typename 
-Color::layout::template channel_value_type<Channel>::type
+Layout::template channel_value_type<Channel>::type
 denormalize
 (
 	Float const f
@@ -21,7 +21,7 @@ denormalize
 {
 	typedef 
 		typename 
-		Color::layout::template channel_value_type<Channel>::type
+		Layout::template channel_value_type<Channel>::type
 		target_type;
 
 	return 
@@ -29,17 +29,17 @@ denormalize
 		(
 			static_cast<Float>
 			(
-				Color::layout::template channel_min
+				Layout::template channel_min
 				<
 					Channel
 				>()
 			)
 			+
-			f*
+			f *
 			(
 				static_cast<Float>
 				(
-					Color::layout::template channel_max
+					Layout::template channel_max
 					<
 						Channel
 					>()
@@ -47,7 +47,7 @@ denormalize
 				-
 				static_cast<Float>
 				(
-					Color::layout::template channel_min
+					Layout::template channel_min
 					<
 						Channel
 					>()

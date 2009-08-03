@@ -1,7 +1,6 @@
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
-#include <mizuiro/image/raw_pointer.hpp>
 #include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/sub_view.hpp>
@@ -52,8 +51,7 @@ int main()
 	> raw_data;
 
 	typedef mizuiro::image::raw_view<
-		format,
-		mizuiro::image::raw_pointer
+		format
 	>::type view_type;
 
 	typedef view_type::bound_type bound_type;
@@ -123,4 +121,6 @@ int main()
 		std::cout,
 		sub_view
 	);
+
+	std::cout << '\n';
 }

@@ -28,6 +28,10 @@ public:
 
 	object();
 
+	object(
+		object const &
+	);
+
 	#define MIZUIRO_COLOR_OBJECT_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL(\
 		z,\
 		n,\
@@ -68,10 +72,9 @@ public:
 	>
 	void
 	set(
-		typename layout:: template channel_reference<
-			Channel,
-			mizuiro::detail::const_tag
-		>::type 
+		typename layout:: template channel_value_type<
+			Channel
+		>::type const &
 	);
 
 	template<

@@ -1,9 +1,10 @@
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
-#include <mizuiro/image/raw_pointer.hpp>
 #include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
+#include <mizuiro/image/make_const_view.hpp>
+#include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
@@ -39,7 +40,7 @@ int main()
 
 	typedef std::tr1::array<
 		unsigned char,
-		width * height
+		width * height * sizeof(float) * format::color_format::element_count
 	> raw_array;
 
 	raw_array raw_data = {{ 0 }};
@@ -62,8 +63,7 @@ int main()
 	}
 
 	typedef mizuiro::image::raw_view<
-		format,
-		mizuiro::image::raw_pointer
+		format
 	>::type view_type;
 
 	view_type const view(
@@ -77,6 +77,13 @@ int main()
 			),
 			view_type::pitch_type::null()
 		)
+	);
+
+	mizuiro::image::algorithm::copy_and_convert(
+		mizuiro::image::make_const_view(
+			view
+		),
+		view
 	);
 
 	std::cout

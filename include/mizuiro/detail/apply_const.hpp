@@ -21,10 +21,7 @@ template<
 struct apply_const<
 	BaseType,
 	const_tag
->
-{
-	typedef BaseType const type;
-};
+>;
 
 template<
 	typename BaseType

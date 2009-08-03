@@ -3,7 +3,7 @@
 
 #include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/detail/raw_access.hpp>
-#include <mizuiro/detail/constness_from_pointer.hpp>
+#include <mizuiro/detail/nonconst_tag.hpp>
 
 namespace mizuiro
 {
@@ -11,20 +11,16 @@ namespace image
 {
 
 template<
-	typename Format,
-	typename Pointer
+	typename Format
 >
 struct raw_view {
 	typedef view<
 		typename Format::template replace_access<
 			detail::raw_access<
-				typename Format::image_format::color_format,
-				Pointer
+				typename Format::image_format::color_format
 			>
 		>::type,
-		typename mizuiro::detail::constness_from_pointer<
-			Pointer
-		>::type
+		mizuiro::detail::nonconst_tag
 	> type;
 };
 

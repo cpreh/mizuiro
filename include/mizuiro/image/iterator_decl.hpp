@@ -5,7 +5,6 @@
 #include <mizuiro/image/pitch_iterator_decl.hpp>
 #include <mizuiro/image/linear_iterator_decl.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
-#include <mizuiro/detail/apply_const.hpp>
 #include <sge/variant/object_decl.hpp>
 #include <boost/mpl/vector.hpp>
 
@@ -57,8 +56,7 @@ public:
 	typedef typename base::value_type value_type;
 	typedef typename base::reference reference;
 
-	typedef typename mizuiro::detail::apply_const<
-		typename format::pointer,
+	typedef typename format::color_format:: template pointer<
 		Constness
 	>::type pointer;
 

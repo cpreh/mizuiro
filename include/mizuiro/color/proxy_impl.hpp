@@ -3,6 +3,8 @@
 
 #include <mizuiro/color/proxy_decl.hpp>
 #include <mizuiro/color/detail/copy_channel.hpp>
+#include <mizuiro/detail/nonconst_tag.hpp>
+#include <mizuiro/detail/const_tag.hpp>
 #include <boost/mpl/for_each.hpp>
 
 template<

@@ -29,7 +29,7 @@ mizuiro::image::detail::stride_pointer<T, Stride>::stride_pointer(
 	> const &other
 )
 :
-base_(other.get())
+	base_(other.get())
 {}
 
 template<

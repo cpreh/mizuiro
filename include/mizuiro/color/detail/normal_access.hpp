@@ -3,6 +3,8 @@
 
 #include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/detail/index_of.hpp>
+#include <boost/tr1/array.hpp>
+#include <boost/mpl/size.hpp>
 
 namespace mizuiro
 {
@@ -17,6 +19,13 @@ template<
 >
 struct normal_access {
 	typedef ChannelType channel_type;
+
+	typedef std::tr1::array<
+		channel_type,
+		boost::mpl::size<
+			typename Layout::order
+		>::value
+	> store;
 
 	template<
 		typename Channel,

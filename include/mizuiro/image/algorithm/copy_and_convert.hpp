@@ -13,13 +13,13 @@ namespace algorithm
 {
 
 template<
-	typename ViewD,
-	typename ViewS
+	typename ViewS,
+	typename ViewD
 >
 void
 copy_and_convert(
-	ViewD const &dest,
-	ViewS const &src
+	ViewS const &src,
+	ViewD const &dest
 )
 {
 	sge::variant::apply_binary(
@@ -28,8 +28,8 @@ copy_and_convert(
 		>(
 			detail::copy_and_convert()
 		),
-		dest.range(),
-		src.range()
+		src.range(),
+		dest.range()
 	);
 }
 

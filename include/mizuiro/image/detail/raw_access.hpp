@@ -2,10 +2,12 @@
 #define MIZUIRO_IMAGE_DETAIL_RAW_ACCESS_HPP_INCLUDED
 
 #include <mizuiro/image/detail/stride_pointer_impl.hpp>
+#include <mizuiro/image/raw_pointer.hpp>
 #include <mizuiro/color/channel_proxy_impl.hpp>
 #include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/detail/index_of.hpp>
 #include <boost/mpl/size.hpp>
+#include <boost/tr1/array.hpp>
 
 namespace mizuiro
 {
@@ -15,16 +17,20 @@ namespace detail
 {
 
 template<
-	typename Layout,
-	typename Pointer
+	typename Layout
 >
 struct raw_access {
 	typedef typename Layout:: template replace_access<
 		raw_access<
-			Layout,
-			Pointer
+			Layout
 		>
 	>::type layout;
+
+	typedef std::tr1::array<
+		raw_value,
+		Layout::element_count
+		* sizeof(typename Layout::channel_type)
+	> store;
 
 	typedef typename Layout::channel_type channel_type;
 
@@ -46,7 +52,7 @@ struct raw_access {
 	struct pointer {
 		typedef stride_pointer<
 			typename mizuiro::detail::apply_const<
-				Pointer,
+				raw_pointer,
 				Constness
 			>::type,
 			boost::mpl::size<

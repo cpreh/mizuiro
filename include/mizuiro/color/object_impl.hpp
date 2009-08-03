@@ -18,6 +18,16 @@ mizuiro::color::object<Layout>::object()
 	data_()
 {}
 
+template<
+	typename Layout
+>
+mizuiro::color::object<Layout>::object(
+	object const &other
+)
+:
+	data_(other.data_)
+{}
+
 #define MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_ASSIGN(\
 	z,\
 	n,\
@@ -87,10 +97,9 @@ template<
 >
 void
 mizuiro::color::object<Layout>::set(
-	typename Layout::template channel_reference<
-		Channel,
-		mizuiro::detail::const_tag
-	>::type const ref
+	typename Layout::template channel_value_type<
+		Channel
+	>::type const &ref
 )
 {
 	proxy(

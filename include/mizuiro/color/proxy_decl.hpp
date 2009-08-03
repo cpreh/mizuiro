@@ -2,6 +2,7 @@
 #define MIZUIRO_COLOR_PROXY_DECL_HPP_INCLUDED
 
 #include <mizuiro/color/proxy_fwd.hpp>
+#include <mizuiro/detail/const_tag.hpp>
 
 namespace mizuiro
 {

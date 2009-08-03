@@ -49,9 +49,9 @@ convert
 	(
 		denormalize
 		<
-			ColorDest
-			<
-				homogenous<BaseDest,layout::gray>
+			homogenous<
+				BaseDest,
+				layout::gray
 			>,
 			channel::gray,
 			float
@@ -104,6 +104,8 @@ convert(
 		dest
 	);
 	
+	typedef typename Dest::layout dest_layout;
+
 	float const src_normalized = 
 		normalize
 		<
@@ -120,7 +122,7 @@ convert(
 
 	dest.template set<channel::red>
 	(
-		denormalize<Dest,channel::red,float>
+		denormalize<dest_layout,channel::red,float>
 		(
 			0.3f * src_normalized
 		)
@@ -128,7 +130,7 @@ convert(
 
 	dest.template set<channel::green>
 	(
-		denormalize<Dest,channel::green,float>
+		denormalize<dest_layout,channel::green,float>
 		(
 			0.59f * src_normalized
 		)
@@ -136,7 +138,7 @@ convert(
 
 	dest.template set<channel::blue>
 	(
-		denormalize<Dest,channel::blue,float>
+		denormalize<dest_layout,channel::blue,float>
 		(
 			0.11f * src_normalized
 		)

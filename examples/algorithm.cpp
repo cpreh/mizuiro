@@ -3,6 +3,7 @@
 #include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
+#include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
@@ -95,7 +96,9 @@ int main()
 	);
 
 	mizuiro::image::algorithm::copy_and_convert(
-		img1.view(),
+		mizuiro::image::make_const_view(
+			img1.view()
+		),
 		img2.view()
 	);
 

@@ -46,9 +46,26 @@ template<
 	typename Constness
 >
 mizuiro::image::view<Format, Constness>::view(
+	view const &v
+)
+:
+	dim_(v.dim_),
+	data_(v.data_),
+	sub_data_(v.sub_data_),
+	pitch_(v.pitch_)
+{}
+
+template<
+	typename Format,
+	typename Constness
+>
+template<
+	typename OtherConstness
+>
+mizuiro::image::view<Format, Constness>::view(
 	view<
 		Format,
-		mizuiro::detail::nonconst_tag
+		OtherConstness
 	> const &other
 )
 :
