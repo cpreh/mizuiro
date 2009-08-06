@@ -7,11 +7,13 @@
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
+#include <mizuiro/image/algorithm/transform.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/argb.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
+#include <boost/spirit/home/phoenix/core/argument.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>
@@ -107,6 +109,12 @@ int main()
 	mizuiro::image::algorithm::print(
 		std::cout,
 		img2.view()
+	);
+
+	mizuiro::image::algorithm::transform(
+		img2.view(),
+		img1.view(),
+		boost::phoenix::arg_names::arg1 // dummy test
 	);
 
 	std::cout << '\n';
