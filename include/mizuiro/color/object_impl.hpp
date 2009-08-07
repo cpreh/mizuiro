@@ -3,12 +3,11 @@
 
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
+#include <mizuiro/color/detail/init_set_channel.hpp>
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_binary_params.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
-#include <boost/type_traits/is_same.hpp>
-#include <boost/static_assert.hpp>
 
 template<
 	typename Layout
@@ -34,18 +33,9 @@ mizuiro::color::object<Layout>::object(
 	text\
 )\
 {\
-	BOOST_STATIC_ASSERT((\
-		boost::is_same<\
-			typename layout:: template channel_value_type<\
-				typename T##n::channel\
-			>::type,\
-			typename T##n::value_type\
-		>::value\
-	));\
-	set<\
-		typename T##n::channel\
-	>(\
-		t##n.value()\
+	detail::init_set_channel(\
+		*this,\
+		t##n\
 	);\
 }
 

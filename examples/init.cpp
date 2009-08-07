@@ -25,5 +25,16 @@ int main()
 		mizuiro::color::init::alpha = static_cast<channel>(53)
 	);
 
-	std::cout << testcolor << '\n';
+	rgba_color const testcolor2(
+		mizuiro::color::init::red %= 0.5,
+		mizuiro::color::init::blue %= 0.3,
+		mizuiro::color::init::green %= 0.1,
+		mizuiro::color::init::alpha %= 1.0
+	);
+
+	std::cout
+		<< testcolor
+		<< ' '
+		<< testcolor2
+		<< '\n';
 }
