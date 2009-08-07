@@ -5,7 +5,6 @@
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
-#include <boost/foreach.hpp>
 #include <boost/static_assert.hpp>
 #include <numeric>
 #include <functional>
@@ -166,12 +165,13 @@ mizuiro::image::dimension<Dim, ValueType>::null()
 {
 	dimension ret;
 
-	BOOST_FOREACH(
-		reference r,
-		ret.data_
+	for(
+		size_type i = 0;
+		i < static_size;
+		++i
 	)
-		r = 0;
-	
+		ret[i] = 0;
+
 	return ret;
 }
 
