@@ -120,4 +120,22 @@ mizuiro::color::object<Layout>::get() const
 	>();
 }
 
+template<
+	typename Layout
+>
+typename mizuiro::color::object<Layout>::pointer
+mizuiro::color::object<Layout>::data()
+{
+	return data_.data();
+}
+
+template<
+	typename Layout
+>
+typename mizuiro::color::object<Layout>::const_pointer
+mizuiro::color::object<Layout>::data() const
+{
+	return data_.data();
+}
+
 #endif

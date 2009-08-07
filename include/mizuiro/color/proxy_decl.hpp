@@ -51,6 +51,9 @@ public:
 		mizuiro::detail::const_tag
 	>::type
 	get() const;
+
+	pointer
+	data() const;
 private:
 	pointer data_;	
 };

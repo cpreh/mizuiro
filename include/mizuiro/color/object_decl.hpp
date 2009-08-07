@@ -26,6 +26,14 @@ class object {
 public:
 	typedef Layout layout;
 
+	typedef typename layout:: template pointer<
+		mizuiro::detail::nonconst_tag
+	>::type pointer;
+
+	typedef typename layout:: template pointer<
+		mizuiro::detail::const_tag
+	>::type const_pointer;
+
 	object();
 
 	object(
@@ -85,6 +93,12 @@ public:
 		mizuiro::detail::const_tag
 	>::type
 	get() const;
+
+	pointer
+	data();
+
+	const_pointer
+	data() const;
 private:
 	typedef typename Layout::store store;
 

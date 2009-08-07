@@ -91,4 +91,14 @@ mizuiro::color::proxy<Layout, Constness>::get() const
 	);
 }
 
+template<
+	typename Layout,
+	typename Constness
+>
+typename mizuiro::color::proxy<Layout, Constness>::pointer
+mizuiro::color::proxy<Layout, Constness>::data() const
+{
+	return data_;
+}
+
 #endif
