@@ -27,6 +27,11 @@ struct homogenous {
 	typedef typename access_types::channel_type channel_type;
 	typedef Layout layout;
 
+	typedef homogenous<
+		ChannelType,
+		Layout
+	> normal;
+
 	template<
 		typename Access
 	>
