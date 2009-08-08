@@ -12,6 +12,9 @@
 #include <mizuiro/color/layout/argb.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/for_each_channel.hpp>
+#include <mizuiro/color/set.hpp>
+#include <mizuiro/color/get.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <boost/spirit/home/phoenix/core/argument.hpp>
 #include <boost/cstdint.hpp>
@@ -33,6 +36,73 @@ struct d2_format {
 			ColorFormat
 		>
 	> type;
+};
+
+template<
+	typename Src,
+	typename Dest
+>
+struct channel_operation {
+	typedef void result_type;
+
+	channel_operation(
+		Src const &src,
+		Dest const &dest
+	)
+	:
+		src(src),
+		dest(dest)
+	{}
+
+	template<
+		typename Channel
+	>
+	result_type
+	operator()(
+		Channel &
+	) const
+	{
+		mizuiro::color::set<
+			Channel
+		>(
+			dest,
+			mizuiro::color::get<
+				Channel
+			>(
+				src
+			)
+		);
+	}
+private:
+	Src const &src;
+	Dest const &dest;
+};
+
+struct transform_test {
+	typedef void result_type;
+
+	template<
+		typename Src,
+		typename Dest
+	>
+	result_type
+	operator()(
+		Src const &src,
+		Dest const &dest
+	) const
+	{
+		mizuiro::color::for_each_channel<
+			Src
+		>(
+			channel_operation<
+				Src,
+				Dest
+			>(
+				src,
+				dest
+			)
+		);
+	}
 };
 
 }
@@ -114,7 +184,7 @@ int main()
 	mizuiro::image::algorithm::transform(
 		img2.view(),
 		img1.view(),
-		boost::phoenix::arg_names::arg1 // dummy test
+		transform_test()
 	);
 
 	std::cout << '\n';
