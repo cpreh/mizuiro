@@ -9,7 +9,7 @@ namespace color
 {
 
 template<
-	typename Color,
+	typename Format,
 	typename Function
 >
 void
@@ -18,7 +18,7 @@ for_each_channel(
 )
 {
 	boost::mpl::for_each<
-		typename Color::layout::layout::order
+		typename Format::layout::order
 	>(
 		fun
 	);

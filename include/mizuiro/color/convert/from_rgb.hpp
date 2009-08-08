@@ -11,6 +11,7 @@
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/is_rgb.hpp>
 #include <mizuiro/color/is_gray.hpp>
+#include <mizuiro/color/object_impl.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/utility/enable_if.hpp>
 
@@ -33,17 +34,21 @@ boost::enable_if
 		>,
 		is_rgb
 		<
-			Src
+			typename Src::layout
 		>
 	>,
-	Dest const
+	object<
+		Dest
+	> const
 >::type
 convert
 (
 	Src const &src
 )
 {
-	Dest dest;
+	object<
+		Dest
+	> dest;
 
 	float const sum = 
 		normalize
@@ -71,7 +76,7 @@ convert
 	(
 		denormalize
 		<
-			typename Dest::layout,
+			Dest,
 			channel::gray,
 			float
 		>
@@ -100,17 +105,21 @@ boost::enable_if
 		>,
 		is_rgb
 		<
-			Src
+			typename Src::layout
 		>
 	>,
-	Dest const
+	object<
+		Dest
+	> const
 >::type
 convert
 (
 	Src const &s
 )
 {
-	Dest dest;
+	object<
+		Dest
+	> dest;
 
 	detail::copy_and_convert_channel
 	<

@@ -2,7 +2,6 @@
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_COPY_AND_CONVERT_HPP_INCLUDED
 
 #include <mizuiro/color/convert.hpp>
-#include <mizuiro/color/object_impl.hpp>
 
 namespace mizuiro
 {
@@ -28,9 +27,7 @@ struct copy_and_convert {
 	{
 		dest = 
 			color::convert<
-				color::object<
-					typename Dest::layout
-				>
+				typename Dest::layout
 			>(
 				src
 			);

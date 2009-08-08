@@ -11,12 +11,12 @@ namespace color
 
 template
 <
-	typename Color
+	typename Format
 >
 struct is_gray
 :
 boost::is_same<
-	typename Color::layout::layout,
+	typename Format::layout,
 	layout::gray
 >
 {

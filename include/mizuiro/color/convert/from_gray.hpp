@@ -7,6 +7,7 @@
 #include <mizuiro/color/channel/gray.hpp>
 #include <mizuiro/color/is_rgb.hpp>
 #include <mizuiro/color/is_gray.hpp>
+#include <mizuiro/color/object_impl.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/utility/enable_if.hpp>
 
@@ -30,17 +31,21 @@ typename boost::enable_if
 		>,
 		is_gray
 		<
-			Src
+			typename Src::layout
 		>
 	>,
-	Dest const
+	object<
+		Dest
+	> const
 >::type
 convert
 (
 	Src const &src
 )
 {
-	Dest dest;
+	object<
+		Dest
+	> dest;
 
 	dest.template set
 	<
@@ -49,7 +54,7 @@ convert
 	(
 		denormalize
 		<
-			typename Dest::layout,
+			Dest,
 			channel::gray,
 			float
 		>
@@ -84,24 +89,26 @@ boost::enable_if
 		>,
 		is_gray
 		<
-			Src
+			typename Src::layout
 		>
 	>,
-	Dest const
+	object<
+		Dest
+	> const
 >::type
 convert(
 	Src const &src
 )
 {
-	Dest dest;
+	object<
+		Dest
+	> dest;
 
 	detail::max_alpha
 	(
 		dest
 	);
 	
-	typedef typename Dest::layout dest_layout;
-
 	float const src_normalized = 
 		normalize
 		<
@@ -114,7 +121,7 @@ convert(
 
 	dest.template set<channel::red>
 	(
-		denormalize<dest_layout,channel::red,float>
+		denormalize<Dest,channel::red,float>
 		(
 			0.3f * src_normalized
 		)
@@ -122,7 +129,7 @@ convert(
 
 	dest.template set<channel::green>
 	(
-		denormalize<dest_layout,channel::green,float>
+		denormalize<Dest,channel::green,float>
 		(
 			0.59f * src_normalized
 		)
@@ -130,7 +137,7 @@ convert(
 
 	dest.template set<channel::blue>
 	(
-		denormalize<dest_layout,channel::blue,float>
+		denormalize<Dest,channel::blue,float>
 		(
 			0.11f * src_normalized
 		)

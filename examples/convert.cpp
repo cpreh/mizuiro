@@ -31,7 +31,7 @@ int main()
 
 	rgba_color const test_rgb(
 		mizuiro::color::convert<
-			rgba_color
+			rgba_color::layout
 		>(
 			test_gray
 		)
@@ -58,7 +58,7 @@ int main()
 	(
 		mizuiro::color::convert
 		<
-			rgba_float_color
+			rgba_float_color::layout
 		>
 		(
 			test_rgb
@@ -71,7 +71,9 @@ int main()
 		<< '\n';
 	
 	gray_color test_gray2(
-		mizuiro::color::convert<gray_color>
+		mizuiro::color::convert<
+			gray_color::layout
+		>
 		(
 			test_float
 		)

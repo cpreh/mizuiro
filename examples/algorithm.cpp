@@ -92,7 +92,7 @@ struct transform_test {
 	) const
 	{
 		mizuiro::color::for_each_channel<
-			Src
+			typename Src::layout
 		>(
 			channel_operation<
 				Src,
@@ -102,6 +102,25 @@ struct transform_test {
 				dest
 			)
 		);
+	}
+};
+
+struct transform_test_2 {
+	typedef void result_type;
+
+	template<
+		typename Src1,
+		typename Src2,
+		typename Dest
+	>
+	result_type
+	operator()(
+		Src1 const &,
+		Src2 const &,
+		Dest const &
+	) const
+	{
+		
 	}
 };
 
@@ -185,6 +204,13 @@ int main()
 		img2.view(),
 		img1.view(),
 		transform_test()
+	);
+
+	mizuiro::image::algorithm::transform(
+		img2.view(),
+		img1.view(),
+		img1.view(),
+		transform_test_2()
 	);
 
 	std::cout << '\n';

@@ -14,7 +14,7 @@ namespace color
 
 template
 <
-	typename Color
+	typename Format
 >
 struct is_rgb
 :
@@ -22,17 +22,17 @@ boost::mpl::and_
 <
 	has_channel
 	<
-		typename Color::layout,
+		Format,
 		channel::red
 	>,
 	has_channel
 	<
-		typename Color::layout,
+		Format,
 		channel::green
 	>,
 	has_channel
 	<
-		typename Color::layout,
+		Format,
 		channel::blue
 	>
 >

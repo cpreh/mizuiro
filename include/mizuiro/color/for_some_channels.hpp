@@ -10,7 +10,7 @@ namespace color
 {
 
 template<
-	typename Color,
+	typename Format,
 	typename Filter,
 	typename Function
 >
@@ -21,7 +21,7 @@ for_some_channels(
 {
 	boost::mpl::for_each<
 		boost::mpl::filter_view<
-			typename Color::layout::layout::order
+			typename Format::layout::order
 			Filter
 		>
 	>(
