@@ -6,6 +6,7 @@
 #include <mizuiro/image/iterator_position.hpp>
 #include <numeric>
 #include <functional>
+#include <cassert>
 
 template<
 	typename Format,
@@ -73,6 +74,8 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 	difference_type const diff
 )
 {
+	assert(dim_.content());
+
 	size_type const stride(
 		Format::color_format::element_count
 	);

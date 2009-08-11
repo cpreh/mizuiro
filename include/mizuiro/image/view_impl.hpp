@@ -253,7 +253,10 @@ template<
 typename mizuiro::image::view<Format, Constness>::pitch_iterator const
 mizuiro::image::view<Format, Constness>::pitch_end() const
 {
-	return pitch_begin() + dim().content();
+	// TODO: Fix this! pitch_iterator doesn't like to be empty and incremented!
+	return dim().content()
+		? pitch_begin() + dim().content()
+		: pitch_begin();
 }
 
 #endif
