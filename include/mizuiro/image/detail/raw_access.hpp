@@ -6,7 +6,6 @@
 #include <mizuiro/color/channel_proxy_impl.hpp>
 #include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/detail/index_of.hpp>
-#include <boost/mpl/size.hpp>
 #include <boost/tr1/array.hpp>
 
 namespace mizuiro
@@ -55,9 +54,7 @@ struct raw_access {
 				raw_pointer,
 				Constness
 			>::type,
-			boost::mpl::size<
-				typename Layout::layout::order
-			>::value
+			sizeof(typename Layout::channel_type)
 		> type;
 	};
 
