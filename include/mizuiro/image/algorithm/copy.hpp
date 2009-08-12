@@ -23,9 +23,9 @@ copy(
 )
 {
 	sge::variant::apply_binary(
-		detail::apply_binary_iteration<
-			detail::copy
-		>(),
+		detail::apply_binary_iteration(
+			detail::copy()
+		),
 		dest.range(),
 		src.range()
 	);
