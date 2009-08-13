@@ -15,13 +15,12 @@ template<
 mizuiro::image::pitch_iterator<Format, Constness>::pitch_iterator(
 	dim_type const &dim_,
 	pointer const data_,
-	pointer const root_data_,
 	pitch_type const &pitch_
 )
 :
 	dim_(dim_),
 	data_(data_),
-	root_data_(root_data_),
+	root_data_(data_),
 	pitch_(pitch_)
 {}
 
@@ -86,7 +85,6 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 		*this -
 		pitch_iterator(
 			dim_,
-			root_data_,
 			root_data_,
 			pitch_
 		)

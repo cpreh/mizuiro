@@ -57,7 +57,6 @@ public:
 	pitch_iterator(
 		dim_type const &,
 		pointer data,
-		pointer begin,
 		pitch_type const &
 	);
 

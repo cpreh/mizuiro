@@ -37,9 +37,9 @@ int main()
 
 	store img(
 		store::dim_type(
-			4,
-			4,
-			4
+			100,
+			100,
+			20
 		)
 	);
 
@@ -96,8 +96,8 @@ int main()
 			img.view(),
 			bound_type(
 				bound_type::dim_type(
-					0,
-					0,
+					1,
+					1,
 					0
 				),
 				bound_type::dim_type(

@@ -241,7 +241,6 @@ mizuiro::image::view<Format, Constness>::pitch_begin() const
 	return pitch_iterator(
 		dim(),
 		sub_data_,
-		data_,
 		pitch_ 
 	);
 }

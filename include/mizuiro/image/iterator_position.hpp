@@ -40,6 +40,7 @@ iterator_position(
 		d[i] =
 			detail::iterator_position_numerator(it,i)
 			/ detail::iterator_position_denominator(it,i);
+	
 	return d;
 }
 
