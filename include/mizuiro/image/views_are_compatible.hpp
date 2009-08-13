@@ -3,9 +3,8 @@
 
 #include <mizuiro/color/channel_value_type.hpp>
 #include <boost/mpl/fold.hpp>
-#include <boost/mpl/zip_view.hpp>
-#include <boost/mpl/front.hpp>
-#include <boost/mpl/back.hpp>
+#include <boost/mpl/if.hpp>
+#include <boost/mpl/contains.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/mpl/placeholders.hpp>
 #include <boost/mpl/bind.hpp>
@@ -13,6 +12,7 @@
 #include <boost/mpl/quote.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <boost/type_traits/integral_constant.hpp>
+#include <boost/none_t.hpp>
 
 namespace mizuiro
 {
@@ -31,12 +31,7 @@ boost::mpl::and_<
 		typename View2::dim_type
 	>,
 	boost::mpl::fold<
-		boost::mpl::zip_view<
-			boost::mpl::vector<
-				typename View1::color_format::layout::order,
-				typename View2::color_format::layout::order
-			>
-		>,
+		typename View1::color_format::layout::order,
 		boost::true_type,
 		boost::mpl::and_<
 			boost::mpl::_1,
@@ -49,18 +44,27 @@ boost::mpl::and_<
 						color::channel_value_type
 					>,
 					typename View1::color_format,
-					boost::mpl::front<
-						boost::mpl::_2
-					>
+					boost::mpl::_2
 				>,
 				boost::mpl::bind<
-					boost::mpl::quote2<
-						color::channel_value_type
+					boost::mpl::quote3<
+						boost::mpl::if_
 					>,
-					typename View2::color_format,
-					boost::mpl::back<
+					boost::mpl::bind<
+						boost::mpl::quote2<
+							boost::mpl::contains
+						>,
+						typename View2::color_format::layout::order,
 						boost::mpl::_2
-					>
+					>,
+					boost::mpl::bind<
+						boost::mpl::quote2<
+							color::channel_value_type
+						>,
+						typename View2::color_format,
+						boost::mpl::_2
+					>,
+					boost::none_t
 				>
 			>
 		>

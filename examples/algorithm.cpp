@@ -161,11 +161,6 @@ int main()
 		dim
 	);
 
-	std::cerr << std::boolalpha << mizuiro::image::views_are_compatible<
-		store1::view_type,
-		store1::view_type
-	>::value << '\n';
-
 	mizuiro::image::algorithm::fill_c(
 		img1.view(),
 		mizuiro::color::object<
@@ -201,7 +196,9 @@ int main()
 	std::cout << "after\n";
 
 	mizuiro::image::algorithm::copy_and_convert(
-		img1.view(),
+		mizuiro::image::make_const_view(
+			img1.view()
+		),
 		img1.view()
 	);
 
