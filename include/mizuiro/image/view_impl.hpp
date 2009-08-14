@@ -5,7 +5,7 @@
 #include <mizuiro/image/iterator_impl.hpp>
 #include <mizuiro/image/pitch_iterator_impl.hpp>
 #include <mizuiro/image/linear_iterator_impl.hpp>
-#include <mizuiro/image/iterator_pair_impl.hpp>
+#include <mizuiro/image/range_impl.hpp>
 #include <mizuiro/image/move_iterator.hpp>
 #include <stdexcept>
 
@@ -115,18 +115,18 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::view<Format, Constness>::iterator_pair const
+typename mizuiro::image::view<Format, Constness>::range_type const
 mizuiro::image::view<Format, Constness>::range() const
 {
 	return is_linear()
-		? iterator_pair(
-			linear_iterator_pair(
+		? range_type(
+			linear_range(
 				linear_begin(),
 				linear_end()
 			)
 		)
-		: iterator_pair(
-			pitch_iterator_pair(
+		: range_type(
+			pitch_range(
 				pitch_begin(),
 				pitch_end()
 			)

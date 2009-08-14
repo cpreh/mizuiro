@@ -32,6 +32,8 @@ public:
 
 	typedef std::random_access_iterator_tag iterator_category;
 
+	static size_type const stride = Stride;
+
 	stride_pointer(
 		T
 	);
@@ -87,7 +89,7 @@ private:
 		static_cast<
 			difference_type
 		>(
-			Stride
+			stride
 		);
 
 	T base_;

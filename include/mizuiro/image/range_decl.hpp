@@ -1,7 +1,7 @@
-#ifndef MIZUIRO_IMAGE_ITERATOR_PAIR_DECL_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ITERATOR_PAIR_DECL_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_RANGE_DECL_HPP_INCLUDED
+#define MIZUIRO_IMAGE_RANGE_DECL_HPP_INCLUDED
 
-#include <mizuiro/image/iterator_pair_fwd.hpp>
+#include <mizuiro/image/range_fwd.hpp>
 
 namespace mizuiro
 {
@@ -11,11 +11,11 @@ namespace image
 template<
 	typename Iterator
 >
-class iterator_pair {
+class range {
 public:
 	typedef Iterator iterator;
 
-	iterator_pair(
+	range(
 		iterator begin,
 		iterator end
 	);

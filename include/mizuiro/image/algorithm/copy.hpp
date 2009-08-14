@@ -1,9 +1,9 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_COPY_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_COPY_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/detail/apply_binary_iteration.hpp>
-#include <mizuiro/image/algorithm/detail/copy.hpp>
-#include <sge/variant/apply_binary.hpp>
+#include <mizuiro/image/algorithm/detail/copy_impl.hpp>
+#include <mizuiro/image/views_are_compatible.hpp>
+#include <boost/static_assert.hpp>
 
 namespace mizuiro
 {
@@ -13,21 +13,25 @@ namespace algorithm
 {
 
 template<
-	typename ViewD,
-	typename ViewS
+	typename ViewS,
+	typename ViewD
 >
 void
 copy(
-	ViewD const &dest,
-	ViewS const &src
+	ViewS const &src,
+	ViewD const &dest
 )
 {
-	sge::variant::apply_binary(
-		detail::apply_binary_iteration(
-			detail::copy()
-		),
-		dest.range(),
-		src.range()
+	BOOST_STATIC_ASSERT((
+		views_are_compatible<
+			ViewD,
+			ViewS
+		>::value
+	));
+
+	detail::copy_impl(
+		src,
+		dest
 	);
 }
 

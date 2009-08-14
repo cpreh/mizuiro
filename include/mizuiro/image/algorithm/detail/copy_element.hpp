@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_COPY_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ALGORITHM_DETAIL_COPY_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_COPY_ELEMENT_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ALGORITHM_DETAIL_COPY_ELEMENT_HPP_INCLUDED
 
 namespace mizuiro
 {
@@ -10,7 +10,7 @@ namespace algorithm
 namespace detail
 {
 
-struct copy {
+struct copy_element {
 	typedef void result_type;
 
 	template<

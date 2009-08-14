@@ -3,7 +3,7 @@
 
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/iterator_fwd.hpp>
-#include <mizuiro/image/iterator_pair_fwd.hpp>
+#include <mizuiro/image/range_fwd.hpp>
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/linear_iterator_fwd.hpp>
 #include <mizuiro/image/bound_fwd.hpp>
@@ -36,20 +36,20 @@ public:
 		Constness
 	> linear_iterator;
 
-	typedef image::iterator_pair<
+	typedef image::range<
 		pitch_iterator
-	> pitch_iterator_pair;
+	> pitch_range;
 
-	typedef image::iterator_pair<
+	typedef image::range<
 		linear_iterator
-	> linear_iterator_pair;
+	> linear_range;
 	
 	typedef sge::variant::object<
 		boost::mpl::vector<
-			linear_iterator_pair,
-			pitch_iterator_pair
+			linear_range,
+			pitch_range
 		>
-	> iterator_pair;
+	> range_type;
 
 	typedef Format format;
 
@@ -107,7 +107,7 @@ public:
 	iterator const
 	end() const;
 
-	iterator_pair const
+	range_type const
 	range() const;
 
 	reference

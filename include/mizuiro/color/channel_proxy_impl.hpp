@@ -2,7 +2,7 @@
 #define MIZUIRO_COLOR_CHANNEL_PROXY_IMPL_HPP_INCLUDED
 
 #include <mizuiro/color/channel_proxy_decl.hpp>
-#include <sge/algorithm/copy_n.hpp> // TODO
+#include <mizuiro/detail/copy_n.hpp>
 
 template<
 	typename Layout,
@@ -28,7 +28,7 @@ mizuiro::color::channel_proxy<Layout, Channel, Constness>::operator=(
 	>::type ref
 )
 {
-	sge::algorithm::copy_n(
+	mizuiro::detail::copy_n(
 		reinterpret_cast<
 			unsigned char const * // TODO
 		>(
@@ -51,7 +51,7 @@ operator typename mizuiro::color::channel_proxy<Layout, Channel, Constness>::val
 {
 	value_type ret;
 
-	sge::algorithm::copy_n(
+	mizuiro::detail::copy_n(
 		data_.get(),
 		sizeof(ret),
 		reinterpret_cast<
