@@ -37,8 +37,8 @@ copy_impl(
 		apply_binary_iteration(
 			detail::copy_element()
 		),
-		dest.range(),
-		src.range()
+		src.range(),
+		dest.range()
 	);
 }
 

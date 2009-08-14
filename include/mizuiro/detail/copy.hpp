@@ -2,8 +2,6 @@
 #define MIZUIRO_COLOR_DETAIL_COPY_HPP_INCLUDED
 
 #include <mizuiro/detail/copy_n.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <boost/type_traits/is_fundamental.hpp>
 #include <iterator>
 
 namespace mizuiro
@@ -12,19 +10,14 @@ namespace detail
 {
 
 template<
-	typename T
+	typename Source,
+	typename Dest
 >
-inline
-typename boost::enable_if<
-	boost::is_fundamental<
-		T
-	>,
-	void
->::type
+void
 copy(
-	T const *const begin,
-	T const *const end,
-	T *const dest
+	Source const *const begin,
+	Source const *const end,
+	Dest *const dest
 )
 {
 	return copy_n(

@@ -24,8 +24,8 @@ copy(
 {
 	BOOST_STATIC_ASSERT((
 		views_are_compatible<
-			ViewD,
-			ViewS
+			ViewS,
+			ViewD
 		>::value
 	));
 
