@@ -37,9 +37,9 @@ int main()
 
 	store img(
 		store::dim_type(
-			100,
-			100,
-			20
+			4,
+			4,
+			4	
 		)
 	);
 
@@ -114,9 +114,33 @@ int main()
 		<< sub_view.pitch()
 		<< ")\n";
 
+
+	view_type const sub_sub_view(
+		mizuiro::image::sub_view(
+			sub_view,
+			bound_type(
+				bound_type::dim_type(
+					1,
+					1,
+					0
+				),
+				bound_type::dim_type(
+					1,
+					2,
+					1	
+				)
+			)
+		)
+	);
+
+	std::cout
+		<< "sub sub image (with pitch "
+		<< sub_sub_view.pitch()
+		<< ")\n";
+
 	mizuiro::image::algorithm::print(
 		std::cout,
-		sub_view
+		sub_sub_view
 	);
 
 	std::cout << '\n';
