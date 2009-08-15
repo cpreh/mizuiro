@@ -8,8 +8,6 @@
 #include <mizuiro/image/move_iterator.hpp>
 #include <iterator>
 
-#include <iostream>
-
 namespace mizuiro
 {
 namespace image
@@ -35,24 +33,6 @@ subview_pitch(
 		i < pitch_type::static_size;
 		++i
 	)
-	{
-
-		std::cout <<
-			"edge_pos_end: "
-			<< edge_pos_end(
-						bound,
-						i
-					)
-			<< '\n';
-		std::cout <<
-			"edge_pos_begin: "
-			<< edge_pos_begin(
-				bound,
-				i
-			)
-			<< '\n';
-
-
 		ret[i] = view.dim()[i] > 1
 			? std::distance(
 				move_iterator(
@@ -69,9 +49,9 @@ subview_pitch(
 						i
 					)
 				).data()
+				- View::color_format::element_count
 			)
 			: 0;
-	}
 
 	return ret;
 }

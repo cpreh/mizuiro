@@ -28,12 +28,15 @@ move_iterator(
 		view.dim()
 	);
 
+	typename View::iterator::difference_type add = 0;
+
 	for(
 		typename dim_type::size_type i = 0;
 		i < dim_type::static_size;
 		++i
 	)
-		ret += 
+	{	
+		add += 
 			pos[i] *
 			std::accumulate(
 				dim.begin(),
@@ -43,6 +46,9 @@ move_iterator(
 					typename dim_type::size_type
 				>()
 			);
+	}
+
+	ret += add;
 	
 	return ret;
 }

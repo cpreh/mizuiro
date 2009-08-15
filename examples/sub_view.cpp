@@ -101,7 +101,7 @@ int main()
 					0
 				),
 				bound_type::dim_type(
-					2,
+					3,
 					3,
 					2	
 				)
@@ -125,7 +125,7 @@ int main()
 					0
 				),
 				bound_type::dim_type(
-					1,
+					2,
 					2,
 					1	
 				)
