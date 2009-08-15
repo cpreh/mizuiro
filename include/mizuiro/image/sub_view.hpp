@@ -22,7 +22,6 @@ sub_view(
 {
 	return View(
 		bound.dimensions(),
-		view.data(),
 		move_iterator(
 			view,
 			bound.positions()

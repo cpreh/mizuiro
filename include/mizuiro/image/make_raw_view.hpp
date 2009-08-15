@@ -34,7 +34,6 @@ make_raw_view(
 	>::type(
 		dim,
 		data,
-		data,
 		pitch
 	);
 }

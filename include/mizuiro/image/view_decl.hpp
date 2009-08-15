@@ -80,7 +80,6 @@ public:
 	view(
 		dim_type const &,
 		pointer data,
-		pointer sub_data,
 		pitch_type const &
 	);
 
@@ -123,9 +122,6 @@ public:
 	pointer
 	data() const;
 
-	pointer
-	sub_data() const;
-
 	pitch_type const &
 	pitch() const;
 private:
@@ -144,9 +140,7 @@ private:
 	pitch_end() const;
 
 	dim_type dim_;
-	pointer
-		data_,
-		sub_data_;
+	pointer data_;
 	pitch_type pitch_;
 };
 

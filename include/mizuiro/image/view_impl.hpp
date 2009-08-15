@@ -20,7 +20,6 @@ mizuiro::image::view<Format, Constness>::view(
 :
 	dim_(dim_),
 	data_(data_),
-	sub_data_(data_),
 	pitch_(pitch_type::null())
 {}
 
@@ -31,13 +30,11 @@ template<
 mizuiro::image::view<Format, Constness>::view(
 	dim_type const &dim_,
 	pointer const data_,
-	pointer const sub_data_,
 	pitch_type const &pitch_
 )
 :
 	dim_(dim_),
 	data_(data_),
-	sub_data_(sub_data_),
 	pitch_(pitch_)
 {}
 
@@ -51,7 +48,6 @@ mizuiro::image::view<Format, Constness>::view(
 :
 	dim_(v.dim_),
 	data_(v.data_),
-	sub_data_(v.sub_data_),
 	pitch_(v.pitch_)
 {}
 
@@ -71,7 +67,6 @@ mizuiro::image::view<Format, Constness>::view(
 :
 	dim_(other.dim()),
 	data_(other.data()),
-	sub_data_(other.sub_data()),
 	pitch_(other.pitch())
 {}
 
@@ -183,16 +178,6 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::view<Format, Constness>::pointer
-mizuiro::image::view<Format, Constness>::sub_data() const
-{
-	return sub_data_;
-}
-
-template<
-	typename Format,
-	typename Constness
->
 typename mizuiro::image::view<Format, Constness>::pitch_type const &
 mizuiro::image::view<Format, Constness>::pitch() const
 {
@@ -240,7 +225,7 @@ mizuiro::image::view<Format, Constness>::pitch_begin() const
 {
 	return pitch_iterator(
 		dim(),
-		sub_data_,
+		data_,
 		pitch_ 
 	);
 }
