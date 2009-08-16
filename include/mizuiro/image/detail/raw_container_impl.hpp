@@ -52,6 +52,11 @@ mizuiro::image::detail::raw_container<T, A>::operator=(
 	raw_container const &other
 )
 {
+	if(
+		this == &other
+	)
+		return *this;
+	
 	destroy();
 
 	copy(
