@@ -22,8 +22,24 @@ mizuiro::image::pitch_iterator<Format, Constness>::pitch_iterator(
 	dim_(dim_),
 	data_(data_),
 	root_data_(data_),
-	pitch_(pitch_)
-{}
+	pitch_(pitch_),
+	stacked_dim_()
+{
+	for(
+		size_type i = 0;
+		i < pitch_type::static_size;
+		++i
+	)
+		stacked_dim_[i] =
+			std::accumulate(
+				dim_.begin(),
+				dim_.begin() + i + 1,
+				1,
+				std::multiplies<
+					size_type
+				>()
+			);
+}
 
 template<
 	typename Format,
@@ -98,22 +114,11 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 		++i
 	)
 	{
-		size_type const stacked_dim(
-			std::accumulate(
-				dim_.begin(),
-				dim_.begin() + i + 1,
-				1,
-				std::multiplies<
-					size_type
-				>()
-			)
-		);
-
 		add += (
 			(diff +
 				diff_to_begin
-				% stacked_dim
-			) / stacked_dim
+				% stacked_dim_[i]
+			) / stacked_dim_[i]
 		) * pitch_[i];
 	}
 

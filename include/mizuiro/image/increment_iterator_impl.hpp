@@ -70,6 +70,23 @@ template<
 void
 mizuiro::image::increment_iterator<Format, Constness>::increment()
 {
+	++line_advance;
+
+	if(
+		line_advance / stacked_dim_[0]
+	)
+	{
+		difference_type add = 0;
+
+		for(
+			size_type i = 0;
+			i < pitch_type::static_size;
+			++i
+		)
+			
+		add += 
+		line_advance = 0;		
+	}
 }
 
 template<

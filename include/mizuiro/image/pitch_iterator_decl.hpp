@@ -4,6 +4,7 @@
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/image/detail/pitch_type.hpp>
+#include <boost/tr1/array.hpp>
 
 namespace mizuiro
 {
@@ -103,6 +104,13 @@ private:
 		data_,
 		root_data_;
 	pitch_type pitch_;
+
+	typedef std::tr1::array<
+		typename dim_type::value_type,
+		pitch_type::static_size
+	> stacked_dim_array;
+
+	stacked_dim_array stacked_dim_;
 };
 
 }
