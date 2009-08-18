@@ -1,7 +1,7 @@
 #ifndef MIZUIRO_COLOR_IS_SCALAR_HPP_INCLUDED
 #define MIZUIRO_COLOR_IS_SCALAR_HPP_INCLUDED
 
-#include <boost/type_traits/is_same.hpp>
+#include <boost/mpl/equal_to.hpp>
 #include <boost/mpl/size.hpp>
 #include <boost/mpl/int.hpp>
 
@@ -16,10 +16,10 @@ template
 >
 struct is_scalar
 :
-boost::is_same<
-	typename boost::mpl::size<
+boost::mpl::equal_to<
+	boost::mpl::size<
 		typename Format::layout::order
-	>::type,
+	>,
 	boost::mpl::int_<
 		1
 	>
