@@ -43,11 +43,15 @@ public:
 			range2.begin()
 		);
 
+		typename T1::iterator const end1(
+			range1.end()
+		);
+
 		for(
 			typename T1::iterator it1(
 				range1.begin()
 			);
-			it1 != range1.end();
+			it1 != end1;
 			++it1, ++it2
 		)
 			fun(

@@ -1,6 +1,7 @@
 #ifndef MIZUIRO_IMAGE_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 
+#include <mizuiro/image/detail/iterator_position_distance.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
 #include <mizuiro/image/iterator_position.hpp>
@@ -82,11 +83,12 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 	difference_type add = diff * stride;
 
 	difference_type const diff_to_begin(
-		*this -
-		pitch_iterator(
+		detail::iterator_position_distance(
 			dim_,
-			root_data_,
-			pitch_
+			iterator_position(
+				*this
+			),
+			dim_type::null()
 		)
 	);
 
@@ -147,52 +149,15 @@ mizuiro::image::pitch_iterator<Format, Constness>::distance_to(
 	pitch_iterator const &other
 ) const
 {
-	dim_type const
-		pos(
-			iterator_position(
-				*this
-			)
+	return detail::iterator_position_distance(
+		dim_,
+		iterator_position(
+			*this
 		),
-		otherpos(
-			iterator_position(
-				other
-			)
-		);
-
-	difference_type ret = 0;
-
-	for(
-		size_type i = 0;
-		i < dim_type::static_size;
-		++i
-	)
-		ret +=
-			(
-				static_cast<
-					difference_type
-				>(
-					otherpos[i]
-				)
-				- static_cast<
-					difference_type
-				>(
-					pos[i]
-				)
-			)
-			* static_cast<
-			 	difference_type
-			>(
-			 	std::accumulate(
-					dim_.begin(),
-					dim_.begin() + i,
-					1,
-					std::multiplies<
-						size_type
-					>()
-				)
-			);
-
-	return ret;
+		iterator_position(
+			other
+		)
+	);
 }
 
 template<

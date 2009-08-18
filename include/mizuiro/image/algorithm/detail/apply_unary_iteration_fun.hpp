@@ -32,11 +32,15 @@ public:
 		T const &range
 	) const
 	{
+		typename T::iterator const end(
+			range.end()
+		);
+
 		for(
 			typename T::iterator it(
 				range.begin()
 			);
-			it != range.end();
+			it != end;
 			++it
 		)
 			fun(

@@ -6,6 +6,7 @@
 #include <mizuiro/image/bound_impl.hpp>
 #include <mizuiro/image/sub_view.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
+#include <mizuiro/image/algorithm/copy.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object_impl.hpp>
@@ -37,9 +38,9 @@ int main()
 
 	store img(
 		store::dim_type(
-			4,
-			4,
-			4	
+			100,
+			100,
+			100	
 		)
 	);
 
@@ -82,12 +83,14 @@ int main()
 					);
 	}
 
+	/*
 	std::cout << "whole image:\n";
 
 	mizuiro::image::algorithm::print(
 		std::cout,
 		img.view()
 	);
+	*/
 
 	std::cout << '\n';
 
@@ -98,12 +101,12 @@ int main()
 				bound_type::dim_type(
 					1,
 					1,
-					0
+					1
 				),
 				bound_type::dim_type(
-					3,
-					3,
-					2	
+					98,
+					98,
+					98	
 				)
 			)
 		)
@@ -115,33 +118,43 @@ int main()
 		<< ")\n";
 
 
+	/*
 	view_type const sub_sub_view(
 		mizuiro::image::sub_view(
 			sub_view,
 			bound_type(
 				bound_type::dim_type(
-					1,
-					1,
+					0,	
+					0,
 					0
 				),
 				bound_type::dim_type(
-					2,
-					2,
-					1	
+					98,
+					98,
+					98	
 				)
 			)
 		)
 	);
+	*/
 
+	/*
 	std::cout
 		<< "sub sub image (with pitch "
 		<< sub_sub_view.pitch()
 		<< ")\n";
+	*/
 
+	mizuiro::image::algorithm::copy(
+		sub_view,
+		sub_view
+	);
+
+	/*
 	mizuiro::image::algorithm::print(
 		std::cout,
 		sub_sub_view
-	);
+	);*/
 
 	std::cout << '\n';
 }
