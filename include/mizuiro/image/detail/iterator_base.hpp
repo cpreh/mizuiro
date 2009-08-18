@@ -14,13 +14,14 @@ namespace detail
 template<
 	typename Iterator,
 	typename Format,
-	typename Constness
+	typename Constness,
+	typename Category = boost::random_access_traversal_tag
 >
 struct iterator_base {
 	typedef boost::iterator_facade<
 		Iterator,
 		typename Format::channel_type,
-		boost::random_access_traversal_tag,
+		Category,
 		typename Format::color_format:: template reference<
 			Constness
 		>::type,
