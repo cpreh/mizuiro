@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_COLOR_CONVERT_FROM_GRAY_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERT_FROM_GRAY_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERT_GRAY_TO_RGB_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERT_GRAY_TO_RGB_HPP_INCLUDED
 
 #include <mizuiro/color/convert/detail/max_alpha.hpp>
 #include <mizuiro/color/normalize.hpp>
@@ -15,63 +15,6 @@ namespace mizuiro
 {
 namespace color
 {
-
-template
-<
-	class Dest,
-	class Src 
->
-typename boost::enable_if
-<
-	boost::mpl::and_
-	<
-		is_gray
-		<
-			Dest
-		>,
-		is_gray
-		<
-			typename Src::layout
-		>
-	>,
-	object<
-		Dest
-	> const
->::type
-convert
-(
-	Src const &src
-)
-{
-	object<
-		Dest
-	> dest;
-
-	dest.template set
-	<
-		channel::gray
-	>
-	(
-		denormalize
-		<
-			Dest,
-			channel::gray,
-			float
-		>
-		(
-			normalize
-			<
-				channel::gray,
-				float
-			>
-			(
-				src
-			)
-		)
-	);
-
-	return dest;
-}
 
 template
 <

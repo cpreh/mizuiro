@@ -1,14 +1,12 @@
-#ifndef MIZUIRO_COLOR_CONVERT_FROM_RGB_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERT_FROM_RGB_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERT_RGB_TO_GRAY_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERT_RGB_TO_GRAY_HPP_INCLUDED
 
-#include <mizuiro/color/convert/detail/copy_and_convert_channel.hpp>
-#include <mizuiro/color/convert/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/normalize.hpp>
 #include <mizuiro/color/denormalize.hpp>
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/blue.hpp>
-#include <mizuiro/color/channel/alpha.hpp>
+#include <mizuiro/color/channel/gray.hpp>
 #include <mizuiro/color/is_rgb.hpp>
 #include <mizuiro/color/is_gray.hpp>
 #include <mizuiro/color/object_impl.hpp>
@@ -88,77 +86,6 @@ convert
 	return dest;
 }
 
-
-template
-<
-	typename Dest,
-	typename Src
->
-typename
-boost::enable_if
-<
-	boost::mpl::and_
-	<
-		is_rgb
-		<
-			Dest
-		>,
-		is_rgb
-		<
-			typename Src::layout
-		>
-	>,
-	object<
-		Dest
-	> const
->::type
-convert
-(
-	Src const &s
-)
-{
-	object<
-		Dest
-	> dest;
-
-	detail::copy_and_convert_channel
-	<
-		channel::red,
-		float
-	>
-	(
-		s,
-		dest
-	);
-
-	detail::copy_and_convert_channel
-	<
-		channel::green,
-		float
-	>
-	(
-		s,
-		dest
-	);
-
-	detail::copy_and_convert_channel
-	<
-		channel::blue,
-		float
-	>
-	(
-		s,
-		dest
-	);
-
-	detail::copy_or_max_alpha
-	(
-		s,
-		dest
-	);
-	
-	return dest;
-}
 }
 }
 
