@@ -7,7 +7,7 @@ namespace color
 {
 
 template<
-	typename Layout
+	typename Format
 >
 class object;
 

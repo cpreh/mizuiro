@@ -27,7 +27,7 @@ struct copy_and_convert {
 	{
 		dest = 
 			color::convert<
-				typename Dest::layout
+				typename Dest::format
 			>(
 				src
 			);

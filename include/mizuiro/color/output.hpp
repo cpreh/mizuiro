@@ -30,7 +30,7 @@ operator<<(
 	s << s.widen('(');
 
 	boost::mpl::for_each<
-		typename Color::layout::layout::order
+		typename Color::format::layout::order
 	>(
 		detail::output_channel<
 			Ch,

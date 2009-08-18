@@ -33,20 +33,22 @@ public:
 		c(c)
 	{}
 
+	typedef void result_type;
+
 	template<
 		typename Channel
 	>
-	void
+	result_type
 	operator()(
 		Channel &
 	) const
 	{
-		typedef typename Color::layout::layout::order order;
+		typedef typename Color::format::layout::order order;
 
 		s <<
 			static_cast<
 				typename detail::promote_channel<
-					typename Color::layout:: template channel_value_type<
+					typename Color::format:: template channel_value_type<
 						Channel
 					>::type
 				>::type

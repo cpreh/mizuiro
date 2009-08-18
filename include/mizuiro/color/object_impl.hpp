@@ -10,17 +10,17 @@
 #include <boost/preprocessor/repetition/repeat.hpp>
 
 template<
-	typename Layout
+	typename Format
 >
-mizuiro::color::object<Layout>::object()
+mizuiro::color::object<Format>::object()
 :
 	data_()
 {}
 
 template<
-	typename Layout
+	typename Format
 >
-mizuiro::color::object<Layout>::object(
+mizuiro::color::object<Format>::object(
 	object const &other
 )
 :
@@ -45,7 +45,7 @@ mizuiro::color::object<Layout>::object(
 	text\
 )\
 template<\
-	typename Layout\
+	typename Format\
 >\
 template<\
 	BOOST_PP_ENUM_PARAMS(\
@@ -53,7 +53,7 @@ template<\
 		typename T\
 	)\
 >\
-mizuiro::color::object<Layout>::object(\
+mizuiro::color::object<Format>::object(\
 	BOOST_PP_ENUM_BINARY_PARAMS(\
 		BOOST_PP_INC(n),\
 		T,\
@@ -80,14 +80,14 @@ BOOST_PP_REPEAT(
 #undef MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_ASSIGN
 
 template<
-	typename Layout
+	typename Format
 >
 template<
 	typename Channel
 >
 void
-mizuiro::color::object<Layout>::set(
-	typename Layout::template channel_value_type<
+mizuiro::color::object<Format>::set(
+	typename Format::template channel_value_type<
 		Channel
 	>::type const &ref
 )
@@ -102,16 +102,16 @@ mizuiro::color::object<Layout>::set(
 }
 
 template<
-	typename Layout
+	typename Format
 >
 template<
 	typename Channel
 >
-typename Layout:: template channel_reference<
+typename Format:: template channel_reference<
 	Channel,
 	mizuiro::detail::const_tag
 >::type
-mizuiro::color::object<Layout>::get() const
+mizuiro::color::object<Format>::get() const
 {
 	return const_proxy(
 		data_.data()
@@ -121,19 +121,19 @@ mizuiro::color::object<Layout>::get() const
 }
 
 template<
-	typename Layout
+	typename Format
 >
-typename mizuiro::color::object<Layout>::pointer
-mizuiro::color::object<Layout>::data()
+typename mizuiro::color::object<Format>::pointer
+mizuiro::color::object<Format>::data()
 {
 	return data_.data();
 }
 
 template<
-	typename Layout
+	typename Format
 >
-typename mizuiro::color::object<Layout>::const_pointer
-mizuiro::color::object<Layout>::data() const
+typename mizuiro::color::object<Format>::const_pointer
+mizuiro::color::object<Format>::data() const
 {
 	return data_.data();
 }

@@ -20,17 +20,17 @@ namespace color
 {
 
 template<
-	typename Layout
+	typename Format
 >
 class object {
 public:
-	typedef Layout layout;
+	typedef Format format;
 
-	typedef typename layout:: template pointer<
+	typedef typename format:: template pointer<
 		mizuiro::detail::nonconst_tag
 	>::type pointer;
 
-	typedef typename layout:: template pointer<
+	typedef typename format:: template pointer<
 		mizuiro::detail::const_tag
 	>::type const_pointer;
 
@@ -67,11 +67,11 @@ public:
 
 	#undef MIZUIRO_COLOR_OBJECT_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL
 
-	typedef typename Layout:: template reference<
+	typedef typename Format:: template reference<
 		mizuiro::detail::nonconst_tag
 	>::type proxy;
 
-	typedef typename Layout:: template reference<
+	typedef typename Format:: template reference<
 		mizuiro::detail::const_tag
 	>::type const_proxy;
 
@@ -80,7 +80,7 @@ public:
 	>
 	void
 	set(
-		typename layout:: template channel_value_type<
+		typename format:: template channel_value_type<
 			Channel
 		>::type const &
 	);
@@ -88,7 +88,7 @@ public:
 	template<
 		typename Channel
 	>
-	typename layout:: template channel_reference<
+	typename format:: template channel_reference<
 		Channel,
 		mizuiro::detail::const_tag
 	>::type
@@ -100,7 +100,7 @@ public:
 	const_pointer
 	data() const;
 private:
-	typedef typename Layout::store store;
+	typedef typename format::store store;
 
 	store data_;
 };

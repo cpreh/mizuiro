@@ -8,10 +8,10 @@
 #include <boost/mpl/for_each.hpp>
 
 template<
-	typename Layout,
+	typename Format,
 	typename Constness
 >
-mizuiro::color::proxy<Layout, Constness>::proxy(
+mizuiro::color::proxy<Format, Constness>::proxy(
 	pointer const data_
 )
 :
@@ -19,23 +19,23 @@ mizuiro::color::proxy<Layout, Constness>::proxy(
 {}
 
 template<
-	typename Layout,
+	typename Format,
 	typename Constness
 >
 template<
 	typename Other
 >
-mizuiro::color::proxy<Layout, Constness> const &
-mizuiro::color::proxy<Layout, Constness>::operator=(
+mizuiro::color::proxy<Format, Constness> const &
+mizuiro::color::proxy<Format, Constness>::operator=(
 	Other const &other
 ) const
 {
 	boost::mpl::for_each<
-		typename layout::layout::order
+		typename format::layout::order
 	>(
 		detail::copy_channel<
 			proxy<
-				Layout,
+				Format,
 				Constness
 			>,
 			Other
@@ -49,20 +49,20 @@ mizuiro::color::proxy<Layout, Constness>::operator=(
 }
 
 template<
-	typename Layout,
+	typename Format,
 	typename Constness
 >
 template<
 	typename Channel
 >
 void
-mizuiro::color::proxy<Layout, Constness>::set(
-	typename layout::template channel_value_type<
+mizuiro::color::proxy<Format, Constness>::set(
+	typename format::template channel_value_type<
 		Channel
 	>::type const &ref
 ) const
 {
-	layout:: template extract_channel<
+	format:: template extract_channel<
 		Channel,
 		mizuiro::detail::nonconst_tag
 	>::execute(
@@ -71,19 +71,19 @@ mizuiro::color::proxy<Layout, Constness>::set(
 }
 
 template<
-	typename Layout,
+	typename Format,
 	typename Constness
 >
 template<
 	typename Channel
 >
-typename Layout:: template channel_reference<
+typename Format:: template channel_reference<
 	Channel,
 	mizuiro::detail::const_tag
 >::type
-mizuiro::color::proxy<Layout, Constness>::get() const
+mizuiro::color::proxy<Format, Constness>::get() const
 {
-	return layout:: template extract_channel<
+	return format:: template extract_channel<
 		Channel,
 		mizuiro::detail::const_tag
 	>::execute(
@@ -92,11 +92,11 @@ mizuiro::color::proxy<Layout, Constness>::get() const
 }
 
 template<
-	typename Layout,
+	typename Format,
 	typename Constness
 >
-typename mizuiro::color::proxy<Layout, Constness>::pointer
-mizuiro::color::proxy<Layout, Constness>::data() const
+typename mizuiro::color::proxy<Format, Constness>::pointer
+mizuiro::color::proxy<Format, Constness>::data() const
 {
 	return data_;
 }

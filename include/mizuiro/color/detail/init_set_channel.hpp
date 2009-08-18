@@ -30,7 +30,7 @@ init_set_channel(
 {
 	BOOST_STATIC_ASSERT((
 		boost::is_same<
-			typename Color::layout:: template channel_value_type<
+			typename Color::format:: template channel_value_type<
 				Channel
 			>::type,
 			Value
@@ -62,7 +62,7 @@ init_set_channel(
 		Channel
 	>(
 		denormalize<
-			typename Color::layout,
+			typename Color::format,
 			Channel
 		>(
 			init.value()

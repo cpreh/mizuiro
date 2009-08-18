@@ -28,12 +28,12 @@ boost::enable_if
 	<
 		has_channel
 		<
-			typename Src::layout,
+			typename Src::format,
 			channel::alpha
 		>,
 		has_channel
 		<
-			typename Dest::layout,
+			typename Dest::format,
 			channel::alpha
 		>
 	>,
@@ -46,7 +46,6 @@ copy_or_max_alpha(
 	copy_and_convert_channel
 	<
 		channel::alpha,
-		// FIXME: do we want float here?
 		float
 	>
 	(
@@ -70,13 +69,13 @@ boost::enable_if
 		<
 			has_channel
 			<
-				typename Src::layout,
+				typename Src::format,
 				channel::alpha
 			>
 		>,
 		has_channel
 		<
-			typename Dest::layout,
+			typename Dest::format,
 			channel::alpha
 		>
 	>,
@@ -84,9 +83,12 @@ boost::enable_if
 >::type
 copy_or_max_alpha(
 	Src const &,
-	Dest &d)
+	Dest &d
+)
 {
-	max_alpha(d);
+	max_alpha(
+		d
+	);
 }
 
 // both colors do not have an alpha channel or dest doesn't have one, so do nothing
@@ -106,12 +108,12 @@ boost::enable_if
 			<
 				has_channel
 				<
-					typename Src::layout,
+					typename Src::format,
 					channel::alpha
 				>,
 				has_channel
 				<
-					typename Dest::layout,
+					typename Dest::format,
 					channel::alpha
 				>
 			>
@@ -120,7 +122,7 @@ boost::enable_if
 		<
 			has_channel
 			<
-				typename Dest::layout,
+				typename Dest::format,
 				channel::alpha
 			>
 		>

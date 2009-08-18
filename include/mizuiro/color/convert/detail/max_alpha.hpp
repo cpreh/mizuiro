@@ -22,7 +22,7 @@ boost::disable_if
 <
 	has_channel
 	<
-		typename Color::layout,
+		typename Color::format,
 		channel::alpha
 	>, 
 	void
@@ -40,7 +40,7 @@ boost::enable_if
 <
 	has_channel
 	<
-		typename Color::layout,
+		typename Color::format,
 		channel::alpha
 	>, 
 	void
@@ -54,7 +54,7 @@ max_alpha(
 		channel::alpha
 	>
 	(
-		Color::layout::template channel_max
+		Color::format::template channel_max
 		<
 			channel::alpha
 		>()

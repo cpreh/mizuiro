@@ -32,7 +32,7 @@ boost::enable_if
 		>,
 		is_gray
 		<
-			typename Src::layout
+			typename Src::format
 		>
 	>,
 	object<

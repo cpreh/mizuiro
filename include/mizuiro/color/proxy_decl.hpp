@@ -10,14 +10,14 @@ namespace color
 {
 
 template<
-	typename Layout,
+	typename Format,
 	typename Constness
 >
 class proxy {
 public:
-	typedef Layout layout;
+	typedef Format format;
 
-	typedef typename Layout:: template pointer<
+	typedef typename Format:: template pointer<
 		Constness
 	>::type pointer;
 
@@ -38,7 +38,7 @@ public:
 	>
 	void
 	set(
-		typename layout::template channel_value_type<
+		typename format::template channel_value_type<
 			Channel
 		>::type const &
 	) const;
@@ -46,7 +46,7 @@ public:
 	template<
 		typename Channel
 	>
-	typename layout:: template channel_reference<
+	typename format:: template channel_reference<
 		Channel,
 		mizuiro::detail::const_tag
 	>::type

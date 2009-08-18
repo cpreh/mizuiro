@@ -31,7 +31,7 @@ typename boost::enable_if
 		>,
 		is_alpha
 		<
-			typename Src::layout
+			typename Src::format
 		>
 	>,
 	object

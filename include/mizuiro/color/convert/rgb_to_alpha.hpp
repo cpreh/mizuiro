@@ -28,7 +28,7 @@ typename boost::enable_if
 		>,
 		is_rgb
 		<
-			typename Src::layout
+			typename Src::format
 		>
 	>,
 	object

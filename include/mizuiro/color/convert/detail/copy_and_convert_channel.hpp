@@ -26,7 +26,12 @@ copy_and_convert_channel
 {
 	dest.template set<Channel>
 	(
-		denormalize<typename Dest::layout,Channel,Float>
+		denormalize
+		<
+			typename Dest::format,
+			Channel,
+			Float
+		>
 		(
 			normalize<Channel,Float>
 			(

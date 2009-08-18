@@ -29,7 +29,7 @@ typename boost::enable_if
 		>,
 		is_scalar
 		<
-			typename Src::layout
+			typename Src::format
 		>
 	>,
 	object<
@@ -64,7 +64,7 @@ convert
 			normalize
 			<
 				typename boost::mpl::front<
-					typename Src::layout::layout::order
+					typename Src::format::layout::order
 				>::type,
 				float
 			>
