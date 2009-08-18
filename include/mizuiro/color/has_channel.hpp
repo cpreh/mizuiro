@@ -1,10 +1,7 @@
 #ifndef MIZUIRO_COLOR_HAS_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_HAS_CHANNEL_HPP_INCLUDED
 
-#include <boost/type_traits/is_same.hpp>
-#include <boost/mpl/find.hpp>
-#include <boost/mpl/end.hpp>
-#include <boost/mpl/not.hpp>
+#include <boost/mpl/contains.hpp>
 
 namespace mizuiro
 {
@@ -17,20 +14,9 @@ template
 >
 struct has_channel
 :
-boost::mpl::not_
-<
-	boost::is_same
-	<
-		typename boost::mpl::find
-		<
-			typename Color::layout::order, 
-			Channel
-		>::type, 
-		typename boost::mpl::end
-		<
-			typename Color::layout::order
-		>::type
-	>
+boost::mpl::contains<
+	typename Color::layout::order, 
+	Channel
 >
 {
 };
