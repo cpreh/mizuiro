@@ -104,6 +104,7 @@ private:
 		data_,
 		root_data_;
 	pitch_type pitch_;
+	difference_type line_advance_;
 
 	typedef std::tr1::array<
 		typename dim_type::value_type,

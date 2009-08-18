@@ -104,9 +104,9 @@ int main()
 					1
 				),
 				bound_type::dim_type(
-					98,
-					98,
-					98	
+					2,//98,
+					3,//98,
+					2//98	
 				)
 			)
 		)
@@ -150,11 +150,10 @@ int main()
 		sub_view
 	);
 
-	/*
 	mizuiro::image::algorithm::print(
 		std::cout,
-		sub_sub_view
-	);*/
+		sub_view
+	);
 
 	std::cout << '\n';
 }
