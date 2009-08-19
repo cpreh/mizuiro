@@ -6,7 +6,6 @@
 #include <mizuiro/color/convert/detail/max_alpha.hpp>
 #include <mizuiro/color/convert/detail/copy_and_convert_channel.hpp>
 #include <boost/mpl/and.hpp>
-#include <boost/mpl/or.hpp>
 #include <boost/mpl/not.hpp>
 
 namespace mizuiro
@@ -15,7 +14,8 @@ namespace color
 {
 namespace detail
 {
-// source and destinatin have an alpha channel, so convert
+
+// source and destination have an alpha channel, so convert
 template
 <
 	class Src,
@@ -91,7 +91,7 @@ copy_or_max_alpha(
 	);
 }
 
-// both colors do not have an alpha channel or dest doesn't have one, so do nothing
+// dest doesn't have an alpha channel, so do nothing
 template
 <
 	class Src,
@@ -100,38 +100,23 @@ template
 typename
 boost::enable_if
 <
-	boost::mpl::or_
+	boost::mpl::not_
 	<
-		boost::mpl::not_
+		has_channel
 		<
-			boost::mpl::or_
-			<
-				has_channel
-				<
-					typename Src::format,
-					channel::alpha
-				>,
-				has_channel
-				<
-					typename Dest::format,
-					channel::alpha
-				>
-			>
-		>,
-		boost::mpl::not_
-		<
-			has_channel
-			<
-				typename Dest::format,
-				channel::alpha
-			>
+			typename Dest::format,
+			channel::alpha
 		>
 	>,
 	void
 >::type
-copy_or_max_alpha(Src const &,Dest &)
+copy_or_max_alpha(
+	Src const &,
+	Dest &
+)
 {
 }
+
 }
 }
 }
