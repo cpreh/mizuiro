@@ -2,11 +2,10 @@
 #define MIZUIRO_IMAGE_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 
 #include <mizuiro/image/detail/iterator_position_distance.hpp>
+#include <mizuiro/image/detail/stacked_dim.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
 #include <mizuiro/image/iterator_position.hpp>
-#include <numeric>
-#include <functional>
 #include <cassert>
 
 template<
@@ -24,23 +23,12 @@ mizuiro::image::pitch_iterator<Format, Constness>::pitch_iterator(
 	root_data_(data_),
 	pitch_(pitch_),
 	line_advance_(0),
-	stacked_dim_()
-{
-	for(
-		size_type i = 0;
-		i < pitch_type::static_size;
-		++i
+	stacked_dim_(
+		detail::stacked_dim(
+			dim_
+		)
 	)
-		stacked_dim_[i] =
-			std::accumulate(
-				dim_.begin(),
-				dim_.begin() + i + 1,
-				1,
-				std::multiplies<
-					size_type
-				>()
-			);
-}
+{}
 
 template<
 	typename Format,

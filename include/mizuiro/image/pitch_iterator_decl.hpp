@@ -4,6 +4,7 @@
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/image/detail/pitch_type.hpp>
+#include <mizuiro/image/detail/stacked_dim_type.hpp>
 #include <boost/tr1/array.hpp>
 
 namespace mizuiro
@@ -106,10 +107,9 @@ private:
 	pitch_type pitch_;
 	difference_type line_advance_;
 
-	typedef std::tr1::array<
-		typename dim_type::value_type,
-		pitch_type::static_size
-	> stacked_dim_array;
+	typedef typename detail::stacked_dim_type<
+		dim_type
+	>::type stacked_dim_array;
 
 	stacked_dim_array stacked_dim_;
 };
