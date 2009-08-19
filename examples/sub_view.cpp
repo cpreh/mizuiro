@@ -66,13 +66,13 @@ int main()
 		for(size_type x = 0; x < dim[0]; ++x)
 			for(size_type y = 0; y < dim[1]; ++y)
 				for(size_type z = 0; z < dim[2]; ++z)
-					view.at(
+					view[
 						dim_type(
 							x,
 							y,
 							z
 						)
-					)
+					]
 					= mizuiro::color::object<
 						format::color_format
 					>(
@@ -104,9 +104,9 @@ int main()
 					1
 				),
 				bound_type::dim_type(
-					2,//98,
-					3,//98,
-					2//98	
+					3,
+					4,
+					3	
 				)
 			)
 		)
@@ -124,14 +124,14 @@ int main()
 			sub_view,
 			bound_type(
 				bound_type::dim_type(
-					0,	
-					0,
-					0
+					1,	
+					1,
+					1
 				),
 				bound_type::dim_type(
-					98,
-					98,
-					98	
+					2,
+					3,
+					2	
 				)
 			)
 		)

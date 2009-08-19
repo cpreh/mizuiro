@@ -111,11 +111,16 @@ int main()
 				bound_type::dim_type(
 					2,
 					3,
-					2	
+					2
 				)
 			)
 		)
 	);
+
+	std::cout
+		<< "sub_view.pitch(): "
+		<< sub_view.pitch()
+		<< '\n';
 
 	mizuiro::image::algorithm::print(
 		std::cout,

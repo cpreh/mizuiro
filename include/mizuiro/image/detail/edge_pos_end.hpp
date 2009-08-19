@@ -28,7 +28,7 @@ edge_pos_end(
 	)
 		ret[i] =
 			i == index
-			? bound.dimensions()[i] + bound.positions()[i] - 1
+			? bound.dimensions()[i] + bound.positions()[i]
 			: bound.positions()[i];
 	
 	return ret;

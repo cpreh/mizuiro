@@ -82,8 +82,6 @@ mizuiro::image::pitch_iterator<Format, Constness>::pitch() const
 	return pitch_;
 }
 
-#include <iostream>
-
 template<
 	typename Format,
 	typename Constness
@@ -113,21 +111,17 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 		)
 	);
 
-	std::cout << diff_to_begin << '\n';
-
 	for(
 		size_type i = 0;
 		i < pitch_type::static_size;
 		++i
 	)
-	{
 		add += (
 			(diff +
 				diff_to_begin
 				% stacked_dim_[i]
 			) / stacked_dim_[i]
 		) * pitch_[i];
-	}
 
 	data_ += add;
 }
@@ -139,18 +133,15 @@ template<
 void
 mizuiro::image::pitch_iterator<Format, Constness>::increment()
 {
-	/*
 	if(
 		++line_advance_ / dim_[0]
 	)
-	{*/
+	{
 		advance(1);
-	/*
 		line_advance_ = 0;
 	}
 	else
 		data_ += Format::color_format::element_count;
-	*/
 }
 
 template<

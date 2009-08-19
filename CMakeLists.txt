@@ -31,6 +31,24 @@ ELSE()
 		"-DBOOST_ROOT= to tell cmake where your boost installation is.")
 ENDIF()
 
+IF (CMAKE_COMPILER_IS_GNUCXX)
+	INCLUDE (CheckCXXSourceCompiles)
+
+	CHECK_CXX_SOURCE_COMPILES(
+		"int main()
+		{
+		if(__builtin_expect(true, 0))
+		{}
+		}"
+		MIZUIRO_HAVE_BUILTIN_EXPECT
+	)
+ENDIF ()
+
+CONFIGURE_FILE(
+	${CMAKE_SOURCE_DIR}/config.h.in
+	${CMAKE_SOURCE_DIR}/include/mizuiro/config.hpp
+)
+
 INSTALL (DIRECTORY include/ DESTINATION include/)
 
 OPTION (BUILD_EXAMPLES "Build the examples" ON)

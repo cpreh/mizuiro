@@ -49,7 +49,7 @@ subview_pitch(
 						i
 					)
 				).data()
-				- View::color_format::element_count
+				+ view.pitch()[i]
 			)
 			: 0;
 
