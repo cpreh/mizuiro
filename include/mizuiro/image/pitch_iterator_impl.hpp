@@ -6,6 +6,7 @@
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
 #include <mizuiro/image/iterator_position.hpp>
+#include <mizuiro/detail/unlikely.hpp>
 #include <cassert>
 
 template<
@@ -122,11 +123,25 @@ void
 mizuiro::image::pitch_iterator<Format, Constness>::increment()
 {
 	if(
-		++line_advance_
-		>= static_cast<
-			difference_type
-		>(
-			dim_[0]
+		MIZUIRO_DETAIL_UNLIKELY(
+			line_advance_ == -1
+		)
+	)
+		line_advance_ =
+			iterator_position(
+				*this
+			)[0];
+
+	++line_advance_;
+
+	if(
+		MIZUIRO_DETAIL_UNLIKELY(
+			line_advance_
+			>= static_cast<
+				difference_type
+			>(
+				dim_[0]
+			)
 		)
 	)
 	{

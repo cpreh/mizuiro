@@ -34,7 +34,7 @@ template<
 	typename T,
 	typename A
 >
-mizuiro::image::detail::raw_container<T, A>::	raw_container(
+mizuiro::image::detail::raw_container<T, A>::raw_container(
 	raw_container const &other
 )
 {
@@ -182,8 +182,9 @@ void
 mizuiro::image::detail::raw_container<T, A>::destroy()
 {
 	if(data_)
-		allocator.destroy(
-			data_
+		allocator.deallocate(
+			data_,
+			size()
 		);
 }
 

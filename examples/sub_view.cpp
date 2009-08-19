@@ -117,7 +117,6 @@ int main()
 		<< ")\n";
 
 
-	/*
 	view_type const sub_sub_view(
 		mizuiro::image::sub_view(
 			sub_view,
@@ -135,23 +134,20 @@ int main()
 			)
 		)
 	);
-	*/
 
-	/*
 	std::cout
 		<< "sub sub image (with pitch "
 		<< sub_sub_view.pitch()
 		<< ")\n";
-	*/
 
 	mizuiro::image::algorithm::copy(
 		sub_view,
-		sub_view
+		sub_sub_view
 	);
 
 	mizuiro::image::algorithm::print(
 		std::cout,
-		sub_view
+		sub_sub_view
 	);
 
 	std::cout << '\n';
