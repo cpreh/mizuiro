@@ -49,7 +49,6 @@ int main()
 	typedef view_type::bound_type bound_type;
 
 	// TODO: create an algorithm for this!
-	
 	{
 		view_type const view(
 			img.view()
@@ -131,7 +130,7 @@ int main()
 				bound_type::dim_type(
 					2,
 					3,
-					2	
+					2
 				)
 			)
 		)

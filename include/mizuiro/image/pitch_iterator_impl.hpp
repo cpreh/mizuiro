@@ -122,7 +122,12 @@ void
 mizuiro::image::pitch_iterator<Format, Constness>::increment()
 {
 	if(
-		++line_advance_ / dim_[0]
+		++line_advance_
+		>= static_cast<
+			difference_type
+		>(
+			dim_[0]
+		)
 	)
 	{
 		advance(1);
