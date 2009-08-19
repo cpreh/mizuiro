@@ -140,10 +140,12 @@ int main()
 		<< sub_sub_view.pitch()
 		<< ")\n";
 
+	/*
 	mizuiro::image::algorithm::copy(
 		sub_view,
 		sub_sub_view
 	);
+	*/
 
 	mizuiro::image::algorithm::print(
 		std::cout,

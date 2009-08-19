@@ -84,11 +84,7 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 
 	line_advance_ = -1;
 
-	size_type const stride(
-		Format::color_format::element_count
-	);
-
-	difference_type add = diff * stride;
+	difference_type add = diff * Format::color_format::element_count;
 
 	difference_type const diff_to_begin(
 		detail::iterator_position_distance(

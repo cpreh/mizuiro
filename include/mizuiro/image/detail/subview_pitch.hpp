@@ -33,14 +33,19 @@ subview_pitch(
 		i < pitch_type::static_size;
 		++i
 	)
+	{
+		typename View::dim_type const edge_pos_end_(
+			edge_pos_end(
+				bound,
+				i
+			)
+		);
+
 		ret[i] = view.dim()[i] > 1
 			? std::distance(
 				move_iterator(
 					view,
-					edge_pos_end(
-						bound,
-						i
-					)
+					edge_pos_end_
 				).data(),
 				move_iterator(
 					view,
@@ -49,9 +54,16 @@ subview_pitch(
 						i
 					)
 				).data()
-				+ view.pitch()[i]
 			)
 			: 0;
+
+		// if the end is one past the parent view's dim,
+		// the pitch will be skipped by the iterator, so readd it
+		if(
+			edge_pos_end_[i] == view.dim()[i]
+		)
+			ret[i] += view.pitch()[i];
+	}
 
 	return ret;
 }
