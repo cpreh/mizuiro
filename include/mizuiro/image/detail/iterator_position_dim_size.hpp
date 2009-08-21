@@ -3,6 +3,8 @@
 
 #include <mizuiro/image/pitch_iterator_impl.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
+#include <cmath>
+#include <cstdlib>
 
 namespace mizuiro
 {
@@ -56,7 +58,9 @@ iterator_position_dim_size(
 					i-1
 				)
 			)
-			+ it.pitch()[i];
+			+ std::abs(
+				it.pitch()[i]
+			);
 }
 
 }

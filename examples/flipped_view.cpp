@@ -3,8 +3,13 @@
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/flipped_view.hpp>
+#include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/init.hpp>
+#include <mizuiro/color/object_impl.hpp>
+#include <iostream>
+#include <ostream>
 
 int main()
 {
@@ -35,9 +40,47 @@ int main()
 
 	typedef store::view_type view_type;
 
-	view_type const view(
+	{
+		view_type const view(
+			img.view()
+		);
+
+		typedef view_type::dim_type dim_type;
+
+		typedef dim_type::size_type size_type;
+
+		dim_type const dim(
+			view.dim()
+		);
+
+		for(size_type x = 0; x < dim[0]; ++x)
+			for(size_type y = 0; y < dim[1]; ++y)
+				view[
+					dim_type(
+						x,
+						y
+					)
+				]
+				= mizuiro::color::object<
+					format::color_format
+				>(
+					mizuiro::color::init::red = static_cast<channel_type>(x),
+					mizuiro::color::init::green = static_cast<channel_type>(y),
+					mizuiro::color::init::blue = static_cast<channel_type>(255),
+					mizuiro::color::init::alpha = static_cast<channel_type>(255)
+				);
+	}
+
+	view_type const flipped_view(
 		mizuiro::image::flipped_view(
 			img.view()
 		)
 	);
+
+	mizuiro::image::algorithm::print(
+		std::cout,
+		flipped_view
+	);
+
+	std::cout << '\n';
 }

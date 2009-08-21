@@ -2,6 +2,7 @@
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/gray.hpp>
+#include <mizuiro/color/layout/alpha.hpp>
 #include <mizuiro/color/convert.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/output.hpp>
@@ -24,6 +25,13 @@ int main()
 			mizuiro::color::layout::gray
 		>
 	> gray_color;
+
+	typedef mizuiro::color::object<
+		mizuiro::color::homogenous<
+			boost::uint8_t,
+			mizuiro::color::layout::alpha
+		>
+	> alpha_color;
 
 	gray_color test_gray(
 		(mizuiro::color::init::gray = static_cast<boost::uint8_t>(42))
@@ -82,5 +90,18 @@ int main()
 	std::cout 
 		<< "converted back to gray: "
 		<< test_gray2
+		<< '\n';
+	
+	alpha_color const test_alpha(
+		mizuiro::color::init::alpha %= 0.5
+	);
+
+	std::cout
+		<< "alpha converted to rgba: "
+		<< mizuiro::color::convert<
+			rgba_float_color::format
+		>(
+			test_alpha
+		)
 		<< '\n';
 }
