@@ -1,15 +1,12 @@
 #ifndef MIZUIRO_IMAGE_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 
-#include <mizuiro/image/detail/iterator_position_distance.hpp>
 #include <mizuiro/image/detail/stacked_dim.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
 #include <mizuiro/image/iterator_position.hpp>
 #include <mizuiro/detail/unlikely.hpp>
 #include <cassert>
-
-#include <iostream>
 
 template<
 	typename Format,
@@ -22,11 +19,11 @@ mizuiro::image::pitch_iterator<Format, Constness>::pitch_iterator(
 )
 :
 	dim_(dim_),
-	//data_(data_),
 	root_data_(data_),
 	pitch_(pitch_),
 	line_advance_(0),
 	position_(0),
+	offset_(0),
 	stacked_dim_(
 		detail::stacked_dim(
 			dim_
@@ -48,10 +45,20 @@ template<
 	typename Format,
 	typename Constness
 >
+typename mizuiro::image::pitch_iterator<Format, Constness>::difference_type
+mizuiro::image::pitch_iterator<Format, Constness>::offset() const
+{
+	return offset_;
+}
+
+template<
+	typename Format,
+	typename Constness
+>
 typename mizuiro::image::pitch_iterator<Format, Constness>::pointer
 mizuiro::image::pitch_iterator<Format, Constness>::data() const
 {
-	return root_data_ + position_; //data_;
+	return root_data_ + position_;
 }
 
 template<
@@ -90,18 +97,8 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 	difference_type add = diff * Format::color_format::element_count;
 
 	difference_type const diff_to_begin(
-		detail::iterator_position_distance(
-			dim_,
-			dim_type::null(),
-			iterator_position(
-				*this
-			)
-		)
+		offset_
 	);
-
-	std::cerr << "iterator_position: " << iterator_position(*this) << '\n';
-
-	std::cerr << "diff_to_begin: " << diff_to_begin << '\n';
 
 	for(
 		size_type i = 0;
@@ -115,8 +112,8 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 			) / stacked_dim_[i]
 		) * pitch_[i];
 
+	offset_ += diff;
 	position_ += add;
-	//data_ += add;
 }
 
 template<
@@ -153,8 +150,10 @@ mizuiro::image::pitch_iterator<Format, Constness>::increment()
 		line_advance_ = 0;
 	}
 	else
+	{
 		position_ += Format::color_format::element_count;
-		//data_ += Format::color_format::element_count;
+		++offset_;
+	}
 }
 
 template<
@@ -176,15 +175,7 @@ mizuiro::image::pitch_iterator<Format, Constness>::distance_to(
 	pitch_iterator const &other
 ) const
 {
-	return detail::iterator_position_distance(
-		dim_,
-		iterator_position(
-			*this
-		),
-		iterator_position(
-			other
-		)
-	);
+	return other.offset_ - offset_;
 }
 
 template<
@@ -209,7 +200,6 @@ mizuiro::image::pitch_iterator<Format, Constness>::equal(
 ) const
 {
 	return position_ == other.position_;
-	//return data() == other.data();
 }
 
 #endif

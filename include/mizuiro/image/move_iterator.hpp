@@ -35,7 +35,7 @@ move_iterator(
 		i < dim_type::static_size;
 		++i
 	)
-	{	
+	{
 		add += 
 			pos[i] *
 			std::accumulate(

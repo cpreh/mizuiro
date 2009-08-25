@@ -65,6 +65,9 @@ public:
 	dim_type const &
 	dim() const;
 
+	difference_type
+	offset() const;
+
 	pointer
 	data() const;
 
@@ -102,12 +105,12 @@ private:
 
 	dim_type dim_;
 	pointer
-//		data_,
 		root_data_;
 	pitch_type pitch_;
 	difference_type
 		line_advance_,
-		position_;
+		position_,
+		offset_;
 
 	typedef typename detail::stacked_dim_type<
 		dim_type
