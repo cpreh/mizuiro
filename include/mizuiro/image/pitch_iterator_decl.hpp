@@ -102,10 +102,12 @@ private:
 
 	dim_type dim_;
 	pointer
-		data_,
+//		data_,
 		root_data_;
 	pitch_type pitch_;
-	difference_type line_advance_;
+	difference_type
+		line_advance_,
+		position_;
 
 	typedef typename detail::stacked_dim_type<
 		dim_type

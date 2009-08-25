@@ -31,6 +31,22 @@ flipped_view(
 		view.dim()[1]
 	);
 
+		typename View::pitch_type const pitch_(
+					std::distance(
+						move_iterator(
+							view,
+							dim_type(
+								view.dim()[0],
+								1
+							)
+						).data(),
+						view.begin().data()
+					)
+					+ view.pitch()[0]
+				);
+
+	std::cerr << pitch_ << '\n';
+
 	return
 		height > 1
 		?
@@ -43,21 +59,20 @@ flipped_view(
 						height - 1
 					)
 				).data(),
-				typename View::pitch_type(
-					view.pitch()[0]
-					+ 
-					2 * 
+				pitch_
+				/*typename View::pitch_type(
 					std::distance(
 						move_iterator(
 							view,
 							dim_type(
-								0,
+								view.dim()[0],
 								1
 							)
 						).data(),
 						view.begin().data()
 					)
-				)
+					+ view.pitch()[0]
+				)*/
 			)
 		:
 			view;

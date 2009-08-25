@@ -9,6 +9,8 @@
 #include <mizuiro/detail/unlikely.hpp>
 #include <cassert>
 
+#include <iostream>
+
 template<
 	typename Format,
 	typename Constness
@@ -20,10 +22,11 @@ mizuiro::image::pitch_iterator<Format, Constness>::pitch_iterator(
 )
 :
 	dim_(dim_),
-	data_(data_),
+	//data_(data_),
 	root_data_(data_),
 	pitch_(pitch_),
 	line_advance_(0),
+	position_(0),
 	stacked_dim_(
 		detail::stacked_dim(
 			dim_
@@ -48,7 +51,7 @@ template<
 typename mizuiro::image::pitch_iterator<Format, Constness>::pointer
 mizuiro::image::pitch_iterator<Format, Constness>::data() const
 {
-	return data_;
+	return root_data_ + position_; //data_;
 }
 
 template<
@@ -96,6 +99,10 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 		)
 	);
 
+	std::cerr << "iterator_position: " << iterator_position(*this) << '\n';
+
+	std::cerr << "diff_to_begin: " << diff_to_begin << '\n';
+
 	for(
 		size_type i = 0;
 		i < pitch_type::static_size;
@@ -108,7 +115,8 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 			) / stacked_dim_[i]
 		) * pitch_[i];
 
-	data_ += add;
+	position_ += add;
+	//data_ += add;
 }
 
 template<
@@ -145,7 +153,8 @@ mizuiro::image::pitch_iterator<Format, Constness>::increment()
 		line_advance_ = 0;
 	}
 	else
-		data_ += Format::color_format::element_count;
+		position_ += Format::color_format::element_count;
+		//data_ += Format::color_format::element_count;
 }
 
 template<
@@ -186,7 +195,7 @@ typename mizuiro::image::pitch_iterator<Format, Constness>::reference
 mizuiro::image::pitch_iterator<Format, Constness>::dereference() const
 {
 	return reference(
-		data_
+		data()
 	);
 }
 
@@ -199,7 +208,8 @@ mizuiro::image::pitch_iterator<Format, Constness>::equal(
 	pitch_iterator const &other
 ) const
 {
-	return data_ == other.data_;
+	return position_ == other.position_;
+	//return data() == other.data();
 }
 
 #endif

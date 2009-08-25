@@ -3,6 +3,7 @@
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/flipped_view.hpp>
+#include <mizuiro/image/sub_view.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/homogenous.hpp>
@@ -71,16 +72,49 @@ int main()
 				);
 	}
 
-	view_type const flipped_view(
-		mizuiro::image::flipped_view(
-			img.view()
+	typedef view_type::bound_type bound_type;
+
+	view_type const sub_view(
+		mizuiro::image::sub_view(
+			img.view(),
+			bound_type(
+				bound_type::dim_type(
+					1,
+					1
+				),
+				bound_type::dim_type(
+					3,
+					4
+				)
+			)
 		)
 	);
 
+	view_type const flipped_view(
+		mizuiro::image::flipped_view(
+			sub_view
+		)
+	);
+
+	view_type::iterator it(
+		flipped_view.begin()
+	);
+
+	for(
+		unsigned i = 0;
+		i < 3 * 4 + 1;
+		++i
+	)
+		std::cout << *it++ << ' ';
+	
+	std::cout << '\n';
+	std::cout << *flipped_view.end() << '\n';
+	/*
 	mizuiro::image::algorithm::print(
 		std::cout,
 		flipped_view
 	);
+	*/
 
 	std::cout << '\n';
 }
