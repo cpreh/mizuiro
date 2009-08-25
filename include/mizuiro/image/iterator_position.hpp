@@ -1,8 +1,8 @@
 #ifndef MIZUIRO_IMAGE_ITERATOR_POSITION_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ITERATOR_POSITION_HPP_INCLUDED
 
-#include <mizuiro/image/detail/iterator_position_numerator.hpp>
-#include <mizuiro/image/detail/iterator_position_denominator.hpp>
+#include <mizuiro/image/detail/stacked_dim_type.hpp>
+#include <mizuiro/image/detail/stacked_dim.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/pitch_iterator_impl.hpp>
 
@@ -30,16 +30,38 @@ iterator_position(
 		Constness
 	>::dim_type dim_type;
 
+	typedef typename detail::stacked_dim_type<
+		dim_type
+	>::type stacked_dim_type;
+	
+	stacked_dim_type const stacked_dims(
+		detail::stacked_dim(
+			it.dim()
+		)
+	);
+
+	typedef typename dim_type::size_type size_type;
+
 	dim_type d;
 
 	for (
-		typename dim_type::size_type i = 0;
+		size_type i = 0;
 		i < dim_type::static_size;
 		++i
 	)
-		d[i] =
-			detail::iterator_position_numerator(it,i)
-			/ detail::iterator_position_denominator(it,i);
+	{
+		d[i] = it.offset();
+
+		for (
+			size_type m = dim_type::static_size - 1;
+			m > i;
+			--m
+		)
+			d[i] %= stacked_dims[i];
+
+		if(i > 0)
+			d[i] /= stacked_dims[i - 1];
+	}
 	
 	return d;
 }
