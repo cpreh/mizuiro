@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_COLOR_DETAIL_COPY_N_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_COPY_N_HPP_INCLUDED
+#ifndef MIZUIRO_DETAIL_COPY_N_HPP_INCLUDED
+#define MIZUIRO_DETAIL_COPY_N_HPP_INCLUDED
 
 #include <boost/mpl/and.hpp>
 #include <boost/utility/enable_if.hpp>

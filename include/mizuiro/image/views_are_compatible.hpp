@@ -10,6 +10,8 @@
 #include <boost/mpl/bind.hpp>
 #include <boost/mpl/vector.hpp>
 #include <boost/mpl/quote.hpp>
+#include <boost/mpl/size.hpp>
+#include <boost/mpl/equal_to.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <boost/type_traits/integral_constant.hpp>
 #include <boost/none_t.hpp>
@@ -29,6 +31,14 @@ boost::mpl::and_<
 	boost::is_same<
 		typename View1::dim_type,
 		typename View2::dim_type
+	>,
+	boost::mpl::equal_to<
+		boost::mpl::size<
+			typename View1::color_format::layout::order
+		>,
+		boost::mpl::size<
+			typename View2::color_format::layout::order
+		>
 	>,
 	boost::mpl::fold<
 		typename View1::color_format::layout::order,
