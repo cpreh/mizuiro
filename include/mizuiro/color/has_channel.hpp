@@ -9,13 +9,13 @@ namespace color
 {
 template
 <
-	typename Color,
+	typename Format,
 	typename Channel
 >
 struct has_channel
 :
 boost::mpl::contains<
-	typename Color::layout::order, 
+	typename Format::layout::order, 
 	Channel
 >
 {
