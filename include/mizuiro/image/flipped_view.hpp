@@ -7,8 +7,6 @@
 #include <boost/utility/enable_if.hpp>
 #include <iterator>
 
-#include <iostream>
-
 namespace mizuiro
 {
 namespace image
@@ -31,22 +29,6 @@ flipped_view(
 		view.dim()[1]
 	);
 
-		typename View::pitch_type const pitch_(
-					std::distance(
-						move_iterator(
-							view,
-							dim_type(
-								view.dim()[0],
-								1
-							)
-						).data(),
-						view.begin().data()
-					)
-					+ view.pitch()[0]
-				);
-
-	std::cerr << pitch_ << '\n';
-
 	return
 		height > 1
 		?
@@ -59,8 +41,7 @@ flipped_view(
 						height - 1
 					)
 				).data(),
-				pitch_
-				/*typename View::pitch_type(
+				typename View::pitch_type(
 					std::distance(
 						move_iterator(
 							view,
@@ -72,7 +53,7 @@ flipped_view(
 						view.begin().data()
 					)
 					+ view.pitch()[0]
-				)*/
+				)
 			)
 		:
 			view;
