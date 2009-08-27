@@ -23,7 +23,7 @@ template<
 >
 mizuiro::color::channel_proxy<Layout, Channel, Constness> &
 mizuiro::color::channel_proxy<Layout, Channel, Constness>::operator=(
-	typename layout:: template channel_value_type<
+	typename Layout:: template channel_value_type<
 		channel
 	>::type ref
 )

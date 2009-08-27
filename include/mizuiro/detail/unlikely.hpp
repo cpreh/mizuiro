@@ -6,7 +6,7 @@
 #if defined(MIZUIRO_HAVE_BUILTIN_EXPECT)
 #define MIZUIRO_DETAIL_UNLIKELY(x) __builtin_expect((x), 0)
 #else
-#define MIZUIRO_DETAIL_UNLIKELY(x)
+#define MIZUIRO_DETAIL_UNLIKELY(x) (x)
 #endif
 
 #endif
