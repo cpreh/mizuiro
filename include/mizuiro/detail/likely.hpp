@@ -6,7 +6,7 @@
 #if defined(MIZUIRO_HAVE_BUILTIN_EXPECT)
 #define MIZUIRO_DETAIL_LIKELY(x) __builtin_expect((x), 1)
 #else
-#define MIZUIRO_DETAIL_LIKELY(x)
+#define MIZUIRO_DETAIL_LIKELY(x) (x)
 #endif
 
 #endif
