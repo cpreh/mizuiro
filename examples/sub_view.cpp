@@ -12,6 +12,7 @@
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/homogenous.hpp>
 //#include <boost/cstdint.hpp>
+#include <iterator>
 #include <iostream>
 #include <ostream>
 
@@ -151,6 +152,23 @@ int main()
 		std::cout,
 		sub_sub_view
 	);
+
+	std::cout << '\n';
+
+	{
+		typedef std::reverse_iterator<
+			view_type::iterator
+		> reverse_iterator;
+
+		for(
+			reverse_iterator it(
+				sub_sub_view.end()
+			);
+			it != reverse_iterator(sub_sub_view.begin());
+			++it
+		)
+			std::cout << *it << ' ';
+	}
 
 	std::cout << '\n';
 }

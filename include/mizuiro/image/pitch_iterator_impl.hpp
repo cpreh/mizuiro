@@ -94,11 +94,20 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 
 	line_advance_ = -1;
 
-	difference_type add = diff * Format::color_format::element_count;
+	if(
+		diff < 0
+	)
+	{
+		*this =
+			pitch_iterator(
+				dim_,
+				root_data_,
+				pitch_
+			) += (offset_ + diff);
+		return;
+	}
 
-	difference_type const diff_to_begin(
-		offset_
-	);
+	difference_type add = diff * Format::color_format::element_count;
 
 	for(
 		size_type i = 0;
@@ -107,7 +116,7 @@ mizuiro::image::pitch_iterator<Format, Constness>::advance(
 	)
 		add += (
 			(diff +
-				diff_to_begin
+				offset_
 				% stacked_dim_[i]
 			) / stacked_dim_[i]
 		) * pitch_[i];
