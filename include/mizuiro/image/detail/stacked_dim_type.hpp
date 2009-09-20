@@ -3,7 +3,7 @@
 
 #include <mizuiro/image/detail/pitch_type.hpp>
 #include <mizuiro/image/dimension_decl.hpp>
-#include <boost/tr1/array.hpp>
+#include <tr1/array>
 
 namespace mizuiro
 {

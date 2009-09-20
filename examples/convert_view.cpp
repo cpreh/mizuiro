@@ -9,7 +9,7 @@
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/alpha.hpp>
 #include <mizuiro/color/homogenous.hpp>
-#include <boost/tr1/array.hpp>
+#include <tr1/array>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>

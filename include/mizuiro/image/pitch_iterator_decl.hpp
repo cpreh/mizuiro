@@ -5,7 +5,7 @@
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/image/detail/pitch_type.hpp>
 #include <mizuiro/image/detail/stacked_dim_type.hpp>
-#include <boost/tr1/array.hpp>
+#include <tr1/array>
 
 namespace mizuiro
 {

@@ -11,7 +11,7 @@
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/size_type.hpp>
-#include <boost/tr1/array.hpp>
+#include <tr1/array>
 #include <iostream>
 #include <ostream>
 
