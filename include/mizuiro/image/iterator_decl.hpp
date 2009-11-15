@@ -6,7 +6,7 @@
 #include <mizuiro/image/linear_iterator_decl.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <sge/variant/object_decl.hpp>
-#include <boost/mpl/vector.hpp>
+#include <boost/mpl/vector/vector10.hpp>
 
 namespace mizuiro
 {
@@ -41,7 +41,7 @@ public:
 	>::type base;
 
 	typedef sge::variant::object<
-		boost::mpl::vector<
+		boost::mpl::vector2<
 			pitch_iterator<
 				Format,
 				Constness

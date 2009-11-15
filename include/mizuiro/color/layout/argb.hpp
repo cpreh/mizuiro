@@ -6,7 +6,7 @@
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/blue.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
-#include <boost/mpl/vector.hpp>
+#include <boost/mpl/vector/vector10.hpp>
 
 namespace mizuiro
 {
@@ -16,7 +16,7 @@ namespace layout
 {
 
 typedef additive<
-	boost::mpl::vector<
+	boost::mpl::vector4<
 		channel::alpha,
 		channel::red,
 		channel::green,
