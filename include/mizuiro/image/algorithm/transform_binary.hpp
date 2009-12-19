@@ -3,7 +3,7 @@
 
 #include <mizuiro/image/algorithm/detail/apply_binary_iteration.hpp>
 #include <mizuiro/image/algorithm/detail/transform_binary.hpp>
-#include <sge/variant/apply_binary.hpp>
+#include <fcppt/variant/apply_binary.hpp>
 
 namespace mizuiro
 {
@@ -24,7 +24,7 @@ transform_binary(
 	Fun const &fun
 )
 {
-	sge::variant::apply_binary(
+	fcppt::variant::apply_binary(
 		detail::apply_binary_iteration(
 			detail::transform_binary<
 				Fun

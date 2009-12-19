@@ -9,7 +9,7 @@ ENDIF()
 
 MACRO (BUILD_EXAMPLE example)
 	ADD_EXECUTABLE (${example} ${example}.cpp)
-	TARGET_LINK_LIBRARIES( ${example} sgecore)
+	TARGET_LINK_LIBRARIES( ${example} fcppt)
 ENDMACRO()
 
 BUILD_EXAMPLE(algorithm)

@@ -5,7 +5,7 @@
 #include <mizuiro/image/algorithm/detail/copy_element.hpp>
 #include <mizuiro/image/algorithm/detail/copy_raw.hpp>
 #include <mizuiro/image/views_have_same_channel_order.hpp>
-#include <sge/variant/apply_binary.hpp>
+#include <fcppt/variant/apply_binary.hpp>
 #include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
@@ -33,7 +33,7 @@ copy_impl(
 	ViewD const &dest
 )
 {
-	sge::variant::apply_binary(
+	fcppt::variant::apply_binary(
 		apply_binary_iteration(
 			detail::copy_element()
 		),
@@ -58,7 +58,7 @@ copy_impl(
 	ViewD const &dest
 )
 {
-	sge::variant::apply_binary(
+	fcppt::variant::apply_binary(
 		copy_raw(),
 		src.range(),
 		dest.range()

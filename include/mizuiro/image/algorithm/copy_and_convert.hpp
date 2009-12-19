@@ -5,7 +5,7 @@
 #include <mizuiro/image/algorithm/detail/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/copy.hpp>
 #include <mizuiro/image/views_are_compatible.hpp>
-#include <sge/variant/apply_binary.hpp>
+#include <fcppt/variant/apply_binary.hpp>
 #include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
@@ -31,7 +31,7 @@ copy_and_convert(
 	ViewD const &dest
 )
 {
-	sge::variant::apply_binary(
+	fcppt::variant::apply_binary(
 		detail::apply_binary_iteration(
 			detail::copy_and_convert()
 		),

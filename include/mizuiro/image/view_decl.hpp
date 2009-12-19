@@ -7,7 +7,7 @@
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/linear_iterator_fwd.hpp>
 #include <mizuiro/image/bound_fwd.hpp>
-#include <sge/variant/object_fwd.hpp>
+#include <fcppt/variant/object_fwd.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 
 namespace mizuiro
@@ -44,7 +44,7 @@ public:
 		linear_iterator
 	> linear_range;
 	
-	typedef sge::variant::object<
+	typedef fcppt::variant::object<
 		boost::mpl::vector2<
 			linear_range,
 			pitch_range

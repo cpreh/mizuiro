@@ -12,24 +12,17 @@ IF(${CMAKE_BINARY_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
 		"Make a separate folder for building:\n"
 		"mkdir build; cd build; cmake ..\n"
 		"Before that, remove the files that cmake"
-		"just created:\nrm -rf CMakeCache.txt CMakeFiles")
+		"just created:\nrm -rf CMakeCache.txt CMakeFiles"
+	)
 ENDIF()
 
-FIND_PACKAGE(Boost 1.35.0)
+SET (Boost_ADDITIONAL_VERSIONS "1.41" "1.41.0")
 
-IF(NOT Boost_FOUND)
-	MESSAGE(STATUS "Boost not found!")
-ENDIF()
+FIND_PACKAGE(
+	Boost 1.41.0 REQUIRED COMPONENTS
+)
 
-IF(Boost_INCLUDE_DIR)
-	INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
-ELSE()
-	MESSAGE(
-		STATUS
-		"Boost headers not found. You will have to specify them"
-		"in your build environment or you can use"
-		"-DBOOST_ROOT= to tell cmake where your boost installation is.")
-ENDIF()
+INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
 
 IF (CMAKE_COMPILER_IS_GNUCXX)
 	INCLUDE (CheckCXXSourceCompiles)

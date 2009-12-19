@@ -2,9 +2,9 @@
 #define MIZUIRO_IMAGE_ITERATOR_IMPL_HPP_INCLUDED
 
 #include <mizuiro/image/iterator_decl.hpp>
-#include <sge/variant/apply_unary.hpp>
-#include <sge/variant/apply_binary.hpp>
-#include <sge/variant/object_impl.hpp>
+#include <fcppt/variant/apply_unary.hpp>
+#include <fcppt/variant/apply_binary.hpp>
+#include <fcppt/variant/object_impl.hpp>
 #include <mizuiro/image/detail/advance_iterator.hpp>
 #include <mizuiro/image/detail/increment_iterator.hpp>
 #include <mizuiro/image/detail/decrement_iterator.hpp>
@@ -41,7 +41,7 @@ template<
 typename mizuiro::image::iterator<Format, Constness>::pointer
 mizuiro::image::iterator<Format, Constness>::data() const
 {
-	return sge::variant::apply_unary(
+	return fcppt::variant::apply_unary(
 		detail::iterator_data<
 			pointer
 		>(),
@@ -59,7 +59,7 @@ mizuiro::image::iterator<Format, Constness>::advance(
 )
 {
 	internal_ =
-		sge::variant::apply_unary(
+		fcppt::variant::apply_unary(
 			detail::advance_iterator<
 				internal_type,
 				difference_type
@@ -78,7 +78,7 @@ void
 mizuiro::image::iterator<Format, Constness>::increment()
 {
 	internal_ =
-		sge::variant::apply_unary(
+		fcppt::variant::apply_unary(
 			detail::increment_iterator<
 				internal_type
 			>(),
@@ -94,7 +94,7 @@ void
 mizuiro::image::iterator<Format, Constness>::decrement()
 {
 	internal_ =
-		sge::variant::apply_unary(
+		fcppt::variant::apply_unary(
 			detail::decrement_iterator<
 				internal_type
 			>(),
@@ -112,7 +112,7 @@ mizuiro::image::iterator<Format, Constness>::distance_to(
 ) const
 {
 	return
-		sge::variant::apply_binary(
+		fcppt::variant::apply_binary(
 			detail::iterator_difference<
 				difference_type
 			>(),
@@ -129,7 +129,7 @@ typename mizuiro::image::iterator<Format, Constness>::reference
 mizuiro::image::iterator<Format, Constness>::dereference() const
 {
 	return
-		sge::variant::apply_unary(
+		fcppt::variant::apply_unary(
 			detail::dereference_iterator<
 				reference
 			>(),
@@ -147,7 +147,7 @@ mizuiro::image::iterator<Format, Constness>::equal(
 ) const
 {
 	return
-		sge::variant::apply_binary(
+		fcppt::variant::apply_binary(
 			detail::compare_iterator(),
 			internal_,
 			other.internal_
