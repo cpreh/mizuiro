@@ -9,7 +9,7 @@
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/alpha.hpp>
 #include <mizuiro/color/homogenous.hpp>
-#include <tr1/array>
+#include <fcppt/tr1/array.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>

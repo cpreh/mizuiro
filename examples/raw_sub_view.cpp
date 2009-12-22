@@ -11,7 +11,7 @@
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/size_type.hpp>
-#include <tr1/array>
+#include <fcppt/tr1/array.hpp>
 #include <iostream>
 #include <ostream>
 

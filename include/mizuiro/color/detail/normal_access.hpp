@@ -3,7 +3,7 @@
 
 #include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/detail/index_of.hpp>
-#include <tr1/array>
+#include <fcppt/tr1/array.hpp>
 #include <boost/mpl/size.hpp>
 
 namespace mizuiro

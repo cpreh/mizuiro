@@ -3,7 +3,7 @@
 
 #include <mizuiro/image/detail/pitch_type.hpp>
 #include <mizuiro/image/dimension_decl.hpp>
-#include <tr1/array>
+#include <fcppt/tr1/array.hpp>
 
 namespace mizuiro
 {

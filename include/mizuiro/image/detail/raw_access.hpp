@@ -6,7 +6,7 @@
 #include <mizuiro/color/channel_proxy_impl.hpp>
 #include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/detail/index_of.hpp>
-#include <tr1/array>
+#include <fcppt/tr1/array.hpp>
 
 namespace mizuiro
 {

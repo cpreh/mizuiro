@@ -3,7 +3,7 @@
 
 #include <mizuiro/image/dimension_fwd.hpp>
 #include <mizuiro/size_type.hpp>
-#include <tr1/array>
+#include <fcppt/tr1/array.hpp>
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
