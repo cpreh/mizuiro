@@ -2,7 +2,7 @@
 #define MIZUIRO_IMAGE_CONST_VIEW_HPP_INCLUDED
 
 #include <mizuiro/image/view_fwd.hpp>
-#include <mizuiro/detail/const_tag.hpp>
+#include <mizuiro/const_tag.hpp>
 
 namespace mizuiro
 {
@@ -27,7 +27,7 @@ struct const_view<
 {
 	typedef view<
 		Format,
-		mizuiro::detail::const_tag
+		mizuiro::const_tag
 	> type;
 };
 

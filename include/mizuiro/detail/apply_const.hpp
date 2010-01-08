@@ -1,8 +1,8 @@
 #ifndef MIZUIRO_DETAIL_APPLY_CONST_HPP_INCLUDED
 #define MIZUIRO_DETAIL_APPLY_CONST_HPP_INCLUDED
 
-#include <mizuiro/detail/const_tag.hpp>
-#include <mizuiro/detail/nonconst_tag.hpp>
+#include <mizuiro/const_tag.hpp>
+#include <mizuiro/nonconst_tag.hpp>
 
 namespace mizuiro
 {

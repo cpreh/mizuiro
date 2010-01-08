@@ -3,8 +3,8 @@
 
 #include <mizuiro/color/proxy_decl.hpp>
 #include <mizuiro/color/detail/copy_channel.hpp>
-#include <mizuiro/detail/nonconst_tag.hpp>
-#include <mizuiro/detail/const_tag.hpp>
+#include <mizuiro/const_tag.hpp>
+#include <mizuiro/nonconst_tag.hpp>
 #include <boost/mpl/for_each.hpp>
 
 template<
@@ -64,7 +64,7 @@ mizuiro::color::proxy<Format, Constness>::set(
 {
 	format:: template extract_channel<
 		Channel,
-		mizuiro::detail::nonconst_tag
+		mizuiro::nonconst_tag
 	>::execute(
 		data_	
 	) = ref;
@@ -79,13 +79,13 @@ template<
 >
 typename Format:: template channel_reference<
 	Channel,
-	mizuiro::detail::const_tag
+	mizuiro::const_tag
 >::type
 mizuiro::color::proxy<Format, Constness>::get() const
 {
 	return format:: template extract_channel<
 		Channel,
-		mizuiro::detail::const_tag
+		mizuiro::const_tag
 	>::execute(
 		data_
 	);

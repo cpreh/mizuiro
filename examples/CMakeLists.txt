@@ -4,7 +4,7 @@ IF (CMAKE_COMPILER_IS_GNUCXX)
 	ADD_DEFINITIONS ("-ansi -pedantic-errors -Wall -Wextra -Wconversion"
 	"-Wfloat-equal -Wredundant-decls -Wstrict-null-sentinel -Winit-self"
 	"-Woverloaded-virtual -Wnon-virtual-dtor -Wctor-dtor-privacy"
-	"-Wsign-promo -Wold-style-cast")
+	"-Wsign-promo -Wold-style-cast -Wno-long-long")
 ENDIF()
 
 MACRO (BUILD_EXAMPLE example)

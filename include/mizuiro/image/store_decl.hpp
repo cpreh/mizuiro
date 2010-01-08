@@ -4,8 +4,8 @@
 #include <mizuiro/image/store_fwd.hpp>
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/detail/raw_container_decl.hpp>
-#include <mizuiro/detail/const_tag.hpp>
-#include <mizuiro/detail/nonconst_tag.hpp>
+#include <mizuiro/const_tag.hpp>
+#include <mizuiro/nonconst_tag.hpp>
 
 namespace mizuiro
 {
@@ -24,12 +24,12 @@ public:
 
 	typedef image::view<
 		Format,	
-		mizuiro::detail::nonconst_tag
+		mizuiro::nonconst_tag
 	> view_type;
 
 	typedef image::view<
 		Format,
-		mizuiro::detail::const_tag
+		mizuiro::const_tag
 	> const_view_type;
 	
 	store();

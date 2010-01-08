@@ -3,7 +3,7 @@
 
 #include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/detail/raw_access.hpp>
-#include <mizuiro/detail/nonconst_tag.hpp>
+#include <mizuiro/nonconst_tag.hpp>
 
 namespace mizuiro
 {
@@ -20,7 +20,7 @@ struct raw_view {
 				typename Format::image_format::color_format
 			>
 		>::type,
-		mizuiro::detail::nonconst_tag
+		mizuiro::nonconst_tag
 	> type;
 };
 

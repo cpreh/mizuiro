@@ -3,8 +3,8 @@
 
 #include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
-#include <mizuiro/detail/nonconst_tag.hpp>
-#include <mizuiro/detail/const_tag.hpp>
+#include <mizuiro//const_tag.hpp>
+#include <mizuiro//nonconst_tag.hpp>
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_binary_params.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
@@ -27,11 +27,11 @@ public:
 	typedef Format format;
 
 	typedef typename format:: template pointer<
-		mizuiro::detail::nonconst_tag
+		mizuiro::nonconst_tag
 	>::type pointer;
 
 	typedef typename format:: template pointer<
-		mizuiro::detail::const_tag
+		mizuiro::const_tag
 	>::type const_pointer;
 
 	object();
@@ -68,11 +68,11 @@ public:
 	#undef MIZUIRO_COLOR_OBJECT_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL
 
 	typedef typename Format:: template reference<
-		mizuiro::detail::nonconst_tag
+		mizuiro::nonconst_tag
 	>::type proxy;
 
 	typedef typename Format:: template reference<
-		mizuiro::detail::const_tag
+		mizuiro::const_tag
 	>::type const_proxy;
 
 	template<
@@ -90,7 +90,7 @@ public:
 	>
 	typename format:: template channel_reference<
 		Channel,
-		mizuiro::detail::const_tag
+		mizuiro::const_tag
 	>::type
 	get() const;
 

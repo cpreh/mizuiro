@@ -2,7 +2,7 @@
 #define MIZUIRO_COLOR_PROXY_DECL_HPP_INCLUDED
 
 #include <mizuiro/color/proxy_fwd.hpp>
-#include <mizuiro/detail/const_tag.hpp>
+#include <mizuiro/const_tag.hpp>
 
 namespace mizuiro
 {
@@ -48,7 +48,7 @@ public:
 	>
 	typename format:: template channel_reference<
 		Channel,
-		mizuiro::detail::const_tag
+		mizuiro::const_tag
 	>::type
 	get() const;
 

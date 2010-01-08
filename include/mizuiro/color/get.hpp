@@ -1,6 +1,8 @@
 #ifndef MIZUIRO_COLOR_GET_HPP_INCLUDED
 #define MIZUIRO_COLOR_GET_HPP_INCLUDED
 
+#include <mizuiro/const_tag.hpp>
+
 namespace mizuiro
 {
 namespace color
@@ -12,7 +14,7 @@ template<
 >
 typename Color::layout:: template channel_reference<
 	Channel,
-	mizuiro::detail::const_tag
+	mizuiro::const_tag
 >::type
 get(
 	Color const &c

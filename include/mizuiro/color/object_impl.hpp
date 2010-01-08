@@ -109,7 +109,7 @@ template<
 >
 typename Format:: template channel_reference<
 	Channel,
-	mizuiro::detail::const_tag
+	mizuiro::const_tag
 >::type
 mizuiro::color::object<Format>::get() const
 {
