@@ -55,7 +55,7 @@ operator typename mizuiro::color::channel_proxy<Layout, Channel, Constness>::val
 		data_.get(),
 		sizeof(ret),
 		reinterpret_cast<
-			unsigned char * //typename pointer::value_type *
+			unsigned char * // TODO
 		>(
 			&ret
 		)
