@@ -22,7 +22,8 @@ template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-class dimension {
+class dimension
+{
 public:
 	typedef ValueType value_type;
 	typedef mizuiro::size_type size_type;
