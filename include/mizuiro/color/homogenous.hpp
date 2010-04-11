@@ -1,8 +1,8 @@
 #ifndef MIZUIRO_COLOR_HOMOGENOUS_HPP_INCLUDED
 #define MIZUIRO_COLOR_HOMOGENOUS_HPP_INCLUDED
 
+#include <mizuiro/color/homogenous_fwd.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
-#include <mizuiro/color/detail/normal_access.hpp>
 #include <mizuiro/color/detail/channel_min.hpp>
 #include <mizuiro/color/detail/channel_max.hpp>
 #include <mizuiro/size_type.hpp>
@@ -16,13 +16,10 @@ namespace color
 template<
 	typename ChannelType,
 	typename Layout,
-	typename AccessTypes =
-		detail::normal_access<
-			ChannelType,
-			Layout
-		>
+	typename AccessTypes
 >
-struct homogenous {
+struct homogenous
+{
 	typedef AccessTypes access_types;
 	typedef typename access_types::channel_type channel_type;
 	typedef Layout layout;
