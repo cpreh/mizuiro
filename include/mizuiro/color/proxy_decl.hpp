@@ -10,14 +10,14 @@ namespace color
 {
 
 template<
-	typename Format,
-	typename Constness
+	typename Access
 >
-class proxy {
+class proxy
+{
 public:
 	typedef Format format;
 
-	typedef typename Format:: template pointer<
+	typedef typename format:: template pointer<
 		Constness
 	>::type pointer;
 
