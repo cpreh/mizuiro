@@ -7,7 +7,11 @@ namespace color
 {
 
 template<
-	typename Format
+	typename Format,
+	typename Access
+		= detail::normal_access<
+			Format
+		>
 >
 class object;
 

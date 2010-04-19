@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_COLOR_DETAIL_NORMAL_ACCESS_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_NORMAL_ACCESS_HPP_INCLUDED
+#ifndef MIZUIRO_ACCESS_NORMAL_HPP_INCLUDED
+#define MIZUIRO_ACCESS_NORMAL_HPP_INCLUDED
 
 #include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/detail/index_of.hpp>
@@ -8,22 +8,22 @@
 
 namespace mizuiro
 {
-namespace color
-{
-namespace detail
+namespace access
 {
 
 template<
-	typename ChannelType,
-	typename Layout
+	typename Format
 >
-struct normal_access {
-	typedef ChannelType channel_type;
+struct normal
+{
+	typedef typename Format::channel_type;
+
+	typedef typename Format::layout layout;
 
 	typedef std::tr1::array<
 		channel_type,
 		boost::mpl::size<
-			typename Layout::order
+			typename layout::order
 		>::value
 	> store;
 
@@ -31,24 +31,27 @@ struct normal_access {
 		typename Channel,
 		typename Constness
 	>
-	struct channel_reference {
-		typedef typename mizuiro::detail::apply_const<
-			channel_type &,
-			Constness
-		>::type type;
-	};
+	struct channel_reference
+	:
+	mizuiro::detail::apply_const<
+		channel_type &,
+		Constness
+	>
+	{};
 
 	template<
 		typename Channel
 	>
-	struct channel_value_type {
+	struct channel_value_type
+	{
 		typedef ChannelType type;
 	};
 
 	template<
 		typename Constness
 	>
-	struct pointer {
+	struct pointer
+	{
 		typedef typename mizuiro::detail::apply_const<
 			channel_type *,
 			Constness
@@ -59,7 +62,8 @@ struct normal_access {
 		typename Channel,
 		typename Constness
 	>
-	struct extract_channel {
+	struct extract_channel
+	{
 		static
 		typename channel_reference<
 			Channel,
@@ -73,7 +77,7 @@ struct normal_access {
 		{
 			return ptr[
 				mizuiro::detail::index_of<
-					typename Layout::order,
+					typename layout::order,
 					Channel
 				>::value
 			];
@@ -81,7 +85,6 @@ struct normal_access {
 	};
 };
 
-}
 }
 }
 

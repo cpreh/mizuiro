@@ -3,13 +3,14 @@
 
 #include <mizuiro/color/channel_proxy_decl.hpp>
 #include <mizuiro/detail/copy_n.hpp>
+#include <mizuiro/raw_pointer.hpp>
+#include <mizuiro/const_raw_pointer.hpp>
 
 template<
-	typename Layout,
-	typename Channel,
-	typename Constness
+	typename Pointer,
+	typename ValueType
 >
-mizuiro::color::channel_proxy<Layout, Channel, Constness>::channel_proxy(
+mizuiro::color::channel_proxy<Pointer, ValueType>::channel_proxy(
 	pointer const data_
 )
 :
@@ -17,20 +18,17 @@ mizuiro::color::channel_proxy<Layout, Channel, Constness>::channel_proxy(
 {}
 
 template<
-	typename Layout,
-	typename Channel,
-	typename Constness
+	typename Pointer,
+	typename ValueType
 >
-mizuiro::color::channel_proxy<Layout, Channel, Constness> &
-mizuiro::color::channel_proxy<Layout, Channel, Constness>::operator=(
-	typename Layout:: template channel_value_type<
-		channel
-	>::type ref
+mizuiro::color::channel_proxy<Pointer, ValueType> &
+mizuiro::color::channel_proxy<Pointer, ValueType>::operator=(
+	value_type const ref
 )
 {
 	mizuiro::detail::copy_n(
 		reinterpret_cast<
-			unsigned char const * // TODO
+			const_raw_pointer
 		>(
 			&ref
 		),
@@ -42,12 +40,11 @@ mizuiro::color::channel_proxy<Layout, Channel, Constness>::operator=(
 }
 
 template<
-	typename Layout,
-	typename Channel,
-	typename Constness
+	typename Pointer,
+	typename ValueType
 >
-mizuiro::color::channel_proxy<Layout, Channel, Constness>::
-operator typename mizuiro::color::channel_proxy<Layout, Channel, Constness>::value_type() const
+mizuiro::color::channel_proxy<Pointer, ValueType>::
+operator typename mizuiro::color::channel_proxy<Pointer, ValueType>::value_type() const
 {
 	value_type ret;
 
@@ -55,7 +52,7 @@ operator typename mizuiro::color::channel_proxy<Layout, Channel, Constness>::val
 		data_.get(),
 		sizeof(ret),
 		reinterpret_cast<
-			unsigned char * // TODO
+			raw_pointer
 		>(
 			&ret
 		)

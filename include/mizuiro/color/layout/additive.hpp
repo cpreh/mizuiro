@@ -11,7 +11,8 @@ namespace layout
 template<
 	typename Order
 >
-struct additive {
+struct additive
+{
 	typedef Order order;
 };
 

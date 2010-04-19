@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_IMAGE_DETAIL_RAW_ACCESS_HPP_INCLUDED
-#define MIZUIRO_IMAGE_DETAIL_RAW_ACCESS_HPP_INCLUDED
+#ifndef MIZUIRO_ACCESS_RAW_HPP_INCLUDED
+#define MIZUIRO_ACCESS_RAW_HPP_INCLUDED
 
 #include <mizuiro/image/detail/stride_pointer_impl.hpp>
 #include <mizuiro/image/raw_pointer.hpp>
@@ -10,17 +10,16 @@
 
 namespace mizuiro
 {
-namespace image
-{
-namespace detail
+namespace access
 {
 
 template<
-	typename Layout
+	typename Format
 >
-struct raw_access {
+struct raw
+{
 	typedef typename Layout:: template replace_access<
-		raw_access<
+		raw<
 			Layout
 		>
 	>::type layout;
@@ -39,9 +38,13 @@ struct raw_access {
 	>
 	struct channel_reference {
 		typedef color::channel_proxy<
-			layout,
-			Channel,
-			Constness
+			typename channel_value_type<
+				Channel
+			>::type,
+			typename pointer<
+				Channel,
+				Constness
+			>::type
 		> type;
 	};
 
@@ -91,7 +94,6 @@ struct raw_access {
 	};
 };
 
-}
 }
 }
 

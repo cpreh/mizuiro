@@ -7,22 +7,15 @@ namespace color
 {
 
 template<
-	typename Layout,
-	typename Channel,
-	typename Constness
+	typename Pointer,
+	typename ValueType
 >
-class channel_proxy {
+class channel_proxy
+{
 public:
-	typedef Layout layout;
-	typedef Channel channel;
+	typedef ValueType value_type;
 
-	typedef typename layout:: template channel_value_type<
-		Channel
-	>::type value_type;
-
-	typedef typename layout:: template pointer<
-		Constness
-	>::type pointer;
+	typedef Pointer pointer;
 
 	channel_proxy(
 		pointer data

@@ -20,9 +20,11 @@ namespace color
 {
 
 template<
-	typename Format
+	typename Format,
+	typename Access
 >
-class object {
+class object
+{
 public:
 	typedef Format format;
 
