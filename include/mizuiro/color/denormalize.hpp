@@ -1,27 +1,41 @@
 #ifndef MIZUIRO_COLOR_DENORMALIZE_HPP_INCLUDED
 #define MIZUIRO_COLOR_DENORMALIZE_HPP_INCLUDED
 
+#include <mizuiro/color/types/channel_value.hpp>
+#include <mizuiro/color/access/channel_min.hpp>
+#include <mizuiro/color/access/channel_max.hpp>
+
 namespace mizuiro
 {
-// foobar
 namespace color
 {
 template
 <
-	class Layout,
-	class Channel,
-	class Float
+	typename Access,
+	typename Format,
+	typename Channel,
+	typename Float
 >
 typename 
-Layout::template channel_value_type<Channel>::type
+types::channel_value
+<
+	Access,
+	Format,
+	Channel
+>::type
 denormalize
 (
 	Float const f
 )
 {
 	typedef 
-		typename 
-		Layout::template channel_value_type<Channel>::type
+		typename
+		types::channel_value
+		<
+			Access,
+			Format,
+			Channel
+		>::type
 		target_type;
 
 	return 
@@ -29,8 +43,10 @@ denormalize
 		(
 			static_cast<Float>
 			(
-				Layout::template channel_min
+				color::access::channel_min
 				<
+					Access,
+					Format,
 					Channel
 				>()
 			)
@@ -39,16 +55,20 @@ denormalize
 			(
 				static_cast<Float>
 				(
-					Layout::template channel_max
+					color::access::channel_max
 					<
+						Access,
+						Format,
 						Channel
 					>()
 				)
 				-
 				static_cast<Float>
 				(
-					Layout::template channel_min
+					color::access::channel_min
 					<
+						Access,
+						Format,
 						Channel
 					>()
 				)

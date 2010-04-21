@@ -8,10 +8,11 @@
 #include <boost/mpl/for_each.hpp>
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-mizuiro::color::proxy<Format, Constness>::proxy(
+mizuiro::color::proxy<Access, Format, Constness>::proxy(
 	pointer const data_
 )
 :
@@ -19,14 +20,15 @@ mizuiro::color::proxy<Format, Constness>::proxy(
 {}
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
 template<
 	typename Other
 >
-mizuiro::color::proxy<Format, Constness> const &
-mizuiro::color::proxy<Format, Constness>::operator=(
+mizuiro::color::proxy<Access, Format, Constness> const &
+mizuiro::color::proxy<Access, Format, Constness>::operator=(
 	Other const &other
 ) const
 {
@@ -35,6 +37,7 @@ mizuiro::color::proxy<Format, Constness>::operator=(
 	>(
 		detail::copy_channel<
 			proxy<
+				Access,
 				Format,
 				Constness
 			>,
@@ -49,6 +52,7 @@ mizuiro::color::proxy<Format, Constness>::operator=(
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
@@ -56,13 +60,15 @@ template<
 	typename Channel
 >
 void
-mizuiro::color::proxy<Format, Constness>::set(
-	typename Access::template channel_value_type<
+mizuiro::color::proxy<Access, Format, Constness>::set(
+	typename types::channel_value<
+		Access,
+		Format,
 		Channel
 	>::type const &ref
 ) const
 {
-	extract_channel<
+	color::access::extract_channel<
 		Access,
 		Format,
 		Channel,
@@ -73,17 +79,20 @@ mizuiro::color::proxy<Format, Constness>::set(
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
 template<
 	typename Channel
 >
-typename Format:: template channel_reference<
+typename mizuiro::color::types::channel_reference<
+	Access,
+	Format,
 	Channel,
 	mizuiro::const_tag
 >::type
-mizuiro::color::proxy<Format, Constness>::get() const
+mizuiro::color::proxy<Access, Format, Constness>::get() const
 {
 	return
 		color::access::extract_channel<
@@ -97,11 +106,12 @@ mizuiro::color::proxy<Format, Constness>::get() const
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::color::proxy<Format, Constness>::pointer
-mizuiro::color::proxy<Format, Constness>::data() const
+typename mizuiro::color::proxy<Access, Format, Constness>::pointer
+mizuiro::color::proxy<Access, Format, Constness>::data() const
 {
 	return data_;
 }

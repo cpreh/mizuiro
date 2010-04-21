@@ -1,7 +1,7 @@
-#ifndef MIZUIRO_COLOR_ACCESS_CHANNEL_MIN_HPP_INCLUDED
-#define MIZUIRO_COLOR_ACCESS_CHANNEL_MIN_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_ACCESS_CHANNEL_MAX_HPP_INCLUDED
+#define MIZUIRO_COLOR_ACCESS_CHANNEL_MAX_HPP_INCLUDED
 
-#include <mizuiro/color/detail/channel_min.hpp>
+#include <mizuiro/color/detail/channel_max.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 
 namespace mizuiro
@@ -21,10 +21,10 @@ typename color::types::channel_value<
 	Format,
 	Channel
 >::type
-channel_min()
+channel_max()
 {
 	return
-		color::detail::channel_min<
+		color::detail::channel_max<
 			typename color::types<
 				Access,
 				Format,
