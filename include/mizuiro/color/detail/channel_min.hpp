@@ -14,54 +14,40 @@ namespace detail
 {
 
 template<
-	typename T,
-	typename Enable = void
->
-struct channel_min;
-
-template<
 	typename T
 >
-struct channel_min<
-	T,
-	typename boost::enable_if<
-		boost::is_integral<
-			T
-		>
-	>::type
->
+typename boost::enable_if<
+	boost::is_integral<
+		T
+	>,
+	T
+>::type
+channel_min()
 {
-	static T
-	get()
-	{
-		return std::numeric_limits<
+	return
+		std::numeric_limits<
 			T
 		>::min();
-	}
-};
+}
 
 template<
 	typename T
 >
-struct channel_min<
-	T,
-	typename boost::enable_if<
-		boost::is_floating_point<
-			T
-		>
-	>::type
->
+typename boost::enable_if<
+	boost::is_floating_point<
+		T
+	>,
+	T
+>::type
+channel_min()
 {
-	static T
-	get()
-	{
-		return static_cast<
+	return
+		static_cast<
 			T
 		>(
 			0.
 		);
-	}
-};
+}
 
 }
 }

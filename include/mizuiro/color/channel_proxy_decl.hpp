@@ -1,6 +1,8 @@
 #ifndef MIZUIRO_COLOR_CHANNEL_PROXY_DECL_HPP_INCLUDED
 #define MIZUIRO_COLOR_CHANNEL_PROXY_DECL_HPP_INCLUDED
 
+#include <mizuiro/color/channel_proxy_fwd.hpp>
+
 namespace mizuiro
 {
 namespace color

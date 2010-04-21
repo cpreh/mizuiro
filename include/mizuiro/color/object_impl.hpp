@@ -4,6 +4,7 @@
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/detail/init_set_channel.hpp>
+#include <mizuiro/color/access/homogenous_normal.hpp>
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_binary_params.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
@@ -87,7 +88,9 @@ template<
 >
 void
 mizuiro::color::object<Format>::set(
-	typename Format::template channel_value_type<
+	typename types::channel_value<
+		access,
+		format,
 		Channel
 	>::type const &ref
 )
@@ -107,7 +110,13 @@ template<
 template<
 	typename Channel
 >
-typename Format:: template channel_reference<
+typename mizuiro::color::types::channel_reference<
+	typename mizuiro::color::object<
+		Format
+	>::access,
+	typename mizuiro::color::object<
+		Format
+	>::format,
 	Channel,
 	mizuiro::const_tag
 >::type
@@ -123,7 +132,9 @@ mizuiro::color::object<Format>::get() const
 template<
 	typename Format
 >
-typename mizuiro::color::object<Format>::pointer
+typename mizuiro::color::object<
+	Format
+>::pointer
 mizuiro::color::object<Format>::data()
 {
 	return data_.data();
@@ -132,7 +143,9 @@ mizuiro::color::object<Format>::data()
 template<
 	typename Format
 >
-typename mizuiro::color::object<Format>::const_pointer
+typename mizuiro::color::object<
+	Format
+>::const_pointer
 mizuiro::color::object<Format>::data() const
 {
 	return data_.data();

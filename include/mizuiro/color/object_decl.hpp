@@ -3,8 +3,12 @@
 
 #include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
-#include <mizuiro//const_tag.hpp>
-#include <mizuiro//nonconst_tag.hpp>
+#include <mizuiro/color/types/store.hpp>
+#include <mizuiro/color/types/channel_reference.hpp>
+#include <mizuiro/color/types/channel_value_type.hpp>
+#include <mizuiro/access/normal.hpp>
+#include <mizuiro/const_tag.hpp>
+#include <mizuiro/nonconst_tag.hpp>
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_binary_params.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
@@ -20,19 +24,24 @@ namespace color
 {
 
 template<
-	typename Format,
-	typename Access
+	typename Format
 >
 class object
 {
 public:
 	typedef Format format;
 
-	typedef typename format:: template pointer<
+	typedef mizuiro::access::normal access;
+
+	typedef typename color::types::pointer<
+		access,
+		format,
 		mizuiro::nonconst_tag
 	>::type pointer;
 
-	typedef typename format:: template pointer<
+	typedef typename color::types::pointer<
+		access,
+		format,
 		mizuiro::const_tag
 	>::type const_pointer;
 
@@ -69,20 +78,26 @@ public:
 
 	#undef MIZUIRO_COLOR_OBJECT_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL
 
-	typedef typename Format:: template reference<
+	typedef color::proxy<
+		access,
+		format,
 		mizuiro::nonconst_tag
-	>::type proxy;
+	> proxy;
 
-	typedef typename Format:: template reference<
+	typedef color::proxy<
+		access,
+		format,
 		mizuiro::const_tag
-	>::type const_proxy;
+	> const_proxy;
 
 	template<
 		typename Channel
 	>
 	void
 	set(
-		typename format:: template channel_value_type<
+		typename types::channel_value<
+			access,
+			format,
 			Channel
 		>::type const &
 	);
@@ -90,7 +105,9 @@ public:
 	template<
 		typename Channel
 	>
-	typename format:: template channel_reference<
+	typename types::channel_reference<
+		access,
+		format,
 		Channel,
 		mizuiro::const_tag
 	>::type
@@ -102,7 +119,10 @@ public:
 	const_pointer
 	data() const;
 private:
-	typedef typename format::store store;
+	typedef typename types::store<
+		access,
+		format
+	>::type store;
 
 	store data_;
 };
