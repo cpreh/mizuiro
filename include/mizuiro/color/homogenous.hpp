@@ -2,6 +2,8 @@
 #define MIZUIRO_COLOR_HOMOGENOUS_HPP_INCLUDED
 
 #include <mizuiro/color/homogenous_fwd.hpp>
+#include <mizuiro/color/access/homogenous_normal.hpp>
+#include <mizuiro/color/types/homogenous_normal.hpp> // TODO: where to put this?
 
 namespace mizuiro
 {

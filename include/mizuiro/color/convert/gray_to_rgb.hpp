@@ -43,9 +43,11 @@ convert(
 	Src const &src
 )
 {
-	object<
+	typedef object<
 		Dest
-	> dest;
+	> dest_object;
+
+	dest_object dest;
 
 	detail::max_alpha
 	(
@@ -64,7 +66,11 @@ convert(
 
 	dest.template set<channel::red>
 	(
-		denormalize<Dest,channel::red,float>
+		denormalize<
+			typename dest_object::access,
+			typename dest_object::format,
+			channel::red
+		>
 		(
 			0.3f * src_normalized
 		)
@@ -72,7 +78,11 @@ convert(
 
 	dest.template set<channel::green>
 	(
-		denormalize<Dest,channel::green,float>
+		denormalize<
+			typename dest_object::access,
+			typename dest_object::format,
+			channel::green
+		>
 		(
 			0.59f * src_normalized
 		)
@@ -80,7 +90,11 @@ convert(
 
 	dest.template set<channel::blue>
 	(
-		denormalize<Dest,channel::blue,float>
+		denormalize<
+			typename dest_object::access,
+			typename dest_object::format,
+			channel::blue,
+		>
 		(
 			0.11f * src_normalized
 		)

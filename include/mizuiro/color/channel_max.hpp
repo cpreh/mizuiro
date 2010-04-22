@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_COLOR_DETAIL_CHANNEL_MIN_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_CHANNEL_MIN_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CHANNEL_MAX_HPP_INCLUDED
+#define MIZUIRO_COLOR_CHANNEL_MAX_HPP_INCLUDED
 
 #include <boost/type_traits/is_integral.hpp>
 #include <boost/type_traits/is_floating_point.hpp>
@@ -9,8 +9,6 @@
 namespace mizuiro
 {
 namespace color
-{
-namespace detail
 {
 
 template<
@@ -22,12 +20,12 @@ typename boost::enable_if<
 	>,
 	T
 >::type
-channel_min()
+channel_max()
 {
 	return
 		std::numeric_limits<
 			T
-		>::min();
+		>::max();
 }
 
 template<
@@ -39,17 +37,16 @@ typename boost::enable_if<
 	>,
 	T
 >::type
-channel_min()
+channel_max()
 {
 	return
 		static_cast<
 			T
 		>(
-			0.
+			1.0
 		);
 }
 
-}
 }
 }
 

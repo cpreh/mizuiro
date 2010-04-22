@@ -12,7 +12,8 @@ template<
 	typename Value,
 	typename Channel
 >
-class init_channel_percentage {
+class init_channel_percentage
+{
 public:
 	typedef Value value_type;
 	typedef Channel channel;

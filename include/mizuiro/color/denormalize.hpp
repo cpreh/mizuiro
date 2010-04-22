@@ -4,11 +4,14 @@
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/access/channel_min.hpp>
 #include <mizuiro/color/access/channel_max.hpp>
+#include <boost/type_traits/is_floating_point.hpp>
+#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
 namespace color
 {
+
 template
 <
 	typename Access,
@@ -16,13 +19,20 @@ template
 	typename Channel,
 	typename Float
 >
-typename 
-types::channel_value
+typename boost::enable_if
 <
-	Access,
-	Format,
-	Channel
->::type
+	boost::is_floating_point
+	<
+		Float
+	>,
+	typename 
+	types::channel_value
+	<
+		Access,
+		Format,
+		Channel
+	>::type
+>
 denormalize
 (
 	Float const f
@@ -43,11 +53,9 @@ denormalize
 		(
 			static_cast<Float>
 			(
-				color::access::channel_min
+				color::channel_min
 				<
-					Access,
-					Format,
-					Channel
+					target_type
 				>()
 			)
 			+
@@ -55,26 +63,23 @@ denormalize
 			(
 				static_cast<Float>
 				(
-					color::access::channel_max
+					color::channel_max
 					<
-						Access,
-						Format,
-						Channel
+						target_type
 					>()
 				)
 				-
 				static_cast<Float>
 				(
-					color::access::channel_min
+					color::channel_min
 					<
-						Access,
-						Format,
-						Channel
+						target_type
 					>()
 				)
 			)
 		);
 }
+
 }
 }
 

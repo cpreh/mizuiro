@@ -12,7 +12,7 @@ MACRO (BUILD_EXAMPLE example)
 	TARGET_LINK_LIBRARIES( ${example} fcppt)
 ENDMACRO()
 
-BUILD_EXAMPLE(algorithm)
+#BUILD_EXAMPLE(algorithm)
 BUILD_EXAMPLE(convert)
 BUILD_EXAMPLE(convert_view)
 BUILD_EXAMPLE(flipped_view)

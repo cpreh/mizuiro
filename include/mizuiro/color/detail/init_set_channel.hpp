@@ -5,7 +5,7 @@
 #include <mizuiro/color/detail/init_channel_percentage.hpp>
 #include <mizuiro/color/denormalize.hpp>
 #include <boost/type_traits/is_same.hpp>
-#include <boost/static_assert.hpp>
+#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
@@ -19,7 +19,17 @@ template<
 	typename Value,
 	typename Channel
 >
-void
+typename boost::enable_if<
+	boost::is_same<
+		typename color::types::channel_value<
+			typename Color::access,
+			typename Color::format,
+			Channel
+		>::type,
+		Value
+	>,
+	void
+>::type
 init_set_channel(
 	Color &color,
 	init_channel<
@@ -28,15 +38,6 @@ init_set_channel(
 	> const &init
 )
 {
-	BOOST_STATIC_ASSERT((
-		boost::is_same<
-			typename Color::format:: template channel_value_type<
-				Channel
-			>::type,
-			Value
-		>::value
-	));
-
 	color. template set<
 		Channel
 	>(
@@ -62,6 +63,7 @@ init_set_channel(
 		Channel
 	>(
 		denormalize<
+			typename Color::access,
 			typename Color::format,
 			Channel
 		>(
