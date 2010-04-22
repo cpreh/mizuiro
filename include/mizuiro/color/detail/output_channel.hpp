@@ -2,6 +2,7 @@
 #define MIZUIRO_COLOR_DETAIL_OUTPUT_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/detail/promote_channel.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/index_of.hpp>
 #include <boost/mpl/size.hpp>
 #include <ostream>
@@ -18,7 +19,8 @@ template<
 	typename Traits,
 	typename Color
 >
-class output_channel {
+class output_channel
+{
 	typedef std::basic_ostream<
 		Ch,
 		Traits
@@ -48,7 +50,9 @@ public:
 		s <<
 			static_cast<
 				typename detail::promote_channel<
-					typename Color::format:: template channel_value_type<
+					typename color::types::channel_value<
+						typename Color::access,
+						typename Color::format,
 						Channel
 					>::type
 				>::type
@@ -72,6 +76,7 @@ public:
 	}
 private:
 	stream_type &s;
+
 	Color const &c;
 };
 

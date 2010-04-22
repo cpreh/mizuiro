@@ -2,6 +2,7 @@
 #define MIZUIRO_COLOR_CONVERT_DETAIL_MAX_ALPHA_HPP_INCLUDED
 
 #include <boost/utility/enable_if.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/has_channel.hpp>
 
@@ -54,9 +55,12 @@ max_alpha(
 		channel::alpha
 	>
 	(
-		Color::format::template channel_max
-		<
-			channel::alpha
+		color::channel_max<
+			typename color::types::channel_value<
+				typename Color::access,
+				typename Color::format,
+				channel::alpha
+			>::type
 		>()
 	);
 }

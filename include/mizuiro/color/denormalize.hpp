@@ -2,8 +2,8 @@
 #define MIZUIRO_COLOR_DENORMALIZE_HPP_INCLUDED
 
 #include <mizuiro/color/types/channel_value.hpp>
-#include <mizuiro/color/access/channel_min.hpp>
-#include <mizuiro/color/access/channel_max.hpp>
+#include <mizuiro/color/channel_min.hpp>
+#include <mizuiro/color/channel_max.hpp>
 #include <boost/type_traits/is_floating_point.hpp>
 #include <boost/utility/enable_if.hpp>
 
@@ -32,7 +32,7 @@ typename boost::enable_if
 		Format,
 		Channel
 	>::type
->
+>::type
 denormalize
 (
 	Float const f

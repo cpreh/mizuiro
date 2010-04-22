@@ -12,7 +12,8 @@ template<
 	typename Dest,
 	typename Src
 >
-struct copy_channel {
+struct copy_channel
+{
 	typedef void result_type;
 
 	copy_channel(

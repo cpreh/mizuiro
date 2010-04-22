@@ -44,9 +44,11 @@ convert
 	Src const &src
 )
 {
-	object<
+	typedef object<
 		Dest
-	> dest;
+	> dest_type;
+	
+	dest_type dest;
 
 	float const sum = 
 		normalize
@@ -74,7 +76,8 @@ convert
 	(
 		denormalize
 		<
-			Dest,
+			typename dest_type::access,
+			typename dest_type::format,
 			channel::gray,
 			float
 		>

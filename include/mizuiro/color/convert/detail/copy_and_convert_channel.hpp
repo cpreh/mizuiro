@@ -24,16 +24,22 @@ copy_and_convert_channel
 	Dest &dest
 )
 {
-	dest.template set<Channel>
+	dest.template set<
+		Channel
+	>
 	(
 		denormalize
 		<
+			typename Dest::access,
 			typename Dest::format,
 			Channel,
 			Float
 		>
 		(
-			normalize<Channel,Float>
+			normalize<
+				Channel,
+				Float
+			>
 			(
 				src
 			)

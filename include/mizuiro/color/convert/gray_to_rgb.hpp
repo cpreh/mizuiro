@@ -93,7 +93,7 @@ convert(
 		denormalize<
 			typename dest_object::access,
 			typename dest_object::format,
-			channel::blue,
+			channel::blue
 		>
 		(
 			0.11f * src_normalized
