@@ -25,7 +25,7 @@ channel_min()
 {
 	return
 		color::detail::channel_min<
-			typename color::types<
+			typename color::types::channel_value<
 				Access,
 				Format,
 				Channel

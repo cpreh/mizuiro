@@ -25,7 +25,7 @@ channel_max()
 {
 	return
 		color::detail::channel_max<
-			typename color::types<
+			typename color::types::channel_value<
 				Access,
 				Format,
 				Channel

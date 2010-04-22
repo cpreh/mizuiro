@@ -1,6 +1,8 @@
 #ifndef MIZUIRO_COLOR_HOMOGENOUS_HPP_INCLUDED
 #define MIZUIRO_COLOR_HOMOGENOUS_HPP_INCLUDED
 
+#include <mizuiro/color/homogenous_fwd.hpp>
+
 namespace mizuiro
 {
 namespace color

@@ -1,9 +1,9 @@
 #ifndef MIZUIRO_COLOR_PROXY_DECL_HPP_INCLUDED
 #define MIZUIRO_COLOR_PROXY_DECL_HPP_INCLUDED
 
-#include <mizuiro/types/pointer.hpp>
-#include <mizuiro/types/channel_value.hpp>
-#include <mizuiro/types/channel_reference.hpp>
+#include <mizuiro/color/types/pointer.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
+#include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
 #include <mizuiro/const_tag.hpp>
 

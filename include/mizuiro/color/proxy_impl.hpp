@@ -3,6 +3,7 @@
 
 #include <mizuiro/color/proxy_decl.hpp>
 #include <mizuiro/color/detail/copy_channel.hpp>
+#include <mizuiro/color/access/extract_channel.hpp>
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <boost/mpl/for_each.hpp>

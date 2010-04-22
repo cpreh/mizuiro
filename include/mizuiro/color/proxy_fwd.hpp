@@ -7,6 +7,7 @@ namespace color
 {
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >

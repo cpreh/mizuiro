@@ -32,7 +32,6 @@ extract_channel(
 	typename types::pointer<
 		Access,
 		Format,
-		Channel,
 		Constness
 	>::type
 );

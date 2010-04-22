@@ -24,7 +24,7 @@ template<
 >
 typename boost::enable_if<
 	boost::mpl::and_<
-		access::is_normal<
+		mizuiro::access::is_normal<
 			Access
 		>,
 		color::is_homogenous<
@@ -32,6 +32,7 @@ typename boost::enable_if<
 		>
 	>,
 	typename types::channel_reference<
+		Access,
 		Format,
 		Channel,
 		Constness
@@ -41,7 +42,6 @@ extract_channel(
 	typename types::pointer<
 		Access,
 		Format,
-		Channel,
 		Constness
 	>::type const ptr
 )

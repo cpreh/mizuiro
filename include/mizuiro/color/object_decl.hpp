@@ -5,7 +5,8 @@
 #include <mizuiro/color/proxy_fwd.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
-#include <mizuiro/color/types/channel_value_type.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
+#include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
