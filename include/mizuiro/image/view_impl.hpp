@@ -64,6 +64,7 @@ template<
 >
 mizuiro::image::view<Access, Format, Constness>::view(
 	view<
+		Access,
 		Format,
 		OtherConstness
 	> const &other

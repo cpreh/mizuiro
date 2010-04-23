@@ -5,6 +5,7 @@
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/detail/raw_container_decl.hpp>
 #include <mizuiro/color/types/pointer.hpp>
+#include <mizuiro/access/normal.hpp>
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 

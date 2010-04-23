@@ -11,7 +11,8 @@ namespace image
 template<
 	typename Iterator
 >
-class range {
+class range
+{
 public:
 	typedef Iterator iterator;
 

@@ -6,9 +6,6 @@ namespace mizuiro
 namespace access
 {
 
-template<
-	typename Format
->
 struct raw;
 
 }

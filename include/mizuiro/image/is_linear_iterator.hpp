@@ -18,11 +18,13 @@ boost::false_type
 {};
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
 struct is_linear_iterator<
 	linear_iterator<
+		Access,
 		Format,
 		Constness
 	>

@@ -5,6 +5,7 @@
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/has_channel.hpp>
+#include <mizuiro/color/channel_max.hpp>
 
 namespace mizuiro
 {

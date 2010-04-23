@@ -14,10 +14,11 @@
 #include <mizuiro/image/detail/iterator_data.hpp>
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-mizuiro::image::iterator<Format, Constness>::iterator(
+mizuiro::image::iterator<Access, Format, Constness>::iterator(
 	internal_type const &internal_
 )
 :
@@ -25,21 +26,23 @@ mizuiro::image::iterator<Format, Constness>::iterator(
 {}
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::iterator<Format, Constness>::internal_type const &
-mizuiro::image::iterator<Format, Constness>::internal() const
+typename mizuiro::image::iterator<Access, Format, Constness>::internal_type const &
+mizuiro::image::iterator<Access, Format, Constness>::internal() const
 {
 	return internal_;
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::iterator<Format, Constness>::pointer
-mizuiro::image::iterator<Format, Constness>::data() const
+typename mizuiro::image::iterator<Access, Format, Constness>::pointer
+mizuiro::image::iterator<Access, Format, Constness>::data() const
 {
 	return fcppt::variant::apply_unary(
 		detail::iterator_data<
@@ -50,11 +53,12 @@ mizuiro::image::iterator<Format, Constness>::data() const
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
 void
-mizuiro::image::iterator<Format, Constness>::advance(
+mizuiro::image::iterator<Access, Format, Constness>::advance(
 	difference_type	const diff
 )
 {
@@ -71,11 +75,12 @@ mizuiro::image::iterator<Format, Constness>::advance(
 }
 	
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
 void
-mizuiro::image::iterator<Format, Constness>::increment()
+mizuiro::image::iterator<Access, Format, Constness>::increment()
 {
 	internal_ =
 		fcppt::variant::apply_unary(
@@ -87,11 +92,12 @@ mizuiro::image::iterator<Format, Constness>::increment()
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
 void
-mizuiro::image::iterator<Format, Constness>::decrement()
+mizuiro::image::iterator<Access, Format, Constness>::decrement()
 {
 	internal_ =
 		fcppt::variant::apply_unary(
@@ -103,11 +109,12 @@ mizuiro::image::iterator<Format, Constness>::decrement()
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::iterator<Format, Constness>::difference_type
-mizuiro::image::iterator<Format, Constness>::distance_to(
+typename mizuiro::image::iterator<Access, Format, Constness>::difference_type
+mizuiro::image::iterator<Access, Format, Constness>::distance_to(
 	iterator const &other
 ) const
 {
@@ -122,11 +129,12 @@ mizuiro::image::iterator<Format, Constness>::distance_to(
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::iterator<Format, Constness>::reference
-mizuiro::image::iterator<Format, Constness>::dereference() const
+typename mizuiro::image::iterator<Access, Format, Constness>::reference
+mizuiro::image::iterator<Access, Format, Constness>::dereference() const
 {
 	return
 		fcppt::variant::apply_unary(
@@ -138,11 +146,12 @@ mizuiro::image::iterator<Format, Constness>::dereference() const
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
 bool
-mizuiro::image::iterator<Format, Constness>::equal(
+mizuiro::image::iterator<Access, Format, Constness>::equal(
 	iterator const &other
 ) const
 {

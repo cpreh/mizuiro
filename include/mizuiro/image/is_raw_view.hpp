@@ -1,7 +1,8 @@
 #ifndef MIZUIRO_IMAGE_IS_RAW_VIEW_HPP_INCLUDED
 #define MIZUIRO_IMAGE_IS_RAW_VIEW_HPP_INCLUDED
 
-#include <mizuiro/image/detail/is_raw_access.hpp>
+#include <mizuiro/access/raw_fwd.hpp>
+#include <boost/type_traits/is_same.hpp>
 
 namespace mizuiro
 {
@@ -13,8 +14,9 @@ template<
 >
 struct is_raw_view
 :
-detail::is_raw_access<
-	typename View::color_format::access_types
+boost::is_same<
+	typename View::access,
+	::mizuiro::access::raw
 >
 {};
 

@@ -15,17 +15,20 @@ template<
 struct const_view;
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
 struct const_view<
 	view<
+		Access,
 		Format,
 		Constness
 	>
 >
 {
 	typedef view<
+		Access,
 		Format,
 		mizuiro::const_tag
 	> type;

@@ -107,7 +107,8 @@ public:
 	>
 	explicit view(
 		view<
-			Format,
+			access,
+			format,
 			OtherConstness
 		> const &
 	);

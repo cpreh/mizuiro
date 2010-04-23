@@ -14,18 +14,21 @@ namespace image
 // TODO: make this work with linear_iterator as well!
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
 typename Format::dim_type const
 iterator_position(
 	pitch_iterator<
+		Access,
 		Format,
 		Constness
 	> const &it
 )
 {
 	typedef typename pitch_iterator<
+		Access,
 		Format,
 		Constness
 	>::dim_type dim_type;
