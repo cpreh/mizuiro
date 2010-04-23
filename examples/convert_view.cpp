@@ -20,7 +20,8 @@ namespace
 template<
 	typename Format
 >
-struct make_2d_format {
+struct make_2d_format
+{
 	typedef mizuiro::image::format<
 		mizuiro::image::dimension<
 			2

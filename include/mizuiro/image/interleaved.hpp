@@ -9,20 +9,9 @@ namespace image
 template<
 	typename ColorFormat
 >
-struct interleaved {
+struct interleaved
+{
 	typedef ColorFormat color_format;
-
-	template<
-		typename T
-	>
-	struct replace_access {
-		typedef interleaved<
-			typename color_format::template replace_access<
-				T
-			>::type
-		> type;
-
-	};
 };
 
 }

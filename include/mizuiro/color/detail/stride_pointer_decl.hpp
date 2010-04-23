@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_IMAGE_DETAIL_STRIDE_POINTER_DECL_HPP_INCLUDED
-#define MIZUIRO_IMAGE_DETAIL_STRIDE_POINTER_DECL_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_DETAIL_STRIDE_POINTER_DECL_HPP_INCLUDED
+#define MIZUIRO_COLOR_DETAIL_STRIDE_POINTER_DECL_HPP_INCLUDED
 
 #include <mizuiro/image/detail/stride_pointer_fwd.hpp>
 #include <mizuiro/size_type.hpp>
@@ -9,7 +9,7 @@
 
 namespace mizuiro
 {
-namespace image
+namespace color
 {
 namespace detail
 {
@@ -18,7 +18,8 @@ template<
 	typename T,
 	mizuiro::size_type Stride
 >
-class stride_pointer {
+class stride_pointer
+{
 public:
 	typedef typename boost::remove_pointer<
 		T

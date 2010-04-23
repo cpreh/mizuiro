@@ -6,6 +6,7 @@
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/homogenous_fwd.hpp>
+#include <mizuiro/color/detail/stride_pointer_impl.hpp>
 #include <mizuiro/access/raw_fwd.hpp>
 #include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/raw_value.hpp>
@@ -32,7 +33,7 @@ struct pointer<
 	Constness
 >
 {
-	typedef detail::stride_pointer<
+	typedef color::detail::stride_pointer<
 		typename mizuiro::detail::apply_const<
 			raw_pointer,
 			Constness

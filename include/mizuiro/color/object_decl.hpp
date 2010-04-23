@@ -79,18 +79,6 @@ public:
 
 	#undef MIZUIRO_COLOR_OBJECT_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL
 
-	typedef color::proxy<
-		access,
-		format,
-		mizuiro::nonconst_tag
-	> proxy;
-
-	typedef color::proxy<
-		access,
-		format,
-		mizuiro::const_tag
-	> const_proxy;
-
 	template<
 		typename Channel
 	>
@@ -120,6 +108,18 @@ public:
 	const_pointer
 	data() const;
 private:
+	typedef color::proxy<
+		access,
+		format,
+		mizuiro::nonconst_tag
+	> proxy;
+
+	typedef color::proxy<
+		access,
+		format,
+		mizuiro::const_tag
+	> const_proxy;
+
 	typedef typename types::store<
 		access,
 		format

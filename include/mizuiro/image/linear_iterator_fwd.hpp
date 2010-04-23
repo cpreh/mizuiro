@@ -7,6 +7,7 @@ namespace image
 {
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >

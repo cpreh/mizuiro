@@ -10,10 +10,11 @@
 #include <stdexcept>
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-mizuiro::image::view<Format, Constness>::view(
+mizuiro::image::view<Access, Format, Constness>::view(
 	dim_type const &dim_,
 	pointer const data_
 )
@@ -24,10 +25,11 @@ mizuiro::image::view<Format, Constness>::view(
 {}
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-mizuiro::image::view<Format, Constness>::view(
+mizuiro::image::view<Access, Format, Constness>::view(
 	dim_type const &dim_,
 	pointer const data_,
 	pitch_type const &pitch_
@@ -39,10 +41,11 @@ mizuiro::image::view<Format, Constness>::view(
 {}
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-mizuiro::image::view<Format, Constness>::view(
+mizuiro::image::view<Access, Format, Constness>::view(
 	view const &v
 )
 :
@@ -52,13 +55,14 @@ mizuiro::image::view<Format, Constness>::view(
 {}
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
 template<
 	typename OtherConstness
 >
-mizuiro::image::view<Format, Constness>::view(
+mizuiro::image::view<Access, Format, Constness>::view(
 	view<
 		Format,
 		OtherConstness
@@ -71,21 +75,23 @@ mizuiro::image::view<Format, Constness>::view(
 {}
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::view<Format, Constness>::dim_type const &
-mizuiro::image::view<Format, Constness>::dim() const
+typename mizuiro::image::view<Access, Format, Constness>::dim_type const &
+mizuiro::image::view<Access, Format, Constness>::dim() const
 {
 	return dim_;
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::view<Format, Constness>::iterator const
-mizuiro::image::view<Format, Constness>::begin() const
+typename mizuiro::image::view<Access, Format, Constness>::iterator const
+mizuiro::image::view<Access, Format, Constness>::begin() const
 {
 	return is_linear()
 		? iterator(
@@ -97,21 +103,23 @@ mizuiro::image::view<Format, Constness>::begin() const
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::view<Format, Constness>::iterator const
-mizuiro::image::view<Format, Constness>::end() const
+typename mizuiro::image::view<Access, Format, Constness>::iterator const
+mizuiro::image::view<Access, Format, Constness>::end() const
 {
 	return begin() + dim().content();
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::view<Format, Constness>::range_type const
-mizuiro::image::view<Format, Constness>::range() const
+typename mizuiro::image::view<Access, Format, Constness>::range_type const
+mizuiro::image::view<Access, Format, Constness>::range() const
 {
 	return is_linear()
 		? range_type(
@@ -129,11 +137,12 @@ mizuiro::image::view<Format, Constness>::range() const
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::view<Format, Constness>::reference
-mizuiro::image::view<Format, Constness>::operator[](
+typename mizuiro::image::view<Access, Format, Constness>::reference
+mizuiro::image::view<Access, Format, Constness>::operator[](
 	dim_type const &index
 ) const
 {
@@ -144,11 +153,12 @@ mizuiro::image::view<Format, Constness>::operator[](
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::view<Format, Constness>::reference
-mizuiro::image::view<Format, Constness>::at(
+typename mizuiro::image::view<Access, Format, Constness>::reference
+mizuiro::image::view<Access, Format, Constness>::at(
 	dim_type const &index
 ) const
 {
@@ -165,41 +175,45 @@ mizuiro::image::view<Format, Constness>::at(
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::view<Format, Constness>::pointer
-mizuiro::image::view<Format, Constness>::data() const
+typename mizuiro::image::view<Access, Format, Constness>::pointer
+mizuiro::image::view<Access, Format, Constness>::data() const
 {
 	return data_;
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::view<Format, Constness>::pitch_type const &
-mizuiro::image::view<Format, Constness>::pitch() const
+typename mizuiro::image::view<Access, Format, Constness>::pitch_type const &
+mizuiro::image::view<Access, Format, Constness>::pitch() const
 {
 	return pitch_;
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
 bool
-mizuiro::image::view<Format, Constness>::is_linear() const
+mizuiro::image::view<Access, Format, Constness>::is_linear() const
 {
 	return pitch_ == pitch_type::null();
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::view<Format, Constness>::linear_iterator const
-mizuiro::image::view<Format, Constness>::linear_begin() const
+typename mizuiro::image::view<Access, Format, Constness>::linear_iterator const
+mizuiro::image::view<Access, Format, Constness>::linear_begin() const
 {
 	return linear_iterator(
 		data_
@@ -207,21 +221,23 @@ mizuiro::image::view<Format, Constness>::linear_begin() const
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::view<Format, Constness>::linear_iterator const
-mizuiro::image::view<Format, Constness>::linear_end() const
+typename mizuiro::image::view<Access, Format, Constness>::linear_iterator const
+mizuiro::image::view<Access, Format, Constness>::linear_end() const
 {
 	return linear_begin() + dim().content();
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::view<Format, Constness>::pitch_iterator const
-mizuiro::image::view<Format, Constness>::pitch_begin() const
+typename mizuiro::image::view<Access, Format, Constness>::pitch_iterator const
+mizuiro::image::view<Access, Format, Constness>::pitch_begin() const
 {
 	return pitch_iterator(
 		dim(),
@@ -231,11 +247,12 @@ mizuiro::image::view<Format, Constness>::pitch_begin() const
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::view<Format, Constness>::pitch_iterator const
-mizuiro::image::view<Format, Constness>::pitch_end() const
+typename mizuiro::image::view<Access, Format, Constness>::pitch_iterator const
+mizuiro::image::view<Access, Format, Constness>::pitch_end() const
 {
 	// TODO: Fix this! pitch_iterator doesn't like to be empty and incremented!
 	return dim().content()

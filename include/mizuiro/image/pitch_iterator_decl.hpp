@@ -5,6 +5,7 @@
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/image/detail/pitch_type.hpp>
 #include <mizuiro/image/detail/stacked_dim_type.hpp>
+#include <mizuiro/color/types/pointer.hpp>
 
 namespace mizuiro
 {
@@ -12,6 +13,7 @@ namespace image
 {
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
@@ -19,22 +21,31 @@ class pitch_iterator
 :
 	public detail::iterator_base<
 		pitch_iterator<
+			Access,
 			Format,
 			Constness
 		>,
+		Access,
 		Format,
 		Constness
 	>::type
 {
 public:
+	typedef Access access;
+
 	typedef Format format;
+
 	typedef Constness constness; 
+
+	typedef typename format::color_format color_format;
 
 	typedef typename detail::iterator_base<
 		pitch_iterator<
+			access,
 			format,
 			constness
 		>,
+		access,
 		format,
 		constness
 	>::type base;
@@ -46,13 +57,17 @@ public:
 	>::type pitch_type;
 
 	typedef typename base::value_type value_type;
+
 	typedef typename base::reference reference;
 
-	typedef typename format::color_format::template pointer<
+	typedef typename color::types::pointer<
+		access,
+		color_format,
 		Constness
 	>::type pointer;
 
 	typedef typename base::difference_type difference_type;
+
 	typedef typename base::iterator_category iterator_category;
 
 	pitch_iterator(
@@ -103,9 +118,11 @@ private:
 	) const;
 
 	dim_type dim_;
-	pointer
-		root_data_;
+
+	pointer root_data_;
+
 	pitch_type pitch_;
+
 	difference_type
 		line_advance_,
 		position_,

@@ -5,6 +5,7 @@
 #include <mizuiro/image/pitch_iterator_decl.hpp>
 #include <mizuiro/image/linear_iterator_decl.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
+#include <mizuiro/color/types/pointer.hpp>
 #include <fcppt/variant/object_decl.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 
@@ -14,6 +15,7 @@ namespace image
 {
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
@@ -21,46 +23,60 @@ class iterator
 :
 	public detail::iterator_base<
 		iterator<
+			Access,
 			Format,
 			Constness
 		>,
+		Access,
 		Format,
 		Constness
 	>::type
 {
 public:
+	typedef Access access;
+
 	typedef Format format;
+
+	typedef typename format::color_format color_format;
 
 	typedef typename detail::iterator_base<
 		iterator<
+			access,
 			format,
 			Constness
 		>,
-		Format,
+		access,
+		format,
 		Constness
 	>::type base;
 
 	typedef fcppt::variant::object<
 		boost::mpl::vector2<
 			pitch_iterator<
-				Format,
+				access,
+				format,
 				Constness
 			>,
 			linear_iterator<
-				Format,
+				access,
+				format,
 				Constness
 			>
 		>
 	> internal_type;
 
 	typedef typename base::value_type value_type;
+
 	typedef typename base::reference reference;
 
-	typedef typename format::color_format:: template pointer<
+	typedef typename color::types::pointer<
+		access,
+		color_format,
 		Constness
 	>::type pointer;
 
 	typedef typename base::difference_type difference_type;
+
 	typedef typename base::iterator_category iterator_category;
 
 	explicit iterator(

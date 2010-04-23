@@ -7,6 +7,8 @@
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/linear_iterator_fwd.hpp>
 #include <mizuiro/image/bound_fwd.hpp>
+#include <mizuiro/image/types/reference.hpp>
+#include <mizuiro/color/types/pointer.hpp>
 #include <fcppt/variant/object_fwd.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 
@@ -16,24 +18,35 @@ namespace image
 {
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-class view {
+class view
+{
 public:
+	typedef Access access;
+
+	typedef Format format;
+
+	typedef Constness constness;
+
 	typedef image::iterator<
-		Format,
-		Constness
+		access,
+		format,
+		constness
 	> iterator;
 
 	typedef image::pitch_iterator<
-		Format,
-		Constness
+		access,
+		format,
+		constness
 	> pitch_iterator;
 
 	typedef image::linear_iterator<
-		Format,
-		Constness
+		access,
+		format,
+		constness
 	> linear_iterator;
 
 	typedef image::range<
@@ -51,8 +64,6 @@ public:
 		>
 	> range_type;
 
-	typedef Format format;
-
 	typedef typename format::color_format color_format;
 
 	typedef typename format::dim_type dim_type;
@@ -64,11 +75,15 @@ public:
 
 	typedef typename format::pitch_type pitch_type;
 	
-	typedef typename color_format:: template reference<
+	typedef typename image::types::reference<
+		access,
+		color_format,
 		Constness
-	>::type reference;
+	> reference;
 
-	typedef typename color_format:: template pointer<
+	typedef typename color::types::pointer<
+		access,
+		color_format,
 		Constness
 	>::type pointer;
 

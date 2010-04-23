@@ -3,10 +3,10 @@
 
 #include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/const_view.hpp>
-#include <mizuiro/image/raw_pointer.hpp>
-#include <mizuiro/image/const_raw_pointer.hpp>
 #include <mizuiro/image/iterator_impl.hpp>
 #include <mizuiro/image/linear_iterator_impl.hpp>
+#include <mizuiro/raw_pointer.hpp>
+#include <mizuiro/const_raw_pointer.hpp>
 
 namespace mizuiro
 {

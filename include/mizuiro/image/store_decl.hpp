@@ -4,6 +4,7 @@
 #include <mizuiro/image/store_fwd.hpp>
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/detail/raw_container_decl.hpp>
+#include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 
@@ -15,20 +16,40 @@ namespace image
 template<
 	typename Format
 >
-class store {
+class store
+{
 public:
-	typedef typename Format::channel_type channel_type;
-	typedef typename Format::pointer pointer;
-	typedef typename Format::const_pointer const_pointer;
-	typedef typename Format::dim_type dim_type;
+	typedef ::mizuiro::access::normal access;
+
+	typedef Format format;
+
+	typedef typename format::color_format color_format;
+
+	typedef typename color_format::channel_type channel_type; // TODO!
+
+	typedef typename color::types::pointer<
+		access,
+		color_format,
+		mizuiro::nonconst_tag
+	>::type pointer;
+
+	typedef typename color::types::pointer<
+		access,
+		color_format,
+		mizuiro::const_tag
+	>::type const_pointer;
+
+	typedef typename format::dim_type dim_type;
 
 	typedef image::view<
-		Format,	
+		access,
+		format,	
 		mizuiro::nonconst_tag
 	> view_type;
 
 	typedef image::view<
-		Format,
+		access,
+		format,
 		mizuiro::const_tag
 	> const_view_type;
 	

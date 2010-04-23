@@ -4,10 +4,11 @@
 #include <mizuiro/image/linear_iterator_decl.hpp>
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-mizuiro::image::linear_iterator<Format, Constness>::linear_iterator(
+mizuiro::image::linear_iterator<Access, Format, Constness>::linear_iterator(
 	pointer const data_
 )
 :
@@ -15,21 +16,23 @@ mizuiro::image::linear_iterator<Format, Constness>::linear_iterator(
 {}
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::linear_iterator<Format, Constness>::pointer
-mizuiro::image::linear_iterator<Format, Constness>::data() const
+typename mizuiro::image::linear_iterator<Access, Format, Constness>::pointer
+mizuiro::image::linear_iterator<Access, Format, Constness>::data() const
 {
 	return data_;
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
 void
-mizuiro::image::linear_iterator<Format, Constness>::advance(
+mizuiro::image::linear_iterator<Access, Format, Constness>::advance(
 	difference_type	const diff
 )
 {
@@ -37,31 +40,34 @@ mizuiro::image::linear_iterator<Format, Constness>::advance(
 }
 	
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
 void
-mizuiro::image::linear_iterator<Format, Constness>::increment()
+mizuiro::image::linear_iterator<Access, Format, Constness>::increment()
 {
 	advance(1);
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
 void
-mizuiro::image::linear_iterator<Format, Constness>::decrement()
+mizuiro::image::linear_iterator<Access, Format, Constness>::decrement()
 {
 	advance(-1);
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::linear_iterator<Format, Constness>::difference_type
-mizuiro::image::linear_iterator<Format, Constness>::distance_to(
+typename mizuiro::image::linear_iterator<Access, Format, Constness>::difference_type
+mizuiro::image::linear_iterator<Access, Format, Constness>::distance_to(
 	linear_iterator const &other
 ) const
 {
@@ -69,11 +75,12 @@ mizuiro::image::linear_iterator<Format, Constness>::distance_to(
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::linear_iterator<Format, Constness>::reference
-mizuiro::image::linear_iterator<Format, Constness>::dereference() const
+typename mizuiro::image::linear_iterator<Access, Format, Constness>::reference
+mizuiro::image::linear_iterator<Access, Format, Constness>::dereference() const
 {
 	return reference(
 		data_
@@ -81,11 +88,12 @@ mizuiro::image::linear_iterator<Format, Constness>::dereference() const
 }
 
 template<
+	typename Access,
 	typename Format,
 	typename Constness
 >
 bool
-mizuiro::image::linear_iterator<Format, Constness>::equal(
+mizuiro::image::linear_iterator<Access, Format, Constness>::equal(
 	linear_iterator const &other
 ) const
 {
