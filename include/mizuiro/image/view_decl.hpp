@@ -8,7 +8,7 @@
 #include <mizuiro/image/linear_iterator_fwd.hpp>
 #include <mizuiro/image/bound_fwd.hpp>
 #include <mizuiro/image/types/reference.hpp>
-#include <mizuiro/color/types/pointer.hpp>
+#include <mizuiro/image/types/pointer.hpp>
 #include <fcppt/variant/object_fwd.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 
@@ -81,9 +81,9 @@ public:
 		Constness
 	>::type reference;
 
-	typedef typename color::types::pointer<
+	typedef typename image::types::pointer<
 		access,
-		color_format,
+		format,
 		Constness
 	>::type pointer;
 

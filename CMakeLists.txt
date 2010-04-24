@@ -42,7 +42,7 @@ CONFIGURE_FILE(
 	${CMAKE_SOURCE_DIR}/include/mizuiro/config.hpp
 )
 
-INSTALL (DIRECTORY include/ DESTINATION include/)
+INSTALL (DIRECTORY include/ DESTINATION include)
 
 OPTION (BUILD_EXAMPLES "Build the examples" ON)
 

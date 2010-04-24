@@ -4,7 +4,8 @@
 #include <mizuiro/image/store_fwd.hpp>
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/detail/raw_container_decl.hpp>
-#include <mizuiro/color/types/pointer.hpp>
+#include <mizuiro/image/types/pointer.hpp>
+#include <mizuiro/image/types/normal.hpp>
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
@@ -28,15 +29,15 @@ public:
 
 	typedef typename color_format::channel_type channel_type; // TODO!
 
-	typedef typename color::types::pointer<
+	typedef typename image::types::pointer<
 		access,
-		color_format,
+		format,
 		mizuiro::nonconst_tag
 	>::type pointer;
 
-	typedef typename color::types::pointer<
+	typedef typename image::types::pointer<
 		access,
-		color_format,
+		format,
 		mizuiro::const_tag
 	>::type const_pointer;
 

@@ -1,7 +1,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_STRIDE_POINTER_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_STRIDE_POINTER_IMPL_HPP_INCLUDED
 
-#include <mizuiro/color/detail/stride_pointer_decl.hpp>
+#include <mizuiro/image/detail/stride_pointer_decl.hpp>
 #include <cassert>
 
 template<

@@ -5,7 +5,7 @@
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/image/detail/pitch_type.hpp>
 #include <mizuiro/image/detail/stacked_dim_type.hpp>
-#include <mizuiro/color/types/pointer.hpp>
+#include <mizuiro/image/types/pointer.hpp>
 
 namespace mizuiro
 {
@@ -60,9 +60,9 @@ public:
 
 	typedef typename base::reference reference;
 
-	typedef typename color::types::pointer<
+	typedef typename image::types::pointer<
 		access,
-		color_format,
+		format,
 		Constness
 	>::type pointer;
 

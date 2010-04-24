@@ -5,7 +5,7 @@
 #include <mizuiro/image/pitch_iterator_decl.hpp>
 #include <mizuiro/image/linear_iterator_decl.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
-#include <mizuiro/color/types/pointer.hpp>
+#include <mizuiro/image/types/pointer.hpp>
 #include <fcppt/variant/object_decl.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 
@@ -69,9 +69,9 @@ public:
 
 	typedef typename base::reference reference;
 
-	typedef typename color::types::pointer<
+	typedef typename image::types::pointer<
 		access,
-		color_format,
+		format,
 		Constness
 	>::type pointer;
 
