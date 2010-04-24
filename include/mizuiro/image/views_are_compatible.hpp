@@ -50,10 +50,9 @@ boost::mpl::and_<
 					boost::is_same
 				>,
 				boost::mpl::bind<
-					boost::mpl::quote3<
+					boost::mpl::quote2<
 						color::types::channel_value
 					>,
-					typename View1::access,
 					typename View1::color_format,
 					boost::mpl::_2
 				>,
@@ -69,10 +68,9 @@ boost::mpl::and_<
 						boost::mpl::_2
 					>,
 					boost::mpl::bind<
-						boost::mpl::quote3<
+						boost::mpl::quote2<
 							color::types::channel_value
 						>,
-						typename View2::access,
 						typename View2::color_format,
 						boost::mpl::_2
 					>,

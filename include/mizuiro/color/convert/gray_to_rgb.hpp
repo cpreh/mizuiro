@@ -67,7 +67,6 @@ convert(
 	dest.template set<channel::red>
 	(
 		denormalize<
-			typename dest_object::access,
 			typename dest_object::format,
 			channel::red
 		>
@@ -79,7 +78,6 @@ convert(
 	dest.template set<channel::green>
 	(
 		denormalize<
-			typename dest_object::access,
 			typename dest_object::format,
 			channel::green
 		>
@@ -91,7 +89,6 @@ convert(
 	dest.template set<channel::blue>
 	(
 		denormalize<
-			typename dest_object::access,
 			typename dest_object::format,
 			channel::blue
 		>

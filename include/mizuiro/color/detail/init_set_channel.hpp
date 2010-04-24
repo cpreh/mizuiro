@@ -22,7 +22,6 @@ template<
 typename boost::enable_if<
 	boost::is_same<
 		typename color::types::channel_value<
-			typename Color::access,
 			typename Color::format,
 			Channel
 		>::type,
@@ -63,7 +62,6 @@ init_set_channel(
 		Channel
 	>(
 		denormalize<
-			typename Color::access,
 			typename Color::format,
 			Channel
 		>(

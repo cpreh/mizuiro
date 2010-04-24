@@ -48,7 +48,6 @@ public:
 	void
 	set(
 		typename types::channel_value<
-			Access,
 			Format,
 			Channel
 		>::type const &

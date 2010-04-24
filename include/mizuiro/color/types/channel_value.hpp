@@ -9,7 +9,6 @@ namespace types
 {
 
 template<
-	typename Access,
 	typename Format,
 	typename Channel
 >

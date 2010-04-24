@@ -51,7 +51,6 @@ public:
 			static_cast<
 				typename detail::promote_channel<
 					typename color::types::channel_value<
-						typename Color::access,
 						typename Color::format,
 						Channel
 					>::type

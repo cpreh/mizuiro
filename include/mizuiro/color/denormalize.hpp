@@ -14,7 +14,6 @@ namespace color
 
 template
 <
-	typename Access,
 	typename Format,
 	typename Channel,
 	typename Float
@@ -28,7 +27,6 @@ typename boost::enable_if
 	typename 
 	types::channel_value
 	<
-		Access,
 		Format,
 		Channel
 	>::type
@@ -42,7 +40,6 @@ denormalize
 		typename
 		types::channel_value
 		<
-			Access,
 			Format,
 			Channel
 		>::type

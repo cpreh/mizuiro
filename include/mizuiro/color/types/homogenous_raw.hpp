@@ -2,9 +2,10 @@
 #define MIZUIRO_COLOR_TYPES_HOMOGENOUS_RAW_HPP_INCLUDED
 
 #include <mizuiro/color/types/pointer.hpp>
-#include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/store.hpp>
+#include <mizuiro/color/types/homogenous.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/homogenous_fwd.hpp>
 #include <mizuiro/color/channel_proxy_impl.hpp>
 #include <mizuiro/access/raw.hpp>
@@ -44,23 +45,6 @@ mizuiro::detail::apply_const<
 template<
 	typename ChannelType,
 	typename Layout,
-	typename Channel
->
-struct channel_value<
-	::mizuiro::access::raw,
-	color::homogenous<
-		ChannelType,
-		Layout
-	>,
-	Channel
->
-{
-	typedef ChannelType type;
-};
-
-template<
-	typename ChannelType,
-	typename Layout,
 	typename Channel,
 	typename Constness
 >
@@ -84,7 +68,6 @@ struct channel_reference<
 			Constness
 		>::type,
 		typename types::channel_value<
-			::mizuiro::access::raw,
 			color::homogenous<
 				ChannelType,
 				Layout

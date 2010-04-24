@@ -58,7 +58,6 @@ convert
 	(
 		denormalize
 		<
-			typename dest_type::access,
 			typename dest_type::format,
 			dest_channel,
 			float

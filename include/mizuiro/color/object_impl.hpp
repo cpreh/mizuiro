@@ -89,7 +89,6 @@ template<
 void
 mizuiro::color::object<Format>::set(
 	typename types::channel_value<
-		access,
 		format,
 		Channel
 	>::type const &ref

@@ -30,7 +30,6 @@ copy_and_convert_channel
 	(
 		denormalize
 		<
-			typename Dest::access,
 			typename Dest::format,
 			Channel,
 			Float

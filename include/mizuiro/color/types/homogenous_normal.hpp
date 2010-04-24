@@ -2,7 +2,6 @@
 #define MIZUIRO_COLOR_TYPES_HOMOGENOUS_NORMAL_HPP_INCLUDED
 
 #include <mizuiro/color/types/pointer.hpp>
-#include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/homogenous_fwd.hpp>
@@ -37,23 +36,6 @@ mizuiro::detail::apply_const<
 	Constness
 >
 {};
-
-template<
-	typename ChannelType,
-	typename Layout,
-	typename Channel
->
-struct channel_value<
-	::mizuiro::access::normal,
-	color::homogenous<
-		ChannelType,
-		Layout
-	>,
-	Channel
->
-{
-	typedef ChannelType type;
-};
 
 template<
 	typename ChannelType,

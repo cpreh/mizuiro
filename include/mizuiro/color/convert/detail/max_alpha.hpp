@@ -58,7 +58,6 @@ max_alpha(
 	(
 		color::channel_max<
 			typename color::types::channel_value<
-				typename Color::access,
 				typename Color::format,
 				channel::alpha
 			>::type

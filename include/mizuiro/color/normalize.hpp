@@ -33,7 +33,6 @@ normalize
 )
 {
 	typedef typename color::types::channel_value<
-		typename Color::access,
 		typename Color::format,
 		Channel
 	>::type channel_value;
