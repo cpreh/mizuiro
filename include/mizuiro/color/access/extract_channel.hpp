@@ -13,6 +13,7 @@ namespace color
 namespace access
 {
 
+#if 0
 template<
 	typename Access,
 	typename Format,
@@ -35,6 +36,7 @@ extract_channel(
 		Constness
 	>::type
 );
+#endif
 
 }
 }

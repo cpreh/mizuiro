@@ -1,7 +1,7 @@
 #ifndef MIZUIRO_ACCESS_IS_RAW_HPP_INCLUDED
 #define MIZUIRO_ACCESS_IS_RAW_HPP_INCLUDED
 
-#include <mizuiro/access/raw_fwd.hpp>
+#include <mizuiro/access/raw.hpp>
 #include <boost/type_traits/is_same.hpp>
 
 namespace mizuiro

@@ -1,13 +1,13 @@
+#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/proxy_impl.hpp>
+#include <mizuiro/color/output.hpp>
+#include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/image/store_impl.hpp>
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/const_view.hpp>
-#include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/color/homogenous.hpp>
-#include <mizuiro/color/proxy_impl.hpp>
-#include <mizuiro/color/output.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>

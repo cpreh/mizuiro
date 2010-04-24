@@ -7,7 +7,7 @@
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/homogenous_fwd.hpp>
 #include <mizuiro/color/channel_proxy_impl.hpp>
-#include <mizuiro/access/raw_fwd.hpp>
+#include <mizuiro/access/raw.hpp>
 #include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/raw_value.hpp>
 #include <mizuiro/raw_pointer.hpp>

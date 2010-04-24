@@ -1,12 +1,12 @@
+#include <mizuiro/color/layout/gray.hpp>
+#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/image/store_impl.hpp>
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/algorithm/for_each.hpp>
-#include <mizuiro/color/layout/gray.hpp>
-#include <mizuiro/color/homogenous.hpp>
-#include <mizuiro/color/proxy_impl.hpp>
 #include <boost/cstdint.hpp>
 
 typedef mizuiro::image::format<

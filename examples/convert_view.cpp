@@ -1,3 +1,5 @@
+#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/store_impl.hpp>
@@ -8,13 +10,10 @@
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/alpha.hpp>
-#include <mizuiro/color/homogenous.hpp>
 #include <fcppt/tr1/array.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>
-
-#include <mizuiro/color/access/homogenous_raw.hpp>
 
 namespace
 {

@@ -6,7 +6,7 @@
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/homogenous_fwd.hpp>
-#include <mizuiro/access/normal_fwd.hpp>
+#include <mizuiro/access/normal.hpp>
 #include <mizuiro/detail/apply_const.hpp>
 #include <fcppt/tr1/array.hpp>
 #include <boost/mpl/size.hpp>
