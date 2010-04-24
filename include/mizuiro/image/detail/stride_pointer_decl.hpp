@@ -9,7 +9,7 @@
 
 namespace mizuiro
 {
-namespace iamge
+namespace image
 {
 namespace detail
 {

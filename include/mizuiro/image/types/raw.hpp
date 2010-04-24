@@ -2,10 +2,10 @@
 #define MIZUIRO_IMAGE_TYPES_RAW_HPP_INCLUDED
 
 #include <mizuiro/image/types/pointer.hpp>
-#include <mizuiro/image/types/normal.hpp>
 #include <mizuiro/image/detail/stride_pointer_impl.hpp>
+#include <mizuiro/color/types/homogenous_raw.hpp>
+#include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/access/raw.hpp>
-#include <mizuiro/access/normal.hpp>
 
 namespace mizuiro
 {
@@ -25,11 +25,11 @@ struct pointer<
 >
 {
 	typedef detail::stride_pointer<
-		types::pointer<
-			::mizuiro::access::normal,
-			Format,
+		typename color::types::pointer<
+			::mizuiro::access::raw,
+			typename Format::color_format,
 			Constness
-		>,
+		>::type,
 		Format::color_format::element_count
 	> type;	
 };

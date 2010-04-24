@@ -3,6 +3,7 @@
 
 #include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/types/raw.hpp>
+#include <mizuiro/image/access/raw.hpp>
 #include <mizuiro/color/types/homogenous_raw.hpp>
 #include <mizuiro/color/access/homogenous_raw.hpp>
 #include <mizuiro/access/raw.hpp>
