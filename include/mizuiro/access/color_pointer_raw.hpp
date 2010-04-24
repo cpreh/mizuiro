@@ -1,14 +1,11 @@
-#ifndef MIZUIRO_IMAGE_ACCESS_RAW_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ACCESS_RAW_HPP_INCLUDED
+#ifndef MIZUIRO_ACCESS_COLOR_POINTER_RAW_HPP_INCLUDED
+#define MIZUIRO_ACCESS_COLOR_POINTER_RAW_HPP_INCLUDED
 
 #include <mizuiro/image/detail/stride_pointer_impl.hpp>
-#include <mizuiro/image/access/color_pointer.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/size_type.hpp>
 
 namespace mizuiro
-{
-namespace image
 {
 namespace access
 {
@@ -26,7 +23,10 @@ typename color::types::pointer<
 	Constness
 >::type
 color_pointer(
-	detail::stride_pointer<
+	Access const &,
+	Format const &,
+	Constness const &,
+	mizuiro::image::detail::stride_pointer<
 		Ptr,
 		Stride
 	> const pointer
@@ -35,7 +35,6 @@ color_pointer(
 	return pointer.get();
 }
 
-}
 }
 }
 

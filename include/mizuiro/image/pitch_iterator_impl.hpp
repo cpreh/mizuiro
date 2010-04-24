@@ -2,14 +2,12 @@
 #define MIZUIRO_IMAGE_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 
 #include <mizuiro/image/detail/stacked_dim.hpp>
-#include <mizuiro/image/access/color_pointer.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
 #include <mizuiro/image/iterator_position.hpp>
+#include <mizuiro/access/color_pointer.hpp>
 #include <mizuiro/detail/unlikely.hpp>
 #include <cassert>
-
-#include <mizuiro/image/access/raw.hpp>
 
 template<
 	typename Access,
@@ -210,11 +208,10 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::dereference() const
 {
 	return
 		reference(
-			image::access::color_pointer<
-				Access,
-				Format,
-				Constness
-			>(
+			color_pointer(
+				Access(),
+				Format(),
+				Constness(),
 				data()
 			)
 		);

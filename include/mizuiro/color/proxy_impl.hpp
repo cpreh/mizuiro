@@ -3,7 +3,6 @@
 
 #include <mizuiro/color/proxy_decl.hpp>
 #include <mizuiro/color/detail/copy_channel.hpp>
-#include <mizuiro/color/access/extract_channel.hpp>
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <boost/mpl/for_each.hpp>
@@ -69,12 +68,11 @@ mizuiro::color::proxy<Access, Format, Constness>::set(
 	>::type const &ref
 ) const
 {
-	color::access::extract_channel<
-		Access,
-		Format,
-		Channel,
-		mizuiro::nonconst_tag
-	>(
+	extract_channel(
+		Access(),
+		Format(),
+		Channel(),
+		mizuiro::nonconst_tag(),
 		data_	
 	) = ref;
 }
@@ -96,12 +94,11 @@ typename mizuiro::color::types::channel_reference<
 mizuiro::color::proxy<Access, Format, Constness>::get() const
 {
 	return
-		color::access::extract_channel<
-			Access,
-			Format,
-			Channel,
-			mizuiro::const_tag
-		>(
+		extract_channel(
+			Access(),
+			Format(),
+			Channel(),
+			mizuiro::const_tag(),
 			data_
 		);
 }

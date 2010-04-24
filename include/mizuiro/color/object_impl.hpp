@@ -4,7 +4,7 @@
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/detail/init_set_channel.hpp>
-#include <mizuiro/color/access/homogenous_normal.hpp>
+#include <mizuiro/access/homogenous_normal.hpp>
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_binary_params.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>

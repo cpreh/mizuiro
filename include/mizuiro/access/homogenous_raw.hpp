@@ -1,17 +1,15 @@
-#ifndef MIZUIRO_COLOR_ACCESS_HOMOGENOUS_NORMAL_HPP_INCLUDED
-#define MIZUIRO_COLOR_ACCESS_HOMOGENOUS_NORMAL_HPP_INCLUDED
+#ifndef MIZUIRO_ACCESS_HOMOGENOUS_RAW_HPP_INCLUDED
+#define MIZUIRO_ACCESS_HOMOGENOUS_RAW_HPP_INCLUDED
 
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/is_homogenous.hpp>
-#include <mizuiro/access/is_normal.hpp>
+#include <mizuiro/access/is_raw.hpp>
 #include <mizuiro/detail/index_of.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <boost/mpl/and.hpp>
 
 namespace mizuiro
-{
-namespace color
 {
 namespace access
 {
@@ -24,14 +22,14 @@ template<
 >
 typename boost::enable_if<
 	boost::mpl::and_<
-		mizuiro::access::is_normal<
+		mizuiro::access::is_raw<
 			Access
 		>,
-		color::is_homogenous<
+		mizuiro::color::is_homogenous<
 			Format
 		>
 	>,
-	typename types::channel_reference<
+	typename mizuiro::color::types::channel_reference<
 		Access,
 		Format,
 		Channel,
@@ -39,23 +37,26 @@ typename boost::enable_if<
 	>::type
 >::type
 extract_channel(
-	typename types::pointer<
+	Access const &,
+	Format const &,
+	Channel const &,
+	Constness const &,
+	typename mizuiro::color::types::pointer<
 		Access,
 		Format,
 		Constness
 	>::type const ptr
 )
 {
-	return
-		ptr[
-			mizuiro::detail::index_of<
-				typename Format::layout::order,
-				Channel
-			>::value
-		];
+	return ptr + 
+		mizuiro::detail::index_of<
+			typename Format::layout::order,
+			Channel
+		>::value
+		* sizeof(typename Format::channel_type) // TODO!
+	;
 }
 
-}
 }
 }
 

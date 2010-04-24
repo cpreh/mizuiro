@@ -2,8 +2,8 @@
 #define MIZUIRO_COLOR_HOMOGENOUS_HPP_INCLUDED
 
 #include <mizuiro/color/homogenous_fwd.hpp>
-#include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/color/types/homogenous_normal.hpp>
+#include <mizuiro/access/homogenous_normal.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/mpl/size.hpp>
 

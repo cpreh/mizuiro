@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_IMAGE_ACCESS_COLOR_POINTER_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ACCESS_COLOR_POINTER_HPP_INCLUDED
+#ifndef MIZUIRO_ACCESS_COLOR_POINTER_HPP_INCLUDED
+#define MIZUIRO_ACCESS_COLOR_POINTER_HPP_INCLUDED
 
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/image/types/pointer.hpp>
@@ -7,8 +7,6 @@
 #include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
-{
-namespace image
 {
 namespace access
 {
@@ -38,6 +36,9 @@ typename boost::enable_if<
 	>::type
 >::type
 color_pointer(
+	Access const &,
+	Format const &,
+	Constness const &,
 	typename image::types::pointer<
 		Access,
 		Format,
@@ -48,7 +49,6 @@ color_pointer(
 	return pointer;
 }
 
-}
 }
 }
 
