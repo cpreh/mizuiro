@@ -1,14 +1,14 @@
-#ifndef MIZUIRO_COLOR_DETAIL_STRIDE_POINTER_IMPL_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_STRIDE_POINTER_IMPL_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_DETAIL_STRIDE_POINTER_IMPL_HPP_INCLUDED
+#define MIZUIRO_IMAGE_DETAIL_STRIDE_POINTER_IMPL_HPP_INCLUDED
 
-#include <mizuiro/image/detail/stride_pointer_decl.hpp>
+#include <mizuiro/color/detail/stride_pointer_decl.hpp>
 #include <cassert>
 
 template<
 	typename T,
 	mizuiro::size_type Stride
 >
-mizuiro::color::detail::stride_pointer<T, Stride>::stride_pointer(
+mizuiro::image::detail::stride_pointer<T, Stride>::stride_pointer(
 	T const base_
 )
 :
@@ -22,7 +22,7 @@ template<
 template<
 	typename OtherT
 >
-mizuiro::color::detail::stride_pointer<T, Stride>::stride_pointer(
+mizuiro::image::detail::stride_pointer<T, Stride>::stride_pointer(
 	stride_pointer<
 		OtherT,
 		Stride
@@ -36,8 +36,8 @@ template<
 	typename T,
 	mizuiro::size_type Stride
 >
-mizuiro::color::detail::stride_pointer<T, Stride> &
-mizuiro::color::detail::stride_pointer<T, Stride>::operator+=(
+mizuiro::image::detail::stride_pointer<T, Stride> &
+mizuiro::image::detail::stride_pointer<T, Stride>::operator+=(
 	difference_type const diff
 )
 {
@@ -50,8 +50,8 @@ template<
 	mizuiro::size_type Stride
 >
 
-mizuiro::color::detail::stride_pointer<T, Stride> &
-mizuiro::color::detail::stride_pointer<T, Stride>::operator-=(
+mizuiro::image::detail::stride_pointer<T, Stride> &
+mizuiro::image::detail::stride_pointer<T, Stride>::operator-=(
 	difference_type const diff
 )
 {
@@ -63,8 +63,8 @@ template<
 	typename T,
 	mizuiro::size_type Stride
 >
-mizuiro::color::detail::stride_pointer<T, Stride> &
-mizuiro::color::detail::stride_pointer<T, Stride>::operator++()
+mizuiro::image::detail::stride_pointer<T, Stride> &
+mizuiro::image::detail::stride_pointer<T, Stride>::operator++()
 {
 	base_ += sstride;
 	return *this;
@@ -74,8 +74,8 @@ template<
 	typename T,
 	mizuiro::size_type Stride
 >
-mizuiro::color::detail::stride_pointer<T, Stride> &
-mizuiro::color::detail::stride_pointer<T, Stride>::operator--()
+mizuiro::image::detail::stride_pointer<T, Stride> &
+mizuiro::image::detail::stride_pointer<T, Stride>::operator--()
 {
 	base_ -= sstride;
 	return *this;
@@ -85,8 +85,8 @@ template<
 	typename T,
 	mizuiro::size_type Stride
 >
-typename mizuiro::color::detail::stride_pointer<T, Stride>::reference
-mizuiro::color::detail::stride_pointer<T, Stride>::operator*() const
+typename mizuiro::image::detail::stride_pointer<T, Stride>::reference
+mizuiro::image::detail::stride_pointer<T, Stride>::operator*() const
 {
 	return *base_;
 }
@@ -95,8 +95,8 @@ template<
 	typename T,
 	mizuiro::size_type Stride
 >
-typename mizuiro::color::detail::stride_pointer<T, Stride>::reference
-mizuiro::color::detail::stride_pointer<T, Stride>::operator[](
+typename mizuiro::image::detail::stride_pointer<T, Stride>::reference
+mizuiro::image::detail::stride_pointer<T, Stride>::operator[](
 	size_type const index
 ) const
 {
@@ -107,8 +107,8 @@ template<
 	typename T,
 	mizuiro::size_type Stride
 >
-typename mizuiro::color::detail::stride_pointer<T, Stride>::difference_type
-mizuiro::color::detail::stride_pointer<T, Stride>::operator-(
+typename mizuiro::image::detail::stride_pointer<T, Stride>::difference_type
+mizuiro::image::detail::stride_pointer<T, Stride>::operator-(
 	stride_pointer const &other
 ) const
 {
@@ -124,7 +124,7 @@ template<
 	mizuiro::size_type Stride
 >
 bool
-mizuiro::color::detail::stride_pointer<T, Stride>::operator==(
+mizuiro::image::detail::stride_pointer<T, Stride>::operator==(
 	stride_pointer const &other
 ) const
 {
@@ -136,7 +136,7 @@ template<
 	mizuiro::size_type Stride
 >
 T
-mizuiro::color::detail::stride_pointer<T, Stride>::get() const
+mizuiro::image::detail::stride_pointer<T, Stride>::get() const
 {
 	return base_;
 }
@@ -145,8 +145,8 @@ template<
 	typename T,
 	mizuiro::size_type Stride
 >
-mizuiro::color::detail::stride_pointer<T, Stride> const
-mizuiro::color::detail::operator +(
+mizuiro::image::detail::stride_pointer<T, Stride> const
+mizuiro::image::detail::operator +(
 	stride_pointer<T, Stride> p,
 	typename stride_pointer<T, Stride>::difference_type const d
 )
@@ -158,8 +158,8 @@ template<
 	typename T,
 	mizuiro::size_type Stride
 >
-mizuiro::color::detail::stride_pointer<T, Stride> const
-mizuiro::color::detail::operator -(
+mizuiro::image::detail::stride_pointer<T, Stride> const
+mizuiro::image::detail::operator -(
 	stride_pointer<T, Stride> p,
 	typename stride_pointer<T, Stride>::difference_type const d
 )
@@ -172,7 +172,7 @@ template<
 	mizuiro::size_type Stride
 >
 bool
-mizuiro::color::detail::operator!=(
+mizuiro::image::detail::operator!=(
 	stride_pointer<T, Stride> const &a,
 	stride_pointer<T, Stride> const &b
 )

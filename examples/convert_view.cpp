@@ -14,6 +14,8 @@
 #include <iostream>
 #include <ostream>
 
+#include <mizuiro/color/access/homogenous_raw.hpp>
+
 namespace
 {
 

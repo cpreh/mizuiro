@@ -77,9 +77,9 @@ public:
 	
 	typedef typename image::types::reference<
 		access,
-		color_format,
+		format,
 		Constness
-	> reference;
+	>::type reference;
 
 	typedef typename color::types::pointer<
 		access,

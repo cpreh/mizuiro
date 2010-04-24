@@ -48,7 +48,7 @@ extract_channel(
 {
 	return ptr + 
 		mizuiro::detail::index_of<
-			typename Layout::layout::order,
+			typename Format::layout::order,
 			Channel
 		>::value
 	;

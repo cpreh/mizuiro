@@ -3,7 +3,9 @@
 
 #include <mizuiro/color/homogenous_fwd.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp> // TODO: where to put this?
+#include <mizuiro/color/types/homogenous_normal.hpp>
+#include <mizuiro/size_type.hpp>
+#include <boost/mpl/size.hpp>
 
 namespace mizuiro
 {
@@ -20,26 +22,10 @@ struct homogenous
 
 	typedef Layout layout;
 
-#if 0
-	template<
-		typename Constness
-	>
-	struct reference {
-		typedef proxy<
-			homogenous<
-				channel_type,
-				layout,
-				AccessTypes
-			>,
-			Constness
-		> type;
-	};
-
 	static size_type const element_count
 		= boost::mpl::size<
 			typename layout::order
 		>::value;
-#endif
 };
 
 }

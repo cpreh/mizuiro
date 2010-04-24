@@ -1,11 +1,11 @@
-#ifndef MIZUIRO_COLOR_DETAIL_STRIDE_POINTER_FWD_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_STRIDE_POINTER_FWD_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_DETAIL_STRIDE_POINTER_FWD_HPP_INCLUDED
+#define MIZUIRO_IMAGE_DETAIL_STRIDE_POINTER_FWD_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
 
 namespace mizuiro
 {
-namespace color
+namespace image
 {
 namespace detail
 {

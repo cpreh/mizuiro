@@ -33,7 +33,7 @@ mizuiro::color::channel_proxy<Pointer, ValueType>::operator=(
 			&ref
 		),
 		sizeof(ref),
-		data_.get()
+		data_
 	);
 
 	return *this;
@@ -49,7 +49,7 @@ operator typename mizuiro::color::channel_proxy<Pointer, ValueType>::value_type(
 	value_type ret;
 
 	mizuiro::detail::copy_n(
-		data_.get(),
+		data_,
 		sizeof(ret),
 		reinterpret_cast<
 			raw_pointer

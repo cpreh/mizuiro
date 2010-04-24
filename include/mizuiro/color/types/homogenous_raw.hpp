@@ -6,10 +6,11 @@
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/homogenous_fwd.hpp>
-#include <mizuiro/color/detail/stride_pointer_impl.hpp>
+#include <mizuiro/color/channel_proxy_impl.hpp>
 #include <mizuiro/access/raw_fwd.hpp>
 #include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/raw_value.hpp>
+#include <mizuiro/raw_pointer.hpp>
 #include <fcppt/tr1/array.hpp>
 
 namespace mizuiro
@@ -32,14 +33,12 @@ struct pointer<
 	>,
 	Constness
 >
+:
+mizuiro::detail::apply_const<
+	raw_pointer,
+	Constness
+>
 {
-	typedef color::detail::stride_pointer<
-		typename mizuiro::detail::apply_const<
-			raw_pointer,
-			Constness
-		>::type,
-		sizeof(typename Layout::channel_type)
-	> type;
 };
 
 template<
@@ -76,17 +75,21 @@ struct channel_reference<
 >
 {
 	typedef color::channel_proxy<
-		typename types::channel_value<
-			::mizuiro::access::raw,
-			ChannelType,
-			Layout
-			Channel
-		>::type,
 		typename types::pointer<
 			::mizuiro::access::raw,
-			ChannelType,
-			Layout,
+			color::homogenous<
+				ChannelType,
+				Layout
+			>,
 			Constness
+		>::type,
+		typename types::channel_value<
+			::mizuiro::access::raw,
+			color::homogenous<
+				ChannelType,
+				Layout
+			>,
+			Channel
 		>::type
 	> type;
 
@@ -108,7 +111,7 @@ struct store<
 		raw_value,
 		Layout::element_count
 		* sizeof(typename Layout::channel_type)
-	> store;
+	> type;
 };
 
 }

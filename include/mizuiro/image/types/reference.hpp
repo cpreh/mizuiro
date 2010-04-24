@@ -1,7 +1,7 @@
 #ifndef MIZUIRO_IMAGE_TYPES_REFERENCE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_TYPES_REFERENCE_HPP_INCLUDED
 
-#include <mizuiro/color/proxy_fwd.hpp>
+#include <mizuiro/color/proxy_impl.hpp>
 
 namespace mizuiro
 {
@@ -19,7 +19,7 @@ struct reference
 {
 	typedef ::mizuiro::color::proxy<
 		Access,
-		Format,
+		typename Format::color_format,
 		Constness
 	> type;
 };

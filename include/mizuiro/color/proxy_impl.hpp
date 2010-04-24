@@ -8,6 +8,9 @@
 #include <mizuiro/nonconst_tag.hpp>
 #include <boost/mpl/for_each.hpp>
 
+#include <mizuiro/color/access/homogenous_normal.hpp>
+#include <mizuiro/color/access/homogenous_raw.hpp>
+
 template<
 	typename Access,
 	typename Format,

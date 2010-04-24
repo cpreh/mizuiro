@@ -1,7 +1,7 @@
 #ifndef MIZUIRO_IMAGE_VIEWS_ARE_COMPATIBLE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_VIEWS_ARE_COMPATIBLE_HPP_INCLUDED
 
-#include <mizuiro/color/channel_value_type.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
 #include <boost/mpl/fold.hpp>
 #include <boost/mpl/if.hpp>
 #include <boost/mpl/contains.hpp>
@@ -50,9 +50,10 @@ boost::mpl::and_<
 					boost::is_same
 				>,
 				boost::mpl::bind<
-					boost::mpl::quote2<
-						color::channel_value_type
+					boost::mpl::quote3<
+						color::types::channel_value
 					>,
+					typename View1::access,
 					typename View1::color_format,
 					boost::mpl::_2
 				>,
@@ -68,9 +69,10 @@ boost::mpl::and_<
 						boost::mpl::_2
 					>,
 					boost::mpl::bind<
-						boost::mpl::quote2<
-							color::channel_value_type
+						boost::mpl::quote3<
+							color::types::channel_value
 						>,
+						typename View2::access,
 						typename View2::color_format,
 						boost::mpl::_2
 					>,

@@ -23,7 +23,7 @@ struct iterator_base
 {
 	typedef boost::iterator_facade<
 		Iterator,
-		typename Format::channel_type,
+		typename Format::color_format::channel_type,
 		Category,
 		typename image::types::reference<
 			Access,

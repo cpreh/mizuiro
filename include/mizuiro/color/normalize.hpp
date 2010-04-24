@@ -37,7 +37,7 @@ normalize
 		typename Color::format,
 		Channel
 	>::type channel_value;
-						
+
 	return 
 		(
 			static_cast<Float>
