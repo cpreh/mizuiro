@@ -1,8 +1,8 @@
-#include <mizuiro/image/store_impl.hpp>
+#include <mizuiro/image/store.hpp>
 #include <mizuiro/image/format.hpp>
-#include <mizuiro/image/view_impl.hpp>
+#include <mizuiro/image/view.hpp>
 #include <mizuiro/image/interleaved.hpp>
-#include <mizuiro/image/dimension_impl.hpp>
+#include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
@@ -15,7 +15,7 @@
 #include <mizuiro/color/for_each_channel.hpp>
 #include <mizuiro/color/set.hpp>
 #include <mizuiro/color/get.hpp>
-#include <mizuiro/color/proxy_impl.hpp>
+#include <mizuiro/color/proxy.hpp>
 #include <boost/spirit/home/phoenix/core/argument.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>

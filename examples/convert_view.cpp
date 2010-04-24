@@ -1,9 +1,9 @@
 #include <mizuiro/color/homogenous.hpp>
 #include <mizuiro/image/raw_view.hpp>
-#include <mizuiro/image/dimension_impl.hpp>
+#include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/interleaved.hpp>
-#include <mizuiro/image/store_impl.hpp>
-#include <mizuiro/image/view_impl.hpp>
+#include <mizuiro/image/store.hpp>
+#include <mizuiro/image/view.hpp>
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>

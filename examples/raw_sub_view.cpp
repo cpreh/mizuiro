@@ -1,10 +1,10 @@
 #include <mizuiro/color/homogenous.hpp>
-#include <mizuiro/color/proxy_impl.hpp>
+#include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/init.hpp>
-#include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/object.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/image/raw_view.hpp>
-#include <mizuiro/image/dimension_impl.hpp>
+#include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/make_raw_view.hpp>

@@ -1,4 +1,4 @@
-#include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/object.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/gray.hpp>
 #include <mizuiro/color/layout/alpha.hpp>

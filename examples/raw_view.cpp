@@ -1,4 +1,4 @@
-#include <mizuiro/image/dimension_impl.hpp>
+#include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
@@ -8,7 +8,7 @@
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/color/homogenous.hpp>
-#include <mizuiro/color/proxy_impl.hpp>
+#include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/size_type.hpp>

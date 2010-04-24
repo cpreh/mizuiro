@@ -1,24 +1,22 @@
-#include <mizuiro/image/store_impl.hpp>
+#include <mizuiro/image/store.hpp>
 #include <mizuiro/image/format.hpp>
-#include <mizuiro/image/view_impl.hpp>
+#include <mizuiro/image/view.hpp>
 #include <mizuiro/image/interleaved.hpp>
-#include <mizuiro/image/dimension_impl.hpp>
-#include <mizuiro/image/bound_impl.hpp>
+#include <mizuiro/image/dimension.hpp>
+#include <mizuiro/image/bound.hpp>
 #include <mizuiro/image/sub_view.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/algorithm/copy.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/init.hpp>
-#include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/object.hpp>
 #include <mizuiro/color/homogenous.hpp>
-//#include <boost/cstdint.hpp>
 #include <iterator>
 #include <iostream>
 #include <ostream>
 
 int main()
 {
-	//typedef boost::uint8_t channel_type;
 	typedef float channel_type;
 
 	typedef mizuiro::image::format<
