@@ -12,29 +12,31 @@
 
 int main()
 {
+	typedef boost::uint8_t channel_type;
+
 	typedef mizuiro::color::object<
 		mizuiro::color::homogenous<
-			boost::uint8_t,
+			channel_type,
 			mizuiro::color::layout::rgba
 		>
 	> rgba_color;
 
 	typedef mizuiro::color::object<
 		mizuiro::color::homogenous<
-			boost::uint8_t,
+			channel_type,
 			mizuiro::color::layout::gray
 		>
 	> gray_color;
 
 	typedef mizuiro::color::object<
 		mizuiro::color::homogenous<
-			boost::uint8_t,
+			channel_type,
 			mizuiro::color::layout::alpha
 		>
 	> alpha_color;
 
 	gray_color test_gray(
-		(mizuiro::color::init::gray = static_cast<boost::uint8_t>(42))
+		(mizuiro::color::init::gray = static_cast<channel_type>(42))
 	);
 
 	rgba_color const test_rgb(

@@ -81,15 +81,6 @@ int main()
 					);
 	}
 
-	/*
-	std::cout << "whole image:\n";
-
-	mizuiro::image::algorithm::print(
-		std::cout,
-		img.view()
-	);
-	*/
-
 	std::cout << '\n';
 
 	view_type const sub_view(
@@ -138,13 +129,6 @@ int main()
 		<< "sub sub image (with pitch "
 		<< sub_sub_view.pitch()
 		<< ")\n";
-
-	/*
-	mizuiro::image::algorithm::copy(
-		sub_view,
-		sub_sub_view
-	);
-	*/
 
 	mizuiro::image::algorithm::print(
 		std::cout,
