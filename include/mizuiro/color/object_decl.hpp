@@ -2,6 +2,7 @@
 #define MIZUIRO_COLOR_OBJECT_DECL_HPP_INCLUDED
 
 #include <mizuiro/color/object_fwd.hpp>
+#include <mizuiro/color/object_constructor_max_params.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
@@ -14,10 +15,6 @@
 #include <boost/preprocessor/repetition/enum_binary_params.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
-
-#ifndef MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_MAX_SIZE
-#define MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_MAX_SIZE 4
-#endif
 
 namespace mizuiro
 {
@@ -72,7 +69,7 @@ public:
 	);
 
 	BOOST_PP_REPEAT(
-		MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_MAX_SIZE,
+		MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_MAX_PARAMS,
 		MIZUIRO_COLOR_OBJECT_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL,
 		void
 	)
