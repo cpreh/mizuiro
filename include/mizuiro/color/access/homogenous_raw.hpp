@@ -51,6 +51,7 @@ extract_channel(
 			typename Format::layout::order,
 			Channel
 		>::value
+		* sizeof(typename Format::channel_type) // TODO!
 	;
 }
 

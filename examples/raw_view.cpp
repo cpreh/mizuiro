@@ -6,6 +6,7 @@
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/is_raw_view.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
+#include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
@@ -33,15 +34,21 @@ int main()
 
 	mizuiro::size_type const
 		width(
-			20
+			3
 		),
 		height(
-			30
+			5
+		),
+		channel_bytes(
+			sizeof(float) 
+		),
+		element_count(
+			format::color_format::element_count
 		);
 
 	typedef std::tr1::array<
 		unsigned char,
-		width * height * sizeof(float) * format::color_format::element_count
+		width * height * channel_bytes * element_count
 	> raw_array;
 
 	raw_array raw_data = {{ 0 }};
@@ -56,11 +63,19 @@ int main()
 				&test
 			)
 		);
-		std::copy(
-			raw,
-			raw + sizeof(test),
-			raw_data.data()
-		);
+
+		for(
+			raw_array::iterator dest(
+				raw_data.begin()
+			);
+			dest != raw_data.end();
+			dest += channel_bytes
+		)
+			std::copy(
+				raw,
+				raw + channel_bytes,
+				dest
+			);
 	}
 
 	typedef mizuiro::image::raw_view<
@@ -88,15 +103,17 @@ int main()
 	);
 
 	std::cout
+		<< std::boolalpha
 		<< mizuiro::image::is_raw_view<
 			view_type
 		>::value
 		<< '\n';
 	
+	mizuiro::image::algorithm::print(
+		std::cout,
+		view
+	);
+
 	std::cout
-		<<
-			(*view.begin()).get<
-				mizuiro::color::channel::red
-			>()
 		<< '\n';
 }
