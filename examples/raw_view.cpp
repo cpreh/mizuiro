@@ -1,16 +1,18 @@
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
-#include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/is_raw_view.hpp>
+#include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
+#include <mizuiro/access/raw.hpp>
 #include <mizuiro/size_type.hpp>
+#include <mizuiro/nonconst_tag.hpp>
 #include <fcppt/tr1/array.hpp>
 #include <algorithm>
 #include <iostream>
@@ -47,7 +49,7 @@ int main()
 		);
 
 	typedef std::tr1::array<
-		unsigned char,
+		mizuiro::raw_value,
 		width * height * channel_bytes * element_count
 	> raw_array;
 
@@ -78,9 +80,11 @@ int main()
 			);
 	}
 
-	typedef mizuiro::image::raw_view<
-		format
-	>::type view_type;
+	typedef mizuiro::image::view<
+		mizuiro::access::raw,
+		format,
+		mizuiro::nonconst_tag
+	> view_type;
 
 	view_type const view(
 		mizuiro::image::make_raw_view<

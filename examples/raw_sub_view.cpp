@@ -10,6 +10,8 @@
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
+#include <mizuiro/access/raw.hpp>
+#include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/size_type.hpp>
 #include <fcppt/tr1/array.hpp>
 #include <iostream>
@@ -50,9 +52,11 @@ int main()
 		width * height * depth * sizeof(float) * format::color_format::element_count
 	> raw_data;
 
-	typedef mizuiro::image::raw_view<
-		format
-	>::type view_type;
+	typedef mizuiro::image::view<
+		mizuiro::access::raw,
+		format,
+		mizuiro::nonconst_tag
+	> view_type;
 
 	typedef view_type::bound_type bound_type;
 
