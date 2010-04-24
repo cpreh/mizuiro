@@ -9,6 +9,7 @@
 #include <mizuiro/image/bound_fwd.hpp>
 #include <mizuiro/image/types/reference.hpp>
 #include <mizuiro/image/types/pointer.hpp>
+#include <mizuiro/image/types/normal.hpp>
 #include <fcppt/variant/object_fwd.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 

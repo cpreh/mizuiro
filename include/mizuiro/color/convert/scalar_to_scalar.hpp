@@ -41,9 +41,11 @@ convert
 	Src const &src
 )
 {
-	object<
+	typedef object<
 		Dest
-	> dest;
+	> dest_type;
+	
+	dest_type dest;
 
 	typedef typename boost::mpl::front<
 		typename Dest::layout::order
@@ -56,7 +58,8 @@ convert
 	(
 		denormalize
 		<
-			Dest,
+			typename dest_type::access,
+			typename dest_type::format,
 			dest_channel,
 			float
 		>
