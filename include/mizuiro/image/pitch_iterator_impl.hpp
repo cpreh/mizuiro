@@ -5,6 +5,7 @@
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
 #include <mizuiro/image/iterator_position.hpp>
+#include <mizuiro/image/iterator_color_data.hpp>
 #include <mizuiro/access/color_pointer.hpp>
 #include <mizuiro/detail/unlikely.hpp>
 #include <cassert>
@@ -208,11 +209,8 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::dereference() const
 {
 	return
 		reference(
-			color_pointer(
-				Access(),
-				Format(),
-				Constness(),
-				data()
+			iterator_color_data(
+				*this
 			)
 		);
 }

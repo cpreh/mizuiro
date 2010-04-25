@@ -3,7 +3,7 @@
 
 #include <mizuiro/image/algorithm/detail/copy_impl.hpp>
 #include <mizuiro/image/views_are_compatible.hpp>
-#include <boost/static_assert.hpp>
+#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
@@ -16,19 +16,18 @@ template<
 	typename ViewS,
 	typename ViewD
 >
-void
+typename boost::enable_if<
+	views_are_compatible<
+		ViewS,
+		ViewD
+	>,
+	void
+>::type
 copy(
 	ViewS const &src,
 	ViewD const &dest
 )
 {
-	BOOST_STATIC_ASSERT((
-		views_are_compatible<
-			ViewS,
-			ViewD
-		>::value
-	));
-
 	detail::copy_impl(
 		src,
 		dest

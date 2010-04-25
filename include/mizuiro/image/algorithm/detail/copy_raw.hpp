@@ -3,8 +3,8 @@
 
 #include <mizuiro/image/algorithm/detail/apply_binary_iteration.hpp>
 #include <mizuiro/image/algorithm/detail/copy_element.hpp>
-#include <mizuiro/image/algorithm/detail/raw_iterator.hpp>
 #include <mizuiro/image/is_linear_range.hpp>
+#include <mizuiro/image/iterator_color_data.hpp>
 #include <mizuiro/detail/copy.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/utility/enable_if.hpp>
@@ -18,7 +18,8 @@ namespace algorithm
 namespace detail
 {
 
-struct copy_raw {
+struct copy_raw
+{
 	typedef void result_type;
 
 	template<
@@ -71,14 +72,14 @@ struct copy_raw {
 	) const
 	{
 		mizuiro::detail::copy(
-			raw_iterator(
-				src.begin().data()
+			iterator_color_data(
+				src.begin()
 			),
-			raw_iterator(
-				src.end().data()
+			iterator_color_data(
+				src.end()
 			),
-			raw_iterator(
-				dest.begin().data()
+			iterator_color_data(
+				dest.begin()
 			)
 		);
 	}

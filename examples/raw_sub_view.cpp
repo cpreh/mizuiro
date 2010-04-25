@@ -19,7 +19,6 @@
 
 int main()
 {
-	//typedef boost::uint8_t channel_type;
 	typedef float channel_type;
 
 	typedef mizuiro::image::dimension<
