@@ -30,7 +30,7 @@ struct pointer<
 			typename Format::color_format,
 			Constness
 		>::type,
-		Format::color_format::element_count
+		sizeof(typename Format::color_format::channel_type)
 	> type;	
 };
 
