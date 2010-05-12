@@ -6,6 +6,7 @@
 #include <mizuiro/color/is_homogenous.hpp>
 #include <mizuiro/access/is_raw.hpp>
 #include <mizuiro/detail/index_of.hpp>
+#include <mizuiro/size_type.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <boost/mpl/and.hpp>
 
@@ -55,6 +56,34 @@ extract_channel(
 		>::value
 		* sizeof(typename Format::channel_type) // TODO!
 	;
+}
+
+template<
+	typename Access,
+	typename Format,
+	typename Dim
+>
+typename boost::enable_if<
+	boost::mpl::and_<
+		mizuiro::access::is_raw<
+			Access
+		>,
+		mizuiro::color::is_homogenous<
+			typename Format::color_format
+		>
+	>,
+	mizuiro::size_type
+>::type
+data_store_size(
+	Access const &,
+	Format const &,
+	Dim const &dim
+)
+{
+	return
+		dim.content()
+		* Format::color_format::element_count
+		* sizeof(typename Format::color_format::channel_type);
 }
 
 }

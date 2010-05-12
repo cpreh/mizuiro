@@ -29,8 +29,11 @@ mizuiro::image::store<Format, Access>::store(
 		dim_
 	),
 	data_(
-		dim_.content()
-		* Format::image_format::color_format::element_count
+		data_store_size(
+			Access(),
+			Format(),
+			dim_
+		)
 	)
 {}
 

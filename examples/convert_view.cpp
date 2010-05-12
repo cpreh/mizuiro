@@ -15,6 +15,9 @@
 #include <iostream>
 #include <ostream>
 
+#include <mizuiro/access/raw.hpp>
+#include <mizuiro/image/raw_view.hpp>
+
 namespace
 {
 
@@ -92,7 +95,8 @@ int main()
 	}};
 
 	typedef mizuiro::image::store<
-		rgba_format
+		rgba_format,
+		::mizuiro::access::raw
 	> rgba_store;
 
 	rgba_store::dim_type const dim(
