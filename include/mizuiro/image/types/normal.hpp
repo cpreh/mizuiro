@@ -2,6 +2,7 @@
 #define MIZUIRO_IMAGE_TYPES_NORMAL_HPP_INCLUDED
 
 #include <mizuiro/image/types/pointer.hpp>
+#include <mizuiro/image/types/data_store.hpp>
 #include <mizuiro/image/detail/raw_container_fwd.hpp>
 #include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/color/types/pointer.hpp>
