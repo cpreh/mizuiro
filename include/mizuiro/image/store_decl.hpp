@@ -5,8 +5,8 @@
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/detail/raw_container_decl.hpp>
 #include <mizuiro/image/types/pointer.hpp>
+#include <mizuiro/image/types/data_store.hpp>
 #include <mizuiro/image/types/normal.hpp>
-#include <mizuiro/access/normal.hpp>
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 
@@ -16,18 +16,17 @@ namespace image
 {
 
 template<
-	typename Format
+	typename Format,
+	typename Access
 >
 class store
 {
 public:
-	typedef ::mizuiro::access::normal access;
+	typedef Access access;
 
 	typedef Format format;
 
 	typedef typename format::color_format color_format;
-
-	typedef typename color_format::channel_type channel_type; // TODO!
 
 	typedef typename image::types::pointer<
 		access,
@@ -78,9 +77,10 @@ public:
 private:
 	dim_type dim_;
 
-	typedef detail::raw_container<
-		channel_type
-	> container;
+	typedef typename mizuiro::image::types::data_store<
+		access,
+		typename format::color_format // TODO!
+	>::type container;
 
 	container data_;
 };

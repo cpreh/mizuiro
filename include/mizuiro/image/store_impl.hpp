@@ -6,9 +6,10 @@
 #include <mizuiro/image/detail/raw_container_impl.hpp>
 
 template<
-	typename Format
+	typename Format,
+	typename Access 
 >
-mizuiro::image::store<Format>::store()
+mizuiro::image::store<Format, Access>::store()
 :
 	dim_(
 		dim_type::null()
@@ -17,9 +18,10 @@ mizuiro::image::store<Format>::store()
 {}
 
 template<
-	typename Format
+	typename Format,
+	typename Access 
 >
-mizuiro::image::store<Format>::store(
+mizuiro::image::store<Format, Access>::store(
 	dim_type const &dim_
 )
 :
@@ -33,28 +35,31 @@ mizuiro::image::store<Format>::store(
 {}
 
 template<
-	typename Format
+	typename Format,
+	typename Access 
 >
-typename mizuiro::image::store<Format>::pointer
-mizuiro::image::store<Format>::data()
+typename mizuiro::image::store<Format, Access>::pointer
+mizuiro::image::store<Format, Access>::data()
 {
 	return data_.data();
 }
 
 template<
-	typename Format
+	typename Format,
+	typename Access 
 >
-typename mizuiro::image::store<Format>::const_pointer
-mizuiro::image::store<Format>::data() const
+typename mizuiro::image::store<Format, Access>::const_pointer
+mizuiro::image::store<Format, Access>::data() const
 {
 	return data_.data();
 }
 
 template<
-	typename Format
+	typename Format,
+	typename Access 
 >
-typename mizuiro::image::store<Format>::view_type const
-mizuiro::image::store<Format>::view()
+typename mizuiro::image::store<Format, Access>::view_type const
+mizuiro::image::store<Format, Access>::view()
 {
 	return view_type(
 		dim(),
@@ -63,10 +68,11 @@ mizuiro::image::store<Format>::view()
 }
 
 template<
-	typename Format
+	typename Format,
+	typename Access 
 >
-typename mizuiro::image::store<Format>::const_view_type const
-mizuiro::image::store<Format>::view() const
+typename mizuiro::image::store<Format, Access>::const_view_type const
+mizuiro::image::store<Format, Access>::view() const
 {
 	return const_view_type(
 		dim(),
@@ -74,10 +80,11 @@ mizuiro::image::store<Format>::view() const
 	);
 }
 template<
-	typename Format
+	typename Format,
+	typename Access 
 >
-typename mizuiro::image::store<Format>::dim_type const &
-mizuiro::image::store<Format>::dim() const
+typename mizuiro::image::store<Format, Access>::dim_type const &
+mizuiro::image::store<Format, Access>::dim() const
 {
 	return dim_;
 }
