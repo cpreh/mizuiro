@@ -43,8 +43,8 @@ template<
 	typename Pointer,
 	typename ValueType
 >
-mizuiro::color::channel_proxy<Pointer, ValueType>::
-operator typename mizuiro::color::channel_proxy<Pointer, ValueType>::value_type() const
+typename mizuiro::color::channel_proxy<Pointer, ValueType>::value_type
+mizuiro::color::channel_proxy<Pointer, ValueType>::get() const
 {
 	value_type ret;
 
@@ -59,6 +59,16 @@ operator typename mizuiro::color::channel_proxy<Pointer, ValueType>::value_type(
 	);
 
 	return ret;
+}
+
+template<
+	typename Pointer,
+	typename ValueType
+>
+mizuiro::color::channel_proxy<Pointer, ValueType>::
+operator typename mizuiro::color::channel_proxy<Pointer, ValueType>::value_type() const
+{
+	return get();
 }
 
 #endif

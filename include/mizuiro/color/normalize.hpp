@@ -32,7 +32,8 @@ normalize
 	Color const &c
 )
 {
-	typedef typename color::types::channel_value<
+	typedef typename color::types::channel_value
+	<
 		typename Color::format,
 		Channel
 	>::type channel_value;
@@ -41,7 +42,10 @@ normalize
 		(
 			static_cast<Float>
 			(
-				c.template get<Channel>()
+				c.template get
+				<
+					Channel
+				>()
 			)
 			-
 			static_cast<Float>

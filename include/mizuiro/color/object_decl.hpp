@@ -116,7 +116,7 @@ private:
 		mizuiro::const_tag
 	> const_proxy;
 
-	typedef typename types::store<
+	typedef typename color::types::store<
 		access,
 		format
 	>::type store;

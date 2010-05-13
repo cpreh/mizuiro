@@ -2,7 +2,7 @@
 #define MIZUIRO_COLOR_OUTPUT_HPP_INCLUDED
 
 #include <mizuiro/color/detail/output_channel.hpp>
-#include <boost/mpl/for_each.hpp>
+#include <mizuiro/color/for_each_channel.hpp>
 #include <ostream>
 
 namespace mizuiro
@@ -29,8 +29,8 @@ operator<<(
 {
 	s << s.widen('(');
 
-	boost::mpl::for_each<
-		typename Color::format::layout::order
+	mizuiro::color::for_each_channel<
+		typename Color::format
 	>(
 		detail::output_channel<
 			Ch,

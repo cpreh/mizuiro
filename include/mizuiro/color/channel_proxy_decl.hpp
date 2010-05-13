@@ -28,6 +28,9 @@ public:
 		value_type
 	);
 
+	value_type
+	get() const;
+
 	operator value_type() const;
 private:
 	pointer data_;	

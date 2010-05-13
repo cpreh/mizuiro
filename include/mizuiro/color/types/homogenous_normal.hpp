@@ -8,7 +8,6 @@
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/detail/apply_const.hpp>
 #include <fcppt/tr1/array.hpp>
-#include <boost/mpl/size.hpp>
 
 namespace mizuiro
 {
@@ -73,9 +72,10 @@ struct store<
 {
 	typedef std::tr1::array<
 		ChannelType,
-		boost::mpl::size<
-			typename Layout::order
-		>::value
+		color::homogenous<
+			ChannelType,
+			Layout
+		>::element_count
 	> type;
 };
 

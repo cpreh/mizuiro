@@ -121,11 +121,12 @@ typename mizuiro::color::types::channel_reference<
 >::type
 mizuiro::color::object<Format>::get() const
 {
-	return const_proxy(
-		data_.data()
-	).get<
-		Channel
-	>();
+	return
+		const_proxy(
+			data_.data()
+		).get<
+			Channel
+		>();
 }
 
 template<

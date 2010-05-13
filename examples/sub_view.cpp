@@ -15,6 +15,9 @@
 #include <iostream>
 #include <ostream>
 
+#include <mizuiro/access/raw.hpp>
+#include <mizuiro/image/raw_view.hpp>
+
 int main()
 {
 	typedef float channel_type;
@@ -32,7 +35,8 @@ int main()
 	> format;
 
 	typedef mizuiro::image::store<
-		format
+		format,
+		mizuiro::access::raw
 	> store;
 
 	store img(

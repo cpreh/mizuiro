@@ -92,8 +92,11 @@ struct store<
 {
 	typedef std::tr1::array<
 		raw_value,
-		Layout::element_count
-		* sizeof(typename Layout::channel_type)
+		color::homogenous<
+			ChannelType,
+			Layout
+		>::element_count
+		* sizeof(ChannelType)
 	> type;
 };
 
