@@ -2,8 +2,7 @@
 #define MIZUIRO_COLOR_DENORMALIZE_HPP_INCLUDED
 
 #include <mizuiro/color/types/channel_value.hpp>
-#include <mizuiro/color/channel_min.hpp>
-#include <mizuiro/color/channel_max.hpp>
+#include <mizuiro/denormalize.hpp>
 #include <boost/type_traits/is_floating_point.hpp>
 #include <boost/utility/enable_if.hpp>
 
@@ -33,47 +32,18 @@ typename boost::enable_if
 >::type
 denormalize
 (
-	Float const f
+	Float const src
 )
 {
-	typedef 
-		typename
-		types::channel_value
-		<
-			Format,
-			Channel
-		>::type
-		target_type;
-
-	return 
-		static_cast<target_type>
-		(
-			static_cast<Float>
-			(
-				color::channel_min
-				<
-					target_type
-				>()
-			)
-			+
-			f *
-			(
-				static_cast<Float>
-				(
-					color::channel_max
-					<
-						target_type
-					>()
-				)
-				-
-				static_cast<Float>
-				(
-					color::channel_min
-					<
-						target_type
-					>()
-				)
-			)
+	return
+		::mizuiro::denormalize<
+			typename types::channel_value
+			<
+				Format,
+				Channel
+			>::type
+		>(
+			src
 		);
 }
 
