@@ -2,7 +2,7 @@
 #define MIZUIRO_IMAGE_LINEAR_ITERATOR_IMPL_HPP_INCLUDED
 
 #include <mizuiro/image/linear_iterator_decl.hpp>
-#include <mizuiro/image/iterator_color_data.hpp>
+#include <mizuiro/image/underlying_data_pointer.hpp>
 #include <mizuiro/access/color_pointer.hpp>
 
 template<
@@ -86,7 +86,7 @@ mizuiro::image::linear_iterator<Access, Format, Constness>::dereference() const
 {
 	return
 		reference(
-			iterator_color_data(
+			underlying_data_pointer(
 				*this
 			)
 		);

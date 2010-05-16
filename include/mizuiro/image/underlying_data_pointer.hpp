@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_IMAGE_ITERATOR_COLOR_DATA_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ITERATOR_COLOR_DATA_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_UNDERLYING_DATA_POINTER_HPP_INCLUDED
+#define MIZUIRO_IMAGE_UNDERLYING_DATA_POINTER_HPP_INCLUDED
 
 #include <mizuiro/color/types/pointer.hpp>
 
@@ -16,7 +16,7 @@ typename mizuiro::color::types::pointer<
 	typename Iterator::color_format,
 	typename Iterator::constness
 >::type
-iterator_color_data(
+underlying_data_pointer(
 	Iterator const &iterator
 )
 {

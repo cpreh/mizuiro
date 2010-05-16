@@ -4,7 +4,7 @@
 #include <mizuiro/image/algorithm/detail/apply_binary_iteration.hpp>
 #include <mizuiro/image/algorithm/detail/copy_element.hpp>
 #include <mizuiro/image/is_linear_range.hpp>
-#include <mizuiro/image/iterator_color_data.hpp>
+#include <mizuiro/image/underlying_data_pointer.hpp>
 #include <mizuiro/detail/copy.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/utility/enable_if.hpp>
@@ -72,13 +72,13 @@ struct copy_raw
 	) const
 	{
 		mizuiro::detail::copy(
-			iterator_color_data(
+			underlying_data_pointer(
 				src.begin()
 			),
-			iterator_color_data(
+			underlying_data_pointer(
 				src.end()
 			),
-			iterator_color_data(
+			underlying_data_pointer(
 				dest.begin()
 			)
 		);
