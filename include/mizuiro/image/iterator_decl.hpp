@@ -37,17 +37,19 @@ public:
 
 	typedef Format format;
 
+	typedef Constness constness;
+
 	typedef typename format::color_format color_format;
 
 	typedef typename detail::iterator_base<
 		iterator<
 			access,
 			format,
-			Constness
+			constness
 		>,
 		access,
 		format,
-		Constness
+		constness
 	>::type base;
 
 	typedef fcppt::variant::object<
@@ -55,12 +57,12 @@ public:
 			pitch_iterator<
 				access,
 				format,
-				Constness
+				constness
 			>,
 			linear_iterator<
 				access,
 				format,
-				Constness
+				constness
 			>
 		>
 	> internal_type;
@@ -72,7 +74,7 @@ public:
 	typedef typename image::types::pointer<
 		access,
 		format,
-		Constness
+		constness
 	>::type pointer;
 
 	typedef typename base::difference_type difference_type;
