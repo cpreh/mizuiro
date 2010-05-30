@@ -75,7 +75,6 @@ struct channel_reference<
 			Channel
 		>::type
 	> type;
-
 };
 
 template<
