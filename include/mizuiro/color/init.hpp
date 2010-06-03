@@ -6,5 +6,8 @@
 #include <mizuiro/color/init/blue.hpp>
 #include <mizuiro/color/init/alpha.hpp>
 #include <mizuiro/color/init/gray.hpp>
+#include <mizuiro/color/init/hue.hpp>
+#include <mizuiro/color/init/saturation.hpp>
+#include <mizuiro/color/init/value.hpp>
 
 #endif

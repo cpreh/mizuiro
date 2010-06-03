@@ -7,5 +7,6 @@
 #include <mizuiro/color/convert/rgb_to_rgb.hpp>
 #include <mizuiro/color/convert/rgb_to_gray.hpp>
 #include <mizuiro/color/convert/scalar_to_scalar.hpp>
+#include <mizuiro/color/convert/hsv_to_rgb.hpp>
 
 #endif
