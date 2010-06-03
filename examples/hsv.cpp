@@ -1,14 +1,20 @@
 #include <mizuiro/color/layout/hsva.hpp>
+#include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/convert.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/output.hpp>
 #include <boost/cstdint.hpp>
+#include <iostream>
+#include <ostream>
 
 int main()
 {
+	typedef boost::uint8_t channel_type;
+
 	typedef mizuiro::color::homogenous<
-		boost::uint8_t,
+		channel_type,
 		mizuiro::color::layout::hsva
 	> hsva_format;
 
@@ -17,9 +23,30 @@ int main()
 	> hsva_object;
 
 	hsva_object const source(
-		mizuiro::color::init::hue %= 0.5,
-		mizuiro::color::init::saturation %= 1.0,
+		mizuiro::color::init::hue %= 0.75,
+		mizuiro::color::init::saturation %= 0.5,
 		mizuiro::color::init::value %= 0.7,
 		mizuiro::color::init::alpha %= 1.0
 	);
+
+	typedef mizuiro::color::homogenous<
+		channel_type,
+		mizuiro::color::layout::rgba
+	> rgba_format;
+
+	typedef mizuiro::color::object<
+		rgba_format
+	> rgba_object;
+
+	rgba_object const converted(
+		mizuiro::color::convert<
+			rgba_format
+		>(
+			source
+		)
+	);
+
+	std::cout
+		<< converted
+		<< '\n';
 }

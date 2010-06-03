@@ -28,11 +28,11 @@ boost::enable_if
 <
 	boost::mpl::and_
 	<
-		is_hsv
+		is_rgb
 		<
 			Dest
 		>,
-		is_rgb
+		is_hsv
 		<
 			typename Src::format
 		>
@@ -76,6 +76,10 @@ convert
 		chroma(
 			saturation
 			* value
+		),
+		diff(
+			value
+			- chroma
 		);
 	
 	typedef unsigned int_type;
@@ -85,8 +89,13 @@ convert
 			int_type
 		>(
 			hue
+			*
+			static_cast<
+				float_type
+			>(
+				6
+			)
 		)
-		* 6
 	);
 		
 	float_type const
@@ -114,7 +123,7 @@ convert
 		color::homogenous
 		<
 			float_type,
-			Dest
+			typename Dest::layout
 		>
 	> intermediate_type;
 
@@ -124,9 +133,9 @@ convert
 		<
 			intermediate_type
 		>(
-			chroma,
+			chroma + diff,
 			hue_part,
-			largest_part
+			largest_part + diff
 		)
 	);
 
