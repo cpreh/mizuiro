@@ -82,7 +82,7 @@ convert
 			- chroma
 		);
 	
-	typedef unsigned int_type;
+	typedef int int_type;
 
 	int_type const hue_part(
 		static_cast<
