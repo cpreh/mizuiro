@@ -3,6 +3,7 @@
 
 #include <mizuiro/color/convert/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/convert/detail/rgb_from_chroma.hpp>
+#include <mizuiro/color/convert/rgb_to_rgb.hpp>
 #include <mizuiro/color/is_rgb.hpp>
 #include <mizuiro/color/is_hsv.hpp>
 #include <mizuiro/color/object_impl.hpp>

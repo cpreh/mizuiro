@@ -20,7 +20,7 @@ typedef cylindrical<
 		channel::saturation,
 		channel::value
 	>
-> hsva;
+> hsv;
 
 }
 }
