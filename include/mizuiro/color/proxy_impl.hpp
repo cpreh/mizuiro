@@ -25,6 +25,25 @@ template<
 	typename Constness
 >
 template<
+	typename OtherConstness
+>
+mizuiro::color::proxy<Access, Format, Constness>::proxy(
+	color::proxy<
+		Access,
+		Format,
+		OtherConstness
+	> const &other_
+)
+:
+	data_(other_.data())
+{}
+
+template<
+	typename Access,
+	typename Format,
+	typename Constness
+>
+template<
 	typename Other
 >
 mizuiro::color::proxy<Access, Format, Constness> const &

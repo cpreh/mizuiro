@@ -4,6 +4,7 @@
 #include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/object_constructor_max_params.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
+#include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
@@ -15,6 +16,7 @@
 #include <boost/preprocessor/repetition/enum_binary_params.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
+#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
@@ -47,6 +49,18 @@ public:
 
 	object(
 		object const &
+	);
+
+	template<
+		typename Other
+	>
+	object(
+		Other const &,
+		typename boost::enable_if<
+			color::is_color<
+				Other
+			>
+		>::type * = 0
 	);
 
 	#define MIZUIRO_COLOR_OBJECT_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL(\

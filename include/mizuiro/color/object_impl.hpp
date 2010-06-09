@@ -3,12 +3,14 @@
 
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
+#include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/detail/init_set_channel.hpp>
 #include <mizuiro/access/homogenous_normal.hpp>
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_binary_params.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
+#include <boost/utility/enable_if.hpp>
 
 template<
 	typename Format
@@ -27,6 +29,26 @@ mizuiro::color::object<Format>::object(
 :
 	data_(other.data_)
 {}
+
+template<
+	typename Format
+>
+template<
+	typename Other
+>
+mizuiro::color::object<Format>::object(
+	Other const &other_,
+	typename boost::enable_if<
+		color::is_color<
+			Other
+		>
+	>::type *
+)
+{
+	proxy(
+		data_.data()
+	) = other_;
+}
 
 #define MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_ASSIGN(\
 	z,\

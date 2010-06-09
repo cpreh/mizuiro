@@ -35,6 +35,17 @@ public:
 	);
 
 	template<
+		typename OtherConstness
+	>
+	proxy(
+		color::proxy<
+			Access,
+			Format,
+			OtherConstness
+		> const &
+	);
+
+	template<
 		typename Other
 	>
 	proxy const &
