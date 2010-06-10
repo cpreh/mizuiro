@@ -1,6 +1,12 @@
 #ifndef MIZUIRO_COLOR_OPERATORS_SCALAR_MULTIPLY_HPP_INCLUDED
 #define MIZUIRO_COLOR_OPERATORS_SCALAR_MULTIPLY_HPP_INCLUDED
 
+#include <mizuiro/color/operators/detail/scalar_multiply.hpp>
+#include <mizuiro/color/is_color.hpp>
+#include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/for_each_channel.hpp>
+#include <boost/utility/enable_if.hpp>
+
 namespace mizuiro
 {
 namespace color
@@ -23,7 +29,7 @@ operator*(
 	Scalar const scalar_
 )
 {
-	typename Color::format format;
+	typedef typename Color::format format;
 
 	typedef color::object<
 		format
@@ -36,7 +42,7 @@ operator*(
 	color::for_each_channel<
 		format
 	>(
-		detail::scalar_multiply<
+		color::operators::detail::scalar_multiply<
 			Color,
 			Scalar
 		>(

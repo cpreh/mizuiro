@@ -23,7 +23,7 @@ typename boost::enable_if<
 		boost::is_same<
 			typename Color1::format,
 			typename Color2::format
-		>
+		>,
 		color::is_color<
 			Color1
 		>,
@@ -40,7 +40,7 @@ operator+(
 	Color2 const &color2_
 )
 {
-	typename Color::format format;
+	typedef typename Color1::format format;
 
 	typedef color::object<
 		format

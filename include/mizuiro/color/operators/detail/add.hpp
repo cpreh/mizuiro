@@ -1,6 +1,8 @@
 #ifndef MIZUIRO_COLOR_OPERATORS_DETAIL_ADD_HPP_INCLUDED
 #define MIZUIRO_COLOR_OPERATORS_DETAIL_ADD_HPP_INCLUDED
 
+#include <mizuiro/color/types/channel_value.hpp>
+
 namespace mizuiro
 {
 namespace color
@@ -32,17 +34,27 @@ public:
 		typename Channel
 	>
 	result_type
-	operator()() const
+	operator()(
+		Channel const &
+	) const
 	{
 		color1_. template set<
+			Channel
 		>(
-			color1_. template get<
-				Channel
-			>()
-			+
-			color2_. template get<
-				Channel
-			>()
+			static_cast<
+				typename color::types::channel_value<
+					typename Color1::format,
+					Channel
+				>::type
+			>(
+				color1_. template get<
+					Channel
+				>()
+				+
+				color2_. template get<
+					Channel
+				>()
+			)
 		);
 	}
 private:
