@@ -3,5 +3,6 @@
 
 #include <mizuiro/color/operators/add.hpp>
 #include <mizuiro/color/operators/scalar_multiply.hpp>
+#include <mizuiro/color/operators/subtract.hpp>
 
 #endif

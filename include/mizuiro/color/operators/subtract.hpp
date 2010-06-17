@@ -1,5 +1,5 @@
-#ifndef MIZUIRO_COLOR_OPERATORS_ADD_HPP_INCLUDED
-#define MIZUIRO_COLOR_OPERATORS_ADD_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_OPERATORS_SUBTRACT_HPP_INCLUDED
+#define MIZUIRO_COLOR_OPERATORS_SUBTRACT_HPP_INCLUDED
 
 #include <mizuiro/color/operators/detail/binary_op.hpp>
 #include <mizuiro/color/is_color.hpp>
@@ -35,14 +35,14 @@ typename boost::enable_if<
 		typename Color1::format
 	>
 >::type
-operator+(
+operator-(
 	Color1 const &color1_,
 	Color2 const &color2_
 )
 {
 	return
 		color::operators::detail::binary_op<
-			std::plus
+			std::minus
 		>(
 			color1_,
 			color2_

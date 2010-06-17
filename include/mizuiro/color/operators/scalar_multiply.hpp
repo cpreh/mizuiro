@@ -54,6 +54,26 @@ operator*(
 	return result;
 }
 
+template<
+	typename Color,
+	typename Scalar
+>
+typename boost::enable_if<
+	color::is_color<
+		Color
+	>,
+	color::object<
+		typename Color::format
+	>
+>::type
+operator*(
+	Scalar const scalar_,
+	Color const &color_
+)
+{
+	return color_ * scalar_;
+}
+
 }
 }
 
