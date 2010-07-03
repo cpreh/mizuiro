@@ -1,8 +1,11 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_TRANSFORM_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_TRANSFORM_HPP_INCLUDED
 
+#include <mizuiro/config.hpp>
 #include <mizuiro/image/algorithm/transform_binary.hpp>
+#ifdef MIZUIRO_HAVE_FCPPT
 #include <mizuiro/image/algorithm/transform_ternary.hpp>
+#endif
 
 namespace mizuiro
 {
@@ -30,6 +33,7 @@ transform(
 	);
 }
 
+#ifdef MIZUIRO_HAVE_FCPPT
 template<
 	typename ViewS1,
 	typename ViewS2,
@@ -51,7 +55,7 @@ transform(
 		fun
 	);
 }
-
+#endif
 
 }
 }

@@ -2,9 +2,6 @@
 #define MIZUIRO_IMAGE_ITERATOR_IMPL_HPP_INCLUDED
 
 #include <mizuiro/image/iterator_decl.hpp>
-#include <fcppt/variant/apply_unary.hpp>
-#include <fcppt/variant/apply_binary.hpp>
-#include <fcppt/variant/object_impl.hpp>
 #include <mizuiro/image/detail/advance_iterator.hpp>
 #include <mizuiro/image/detail/increment_iterator.hpp>
 #include <mizuiro/image/detail/decrement_iterator.hpp>
@@ -12,6 +9,9 @@
 #include <mizuiro/image/detail/dereference_iterator.hpp>
 #include <mizuiro/image/detail/compare_iterator.hpp>
 #include <mizuiro/image/detail/iterator_data.hpp>
+#include <mizuiro/detail/variant_impl.hpp>
+#include <mizuiro/detail/variant_apply_unary.hpp>
+#include <mizuiro/detail/variant_apply_binary.hpp>
 
 template<
 	typename Access,
@@ -44,12 +44,13 @@ template<
 typename mizuiro::image::iterator<Access, Format, Constness>::pointer
 mizuiro::image::iterator<Access, Format, Constness>::data() const
 {
-	return fcppt::variant::apply_unary(
-		detail::iterator_data<
-			pointer
-		>(),
-		internal_
-	);
+	return
+		mizuiro::detail::variant_apply_unary(
+			detail::iterator_data<
+				pointer
+			>(),
+			internal_
+		);
 }
 
 template<
@@ -63,7 +64,7 @@ mizuiro::image::iterator<Access, Format, Constness>::advance(
 )
 {
 	internal_ =
-		fcppt::variant::apply_unary(
+		mizuiro::detail::variant_apply_unary(
 			detail::advance_iterator<
 				internal_type,
 				difference_type
@@ -83,7 +84,7 @@ void
 mizuiro::image::iterator<Access, Format, Constness>::increment()
 {
 	internal_ =
-		fcppt::variant::apply_unary(
+		mizuiro::detail::variant_apply_unary(
 			detail::increment_iterator<
 				internal_type
 			>(),
@@ -100,7 +101,7 @@ void
 mizuiro::image::iterator<Access, Format, Constness>::decrement()
 {
 	internal_ =
-		fcppt::variant::apply_unary(
+		mizuiro::detail::variant_apply_unary(
 			detail::decrement_iterator<
 				internal_type
 			>(),
@@ -119,7 +120,7 @@ mizuiro::image::iterator<Access, Format, Constness>::distance_to(
 ) const
 {
 	return
-		fcppt::variant::apply_binary(
+		mizuiro::detail::variant_apply_binary(
 			detail::iterator_difference<
 				difference_type
 			>(),
@@ -137,7 +138,7 @@ typename mizuiro::image::iterator<Access, Format, Constness>::reference
 mizuiro::image::iterator<Access, Format, Constness>::dereference() const
 {
 	return
-		fcppt::variant::apply_unary(
+		mizuiro::detail::variant_apply_unary(
 			detail::dereference_iterator<
 				reference
 			>(),
@@ -156,7 +157,7 @@ mizuiro::image::iterator<Access, Format, Constness>::equal(
 ) const
 {
 	return
-		fcppt::variant::apply_binary(
+		mizuiro::detail::variant_apply_binary(
 			detail::compare_iterator(),
 			internal_,
 			other.internal_

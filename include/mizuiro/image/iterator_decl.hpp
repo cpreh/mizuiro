@@ -6,7 +6,8 @@
 #include <mizuiro/image/linear_iterator_decl.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/image/types/pointer.hpp>
-#include <fcppt/variant/object_decl.hpp>
+#include <mizuiro/detail/variant_decl.hpp>
+#include <mizuiro/detail/make_variant.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 
 namespace mizuiro
@@ -52,7 +53,7 @@ public:
 		constness
 	>::type base;
 
-	typedef fcppt::variant::object<
+	typedef typename mizuiro::detail::make_variant<
 		boost::mpl::vector2<
 			pitch_iterator<
 				access,
@@ -65,7 +66,7 @@ public:
 				constness
 			>
 		>
-	> internal_type;
+	>::type internal_type;
 
 	typedef typename base::value_type value_type;
 

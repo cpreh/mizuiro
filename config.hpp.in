@@ -2,5 +2,6 @@
 #define MIZUIRO_CONFIG_HPP_INCLUDED
 
 #cmakedefine MIZUIRO_HAVE_BUILTIN_EXPECT 
+#cmakedefine MIZUIRO_HAVE_FCPPT
 
 #endif

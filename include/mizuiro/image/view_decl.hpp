@@ -10,7 +10,7 @@
 #include <mizuiro/image/types/reference.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/normal.hpp>
-#include <fcppt/variant/object_fwd.hpp>
+#include <mizuiro/detail/make_variant.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 
 namespace mizuiro
@@ -58,12 +58,12 @@ public:
 		linear_iterator
 	> linear_range;
 	
-	typedef fcppt::variant::object<
+	typedef typename mizuiro::detail::make_variant<
 		boost::mpl::vector2<
 			linear_range,
 			pitch_range
 		>
-	> range_type;
+	>::type range_type;
 
 	typedef typename format::color_format color_format;
 

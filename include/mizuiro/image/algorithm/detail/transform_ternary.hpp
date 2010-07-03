@@ -35,7 +35,7 @@ struct transform_ternary {
 		Dest const &dest
 	) const
 	{
-		fun(
+		this->fun(
 			source1,
 			source2,
 			dest

@@ -3,7 +3,7 @@
 
 #include <mizuiro/image/algorithm/detail/apply_unary_iteration.hpp>
 #include <mizuiro/image/algorithm/detail/fill.hpp>
-#include <fcppt/variant/apply_unary.hpp>
+#include <mizuiro/detail/variant_apply_unary.hpp>
 
 namespace mizuiro
 {
@@ -22,7 +22,7 @@ fill(
 	Fun const &fun
 )
 {
-	fcppt::variant::apply_unary(
+	mizuiro::detail::variant_apply_unary(
 		detail::apply_unary_iteration(
 			detail::fill<
 				Fun	

@@ -2,7 +2,7 @@
 #define MIZUIRO_IMAGE_ALGORITHM_FOR_EACH_HPP_INCLUDED
 
 #include <mizuiro/image/algorithm/detail/apply_unary_iteration.hpp>
-#include <fcppt/variant/apply_unary.hpp>
+#include <mizuiro/detail/variant_apply_unary.hpp>
 
 namespace mizuiro
 {
@@ -21,7 +21,7 @@ for_each(
 	Fun const &fun
 )
 {
-	fcppt::variant::apply_unary(
+	mizuiro::detail::variant_apply_unary(
 		detail::apply_unary_iteration(
 			fun
 		),

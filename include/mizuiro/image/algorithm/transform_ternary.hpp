@@ -3,7 +3,7 @@
 
 #include <mizuiro/image/algorithm/detail/apply_ternary_iteration.hpp>
 #include <mizuiro/image/algorithm/detail/transform_ternary.hpp>
-#include <fcppt/variant/apply_ternary.hpp>
+#include <mizuiro/detail/variant_apply_ternary.hpp>
 
 namespace mizuiro
 {
@@ -26,7 +26,7 @@ transform_ternary(
 	Fun const &fun
 )
 {
-	fcppt::variant::apply_ternary(
+	mizuiro::detail::variant_apply_ternary(
 		detail::apply_ternary_iteration(
 			detail::transform_ternary<
 				Fun

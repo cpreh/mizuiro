@@ -5,7 +5,7 @@
 #include <mizuiro/image/algorithm/detail/copy_element.hpp>
 #include <mizuiro/image/algorithm/detail/copy_raw.hpp>
 #include <mizuiro/image/views_have_same_channel_order.hpp>
-#include <fcppt/variant/apply_binary.hpp>
+#include <mizuiro/detail/variant_apply_binary.hpp>
 #include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
@@ -22,7 +22,7 @@ template<
 	typename ViewD
 >
 typename boost::disable_if<
-	views_have_same_channel_order<
+	mizuiro::image::views_have_same_channel_order<
 		ViewS,
 		ViewD
 	>,
@@ -33,9 +33,9 @@ copy_impl(
 	ViewD const &dest
 )
 {
-	fcppt::variant::apply_binary(
-		apply_binary_iteration(
-			detail::copy_element()
+	mizuiro::detail::variant_apply_binary(
+		algorithm::detail::apply_binary_iteration(
+			algorithm::detail::copy_element()
 		),
 		src.range(),
 		dest.range()
@@ -47,7 +47,7 @@ template<
 	typename ViewD
 >
 typename boost::enable_if<
-	views_have_same_channel_order<
+	mizuiro::image::views_have_same_channel_order<
 		ViewS,
 		ViewD
 	>,
@@ -58,7 +58,7 @@ copy_impl(
 	ViewD const &dest
 )
 {
-	fcppt::variant::apply_binary(
+	mizuiro::detail::variant_apply_binary(
 		copy_raw(),
 		src.range(),
 		dest.range()
