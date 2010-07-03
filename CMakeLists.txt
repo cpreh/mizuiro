@@ -24,10 +24,10 @@ FIND_PACKAGE(
 )
 
 OPTION(
-	USE_FCPPT "Use fcppt's variant" ON
+	ENABLE_FCPPT "Use fcppt's variant" ON
 )
 
-IF(USE_FCPPT)
+IF(ENABLE_FCPPT)
 	FIND_PACKAGE(
 		Fcppt
 	)
