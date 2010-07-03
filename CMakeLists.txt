@@ -50,6 +50,16 @@ IF (CMAKE_COMPILER_IS_GNUCXX)
 		}"
 		MIZUIRO_HAVE_BUILTIN_EXPECT
 	)
+
+	ADD_DEFINITIONS (
+		"-ansi -pedantic-errors -Wall -Wextra -Wconversion"
+		"-Wfloat-equal -Wredundant-decls -Wstrict-null-sentinel -Winit-self"
+		"-Woverloaded-virtual -Wnon-virtual-dtor -Wctor-dtor-privacy"
+		"-Wsign-promo -Wold-style-cast -Wno-long-long"
+	)
+ELSEIF (MSVC)
+	ADD_DEFINITIONS ("/W4 /wd4996 /EHa /D_BIND_TO_CURRENT_VCLIBS_VERSION=1")
+	#4996 - unsafe standard C++ functions
 ENDIF ()
 
 CONFIGURE_FILE(
@@ -59,8 +69,14 @@ CONFIGURE_FILE(
 
 INSTALL (DIRECTORY include/ DESTINATION include)
 
-OPTION (BUILD_EXAMPLES "Build the examples" ON)
+OPTION (ENABLE_EXAMPLES "Build the examples" ON)
 
-IF(BUILD_EXAMPLES)
+IF(ENABLE_EXAMPLES)
 	ADD_SUBDIRECTORY(examples)
+ENDIF()
+
+OPTION (ENABLE_TEST "Build the tests" ON)
+
+IF(ENABLE_TEST)
+	ADD_SUBDIRECTORY(test)
 ENDIF()
