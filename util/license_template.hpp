@@ -4,15 +4,3 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_CONST_TAG_HPP_INCLUDED
-#define MIZUIRO_CONST_TAG_HPP_INCLUDED
-
-namespace mizuiro
-{
-
-struct const_tag
-{};
-
-}
-
-#endif
