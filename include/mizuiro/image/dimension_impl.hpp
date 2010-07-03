@@ -122,14 +122,15 @@ template<
 typename mizuiro::image::dimension<Dim, ValueType>::size_type
 mizuiro::image::dimension<Dim, ValueType>::content() const
 {
-	return std::accumulate(
-		begin(),
-		end(),
-		1,
-		std::multiplies<
-			value_type
-		>()
-	);
+	return
+		std::accumulate(
+			begin(),
+			end(),
+			1,
+			std::multiplies<
+				value_type
+			>()
+		);
 }
 
 template<
