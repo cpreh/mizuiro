@@ -75,6 +75,28 @@ template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
+void
+mizuiro::image::dimension<Dim, ValueType>::swap(
+	dimension &r)
+{
+	data_.swap(
+		r.data_);
+}
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+bool
+mizuiro::image::dimension<Dim, ValueType>::empty() const
+{
+	return false;
+}
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
 typename mizuiro::image::dimension<Dim, ValueType>::iterator
 mizuiro::image::dimension<Dim, ValueType>::begin()
 {

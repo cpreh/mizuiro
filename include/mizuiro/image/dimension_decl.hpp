@@ -45,6 +45,11 @@ public:
 
 	typedef typename array_type::iterator iterator;
 	typedef typename array_type::const_iterator const_iterator;
+	// NOTE: The types below are usually not needed, they make "dimension" an instance of the
+	// "Collection" concept from multi_array.
+	typedef typename array_type::difference_type difference_type;
+	// NOTE: Ideally, std::tr1::array should have a type ::pointer. It apparently doesn't, however
+	//typedef typename array_type::pointer pointer;
 
 	#define MIZUIRO_IMAGE_DIMENSION_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL(\
 		z,\
@@ -67,6 +72,15 @@ public:
 	#undef MIZUIRO_IMAGE_DIMENSION_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL
 
 	dimension();
+	
+	// Compatibility to "Collection" from multi_array
+	void
+	swap(
+		dimension &);
+
+	// Compatibility to "Collection" from multi_array, always returns false
+	bool 
+	empty() const;
 	
 	iterator
 	begin();
