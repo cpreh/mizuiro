@@ -76,7 +76,8 @@ public:
 	// Compatibility to "Collection" from multi_array
 	void
 	swap(
-		dimension &);
+		dimension &
+	);
 
 	// Compatibility to "Collection" from multi_array, always returns false
 	bool 
@@ -115,6 +116,16 @@ public:
 private:
 	array_type data_;
 };
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+void
+swap(
+	dimension<Dim, ValueType> &,
+	dimension<Dim, ValueType> &
+);
 
 template<
 	mizuiro::size_type Dim,

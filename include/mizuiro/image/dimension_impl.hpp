@@ -77,10 +77,12 @@ template<
 >
 void
 mizuiro::image::dimension<Dim, ValueType>::swap(
-	dimension &r)
+	dimension &_other
+)
 {
 	data_.swap(
-		r.data_);
+		_other.data_
+	);
 }
 
 template<
@@ -202,6 +204,21 @@ mizuiro::image::dimension<Dim, ValueType>::null()
 		ret[i] = 0;
 
 	return ret;
+}
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+void
+mizuiro::image::swap(
+	dimension<Dim, ValueType> &_a,
+	dimension<Dim, ValueType> &_b
+)
+{
+	_a.swap(
+		_b
+	);
 }
 
 template<
