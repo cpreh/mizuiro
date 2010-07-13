@@ -8,6 +8,7 @@
 #define MIZUIRO_IMAGE_DETAIL_ITERATOR_BASE_HPP_INCLUDED
 
 #include <mizuiro/image/types/reference.hpp>
+#include <mizuiro/image/types/value_type.hpp>
 #include <mizuiro/difference_type.hpp>
 #include <boost/iterator/iterator_facade.hpp>
 
@@ -29,7 +30,9 @@ struct iterator_base
 {
 	typedef boost::iterator_facade<
 		Iterator,
-		typename Format::color_format::channel_type,
+		typename image::types::value_type<
+			Format
+		>::type,
 		Category,
 		typename image::types::reference<
 			Access,
