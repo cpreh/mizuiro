@@ -7,15 +7,11 @@
 #ifndef MIZUIRO_COLOR_OBJECT_IMPL_HPP_INCLUDED
 #define MIZUIRO_COLOR_OBJECT_IMPL_HPP_INCLUDED
 
+#include <mizuiro/color/init/detail/assign_object.hpp>
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/is_color.hpp>
-#include <mizuiro/color/detail/init_set_channel.hpp>
 #include <mizuiro/access/homogenous_normal.hpp>
-#include <boost/preprocessor/arithmetic/inc.hpp>
-#include <boost/preprocessor/repetition/enum_binary_params.hpp>
-#include <boost/preprocessor/repetition/enum_params.hpp>
-#include <boost/preprocessor/repetition/repeat.hpp>
 #include <boost/utility/enable_if.hpp>
 
 template<
@@ -56,57 +52,26 @@ mizuiro::color::object<Format>::object(
 	) = other_;
 }
 
-#define MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_ASSIGN(\
-	z,\
-	n,\
-	text\
-)\
-{\
-	detail::init_set_channel(\
-		*this,\
-		t##n\
-	);\
-}
-
-#define MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_IMPL(\
-	z,\
-	n,\
-	text\
-)\
-template<\
-	typename Format\
->\
-template<\
-	BOOST_PP_ENUM_PARAMS(\
-		BOOST_PP_INC(n),\
-		typename T\
-	)\
->\
-mizuiro::color::object<Format>::object(\
-	BOOST_PP_ENUM_BINARY_PARAMS(\
-		BOOST_PP_INC(n),\
-		T,\
-		const &t\
-	)\
-)\
-:\
-	data_()\
-{\
-	BOOST_PP_REPEAT(\
-		BOOST_PP_INC(n),\
-		MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_ASSIGN,\
-		t\
-	)\
-}
-
-BOOST_PP_REPEAT(
-	MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_MAX_PARAMS,
-	MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_IMPL,
-	void
+template<
+	typename Format
+>
+template<
+	typename Init
+>
+mizuiro::color::object<Format>::object(
+	Init const &init_,
+	typename boost::disable_if<
+		color::is_color<
+			Init
+		>
+	>::type *
 )
-
-#undef MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_IMPL
-#undef MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_ASSIGN
+{
+	init::detail::assign_object(
+		*this,
+		init_
+	);
+}
 
 template<
 	typename Format

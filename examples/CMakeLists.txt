@@ -1,7 +1,7 @@
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/include)
 
 MACRO (BUILD_FCPPT_EXAMPLE example)
-	ADD_EXECUTABLE (fcppt${example}example ${example}.cpp)
+	ADD_EXECUTABLE (mizuiro${example}example ${example}.cpp)
 ENDMACRO()
 
 BUILD_FCPPT_EXAMPLE(algorithm)

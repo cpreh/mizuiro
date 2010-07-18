@@ -8,7 +8,6 @@
 #define MIZUIRO_COLOR_OBJECT_DECL_HPP_INCLUDED
 
 #include <mizuiro/color/object_fwd.hpp>
-#include <mizuiro/color/object_constructor_max_params.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/types/store.hpp>
@@ -18,10 +17,6 @@
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
-#include <boost/preprocessor/arithmetic/inc.hpp>
-#include <boost/preprocessor/repetition/enum_binary_params.hpp>
-#include <boost/preprocessor/repetition/enum_params.hpp>
-#include <boost/preprocessor/repetition/repeat.hpp>
 #include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
@@ -69,32 +64,17 @@ public:
 		>::type * = 0
 	);
 
-	#define MIZUIRO_COLOR_OBJECT_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL(\
-		z,\
-		n,\
-		text\
-	)\
-	template<\
-		BOOST_PP_ENUM_PARAMS(\
-			BOOST_PP_INC(n),\
-			typename T\
-		)\
-	>\
-	explicit object(\
-		BOOST_PP_ENUM_BINARY_PARAMS(\
-			BOOST_PP_INC(n),\
-			T,\
-			const &t\
-		)\
+	template<
+		typename Init
+	>
+	object(
+		Init const &,
+		typename boost::disable_if<
+			color::is_color<
+				Init
+			>
+		>::type * = 0
 	);
-
-	BOOST_PP_REPEAT(
-		MIZUIRO_COLOR_OBJECT_CONSTRUCTOR_MAX_PARAMS,
-		MIZUIRO_COLOR_OBJECT_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL,
-		void
-	)
-
-	#undef MIZUIRO_COLOR_OBJECT_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL
 
 	template<
 		typename Channel

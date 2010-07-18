@@ -4,11 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_INIT_SATURATION_HPP_INCLUDED
-#define MIZUIRO_COLOR_INIT_SATURATION_HPP_INCLUDED
-
-#include <mizuiro/color/init/detail/make_trampoline.hpp>
-#include <mizuiro/color/channel/saturation.hpp>
+#ifndef MIZUIRO_COLOR_INIT_DETAIL_CHANNEL_PERCENTAGE_FWD_HPP_INCLUDED
+#define MIZUIRO_COLOR_INIT_DETAIL_CHANNEL_PERCENTAGE_FWD_HPP_INCLUDED
 
 namespace mizuiro
 {
@@ -16,11 +13,16 @@ namespace color
 {
 namespace init
 {
+namespace detail
+{
 
-MIZUIRO_COLOR_INIT_DETAIL_MAKE_TRAMPOLINE(
-	saturation
-)
+template<
+	typename Value,
+	typename Channel
+>
+class channel_percentage;
 
+}
 }
 }
 }

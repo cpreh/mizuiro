@@ -4,18 +4,16 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_INIT_DETAIL_MAKE_HPP_INCLUDED
-#define MIZUIRO_COLOR_INIT_DETAIL_MAKE_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_INIT_DETAIL_MAKE_TRAMPOLINE_HPP_INCLUDED
+#define MIZUIRO_COLOR_INIT_DETAIL_MAKE_TRAMPOLINE_HPP_INCLUDED
 
 #include <mizuiro/color/init/detail/trampoline.hpp>
 
-#define MIZUIRO_COLOR_INIT_DETAIL_MAKE(name)\
+#define MIZUIRO_COLOR_INIT_DETAIL_MAKE_TRAMPOLINE(\
+	name\
+)\
 detail::trampoline<\
 	channel::name\
-> const name((\
-	detail::trampoline<\
-		channel::name\
-	>()\
-));
+> const name = {};
 
 #endif

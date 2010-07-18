@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_TRAMPOLINE_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_TRAMPOLINE_HPP_INCLUDED
 
-#include <mizuiro/color/detail/init_channel.hpp>
-#include <mizuiro/color/detail/init_channel_percentage.hpp>
+#include <mizuiro/color/init/detail/channel.hpp>
+#include <mizuiro/color/init/detail/channel_percentage.hpp>
 #include <boost/type_traits/is_floating_point.hpp>
 #include <boost/utility/enable_if.hpp>
 
@@ -24,11 +24,12 @@ namespace detail
 template<
 	typename Channel
 >
-struct trampoline {
+struct trampoline
+{
 	template<
 		typename Value
 	>
-	color::detail::init_channel<
+	color::init::detail::channel<
 		Value,
 		Channel
 	> const
@@ -36,12 +37,13 @@ struct trampoline {
 		Value const &value
 	) const
 	{
-		return color::detail::init_channel<
-			Value,
-			Channel
-		>(
-			value
-		);
+		return
+			color::init::detail::channel<
+				Value,
+				Channel
+			>(
+				value
+			);
 	}
 
 	template<
@@ -51,7 +53,7 @@ struct trampoline {
 		boost::is_floating_point<
 			Value
 		>,
-		color::detail::init_channel_percentage<
+		color::init::detail::channel_percentage<
 			Value,
 			Channel
 		> const
@@ -60,12 +62,13 @@ struct trampoline {
 		Value const &value
 	) const
 	{
-		return color::detail::init_channel_percentage<
-			Value,
-			Channel
-		>(
-			value
-		);
+		return
+			color::init::detail::channel_percentage<
+				Value,
+				Channel
+			>(
+				value
+			);
 	}
 };
 

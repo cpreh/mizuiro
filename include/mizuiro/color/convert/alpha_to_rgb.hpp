@@ -50,12 +50,15 @@ convert
 	Src const &s
 )
 {
+	typedef 
 	object<
 		Dest
-	> dest(
-		init::red %= 1.0,
-		init::blue %= 1.0,
-		init::green %= 1.0
+	> dest_type;
+	
+	dest_type dest(
+		(init::red %= 1.0)
+		(init::blue %= 1.0)
+		(init::green %= 1.0)
 	);
 
 	detail::copy_or_max_alpha

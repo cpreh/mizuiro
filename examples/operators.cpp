@@ -26,9 +26,9 @@ int main()
 	> rgba_color;
 
 	rgba_color test(
-		mizuiro::color::init::red %= 1.0,
-		mizuiro::color::init::green %= 0.3,
-		mizuiro::color::init::blue %= 0.5
+		(mizuiro::color::init::red %= 1.0)
+		(mizuiro::color::init::green %= 0.3)
+		(mizuiro::color::init::blue %= 0.5)
 	);
 
 	test = test * 0.5;

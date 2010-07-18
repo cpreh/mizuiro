@@ -4,11 +4,11 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_DETAIL_INIT_SET_CHANNEL_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_INIT_SET_CHANNEL_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_INIT_DETAIL_SET_CHANNEL_HPP_INCLUDED
+#define MIZUIRO_COLOR_INIT_DETAIL_SET_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/color/detail/init_channel.hpp>
-#include <mizuiro/color/detail/init_channel_percentage.hpp>
+#include <mizuiro/color/init/detail/channel.hpp>
+#include <mizuiro/color/init/detail/channel_percentage.hpp>
 #include <mizuiro/color/denormalize.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <boost/utility/enable_if.hpp>
@@ -16,6 +16,8 @@
 namespace mizuiro
 {
 namespace color
+{
+namespace init
 {
 namespace detail
 {
@@ -35,9 +37,9 @@ typename boost::enable_if<
 	>,
 	void
 >::type
-init_set_channel(
+set_channel(
 	Color &color,
-	init_channel<
+	detail::channel<
 		Value,
 		Channel
 	> const &init
@@ -56,9 +58,9 @@ template<
 	typename Channel
 >
 void
-init_set_channel(
+set_channel(
 	Color &color,
-	init_channel_percentage<
+	detail::channel_percentage<
 		Value,
 		Channel
 	> const &init
@@ -76,6 +78,7 @@ init_set_channel(
 	);
 }
 
+}
 }
 }
 }

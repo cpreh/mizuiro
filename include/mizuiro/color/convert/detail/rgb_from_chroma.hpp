@@ -36,44 +36,44 @@ rgb_from_chroma(
 	case 0:
 		return
 			Dest(
-				color::init::red %= chroma,
-				color::init::green %= largest_part,
-				color::init::blue %= 0.
+				(color::init::red %= chroma)
+				(color::init::green %= largest_part)
+				(color::init::blue %= 0.)
 			);
 	case 1:
 		return
 			Dest(
-				color::init::red %= largest_part,
-				color::init::green %= chroma,
-				color::init::blue %= 0.
+				(color::init::red %= largest_part)
+				(color::init::green %= chroma)
+				(color::init::blue %= 0.)
 			);
 	case 2:
 		return
 			Dest(
-				color::init::red %= 0.,
-				color::init::green %= chroma,
-				color::init::blue %= largest_part
+				(color::init::red %= 0.)
+				(color::init::green %= chroma)
+				(color::init::blue %= largest_part)
 			);
 	case 3:
 		return
 			Dest(
-				color::init::red %= 0.,
-				color::init::green %= largest_part,
-				color::init::blue %= chroma
+				(color::init::red %= 0.)
+				(color::init::green %= largest_part)
+				(color::init::blue %= chroma)
 			);
 	case 4:
 		return
 			Dest(
-				color::init::red %= largest_part,
-				color::init::green %= 0.,
-				color::init::blue %= chroma
+				(color::init::red %= largest_part)
+				(color::init::green %= 0.)
+				(color::init::blue %= chroma)
 			);
 	case 5:
 		return
 			Dest(
-				color::init::red %= chroma,
-				color::init::green %= 0.,
-				color::init::blue %= largest_part
+				(color::init::red %= chroma)
+				(color::init::green %= 0.)
+				(color::init::blue %= largest_part)
 			);
 	}
 

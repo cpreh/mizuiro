@@ -101,7 +101,7 @@ int main()
 		<< '\n';
 	
 	alpha_color const test_alpha(
-		mizuiro::color::init::alpha %= 0.5
+		(mizuiro::color::init::alpha %= 0.5)
 	);
 
 	std::cout
