@@ -50,7 +50,7 @@ binary_op(
 	>(
 		color::operators::detail::binary_op_channel<
 			Operation,
-			Color1,
+			result_type,
 			Color2
 		>(
 			result,

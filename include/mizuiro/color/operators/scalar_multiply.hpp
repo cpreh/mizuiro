@@ -49,7 +49,7 @@ operator*(
 		format
 	>(
 		color::operators::detail::scalar_multiply<
-			Color,
+			result_type,
 			Scalar
 		>(
 			result,
