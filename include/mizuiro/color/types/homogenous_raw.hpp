@@ -16,9 +16,9 @@
 #include <mizuiro/color/channel_proxy_impl.hpp>
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/detail/apply_const.hpp>
+#include <mizuiro/array.hpp>
 #include <mizuiro/raw_value.hpp>
 #include <mizuiro/raw_pointer.hpp>
-#include <fcppt/tr1/array.hpp>
 
 namespace mizuiro
 {
@@ -94,16 +94,16 @@ struct store<
 		Layout
 	>
 >
-{
-	typedef std::tr1::array<
-		raw_value,
-		color::homogenous<
-			ChannelType,
-			Layout
-		>::element_count
-		* sizeof(ChannelType)
-	> type;
-};
+:
+mizuiro::array<
+	raw_value,
+	color::homogenous<
+		ChannelType,
+		Layout
+	>::element_count
+	* sizeof(ChannelType)
+>
+{};
 
 }
 }

@@ -19,7 +19,7 @@
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/nonconst_tag.hpp>
-#include <fcppt/tr1/array.hpp>
+#include <mizuiro/array.hpp>
 #include <algorithm>
 #include <iostream>
 #include <ostream>
@@ -54,10 +54,10 @@ int main()
 			format::color_format::element_count
 		);
 
-	typedef std::tr1::array<
+	typedef mizuiro::array<
 		mizuiro::raw_value,
 		width * height * channel_bytes * element_count
-	> raw_array;
+	>::type raw_array;
 
 	raw_array raw_data = {{ 0 }};
 

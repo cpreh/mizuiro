@@ -9,7 +9,7 @@
 
 #include <mizuiro/image/detail/pitch_type.hpp>
 #include <mizuiro/image/dimension_decl.hpp>
-#include <fcppt/tr1/array.hpp>
+#include <mizuiro/array.hpp>
 
 namespace mizuiro
 {
@@ -21,13 +21,15 @@ namespace detail
 template<
 	typename Dim
 >
-struct stacked_dim_type {
-	typedef std::tr1::array<
-		typename Dim::value_type,
-		detail::pitch_type<
-			Dim
-		>::type::static_size
-	> type;
+struct stacked_dim_type
+:
+mizuiro::array<
+	typename Dim::value_type,
+	detail::pitch_type<
+		Dim
+	>::type::static_size
+>
+{
 };
 
 }

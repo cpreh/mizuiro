@@ -12,17 +12,16 @@
 #include <mizuiro/image/view.hpp>
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
+#include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
+#include <mizuiro/access/raw.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/alpha.hpp>
-#include <fcppt/tr1/array.hpp>
+#include <mizuiro/array.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>
-
-#include <mizuiro/access/raw.hpp>
-#include <mizuiro/image/raw_view.hpp>
 
 namespace
 {
@@ -77,13 +76,13 @@ int main()
 			12
 		);
 
-	typedef std::tr1::array<
+	typedef mizuiro::array<
 		unsigned char,
 		width
 		* height
 		* sizeof(base_type)
 		* alpha_format::color_format::element_count
-	> raw_array;
+	>::type raw_array;
 
 	raw_array const data = {{
 		152, 34, 0,

@@ -8,8 +8,8 @@
 #define MIZUIRO_IMAGE_DIMENSION_DECL_HPP_INCLUDED
 
 #include <mizuiro/image/dimension_fwd.hpp>
+#include <mizuiro/array.hpp>
 #include <mizuiro/size_type.hpp>
-#include <fcppt/tr1/array.hpp>
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
@@ -36,10 +36,10 @@ public:
 	typedef value_type &reference;
 	typedef value_type const &const_reference;
 
-	typedef std::tr1::array<
+	typedef typename mizuiro::array<
 		value_type,
 		Dim
-	> array_type;
+	>::type array_type;
 
 	static size_type const static_size = Dim;
 
@@ -48,7 +48,7 @@ public:
 	// NOTE: The types below are usually not needed, they make "dimension" an instance of the
 	// "Collection" concept from multi_array.
 	typedef typename array_type::difference_type difference_type;
-	// NOTE: Ideally, std::tr1::array should have a type ::pointer. It apparently doesn't, however
+	// NOTE: Ideally, array should have a type ::pointer. It apparently doesn't, however
 	//typedef typename array_type::pointer pointer;
 
 	#define MIZUIRO_IMAGE_DIMENSION_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL(\

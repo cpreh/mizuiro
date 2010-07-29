@@ -19,7 +19,7 @@
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/size_type.hpp>
-#include <fcppt/tr1/array.hpp>
+#include <mizuiro/array.hpp>
 #include <iostream>
 #include <ostream>
 
@@ -52,10 +52,14 @@ int main()
 			4	
 		);
 
-	std::tr1::array<
+	mizuiro::array<
 		unsigned char,
-		width * height * depth * sizeof(float) * format::color_format::element_count
-	> raw_data;
+		width
+		* height
+		* depth
+		* sizeof(float)
+		* format::color_format::element_count
+	>::type raw_data;
 
 	typedef mizuiro::image::view<
 		mizuiro::access::raw,

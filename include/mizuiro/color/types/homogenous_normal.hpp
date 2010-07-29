@@ -13,7 +13,7 @@
 #include <mizuiro/color/homogenous_fwd.hpp>
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/detail/apply_const.hpp>
-#include <fcppt/tr1/array.hpp>
+#include <mizuiro/array.hpp>
 
 namespace mizuiro
 {
@@ -75,15 +75,15 @@ struct store<
 		Layout
 	>
 >
-{
-	typedef std::tr1::array<
+:
+mizuiro::array<
+	ChannelType,
+	color::homogenous<
 		ChannelType,
-		color::homogenous<
-			ChannelType,
-			Layout
-		>::element_count
-	> type;
-};
+		Layout
+	>::element_count
+>
+{};
 
 }
 }
