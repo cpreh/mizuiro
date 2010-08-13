@@ -42,4 +42,17 @@ int main()
 	std::cout
 		<< test
 		<< '\n';
+	
+	rgba_color const test2(
+		(mizuiro::color::init::red %= 0.)
+		(mizuiro::color::init::green %= 0.3)
+		(mizuiro::color::init::blue %= 0.4)
+	);
+
+	if(
+		test == test2
+	)
+		std::cout << "equal\n";
+	else
+		std::cout << "not equal\n";
 }
