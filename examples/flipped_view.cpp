@@ -102,25 +102,10 @@ int main()
 		)
 	);
 
-	view_type::iterator it(
-		flipped_view.begin()
-	);
-
-	for(
-		unsigned i = 0;
-		i < 3 * 4 + 1;
-		++i
-	)
-		std::cout << *it++ << ' ';
-	
-	std::cout << '\n';
-	std::cout << *flipped_view.end() << '\n';
-	/*
 	mizuiro::image::algorithm::print(
 		std::cout,
 		flipped_view
 	);
-	*/
 
 	std::cout << '\n';
 }

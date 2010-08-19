@@ -148,7 +148,8 @@ public:
 	pitch_type const &
 	pitch() const;
 private:
-	bool is_linear() const;
+	bool
+	is_linear() const;
 
 	linear_iterator const
 	linear_begin() const;
