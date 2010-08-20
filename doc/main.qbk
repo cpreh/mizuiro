@@ -1,0 +1,22 @@
+[article 水色
+	[quickbook 1.5]
+	[version 0.1]
+	[authors [Reh, Carl Philipp]]
+	[copyright 2010 Carl Philipp Reh]
+	[purpose mizuiro]
+	[license Boost Software License]
+]
+
+[/ Global Macro Definition ]
+
+[/ Sections ]
+
+[def __mizuiro_introduction__ [link mizuiro.introduction]]
+
+[/ End Macro Definition ]
+
+[section Introduction]
+
+[endsect]
+
+[include documentation.qbk]

@@ -1,0 +1,93 @@
+FIND_PACKAGE(Doxygen REQUIRED)
+FIND_PACKAGE(Xsltproc REQUIRED)
+
+SET(QUICKBOOK_VERSION ${Boost_LIB_VERSION})
+
+FIND_PACKAGE(Quickbook REQUIRED)
+
+SET(DOC_OUTPUT ${CMAKE_BINARY_DIR}/doc_generated)
+
+FILE(COPY xsl/ DESTINATION ${DOC_OUTPUT}/xsl)
+
+SET(BOOSTBOOK_STYLESHEETS ${DOC_OUTPUT}/xsl)
+
+ADD_CUSTOM_TARGET(
+	doc
+)
+
+CONFIGURE_FILE(xsl/docbook.xsl.in ${DOC_OUTPUT}/xsl/docbook.xsl IMMEDIATE)
+
+MACRO(MAKE_MIZUIRO_DOCUMENTATION name)
+	#	SET(DOXYGEN_INPUT_PATH ${ARGN})
+	SET(DOXYGEN_INPUT_PATH)
+	SET(DOXYGEN_CURRENT_FILE ${DOC_OUTPUT}/${name}.doxyfile)
+
+	FOREACH(arg ${ARGN})
+		SET(DOXYGEN_INPUT_PATH "${DOXYGEN_INPUT_PATH} ${CMAKE_SOURCE_DIR}/include/mizuiro/${arg}")
+	ENDFOREACH()
+
+	CONFIGURE_FILE(Doxyfile.in ${DOXYGEN_CURRENT_FILE} @ONLY IMMEDIATE)
+
+	ADD_CUSTOM_COMMAND(
+		TARGET doc
+		COMMAND ${DOXYGEN_EXECUTABLE}
+		ARGS
+			${DOXYGEN_CURRENT_FILE}
+		COMMAND ${XSLTPROC_EXECUTABLE}
+		ARGS
+			--xinclude
+			-o ${DOC_OUTPUT}/doxygen.xml
+			--path ${DOC_OUTPUT}
+			${BOOSTBOOK_STYLESHEETS}/doxygen/collect.xsl
+			${DOC_OUTPUT}/xml/index.xml
+		COMMAND ${XSLTPROC_EXECUTABLE}
+		ARGS
+			--xinclude
+			-o ${DOC_OUTPUT}/doxygen_${name}.xml
+			--path ${DOC_OUTPUT}
+			${BOOSTBOOK_STYLESHEETS}/doxygen/doxygen2boostbook.xsl
+			${DOC_OUTPUT}/doxygen.xml
+	)
+ENDMACRO()
+
+# TODO
+MAKE_MIZUIRO_DOCUMENTATION(
+	common
+	normalize.hpp
+	denormalize.hpp
+)
+MAKE_MIZUIRO_DOCUMENTATION(
+	color
+	color
+)
+MAKE_MIZUIRO_DOCUMENTATION(
+	image
+	image
+)
+
+ADD_CUSTOM_COMMAND(
+	TARGET doc
+	COMMAND ${QUICKBOOK_EXECUTABLE}
+	ARGS
+		${CMAKE_SOURCE_DIR}/doc/main.qbk
+		--output-file ${DOC_OUTPUT}/main.xml
+	COMMAND ${XSLTPROC_EXECUTABLE}
+		--xinclude
+		-o ${DOC_OUTPUT}/main_docbook.xml
+		--path ${DOC_OUTPUT}
+		${BOOSTBOOK_STYLESHEETS}/docbook.xsl
+		${DOC_OUTPUT}/main.xml
+	COMMAND ${XSLTPROC_EXECUTABLE}
+	ARGS
+		--xinclude
+		-o ${DOC_OUTPUT}/"html/"
+		--path ${DOC_OUTPUT}
+		${BOOSTBOOK_STYLESHEETS}/html.xsl
+		${DOC_OUTPUT}/main_docbook.xml
+	WORKING_DIRECTORY ${DOC_OUTPUT}
+)
+
+FILE(GLOB html_files files/*)
+FILE(COPY ${html_files} DESTINATION ${DOC_OUTPUT}/html)
+
+INSTALL(DIRECTORY ${DOC_OUTPUT}/html DESTINATION ${CMAKE_INSTALL_PREFIX}/share/doc/mizuiro)
