@@ -40,7 +40,7 @@
    <xsl:param name = "boost.website"   select = "'http://redmine.supraverse.net/projects/fcppt'"/>
    <xsl:param name = "boost.image.src" select = "concat($boost.root, '/logo.png')"/>
    <xsl:param name = "boost.image.alt" select = "'Friendly C++ Toolkit'"/>
-   <xsl:param name = "boost.image.w" select = "'218'"/>
+   <xsl:param name = "boost.image.w" select = "'219'"/>
    <xsl:param name = "boost.image.h" select = "'87'"/>
 
    <!-- header -->
