@@ -15,6 +15,11 @@
 namespace mizuiro
 {
 
+/// Denormalizes a float value
+/**
+ * @param src is supposed to be in [0,1].
+ * @return 0 maps to channel_min<Dest>(), 1 maps to channel_max<Dest>()
+*/
 template
 <
 	typename Dest,

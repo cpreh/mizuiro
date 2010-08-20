@@ -10,6 +10,7 @@
 namespace mizuiro
 {
 
+/// The nonconst tag used for colors and views
 struct nonconst_tag
 {};
 

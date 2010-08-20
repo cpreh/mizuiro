@@ -10,6 +10,7 @@
 namespace mizuiro
 {
 
+/// The const tag used for colors and views
 struct const_tag
 {};
 

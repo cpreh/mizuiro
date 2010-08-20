@@ -12,6 +12,7 @@
 namespace mizuiro
 {
 
+/// A pointer to raw memory
 typedef raw_value *raw_pointer;
 
 }

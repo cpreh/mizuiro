@@ -24,6 +24,11 @@ namespace mizuiro
 namespace color
 {
 
+/// A color object that stores a color by value
+/**
+ * color::object is a class that can be used to store a color value.
+ * @tparam Format specifies the color format
+*/
 template<
 	typename Format
 >
@@ -46,12 +51,14 @@ public:
 		mizuiro::const_tag
 	>::type const_pointer;
 
+	/// constructs an uninitialized color
 	object();
 
 	object(
 		object const &
 	);
 
+	/// Constructs a color from another color (possibly a view)
 	template<
 		typename Other
 	>
@@ -64,6 +71,7 @@ public:
 		>::type * = 0
 	);
 
+	/// Constructs a color from a special init expression
 	template<
 		typename Init
 	>
@@ -76,6 +84,7 @@ public:
 		>::type * = 0
 	);
 
+	/// Sets a color channel denoted by @tparam Channel
 	template<
 		typename Channel
 	>
@@ -87,6 +96,7 @@ public:
 		>::type const &
 	);
 
+	/// Gets a color channel denoted by @tparam Channel
 	template<
 		typename Channel
 	>
@@ -98,9 +108,11 @@ public:
 	>::type
 	get() const;
 
+	/// ponter to the internal data
 	pointer
 	data();
 
+	/// const pointer to the internal data
 	const_pointer
 	data() const;
 private:

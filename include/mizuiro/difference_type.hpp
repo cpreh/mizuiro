@@ -12,6 +12,7 @@
 namespace mizuiro
 {
 
+/// The difference_type used by mizuiro
 typedef std::ptrdiff_t difference_type;
 
 }

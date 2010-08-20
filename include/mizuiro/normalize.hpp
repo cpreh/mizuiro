@@ -15,6 +15,10 @@
 namespace mizuiro
 {
 
+/// Normalizes a value into a float
+/**
+ * @return channel_min<ChannelValue> maps to 0, channel_max<ChannelValue> maps to 1
+*/
 template
 <
 	typename Float,
@@ -31,14 +35,14 @@ boost::enable_if
 >::type
 normalize
 (
-	ChannelValue const &value_
+	ChannelValue const &value
 )
 {
 	return 
 		(
 			static_cast<Float>
 			(
-				value_
+				value
 			)
 			-
 			static_cast<Float>

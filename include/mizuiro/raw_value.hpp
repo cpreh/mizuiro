@@ -10,6 +10,7 @@
 namespace mizuiro
 {
 
+/// The value used for raw memory
 typedef unsigned char raw_value;
 
 }

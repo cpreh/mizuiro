@@ -12,6 +12,10 @@
 namespace mizuiro
 {
 
+/// mizuiro's array type
+/**
+ * Exposes a typedef ::type.
+*/
 template<
 	typename T,
 	std::size_t N

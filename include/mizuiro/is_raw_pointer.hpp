@@ -16,6 +16,7 @@
 namespace mizuiro
 {
 
+/// A meta function that checks if T is raw_pointer or const_raw_pointer
 template<
 	typename T
 >
