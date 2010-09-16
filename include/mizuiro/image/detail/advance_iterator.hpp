@@ -7,6 +7,8 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_ADVANCE_ITERATOR_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_ADVANCE_ITERATOR_HPP_INCLUDED
 
+#include <mizuiro/detail/nonassignable.hpp>
+
 namespace mizuiro
 {
 namespace image
@@ -18,7 +20,12 @@ template<
 	typename Variant,
 	typename DifferenceType
 >
-struct advance_iterator {
+class advance_iterator
+{
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		advance_iterator
+	);
+public:
 	typedef Variant result_type;
 
 	explicit advance_iterator(
