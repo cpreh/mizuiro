@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/init/detail/channel_fwd.hpp>
 #include <mizuiro/color/init/detail/make_impl.hpp>
+#include <mizuiro/detail/nonassignable.hpp>
 #include <boost/fusion/container/vector/vector.hpp>
 #include <boost/fusion/container/generation/make_vector.hpp>
 
@@ -27,15 +28,18 @@ template<
 >
 class channel
 {
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		channel
+	);
 public:
 	typedef Value value_type;
 	typedef Channel channel_type;
 
 	explicit channel(
-		Value const &value_
+		Value const &_value
 	)
 	:
-		value_(value_)
+		value_(_value)
 	{}
 	
 	Value const &

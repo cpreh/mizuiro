@@ -7,6 +7,8 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_FILL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_FILL_HPP_INCLUDED
 
+#include <mizuiro/detail/nonassignable.hpp>
+
 namespace mizuiro
 {
 namespace image
@@ -19,14 +21,19 @@ namespace detail
 template<
 	typename Fun
 >
-struct fill {
+class fill
+{
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		fill
+	);
+public:
 	typedef void result_type;
 
 	explicit fill(
-		Fun const &fun
+		Fun const &_fun
 	)
 	:
-		fun(fun)
+		fun_(_fun)
 	{}
 
 	template<
@@ -37,10 +44,10 @@ struct fill {
 		Dest const &dest
 	) const
 	{
-		dest = fun();
+		dest = fun_();
 	}
 private:
-	Fun const &fun;
+	Fun const &fun_;
 };
 
 }

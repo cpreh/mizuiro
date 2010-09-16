@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_OPERATORS_DETAIL_BINARY_OP_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/types/channel_value.hpp>
+#include <mizuiro/detail/nonassignable.hpp>
 
 namespace mizuiro
 {
@@ -27,14 +28,17 @@ template<
 >
 class binary_op_channel
 {
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		binary_op_channel
+	);
 public:
 	explicit binary_op_channel(
-		Color1 &color1_,
-		Color2 const &color2_
+		Color1 &_color1,
+		Color2 const &_color2
 	)
 	:
-		color1_(color1_),
-		color2_(color2_)
+		color1_(_color1),
+		color2_(_color2)
 	{}
 
 	typedef void result_type;
@@ -74,6 +78,7 @@ public:
 	}
 private:
 	Color1 &color1_;
+
 	Color2 const &color2_;
 };
 

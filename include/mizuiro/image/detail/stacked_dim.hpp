@@ -8,7 +8,6 @@
 #define MIZUIRO_IMAGE_DETAIL_STACKED_DIM_HPP_INCLUDED
 
 #include <mizuiro/image/detail/stacked_dim_type.hpp>
-#include <mizuiro/image/detail/pitch_type.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 
 namespace mizuiro
@@ -21,28 +20,24 @@ namespace detail
 template<
 	typename Dim
 >
-typename stacked_dim_type<
+typename detail::stacked_dim_type<
 	Dim
 >::type const
 stacked_dim(
 	Dim const &dim
 )
 {
-	typename stacked_dim_type<
+	typedef typename detail::stacked_dim_type<
 		Dim
-	>::type ret;
+	>::type stacked_type;
 
-	typedef typename Dim::size_type size_type;
+	stacked_type ret = {{}};
 
-	typedef typename pitch_type<
-		Dim
-	>::type pitch_type;
-
-	size_type cur = 1;
+	typename Dim::value_type cur = 1;
 
 	for(
-		size_type i = 0;
-		i < pitch_type::static_size;
+		typename Dim::size_type i = 0;
+		i < ret.size();
 		++i
 	)
 	{

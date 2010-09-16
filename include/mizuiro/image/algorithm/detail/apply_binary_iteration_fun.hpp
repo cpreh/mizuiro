@@ -7,6 +7,8 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_APPLY_BINARY_ITERATION_FUN_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_APPLY_BINARY_ITERATION_FUN_HPP_INCLUDED
 
+#include <mizuiro/detail/nonassignable.hpp>
+
 namespace mizuiro
 {
 namespace image
@@ -19,18 +21,22 @@ namespace detail
 template<
 	typename Function
 >
-class apply_binary_iteration_fun {
+class apply_binary_iteration_fun
+{
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		apply_binary_iteration_fun
+	);
 public:
 	apply_binary_iteration_fun()
 	:
-		fun()
+		fun_()
 	{}
 
 	explicit apply_binary_iteration_fun(
-		Function const &fun
+		Function const &_fun
 	)
 	:
-		fun(fun)
+		fun_(_fun)
 	{}
 
 	typedef void result_type;
@@ -41,32 +47,32 @@ public:
 	>
 	result_type
 	operator()(
-		T1 const &range1,
-		T2 const &range2
+		T1 const &_range1,
+		T2 const &_range2
 	) const
 	{
 		typename T2::iterator it2(
-			range2.begin()
+			_range2.begin()
 		);
 
 		typename T1::iterator const end1(
-			range1.end()
+			_range1.end()
 		);
 
 		for(
 			typename T1::iterator it1(
-				range1.begin()
+				_range1.begin()
 			);
 			it1 != end1;
 			++it1, ++it2
 		)
-			fun(
+			fun_(
 				*it1,
 				*it2
 			);
 	}
 private:
-	Function const fun;
+	Function const fun_;
 };
 
 }

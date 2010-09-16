@@ -8,6 +8,7 @@
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_PRINT_HPP_INCLUDED
 
 #include <mizuiro/color/output.hpp>
+#include <mizuiro/detail/nonassignable.hpp>
 
 namespace mizuiro
 {
@@ -21,14 +22,19 @@ namespace detail
 template<
 	typename Sink
 >
-struct print {
+class print
+{
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		print
+	);
+public:
 	typedef void result_type;
 
 	explicit print(
-		Sink &sink
+		Sink &_sink
 	)
 	:
-		sink(sink)
+		sink_(_sink)
 	{}
 
 	template<
@@ -36,15 +42,15 @@ struct print {
 	>
 	result_type
 	operator()(
-		Src const &src
+		Src const &_src
 	) const
 	{
-		sink
-			<< src
-			<< sink.widen(' ');
+		sink_
+			<< _src
+			<< sink_.widen(' ');
 	}
 private:
-	Sink &sink;
+	Sink &sink_;
 };
 
 }

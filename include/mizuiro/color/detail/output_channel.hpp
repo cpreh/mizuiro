@@ -10,7 +10,9 @@
 #include <mizuiro/color/detail/promote_channel.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/index_of.hpp>
+#include <mizuiro/detail/nonassignable.hpp>
 #include <boost/mpl/size.hpp>
+#include <boost/utility/enable_if.hpp>
 #include <ostream>
 
 namespace mizuiro
@@ -27,18 +29,22 @@ template<
 >
 class output_channel
 {
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		output_channel
+	);
+
 	typedef std::basic_ostream<
 		Ch,
 		Traits
 	> stream_type;
 public:
 	output_channel(
-		stream_type &s,
-		Color const &c
+		stream_type &_stream,
+		Color const &_color
 	)
 	:
-		s(s),
-		c(c)
+		stream_(_stream),
+		color_(_color)
 	{}
 
 	typedef void result_type;
@@ -46,14 +52,58 @@ public:
 	template<
 		typename Channel
 	>
-	result_type
+	typename boost::enable_if_c<
+		mizuiro::detail::index_of<
+			typename Color::format::layout::order,
+			Channel
+		>::value + 1
+		==
+		boost::mpl::size<
+			typename Color::format::layout::order
+		>::value,
+		result_type
+	>::type
 	operator()(
 		Channel &
 	) const
 	{
-		typedef typename Color::format::layout::order order;
+		print_impl<
+			Channel
+		>();
+	}
 
-		s <<
+	template<
+		typename Channel
+	>
+	typename boost::disable_if_c<
+		mizuiro::detail::index_of<
+			typename Color::format::layout::order,
+			Channel
+		>::value + 1
+		==
+		boost::mpl::size<
+			typename Color::format::layout::order
+		>::value,
+		result_type
+	>::type
+	operator()(
+		Channel &
+	) const
+	{
+		print_impl<
+			Channel
+		>();
+		
+		stream_ << stream_.widen(',');
+	}
+private:
+	template<
+		typename Channel
+	>
+	result_type
+	print_impl() const
+	{
+		stream_ <<
 			static_cast<
 				typename detail::promote_channel<
 					typename color::types::channel_value<
@@ -62,27 +112,15 @@ public:
 					>::type
 				>::type
 			>(
-				c. template get<
+				color_. template get<
 					Channel
 				>()
 			);
-
-		if(
-			mizuiro::detail::index_of<
-				order,
-				Channel
-			>::value + 1
-			!=
-			boost::mpl::size<
-				order
-			>::value
-		)
-			s << s.widen(',');
 	}
-private:
-	stream_type &s;
 
-	Color const &c;
+	stream_type &stream_;
+
+	Color const &color_;
 };
 
 }

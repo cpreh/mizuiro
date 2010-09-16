@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/init/detail/set_channel.hpp>
 #include <mizuiro/color/object_fwd.hpp>
+#include <mizuiro/detail/nonassignable.hpp>
 
 namespace mizuiro
 {
@@ -24,6 +25,9 @@ template<
 >
 class visitor
 {
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		visitor
+	);
 public:
 	typedef void result_type;
 

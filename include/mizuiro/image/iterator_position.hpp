@@ -51,7 +51,7 @@ iterator_position(
 
 	typedef typename dim_type::size_type size_type;
 
-	dim_type d;
+	dim_type ret;
 
 	for (
 		size_type i = 0;
@@ -59,20 +59,20 @@ iterator_position(
 		++i
 	)
 	{
-		d[i] = it.offset();
+		ret[i] = it.offset();
 
 		for (
 			size_type m = dim_type::static_size - 1;
 			m > i;
 			--m
 		)
-			d[i] %= stacked_dims[i];
+			ret[i] %= stacked_dims[i];
 
 		if(i > 0)
-			d[i] /= stacked_dims[i - 1];
+			ret[i] /= stacked_dims[i - 1];
 	}
 	
-	return d;
+	return ret;
 }
 
 }

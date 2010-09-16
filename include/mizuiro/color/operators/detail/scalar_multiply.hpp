@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_OPERATORS_DETAIL_SCALAR_MULTIPLY_HPP_INCLUDED
 
 #include <mizuiro/color/types/channel_value.hpp>
+#include <mizuiro/detail/nonassignable.hpp>
 
 namespace mizuiro
 {
@@ -24,14 +25,17 @@ template<
 >
 class scalar_multiply
 {
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		scalar_multiply
+	);
 public:
 	explicit scalar_multiply(
-		Color &color_,
-		Scalar const scalar_
+		Color &_color,
+		Scalar const _scalar
 	)
 	:
-		color_(color_),
-		scalar_(scalar_)
+		color_(_color),
+		scalar_(_scalar)
 	{}
 
 	typedef void result_type;
@@ -67,6 +71,7 @@ public:
 	}
 private:
 	Color &color_;
+
 	Scalar const scalar_;
 };
 

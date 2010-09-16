@@ -7,6 +7,8 @@
 #ifndef MIZUIRO_COLOR_DETAIL_COPY_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_COPY_CHANNEL_HPP_INCLUDED
 
+#include <mizuiro/detail/nonassignable.hpp>
+
 namespace mizuiro
 {
 namespace color
@@ -18,17 +20,21 @@ template<
 	typename Dest,
 	typename Src
 >
-struct copy_channel
+class copy_channel
 {
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		copy_channel
+	);
+public:
 	typedef void result_type;
 
 	copy_channel(
-		Dest const &dest,
-		Src const &src
+		Dest const &_dest,
+		Src const &_src
 	)
 	:
-		dest(dest),
-		src(src)
+		dest_(_dest),
+		src_(_src)
 	{}
 
 	template<
@@ -39,17 +45,17 @@ struct copy_channel
 		Channel &
 	) const
 	{
-		dest. template set<
+		dest_. template set<
 			Channel
 		>(
-			src. template get<
+			src_. template get<
 				Channel
 			>()
 		);
 	}
 private:
-	Dest const &dest;
-	Src const &src;
+	Dest const &dest_;
+	Src const &src_;
 };
 
 }
