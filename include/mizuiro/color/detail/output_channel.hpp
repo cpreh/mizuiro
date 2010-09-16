@@ -8,10 +8,9 @@
 #define MIZUIRO_COLOR_DETAIL_OUTPUT_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/detail/promote_channel.hpp>
+#include <mizuiro/color/detail/is_last_channel.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
-#include <mizuiro/detail/index_of.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
-#include <boost/mpl/size.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <ostream>
 
@@ -52,15 +51,11 @@ public:
 	template<
 		typename Channel
 	>
-	typename boost::enable_if_c<
-		mizuiro::detail::index_of<
-			typename Color::format::layout::order,
+	typename boost::enable_if<
+		mizuiro::color::detail::is_last_channel<
+			typename Color::format,
 			Channel
-		>::value + 1
-		==
-		boost::mpl::size<
-			typename Color::format::layout::order
-		>::value,
+		>,
 		result_type
 	>::type
 	operator()(
@@ -75,15 +70,11 @@ public:
 	template<
 		typename Channel
 	>
-	typename boost::disable_if_c<
-		mizuiro::detail::index_of<
-			typename Color::format::layout::order,
+	typename boost::disable_if<
+		mizuiro::color::detail::is_last_channel<
+			typename Color::format,
 			Channel
-		>::value + 1
-		==
-		boost::mpl::size<
-			typename Color::format::layout::order
-		>::value,
+		>,
 		result_type
 	>::type
 	operator()(
