@@ -7,6 +7,8 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_TRANSFORM_BINARY_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_TRANSFORM_BINARY_HPP_INCLUDED
 
+#include <mizuiro/detail/nonassignable.hpp>
+
 namespace mizuiro
 {
 namespace image
@@ -19,7 +21,12 @@ namespace detail
 template<
 	typename Fun
 >
-struct transform_binary {
+class transform_binary
+{
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		transform_binary
+	);
+public:
 	typedef void result_type;
 
 	explicit transform_binary(
