@@ -30,7 +30,7 @@ int main()
 
 	typedef mizuiro::image::format<
 		mizuiro::image::dimension<
-			3	
+			3
 		>,
 		mizuiro::image::interleaved<
 			mizuiro::color::homogenous<
