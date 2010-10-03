@@ -22,14 +22,14 @@ template<
 	typename Constness
 >
 mizuiro::image::pitch_iterator<Access, Format, Constness>::pitch_iterator(
-	dim_type const &dim_,
-	pointer const data_,
-	pitch_type const &pitch_
+	dim_type const &_dim,
+	pointer const _data,
+	pitch_type const &_pitch
 )
 :
-	dim_(dim_),
-	root_data_(data_),
-	pitch_(pitch_),
+	dim_(_dim),
+	root_data_(_data),
+	pitch_(_pitch),
 	line_advance_(0),
 	position_(0),
 	offset_(0),
@@ -102,7 +102,7 @@ template<
 >
 void
 mizuiro::image::pitch_iterator<Access, Format, Constness>::advance(
-	difference_type const diff
+	difference_type const _diff
 )
 {
 	assert(dim_.content());
@@ -110,7 +110,7 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::advance(
 	line_advance_ = -1;
 
 	if(
-		diff < 0
+		_diff < 0
 	)
 	{
 		*this =
@@ -118,11 +118,11 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::advance(
 				dim_,
 				root_data_,
 				pitch_
-			) += (offset_ + diff);
+			) += (offset_ + _diff);
 		return;
 	}
 
-	difference_type add = diff * Format::color_format::element_count;
+	difference_type add = _diff * Format::color_format::element_count;
 
 	for(
 		size_type i = 0;
@@ -130,13 +130,14 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::advance(
 		++i
 	)
 		add += (
-			(diff +
+			(_diff +
 				offset_
 				% stacked_dim_[i]
 			) / stacked_dim_[i]
 		) * pitch_[i];
 
-	offset_ += diff;
+	offset_ += _diff;
+
 	position_ += add;
 }
 

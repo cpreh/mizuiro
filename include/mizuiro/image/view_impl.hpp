@@ -21,12 +21,12 @@ template<
 	typename Constness
 >
 mizuiro::image::view<Access, Format, Constness>::view(
-	dim_type const &dim_,
-	pointer const data_
+	dim_type const &_dim,
+	pointer const _data
 )
 :
-	dim_(dim_),
-	data_(data_),
+	dim_(_dim),
+	data_(_data),
 	pitch_(pitch_type::null())
 {}
 
@@ -36,14 +36,14 @@ template<
 	typename Constness
 >
 mizuiro::image::view<Access, Format, Constness>::view(
-	dim_type const &dim_,
-	pointer const data_,
-	pitch_type const &pitch_
+	dim_type const &_dim,
+	pointer const _data,
+	pitch_type const &_pitch
 )
 :
-	dim_(dim_),
-	data_(data_),
-	pitch_(pitch_)
+	dim_(_dim),
+	data_(_data),
+	pitch_(_pitch)
 {}
 
 template<
@@ -52,12 +52,12 @@ template<
 	typename Constness
 >
 mizuiro::image::view<Access, Format, Constness>::view(
-	view const &v
+	view const &_other
 )
 :
-	dim_(v.dim_),
-	data_(v.data_),
-	pitch_(v.pitch_)
+	dim_(_other.dim_),
+	data_(_other.data_),
+	pitch_(_other.pitch_)
 {}
 
 template<
@@ -73,12 +73,12 @@ mizuiro::image::view<Access, Format, Constness>::view(
 		Access,
 		Format,
 		OtherConstness
-	> const &other
+	> const &_other
 )
 :
-	dim_(other.dim()),
-	data_(other.data()),
-	pitch_(other.pitch())
+	dim_(_other.dim()),
+	data_(_other.data()),
+	pitch_(_other.pitch())
 {}
 
 template<
@@ -152,13 +152,14 @@ template<
 >
 typename mizuiro::image::view<Access, Format, Constness>::reference
 mizuiro::image::view<Access, Format, Constness>::operator[](
-	dim_type const &index
+	dim_type const &_index
 ) const
 {
-	return *move_iterator(
-		*this,
-		index
-	);
+	return
+		*move_iterator(
+			*this,
+			_index
+		);
 }
 
 template<
@@ -168,7 +169,7 @@ template<
 >
 typename mizuiro::image::view<Access, Format, Constness>::reference
 mizuiro::image::view<Access, Format, Constness>::at(
-	dim_type const &index
+	dim_type const &_index
 ) const
 {
 	for(
@@ -177,10 +178,10 @@ mizuiro::image::view<Access, Format, Constness>::at(
 		++i
 	)
 		// TODO: replace this with our own exception and add a better error message!
-		if(index[i] >= dim()[i])
+		if(_index[i] >= dim()[i])
 			throw std::range_error("view::at out of range");
 	
-	return (*this)[index];
+	return (*this)[_index];
 }
 
 template<
@@ -215,7 +216,7 @@ mizuiro::image::view<Access, Format, Constness>::is_linear() const
 {
 	return
 		pitch_ == pitch_type::null()
-		|| dim() == dim_type::null();
+		|| dim().content() == 0;
 }
 
 template<
