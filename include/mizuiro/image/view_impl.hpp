@@ -100,7 +100,8 @@ template<
 typename mizuiro::image::view<Access, Format, Constness>::iterator const
 mizuiro::image::view<Access, Format, Constness>::begin() const
 {
-	return is_linear()
+	return
+		is_linear()
 		? iterator(
 			linear_begin()
 		)
@@ -128,7 +129,8 @@ template<
 typename mizuiro::image::view<Access, Format, Constness>::range_type const
 mizuiro::image::view<Access, Format, Constness>::range() const
 {
-	return is_linear()
+	return
+		is_linear()
 		? range_type(
 			linear_range(
 				linear_begin(),
@@ -211,7 +213,9 @@ template<
 bool
 mizuiro::image::view<Access, Format, Constness>::is_linear() const
 {
-	return pitch_ == pitch_type::null();
+	return
+		pitch_ == pitch_type::null()
+		|| dim() == dim_type::null();
 }
 
 template<
@@ -261,10 +265,7 @@ template<
 typename mizuiro::image::view<Access, Format, Constness>::pitch_iterator const
 mizuiro::image::view<Access, Format, Constness>::pitch_end() const
 {
-	// TODO: Fix this! pitch_iterator doesn't like to be empty and incremented!
-	return dim().content()
-		? pitch_begin() + dim().content()
-		: pitch_begin();
+	return pitch_begin() + dim().content();
 }
 
 #endif

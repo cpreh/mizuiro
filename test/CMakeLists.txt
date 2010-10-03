@@ -41,4 +41,5 @@ MACRO(
 	)
 ENDMACRO()
 
+ADD_MIZUIRO_TEST(empty_view)
 ADD_MIZUIRO_TEST(views_are_compatible)
