@@ -17,10 +17,10 @@ template<
 	typename Constness
 >
 mizuiro::image::linear_iterator<Access, Format, Constness>::linear_iterator(
-	pointer const data_
+	pointer const _data
 )
 :
-	data_(data_)
+	data_(_data)
 {}
 
 template<
@@ -44,7 +44,14 @@ mizuiro::image::linear_iterator<Access, Format, Constness>::advance(
 	difference_type	const diff
 )
 {
-	data_ += diff * Format::color_format::element_count;
+	data_ +=
+		diff
+		*
+		static_cast<
+			difference_type
+		>(
+			Format::color_format::element_count
+		);
 }
 	
 template<
@@ -76,10 +83,10 @@ template<
 >
 typename mizuiro::image::linear_iterator<Access, Format, Constness>::difference_type
 mizuiro::image::linear_iterator<Access, Format, Constness>::distance_to(
-	linear_iterator const &other
+	linear_iterator const &_other
 ) const
 {
-	return other.data_ - data_;
+	return _other.data_ - data_;
 }
 
 template<
@@ -105,10 +112,10 @@ template<
 >
 bool
 mizuiro::image::linear_iterator<Access, Format, Constness>::equal(
-	linear_iterator const &other
+	linear_iterator const &_other
 ) const
 {
-	return data_ == other.data_;
+	return data_ == _other.data_;
 }
 
 #endif

@@ -144,7 +144,12 @@ template<
 typename mizuiro::image::detail::raw_container<T, A>::size_type
 mizuiro::image::detail::raw_container<T, A>::size() const
 {
-	return data_end_ - data_;
+	return
+		static_cast<
+			size_type
+		>(
+			data_end_ - data_
+		);
 }
 
 template<

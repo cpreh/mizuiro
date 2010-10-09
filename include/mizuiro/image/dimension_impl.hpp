@@ -156,7 +156,11 @@ mizuiro::image::dimension<Dim, ValueType>::content() const
 		std::accumulate(
 			begin(),
 			end(),
-			1,
+			static_cast<
+				size_type
+			>(
+				1
+			),
 			std::multiplies<
 				value_type
 			>()

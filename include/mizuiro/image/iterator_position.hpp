@@ -19,6 +19,7 @@ namespace image
 
 // TODO: make this work with linear_iterator as well!
 
+// TODO: should this return a signed dimension instead?
 template<
 	typename Access,
 	typename Format,
@@ -30,7 +31,7 @@ iterator_position(
 		Access,
 		Format,
 		Constness
-	> const &it
+	> const &_it
 )
 {
 	typedef typename pitch_iterator<
@@ -44,8 +45,10 @@ iterator_position(
 	>::type stacked_dim_type;
 	
 	stacked_dim_type const stacked_dims(
-		detail::stacked_dim(
-			it.dim()
+		detail::stacked_dim<
+			typename dim_type::value_type
+		>(
+			_it.dim()
 		)
 	);
 
@@ -59,7 +62,12 @@ iterator_position(
 		++i
 	)
 	{
-		ret[i] = it.offset();
+		ret[i] =
+			static_cast<
+				typename dim_type::value_type
+			>(
+				_it.offset()
+			);
 
 		for (
 			size_type m = dim_type::static_size - 1;

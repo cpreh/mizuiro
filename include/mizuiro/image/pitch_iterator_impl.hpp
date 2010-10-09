@@ -34,7 +34,9 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::pitch_iterator(
 	position_(0),
 	offset_(0),
 	stacked_dim_(
-		detail::stacked_dim(
+		detail::stacked_dim<
+			difference_type
+		>(
 			dim_
 		)
 	)
@@ -105,7 +107,13 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::advance(
 	difference_type const _diff
 )
 {
-	assert(dim_.content());
+	assert(
+		dim_.content()
+	);
+
+	assert(
+		offset_ >= 0
+	);
 
 	line_advance_ = -1;
 
@@ -122,19 +130,30 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::advance(
 		return;
 	}
 
-	difference_type add = _diff * Format::color_format::element_count;
+	difference_type add =
+		_diff
+		*
+		static_cast<
+			difference_type
+		>(
+			Format::color_format::element_count
+		);
 
 	for(
 		size_type i = 0;
 		i < pitch_type::static_size;
 		++i
 	)
-		add += (
-			(_diff +
-				offset_
-				% stacked_dim_[i]
-			) / stacked_dim_[i]
-		) * pitch_[i];
+		add +=
+			(
+				(
+				_diff +
+					offset_
+					% stacked_dim_[i]
+				)
+				/ stacked_dim_[i]
+			)
+			* pitch_[i];
 
 	offset_ += _diff;
 
@@ -155,16 +174,21 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::increment()
 		)
 	)
 		line_advance_ =
-			iterator_position(
-				*this
-			)[0];
+			static_cast<
+				difference_type
+			>(
+				iterator_position(
+					*this
+				)[0]
+			);
 
 	++line_advance_;
 
 	if(
 		MIZUIRO_DETAIL_UNLIKELY(
 			line_advance_
-			>= static_cast<
+			>=
+			static_cast<
 				difference_type
 			>(
 				dim_[0]

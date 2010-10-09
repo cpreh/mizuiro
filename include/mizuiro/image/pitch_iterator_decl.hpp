@@ -135,7 +135,8 @@ private:
 		offset_;
 
 	typedef typename detail::stacked_dim_type<
-		dim_type
+		dim_type,
+		difference_type
 	>::type stacked_dim_array;
 
 	stacked_dim_array stacked_dim_;

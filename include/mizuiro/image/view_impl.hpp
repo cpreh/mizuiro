@@ -102,12 +102,14 @@ mizuiro::image::view<Access, Format, Constness>::begin() const
 {
 	return
 		is_linear()
-		? iterator(
-			linear_begin()
-		)
-		: iterator(
-			pitch_begin()	
-		);
+		?
+			iterator(
+				linear_begin()
+			)
+		:
+			iterator(
+				pitch_begin()	
+			);
 }
 
 template<
@@ -118,7 +120,14 @@ template<
 typename mizuiro::image::view<Access, Format, Constness>::iterator const
 mizuiro::image::view<Access, Format, Constness>::end() const
 {
-	return begin() + dim().content();
+	return
+		begin()
+		+
+		static_cast<
+			typename iterator::difference_type
+		>(
+			dim().content()
+		);
 }
 
 template<
@@ -131,18 +140,20 @@ mizuiro::image::view<Access, Format, Constness>::range() const
 {
 	return
 		is_linear()
-		? range_type(
-			linear_range(
-				linear_begin(),
-				linear_end()
+		?
+			range_type(
+				linear_range(
+					linear_begin(),
+					linear_end()
+				)
 			)
-		)
-		: range_type(
-			pitch_range(
-				pitch_begin(),
-				pitch_end()
-			)
-		);
+		:
+			range_type(
+				pitch_range(
+					pitch_begin(),
+					pitch_end()
+				)
+			);
 }
 
 template<
@@ -227,9 +238,10 @@ template<
 typename mizuiro::image::view<Access, Format, Constness>::linear_iterator const
 mizuiro::image::view<Access, Format, Constness>::linear_begin() const
 {
-	return linear_iterator(
-		data_
-	);
+	return
+		linear_iterator(
+			data_
+		);
 }
 
 template<
@@ -240,7 +252,14 @@ template<
 typename mizuiro::image::view<Access, Format, Constness>::linear_iterator const
 mizuiro::image::view<Access, Format, Constness>::linear_end() const
 {
-	return linear_begin() + dim().content();
+	return
+		linear_begin()
+		+
+		static_cast<
+			typename linear_iterator::difference_type
+		>(
+			dim().content()
+		);
 }
 
 template<
@@ -251,11 +270,12 @@ template<
 typename mizuiro::image::view<Access, Format, Constness>::pitch_iterator const
 mizuiro::image::view<Access, Format, Constness>::pitch_begin() const
 {
-	return pitch_iterator(
-		dim(),
-		data_,
-		pitch_ 
-	);
+	return
+		pitch_iterator(
+			dim(),
+			data_,
+			pitch_ 
+		);
 }
 
 template<
@@ -266,7 +286,14 @@ template<
 typename mizuiro::image::view<Access, Format, Constness>::pitch_iterator const
 mizuiro::image::view<Access, Format, Constness>::pitch_end() const
 {
-	return pitch_begin() + dim().content();
+	return
+		pitch_begin()
+		+
+		static_cast<
+			typename pitch_iterator::difference_type
+		>(
+			dim().content()
+		);
 }
 
 #endif

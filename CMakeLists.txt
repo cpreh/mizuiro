@@ -40,13 +40,31 @@ ENDIF()
 
 SET(MIZUIRO_HAVE_FCPPT ${FCPPT_FOUND})
 
+INCLUDE_DIRECTORIES(include)
+
 INCLUDE_DIRECTORIES(SYSTEM ${Boost_INCLUDE_DIR})
 
 IF(FCPPT_FOUND)
 	INCLUDE_DIRECTORIES(${FCPPT_INCLUDE_DIRS})
 ENDIF()
 
-IF (CMAKE_COMPILER_IS_GNUCXX)
+INCLUDE (CheckCXXSourceRuns)
+
+CHECK_CXX_SOURCE_RUNS(
+	"#include <cstdlib>
+	int main()
+	{
+	#ifdef __clang__
+		return EXIT_SUCCESS;
+	#else
+		return EXIT_FAILURE;
+	#endif
+	}
+	"
+	COMPILER_IS_CLANGPP
+)
+
+IF (CMAKE_COMPILER_IS_GNUCXX OR COMPILER_IS_CLANGPP)
 	INCLUDE (CheckCXXSourceCompiles)
 
 	CHECK_CXX_SOURCE_COMPILES(
@@ -60,7 +78,7 @@ IF (CMAKE_COMPILER_IS_GNUCXX)
 
 	ADD_DEFINITIONS (
 		"-ansi -pedantic-errors -Wall -Wextra -Wconversion"
-		"-Wfloat-equal -Wredundant-decls -Wstrict-null-sentinel -Winit-self"
+		"-Wfloat-equal -Wredundant-decls -Winit-self"
 		"-Woverloaded-virtual -Wnon-virtual-dtor -Wctor-dtor-privacy"
 		"-Wsign-promo -Wold-style-cast -Wno-long-long"
 	)

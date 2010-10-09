@@ -18,17 +18,24 @@ namespace detail
 {
 
 template<
+	typename RetValue,
 	typename Dim
 >
 typename detail::stacked_dim_type<
-	Dim
+	image::dimension<
+		Dim::static_size,
+		RetValue
+	>
 >::type const
 stacked_dim(
-	Dim const &dim
+	Dim const &_dim
 )
 {
 	typedef typename detail::stacked_dim_type<
-		Dim
+		image::dimension<
+			Dim::static_size,
+			RetValue
+		>
 	>::type stacked_type;
 
 	stacked_type ret = {{}};
@@ -41,8 +48,14 @@ stacked_dim(
 		++i
 	)
 	{
-		cur *= dim[i];
-		ret[i] = cur;
+		cur *= _dim[i];
+
+		ret[i] =
+			static_cast<
+				typename stacked_type::value_type
+			>(
+				cur
+			);
 	}
 
 	return ret;
