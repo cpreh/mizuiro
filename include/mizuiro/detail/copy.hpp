@@ -21,19 +21,20 @@ template<
 >
 void
 copy(
-	Source const *const begin,
-	Source const *const end,
-	Dest *const dest
+	Source const *const _begin,
+	Source const *const _end,
+	Dest *const _dest
 )
 {
-	return copy_n(
-		begin,
-		std::distance(
-			begin,
-			end
-		),
-		dest
-	);
+	return
+		detail::copy_n(
+			_begin,
+			std::distance(
+				_begin,
+				_end
+			),
+			_dest
+		);
 }
 
 }

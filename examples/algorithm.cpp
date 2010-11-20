@@ -201,13 +201,6 @@ int main()
 
 	std::cout << "after\n";
 
-	mizuiro::image::algorithm::copy_and_convert(
-		mizuiro::image::make_const_view(
-			img1.view()
-		),
-		img1.view()
-	);
-
 	mizuiro::image::algorithm::print(
 		std::cout,
 		img2.view()
