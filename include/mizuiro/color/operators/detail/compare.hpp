@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_COLOR_OPERATORS_DETAIL_COMPARE_HPP_INCLUDED
 #define MIZUIRO_COLOR_OPERATORS_DETAIL_COMPARE_HPP_INCLUDED
 
+#include <mizuiro/compare.hpp>
 #include <boost/mpl/deref.hpp>
 #include <boost/mpl/next.hpp>
 #include <boost/type_traits/is_same.hpp>
@@ -67,13 +68,14 @@ struct compare<
 		typedef typename boost::mpl::next<Iterator>::type iter;
 
 		return
-			_color1. template get<
-				item
-			>()
-			==
-			_color2. template get<
-				item
-			>()
+			::mizuiro::compare(
+				_color1. template get<
+					item
+				>(),
+				_color2. template get<
+					item
+				>()
+			)
 			?
 				detail::compare<
 					boost::is_same<
