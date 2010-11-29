@@ -78,7 +78,7 @@ IF (CMAKE_COMPILER_IS_GNUCXX OR COMPILER_IS_CLANGPP)
 
 	ADD_DEFINITIONS (
 		"-ansi -pedantic-errors -Wall -Wextra -Wconversion"
-		"-Wfloat-equal -Wredundant-decls -Winit-self"
+		"-Wfloat-equal -Wredundant-decls -Winit-self -Wshadow"
 		"-Woverloaded-virtual -Wnon-virtual-dtor -Wctor-dtor-privacy"
 		"-Wsign-promo -Wold-style-cast -Wno-long-long"
 	)
