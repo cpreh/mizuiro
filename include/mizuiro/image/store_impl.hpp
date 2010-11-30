@@ -28,11 +28,11 @@ template<
 	typename Access 
 >
 mizuiro::image::store<Format, Access>::store(
-	dim_type const &dim_
+	dim_type const &_dim
 )
 :
 	dim_(
-		dim_
+		_dim
 	),
 	data_(
 		data_store_size(

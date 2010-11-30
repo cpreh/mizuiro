@@ -35,16 +35,16 @@ typename boost::disable_if<
 	void
 >::type
 copy_impl(
-	ViewS const &src,
-	ViewD const &dest
+	ViewS const &_src,
+	ViewD const &_dest
 )
 {
 	mizuiro::detail::variant_apply_binary(
 		algorithm::detail::apply_binary_iteration(
 			algorithm::detail::copy_element()
 		),
-		src.range(),
-		dest.range()
+		_src.range(),
+		_dest.range()
 	);
 }
 
@@ -60,14 +60,14 @@ typename boost::enable_if<
 	void
 >::type
 copy_impl(
-	ViewS const &src,
-	ViewD const &dest
+	ViewS const &_src,
+	ViewD const &_dest
 )
 {
 	mizuiro::detail::variant_apply_binary(
-		copy_raw(),
-		src.range(),
-		dest.range()
+		detail::copy_raw(),
+		_src.range(),
+		_dest.range()
 	);
 }
 

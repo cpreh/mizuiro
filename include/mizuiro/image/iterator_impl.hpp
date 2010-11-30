@@ -25,10 +25,10 @@ template<
 	typename Constness
 >
 mizuiro::image::iterator<Access, Format, Constness>::iterator(
-	internal_type const &internal_
+	internal_type const &_internal
 )
 :
-	internal_(internal_)
+	internal_(_internal)
 {}
 
 template<
@@ -66,7 +66,7 @@ template<
 >
 void
 mizuiro::image::iterator<Access, Format, Constness>::advance(
-	difference_type	const diff
+	difference_type	const _diff
 )
 {
 	internal_ =
@@ -75,7 +75,7 @@ mizuiro::image::iterator<Access, Format, Constness>::advance(
 				internal_type,
 				difference_type
 			>(
-				diff
+				_diff
 			),
 			internal_
 		);
@@ -122,7 +122,7 @@ template<
 >
 typename mizuiro::image::iterator<Access, Format, Constness>::difference_type
 mizuiro::image::iterator<Access, Format, Constness>::distance_to(
-	iterator const &other
+	iterator const &_other
 ) const
 {
 	return
@@ -131,7 +131,7 @@ mizuiro::image::iterator<Access, Format, Constness>::distance_to(
 				difference_type
 			>(),
 			internal_,
-			other.internal_
+			_other.internal_
 		);
 }
 
@@ -159,14 +159,14 @@ template<
 >
 bool
 mizuiro::image::iterator<Access, Format, Constness>::equal(
-	iterator const &other
+	iterator const &_other
 ) const
 {
 	return
 		mizuiro::detail::variant_apply_binary(
 			detail::compare_iterator(),
 			internal_,
-			other.internal_
+			_other.internal_
 		);
 }
 

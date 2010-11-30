@@ -30,10 +30,10 @@ public:
 	typedef void result_type;
 
 	explicit transform_binary(
-		Fun const &fun
+		Fun const &_fun
 	)
 	:
-		fun(fun)
+		fun_(_fun)
 	{}
 
 	template<
@@ -42,17 +42,17 @@ public:
 	>
 	result_type
 	operator()(
-		Source const &source,
-		Dest const &dest
+		Source const &_source,
+		Dest const &_dest
 	) const
 	{
-		fun(
-			source,
-			dest
+		fun_(
+			_source,
+			_dest
 		);
 	}
 private:
-	Fun const &fun;
+	Fun const &fun_;
 };
 
 }

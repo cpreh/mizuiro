@@ -48,16 +48,17 @@ template<
 	typename Src,
 	typename Dest
 >
-struct channel_operation {
+struct channel_operation
+{
 	typedef void result_type;
 
 	channel_operation(
-		Src const &src,
-		Dest const &dest
+		Src const &_src,
+		Dest const &_dest
 	)
 	:
-		src(src),
-		dest(dest)
+		src_(_src),
+		dest_(_dest)
 	{}
 
 	template<
@@ -71,20 +72,21 @@ struct channel_operation {
 		mizuiro::color::set<
 			Channel
 		>(
-			dest,
+			dest_,
 			mizuiro::color::get<
 				Channel
 			>(
-				src
+				src_
 			)
 		);
 	}
 private:
-	Src const &src;
-	Dest const &dest;
+	Src const &src_;
+	Dest const &dest_;
 };
 
-struct transform_test {
+struct transform_test
+{
 	typedef void result_type;
 
 	template<
@@ -93,25 +95,26 @@ struct transform_test {
 	>
 	result_type
 	operator()(
-		Src const &src,
-		Dest const &dest
+		Src const &_src,
+		Dest const &_dest
 	) const
 	{
 		mizuiro::color::for_each_channel<
 			typename Src::layout
 		>(
-			channel_operation<
+			::channel_operation<
 				Src,
 				Dest
 			>(
-				src,
-				dest
+				_src,
+				_dest
 			)
 		);
 	}
 };
 
-struct transform_test_2 {
+struct transform_test_2
+{
 	typedef void result_type;
 
 	template<

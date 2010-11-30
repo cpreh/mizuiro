@@ -36,7 +36,7 @@ template< \
 mizuiro::image::dimension<Dim, ValueType>::dimension(\
 	BOOST_PP_ENUM_PARAMS(\
 		BOOST_PP_INC(n),\
-		const_reference param\
+		const_reference _param\
 	)\
 )\
 :\
@@ -49,7 +49,7 @@ mizuiro::image::dimension<Dim, ValueType>::dimension(\
 	BOOST_PP_REPEAT(\
 		BOOST_PP_INC(n),\
 		MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_ASSIGN,\
-		param\
+		_param\
 	)\
 }
 
@@ -173,10 +173,10 @@ template<
 >
 typename mizuiro::image::dimension<Dim, ValueType>::reference
 mizuiro::image::dimension<Dim, ValueType>::operator[](
-	size_type const index
+	size_type const _index
 )
 {
-	return data_[index];
+	return data_[_index];
 }
 
 template<
@@ -185,10 +185,10 @@ template<
 >
 typename mizuiro::image::dimension<Dim, ValueType>::const_reference
 mizuiro::image::dimension<Dim, ValueType>::operator[](
-	size_type const index
+	size_type const _index
 ) const
 {
-	return data_[index];
+	return data_[_index];
 }
 
 template<
@@ -231,8 +231,8 @@ template<
 >
 mizuiro::image::dimension<Dim, ValueType> const
 mizuiro::image::operator+(
-	dimension<Dim, ValueType> const &a,
-	dimension<Dim, ValueType> const &b
+	dimension<Dim, ValueType> const &_a,
+	dimension<Dim, ValueType> const &_b
 )
 {
 	typedef dimension<Dim, ValueType> dim;
@@ -244,7 +244,7 @@ mizuiro::image::operator+(
 		i < dim::static_size;
 		++i
 	)
-		ret[i] = a[i] + b[i];
+		ret[i] = _a[i] + _b[i];
 	
 	return ret;
 }
@@ -255,15 +255,16 @@ template<
 >
 bool
 mizuiro::image::operator==(
-	dimension<Dim, ValueType> const &a,
-	dimension<Dim, ValueType> const &b
+	dimension<Dim, ValueType> const &_a,
+	dimension<Dim, ValueType> const &_b
 )
 {
-	return std::equal(
-		a.begin(),
-		a.end(),
-		b.begin()
-	);
+	return
+		std::equal(
+			_a.begin(),
+			_a.end(),
+			_b.begin()
+		);
 }
 
 template<
@@ -272,11 +273,11 @@ template<
 >
 bool
 mizuiro::image::operator!=(
-	dimension<Dim, ValueType> const &a,
-	dimension<Dim, ValueType> const &b
+	dimension<Dim, ValueType> const &_a,
+	dimension<Dim, ValueType> const &_b
 )
 {
-	return !(a == b);
+	return !(_a == _b);
 }
 
 template<
@@ -287,8 +288,8 @@ template<
 >
 std::basic_ostream<Ch, Traits> &
 mizuiro::image::operator<<(
-	std::basic_ostream<Ch, Traits> &s,
-	dimension<Dim, ValueType> const &d
+	std::basic_ostream<Ch, Traits> &_stream,
+	dimension<Dim, ValueType> const &_dim
 )
 {
 	typedef dimension<
@@ -296,7 +297,7 @@ mizuiro::image::operator<<(
 		ValueType
 	> dim_type;
 
-	s << s.widen('(');
+	_stream << _stream.widen('(');
 
 	for(
 		typename dim_type::size_type i = 0;
@@ -304,17 +305,17 @@ mizuiro::image::operator<<(
 		++i
 	)
 	{
-		s << d[i];
+		_stream << _dim[i];
 
 		if(
 			i != dim_type::static_size - 1
 		)
-			s << s.widen(',');
+			_stream << _stream.widen(',');
 	}
 
-	s << s.widen(')');
+	_stream << _stream.widen(')');
 
-	return s;
+	return _stream;
 }
 
 #endif

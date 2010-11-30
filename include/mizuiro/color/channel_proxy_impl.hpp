@@ -17,10 +17,10 @@ template<
 	typename ValueType
 >
 mizuiro::color::channel_proxy<Pointer, ValueType>::channel_proxy(
-	pointer const data_
+	pointer const _data
 )
 :
-	data_(data_)
+	data_(_data)
 {}
 
 template<
@@ -29,16 +29,16 @@ template<
 >
 mizuiro::color::channel_proxy<Pointer, ValueType> &
 mizuiro::color::channel_proxy<Pointer, ValueType>::operator=(
-	value_type const ref
+	value_type const _ref
 )
 {
 	mizuiro::detail::copy_n(
 		reinterpret_cast<
 			const_raw_pointer
 		>(
-			&ref
+			&_ref
 		),
-		sizeof(ref),
+		sizeof(_ref),
 		data_
 	);
 

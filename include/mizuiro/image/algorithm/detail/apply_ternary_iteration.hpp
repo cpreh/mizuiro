@@ -25,14 +25,15 @@ apply_ternary_iteration_fun<
 	Function
 > const
 apply_ternary_iteration(
-	Function const &fun
+	Function const &_fun
 )
 {
-	return apply_ternary_iteration_fun<
-		Function
-	>(
-		fun
-	);
+	return
+		detail::apply_ternary_iteration_fun<
+			Function
+		>(
+			_fun
+		);
 }
 
 }

@@ -15,10 +15,10 @@ template<
 	mizuiro::size_type Stride
 >
 mizuiro::image::detail::stride_pointer<T, Stride>::stride_pointer(
-	T const base_
+	T const _base
 )
 :
-	base_(base_)
+	base_(_base)
 {}
 
 template<
@@ -32,10 +32,10 @@ mizuiro::image::detail::stride_pointer<T, Stride>::stride_pointer(
 	stride_pointer<
 		OtherT,
 		Stride
-	> const &other
+	> const &_other
 )
 :
-	base_(other.get())
+	base_(_other.get())
 {}
 
 template<
@@ -44,10 +44,10 @@ template<
 >
 mizuiro::image::detail::stride_pointer<T, Stride> &
 mizuiro::image::detail::stride_pointer<T, Stride>::operator+=(
-	difference_type const diff
+	difference_type const _diff
 )
 {
-	base_ += sstride * diff;
+	base_ += sstride * _diff;
 	return *this;
 }
 
@@ -58,10 +58,10 @@ template<
 
 mizuiro::image::detail::stride_pointer<T, Stride> &
 mizuiro::image::detail::stride_pointer<T, Stride>::operator-=(
-	difference_type const diff
+	difference_type const _diff
 )
 {
-	base_ -= sstride * diff;
+	base_ -= sstride * _diff;
 	return *this;
 }
 
@@ -103,10 +103,10 @@ template<
 >
 typename mizuiro::image::detail::stride_pointer<T, Stride>::reference
 mizuiro::image::detail::stride_pointer<T, Stride>::operator[](
-	size_type const index
+	size_type const _index
 ) const
 {
-	return *(*this + index);
+	return *(*this + _index);
 }
 
 template<
@@ -115,14 +115,14 @@ template<
 >
 typename mizuiro::image::detail::stride_pointer<T, Stride>::difference_type
 mizuiro::image::detail::stride_pointer<T, Stride>::operator-(
-	stride_pointer const &other
+	stride_pointer const &_other
 ) const
 {
 	assert(
-		(base_ - other.base_) % sstride == 0
+		(base_ - _other.base_) % sstride == 0
 	);
 
-	return (base_ - other.base_) / sstride;
+	return (base_ - _other.base_) / sstride;
 }
 
 template<
@@ -131,10 +131,10 @@ template<
 >
 bool
 mizuiro::image::detail::stride_pointer<T, Stride>::operator==(
-	stride_pointer const &other
+	stride_pointer const &_other
 ) const
 {
-	return base_ == other.base_;
+	return base_ == _other.base_;
 }
 
 template<
@@ -153,11 +153,11 @@ template<
 >
 mizuiro::image::detail::stride_pointer<T, Stride> const
 mizuiro::image::detail::operator +(
-	stride_pointer<T, Stride> p,
-	typename stride_pointer<T, Stride>::difference_type const d
+	stride_pointer<T, Stride> _pointer,
+	typename stride_pointer<T, Stride>::difference_type const _diff
 )
 {
-	return p += d;
+	return _pointer += _diff;
 }
 
 template<
@@ -166,11 +166,11 @@ template<
 >
 mizuiro::image::detail::stride_pointer<T, Stride> const
 mizuiro::image::detail::operator -(
-	stride_pointer<T, Stride> p,
-	typename stride_pointer<T, Stride>::difference_type const d
+	stride_pointer<T, Stride> _pointer,
+	typename stride_pointer<T, Stride>::difference_type const _diff
 )
 {
-	return p -= d;
+	return _pointer -= _diff;
 }
 
 template<
@@ -179,11 +179,11 @@ template<
 >
 bool
 mizuiro::image::detail::operator!=(
-	stride_pointer<T, Stride> const &a,
-	stride_pointer<T, Stride> const &b
+	stride_pointer<T, Stride> const &_a,
+	stride_pointer<T, Stride> const &_b
 )
 {
-	return !(a == b);
+	return !(_a == _b);
 }
 
 #endif

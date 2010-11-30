@@ -19,10 +19,10 @@ template<
 	typename Constness
 >
 mizuiro::color::proxy<Access, Format, Constness>::proxy(
-	pointer const data_
+	pointer const _data
 )
 :
-	data_(data_)
+	data_(_data)
 {}
 
 template<
@@ -38,10 +38,10 @@ mizuiro::color::proxy<Access, Format, Constness>::proxy(
 		Access,
 		Format,
 		OtherConstness
-	> const &other_
+	> const &_other
 )
 :
-	data_(other_.data())
+	data_(_other.data())
 {}
 
 template<
@@ -54,7 +54,7 @@ template<
 >
 mizuiro::color::proxy<Access, Format, Constness> const &
 mizuiro::color::proxy<Access, Format, Constness>::operator=(
-	Other const &other
+	Other const &_other
 ) const
 {
 	boost::mpl::for_each<
@@ -69,7 +69,7 @@ mizuiro::color::proxy<Access, Format, Constness>::operator=(
 			Other
 		>(
 			*this,
-			other
+			_other
 		)
 	);
 
@@ -89,7 +89,7 @@ mizuiro::color::proxy<Access, Format, Constness>::set(
 	typename types::channel_value<
 		Format,
 		Channel
-	>::type const &ref
+	>::type const &_ref
 ) const
 {
 	extract_channel(
@@ -98,7 +98,7 @@ mizuiro::color::proxy<Access, Format, Constness>::set(
 		Channel(),
 		mizuiro::nonconst_tag(),
 		data_	
-	) = ref;
+	) = _ref;
 }
 
 template<

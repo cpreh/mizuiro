@@ -16,7 +16,8 @@ namespace algorithm
 namespace detail
 {
 
-struct copy_element {
+struct copy_element
+{
 	typedef void result_type;
 
 	template<
@@ -25,11 +26,11 @@ struct copy_element {
 	>
 	result_type
 	operator()(
-		Src const &src,
-		Dest const &dest
+		Src const &_src,
+		Dest const &_dest
 	) const
 	{
-		dest = src;
+		_dest = _src;
 	}
 };
 

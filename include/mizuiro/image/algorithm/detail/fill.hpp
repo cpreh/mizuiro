@@ -41,10 +41,10 @@ public:
 	>
 	result_type
 	operator()(
-		Dest const &dest
+		Dest const &_dest
 	) const
 	{
-		dest = fun_();
+		_dest = fun_();
 	}
 private:
 	Fun const &fun_;

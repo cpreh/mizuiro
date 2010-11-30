@@ -13,12 +13,12 @@ template<
 	typename Iterator
 >
 mizuiro::image::range<Iterator>::range(
-	iterator const begin_,
-	iterator const end_
+	iterator const _begin,
+	iterator const _end
 )
 :
-	begin_(begin_),
-	end_(end_)
+	begin_(_begin),
+	end_(_end)
 {}
 
 template<

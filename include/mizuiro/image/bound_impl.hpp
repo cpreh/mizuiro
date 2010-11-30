@@ -15,12 +15,12 @@ template<
 	typename ValueType
 >
 mizuiro::image::bound<Dim, ValueType>::bound(
-	dim_type const &positions_,
-	dim_type const &dimensions_
+	dim_type const &_positions,
+	dim_type const &_dimensions
 )
 :
-	positions_(positions_),
-	dimensions_(dimensions_)
+	positions_(_positions),
+	dimensions_(_dimensions)
 {}
 
 template<

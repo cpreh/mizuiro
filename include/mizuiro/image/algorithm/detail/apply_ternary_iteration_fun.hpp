@@ -19,18 +19,19 @@ namespace detail
 template<
 	typename Function
 >
-class apply_ternary_iteration_fun {
+class apply_ternary_iteration_fun
+{
 public:
 	apply_ternary_iteration_fun()
 	:
-		fun()
+		fun_()
 	{}
 
 	explicit apply_ternary_iteration_fun(
-		Function const &fun
+		Function const &_fun
 	)
 	:
-		fun(fun)
+		fun_(_fun)
 	{}
 
 	typedef void result_type;
@@ -42,38 +43,38 @@ public:
 	>
 	result_type
 	operator()(
-		T1 const &range1,
-		T2 const &range2,
-		T3 const &range3
+		T1 const &_range1,
+		T2 const &_range2,
+		T3 const &_range3
 	) const
 	{
 		typename T2::iterator it2(
-			range2.begin()
+			_range2.begin()
 		);
 
 		typename T3::iterator it3(
-			range3.begin()
+			_range3.begin()
 		);
 
 		typename T2::iterator const end1(
-			range1.end()
+			_range1.end()
 		);
 
 		for(
 			typename T1::iterator it1(
-				range1.begin()
+				_range1.begin()
 			);
 			it1 != end1; 
 			++it1, ++it2, ++it3
 		)
-			fun(
+			fun_(
 				*it1,
 				*it2,
 				*it3
 			);
 	}
 private:
-	Function const fun;
+	Function const fun_;
 };
 
 }

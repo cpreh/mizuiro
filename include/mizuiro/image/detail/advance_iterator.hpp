@@ -29,10 +29,10 @@ public:
 	typedef Variant result_type;
 
 	explicit advance_iterator(
-		DifferenceType diff
+		DifferenceType const _diff
 	)
 	:
-		diff(diff)
+		diff_(_diff)
 	{}
 
 	template<
@@ -40,13 +40,13 @@ public:
 	>
 	result_type
 	operator()(
-		T t
+		T _value
 	) const
 	{
-		return t += diff;	
+		return _value += diff_;
 	}
 private:
-	DifferenceType const diff;
+	DifferenceType const diff_;
 };
 
 }

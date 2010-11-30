@@ -19,14 +19,15 @@ namespace detail
 template<
 	typename Fun
 >
-struct transform_ternary {
+struct transform_ternary
+{
 	typedef void result_type;
 
 	explicit transform_ternary(
-		Fun const &fun
+		Fun const &_fun
 	)
 	:
-		fun(fun)
+		fun_(_fun)
 	{}
 
 	template<
@@ -36,19 +37,19 @@ struct transform_ternary {
 	>
 	result_type
 	operator()(
-		Source1 const &source1,
-		Source2 const &source2,
-		Dest const &dest
+		Source1 const &_source1,
+		Source2 const &_source2,
+		Dest const &_dest
 	) const
 	{
-		this->fun(
-			source1,
-			source2,
-			dest
+		this->fun_(
+			_source1,
+			_source2,
+			_dest
 		);
 	}
 private:
-	Fun const &fun;
+	Fun const &fun_;
 };
 
 }

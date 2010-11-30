@@ -25,14 +25,15 @@ apply_unary_iteration_fun<
 	Function
 > const
 apply_unary_iteration(
-	Function const &fun
+	Function const &_fun
 )
 {
-	return apply_unary_iteration_fun<
-		Function
-	>(
-		fun
-	);
+	return
+		detail::apply_unary_iteration_fun<
+			Function
+		>(
+			_fun
+		);
 }
 
 }

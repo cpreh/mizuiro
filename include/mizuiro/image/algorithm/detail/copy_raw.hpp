@@ -44,16 +44,16 @@ struct copy_raw
 		result_type
 	>::type
 	operator()(
-		RangeS const &source,
-		RangeD const &dest
+		RangeS const &_source,
+		RangeD const &_dest
 	) const
 	{
 		// TODO: optimize this as well!
 		apply_binary_iteration(
 			detail::copy_element()
 		)(
-			source,
-			dest
+			_source,
+			_dest
 		);
 	}
 
@@ -73,19 +73,19 @@ struct copy_raw
 		result_type
 	>::type
 	operator()(
-		RangeS const &src,
-		RangeD const &dest
+		RangeS const &_src,
+		RangeD const &_dest
 	) const
 	{
 		mizuiro::detail::copy(
 			underlying_data_pointer(
-				src.begin()
+				_src.begin()
 			),
 			underlying_data_pointer(
-				src.end()
+				_src.end()
 			),
 			underlying_data_pointer(
-				dest.begin()
+				_dest.begin()
 			)
 		);
 	}
