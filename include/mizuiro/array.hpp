@@ -3,7 +3,7 @@
 
 #include <mizuiro/config.hpp>
 #ifdef MIZUIRO_HAVE_FCPPT
-#include <fcppt/tr1/array.hpp>
+#include <fcppt/container/array.hpp>
 #else
 #include <boost/array.hpp>
 #endif
@@ -23,7 +23,7 @@ template<
 struct array
 {
 #ifdef MIZUIRO_HAVE_FCPPT
-	typedef std::tr1::array<
+	typedef fcppt::container::array<
 		T,
 		N
 	> type;
