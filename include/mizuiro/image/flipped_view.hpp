@@ -10,6 +10,8 @@
 #include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/move_iterator.hpp>
+#include <mizuiro/image/detail/flipped_edge.hpp>
+#include <mizuiro/image/detail/flipped_start.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <iterator>
 
@@ -22,47 +24,52 @@ template<
 	typename View
 >
 typename boost::enable_if_c<
-	View::dim_type::static_size == 2,
+	View::dim_type::static_size >= 2,
 	View const
 >::type
 flipped_view(
-	View const &view
+	View const &_view
 )
 {
 	typedef typename View::dim_type dim_type;
 
-	typename dim_type::value_type const height(
-		view.dim()[1]
+	typename dim_type::value_type const last_dim(
+		_view.dim()[
+			View::dim_type::static_size - 1
+		]
 	);
 
 	return
-		height > 1
+		last_dim > 1
 		?
 			View(
-				view.dim(),
-				move_iterator(
-					view,
-					dim_type(
-						0,
-						height - 1
+				_view.dim(),
+				mizuiro::image::move_iterator(
+					_view,
+					mizuiro::image::detail::flipped_start<
+						dim_type
+					>(
+						last_dim
 					)
 				).data(),
 				typename View::pitch_type(
 					std::distance(
-						move_iterator(
-							view,
-							dim_type(
-								view.dim()[0],
-								1
+						mizuiro::image::move_iterator(
+							_view,
+							mizuiro::image::detail::flipped_edge(
+								_view.dim()
 							)
 						).data(),
-						view.begin().data()
+						_view.begin().data()
 					)
-					+ view.pitch()[0]
+					+
+					_view.pitch()[
+						View::dim_type::static_size - 2
+					]
 				)
 			)
 		:
-			view;
+			_view;
 }
 
 }

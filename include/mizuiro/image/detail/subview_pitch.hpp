@@ -26,8 +26,8 @@ template<
 >
 typename View::pitch_type const
 subview_pitch(
-	View const &view,
-	typename View::bound_type const &bound
+	View const &_view,
+	typename View::bound_type const &_bound
 )
 {
 	typedef typename View::pitch_type pitch_type;
@@ -40,35 +40,38 @@ subview_pitch(
 		++i
 	)
 	{
-		typename View::dim_type const edge_pos_end_(
-			edge_pos_end(
-				bound,
+		typename View::dim_type const edge_pos_end(
+			mizuiro::image::detail::edge_pos_end(
+				_bound,
 				i
 			)
 		);
 
-		ret[i] = view.dim()[i] > 1
-			? std::distance(
-				move_iterator(
-					view,
-					edge_pos_end_
-				).data(),
-				move_iterator(
-					view,
-					edge_pos_begin(
-						bound,
-						i
-					)
-				).data()
-			)
-			: 0;
+		ret[i] =
+			_view.dim()[i] > 1
+			?
+				std::distance(
+					mizuiro::image::move_iterator(
+						_view,
+						edge_pos_end
+					).data(),
+					mizuiro::image::move_iterator(
+						_view,
+						mizuiro::image::detail::edge_pos_begin(
+							_bound,
+							i
+						)
+					).data()
+				)
+			:
+				0;
 
 		// if the end is one past the parent view's dim,
 		// the pitch will be skipped by the iterator, so readd it
 		if(
-			edge_pos_end_[i] == view.dim()[i]
+			edge_pos_end[i] == _view.dim()[i]
 		)
-			ret[i] += view.pitch()[i];
+			ret[i] += _view.pitch()[i];
 	}
 
 	return ret;
