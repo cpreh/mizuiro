@@ -31,7 +31,7 @@ flipped_start(
 	)
 		ret[index] = 0;
 	
-	ret[Dim::static_size - 1] = _last_dim;
+	ret.back() = _last_dim;
 
 	return ret;
 }

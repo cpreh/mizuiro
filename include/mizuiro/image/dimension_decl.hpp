@@ -111,6 +111,12 @@ public:
 		size_type
 	) const;
 
+	reference
+	back();
+
+	const_reference
+	back() const;
+
 	static dimension const
 	null();
 private:

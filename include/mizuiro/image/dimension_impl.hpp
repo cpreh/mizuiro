@@ -11,6 +11,7 @@
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
+#include <boost/next_prior.hpp>
 #include <boost/static_assert.hpp>
 #include <numeric>
 #include <functional>
@@ -189,6 +190,26 @@ mizuiro::image::dimension<Dim, ValueType>::operator[](
 ) const
 {
 	return data_[_index];
+}
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+typename mizuiro::image::dimension<Dim, ValueType>::reference
+mizuiro::image::dimension<Dim, ValueType>::back()
+{
+	return *boost::prior(end());
+}
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+typename mizuiro::image::dimension<Dim, ValueType>::const_reference
+mizuiro::image::dimension<Dim, ValueType>::back() const
+{
+	return *boost::prior(end());
 }
 
 template<

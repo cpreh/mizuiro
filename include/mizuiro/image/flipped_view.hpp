@@ -11,6 +11,7 @@
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/move_iterator.hpp>
 #include <mizuiro/image/detail/flipped_edge.hpp>
+#include <mizuiro/image/detail/flipped_pitch.hpp>
 #include <mizuiro/image/detail/flipped_start.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <iterator>
@@ -34,9 +35,7 @@ flipped_view(
 	typedef typename View::dim_type dim_type;
 
 	typename dim_type::value_type const last_dim(
-		_view.dim()[
-			View::dim_type::static_size - 1
-		]
+		_view.dim().back()
 	);
 
 	return
@@ -52,7 +51,8 @@ flipped_view(
 						last_dim
 					)
 				).data(),
-				typename View::pitch_type(
+				mizuiro::image::detail::flipped_pitch(
+					_view.pitch(),
 					std::distance(
 						mizuiro::image::move_iterator(
 							_view,
@@ -63,9 +63,7 @@ flipped_view(
 						_view.begin().data()
 					)
 					+
-					_view.pitch()[
-						View::dim_type::static_size - 2
-					]
+					_view.pitch().back()
 				)
 			)
 		:

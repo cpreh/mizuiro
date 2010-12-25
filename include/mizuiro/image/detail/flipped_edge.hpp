@@ -31,7 +31,7 @@ flipped_edge(
 	)
 		ret[index] = _view_dim[index];
 	
-	ret[Dim::static_size - 1] = 1;
+	ret.back() = 1;
 
 	return ret;
 }
