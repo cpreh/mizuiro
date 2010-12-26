@@ -13,6 +13,8 @@
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/blue.hpp>
 #include <mizuiro/color/channel/gray.hpp>
+#include <mizuiro/color/channel/alpha.hpp>
+#include <mizuiro/color/luminance.hpp>
 #include <mizuiro/color/is_rgb.hpp>
 #include <mizuiro/color/is_gray.hpp>
 #include <mizuiro/color/object_impl.hpp>
@@ -29,71 +31,81 @@ template
 	typename Src
 >
 typename
-boost::enable_if
+boost::enable_if_c
 <
-	boost::mpl::and_<
-		is_gray
-		<
-			Dest
-		>,
-		is_rgb
-		<
-			typename Src::format
-		>
-	>,
-	object<
-		Dest
-	> const
+	is_gray<Dest>::value && 
+	is_rgb<typename Src::format>::value &&
+	!has_channel<typename Src::format,channel::alpha>::value,
+	object<Dest> const
 >::type
-convert
-(
-	Src const &src
-)
+convert(
+	Src const &src)
 {
-	typedef object<
-		Dest
-	> dest_type;
+	typedef 
+	object<Dest> 
+	dest_type;
 	
 	dest_type dest;
-
-	float const sum = 
-		normalize
-		<
-			channel::red,
-			float
-		>(src)
-		+
-		normalize
-		<
-			channel::green,
-			float
-		>(src)
-		+
-		normalize
-		<
-			channel::blue,
-			float
-		>(src);
 	
-	dest.template set
-	<
-		channel::gray
-	>
-	(
+	dest.template set<channel::gray>(
 		denormalize
 		<
 			typename dest_type::format,
 			channel::gray,
 			float
-		>
-		(
-			sum / 3.0f
-		)
-	);
+		>(
+			luminance(
+				normalize<channel::red,float>(
+					src),
+				normalize<channel::green,float>(
+					src),
+				normalize<channel::blue,float>(
+					src))));
 
 	return dest;
 }
 
+template
+<
+	typename Dest,
+	typename Src
+>
+typename
+boost::enable_if_c
+<
+	is_gray<Dest>::value && 
+	is_rgb<typename Src::format>::value && 
+	has_channel<typename Src::format,channel::alpha>::value,
+	object<Dest> const
+>::type
+convert(
+	Src const &src)
+{
+	typedef 
+	object<Dest> 
+	dest_type;
+	
+	dest_type dest;
+	
+	dest.template set<channel::gray>(
+		denormalize
+		<
+			typename dest_type::format,
+			channel::gray,
+			float
+		>(
+			luminance(
+				normalize<channel::red,float>(
+					src),
+				normalize<channel::green,float>(
+					src),
+				normalize<channel::blue,float>(
+					src)) * 
+			normalize<channel::alpha,float>(
+				src)));
+
+	return dest;
+}
 }
 }
 
