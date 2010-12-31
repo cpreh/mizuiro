@@ -89,10 +89,23 @@ ENDIF ()
 
 CONFIGURE_FILE(
 	${CMAKE_SOURCE_DIR}/config.hpp.in
-	${CMAKE_SOURCE_DIR}/include/mizuiro/config.hpp
+	${CMAKE_BINARY_DIR}/include/mizuiro/config.hpp
 )
 
-INSTALL (DIRECTORY include/ DESTINATION include)
+INCLUDE_DIRECTORIES(
+	${CMAKE_BINARY_DIR}/include
+)
+
+INSTALL(
+	DIRECTORY include/
+	DESTINATION include
+)
+
+INSTALL(
+	FILES
+	${CMAKE_BINARY_DIR}/include/mizuiro/config.hpp
+	DESTINATION include/mizuiro
+)
 
 OPTION(ENABLE_DOC "Build the documentation" OFF)
 
