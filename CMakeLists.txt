@@ -15,7 +15,7 @@ IF(${CMAKE_BINARY_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
 	)
 ENDIF()
 
-OPTION(EXTRA_CMAKE_MODULE_PATH "Extra paths to search for cmake modules" "")
+SET(EXTRA_CMAKE_MODULE_PATH "" CACHE PATH "Extra paths to search for cmake modules")
 
 SET (CMAKE_MODULE_PATH "${EXTRA_CMAKE_MODULE_PATH};${CMAKE_SOURCE_DIR}/CMakeModules")
 
