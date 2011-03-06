@@ -178,11 +178,14 @@ mizuiro::image::detail::raw_container<T, A>::copy(
 		other.size()
 	);
 	
-	std::uninitialized_copy(
-		other.data(),
-		other.data_end(),
-		data()
-	);
+	if(
+		other.data()
+	)
+		std::uninitialized_copy(
+			other.data(),
+			other.data_end(),
+			data()
+		);
 }
 
 template<
