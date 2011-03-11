@@ -9,8 +9,10 @@
 
 #include <mizuiro/image/algorithm/detail/apply_binary_iteration.hpp>
 #include <mizuiro/image/algorithm/detail/copy_element.hpp>
+#include <mizuiro/image/algorithm/detail/copy_element_overlapping.hpp>
 #include <mizuiro/image/algorithm/detail/copy_raw.hpp>
 #include <mizuiro/image/views_have_same_channel_order.hpp>
+#include <mizuiro/image/views_overlap.hpp>
 #include <mizuiro/detail/variant_apply_binary.hpp>
 #include <boost/utility/enable_if.hpp>
 
@@ -39,13 +41,27 @@ copy_impl(
 	ViewD const &_dest
 )
 {
-	mizuiro::detail::variant_apply_binary(
-		algorithm::detail::apply_binary_iteration(
-			algorithm::detail::copy_element()
-		),
-		_src.range(),
-		_dest.range()
-	);
+	if(
+		image::views_overlap(
+			_src,
+			_dest
+		)
+	)
+		mizuiro::detail::variant_apply_binary(
+			algorithm::detail::apply_binary_iteration(
+				algorithm::detail::copy_element_overlapping()
+			),
+			_src.range(),
+			_dest.range()
+		);
+	else
+		mizuiro::detail::variant_apply_binary(
+			algorithm::detail::apply_binary_iteration(
+				algorithm::detail::copy_element()
+			),
+			_src.range(),
+			_dest.range()
+		);
 }
 
 template<

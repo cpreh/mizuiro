@@ -23,7 +23,7 @@ typename mizuiro::color::types::pointer<
 	typename Iterator::constness
 >::type
 underlying_data_pointer(
-	Iterator const &iterator
+	Iterator const &_iterator
 )
 {
 	return
@@ -31,7 +31,7 @@ underlying_data_pointer(
 			typename Iterator::access(),
 			typename Iterator::format(),
 			typename Iterator::constness(),
-			iterator.data()
+			_iterator.data()
 		);
 }
 
