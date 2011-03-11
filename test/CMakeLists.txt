@@ -9,7 +9,7 @@ MACRO(
 )
 	STRING(REGEX REPLACE "\\/" "_" TESTNAME ${PATHNAME})
 
-	SET(MIZUIRO_TEST_NAME mizuiro${TESTNAME}test)
+	SET(MIZUIRO_TEST_NAME test_${TESTNAME}test)
 
 	ADD_EXECUTABLE (${MIZUIRO_TEST_NAME} ${PATHNAME}.cpp)
 
@@ -41,5 +41,6 @@ MACRO(
 	)
 ENDMACRO()
 
+ADD_MIZUIRO_TEST(convert/shuffle)
 ADD_MIZUIRO_TEST(empty_view)
 ADD_MIZUIRO_TEST(views_are_compatible)

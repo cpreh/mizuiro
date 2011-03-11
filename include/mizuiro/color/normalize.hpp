@@ -33,7 +33,7 @@ boost::enable_if
 >::type
 normalize
 (
-	Color const &color_
+	Color const &_color
 )
 {
 	return 
@@ -45,7 +45,7 @@ normalize
 				Channel
 			>::type
 		>(
-			color_.template get
+			_color.template get
 			<
 				Channel
 			>()
