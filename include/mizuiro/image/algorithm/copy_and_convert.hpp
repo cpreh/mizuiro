@@ -26,23 +26,23 @@ template<
 	typename ViewD
 >
 typename boost::disable_if<
-	views_are_compatible<
+	image::views_are_compatible<
 		ViewS,
 		ViewD
 	>,
 	void
 >::type
 copy_and_convert(
-	ViewS const &src,
-	ViewD const &dest
+	ViewS const &_src,
+	ViewD const &_dest
 )
 {
 	mizuiro::detail::variant_apply_binary(
 		detail::apply_binary_iteration(
 			detail::copy_and_convert()
 		),
-		src.range(),
-		dest.range()
+		_src.range(),
+		_dest.range()
 	);
 }
 
@@ -51,20 +51,20 @@ template<
 	typename ViewD
 >
 typename boost::enable_if<
-	views_are_compatible<
+	image::views_are_compatible<
 		ViewS,
 		ViewD
 	>,
 	void
 >::type
 copy_and_convert(
-	ViewS const &src,
-	ViewD const &dest
+	ViewS const &_src,
+	ViewD const &_dest
 )
 {
 	algorithm::copy(
-		src,
-		dest
+		_src,
+		_dest
 	);
 }
 

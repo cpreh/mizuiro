@@ -32,25 +32,25 @@ boost::enable_if
 <
 	boost::mpl::and_
 	<
-		is_rgb
+		color::is_rgb
 		<
 			Dest
 		>,
-		is_rgb
+		color::is_rgb
 		<
 			typename Src::format
 		>
 	>,
-	object<
+	color::object<
 		Dest
 	> const
 >::type
 convert
 (
-	Src const &s
+	Src const &_src
 )
 {
-	object<
+	color::object<
 		Dest
 	> dest;
 
@@ -60,7 +60,7 @@ convert
 		float
 	>
 	(
-		s,
+		_src,
 		dest
 	);
 
@@ -70,7 +70,7 @@ convert
 		float
 	>
 	(
-		s,
+		_src,
 		dest
 	);
 
@@ -80,16 +80,16 @@ convert
 		float
 	>
 	(
-		s,
+		_src,
 		dest
 	);
 
 	detail::copy_or_max_alpha
 	(
-		s,
+		_src,
 		dest
 	);
-	
+
 	return dest;
 }
 

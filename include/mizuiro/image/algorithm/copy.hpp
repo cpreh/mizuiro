@@ -23,20 +23,20 @@ template<
 	typename ViewD
 >
 typename boost::enable_if<
-	views_are_compatible<
+	image::views_are_compatible<
 		ViewS,
 		ViewD
 	>,
 	void
 >::type
 copy(
-	ViewS const &src,
-	ViewD const &dest
+	ViewS const &_src,
+	ViewD const &_dest
 )
 {
 	detail::copy_impl(
-		src,
-		dest
+		_src,
+		_dest
 	);
 }
 

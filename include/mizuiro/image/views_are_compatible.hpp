@@ -7,20 +7,11 @@
 #ifndef MIZUIRO_IMAGE_VIEWS_ARE_COMPATIBLE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_VIEWS_ARE_COMPATIBLE_HPP_INCLUDED
 
-#include <mizuiro/color/types/channel_value.hpp>
-#include <boost/mpl/fold.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/contains.hpp>
+#include <mizuiro/color/formats_are_compatible.hpp>
 #include <boost/mpl/and.hpp>
-#include <boost/mpl/placeholders.hpp>
-#include <boost/mpl/bind.hpp>
-#include <boost/mpl/vector.hpp>
-#include <boost/mpl/quote.hpp>
 #include <boost/mpl/size.hpp>
 #include <boost/mpl/equal_to.hpp>
 #include <boost/type_traits/is_same.hpp>
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/none_t.hpp>
 
 namespace mizuiro
 {
@@ -46,44 +37,9 @@ boost::mpl::and_<
 			typename View2::color_format::layout::order
 		>
 	>,
-	boost::mpl::fold<
-		typename View1::color_format::layout::order,
-		boost::true_type,
-		boost::mpl::and_<
-			boost::mpl::_1,
-			boost::mpl::bind<
-				boost::mpl::quote2<
-					boost::is_same
-				>,
-				boost::mpl::bind<
-					boost::mpl::quote2<
-						color::types::channel_value
-					>,
-					typename View1::color_format,
-					boost::mpl::_2
-				>,
-				boost::mpl::bind<
-					boost::mpl::quote3<
-						boost::mpl::if_
-					>,
-					boost::mpl::bind<
-						boost::mpl::quote2<
-							boost::mpl::contains
-						>,
-						typename View2::color_format::layout::order,
-						boost::mpl::_2
-					>,
-					boost::mpl::bind<
-						boost::mpl::quote2<
-							color::types::channel_value
-						>,
-						typename View2::color_format,
-						boost::mpl::_2
-					>,
-					boost::none_t
-				>
-			>
-		>
+	color::formats_are_compatible<
+		typename View1::color_format,
+		typename View2::color_format
 	>
 >
 {};

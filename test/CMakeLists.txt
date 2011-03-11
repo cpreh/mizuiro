@@ -41,6 +41,6 @@ MACRO(
 	)
 ENDMACRO()
 
-ADD_MIZUIRO_TEST(convert/shuffle)
+ADD_MIZUIRO_TEST(convert/swizzle)
 ADD_MIZUIRO_TEST(empty_view)
 ADD_MIZUIRO_TEST(views_are_compatible)

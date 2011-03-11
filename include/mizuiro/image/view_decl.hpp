@@ -164,7 +164,9 @@ private:
 	pitch_end() const;
 
 	dim_type dim_;
+
 	pointer data_;
+
 	pitch_type pitch_;
 };
 
