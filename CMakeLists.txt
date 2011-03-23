@@ -84,6 +84,10 @@ IF (CMAKE_COMPILER_IS_GNUCXX OR COMPILER_IS_CLANGPP)
 		"-Woverloaded-virtual -Wnon-virtual-dtor -Wctor-dtor-privacy"
 		"-Wsign-promo -Wold-style-cast -Wno-long-long"
 	)
+
+	IF (CMAKE_COMPILER_IS_GNUCXX)
+		ADD_DEFINITIONS ("-Wsign-conversion")
+	ENDIF()
 ELSEIF (MSVC)
 	ADD_DEFINITIONS ("/W4 /wd4996 /EHa /D_BIND_TO_CURRENT_VCLIBS_VERSION=1")
 	#4996 - unsafe standard C++ functions
