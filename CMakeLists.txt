@@ -115,7 +115,7 @@ INSTALL(
 
 INSTALL(
 	FILES
-	${CMAKE_SOURCE_DIR}/FindMizuiro.cmake
+	${CMAKE_SOURCE_DIR}/CMakeModules/FindMizuiro.cmake
 	DESTINATION share/cmake/Modules
 )
 
