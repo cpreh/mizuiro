@@ -6,6 +6,10 @@
 #	MIZUIRO_INCLUDE_DIRS - The path to the MIZUIRO header files
 #
 
+FIND_PACKAGE(
+	Fcppt
+)
+
 FIND_PATH(
 	MIZUIRO_INCLUDE_DIRS
 	NAMES mizuiro/config.hpp
