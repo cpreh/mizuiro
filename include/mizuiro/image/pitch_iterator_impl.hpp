@@ -201,7 +201,14 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::increment()
 	}
 	else
 	{
-		position_ += Format::color_format::element_count;
+		// FIXME:
+		position_ +=
+			static_cast<
+				difference_type
+			>(
+				Format::color_format::element_count
+			);
+
 		++offset_;
 	}
 }
