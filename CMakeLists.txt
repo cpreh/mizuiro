@@ -5,7 +5,7 @@ PROJECT (mizuiro)
 INCLUDE(FcpptCMakeUtils)
 
 FIND_PACKAGE(
-	Boost 1.40.0 REQUIRED 
+	Boost 1.40.0 REQUIRED
 )
 
 OPTION(
