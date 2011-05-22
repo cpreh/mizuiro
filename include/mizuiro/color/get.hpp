@@ -18,7 +18,11 @@ template<
 	typename Channel,
 	typename Color
 >
-typename Color::layout:: template channel_reference<
+typename 
+color::types::channel_reference
+<
+	typename Color::access,
+	typename Color::format,
 	Channel,
 	mizuiro::const_tag
 >::type
