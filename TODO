@@ -1,0 +1,17 @@
+Part 1 (general fixes)
+- Support more color formats (like luminance-alpha)
+  - Rename gray to luminance
+  - Treat alpha as a separate entity
+- Allow heterogeneous colors
+  - Heterogeneous colors cannot be accessed via `access::normal` (probably)
+  - Get rid of every hardcoded bit that uses `homogeneous` and the element_count
+- Allow planar images
+  - `color::proxy` has to reply on this, so `color::types::pointer` is wrong.
+    It should probably go into image::
+- Provide getter/setter for color channels like the constructors do
+- Make sure that views can be used with almost any types (that are not colors)
+- `image::detail::stride_pointer` is an ugly hack that has to go in favour of more traits
+
+Part 2 (opportunity for library extensions)
+- Provide more traits so that users can use their own color and view concepts
+- Provide customization for color conversion
