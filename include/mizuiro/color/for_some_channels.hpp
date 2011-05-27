@@ -22,16 +22,16 @@ template<
 >
 void
 for_some_channels(
-	Function const &fun
+	Function const &_function
 )
 {
 	boost::mpl::for_each<
 		boost::mpl::filter_view<
-			typename Format::layout::order
+			typename Format::layout::order,
 			Filter
 		>
 	>(
-		fun
+		_function
 	);
 }
 

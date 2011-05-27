@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERT_RGB_TO_GRAY_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERT_RGB_TO_GRAY_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERT_RGB_TO_LUMINANCE_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERT_RGB_TO_LUMINANCE_HPP_INCLUDED
 
 #include <mizuiro/color/convert/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/channel/red.hpp>

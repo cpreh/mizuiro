@@ -16,6 +16,7 @@ namespace color
 {
 namespace detail
 {
+
 template
 <
 	class Channel,
@@ -24,33 +25,33 @@ template
 	class Dest
 >
 void
-copy_and_convert_channel
-(
-	Src const &src,
-	Dest &dest
+copy_and_convert_channel(
+	Src const &_src,
+	Dest &_dest
 )
 {
-	dest.template set<
+	_dest.template set<
 		Channel
 	>
 	(
-		denormalize
+		color::denormalize
 		<
 			typename Dest::format,
 			Channel,
 			Float
 		>
 		(
-			normalize<
+			color::normalize<
 				Channel,
 				Float
 			>
 			(
-				src
+				_src
 			)
 		)
 	);
 }
+
 }
 }
 }
