@@ -4,22 +4,23 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_INIT_GRAY_HPP_INCLUDED
-#define MIZUIRO_COLOR_INIT_GRAY_HPP_INCLUDED
-
-#include <mizuiro/color/init/detail/make_trampoline.hpp>
-#include <mizuiro/color/channel/gray.hpp>
+#ifndef MIZUIRO_COLOR_LAYOUT_LUMINANCE_HPP_INCLUDED
+#define MIZUIRO_COLOR_LAYOUT_LUMINANCE_HPP_INCLUDED
 
 namespace mizuiro
 {
 namespace color
 {
-namespace init
+namespace layout
 {
 
-MIZUIRO_COLOR_INIT_DETAIL_MAKE_TRAMPOLINE(
-	gray
-)
+template<
+	typename Order
+>
+struct luminance
+{
+	typedef Order order;
+};
 
 }
 }

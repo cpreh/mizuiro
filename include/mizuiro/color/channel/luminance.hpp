@@ -4,25 +4,18 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_LAYOUT_ALPHA_HPP_INCLUDED
-#define MIZUIRO_COLOR_LAYOUT_ALPHA_HPP_INCLUDED
-
-#include <mizuiro/color/channel/alpha.hpp>
-#include <boost/mpl/vector/vector10.hpp>
+#ifndef MIZUIRO_COLOR_CHANNEL_LUMINANCE_HPP_INCLUDED
+#define MIZUIRO_COLOR_CHANNEL_LUMINANCE_HPP_INCLUDED
 
 namespace mizuiro
 {
 namespace color
 {
-namespace layout
+namespace channel
 {
 
-struct alpha
-{
-	typedef boost::mpl::vector1<
-		channel::alpha
-	> order;
-};
+struct luminance
+{};
 
 }
 }

@@ -4,6 +4,7 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/layout/gray.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <mizuiro/color/proxy.hpp>
@@ -27,7 +28,8 @@ typedef mizuiro::image::format<
 	>
 > format;
 
-struct set_color {
+struct set_color
+{
 	typedef void result_type;
 
 	template<
@@ -35,11 +37,11 @@ struct set_color {
 	>
 	result_type
 	operator()(
-		T const &t
+		T const &_color
 	) const
 	{
-		t. template set<
-			mizuiro::color::channel::gray
+		_color. template set<
+			mizuiro::color::channel::luminance
 		>(
 			42
 		);

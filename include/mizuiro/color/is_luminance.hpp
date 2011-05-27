@@ -4,26 +4,25 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_IS_GRAY_HPP_INCLUDED
-#define MIZUIRO_COLOR_IS_GRAY_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_IS_LUMINANCE_HPP_INCLUDED
+#define MIZUIRO_COLOR_IS_LUMINANCE_HPP_INCLUDED
 
-#include <mizuiro/color/layout/gray.hpp>
-#include <boost/type_traits/is_same.hpp>
+#include <mizuiro/color/channel/luminance.hpp>
+#include <mizuiro/color/has_channel.hpp>
 
 namespace mizuiro
 {
 namespace color
 {
 
-template
-<
+template<
 	typename Format
 >
-struct is_gray
+struct is_luminance
 :
-boost::is_same<
-	typename Format::layout,
-	layout::gray
+color::has_channel<
+	Format,
+	channel::luminance
 >
 {
 };

@@ -4,18 +4,22 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CHANNEL_GRAY_HPP_INCLUDED
-#define MIZUIRO_COLOR_CHANNEL_GRAY_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_INIT_LUMINANCE_HPP_INCLUDED
+#define MIZUIRO_COLOR_INIT_LUMINANCE_HPP_INCLUDED
+
+#include <mizuiro/color/init/detail/make_trampoline.hpp>
+#include <mizuiro/color/channel/luminance.hpp>
 
 namespace mizuiro
 {
 namespace color
 {
-namespace channel
+namespace init
 {
 
-struct gray
-{};
+MIZUIRO_COLOR_INIT_DETAIL_MAKE_TRAMPOLINE(
+	luminance
+)
 
 }
 }

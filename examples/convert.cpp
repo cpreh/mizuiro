@@ -4,12 +4,12 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/color/object.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/gray.hpp>
 #include <mizuiro/color/layout/alpha.hpp>
 #include <mizuiro/color/convert.hpp>
 #include <mizuiro/color/init.hpp>
+#include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/homogenous.hpp>
 #include <boost/cstdint.hpp>
@@ -32,7 +32,7 @@ int main()
 			channel_type,
 			mizuiro::color::layout::gray
 		>
-	> gray_color;
+	> luminance_color;
 
 	typedef mizuiro::color::object<
 		mizuiro::color::homogenous<
@@ -41,21 +41,21 @@ int main()
 		>
 	> alpha_color;
 
-	gray_color test_gray(
-		(mizuiro::color::init::gray = static_cast<channel_type>(42))
+	luminance_color test_luminance(
+		(mizuiro::color::init::luminance = static_cast<channel_type>(42))
 	);
 
 	rgba_color const test_rgb(
 		mizuiro::color::convert<
 			rgba_color::format
 		>(
-			test_gray
+			test_luminance
 		)
 	);
 
 	std::cout 
-		<< "gray value was: " 
-		<< test_gray 
+		<< "luminance value was: " 
+		<< test_luminance 
 		<< " and was converted to" 
 		<< test_rgb
 		<< '\n';
@@ -86,9 +86,9 @@ int main()
 		<< test_float
 		<< '\n';
 	
-	gray_color test_gray2(
+	luminance_color test_luminance2(
 		mizuiro::color::convert<
-			gray_color::format
+			luminance_color::format
 		>
 		(
 			test_float
@@ -96,8 +96,8 @@ int main()
 	);
 
 	std::cout 
-		<< "converted back to gray: "
-		<< test_gray2
+		<< "converted back to luminance: "
+		<< test_luminance2
 		<< '\n';
 	
 	alpha_color const test_alpha(

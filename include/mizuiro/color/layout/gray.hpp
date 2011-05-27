@@ -7,7 +7,8 @@
 #ifndef MIZUIRO_COLOR_LAYOUT_GRAY_HPP_INCLUDED
 #define MIZUIRO_COLOR_LAYOUT_GRAY_HPP_INCLUDED
 
-#include <mizuiro/color/channel/gray.hpp>
+#include <mizuiro/color/channel/luminance.hpp>
+#include <mizuiro/color/layout/luminance.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 
 namespace mizuiro
@@ -17,11 +18,11 @@ namespace color
 namespace layout
 {
 
-struct gray {
-	typedef boost::mpl::vector1<
-		channel::gray
-	> order;
-};
+typedef layout::luminance<
+	boost::mpl::vector1<
+		channel::luminance
+	>
+> gray;
 
 }
 }

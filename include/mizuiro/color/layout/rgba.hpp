@@ -21,7 +21,7 @@ namespace color
 namespace layout
 {
 
-typedef additive<
+typedef layout::additive<
 	boost::mpl::vector4<
 		channel::red,
 		channel::green,
