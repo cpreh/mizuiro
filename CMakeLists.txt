@@ -52,20 +52,24 @@ INCLUDE_DIRECTORIES(
 )
 
 INSTALL(
-	DIRECTORY include/
-	DESTINATION include
+	DIRECTORY
+	include/
+	DESTINATION
+	${INSTALL_INCLUDE_DIR}
 )
 
 INSTALL(
 	FILES
 	${CMAKE_BINARY_DIR}/include/mizuiro/config.hpp
-	DESTINATION include/mizuiro
+	DESTINATION
+	${INSTALL_INCLUDE_DIR}/mizuiro
 )
 
 INSTALL(
 	FILES
 	${CMAKE_SOURCE_DIR}/CMakeModules/FindMizuiro.cmake
-	DESTINATION share/cmake/Modules
+	DESTINATION
+	${INSTALL_CMAKEMODULES_DIR}
 )
 
 OPTION(ENABLE_DOC "Build the documentation" OFF)
