@@ -25,7 +25,7 @@ if(
 )
 	find_file(
 		MIZUIRO_CONFIG_HEADER
-		config.hpp
+		mizuiro/config.hpp
 		HINTS ${Mizuiro_INCLUDE_DIR}
 	)
 
@@ -75,4 +75,6 @@ find_package_handle_standard_args(
 
 mark_as_advanced(
 	Mizuiro_INCLUDE_DIR
+	MIZUIRO_CONFIG_HEADER
+	MIZUIRO_FCPPT_REQUIRED
 )
