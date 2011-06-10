@@ -21,61 +21,58 @@ namespace detail
 
 template<
 	typename Dest,
-	typename FloatType,
-	typename PartType
+	typename FloatType
 >
 Dest const
 rgb_from_chroma(
 	FloatType const chroma,
-	PartType const hue_part,
-	FloatType const largest_part
+	FloatType const hue_part,
+	FloatType const largest_part,
+	FloatType const diff
 )
 {
-	switch(hue_part)
-	{
-	case 0:
+	if (hue_part < static_cast<FloatType>(1))
 		return
 			Dest(
-				(color::init::red %= chroma)
-				(color::init::green %= largest_part)
-				(color::init::blue %= 0.)
+				(color::init::red %= chroma + diff)
+				(color::init::green %= largest_part + diff)
+				(color::init::blue %= diff)
 			);
-	case 1:
+	if (hue_part < static_cast<FloatType>(2))
 		return
 			Dest(
-				(color::init::red %= largest_part)
-				(color::init::green %= chroma)
-				(color::init::blue %= 0.)
+				(color::init::red %= largest_part + diff)
+				(color::init::green %= chroma + diff)
+				(color::init::blue %= diff)
 			);
-	case 2:
+	if (hue_part < static_cast<FloatType>(3))
 		return
 			Dest(
-				(color::init::red %= 0.)
-				(color::init::green %= chroma)
-				(color::init::blue %= largest_part)
+				(color::init::red %= diff)
+				(color::init::green %= chroma + diff)
+				(color::init::blue %= largest_part + diff)
 			);
-	case 3:
+	if (hue_part < static_cast<FloatType>(4))
 		return
 			Dest(
-				(color::init::red %= 0.)
-				(color::init::green %= largest_part)
-				(color::init::blue %= chroma)
+				(color::init::red %= diff)
+				(color::init::green %= largest_part + diff)
+				(color::init::blue %= chroma + diff)
 			);
-	case 4:
+	if (hue_part < static_cast<FloatType>(5))
 		return
 			Dest(
-				(color::init::red %= largest_part)
-				(color::init::green %= 0.)
-				(color::init::blue %= chroma)
+				(color::init::red %= largest_part + diff)
+				(color::init::green %= diff)
+				(color::init::blue %= chroma + diff)
 			);
-	case 5:
+	if (hue_part < static_cast<FloatType>(6))
 		return
 			Dest(
-				(color::init::red %= chroma)
-				(color::init::green %= 0.)
-				(color::init::blue %= largest_part)
+				(color::init::red %= chroma + diff)
+				(color::init::green %= diff)
+				(color::init::blue %= largest_part + diff)
 			);
-	}
 
 	// TODO: add our own exception type!
 	throw std::logic_error(

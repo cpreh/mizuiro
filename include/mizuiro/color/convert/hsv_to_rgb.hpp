@@ -89,12 +89,7 @@ convert
 			- chroma
 		);
 	
-	typedef int int_type;
-
-	int_type const hue_part(
-		static_cast<
-			int_type
-		>(
+	float_type const hue_part(
 			hue
 			*
 			static_cast<
@@ -102,8 +97,9 @@ convert
 			>(
 				6
 			)
-		)
 	);
+	
+	typedef int int_type;
 		
 	float_type const
 		largest_part(
@@ -113,15 +109,15 @@ convert
 				float_type
 			>
 			(
-				1 -
+				static_cast<float_type>(1) -
 				std::abs(
-					hue_part	
-					%
-					2
-					- 1
+					std::fmod(
+						hue_part,
+						static_cast<float_type>(2)
+					)
+					- static_cast<float_type>(1)
 				)
-			)
-		);
+			));
 
 	// use homogenous as an intermediate type
 	// TODO: this should be reevaluated when we have heterogenous colors
@@ -140,9 +136,10 @@ convert
 		<
 			intermediate_type
 		>(
-			chroma + diff,
+			chroma,
 			hue_part,
-			largest_part + diff
+			largest_part,
+			diff
 		)
 	);
 

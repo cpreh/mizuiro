@@ -30,8 +30,8 @@ int main()
 
 	hsva_object const source(
 		(mizuiro::color::init::hue %= 0.5)
-		(mizuiro::color::init::saturation %= 0.5)
-		(mizuiro::color::init::value %= 0.5)
+		(mizuiro::color::init::saturation %= 0.6)
+		(mizuiro::color::init::value %= 0.4)
 		(mizuiro::color::init::alpha %= 1.0)
 	);
 
