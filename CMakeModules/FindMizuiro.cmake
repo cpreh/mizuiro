@@ -9,9 +9,29 @@
 #
 #	MIZUIRO_INCLUDEDIR    - Hint where the mizuiro includes might be.
 
+
+if(
+	Mizuiro_FIND_QUIETLY
+)
+	set(
+		MIZUIRO_FIND_OPTIONS
+		"QUIET"
+	)
+endif()
+
+if(
+	Mizuiro_FIND_REQUIRED
+)
+	set(
+		MIZUIRO_FIND_OPTIONS
+		"REQUIRED"
+	)
+endif()
+
+
 find_package(
 	Boost
-	${Mizuiro_FIND_REQUIRED}
+	${MIZUIRO_FIND_OPTIONS}
 )
 
 find_path(
@@ -44,10 +64,14 @@ if(
 	)
 		find_package(
 			Fcppt
-			${Mizuiro_FIND_REQUIRED}
+			${MIZUIRO_FIND_OPTIONS}
 		)
 	endif()
 endif()
+
+unset(
+	MIZUIRO_FIND_OPTIONS
+)
 
 include(
 	FindPackageHandleStandardArgs
@@ -55,7 +79,7 @@ include(
 
 set(
 	Mizuiro_INCLUDE_DIRS
-	${Mizuiro_INCLUDE_DIR};${Boost_INCLUDE_DIRS}
+	"${Mizuiro_INCLUDE_DIR};${Boost_INCLUDE_DIRS}"
 )
 
 if(
@@ -63,7 +87,7 @@ if(
 )
 	set(
 		Mizuiro_INCLUDE_DIRS
-		${Mizuiro_INCLUDE_DIRS};${Fcppt_INCLUDE_DIRS}
+		"${Mizuiro_INCLUDE_DIRS};${Fcppt_INCLUDE_DIRS}"
 	)
 endif()
 
