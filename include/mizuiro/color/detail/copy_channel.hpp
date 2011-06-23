@@ -42,19 +42,19 @@ public:
 	>
 	result_type
 	operator()(
-		Channel &
+		Channel const &_channel
 	) const
 	{
-		dest_. template set<
-			Channel
-		>(
-			src_. template get<
-				Channel
-			>()
+		dest_.set(
+			_channel,
+			src_.get(
+				_channel
+			)
 		);
 	}
 private:
 	Dest const &dest_;
+
 	Src const &src_;
 };
 

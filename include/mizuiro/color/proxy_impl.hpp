@@ -61,7 +61,7 @@ mizuiro::color::proxy<Access, Format, Constness>::operator=(
 		typename Format::layout::order
 	>(
 		detail::copy_channel<
-			proxy<
+			color::proxy<
 				Access,
 				Format,
 				Constness
@@ -86,6 +86,7 @@ template<
 >
 void
 mizuiro::color::proxy<Access, Format, Constness>::set(
+	Channel const &_channel,
 	typename types::channel_value<
 		Format,
 		Channel
@@ -95,7 +96,7 @@ mizuiro::color::proxy<Access, Format, Constness>::set(
 	extract_channel(
 		Access(),
 		Format(),
-		Channel(),
+		_channel,
 		mizuiro::nonconst_tag(),
 		data_	
 	) = _ref;
@@ -115,13 +116,15 @@ typename mizuiro::color::types::channel_reference<
 	Channel,
 	mizuiro::const_tag
 >::type
-mizuiro::color::proxy<Access, Format, Constness>::get() const
+mizuiro::color::proxy<Access, Format, Constness>::get(
+	Channel const &_channel
+) const
 {
 	return
 		extract_channel(
 			Access(),
 			Format(),
-			Channel(),
+			_channel,
 			mizuiro::const_tag(),
 			data_
 		);

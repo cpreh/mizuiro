@@ -47,13 +47,13 @@ public:
 	>
 	result_type
 	operator()(
-		Channel const &
+		Channel const &_channel
 	) const
 	{
 		detail::copy_and_convert_channel<
-			Channel,
 			Float
 		>(
+			_channel,
 			src_,
 			dest_
 		);

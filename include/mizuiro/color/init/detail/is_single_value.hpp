@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_IS_SINGLE_VALUE_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_IS_SINGLE_VALUE_HPP_INCLUDED
 
-#include <mizuiro/color/init/detail/channel_fwd.hpp>
 #include <mizuiro/color/init/detail/channel_percentage_fwd.hpp>
+#include <mizuiro/color/init/detail/channel_value_fwd.hpp>
 #include <boost/type_traits/integral_constant.hpp>
 
 namespace mizuiro
@@ -33,7 +33,7 @@ template<
 	typename Channel
 >
 struct is_single_value<
-	detail::channel<
+	detail::channel_value<
 		Value,
 		Channel
 	>

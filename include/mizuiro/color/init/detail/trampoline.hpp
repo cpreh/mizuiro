@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_TRAMPOLINE_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_TRAMPOLINE_HPP_INCLUDED
 
-#include <mizuiro/color/init/detail/channel.hpp>
+#include <mizuiro/color/init/detail/channel_value.hpp>
 #include <mizuiro/color/init/detail/channel_percentage.hpp>
 #include <boost/type_traits/is_floating_point.hpp>
 #include <boost/utility/enable_if.hpp>
@@ -26,26 +26,29 @@ template<
 >
 struct trampoline
 {
+	// TODO: check if this format has static channels!
 	template<
 		typename Value
 	>
-	color::init::detail::channel<
+	color::init::detail::channel_value<
 		Value,
 		Channel
 	> const
 	operator=(
-		Value const &value
+		Value const &_value
 	) const
 	{
 		return
-			color::init::detail::channel<
+			color::init::detail::channel_value<
 				Value,
 				Channel
 			>(
-				value
+				_value,
+				Channel()
 			);
 	}
 
+	// TODO: likewise
 	template<
 		typename Value
 	>
@@ -58,8 +61,8 @@ struct trampoline
 			Channel
 		> const
 	>::type
-	operator %=(
-		Value const &value
+	operator%=(
+		Value const &_value
 	) const
 	{
 		return
@@ -67,7 +70,8 @@ struct trampoline
 				Value,
 				Channel
 			>(
-				value
+				_value,
+				Channel()
 			);
 	}
 };

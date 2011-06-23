@@ -90,6 +90,7 @@ public:
 	>
 	void
 	set(
+		Channel const &,
 		typename types::channel_value<
 			format,
 			Channel
@@ -106,7 +107,9 @@ public:
 		Channel,
 		mizuiro::const_tag
 	>::type
-	get() const;
+	get(
+		Channel const &
+	) const;
 
 	/// ponter to the internal data
 	pointer

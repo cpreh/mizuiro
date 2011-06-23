@@ -19,27 +19,6 @@ namespace color
 namespace detail
 {
 
-// TODO: what is this doing here?
-template
-<
-	class Color
->
-typename 
-boost::disable_if
-<
-	color::has_channel
-	<
-		typename Color::format,
-		channel::alpha
-	>, 
-	void
->::type 
-max_alpha(
-	Color  &
-)
-{
-}
-
 template
 <
 	class Color
@@ -58,11 +37,14 @@ max_alpha(
 	Color &_color
 )
 {
+	// FIXME!
+#if 0
 	color::detail::channel_to_max<
 		channel::alpha
 	>(
 		_color
 	);
+#endif
 }
 
 }

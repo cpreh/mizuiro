@@ -26,10 +26,10 @@ template<
 	typename Format
 >
 mizuiro::color::object<Format>::object(
-	object const &other
+	object const &_other
 )
 :
-	data_(other.data_)
+	data_(_other.data_)
 {}
 
 template<
@@ -39,7 +39,7 @@ template<
 	typename Other
 >
 mizuiro::color::object<Format>::object(
-	Other const &other_,
+	Other const &_other,
 	typename boost::enable_if<
 		color::is_color<
 			Other
@@ -49,7 +49,7 @@ mizuiro::color::object<Format>::object(
 {
 	proxy(
 		data_.data()
-	) = other_;
+	) = _other;
 }
 
 template<
@@ -59,7 +59,7 @@ template<
 	typename Init
 >
 mizuiro::color::object<Format>::object(
-	Init const &init_,
+	Init const &_init,
 	typename boost::disable_if<
 		color::is_color<
 			Init
@@ -69,7 +69,7 @@ mizuiro::color::object<Format>::object(
 {
 	init::detail::assign_object(
 		*this,
-		init_
+		_init
 	);
 }
 
@@ -81,18 +81,19 @@ template<
 >
 void
 mizuiro::color::object<Format>::set(
+	Channel const &_channel,
 	typename types::channel_value<
 		format,
 		Channel
-	>::type const &ref
+	>::type const &_ref
 )
 {
 	proxy(
 		data_.data()
-	).set<
-		Channel
-	>(
-		ref
+	)
+	.set(
+		_channel,
+		_ref
 	);
 }
 
@@ -112,14 +113,16 @@ typename mizuiro::color::types::channel_reference<
 	Channel,
 	mizuiro::const_tag
 >::type
-mizuiro::color::object<Format>::get() const
+mizuiro::color::object<Format>::get(
+	Channel const &_channel
+) const
 {
 	return
 		const_proxy(
 			data_.data()
-		).get<
-			Channel
-		>();
+		).get(
+			_channel
+		);
 }
 
 template<

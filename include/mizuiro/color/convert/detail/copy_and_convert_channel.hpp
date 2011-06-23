@@ -19,21 +19,20 @@ namespace detail
 
 template
 <
-	class Channel,
 	class Float,
+	class Channel,
 	class Src,
 	class Dest
 >
 void
 copy_and_convert_channel(
+	Channel const &_channel,
 	Src const &_src,
 	Dest &_dest
 )
 {
-	_dest.template set<
-		Channel
-	>
-	(
+	_dest.set(
+		_channel,
 		color::denormalize
 		<
 			typename Dest::format,
@@ -42,11 +41,11 @@ copy_and_convert_channel(
 		>
 		(
 			color::normalize<
-				Channel,
 				Float
 			>
 			(
-				_src
+				_src,
+				_channel
 			)
 		)
 	);

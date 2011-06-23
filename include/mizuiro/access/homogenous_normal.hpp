@@ -52,11 +52,11 @@ extract_channel(
 		Access,
 		Format,
 		Constness
-	>::type const ptr
+	>::type const _ptr
 )
 {
 	return
-		ptr[
+		_ptr[
 			mizuiro::detail::index_of<
 				typename Format::layout::order,
 				Channel
@@ -83,11 +83,11 @@ typename boost::enable_if<
 data_store_size(
 	Access const &,
 	Format const &,
-	Dim const &dim
+	Dim const &_dim
 )
 {
 	return
-		dim.content()
+		_dim.content()
 		* Format::color_format::element_count;
 }
 

@@ -4,10 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_INIT_DETAIL_CHANNEL_HPP_INCLUDED
-#define MIZUIRO_COLOR_INIT_DETAIL_CHANNEL_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_INIT_DETAIL_CHANNEL_VALUE_HPP_INCLUDED
+#define MIZUIRO_COLOR_INIT_DETAIL_CHANNEL_VALUE_HPP_INCLUDED
 
-#include <mizuiro/color/init/detail/channel_fwd.hpp>
+#include <mizuiro/color/init/detail/channel_value_fwd.hpp>
 #include <mizuiro/color/init/detail/make_impl.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 #include <boost/fusion/container/vector/vector.hpp>
@@ -26,20 +26,22 @@ template<
 	typename Value,
 	typename Channel
 >
-class channel
+class channel_value
 {
 	MIZUIRO_DETAIL_NONASSIGNABLE(
-		channel
+		channel_value
 	);
 public:
 	typedef Value value_type;
 	typedef Channel channel_type;
 
-	explicit channel(
-		Value const &_value
+	channel_value(
+		Value const &_value,
+		Channel const &_channel
 	)
 	:
-		value_(_value)
+		value_(_value),
+		channel_(_channel)
 	{}
 	
 	Value const &
@@ -48,12 +50,18 @@ public:
 		return value_;
 	}
 
+	Channel const &
+	channel() const
+	{
+		return channel_;
+	}
+
 	template<
 		typename NewInit
 	>
 	make_impl<
 		boost::fusion::vector2<
-			detail::channel<
+			detail::channel_value<
 				Value,
 				Channel
 			>,
@@ -72,6 +80,8 @@ public:
 	}
 private:
 	Value const value_;
+
+	Channel const channel_;
 };
 
 }

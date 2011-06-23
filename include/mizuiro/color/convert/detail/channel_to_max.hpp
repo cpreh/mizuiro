@@ -23,13 +23,12 @@ template<
 >
 void
 channel_to_max(
-	Color &_color
+	Color &_color,
+	Channel const &_channel
 )
 {
-	_color.template set<
-		Channel
-	>
-	(
+	_color.set(
+		_channel,
 		color::channel_max<
 			typename color::types::channel_value<
 				typename Color::format,

@@ -7,9 +7,11 @@
 #ifndef MIZUIRO_COLOR_NORMALIZE_HPP_INCLUDED
 #define MIZUIRO_COLOR_NORMALIZE_HPP_INCLUDED
 
+#include <mizuiro/color/is_color.hpp>
 #include <mizuiro/normalize.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <boost/mpl/and.hpp>
 #include <boost/type_traits/is_floating_point.hpp>
+#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
@@ -18,22 +20,30 @@ namespace color
 
 template
 <
-	typename Channel,
 	typename Float,
+	typename Channel,
 	typename Color
 >
 typename
 boost::enable_if
 <
-	boost::is_floating_point
+	boost::mpl::and_
 	<
-		Float
+		mizuiro::color::is_color
+		<
+			Color
+		>,
+		boost::is_floating_point
+		<
+			Float
+		>
 	>,
 	Float
 >::type
 normalize
 (
-	Color const &_color
+	Color const &_color,
+	Channel const &_channel
 )
 {
 	return 
@@ -45,10 +55,9 @@ normalize
 				Channel
 			>::type
 		>(
-			_color.template get
-			<
-				Channel
-			>()
+			_color.get(
+				_channel
+			)
 		);
 }
 

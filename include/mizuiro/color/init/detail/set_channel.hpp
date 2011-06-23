@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_SET_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_SET_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/color/init/detail/channel.hpp>
 #include <mizuiro/color/init/detail/channel_percentage.hpp>
+#include <mizuiro/color/init/detail/channel_value.hpp>
 #include <mizuiro/color/denormalize.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <boost/utility/enable_if.hpp>
@@ -38,17 +38,16 @@ typename boost::enable_if<
 	void
 >::type
 set_channel(
-	Color &color,
-	detail::channel<
+	Color &_color,
+	detail::channel_value<
 		Value,
 		Channel
-	> const &init
+	> const &_init
 )
 {
-	color. template set<
-		Channel
-	>(
-		init.value()
+	_color.set(
+		_init.channel(),
+		_init.value()
 	);
 }
 
@@ -59,21 +58,20 @@ template<
 >
 void
 set_channel(
-	Color &color,
+	Color &_color,
 	detail::channel_percentage<
 		Value,
 		Channel
-	> const &init
+	> const &_init
 )
 {
-	color. template set<
-		Channel
-	>(
-		denormalize<
-			typename Color::format,
-			Channel
+	_color.set(
+		_init.channel(),
+		color::denormalize<
+			typename Color::format
 		>(
-			init.value()
+			_init.channel(),
+			_init.value()
 		)
 	);
 }

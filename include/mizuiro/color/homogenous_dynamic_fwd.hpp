@@ -4,26 +4,22 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_INIT_DETAIL_CHANNEL_FWD_HPP_INCLUDED
-#define MIZUIRO_COLOR_INIT_DETAIL_CHANNEL_FWD_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_HOMOGENOUS_DYNAMIC_FWD_HPP_INCLUDED
+#define MIZUIRO_COLOR_HOMOGENOUS_DYNAMIC_FWD_HPP_INCLUDED
+
+#include <mizuiro/size_type.hpp>
 
 namespace mizuiro
 {
 namespace color
 {
-namespace init
-{
-namespace detail
-{
 
 template<
-	typename Value,
-	typename Channel
+	typename ChannelType,
+	mizuiro::size_type Size
 >
-class channel;
+struct homogenous_dynamic;
 
-}
-}
 }
 }
 

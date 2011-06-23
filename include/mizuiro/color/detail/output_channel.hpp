@@ -59,12 +59,12 @@ public:
 		result_type
 	>::type
 	operator()(
-		Channel &
+		Channel const &_channel
 	) const
 	{
-		print_impl<
-			Channel
-		>();
+		this->print_impl(
+			_channel
+		);
 	}
 
 	template<
@@ -78,12 +78,12 @@ public:
 		result_type
 	>::type
 	operator()(
-		Channel &
+		Channel const &_channel
 	) const
 	{
-		print_impl<
-			Channel
-		>();
+		this->print_impl(
+			_channel
+		);
 		
 		stream_ << stream_.widen(',');
 	}
@@ -92,7 +92,9 @@ private:
 		typename Channel
 	>
 	result_type
-	print_impl() const
+	print_impl(
+		Channel const &_channel
+	) const
 	{
 		stream_ <<
 			static_cast<
@@ -103,9 +105,9 @@ private:
 					>::type
 				>::type
 			>(
-				color_. template get<
-					Channel
-				>()
+				color_.get(
+					_channel
+				)
 			);
 	}
 

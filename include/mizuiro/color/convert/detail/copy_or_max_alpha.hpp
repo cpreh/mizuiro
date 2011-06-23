@@ -32,12 +32,12 @@ boost::enable_if
 <
 	boost::mpl::and_
 	<
-		has_channel
+		color::has_channel
 		<
 			typename Src::format,
 			channel::alpha
 		>,
-		has_channel
+		color::has_channel
 		<
 			typename Dest::format,
 			channel::alpha
@@ -46,10 +46,13 @@ boost::enable_if
 	void
 >::type
 copy_or_max_alpha(
-	Src const &src,
-	Dest &dest)
+	Src const &_src,
+	Dest &_dest
+)
 {
-	copy_and_convert_channel
+	// FIXME!
+#if 0
+	color::detail::copy_and_convert_channel
 	<
 		channel::alpha,
 		float
@@ -58,6 +61,7 @@ copy_or_max_alpha(
 		src,
 		dest
 	);
+#endif
 }
 
 // source doesn't have an alpha channel, but destination has, so max out destination alpha
@@ -89,11 +93,11 @@ boost::enable_if
 >::type
 copy_or_max_alpha(
 	Src const &,
-	Dest &d
+	Dest &_dest
 )
 {
-	max_alpha(
-		d
+	detail::max_alpha(
+		_dest
 	);
 }
 

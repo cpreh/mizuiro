@@ -64,6 +64,7 @@ public:
 	>
 	void
 	set(
+		Channel const &,
 		typename types::channel_value<
 			Format,
 			Channel
@@ -79,7 +80,9 @@ public:
 		Channel,
 		mizuiro::const_tag
 	>::type
-	get() const;
+	get(
+		Channel const &
+	) const;
 
 	pointer
 	data() const;

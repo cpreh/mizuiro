@@ -41,13 +41,12 @@ public:
 	>
 	result_type
 	operator()(
-		Channel const &
+		Channel const &_channel
 	) const
 	{
-		detail::channel_to_max<
-			Channel
-		>(
-			dest_
+		detail::channel_to_max(
+			dest_,
+			_channel
 		);
 	}
 private:
