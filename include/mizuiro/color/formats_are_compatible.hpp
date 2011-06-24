@@ -39,11 +39,12 @@ boost::mpl::fold<
 				boost::is_same
 			>,
 			boost::mpl::bind<
-				boost::mpl::quote2<
+				boost::mpl::quote3<
 					color::types::channel_value
 				>,
 				Format1,
-				boost::mpl::_2
+				boost::mpl::_2,
+				void
 			>,
 			boost::mpl::bind<
 				boost::mpl::quote3<
@@ -57,11 +58,12 @@ boost::mpl::fold<
 					boost::mpl::_2
 				>,
 				boost::mpl::bind<
-					boost::mpl::quote2<
+					boost::mpl::quote3<
 						color::types::channel_value
 					>,
 					Format2,
-					boost::mpl::_2
+					boost::mpl::_2,
+					void
 				>,
 				boost::none_t
 			>

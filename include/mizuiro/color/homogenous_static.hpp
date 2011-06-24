@@ -4,13 +4,14 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_HOMOGENOUS_HPP_INCLUDED
-#define MIZUIRO_COLOR_HOMOGENOUS_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_HOMOGENOUS_STATIC_HPP_INCLUDED
+#define MIZUIRO_COLOR_HOMOGENOUS_STATIC_HPP_INCLUDED
 
-#include <mizuiro/color/homogenous_fwd.hpp>
+#include <mizuiro/color/homogenous_static_fwd.hpp>
 #include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
 #include <mizuiro/access/homogenous_normal.hpp>
+#include <mizuiro/access/homogenous_static.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/mpl/size.hpp>
 
@@ -23,7 +24,7 @@ template<
 	typename ChannelType,
 	typename Layout
 >
-struct homogenous
+struct homogenous_static
 {
 	typedef ChannelType channel_type;
 

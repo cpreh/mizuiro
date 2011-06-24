@@ -12,13 +12,14 @@
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
-#include <mizuiro/color/homogenous_fwd.hpp>
 #include <mizuiro/color/channel_proxy_impl.hpp>
+#include <mizuiro/color/is_homogenous.hpp>
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/array.hpp>
 #include <mizuiro/raw_value.hpp>
 #include <mizuiro/raw_pointer.hpp>
+#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
@@ -28,80 +29,74 @@ namespace types
 {
 
 template<
-	typename ChannelType,
-	typename Layout,
+	typename Format,
 	typename Constness
 >
 struct pointer<
 	::mizuiro::access::raw,
-	color::homogenous<
-		ChannelType,
-		Layout
-	>,
-	Constness
+	Format,
+	Constness,
+	typename boost::enable_if<
+		color::is_homogenous<
+			Format
+		>
+	>::type
 >
 :
 mizuiro::detail::apply_const<
-	raw_pointer,
+	mizuiro::raw_pointer,
 	Constness
 >
 {
 };
 
 template<
-	typename ChannelType,
-	typename Layout,
+	typename Format,
 	typename Channel,
 	typename Constness
 >
 struct channel_reference<
 	::mizuiro::access::raw,
-	color::homogenous<
-		ChannelType,
-		Layout
-	>,
+	Format,
 	Channel,
-	Constness
+	Constness,
+	typename boost::enable_if<
+		color::is_homogenous<
+			Format
+		>
+	>::type
 >
 {
 	typedef color::channel_proxy<
 		typename types::pointer<
 			::mizuiro::access::raw,
-			color::homogenous<
-				ChannelType,
-				Layout
-			>,
+			Format,
 			Constness
 		>::type,
 		typename types::channel_value<
-			color::homogenous<
-				ChannelType,
-				Layout
-			>,
+			Format,
 			Channel
 		>::type
 	> type;
 };
 
 template<
-	typename ChannelType,
-	typename Layout
+	typename Format
 >
 struct store<
 	::mizuiro::access::raw,
-	color::homogenous<
-		ChannelType,
-		Layout
-	>
+	Format,
+	typename boost::enable_if<
+		color::is_homogenous<
+			Format
+		>
+	>::type
 >
 :
 mizuiro::array<
-	raw_value,
-	color::homogenous<
-		ChannelType,
-		Layout
-	>::element_count
-	* sizeof(ChannelType)
+	mizuiro::raw_value,
+	Format::element_count
+	* sizeof(typename Format::channel_type)
 >
 {};
 

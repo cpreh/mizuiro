@@ -17,8 +17,6 @@
 #include <mizuiro/color/is_hsv.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/normalize.hpp>
-#include <mizuiro/color/homogenous.hpp>
-#include <mizuiro/color/is_homogenous.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <cmath>
@@ -38,16 +36,16 @@ boost::enable_if
 <
 	boost::mpl::and_
 	<
-		is_rgb
+		color::is_rgb
 		<
 			Dest
 		>,
-		is_hsv
+		color::is_hsv
 		<
 			typename Src::format
 		>
 	>,
-	object<
+	color::object<
 		Dest
 	> const
 >::type
@@ -122,22 +120,15 @@ convert
 				)
 			));
 
-	// use homogenous as an intermediate type
-	// TODO: this should be reevaluated when we have heterogenous colors
-	typedef color::object
-	<
-		color::homogenous
-		<
-			float_type,
-			typename Dest::layout
-		>
-	> intermediate_type;
+	typedef color::object<
+		Dest
+	> dest_type;
 
-	intermediate_type dest
+	dest_type dest
 	(
 		color::detail::rgb_from_chroma
 		<
-			intermediate_type
+			dest_type
 		>(
 			chroma,
 			hue_part,
@@ -152,13 +143,7 @@ convert
 		dest
 	);
 	
-	return
-		convert
-		<
-			Dest
-		>(
-			dest
-		);
+	return dest;
 }
 
 }

@@ -10,10 +10,11 @@
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/store.hpp>
-#include <mizuiro/color/homogenous_fwd.hpp>
+#include <mizuiro/color/is_homogenous.hpp>
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/array.hpp>
+#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
@@ -23,65 +24,65 @@ namespace types
 {
 
 template<
-	typename ChannelType,
-	typename Layout,
+	typename Format,
 	typename Constness
 >
 struct pointer<
 	::mizuiro::access::normal,
-	color::homogenous<
-		ChannelType,
-		Layout
-	>,
-	Constness
+	Format,
+	Constness,
+	typename boost::enable_if<
+		color::is_homogenous<
+			Format
+		>
+	>::type
 >
 :
 mizuiro::detail::apply_const<
-	ChannelType *,
+	typename Format::channel_type *,
 	Constness
 >
 {};
 
 template<
-	typename ChannelType,
-	typename Layout,
+	typename Format,
 	typename Channel,
 	typename Constness
 >
 struct channel_reference<
 	::mizuiro::access::normal,
-	color::homogenous<
-		ChannelType,
-		Layout
-	>,
+	Format,
 	Channel,
-	Constness
+	Constness,
+	typename boost::enable_if<
+		color::is_homogenous<
+			Format
+		>
+	>::type
 >
 :
 mizuiro::detail::apply_const<
-	ChannelType &,
+	typename Format::channel_type &,
 	Constness
 >
 {};
 
 template<
-	typename ChannelType,
-	typename Layout
+	typename Format
 >
 struct store<
 	::mizuiro::access::normal,
-	color::homogenous<
-		ChannelType,
-		Layout
-	>
+	Format,
+	typename boost::enable_if<
+		color::is_homogenous<
+			Format
+		>
+	>::type
 >
 :
 mizuiro::array<
-	ChannelType,
-	color::homogenous<
-		ChannelType,
-		Layout
-	>::element_count
+	typename Format::channel_type,
+	Format::element_count
 >
 {};
 

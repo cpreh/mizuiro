@@ -16,7 +16,7 @@
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
-#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
 #include <iterator>
 #include <iostream>
 #include <ostream>
@@ -33,7 +33,7 @@ int main()
 			3
 		>,
 		mizuiro::image::interleaved<
-			mizuiro::color::homogenous<
+			mizuiro::color::homogenous_static<
 				channel_type,
 				mizuiro::color::layout::rgba
 			>

@@ -9,7 +9,7 @@
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/convert.hpp>
 #include <mizuiro/color/object.hpp>
-#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/output.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
@@ -19,7 +19,7 @@ int main()
 {
 	typedef boost::uint8_t channel_type;
 
-	typedef mizuiro::color::homogenous<
+	typedef mizuiro::color::homogenous_static<
 		channel_type,
 		mizuiro::color::layout::hsva
 	> hsva_format;
@@ -35,7 +35,7 @@ int main()
 		(mizuiro::color::init::alpha %= 1.0)
 	);
 
-	typedef mizuiro::color::homogenous<
+	typedef mizuiro::color::homogenous_static<
 		channel_type,
 		mizuiro::color::layout::rgba
 	> rgba_format;

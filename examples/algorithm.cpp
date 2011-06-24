@@ -17,7 +17,7 @@
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/argb.hpp>
 #include <mizuiro/color/init.hpp>
-#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/for_each_channel.hpp>
 #include <mizuiro/color/set.hpp>
 #include <mizuiro/color/get.hpp>
@@ -140,14 +140,14 @@ int main()
 	typedef boost::uint8_t channel_type;
 
 	typedef d2_format<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::rgba
 		>
 	>::type format1;
 
 	typedef d2_format<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			float,
 			mizuiro::color::layout::argb
 		>

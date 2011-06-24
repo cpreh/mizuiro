@@ -13,9 +13,10 @@
 #include <mizuiro/image/detail/raw_container_fwd.hpp>
 #include <mizuiro/color/types/homogenous_raw.hpp>
 #include <mizuiro/color/types/pointer.hpp>
-#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/is_homogenous.hpp>
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/raw_value.hpp>
+#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
@@ -45,15 +46,16 @@ struct pointer<
 };
 
 template<
-	typename ChannelType,
-	typename Layout
+	typename Format
 >
 struct data_store<
 	::mizuiro::access::raw,
-	::mizuiro::color::homogenous<
-		ChannelType,
-		Layout
-	>
+	Format,
+	typename boost::enable_if<
+		::mizuiro::color::is_homogenous<
+			Format
+		>
+	>::type
 >
 {
 	typedef detail::raw_container<

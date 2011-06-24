@@ -16,6 +16,8 @@ namespace color
 
 template<
 	typename ChannelType,
+	typename AvailableChannels,
+	AvailableChannels AllChannels,
 	mizuiro::size_type Size
 >
 struct homogenous_dynamic;

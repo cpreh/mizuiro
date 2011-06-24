@@ -4,7 +4,7 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/init.hpp>
@@ -18,7 +18,7 @@ int main()
 	typedef boost::uint8_t channel;
 
 	typedef mizuiro::color::object<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			channel,
 			mizuiro::color::layout::rgba
 		>

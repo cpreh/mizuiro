@@ -4,7 +4,7 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
@@ -34,7 +34,7 @@ int main()
 	typedef mizuiro::image::format<
 		dim_type,
 		mizuiro::image::interleaved<
-			mizuiro::color::homogenous<
+			mizuiro::color::homogenous_static<
 				channel_type,
 				mizuiro::color::layout::rgba
 			>

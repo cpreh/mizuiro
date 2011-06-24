@@ -17,7 +17,8 @@ namespace types
 {
 
 template<
-	typename Format
+	typename Format,
+	typename Enable = void
 >
 struct value_type
 {

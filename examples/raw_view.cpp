@@ -13,7 +13,7 @@
 #include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
-#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/access/raw.hpp>
@@ -33,7 +33,7 @@ int main()
 	typedef mizuiro::image::format<
 		dim_type,
 		mizuiro::image::interleaved<
-			mizuiro::color::homogenous<
+			mizuiro::color::homogenous_static<
 				float,
 				mizuiro::color::layout::rgba
 			>

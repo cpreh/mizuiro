@@ -16,7 +16,8 @@ namespace types
 
 template<
 	typename Format,
-	typename Channel
+	typename Channel,
+	typename Enable = void
 >
 struct channel_value;
 

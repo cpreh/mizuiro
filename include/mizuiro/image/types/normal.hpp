@@ -13,8 +13,9 @@
 #include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
-#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/is_homogenous.hpp>
 #include <mizuiro/access/normal.hpp>
+#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
@@ -41,19 +42,20 @@ mizuiro::color::types::pointer<
 {};
 
 template<
-	typename ChannelType,
-	typename Layout
+	typename Format
 >
 struct data_store<
 	::mizuiro::access::normal,
-	::mizuiro::color::homogenous<
-		ChannelType,
-		Layout
-	>
+	Format,
+	typename boost::enable_if<
+		::mizuiro::color::is_homogenous<
+			Format
+		>
+	>::type
 >
 {
 	typedef detail::raw_container<
-		ChannelType
+		typename Format::channel_type
 	> type;
 };
 

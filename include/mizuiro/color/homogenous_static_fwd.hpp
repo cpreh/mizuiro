@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_HOMOGENOUS_FWD_HPP_INCLUDED
-#define MIZUIRO_COLOR_HOMOGENOUS_FWD_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_HOMOGENOUS_STATIC_FWD_HPP_INCLUDED
+#define MIZUIRO_COLOR_HOMOGENOUS_STATIC_FWD_HPP_INCLUDED
 
 namespace mizuiro
 {
@@ -16,10 +16,9 @@ template<
 	typename ChannelType,
 	typename Layout
 >
-struct homogenous;
+struct homogenous_static;
 
 }
 }
 
 #endif
-

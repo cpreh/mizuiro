@@ -16,7 +16,8 @@ namespace types
 
 template<
 	typename Access,
-	typename Format
+	typename Format,
+	typename Enable = void
 >
 struct data_store;
 

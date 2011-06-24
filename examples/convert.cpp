@@ -11,7 +11,7 @@
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
-#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>
@@ -21,21 +21,21 @@ int main()
 	typedef boost::uint8_t channel_type;
 
 	typedef mizuiro::color::object<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::rgba
 		>
 	> rgba_color;
 
 	typedef mizuiro::color::object<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::gray
 		>
 	> luminance_color;
 
 	typedef mizuiro::color::object<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::alpha
 		>
@@ -63,7 +63,7 @@ int main()
 	typedef 
 		mizuiro::color::object
 		<
-			mizuiro::color::homogenous
+			mizuiro::color::homogenous_static
 			<
 				float,
 				mizuiro::color::layout::rgba

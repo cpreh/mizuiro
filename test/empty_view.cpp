@@ -2,7 +2,7 @@
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
-#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <boost/test/unit_test.hpp>
 #include <boost/cstdint.hpp>
@@ -16,7 +16,7 @@ BOOST_AUTO_TEST_CASE(
 			3
 		>,
 		mizuiro::image::interleaved<
-			mizuiro::color::homogenous<
+			mizuiro::color::homogenous_static<
 				boost::uint8_t,
 				mizuiro::color::layout::rgba
 			>

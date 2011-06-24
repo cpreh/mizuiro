@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_COLOR_IS_HOMOGENOUS_HPP_INCLUDED
 #define MIZUIRO_COLOR_IS_HOMOGENOUS_HPP_INCLUDED
 
-#include <mizuiro/color/homogenous_fwd.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <mizuiro/color/is_homogenous_dynamic.hpp>
+#include <mizuiro/color/is_homogenous_static.hpp>
+#include <boost/mpl/or.hpp>
 
 namespace mizuiro
 {
@@ -16,29 +17,22 @@ namespace color
 {
 
 template<
-	typename T
+	typename Format
 >
 struct is_homogenous
 :
-boost::false_type
-{};
-
-template<
-	typename ChannelType,
-	typename Layout
->
-struct is_homogenous<
-	homogenous<
-		ChannelType,
-		Layout
+boost::mpl::or_<
+	color::is_homogenous_static<
+		Format
+	>,
+	color::is_homogenous_dynamic<
+		Format
 	>
 >
-:
-boost::true_type
-{};
+{
+};
 
 }
 }
 
 #endif
-

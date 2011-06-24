@@ -6,7 +6,7 @@
 
 #include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/layout/gray.hpp>
-#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/proxy.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/format.hpp>
@@ -21,7 +21,7 @@ typedef mizuiro::image::format<
 		2
 	>,
 	mizuiro::image::interleaved<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			boost::uint8_t,
 			mizuiro::color::layout::gray
 		>

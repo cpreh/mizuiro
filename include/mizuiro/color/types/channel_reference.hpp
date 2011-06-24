@@ -18,7 +18,8 @@ template<
 	typename Access,
 	typename Format,
 	typename Channel,
-	typename Constness
+	typename Constness,
+	typename Enable = void
 >
 struct channel_reference;
 

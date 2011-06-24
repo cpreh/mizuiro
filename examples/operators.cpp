@@ -6,7 +6,7 @@
 
 #include <mizuiro/color/layout/rgb.hpp>
 #include <mizuiro/color/object.hpp>
-#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/operators.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/output.hpp>
@@ -19,7 +19,7 @@ int main()
 	typedef boost::uint8_t channel_type;
 
 	typedef mizuiro::color::object<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::rgb
 		>

@@ -8,7 +8,8 @@
 #define MIZUIRO_COLOR_TYPES_HOMOGENOUS_HPP_INCLUDED
 
 #include <mizuiro/color/types/channel_value.hpp>
-#include <mizuiro/color/homogenous_fwd.hpp>
+#include <mizuiro/color/is_homogenous.hpp>
+#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
@@ -18,19 +19,20 @@ namespace types
 {
 
 template<
-	typename ChannelType,
-	typename Layout,
+	typename Format,
 	typename Channel
 >
 struct channel_value<
-	color::homogenous<
-		ChannelType,
-		Layout
-	>,
-	Channel
+	Format,
+	Channel,
+	typename boost::enable_if<
+		color::is_homogenous<
+			Format
+		>
+	>::type
 >
 {
-	typedef ChannelType type;
+	typedef typename Format::channel_type type;
 };
 
 }

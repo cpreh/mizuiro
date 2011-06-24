@@ -9,6 +9,7 @@
 #include <mizuiro/color/layout/bgra.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/convert.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
 #include <boost/test/unit_test.hpp>
 #include <boost/cstdint.hpp>
 
@@ -19,14 +20,14 @@ BOOST_AUTO_TEST_CASE(
 	typedef boost::uint8_t channel_type;
 
 	typedef mizuiro::color::object<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::rgba
 		>
 	> rgba_color;
 
 	typedef mizuiro::color::object<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::bgra
 		>

@@ -11,7 +11,6 @@
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/is_homogenous.hpp>
 #include <mizuiro/access/is_normal.hpp>
-#include <mizuiro/detail/index_of.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <boost/mpl/and.hpp>
@@ -44,9 +43,9 @@ typename boost::enable_if<
 	>::type
 >::type
 extract_channel(
-	Access const &,
-	Format const &,
-	Channel const &,
+	Access const &_access,
+	Format const &_format,
+	Channel const &_channel,
 	Constness const &,
 	typename mizuiro::color::types::pointer<
 		Access,
@@ -57,10 +56,11 @@ extract_channel(
 {
 	return
 		_ptr[
-			mizuiro::detail::index_of<
-				typename Format::layout::order,
-				Channel
-			>::value
+			channel_index(
+				_access,
+				_format,
+				_channel
+			)
 		];
 }
 

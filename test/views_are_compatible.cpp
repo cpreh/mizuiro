@@ -3,7 +3,7 @@
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/view.hpp>
-#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/bgra.hpp>
 #include <mizuiro/color/layout/rgb.hpp>
@@ -20,7 +20,7 @@ typedef mizuiro::image::format<
 		3
 	>,
 	mizuiro::image::interleaved<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			boost::uint8_t,
 			mizuiro::color::layout::rgba
 		>
@@ -32,7 +32,7 @@ typedef mizuiro::image::format<
 		3
 	>,
 	mizuiro::image::interleaved<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			boost::uint8_t,
 			mizuiro::color::layout::bgra
 		>
@@ -44,7 +44,7 @@ typedef mizuiro::image::format<
 		2
 	>,
 	mizuiro::image::interleaved<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			boost::uint8_t,
 			mizuiro::color::layout::bgra
 		>
@@ -56,7 +56,7 @@ typedef mizuiro::image::format<
 		2
 	>,
 	mizuiro::image::interleaved<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			float,
 			mizuiro::color::layout::bgra
 		>
@@ -68,7 +68,7 @@ typedef mizuiro::image::format<
 		2
 	>,
 	mizuiro::image::interleaved<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			float,
 			mizuiro::color::layout::rgb
 		>

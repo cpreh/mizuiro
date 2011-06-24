@@ -4,7 +4,7 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/color/homogenous.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/interleaved.hpp>
@@ -48,21 +48,21 @@ int main()
 	typedef boost::uint8_t base_type;
 
 	typedef make_2d_format<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			base_type,
 			mizuiro::color::layout::rgba
 		>
 	>::type rgba_format;
 
 	typedef make_2d_format<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			base_type,
 			mizuiro::color::layout::alpha
 		>
 	>::type alpha_format;
 
 	typedef make_2d_format<
-		mizuiro::color::homogenous<
+		mizuiro::color::homogenous_static<
 			base_type,
 			mizuiro::color::layout::rgba
 		>

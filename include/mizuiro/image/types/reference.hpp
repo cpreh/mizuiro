@@ -19,7 +19,8 @@ namespace types
 template<
 	typename Access,
 	typename Format,
-	typename Constness
+	typename Constness,
+	typename Enable = void
 >
 struct reference
 {
