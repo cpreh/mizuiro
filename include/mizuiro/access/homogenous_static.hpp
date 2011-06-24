@@ -29,7 +29,7 @@ typename boost::enable_if<
 >::type
 channel_index(
 	Access const &,
-	Format const &,
+	Format const *,
 	Channel const &
 )
 {

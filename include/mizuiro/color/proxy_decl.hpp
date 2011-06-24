@@ -10,6 +10,7 @@
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
+#include <mizuiro/color/format_base_decl.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
 #include <mizuiro/const_tag.hpp>
 
@@ -24,7 +25,14 @@ template<
 	typename Constness
 >
 class proxy
+:
+	private color::format_base<
+		Format
+	>
 {
+	typedef color::format_base<
+		Format
+	> base;
 public:
 	typedef Access access;
 
@@ -38,7 +46,7 @@ public:
 
 	proxy(
 		pointer data,
-		Format const & = Format()
+		format const * = 0
 	);
 
 	template<
@@ -87,11 +95,11 @@ public:
 
 	pointer
 	data() const;
+
+	format const *
+	format_store() const;
 private:
 	pointer data_;	
-
-	// TODO: optimize this away if we don't need a dynamic format!
-	Format const *format_;
 };
 
 }

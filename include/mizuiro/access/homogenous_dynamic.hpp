@@ -28,14 +28,14 @@ typename boost::enable_if<
 >::type
 channel_index(
 	Access const &,
-	Format const &_format,
+	Format const *const _format,
 	Channel const &_channel
 )
 {
 	return
-		_format.indices[
+		_format->indices[
 			dynamic_index(
-				_format,
+				*_format,
 				_channel
 			)
 		];

@@ -44,7 +44,7 @@ typename boost::enable_if<
 >::type
 extract_channel(
 	Access const &_access,
-	Format const &_format,
+	Format const *const _format,
 	Channel const &_channel,
 	Constness const &,
 	typename mizuiro::color::types::pointer<

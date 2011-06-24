@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_OBJECT_IMPL_HPP_INCLUDED
 
 #include <mizuiro/color/init/detail/assign_object.hpp>
+#include <mizuiro/color/format_base_impl.hpp>
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/is_color.hpp>
@@ -18,11 +19,13 @@ template<
 	typename Format
 >
 mizuiro::color::object<Format>::object(
-	Format const &_format
+	format const *const _format
 )
 :
-	data_(),
-	format_(&_format)
+	base(
+		_format
+	),
+	data_()
 {}
 
 template<
@@ -32,8 +35,12 @@ mizuiro::color::object<Format>::object(
 	object const &_other
 )
 :
-	data_(_other.data_),
-	format_(_other.format_)
+	base(
+		_other.format_store()
+	),
+	data_(
+		_other.data_
+	)
 
 {}
 
@@ -52,14 +59,14 @@ mizuiro::color::object<Format>::object(
 	>::type *
 )
 :
-	data_(),
-	format_(
-		_other.format()
-	)
+	base(
+		_other.format_store()
+	),
+	data_()
 {
 	proxy(
 		data_.data(),
-		*format_
+		this->format_store()
 	) = _other;
 }
 
@@ -71,7 +78,7 @@ template<
 >
 mizuiro::color::object<Format>::object(
 	Init const &_init,
-	Format const &_format,
+	format const *const _format,
 	typename boost::disable_if<
 		color::is_color<
 			Init
@@ -79,8 +86,10 @@ mizuiro::color::object<Format>::object(
 	>::type *
 )
 :
-	data_(),
-	format_(&_format)
+	base(
+		_format
+	),
+	data_()
 {
 	init::detail::assign_object(
 		*this,
@@ -105,7 +114,7 @@ mizuiro::color::object<Format>::set(
 {
 	proxy(
 		data_.data(),
-		*format_
+		this->format_store()
 	)
 	.set(
 		_channel,
@@ -136,7 +145,7 @@ mizuiro::color::object<Format>::get(
 	return
 		const_proxy(
 			data_.data(),
-			*format_
+			this->format_store()
 		).get(
 			_channel
 		);
@@ -162,6 +171,15 @@ typename mizuiro::color::object<
 mizuiro::color::object<Format>::data() const
 {
 	return data_.data();
+}
+
+template<
+	typename Format
+>
+typename mizuiro::color::object<Format>::format const *
+mizuiro::color::object<Format>::format_store() const
+{
+	return this->format_store_base();
 }
 
 #endif

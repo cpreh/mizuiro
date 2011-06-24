@@ -8,8 +8,9 @@
 #define MIZUIRO_COLOR_OBJECT_DECL_HPP_INCLUDED
 
 #include <mizuiro/color/object_fwd.hpp>
-#include <mizuiro/color/proxy_fwd.hpp>
+#include <mizuiro/color/format_base_decl.hpp>
 #include <mizuiro/color/is_color.hpp>
+#include <mizuiro/color/proxy_fwd.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
@@ -33,7 +34,14 @@ template<
 	typename Format
 >
 class object
+:
+	private color::format_base<
+		Format
+	>
 {
+	typedef color::format_base<
+		Format
+	> base;
 public:
 	typedef Format format;
 
@@ -53,7 +61,7 @@ public:
 
 	/// constructs an uninitialized color
 	explicit object(
-		Format const & = Format()
+		format const * = 0
 	);
 
 	object(
@@ -79,7 +87,7 @@ public:
 	>
 	object(
 		Init const &,
-		Format const & = Format(),
+		format const * = 0,
 		typename boost::disable_if<
 			color::is_color<
 				Init
@@ -121,6 +129,9 @@ public:
 	/// const pointer to the internal data
 	const_pointer
 	data() const;
+
+	format const *
+	format_store() const;
 private:
 	typedef color::proxy<
 		access,
@@ -140,8 +151,6 @@ private:
 	>::type store;
 
 	store data_;
-
-	Format const *format_;
 };
 
 }

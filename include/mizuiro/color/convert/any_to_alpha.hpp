@@ -39,12 +39,17 @@ typename boost::enable_if<
 	> const
 >::type
 convert(
-	Src const &_src
+	Src const &_src,
+	Dest const &_format = Dest()
 )
 {
-	color::object<
+	typedef color::object<
 		Dest
-	> dest;
+	> dest_type;
+	
+	dest_type dest(
+		_format
+	);
 
 	detail::copy_or_max_alpha(
 		_src,

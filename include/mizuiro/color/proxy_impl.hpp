@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_PROXY_IMPL_HPP_INCLUDED
 
 #include <mizuiro/color/proxy_decl.hpp>
+#include <mizuiro/color/format_base_impl.hpp>
 #include <mizuiro/color/detail/copy_channel.hpp>
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
@@ -20,11 +21,15 @@ template<
 >
 mizuiro::color::proxy<Access, Format, Constness>::proxy(
 	pointer const _data,
-	Format const &_format
+	Format const *const _format
 )
 :
-	data_(_data),
-	format_(&_format)
+	base(
+		_format
+	),
+	data_(
+		_data
+	)
 {}
 
 template<
@@ -43,7 +48,12 @@ mizuiro::color::proxy<Access, Format, Constness>::proxy(
 	> const &_other
 )
 :
-	data_(_other.data())
+	base(
+		_other.format_store()
+	),
+	data_(
+		_other.data()
+	)
 {}
 
 template<
@@ -97,7 +107,7 @@ mizuiro::color::proxy<Access, Format, Constness>::set(
 {
 	extract_channel(
 		Access(),
-		*format_,
+		this->format_store(),
 		_channel,
 		mizuiro::nonconst_tag(),
 		data_	
@@ -125,7 +135,7 @@ mizuiro::color::proxy<Access, Format, Constness>::get(
 	return
 		extract_channel(
 			Access(),
-			*format_,
+			this->format_store(),
 			_channel,
 			mizuiro::const_tag(),
 			data_
@@ -141,6 +151,17 @@ typename mizuiro::color::proxy<Access, Format, Constness>::pointer
 mizuiro::color::proxy<Access, Format, Constness>::data() const
 {
 	return data_;
+}
+
+template<
+	typename Access,
+	typename Format,
+	typename Constness
+>
+typename mizuiro::color::proxy<Access, Format, Constness>::format const *
+mizuiro::color::proxy<Access, Format, Constness>::format_store() const
+{
+	return this->format_store_base();
 }
 
 #endif
