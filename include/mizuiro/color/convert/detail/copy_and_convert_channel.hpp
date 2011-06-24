@@ -40,6 +40,7 @@ copy_and_convert_channel(
 			Float
 		>
 		(
+			_channel,
 			color::normalize<
 				Float
 			>

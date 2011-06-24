@@ -60,9 +60,8 @@ int main()
 		++it
 	)
 	{
-		(*it).set<
-			mizuiro::color::channel::red
-		>(
+		(*it).set(
+			mizuiro::color::channel::red(),
 			static_cast<unsigned char>(10)
 		);
 	}

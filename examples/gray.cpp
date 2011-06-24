@@ -40,9 +40,8 @@ struct set_color
 		T const &_color
 	) const
 	{
-		_color. template set<
-			mizuiro::color::channel::luminance
-		>(
+		_color.set(
+			mizuiro::color::channel::luminance(),
 			42
 		);
 	}

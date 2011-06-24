@@ -65,16 +65,17 @@ struct compare<
 	)
 	{
 		typedef typename boost::mpl::deref<Iterator>::type item;
+
 		typedef typename boost::mpl::next<Iterator>::type iter;
 
 		return
 			::mizuiro::compare(
-				_color1. template get<
-					item
-				>(),
-				_color2. template get<
-					item
-				>()
+				_color1.get(
+					item()
+				),
+				_color2.get(
+					item()
+				)	
 			)
 			?
 				detail::compare<

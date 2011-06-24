@@ -48,30 +48,29 @@ public:
 	>
 	result_type
 	operator()(
-		Channel const &
+		Channel const &_channel
 	) const
 	{
 		typedef typename color::types::channel_value<
 			typename Color1::format,
 			Channel
-		>::type channel_value_;
+		>::type channel_value;
 
-		color1_. template set<
-			Channel
-		>(
+		color1_.set(
+			_channel,
 			static_cast<
-				channel_value_
+				channel_value
 			>(
 				Operation<
-					channel_value_
+					channel_value
 				>()
 				(
-					color1_. template get<
-						Channel
-					>(),
-					color2_. template get<
-						Channel
-					>()
+					color1_.get(
+						_channel
+					),
+					color2_.get(
+						_channel
+					)
 				)
 			)
 		);

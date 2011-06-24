@@ -10,7 +10,10 @@
 #include <mizuiro/color/convert/detail/max_alpha.hpp>
 #include <mizuiro/color/normalize.hpp>
 #include <mizuiro/color/denormalize.hpp>
+#include <mizuiro/color/channel/blue.hpp>
+#include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/luminance.hpp>
+#include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/is_rgb.hpp>
 #include <mizuiro/color/is_luminance.hpp>
 #include <mizuiro/color/object_impl.hpp>
@@ -57,44 +60,47 @@ convert(
 	);
 	
 	float const src_normalized = 
-		normalize
+		color::normalize
 		<
-			channel::luminance,
 			float
 		>
 		(
-			_src
+			_src,
+			channel::luminance()
 		);
 
-	dest.template set<channel::red>
+	dest.set
 	(
-		denormalize<
-			typename dest_object::format,
-			channel::red
+		channel::red(),
+		color::denormalize<
+			typename dest_object::format
 		>
 		(
+			channel::red(),
 			0.3f * src_normalized
 		)
 	);
 
-	dest.template set<channel::green>
+	dest.set
 	(
-		denormalize<
-			typename dest_object::format,
-			channel::green
+		channel::green(),
+		color::denormalize<
+			typename dest_object::format
 		>
 		(
+			channel::green(),
 			0.59f * src_normalized
 		)
 	);
 
-	dest.template set<channel::blue>
+	dest.set
 	(
-		denormalize<
-			typename dest_object::format,
-			channel::blue
+		channel::blue(),
+		color::denormalize<
+			typename dest_object::format
 		>
 		(
+			channel::blue(),
 			0.11f * src_normalized
 		)
 	);

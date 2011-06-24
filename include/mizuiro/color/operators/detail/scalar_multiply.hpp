@@ -45,12 +45,11 @@ public:
 	>
 	result_type
 	operator()(
-		Channel const &
+		Channel const &_channel
 	) const
 	{
-		color_. template set<
-			Channel
-		>(
+		color_.set(
+			_channel,
 			static_cast<
 				typename color::types::channel_value<
 					typename Color::format,
@@ -60,9 +59,9 @@ public:
 				static_cast<
 					Scalar
 				>(
-					color_. template get<
-						Channel
-					>()
+					color_.get(
+						_channel
+					)
 				)
 				*
 				scalar_

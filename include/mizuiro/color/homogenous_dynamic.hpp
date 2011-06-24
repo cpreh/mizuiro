@@ -17,13 +17,34 @@ namespace color
 
 template<
 	typename ChannelType,
+	typename AvailableChannels,
+	AvailableChannels AllChannels,
 	mizuiro::size_type Size
 >
 struct homogenous_dynamic
 {
+	typedef mizuiro::array<
+		AvailableChannels,
+		Size
+	> channel_array;
+
+	typedef mizuiro::array<
+		size_type,
+		AllChannels
+	> channel_index_array;
+
+	explicit
+	homogenous_dynamic(
+		channel_array const &
+	);
+
 	typedef ChannelType channel_type;
 
 	static size_type const element_count = Size;
+
+	channel_array const layout;
+
+	channel_index_array const indices;
 };
 
 }

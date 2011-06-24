@@ -38,7 +38,8 @@ typename boost::enable_if
 >::type
 denormalize
 (
-	Float const src
+	Channel const &,
+	Float const _src
 )
 {
 	return
@@ -49,7 +50,7 @@ denormalize
 				Channel
 			>::type
 		>(
-			src
+			_src
 		);
 }
 

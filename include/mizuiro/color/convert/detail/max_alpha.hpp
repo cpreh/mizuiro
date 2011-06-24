@@ -37,14 +37,11 @@ max_alpha(
 	Color &_color
 )
 {
-	// FIXME!
-#if 0
-	color::detail::channel_to_max<
-		channel::alpha
-	>(
-		_color
+	color::detail::channel_to_max
+	(
+		_color,
+		channel::alpha()
 	);
-#endif
 }
 
 }

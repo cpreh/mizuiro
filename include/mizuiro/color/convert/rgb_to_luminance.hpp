@@ -55,32 +55,30 @@ convert(
 	
 	dest_type dest;
 	
-	dest.template set<
-		channel::luminance
-	>(
+	dest.set(
+		channel::luminance(),
 		color::denormalize<
-			typename dest_type::format,
-			channel::luminance,
-			float
+			typename dest_type::format
 		>(
+			channel::luminance(),
 			color::luminance(
 				color::normalize<
-					channel::red,
 					float
 				>(
-					_src
+					_src,
+					channel::red()
 				),
 				color::normalize<
-					channel::green,
 					float
 				>(
-					_src
+					_src,
+					channel::green()
 				),
 				color::normalize<
-					channel::blue,
 					float
 				>(
-					_src
+					_src,
+					channel::blue()
 				)
 			)
 		)

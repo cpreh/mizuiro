@@ -33,19 +33,28 @@ class channel_percentage
 	);
 public:
 	typedef Value value_type;
+
 	typedef Channel channel_type;
 
-	explicit channel_percentage(
-		Value const &_value
+	channel_percentage(
+		Value const &_value,
+		Channel const &_channel
 	)
 	:
-		value_(_value)
+		value_(_value),
+		channel_(_channel)
 	{}
 	
 	Value const &
 	value() const
 	{
 		return value_;
+	}
+
+	Channel const &
+	channel() const
+	{
+		return channel_;
 	}
 
 	template<
@@ -72,6 +81,8 @@ public:
 	}
 private:
 	Value const value_;
+
+	Channel const channel_;
 };
 
 }

@@ -50,18 +50,15 @@ copy_or_max_alpha(
 	Dest &_dest
 )
 {
-	// FIXME!
-#if 0
 	color::detail::copy_and_convert_channel
 	<
-		channel::alpha,
 		float
 	>
 	(
-		src,
-		dest
+		channel::alpha(),
+		_src,
+		_dest
 	);
-#endif
 }
 
 // source doesn't have an alpha channel, but destination has, so max out destination alpha

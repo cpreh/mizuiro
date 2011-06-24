@@ -10,6 +10,9 @@
 #include <mizuiro/color/convert/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/convert/detail/rgb_from_chroma.hpp>
 #include <mizuiro/color/convert/same_to_same.hpp> // TODO!
+#include <mizuiro/color/channel/hue.hpp>
+#include <mizuiro/color/channel/saturation.hpp>
+#include <mizuiro/color/channel/value.hpp>
 #include <mizuiro/color/is_rgb.hpp>
 #include <mizuiro/color/is_hsv.hpp>
 #include <mizuiro/color/object_impl.hpp>
@@ -50,7 +53,7 @@ boost::enable_if
 >::type
 convert
 (
-	Src const &source_
+	Src const &_source
 )
 {
 	typedef float float_type;
@@ -58,26 +61,26 @@ convert
 	float_type const
 		hue(
 			color::normalize<
-				channel::hue,
 				float_type
 			>(
-				source_
+				_source,
+				channel::hue()
 			)
 		),
 		saturation(
 			color::normalize<
-				channel::saturation,
 				float_type
 			>(
-				source_
+				_source,
+				channel::saturation()
 			)
 		),
 		value(
 			color::normalize<
-				channel::value,
 				float_type
 			>(
-				source_
+				_source,
+				channel::value()
 			)
 		),
 		chroma(
@@ -90,13 +93,13 @@ convert
 		);
 	
 	float_type const hue_part(
-			hue
-			*
-			static_cast<
-				float_type
-			>(
-				6
-			)
+		hue
+		*
+		static_cast<
+			float_type
+		>(
+			6
+		)
 	);
 	
 	typedef int int_type;
@@ -145,7 +148,7 @@ convert
 
 	detail::copy_or_max_alpha
 	(
-		source_,
+		_source,
 		dest
 	);
 	
