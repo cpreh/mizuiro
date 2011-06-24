@@ -52,7 +52,9 @@ public:
 	>::type const_pointer;
 
 	/// constructs an uninitialized color
-	object();
+	explicit object(
+		Format const & = Format()
+	);
 
 	object(
 		object const &
@@ -77,6 +79,7 @@ public:
 	>
 	object(
 		Init const &,
+		Format const & = Format(),
 		typename boost::disable_if<
 			color::is_color<
 				Init
@@ -137,6 +140,8 @@ private:
 	>::type store;
 
 	store data_;
+
+	Format const *format_;
 };
 
 }

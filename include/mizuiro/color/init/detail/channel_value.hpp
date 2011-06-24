@@ -33,6 +33,7 @@ class channel_value
 	);
 public:
 	typedef Value value_type;
+
 	typedef Channel channel_type;
 
 	channel_value(
@@ -59,7 +60,7 @@ public:
 	template<
 		typename NewInit
 	>
-	make_impl<
+	detail::make_impl<
 		boost::fusion::vector2<
 			detail::channel_value<
 				Value,

@@ -36,8 +36,9 @@ public:
 		Constness
 	>::type pointer;
 
-	explicit proxy(
-		pointer data
+	proxy(
+		pointer data,
+		Format const & = Format()
 	);
 
 	template<
@@ -88,6 +89,9 @@ public:
 	data() const;
 private:
 	pointer data_;	
+
+	// TODO: optimize this away if we don't need a dynamic format!
+	Format const *format_;
 };
 
 }

@@ -60,7 +60,7 @@ public:
 	template<
 		typename NewInit
 	>
-	make_impl<
+	detail::make_impl<
 		boost::fusion::vector2<
 			detail::channel_percentage<
 				Value,

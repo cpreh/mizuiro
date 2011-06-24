@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_ACCESS_HOMOGENOUS_DYNAMIC_HPP_INCLUDED
 #define MIZUIRO_ACCESS_HOMOGENOUS_DYNAMIC_HPP_INCLUDED
 
-#include <mizuiro/detail/index_of.hpp>
+#include <mizuiro/color/is_homogenous_dynamic.hpp>
 #include <mizuiro/size_type.hpp>
 
 namespace mizuiro
@@ -21,22 +21,24 @@ template<
 	typename Channel
 >
 typename boost::enable_if<
-	mizuiro::color::is_homogenous_static<
+	mizuiro::color::is_homogenous_dynamic<
 		Format
 	>,
 	mizuiro::size_type
 >::type
 channel_index(
 	Access const &,
-	Format const &,
-	Channel const &
+	Format const &_format,
+	Channel const &_channel
 )
 {
 	return
-		mizuiro::detail::index_of<
-			typename Format::layout::order,
-			Channel
-		>::value;
+		_format.indices[
+			dynamic_index(
+				_format,
+				_channel
+			)
+		];
 }
 
 }

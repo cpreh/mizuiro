@@ -19,10 +19,12 @@ template<
 	typename Constness
 >
 mizuiro::color::proxy<Access, Format, Constness>::proxy(
-	pointer const _data
+	pointer const _data,
+	Format const &_format
 )
 :
-	data_(_data)
+	data_(_data),
+	format_(&_format)
 {}
 
 template<
@@ -95,7 +97,7 @@ mizuiro::color::proxy<Access, Format, Constness>::set(
 {
 	extract_channel(
 		Access(),
-		Format(),
+		*format_,
 		_channel,
 		mizuiro::nonconst_tag(),
 		data_	
@@ -123,7 +125,7 @@ mizuiro::color::proxy<Access, Format, Constness>::get(
 	return
 		extract_channel(
 			Access(),
-			Format(),
+			*format_,
 			_channel,
 			mizuiro::const_tag(),
 			data_
