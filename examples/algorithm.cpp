@@ -19,8 +19,6 @@
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/for_each_channel.hpp>
-#include <mizuiro/color/set.hpp>
-#include <mizuiro/color/get.hpp>
 #include <mizuiro/color/proxy.hpp>
 #include <boost/spirit/home/phoenix/core/argument.hpp>
 #include <boost/cstdint.hpp>
@@ -66,17 +64,13 @@ struct channel_operation
 	>
 	result_type
 	operator()(
-		Channel &
+		Channel const &_channel
 	) const
 	{
-		mizuiro::color::set<
-			Channel
-		>(
-			dest_,
-			mizuiro::color::get<
-				Channel
-			>(
-				src_
+		dest_.set(
+			_channel,
+			src_.get(
+				_channel
 			)
 		);
 	}
@@ -100,7 +94,7 @@ struct transform_test
 	) const
 	{
 		mizuiro::color::for_each_channel<
-			typename Src::layout
+			typename Src::format::layout
 		>(
 			::channel_operation<
 				Src,
@@ -209,7 +203,7 @@ int main()
 		img2.view()
 	);
 
-	/*
+#if 0
 	mizuiro::image::algorithm::transform(
 		img2.view(),
 		img1.view(),
@@ -222,7 +216,6 @@ int main()
 		img1.view(),
 		transform_test_2()
 	);
-	*/
-
+#endif
 	std::cout << '\n';
 }
