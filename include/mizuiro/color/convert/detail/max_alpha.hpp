@@ -24,6 +24,26 @@ template
 	class Color
 >
 typename 
+boost::disable_if
+<
+	color::has_channel
+	<
+		typename Color::format,
+		channel::alpha
+	>, 
+	void
+>::type 
+max_alpha(
+	Color &
+)
+{
+}
+
+template
+<
+	class Color
+>
+typename 
 boost::enable_if
 <
 	color::has_channel

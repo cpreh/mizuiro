@@ -8,10 +8,7 @@
 #define MIZUIRO_COLOR_INIT_DETAIL_CHANNEL_PERCENTAGE_HPP_INCLUDED
 
 #include <mizuiro/color/init/detail/channel_percentage_fwd.hpp>
-#include <mizuiro/color/init/detail/make_impl.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
-#include <boost/fusion/container/vector/vector.hpp>
-#include <boost/fusion/container/generation/make_vector.hpp>
 
 namespace mizuiro
 {
@@ -55,29 +52,6 @@ public:
 	channel() const
 	{
 		return channel_;
-	}
-
-	template<
-		typename NewInit
-	>
-	detail::make_impl<
-		boost::fusion::vector2<
-			detail::channel_percentage<
-				Value,
-				Channel
-			>,
-			NewInit
-		>
-	> const
-	operator()(
-		NewInit const &_newinit
-	) const
-	{
-		return
-			boost::fusion::make_vector(
-				*this,
-				_newinit
-			);
 	}
 private:
 	Value const value_;

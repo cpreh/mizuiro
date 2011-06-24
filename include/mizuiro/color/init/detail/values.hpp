@@ -4,11 +4,13 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_INIT_DETAIL_MAKE_IMPL_HPP_INCLUDED
-#define MIZUIRO_COLOR_INIT_DETAIL_MAKE_IMPL_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_INIT_DETAIL_VALUES_HPP_INCLUDED
+#define MIZUIRO_COLOR_INIT_DETAIL_VALUES_HPP_INCLUDED
 
+#include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <boost/fusion/algorithm/transformation/push_back.hpp>
 #include <boost/fusion/container/vector/convert.hpp>
+#include <boost/fusion/sequence/intrinsic/front.hpp>
 
 namespace mizuiro
 {
@@ -22,17 +24,17 @@ namespace detail
 template<
 	typename Vector
 >
-class make_impl
+class values 
 {
 public:
 	typedef Vector vector_type;
 
-	make_impl()
+	values()
 	:
 		elements_()
 	{}
 
-	make_impl(
+	values(
 		vector_type const &_elements
 	)
 	:
@@ -42,7 +44,7 @@ public:
 	template<
 		typename NewInit
 	>
-	make_impl<
+	values<
 		typename boost::fusion::result_of::as_vector<
 			typename boost::fusion::result_of::push_back<
 				vector_type,
@@ -51,14 +53,20 @@ public:
 		>::type
 	> const
 	operator()(
-		NewInit const &_newinit
+		values<
+			boost::fusion::vector1<
+				NewInit
+			>
+		> const &_newinit
 	) const
 	{
 		return
 			boost::fusion::as_vector(
 				boost::fusion::push_back(
 					elements_,
-					_newinit
+					boost::fusion::front(
+						_newinit.get()
+					)
 				)
 			);
 	}

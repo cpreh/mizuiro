@@ -11,6 +11,7 @@
 #include <mizuiro/color/format_base_decl.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
+#include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
@@ -83,16 +84,13 @@ public:
 
 	/// Constructs a color from a special init expression
 	template<
-		typename Init
+		typename Vector
 	>
 	object(
-		Init const &,
-		format const * = 0,
-		typename boost::disable_if<
-			color::is_color<
-				Init
-			>
-		>::type * = 0
+		init::detail::values<
+			Vector
+		> const &,
+		format const * = 0
 	);
 
 	/// Sets a color channel denoted by @tparam Channel

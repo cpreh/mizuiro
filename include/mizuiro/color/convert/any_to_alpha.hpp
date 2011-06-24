@@ -40,7 +40,7 @@ typename boost::enable_if<
 >::type
 convert(
 	Src const &_src,
-	Dest const &_format = Dest()
+	Dest const *const _format = 0
 )
 {
 	typedef color::object<

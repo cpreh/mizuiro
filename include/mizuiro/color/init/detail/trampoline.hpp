@@ -9,8 +9,12 @@
 
 #include <mizuiro/color/init/detail/channel_value.hpp>
 #include <mizuiro/color/init/detail/channel_percentage.hpp>
-#include <boost/type_traits/is_floating_point.hpp>
+#include <mizuiro/color/init/detail/make_values.hpp>
+#include <mizuiro/color/init/detail/values.hpp>
+#include <boost/fusion/container/generation/make_vector.hpp>
+#include <boost/fusion/container/vector/vector.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <boost/type_traits/is_floating_point.hpp>
 
 namespace mizuiro
 {
@@ -26,29 +30,35 @@ template<
 >
 struct trampoline
 {
-	// TODO: check if this format has static channels!
 	template<
 		typename Value
 	>
-	color::init::detail::channel_value<
-		Value,
-		Channel
+	detail::values<
+		boost::fusion::vector1<
+			color::init::detail::channel_value<
+				Value,
+				Channel
+			>
+		>
 	> const
 	operator=(
 		Value const &_value
 	) const
 	{
 		return
-			color::init::detail::channel_value<
-				Value,
-				Channel
-			>(
-				_value,
-				Channel()
+			detail::make_values(
+				boost::fusion::make_vector(	
+					color::init::detail::channel_value<
+						Value,
+						Channel
+					>(
+						_value,
+						Channel()
+					)
+				)
 			);
 	}
 
-	// TODO: likewise
 	template<
 		typename Value
 	>
@@ -56,9 +66,13 @@ struct trampoline
 		boost::is_floating_point<
 			Value
 		>,
-		color::init::detail::channel_percentage<
-			Value,
-			Channel
+		detail::values<
+			boost::fusion::vector1<
+				color::init::detail::channel_percentage<
+					Value,
+					Channel
+				>
+			>
 		> const
 	>::type
 	operator%=(
@@ -66,12 +80,16 @@ struct trampoline
 	) const
 	{
 		return
-			color::init::detail::channel_percentage<
-				Value,
-				Channel
-			>(
-				_value,
-				Channel()
+			detail::make_values(
+				boost::fusion::make_vector(	
+					color::init::detail::channel_percentage<
+						Value,
+						Channel
+					>(
+						_value,
+						Channel()
+					)
+				)
 			);
 	}
 };

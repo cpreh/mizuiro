@@ -48,7 +48,7 @@ convert(
 	Src const &_src
 )
 {
-	typedef object<
+	typedef color::object<
 		Dest
 	> dest_object;
 

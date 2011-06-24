@@ -7,11 +7,10 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_ASSIGN_OBJECT_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_ASSIGN_OBJECT_HPP_INCLUDED
 
-#include <mizuiro/color/init/detail/is_single_value.hpp>
-#include <mizuiro/color/init/detail/set_channel.hpp>
+#include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <mizuiro/color/init/detail/visitor.hpp>
+#include <mizuiro/color/object_fwd.hpp>
 #include <boost/fusion/algorithm/iteration/for_each.hpp>
-#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
@@ -23,48 +22,26 @@ namespace detail
 {
 
 template<
-	typename Object,
-	typename Init
+	typename Format,
+	typename Vector
 >
-typename boost::enable_if<
-	detail::is_single_value<
-		Init
-	>,
-	void
->::type
+void
 assign_object(
-	Object &_object,
-	Init const &_init
-)
-{
-	set_channel(
-		_object,
-		_init
-	);
-}
-
-template<
-	typename Object,
-	typename Init
->
-typename boost::disable_if<
-	detail::is_single_value<
-		Init
-	>,
-	void
->::type
-assign_object(
-	Object &_object,
-	Init const &_init
+	color::object<
+		Format
+	> &_object,
+	detail::values<
+		Vector
+	> const &_init
 )
 {
 	boost::fusion::for_each<
-		typename Init::vector_type
+		Vector
 	>
 	(
 		_init.get(),
 		detail::visitor<
-			typename Object::format
+			Format
 		>(
 			_object
 		)

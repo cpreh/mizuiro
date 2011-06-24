@@ -74,16 +74,13 @@ template<
 	typename Format
 >
 template<
-	typename Init
+	typename Vector
 >
 mizuiro::color::object<Format>::object(
-	Init const &_init,
-	format const *const _format,
-	typename boost::disable_if<
-		color::is_color<
-			Init
-		>
-	>::type *
+	init::detail::values<
+		Vector
+	> const &_init,
+	format const *const _format
 )
 :
 	base(
