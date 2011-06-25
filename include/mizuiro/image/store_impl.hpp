@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_STORE_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_STORE_IMPL_HPP_INCLUDED
 
+#include <mizuiro/access/data_store_size.hpp>
 #include <mizuiro/image/store_decl.hpp>
 #include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/detail/raw_container_impl.hpp>
@@ -35,7 +36,11 @@ mizuiro::image::store<Format, Access>::store(
 		_dim
 	),
 	data_(
-		data_store_size(
+		mizuiro::access::data_store_size<
+			Access,
+			Format,
+			dim_type
+		>::execute(
 			Access(),
 			Format(),
 			dim_

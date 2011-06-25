@@ -8,7 +8,10 @@
 #define MIZUIRO_COLOR_HOMOGENOUS_DYNAMIC_DECL_HPP_INCLUDED
 
 #include <mizuiro/color/homogenous_dynamic_fwd.hpp>
+#include <mizuiro/color/types/homogenous_normal.hpp>
+#include <mizuiro/color/types/homogenous.hpp>
 #include <mizuiro/access/homogenous_dynamic.hpp>
+#include <mizuiro/array.hpp>
 #include <mizuiro/size_type.hpp>
 
 namespace mizuiro
@@ -24,15 +27,17 @@ template<
 >
 struct homogenous_dynamic
 {
-	typedef mizuiro::array<
+	typedef AvailableChannels available_channels;
+
+	typedef typename mizuiro::array<
 		AvailableChannels,
 		Size
-	> channel_array;
+	>::type channel_array;
 
-	typedef mizuiro::array<
+	typedef typename mizuiro::array<
 		size_type,
 		AllChannels
-	> channel_index_array;
+	>::type channel_index_array;
 
 	explicit
 	homogenous_dynamic(
