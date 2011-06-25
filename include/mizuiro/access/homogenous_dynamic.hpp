@@ -7,8 +7,11 @@
 #ifndef MIZUIRO_ACCESS_HOMOGENOUS_DYNAMIC_HPP_INCLUDED
 #define MIZUIRO_ACCESS_HOMOGENOUS_DYNAMIC_HPP_INCLUDED
 
+#include <mizuiro/access/channel_index.hpp>
+#include <mizuiro/access/dynamic_index.hpp>
 #include <mizuiro/color/is_homogenous_dynamic.hpp>
 #include <mizuiro/size_type.hpp>
+#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
@@ -20,26 +23,39 @@ template<
 	typename Format,
 	typename Channel
 >
-typename boost::enable_if<
-	mizuiro::color::is_homogenous_dynamic<
-		Format
-	>,
-	mizuiro::size_type
->::type
-channel_index(
-	Access const &,
-	Format const *const _format,
-	Channel const &_channel
-)
+struct channel_index<
+	Access,
+	Format,
+	Channel,
+	typename boost::enable_if<
+		mizuiro::color::is_homogenous_dynamic<
+			Format
+		>
+	>::type
+>
 {
-	return
-		_format->indices[
-			dynamic_index(
-				*_format,
-				_channel
-			)
-		];
-}
+	static
+	mizuiro::size_type
+	execute(
+		Access const &_access,
+		Format const *const _format,
+		Channel const &_channel
+	)
+	{
+		return
+			_format->indices[
+				mizuiro::access::dynamic_index<
+					Access,
+					Format,
+					Channel
+				>::execute(
+					_access,
+					*_format,
+					_channel
+				)
+			];
+	}
+};
 
 }
 }

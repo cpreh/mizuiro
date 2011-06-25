@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_ACCESS_HOMOGENOUS_STATIC_HPP_INCLUDED
 #define MIZUIRO_ACCESS_HOMOGENOUS_STATIC_HPP_INCLUDED
 
+#include <mizuiro/access/channel_index.hpp>
 #include <mizuiro/color/is_homogenous_static.hpp>
 #include <mizuiro/detail/index_of.hpp>
 #include <mizuiro/size_type.hpp>
@@ -21,24 +22,32 @@ template<
 	typename Format,
 	typename Channel
 >
-typename boost::enable_if<
-	mizuiro::color::is_homogenous_static<
-		Format
-	>,
-	mizuiro::size_type
->::type
-channel_index(
-	Access const &,
-	Format const *,
-	Channel const &
-)
+struct channel_index<
+	Access,
+	Format,
+	Channel,
+	typename boost::enable_if<
+		mizuiro::color::is_homogenous_static<
+			Format
+		>
+	>::type
+>
 {
-	return
-		mizuiro::detail::index_of<
-			typename Format::layout::order,
-			Channel
-		>::value;
-}
+	static
+	mizuiro::size_type
+	execute(
+		Access const &,
+		Format const *,
+		Channel const &
+	)
+	{
+		return
+			mizuiro::detail::index_of<
+				typename Format::layout::order,
+				Channel
+			>::value;
+	}
+};
 
 }
 }

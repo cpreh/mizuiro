@@ -4,11 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_ACCESS_IS_NORMAL_HPP_INCLUDED
-#define MIZUIRO_ACCESS_IS_NORMAL_HPP_INCLUDED
-
-#include <mizuiro/access/normal.hpp>
-#include <boost/type_traits/is_same.hpp>
+#ifndef MIZUIRO_ACCESS_DYNAMIC_INDEX_HPP_INCLUDED
+#define MIZUIRO_ACCESS_DYNAMIC_INDEX_HPP_INCLUDED
 
 namespace mizuiro
 {
@@ -16,15 +13,12 @@ namespace access
 {
 
 template<
-	typename T
+	typename Access,
+	typename Format,
+	typename Channel,
+	typename Enable = void
 >
-struct is_normal
-:
-boost::is_same<
-	T,
-	normal
->
-{};
+struct dynamic_index;
 
 }
 }

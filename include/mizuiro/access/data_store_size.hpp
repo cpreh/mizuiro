@@ -4,11 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_ACCESS_IS_RAW_HPP_INCLUDED
-#define MIZUIRO_ACCESS_IS_RAW_HPP_INCLUDED
-
-#include <mizuiro/access/raw.hpp>
-#include <boost/type_traits/is_same.hpp>
+#ifndef MIZUIRO_ACCESS_DATA_STORE_SIZE_HPP_INCLUDED
+#define MIZUIRO_ACCESS_DATA_STORE_SIZE_HPP_INCLUDED
 
 namespace mizuiro
 {
@@ -16,15 +13,12 @@ namespace access
 {
 
 template<
-	typename T
+	typename Access,
+	typename Format,
+	typename Dim,
+	typename Enable = void
 >
-struct is_raw
-:
-boost::is_same<
-	T,
-	raw
->
-{};
+struct data_store_size;
 
 }
 }

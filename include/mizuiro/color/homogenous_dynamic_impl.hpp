@@ -16,7 +16,7 @@ template<
 	AvailableChannels AllChannels,
 	mizuiro::size_type Size
 >
-mizurio::color::homogenous_dynamic<
+mizuiro::color::homogenous_dynamic<
 	ChannelType,
 	AvailableChannels,
 	AllChannels,
@@ -35,3 +35,5 @@ mizurio::color::homogenous_dynamic<
 	)
 {
 }
+
+#endif

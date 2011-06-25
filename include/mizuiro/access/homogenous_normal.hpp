@@ -7,13 +7,15 @@
 #ifndef MIZUIRO_ACCESS_HOMOGENOUS_NORMAL_HPP_INCLUDED
 #define MIZUIRO_ACCESS_HOMOGENOUS_NORMAL_HPP_INCLUDED
 
+#include <mizuiro/access/channel_index.hpp>
+#include <mizuiro/access/data_store_size.hpp>
+#include <mizuiro/access/extract_channel.hpp>
+#include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/is_homogenous.hpp>
-#include <mizuiro/access/is_normal.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/utility/enable_if.hpp>
-#include <boost/mpl/and.hpp>
 
 namespace mizuiro
 {
@@ -21,75 +23,84 @@ namespace access
 {
 
 template<
-	typename Access,
 	typename Format,
 	typename Channel,
 	typename Constness
 >
-typename boost::enable_if<
-	boost::mpl::and_<
-		mizuiro::access::is_normal<
-			Access
-		>,
+struct extract_channel<
+	mizuiro::access::normal,
+	Format,
+	Channel,
+	Constness,
+	typename boost::enable_if<
 		mizuiro::color::is_homogenous<
 			Format
 		>
-	>,
+	>::type
+>
+{
+	static
 	typename mizuiro::color::types::channel_reference<
-		Access,
+		mizuiro::access::normal,
 		Format,
 		Channel,
 		Constness
 	>::type
->::type
-extract_channel(
-	Access const &_access,
-	Format const *const _format,
-	Channel const &_channel,
-	Constness const &,
-	typename mizuiro::color::types::pointer<
-		Access,
-		Format,
-		Constness
-	>::type const _ptr
-)
-{
-	return
-		_ptr[
-			channel_index(
-				_access,
-				_format,
-				_channel
-			)
-		];
-}
+	execute(
+		mizuiro::access::normal const &_access,
+		Format const *const _format,
+		Channel const &_channel,
+		Constness const &,
+		typename mizuiro::color::types::pointer<
+			mizuiro::access::normal,
+			Format,
+			Constness
+		>::type const _ptr
+	)
+	{
+		return
+			_ptr[
+				access::channel_index<
+					mizuiro::access::normal,
+					Format,
+					Channel
+				>::execute(
+					_access,
+					_format,
+					_channel
+				)
+			];
+	}
+};
 
 template<
-	typename Access,
 	typename Format,
 	typename Dim
 >
-typename boost::enable_if<
-	boost::mpl::and_<
-		mizuiro::access::is_normal<
-			Access
-		>,
+struct data_store_size<
+	mizuiro::access::normal,
+	Format,
+	Dim,
+	typename boost::enable_if<
 		mizuiro::color::is_homogenous<
 			typename Format::color_format
 		>
-	>,
-	mizuiro::size_type
->::type
-data_store_size(
-	Access const &,
-	Format const &,
-	Dim const &_dim
-)
+	>::type
+>
 {
-	return
-		_dim.content()
-		* Format::color_format::element_count;
-}
+	static
+	mizuiro::size_type
+	execute(
+		mizuiro::access::normal const &,
+		Format const &,
+		Dim const &_dim
+	)
+	{
+		return
+			_dim.content()
+			* Format::color_format::element_count;
+	}
+};
 
 }
 }
