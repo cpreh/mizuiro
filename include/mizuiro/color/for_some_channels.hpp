@@ -27,7 +27,7 @@ for_some_channels(
 {
 	boost::mpl::for_each<
 		boost::mpl::filter_view<
-			typename Format::layout::order,
+			typename Format::order,
 			Filter
 		>
 	>(

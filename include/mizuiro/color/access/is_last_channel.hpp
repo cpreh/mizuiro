@@ -4,23 +4,24 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_ACCESS_EXTRACT_CHANNEL_HPP_INCLUDED
-#define MIZUIRO_ACCESS_EXTRACT_CHANNEL_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_ACCESS_IS_LAST_CHANNEL_HPP_INCLUDED
+#define MIZUIRO_COLOR_ACCESS_IS_LAST_CHANNEL_HPP_INCLUDED
 
 namespace mizuiro
+{
+namespace color
 {
 namespace access
 {
 
 template<
-	typename Access,
 	typename Format,
 	typename Channel,
-	typename Constness,
 	typename Enable = void
 >
-struct extract_channel;
+struct is_last_channel;
 
+}
 }
 }
 

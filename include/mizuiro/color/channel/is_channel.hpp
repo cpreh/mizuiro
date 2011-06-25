@@ -4,10 +4,11 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CHANNEL_ALPHA_HPP_INCLUDED
-#define MIZUIRO_COLOR_CHANNEL_ALPHA_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CHANNEL_IS_CHANNEL_HPP_INCLUDED
+#define MIZUIRO_COLOR_CHANNEL_IS_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/channel/tag.hpp>
+#include <boost/type_traits/is_base_of.hpp>
 
 namespace mizuiro
 {
@@ -16,10 +17,17 @@ namespace color
 namespace channel
 {
 
-struct alpha
+template<
+	typename T
+>
+struct is_channel
 :
-channel::tag
-{};
+boost::is_base_of<
+	channel::tag,
+	T
+>
+{
+};
 
 }
 }

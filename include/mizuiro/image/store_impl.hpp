@@ -36,7 +36,8 @@ mizuiro::image::store<Format, Access>::store(
 		_dim
 	),
 	data_(
-		mizuiro::access::data_store_size<
+		// TODO:!
+		mizuiro::color::access::data_store_size<
 			Access,
 			Format,
 			dim_type

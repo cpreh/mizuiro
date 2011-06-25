@@ -4,14 +4,19 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/access/dynamic_index.hpp>
+#include <mizuiro/color/access/dynamic_index.hpp>
+#include <mizuiro/color/access/homogenous_dynamic.hpp>
+#include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/color/homogenous_dynamic.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
+#include <mizuiro/color/output.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <boost/cstdint.hpp>
+#include <iostream>
+#include <ostream>
 
 namespace
 {
@@ -65,6 +70,8 @@ MAKE_DYNAMIC_CHANNEL_INDEX(
 
 namespace mizuiro
 {
+namespace color
+{
 namespace access
 {
 
@@ -102,7 +109,7 @@ struct dynamic_index<
 
 }
 }
-
+}
 
 int main()
 {
@@ -136,4 +143,8 @@ int main()
 		(mizuiro::color::init::alpha %= 0.3),
 		&rgba_format
 	);
+
+	std::cout
+		<< test1
+		<< '\n';
 }

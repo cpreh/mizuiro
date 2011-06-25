@@ -4,22 +4,23 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_ACCESS_CHANNEL_INDEX_HPP_INCLUDED
-#define MIZUIRO_ACCESS_CHANNEL_INDEX_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_ACCESS_LAYOUT_HPP_INCLUDED
+#define MIZUIRO_COLOR_ACCESS_LAYOUT_HPP_INCLUDED
 
 namespace mizuiro
+{
+namespace color
 {
 namespace access
 {
 
 template<
-	typename Access,
 	typename Format,
-	typename Channel,
 	typename Enable = void
 >
-struct channel_index;
+struct layout;
 
+}
 }
 }
 

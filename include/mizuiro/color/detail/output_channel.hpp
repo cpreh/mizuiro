@@ -7,11 +7,10 @@
 #ifndef MIZUIRO_COLOR_DETAIL_OUTPUT_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_OUTPUT_CHANNEL_HPP_INCLUDED
 
+#include <mizuiro/color/access/is_last_channel.hpp>
 #include <mizuiro/color/detail/promote_channel.hpp>
-#include <mizuiro/color/detail/is_last_channel.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
-#include <boost/utility/enable_if.hpp>
 #include <ostream>
 
 namespace mizuiro
@@ -51,48 +50,8 @@ public:
 	template<
 		typename Channel
 	>
-	typename boost::enable_if<
-		mizuiro::color::detail::is_last_channel<
-			typename Color::format,
-			Channel
-		>,
-		result_type
-	>::type
-	operator()(
-		Channel const &_channel
-	) const
-	{
-		this->print_impl(
-			_channel
-		);
-	}
-
-	template<
-		typename Channel
-	>
-	typename boost::disable_if<
-		mizuiro::color::detail::is_last_channel<
-			typename Color::format,
-			Channel
-		>,
-		result_type
-	>::type
-	operator()(
-		Channel const &_channel
-	) const
-	{
-		this->print_impl(
-			_channel
-		);
-		
-		stream_ << stream_.widen(',');
-	}
-private:
-	template<
-		typename Channel
-	>
 	result_type
-	print_impl(
+	operator()(
 		Channel const &_channel
 	) const
 	{
@@ -109,8 +68,19 @@ private:
 					_channel
 				)
 			);
-	}
 
+		if(
+			!color::access::is_last_channel<
+				typename Color::format,
+				Channel
+			>::execute(
+				color_.format_store(),
+				_channel
+			)
+		)
+			stream_ << stream_.widen(',');
+	}
+private:
 	stream_type &stream_;
 
 	Color const &color_;

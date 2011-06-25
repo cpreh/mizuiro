@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_PROXY_IMPL_HPP_INCLUDED
 #define MIZUIRO_COLOR_PROXY_IMPL_HPP_INCLUDED
 
-#include <mizuiro/access/extract_channel.hpp>
+#include <mizuiro/color/access/extract_channel.hpp>
 #include <mizuiro/color/proxy_decl.hpp>
 #include <mizuiro/color/format_base_impl.hpp>
 #include <mizuiro/color/detail/copy_channel.hpp>
@@ -106,7 +106,7 @@ mizuiro::color::proxy<Access, Format, Constness>::set(
 	>::type const &_ref
 ) const
 {
-	mizuiro::access::extract_channel<
+	color::access::extract_channel<
 		Access,
 		Format,
 		Channel,
@@ -139,7 +139,7 @@ mizuiro::color::proxy<Access, Format, Constness>::get(
 ) const
 {
 	return
-		mizuiro::access::extract_channel<
+		color::access::extract_channel<
 			Access,
 			Format,
 			Channel,

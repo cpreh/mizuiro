@@ -31,30 +31,27 @@ color::object<
 	typename Color1::format
 > const
 binary_op(
-	Color1 const &color1_,
-	Color2 const &color2_
+	Color1 const &_color1,
+	Color2 const &_color2
 )
 {
-	typedef typename Color1::format format;
-
 	typedef color::object<
-		format
+		typename Color1::format
 	> result_type;
 
 	result_type result(
-		color1_
+		_color1
 	);
 
-	color::for_each_channel<
-		format
-	>(
+	color::for_each_channel(
+		_color1,
 		color::operators::detail::binary_op_channel<
 			Operation,
 			result_type,
 			Color2
 		>(
 			result,
-			color2_
+			_color2
 		)
 	);
 

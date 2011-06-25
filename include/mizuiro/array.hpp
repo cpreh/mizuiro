@@ -4,7 +4,9 @@
 #include <mizuiro/config.hpp>
 #ifdef MIZUIRO_HAVE_FCPPT
 #include <fcppt/container/array.hpp>
+#include <fcppt/container/array_fusion.hpp>
 #else
+#include <boost/fusion/adapted/boost_array.hpp>
 #include <boost/array.hpp>
 #endif
 #include <cstddef>

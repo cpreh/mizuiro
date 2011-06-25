@@ -9,9 +9,12 @@
 
 namespace mizuiro
 {
+namespace color
+{
 namespace access
 {
 
+// TODO: where to put this?
 template<
 	typename Access,
 	typename Format,
@@ -20,6 +23,7 @@ template<
 >
 struct data_store_size;
 
+}
 }
 }
 

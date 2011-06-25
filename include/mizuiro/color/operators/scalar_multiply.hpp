@@ -31,29 +31,26 @@ typename boost::enable_if<
 	>
 >::type
 operator*(
-	Color const &color_,
-	Scalar const scalar_
+	Color const &_color,
+	Scalar const _scalar
 )
 {
-	typedef typename Color::format format;
-
 	typedef color::object<
-		format
+		typename Color::format
 	> result_type;
 
 	result_type result(
-		color_
+		_color
 	);
 
-	color::for_each_channel<
-		format
-	>(
+	color::for_each_channel(
+		_color,
 		color::operators::detail::scalar_multiply<
 			result_type,
 			Scalar
 		>(
 			result,
-			scalar_
+			_scalar
 		)
 	);
 
@@ -73,11 +70,11 @@ typename boost::enable_if<
 	>
 >::type
 operator*(
-	Scalar const scalar_,
-	Color const &color_
+	Scalar const _scalar,
+	Color const &_color
 )
 {
-	return color_ * scalar_;
+	return _color * _scalar;
 }
 
 }

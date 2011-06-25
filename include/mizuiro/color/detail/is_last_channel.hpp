@@ -7,9 +7,6 @@
 #ifndef MIZUIRO_COLOR_DETAIL_IS_LAST_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_IS_LAST_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/detail/index_of.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/mpl/size.hpp>
 
 namespace mizuiro
 {

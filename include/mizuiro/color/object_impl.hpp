@@ -12,7 +12,6 @@
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/is_color.hpp>
-#include <mizuiro/access/homogenous_normal.hpp>
 #include <boost/utility/enable_if.hpp>
 
 template<

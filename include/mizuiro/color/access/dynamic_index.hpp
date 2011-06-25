@@ -4,10 +4,12 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_ACCESS_DYNAMIC_INDEX_HPP_INCLUDED
-#define MIZUIRO_ACCESS_DYNAMIC_INDEX_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_ACCESS_DYNAMIC_INDEX_HPP_INCLUDED
+#define MIZUIRO_COLOR_ACCESS_DYNAMIC_INDEX_HPP_INCLUDED
 
 namespace mizuiro
+{
+namespace color
 {
 namespace access
 {
@@ -20,6 +22,7 @@ template<
 >
 struct dynamic_index;
 
+}
 }
 }
 

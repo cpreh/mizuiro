@@ -7,6 +7,8 @@
 #ifndef MIZUIRO_COLOR_CHANNEL_LUMINANCE_HPP_INCLUDED
 #define MIZUIRO_COLOR_CHANNEL_LUMINANCE_HPP_INCLUDED
 
+#include <mizuiro/color/channel/tag.hpp>
+
 namespace mizuiro
 {
 namespace color
@@ -15,6 +17,8 @@ namespace channel
 {
 
 struct luminance
+:
+channel::tag
 {};
 
 }

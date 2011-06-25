@@ -9,7 +9,7 @@
 
 #include <mizuiro/image/types/raw.hpp>
 #include <mizuiro/color/types/homogenous_raw.hpp>
-#include <mizuiro/access/homogenous_raw.hpp>
+#include <mizuiro/color/access/homogenous_raw.hpp>
 #include <mizuiro/access/color_pointer_raw.hpp>
 
 #endif

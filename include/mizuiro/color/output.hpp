@@ -29,28 +29,27 @@ operator<<(
 	std::basic_ostream<
 		Ch,
 		Traits
-	> &s,
-	Color const &c
+	> &_stream,
+	Color const &_color
 )
 {
-	s << s.widen('(');
+	_stream << _stream.widen('(');
 
-	mizuiro::color::for_each_channel<
-		typename Color::format
-	>(
+	mizuiro::color::for_each_channel(
+		_color,
 		detail::output_channel<
 			Ch,
 			Traits,
 			Color
 		>(
-			s,
-			c
+			_stream,
+			_color
 		)
 	);
 
-	s << s.widen(')');
-		
-	return s;	
+	_stream << _stream.widen(')');
+
+	return _stream;
 }
 
 }

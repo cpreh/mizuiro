@@ -8,9 +8,9 @@
 #define MIZUIRO_COLOR_HOMOGENOUS_DYNAMIC_DECL_HPP_INCLUDED
 
 #include <mizuiro/color/homogenous_dynamic_fwd.hpp>
+#include <mizuiro/color/access/homogenous_dynamic.hpp>
 #include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/access/homogenous_dynamic.hpp>
 #include <mizuiro/array.hpp>
 #include <mizuiro/size_type.hpp>
 
@@ -48,7 +48,9 @@ struct homogenous_dynamic
 
 	static size_type const element_count = Size;
 
-	channel_array const layout;
+	typedef channel_array layout;
+
+	channel_array const order;
 
 	channel_index_array const indices;
 };

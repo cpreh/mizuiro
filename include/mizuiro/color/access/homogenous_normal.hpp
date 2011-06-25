@@ -4,13 +4,13 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_ACCESS_HOMOGENOUS_RAW_HPP_INCLUDED
-#define MIZUIRO_ACCESS_HOMOGENOUS_RAW_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_ACCESS_HOMOGENOUS_NORMAL_HPP_INCLUDED
+#define MIZUIRO_COLOR_ACCESS_HOMOGENOUS_NORMAL_HPP_INCLUDED
 
-#include <mizuiro/access/channel_index.hpp>
 #include <mizuiro/access/data_store_size.hpp>
-#include <mizuiro/access/extract_channel.hpp>
-#include <mizuiro/access/raw.hpp>
+#include <mizuiro/access/normal.hpp>
+#include <mizuiro/color/access/channel_index.hpp>
+#include <mizuiro/color/access/extract_channel.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/is_homogenous.hpp>
@@ -18,6 +18,8 @@
 #include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
+{
+namespace color
 {
 namespace access
 {
@@ -28,7 +30,7 @@ template<
 	typename Constness
 >
 struct extract_channel<
-	access::raw,
+	mizuiro::access::normal,
 	Format,
 	Channel,
 	Constness,
@@ -41,36 +43,35 @@ struct extract_channel<
 {
 	static
 	typename mizuiro::color::types::channel_reference<
-		access::raw,
+		mizuiro::access::normal,
 		Format,
 		Channel,
 		Constness
 	>::type
 	execute(
-		access::raw const &_access,
+		mizuiro::access::normal const &_access,
 		Format const *const _format,
 		Channel const &_channel,
 		Constness const &,
 		typename mizuiro::color::types::pointer<
-			access::raw,
+			mizuiro::access::normal,
 			Format,
 			Constness
 		>::type const _ptr
 	)
 	{
 		return
-			_ptr +
-			access::channel_index<
-				access::raw,
-				Format,
-				Channel
-			>::execute(
-				_access,
-				_format,
-				_channel
-			)
-			* sizeof(typename Format::channel_type)
-		;
+			_ptr[
+				color::access::channel_index<
+					mizuiro::access::normal,
+					Format,
+					Channel
+				>::execute(
+					_access,
+					_format,
+					_channel
+				)
+			];
 	}
 };
 
@@ -79,7 +80,7 @@ template<
 	typename Dim
 >
 struct data_store_size<
-	access::raw,
+	mizuiro::access::normal,
 	Format,
 	Dim,
 	typename boost::enable_if<
@@ -92,18 +93,18 @@ struct data_store_size<
 	static
 	mizuiro::size_type
 	execute(
-		access::raw const &,
+		mizuiro::access::normal const &,
 		Format const &,
 		Dim const &_dim
 	)
 	{
 		return
 			_dim.content()
-			* Format::color_format::element_count
-			* sizeof(typename Format::color_format::channel_type);
+			* Format::color_format::element_count;
 	}
 };
 
+}
 }
 }
 

@@ -8,10 +8,10 @@
 #define MIZUIRO_COLOR_HOMOGENOUS_STATIC_HPP_INCLUDED
 
 #include <mizuiro/color/homogenous_static_fwd.hpp>
+#include <mizuiro/color/access/homogenous_normal.hpp>
+#include <mizuiro/color/access/homogenous_static.hpp>
 #include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/access/homogenous_normal.hpp>
-#include <mizuiro/access/homogenous_static.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/mpl/size.hpp>
 
@@ -29,6 +29,8 @@ struct homogenous_static
 	typedef ChannelType channel_type;
 
 	typedef Layout layout;
+
+	typedef typename Layout::order order;
 
 	static size_type const element_count
 		= boost::mpl::size<

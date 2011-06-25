@@ -22,15 +22,15 @@ mizuiro::color::homogenous_dynamic<
 	AllChannels,
 	Size
 >::homogenous_dynamic(
-	channel_array const &_layout
+	channel_array const &_order
 )
 :
-	layout(_layout),
+	order(_order),
 	indices(
 		color::detail::initialize_dynamic_indices<
 			channel_index_array
 		>(
-			layout
+			order
 		)
 	)
 {
