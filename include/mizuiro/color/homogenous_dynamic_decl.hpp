@@ -11,6 +11,7 @@
 #include <mizuiro/color/access/homogenous_dynamic.hpp>
 #include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
+#include <mizuiro/detail/nonassignable.hpp>
 #include <mizuiro/array.hpp>
 #include <mizuiro/size_type.hpp>
 
@@ -27,6 +28,10 @@ template<
 >
 struct homogenous_dynamic
 {
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		homogenous_dynamic
+	);
+public:
 	typedef AvailableChannels available_channels;
 
 	typedef typename mizuiro::array<
