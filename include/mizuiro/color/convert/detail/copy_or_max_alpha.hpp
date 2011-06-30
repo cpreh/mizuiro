@@ -7,12 +7,10 @@
 #ifndef MIZUIRO_COLOR_CONVERT_DETAIL_COPY_OR_MAX_ALPHA_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_DETAIL_COPY_OR_MAX_ALPHA_HPP_INCLUDED
 
-#include <mizuiro/color/has_channel.hpp>
+#include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
-#include <mizuiro/color/convert/detail/max_alpha.hpp>
 #include <mizuiro/color/convert/detail/copy_and_convert_channel.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/mpl/not.hpp>
+#include <mizuiro/color/convert/detail/channel_to_max.hpp>
 
 namespace mizuiro
 {
@@ -27,101 +25,45 @@ template
 	class Src,
 	class Dest
 >
-typename
-boost::enable_if
-<
-	boost::mpl::and_
-	<
-		color::has_channel
-		<
-			typename Src::format,
-			channel::alpha
-		>,
-		color::has_channel
-		<
-			typename Dest::format,
-			channel::alpha
-		>
-	>,
-	void
->::type
+void
 copy_or_max_alpha(
 	Src const &_src,
 	Dest &_dest
 )
 {
-	color::detail::copy_and_convert_channel
-	<
-		float
-	>
-	(
-		channel::alpha(),
-		_src,
-		_dest
-	);
-}
-
-// source doesn't have an alpha channel, but destination has, so max out destination alpha
-template
-<
-	class Src,
-	class Dest
->
-typename
-boost::enable_if
-<
-	boost::mpl::and_
-	<
-		boost::mpl::not_
-		<
-			has_channel
-			<
-				typename Src::format,
-				channel::alpha
-			>
-		>,
-		has_channel
-		<
+	if(
+		!color::access::has_channel<
 			typename Dest::format,
 			channel::alpha
-		>
-	>,
-	void
->::type
-copy_or_max_alpha(
-	Src const &,
-	Dest &_dest
-)
-{
-	detail::max_alpha(
-		_dest
-	);
-}
-
-// dest doesn't have an alpha channel, so do nothing
-template
-<
-	class Src,
-	class Dest
->
-typename
-boost::enable_if
-<
-	boost::mpl::not_
-	<
-		has_channel
-		<
-			typename Dest::format,
+		>::execute(
+			_dest.format_store()
+		)
+	)
+		return;
+	
+	if(
+		color::access::has_channel<
+			typename Src::format,
 			channel::alpha
+		>::execute(
+			_src.format_store()
+		)
+	)
+		color::detail::copy_and_convert_channel<
+			float
 		>
-	>,
-	void
->::type
-copy_or_max_alpha(
-	Src const &,
-	Dest &
-)
-{
+		(
+			channel::alpha(),
+			_src,
+			_dest
+		);
+	else
+		color::detail::channel_to_max
+		(
+			_dest,
+			channel::alpha()
+		);
+
 }
 
 }

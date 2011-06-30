@@ -9,12 +9,14 @@
 
 #include <mizuiro/color/access/channel_index.hpp>
 #include <mizuiro/color/access/compare_channels.hpp>
+#include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/access/is_last_channel.hpp>
 #include <mizuiro/color/access/layout.hpp>
 #include <mizuiro/color/is_homogenous_static.hpp>
 #include <mizuiro/detail/index_of.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/fusion/adapted/mpl.hpp>
+#include <boost/mpl/contains.hpp>
 #include <boost/mpl/size.hpp>
 #include <boost/type_traits/is_same.hpp>
 
@@ -136,6 +138,34 @@ struct compare_channels<
 			boost::is_same<
 				Channel,
 				OtherChannel
+			>::value;
+	}
+};
+
+template<
+	typename Format,
+	typename StaticChannel
+>
+struct has_channel<
+	Format,
+	StaticChannel,
+	typename boost::enable_if<
+		mizuiro::color::is_homogenous_static<
+			Format
+		>
+	>::type
+>
+{
+	static
+	bool
+	execute(
+		Format const *
+	)
+	{
+		return
+			boost::mpl::contains<
+				typename Format::order,
+				StaticChannel
 			>::value;
 	}
 };

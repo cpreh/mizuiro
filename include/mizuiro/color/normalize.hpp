@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_NORMALIZE_HPP_INCLUDED
 
 #include <mizuiro/color/is_color.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/normalize.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/type_traits/is_floating_point.hpp>

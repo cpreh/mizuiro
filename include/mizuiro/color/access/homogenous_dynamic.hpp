@@ -10,6 +10,7 @@
 #include <mizuiro/color/access/channel_index.hpp>
 #include <mizuiro/color/access/compare_channels.hpp>
 #include <mizuiro/color/access/dynamic_index.hpp>
+#include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/access/is_last_channel.hpp>
 #include <mizuiro/color/access/layout.hpp>
 #include <mizuiro/color/channel/is_channel.hpp>
@@ -182,6 +183,39 @@ struct compare_channels<
 			>::execute(
 				Channel()	
 			);
+	}
+};
+
+template<
+	typename Format,
+	typename StaticChannel
+>
+struct has_channel<
+	Format,
+	StaticChannel,
+	typename boost::enable_if<
+		mizuiro::color::is_homogenous_dynamic<
+			Format
+		>
+	>::type
+>
+{
+	static
+	bool
+	execute(
+		Format const *const _format
+	)
+	{
+		return
+			_format->incdices[
+				color::access::dynamic_index<
+					Format,
+					StaticChannel
+				>::execute(
+					*_format
+				)
+			]
+			!= -1; // TODO: fix this constant
 	}
 };
 

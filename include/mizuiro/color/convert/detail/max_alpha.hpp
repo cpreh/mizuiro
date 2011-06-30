@@ -7,10 +7,9 @@
 #ifndef MIZUIRO_COLOR_CONVERT_DETAIL_MAX_ALPHA_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_DETAIL_MAX_ALPHA_HPP_INCLUDED
 
-#include <mizuiro/color/convert/detail/channel_to_max.hpp>
+#include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
-#include <mizuiro/color/has_channel.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <mizuiro/color/convert/detail/channel_to_max.hpp>
 
 namespace mizuiro
 {
@@ -23,45 +22,24 @@ template
 <
 	class Color
 >
-typename 
-boost::disable_if
-<
-	color::has_channel
-	<
-		typename Color::format,
-		channel::alpha
-	>, 
-	void
->::type 
-max_alpha(
-	Color &
-)
-{
-}
-
-template
-<
-	class Color
->
-typename 
-boost::enable_if
-<
-	color::has_channel
-	<
-		typename Color::format,
-		channel::alpha
-	>, 
-	void
->::type 
+void
 max_alpha(
 	Color &_color
 )
 {
-	color::detail::channel_to_max
-	(
-		_color,
-		channel::alpha()
-	);
+	if(
+		color::access::has_channel<
+			typename Color::format,
+			channel::alpha
+		>::execute(
+			_color.format_store()
+		)
+	)
+		color::detail::channel_to_max
+		(
+			_color,
+			channel::alpha()
+		);
 }
 
 }

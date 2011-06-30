@@ -23,7 +23,14 @@ initialize_dynamic_indices(
 	Layout const &_layout
 )
 {
-	ChannelIndexArray ret;
+	ChannelIndexArray ret =
+	{{
+		static_cast<
+			typename ChannelIndexArray::value_type
+		>(
+			-1
+		)
+	}};
 
 	for(
 		typename Layout::size_type index(
