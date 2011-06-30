@@ -22,7 +22,7 @@ template<
 void
 for_each_channel(
 	Color const &_color,
-	Function const &_fun
+	Function const &_function
 )
 {
 	boost::fusion::for_each(
@@ -31,7 +31,7 @@ for_each_channel(
 		>::execute(
 			_color.format_store()
 		),
-		_fun
+		_function
 	);
 }
 

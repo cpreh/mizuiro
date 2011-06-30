@@ -76,12 +76,10 @@ namespace access
 {
 
 template<
-	typename Access,
 	typename Format,
 	typename Channel
 >
 struct dynamic_index<
-	Access,
 	Format,
 	Channel,
 	typename boost::enable_if<
@@ -95,7 +93,6 @@ struct dynamic_index<
 	static
 	mizuiro::size_type
 	execute(
-		Access const &,
 		Format const &,
 		Channel const &
 	)

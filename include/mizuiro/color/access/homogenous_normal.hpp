@@ -49,7 +49,7 @@ struct extract_channel<
 		Constness
 	>::type
 	execute(
-		mizuiro::access::normal const &_access,
+		mizuiro::access::normal const &,
 		Format const *const _format,
 		Channel const &_channel,
 		Constness const &,
@@ -63,11 +63,9 @@ struct extract_channel<
 		return
 			_ptr[
 				color::access::channel_index<
-					mizuiro::access::normal,
 					Format,
 					Channel
 				>::execute(
-					_access,
 					_format,
 					_channel
 				)

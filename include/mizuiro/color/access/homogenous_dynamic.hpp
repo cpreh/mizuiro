@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_ACCESS_HOMOGENOUS_DYNAMIC_HPP_INCLUDED
 
 #include <mizuiro/color/access/channel_index.hpp>
+#include <mizuiro/color/access/compare_channels.hpp>
 #include <mizuiro/color/access/dynamic_index.hpp>
 #include <mizuiro/color/access/is_last_channel.hpp>
 #include <mizuiro/color/access/layout.hpp>
@@ -26,12 +27,10 @@ namespace access
 {
 
 template<
-	typename Access,
 	typename Format,
 	typename Channel
 >
 struct channel_index<
-	Access,
 	Format,
 	Channel,
 	typename boost::enable_if<
@@ -49,7 +48,6 @@ struct channel_index<
 	static
 	mizuiro::size_type
 	execute(
-		Access const &_access,
 		Format const *const _format,
 		Channel const &_channel
 	)
@@ -57,11 +55,9 @@ struct channel_index<
 		return
 			_format->indices[
 				color::access::dynamic_index<
-					Access,
 					Format,
 					Channel
 				>::execute(
-					_access,
 					*_format,
 					_channel
 				)
@@ -70,12 +66,10 @@ struct channel_index<
 };
 
 template<
-	typename Access,
 	typename Format,
 	typename Channel
 >
 struct channel_index<
-	Access,
 	Format,
 	Channel,
 	typename boost::enable_if<
@@ -95,7 +89,6 @@ struct channel_index<
 	static
 	mizuiro::size_type
 	execute(
-		Access const &,
 		Format const *const _format,
 		Channel const &_channel
 	)
@@ -154,6 +147,41 @@ struct is_last_channel<
 		return
 			_format->order.back()
 			== _channel;
+	}
+};
+
+template<
+	typename Format,
+	typename Channel
+>
+struct compare_channels<
+	Format,
+	Channel,
+	typename boost::enable_if<
+		mizuiro::color::is_homogenous_dynamic<
+			Format
+		>
+	>::type
+>
+{
+	template<
+		typename OtherChannel
+	>
+	static
+	bool
+	execute(
+		OtherChannel const &_other
+	)
+	{
+		return
+			_other
+			==
+			color::access::dynamic_index<
+				Format,
+				Channel
+			>::execute(
+				Channel()	
+			);
 	}
 };
 

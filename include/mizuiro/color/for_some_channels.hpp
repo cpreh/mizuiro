@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_COLOR_FOR_SOME_CHANNELS_HPP_INCLUDED
 #define MIZUIRO_COLOR_FOR_SOME_CHANNELS_HPP_INCLUDED
 
-#include <boost/mpl/for_each.hpp>
-#include <boost/mpl/filter_view.hpp>
+#include <mizuiro/color/access/layout.hpp>
+#include <mizuiro/color/detail/for_some_channels_functor.hpp>
+#include <boost/fusion/algorithm/iteration/for_each.hpp>
 
 namespace mizuiro
 {
@@ -16,22 +17,30 @@ namespace color
 {
 
 template<
-	typename Format,
-	typename Filter,
-	typename Function
+	typename Color,
+	typename Function,
+	typename Filter
 >
 void
 for_some_channels(
-	Function const &_function
+	Color const  &_color,
+	Function const &_function,
+	Filter const &_filter
 )
 {
-	boost::mpl::for_each<
-		boost::mpl::filter_view<
-			typename Format::order,
+	boost::fusion::for_each(
+		color::access::layout<
+			typename Color::format
+		>::execute(
+			_color.format_store()
+		),
+		detail::for_some_channels_functor<
+			Function,
 			Filter
-		>
-	>(
-		_function
+		>(
+			_function,
+			_filter
+		)
 	);
 }
 

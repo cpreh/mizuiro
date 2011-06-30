@@ -15,9 +15,8 @@ namespace access
 {
 
 template<
-	typename Access,
 	typename Format,
-	typename Channel,
+	typename StaticChannel,
 	typename Enable = void
 >
 struct dynamic_index;

@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_ACCESS_HOMOGENOUS_STATIC_HPP_INCLUDED
 
 #include <mizuiro/color/access/channel_index.hpp>
+#include <mizuiro/color/access/compare_channels.hpp>
 #include <mizuiro/color/access/is_last_channel.hpp>
 #include <mizuiro/color/access/layout.hpp>
 #include <mizuiro/color/is_homogenous_static.hpp>
@@ -15,6 +16,7 @@
 #include <mizuiro/size_type.hpp>
 #include <boost/fusion/adapted/mpl.hpp>
 #include <boost/mpl/size.hpp>
+#include <boost/type_traits/is_same.hpp>
 
 namespace mizuiro
 {
@@ -24,12 +26,10 @@ namespace access
 {
 
 template<
-	typename Access,
 	typename Format,
 	typename Channel
 >
 struct channel_index<
-	Access,
 	Format,
 	Channel,
 	typename boost::enable_if<
@@ -42,7 +42,6 @@ struct channel_index<
 	static
 	mizuiro::size_type
 	execute(
-		Access const &,
 		Format const *,
 		Channel const &
 	)
@@ -106,6 +105,37 @@ struct is_last_channel<
 			==
 			boost::mpl::size<
 				typename Format::layout::order
+			>::value;
+	}
+};
+
+template<
+	typename Format,
+	typename Channel
+>
+struct compare_channels<
+	Format,
+	Channel,
+	typename boost::enable_if<
+		mizuiro::color::is_homogenous_static<
+			Format
+		>
+	>::type
+>
+{
+	template<
+		typename OtherChannel
+	>
+	static
+	bool
+	execute(
+		OtherChannel const &
+	)
+	{
+		return
+			boost::is_same<
+				Channel,
+				OtherChannel
 			>::value;
 	}
 };

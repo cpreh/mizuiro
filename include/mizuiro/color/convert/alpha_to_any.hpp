@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/convert/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/convert/detail/channel_to_max_functor.hpp>
+#include <mizuiro/color/convert/detail/exclude_channel_functor.hpp>
 #include <mizuiro/color/for_some_channels.hpp>
 #include <mizuiro/color/is_alpha.hpp>
 #include <mizuiro/color/object_impl.hpp>
@@ -51,20 +52,17 @@ convert(
 	
 	dest_type dest;
 
-	mizuiro::color::for_some_channels<
-		Dest,
-		boost::mpl::not_<
-			boost::is_same<
-				boost::mpl::placeholders::_1,
-				color::channel::alpha
-			>
-		>
-	>(
+	mizuiro::color::for_some_channels(
+		dest,
 		detail::channel_to_max_functor<
 			dest_type
 		>(
 			dest
-		)
+		),
+		detail::exclude_channel_functor<
+			Dest,
+			channel::alpha
+		>()
 	);
 
 	detail::copy_or_max_alpha(
