@@ -10,6 +10,7 @@
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
+#include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/format_base_decl.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
 #include <mizuiro/const_tag.hpp>
@@ -46,7 +47,8 @@ public:
 
 	proxy(
 		pointer data,
-		format const * = 0
+		format const * =
+			color::format_argument<Format>()
 	);
 
 	template<

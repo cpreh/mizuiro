@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_OBJECT_DECL_HPP_INCLUDED
 
 #include <mizuiro/color/object_fwd.hpp>
+#include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/format_base_decl.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
@@ -62,7 +63,8 @@ public:
 
 	/// constructs an uninitialized color
 	explicit object(
-		format const * = 0
+		format const * =
+			color::format_argument<Format>()
 	);
 
 	object(
@@ -90,7 +92,8 @@ public:
 		init::detail::values<
 			Vector
 		> const &,
-		format const * = 0
+		format const * =
+			color::format_argument<Format>()
 	);
 
 	/// Sets a color channel denoted by @tparam Channel
