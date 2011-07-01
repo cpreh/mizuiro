@@ -7,11 +7,48 @@
 #ifndef MIZUIRO_COLOR_CONVERT_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_HPP_INCLUDED
 
-#include <mizuiro/color/convert/alpha_to_any.hpp>
-#include <mizuiro/color/convert/any_to_alpha.hpp>
-#include <mizuiro/color/convert/hsv_to_rgb.hpp>
-#include <mizuiro/color/convert/luminance_to_rgb.hpp>
-#include <mizuiro/color/convert/rgb_to_luminance.hpp>
-#include <mizuiro/color/convert/same_to_same.hpp>
+#include <mizuiro/color/access/convert.hpp>
+#include <mizuiro/color/format_argument.hpp>
+#include <mizuiro/color/is_color.hpp>
+#include <mizuiro/color/object_impl.hpp>
+#include <boost/utility/enable_if.hpp>
+
+namespace mizuiro
+{
+namespace color
+{
+
+template<
+	typename DestFormat,
+	typename Src
+>
+typename boost::enable_if<
+	mizuiro::color::is_color<
+		Src
+	>,
+	color::object<
+		DestFormat
+	>
+>::type
+convert(
+	Src const &_src,
+	typename color::object<
+		DestFormat
+	>::format_store_type const &_dest_format =
+		color::format_argument<DestFormat>()
+)
+{
+	return
+		color::access::convert<
+			typename Src::format,
+			DestFormat
+		>::execute(
+			_src,
+			_dest_format
+		);
+}
+
+}
+}
 
 #endif

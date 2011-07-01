@@ -4,26 +4,24 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERT_HSV_TO_RGB_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERT_HSV_TO_RGB_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_HSV_TO_RGB_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_HSV_TO_RGB_HPP_INCLUDED
 
-#include <mizuiro/color/convert/detail/copy_or_max_alpha.hpp>
-#include <mizuiro/color/convert/detail/rgb_from_chroma.hpp>
-#include <mizuiro/color/convert/same_to_same.hpp> // TODO!
+#include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
+#include <mizuiro/color/conversion/detail/rgb_from_chroma.hpp>
 #include <mizuiro/color/channel/hue.hpp>
 #include <mizuiro/color/channel/saturation.hpp>
 #include <mizuiro/color/channel/value.hpp>
-#include <mizuiro/color/is_rgb.hpp>
-#include <mizuiro/color/is_hsv.hpp>
-#include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/normalize.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <mizuiro/color/object_impl.hpp>
 #include <cmath>
 
 namespace mizuiro
 {
 namespace color
+{
+namespace conversion
 {
 
 template
@@ -31,27 +29,15 @@ template
 	typename Dest,
 	typename Src
 >
-typename
-boost::enable_if
-<
-	boost::mpl::and_
-	<
-		color::is_rgb
-		<
-			Dest
-		>,
-		color::is_hsv
-		<
-			typename Src::format
-		>
-	>,
-	color::object<
+color::object<
+	Dest
+> const
+hsv_to_rgb(
+	Src const &_source,
+	typename color::object<
 		Dest
-	> const
->::type
-convert
-(
-	Src const &_source
+	>::format_store_type const &_format
+		= color::format_argument<Dest>()
 )
 {
 	typedef float float_type;
@@ -126,14 +112,15 @@ convert
 
 	dest_type dest
 	(
-		color::detail::rgb_from_chroma
+		conversion::detail::rgb_from_chroma
 		<
 			dest_type
 		>(
 			chroma,
 			hue_part,
 			largest_part,
-			diff
+			diff,
+			_format
 		)
 	);
 
@@ -146,6 +133,7 @@ convert
 	return dest;
 }
 
+}
 }
 }
 

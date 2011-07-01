@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERT_DETAIL_COPY_AND_CONVERT_CHANNEL_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERT_DETAIL_COPY_AND_CONVERT_CHANNEL_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_AND_CONVERT_CHANNEL_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_AND_CONVERT_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/normalize.hpp>
 #include <mizuiro/color/denormalize.hpp>
@@ -13,6 +13,8 @@
 namespace mizuiro
 {
 namespace color
+{
+namespace conversion
 {
 namespace detail
 {
@@ -52,6 +54,7 @@ copy_and_convert_channel(
 	);
 }
 
+}
 }
 }
 }

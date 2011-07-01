@@ -4,26 +4,25 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERT_RGB_TO_LUMINANCE_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERT_RGB_TO_LUMINANCE_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_RGB_TO_LUMINANCE_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_RGB_TO_LUMINANCE_HPP_INCLUDED
 
-#include <mizuiro/color/convert/detail/copy_or_max_alpha.hpp>
+#include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/blue.hpp>
 #include <mizuiro/color/channel/luminance.hpp>
-#include <mizuiro/color/normalize.hpp>
 #include <mizuiro/color/denormalize.hpp>
+#include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/luminance.hpp>
-#include <mizuiro/color/is_rgb.hpp>
-#include <mizuiro/color/is_luminance.hpp>
+#include <mizuiro/color/normalize.hpp>
 #include <mizuiro/color/object_impl.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
 namespace color
+{
+namespace conversion
 {
 
 template
@@ -31,29 +30,24 @@ template
 	typename Dest,
 	typename Src
 >
-typename
-boost::enable_if<
-	boost::mpl::and_<
-		color::is_luminance<
-			Dest
-		>,
-		color::is_rgb<
-			typename Src::format
-		>
-	>,
-	color::object<
+color::object<
+	Dest
+> const
+rgb_to_luminance(
+	Src const &_src,
+	typename color::object<
 		Dest
-	> const
->::type
-convert(
-	Src const &_src
+	>::format_store_type const &_format
+		= color::format_argument<Dest>()
 )
 {
 	typedef color::object<
 		Dest
 	> dest_type;
 	
-	dest_type dest;
+	dest_type dest(
+		_format
+	);
 	
 	dest.set(
 		channel::luminance(),
@@ -84,7 +78,7 @@ convert(
 		)
 	);
 
-	color::detail::copy_or_max_alpha(
+	conversion::detail::copy_or_max_alpha(
 		_src,
 		dest
 	);
@@ -92,6 +86,7 @@ convert(
 	return dest;
 }
 
+}
 }
 }
 

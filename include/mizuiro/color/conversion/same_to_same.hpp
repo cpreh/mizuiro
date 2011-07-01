@@ -4,48 +4,46 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERT_SAME_TO_SAME_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERT_SAME_TO_SAME_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_SAME_TO_SAME_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_SAME_TO_SAME_HPP_INCLUDED
 
-#include <mizuiro/color/convert/detail/copy_and_convert_channel_functor.hpp>
-#include <mizuiro/color/convert/detail/copy_or_max_alpha.hpp>
-#include <mizuiro/color/convert/detail/exclude_channel_functor.hpp>
+#include <mizuiro/color/conversion/detail/copy_and_convert_channel_functor.hpp>
+#include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
+#include <mizuiro/color/conversion/detail/exclude_channel_functor.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
-#include <mizuiro/color/layout/is_same.hpp>
+#include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/for_some_channels.hpp>
 #include <mizuiro/color/object_impl.hpp>
-#include <boost/mpl/not.hpp>
-#include <boost/mpl/placeholders.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <boost/type_traits/is_same.hpp>
 
 namespace mizuiro
 {
 namespace color
+{
+namespace conversion
 {
 
 template<
 	typename Dest,
 	typename Src
 >
-typename boost::enable_if<
-	layout::is_same<
-		typename Dest::layout,
-		typename Src::format::layout
-	>,
-	color::object<
+color::object<
+	Dest
+> const
+same_to_same(
+	Src const &_src,
+	typename color::object<
 		Dest
-	> const
->::type
-convert(
-	Src const &_src
+	>::format_store_type const &_format
+		= color::format_argument<Dest>()
 )
 {
 	typedef color::object<
 		Dest
 	> dest_type;
 
-	dest_type dest;
+	dest_type dest(
+		_format
+	);
 
 	mizuiro::color::for_some_channels(
 		_src,
@@ -71,6 +69,7 @@ convert(
 	return dest;
 }
 
+}
 }
 }
 

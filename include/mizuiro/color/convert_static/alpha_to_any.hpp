@@ -4,13 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERT_ALPHA_TO_ANY_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERT_ALPHA_TO_ANY_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERT_STATIC_ALPHA_TO_ANY_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERT_STATIC_ALPHA_TO_ANY_HPP_INCLUDED
 
-#include <mizuiro/color/convert/detail/copy_or_max_alpha.hpp>
-#include <mizuiro/color/convert/detail/channel_to_max_functor.hpp>
-#include <mizuiro/color/convert/detail/exclude_channel_functor.hpp>
-#include <mizuiro/color/for_some_channels.hpp>
+#include <mizuiro/color/conversion/alpha_to_any.hpp>
 #include <mizuiro/color/is_alpha.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <boost/mpl/and.hpp>
@@ -20,6 +17,8 @@
 namespace mizuiro
 {
 namespace color
+{
+namespace convert_static
 {
 
 template<
@@ -45,34 +44,15 @@ convert(
 	Src const &_src
 )
 {
-	typedef 
-	color::object<
-		Dest
-	> dest_type;
-	
-	dest_type dest;
-
-	mizuiro::color::for_some_channels(
-		dest,
-		detail::channel_to_max_functor<
-			dest_type
+	return
+		mizuiro::color::conversion::alpha_to_any<
+			Dest
 		>(
-			dest
-		),
-		detail::exclude_channel_functor<
-			Dest,
-			channel::alpha
-		>()
-	);
-
-	detail::copy_or_max_alpha(
-		_src,
-		dest
-	);
-
-	return dest;
+			_src	
+		);
 }
 
+}
 }
 }
 

@@ -4,50 +4,43 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERT_ANY_TO_ALPHA_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERT_ANY_TO_ALPHA_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_ANY_TO_ALPHA_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_ANY_TO_ALPHA_HPP_INCLUDED
 
-#include <mizuiro/color/convert/detail/copy_or_max_alpha.hpp>
+#include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/is_alpha.hpp>
 #include <mizuiro/color/object_impl.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/mpl/not.hpp>
-#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
 namespace color
+{
+namespace conversion
 {
 
 template<
 	typename Dest,
 	typename Src
 >
-typename boost::enable_if<
-	boost::mpl::and_<
-		color::is_alpha<
-			Dest
-		>,
-		boost::mpl::not_<
-			color::is_alpha<
-				typename Src::format
-			>
-		>
-	>,
-	color::object<
+color::object<
+	Dest
+> const
+any_to_alpha(
+	Src const &_src,
+	typename color::object<
 		Dest
-	> const
->::type
-convert(
-	Src const &_src
+	>::format_store_type const &_format
+		= color::format_argument<Dest>()
 )
 {
 	typedef color::object<
 		Dest
 	> dest_type;
 	
-	dest_type dest;
+	dest_type dest(
+		_format
+	);
 
 	detail::copy_or_max_alpha(
 		_src,
@@ -57,6 +50,7 @@ convert(
 	return dest;
 }
 
+}
 }
 }
 

@@ -9,11 +9,14 @@
 
 #include <mizuiro/color/access/channel_index.hpp>
 #include <mizuiro/color/access/compare_channels.hpp>
+#include <mizuiro/color/access/convert.hpp>
 #include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/access/is_last_channel.hpp>
 #include <mizuiro/color/access/layout.hpp>
+#include <mizuiro/color/convert_static.hpp>
 #include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/is_homogenous_static.hpp>
+#include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/detail/index_of.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/fusion/adapted/mpl.hpp>
@@ -168,6 +171,46 @@ struct has_channel<
 				typename Format::order,
 				StaticChannel
 			>::value;
+	}
+};
+
+template<
+	typename SourceFormat,
+	typename DestFormat
+>
+struct convert<
+	SourceFormat,
+	DestFormat,
+	typename boost::enable_if<
+		boost::mpl::and_<
+			mizuiro::color::is_homogenous_static<
+				SourceFormat
+			>,
+			mizuiro::color::is_homogenous_static<
+				DestFormat
+			>
+		>
+	>::type
+>
+{
+	template<
+		typename Source
+	>
+	static
+	color::object<
+		DestFormat
+	> const
+	execute(
+		Source const &_source,
+		color::format_store<DestFormat> const &
+	)
+	{
+		return
+			color::convert_static::convert<
+				DestFormat
+			>(
+				_source
+			);
 	}
 };
 

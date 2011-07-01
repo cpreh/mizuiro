@@ -4,10 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERT_DETAIL_COPY_AND_CONVERT_CHANNEL_FUNCTOR_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERT_DETAIL_COPY_AND_CONVERT_CHANNEL_FUNCTOR_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_AND_CONVERT_CHANNEL_FUNCTOR_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_AND_CONVERT_CHANNEL_FUNCTOR_HPP_INCLUDED
 
-#include <mizuiro/color/convert/detail/copy_and_convert_channel.hpp>
+#include <mizuiro/color/conversion/detail/copy_and_convert_channel.hpp>
 #include <mizuiro/color/normalize.hpp>
 #include <mizuiro/color/denormalize.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
@@ -15,6 +15,8 @@
 namespace mizuiro
 {
 namespace color
+{
+namespace conversion
 {
 namespace detail
 {
@@ -50,7 +52,7 @@ public:
 		Channel const &_channel
 	) const
 	{
-		detail::copy_and_convert_channel<
+		conversion::detail::copy_and_convert_channel<
 			Float
 		>(
 			_channel,
@@ -64,6 +66,7 @@ private:
 	Dest &dest_;
 };
 
+}
 }
 }
 }

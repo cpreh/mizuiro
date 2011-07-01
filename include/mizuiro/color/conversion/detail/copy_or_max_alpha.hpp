@@ -4,22 +4,23 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERT_DETAIL_COPY_OR_MAX_ALPHA_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERT_DETAIL_COPY_OR_MAX_ALPHA_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MAX_ALPHA_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MAX_ALPHA_HPP_INCLUDED
 
+#include <mizuiro/color/conversion/detail/channel_to_max.hpp>
+#include <mizuiro/color/conversion/detail/copy_and_convert_channel.hpp>
 #include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
-#include <mizuiro/color/convert/detail/copy_and_convert_channel.hpp>
-#include <mizuiro/color/convert/detail/channel_to_max.hpp>
 
 namespace mizuiro
 {
 namespace color
 {
+namespace conversion
+{
 namespace detail
 {
 
-// source and destination have an alpha channel, so convert
 template
 <
 	class Src,
@@ -49,7 +50,7 @@ copy_or_max_alpha(
 			_src.format_store()
 		)
 	)
-		color::detail::copy_and_convert_channel<
+		conversion::detail::copy_and_convert_channel<
 			float
 		>
 		(
@@ -58,7 +59,7 @@ copy_or_max_alpha(
 			_dest
 		);
 	else
-		color::detail::channel_to_max
+		conversion::detail::channel_to_max
 		(
 			_dest,
 			channel::alpha()
@@ -66,6 +67,7 @@ copy_or_max_alpha(
 
 }
 
+}
 }
 }
 }

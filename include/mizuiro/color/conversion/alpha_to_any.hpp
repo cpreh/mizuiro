@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_ALPHA_TO_ANY_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_ALPHA_TO_ANY_HPP_INCLUDED
 
-#include <mizuiro/color/convert/detail/copy_or_max_alpha.hpp>
-#include <mizuiro/color/convert/detail/channel_to_max_functor.hpp>
-#include <mizuiro/color/convert/detail/exclude_channel_functor.hpp>
+#include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
+#include <mizuiro/color/conversion/detail/channel_to_max_functor.hpp>
+#include <mizuiro/color/conversion/detail/exclude_channel_functor.hpp>
 #include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/for_some_channels.hpp>
 #include <mizuiro/color/object_impl.hpp>

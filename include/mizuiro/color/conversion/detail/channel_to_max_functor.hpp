@@ -4,15 +4,17 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERT_DETAIL_CHANNEL_TO_MAX_FUNCTOR_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERT_DETAIL_CHANNEL_TO_MAX_FUNCTOR_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MAX_FUNCTOR_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MAX_FUNCTOR_HPP_INCLUDED
 
-#include <mizuiro/color/convert/detail/channel_to_max.hpp>
+#include <mizuiro/color/conversion/detail/channel_to_max.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 
 namespace mizuiro
 {
 namespace color
+{
+namespace conversion
 {
 namespace detail
 {
@@ -44,7 +46,7 @@ public:
 		Channel const &_channel
 	) const
 	{
-		detail::channel_to_max(
+		conversion::detail::channel_to_max(
 			dest_,
 			_channel
 		);
@@ -53,6 +55,7 @@ private:
 	Dest &dest_;
 };
 
+}
 }
 }
 }
