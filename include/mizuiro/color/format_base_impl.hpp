@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_BASE_IMPL_HPP_INCLUDED
 
 #include <mizuiro/color/format_base_decl.hpp>
+#include <mizuiro/color/format_store_impl.hpp>
 
 template<
 	typename Format
@@ -20,7 +21,7 @@ mizuiro::color::format_base<
 		>
 	>::type
 >::format_base(
-	Format const *
+	format_store_type const &
 )
 {
 }
@@ -28,7 +29,14 @@ mizuiro::color::format_base<
 template<
 	typename Format
 >
-Format const *
+typename mizuiro::color::format_base<
+	Format,
+	typename boost::enable_if<
+		mizuiro::color::format_is_static<
+			Format
+		>
+	>::type
+>::format_store_type const
 mizuiro::color::format_base<
 	Format,
 	typename boost::enable_if<
@@ -38,7 +46,10 @@ mizuiro::color::format_base<
 	>::type
 >::format_store_base() const
 {
-	return 0;
+	return
+		format_store_type(
+			0
+		);
 }
 
 template<
@@ -52,7 +63,7 @@ mizuiro::color::format_base<
 		>
 	>::type
 >::format_base(
-	Format const *const _format
+	format_store_type const &_format
 )
 :
 	format_(_format)
@@ -62,7 +73,14 @@ mizuiro::color::format_base<
 template<
 	typename Format
 >
-Format const *
+typename mizuiro::color::format_base<
+	Format,
+	typename boost::disable_if<
+		mizuiro::color::format_is_static<
+			Format
+		>
+	>::type
+>::format_store_type const
 mizuiro::color::format_base<
 	Format,
 	typename boost::disable_if<

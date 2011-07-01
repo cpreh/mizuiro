@@ -7,6 +7,7 @@
 #include <mizuiro/color/access/dynamic_index.hpp>
 #include <mizuiro/color/access/homogenous_dynamic.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
+#include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/homogenous_dynamic.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
@@ -93,7 +94,7 @@ struct dynamic_index<
 	static
 	mizuiro::size_type
 	execute(
-		Format const &,
+		mizuiro::color::format_store<Format> const &,
 		Channel const &
 	)
 	{
@@ -133,12 +134,18 @@ int main()
 		color_uint8_4_format
 	> color_uint8_4;
 
+	typedef mizuiro::color::format_store<
+		color_uint8_4_format
+	> format_store;
+
 	color_uint8_4 const test1(
 		(mizuiro::color::init::red %= 0.5)
 		(mizuiro::color::init::green %= 0.2)
 		(mizuiro::color::init::blue %= 0.1)
 		(mizuiro::color::init::alpha %= 0.3),
-		&rgba_format
+		format_store(
+			&rgba_format
+		)
 	);
 
 	std::cout

@@ -13,6 +13,7 @@
 #include <mizuiro/color/access/extract_channel.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/pointer.hpp>
+#include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/is_homogenous.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/utility/enable_if.hpp>
@@ -50,7 +51,7 @@ struct extract_channel<
 	>::type
 	execute(
 		mizuiro::access::normal const &,
-		Format const *const _format,
+		color::format_store<Format> const &_format,
 		Channel const &_channel,
 		Constness const &,
 		typename mizuiro::color::types::pointer<

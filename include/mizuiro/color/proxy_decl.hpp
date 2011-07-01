@@ -39,6 +39,8 @@ public:
 
 	typedef Format format;
 
+	typedef typename base::format_store_type format_store_type;
+
 	typedef typename color::types::pointer<
 		Access,
 		Format,
@@ -47,7 +49,7 @@ public:
 
 	proxy(
 		pointer data,
-		format const * =
+		format_store_type const & =
 			color::format_argument<Format>()
 	);
 
@@ -98,7 +100,7 @@ public:
 	pointer
 	data() const;
 
-	format const *
+	format_store_type const
 	format_store() const;
 private:
 	pointer data_;	

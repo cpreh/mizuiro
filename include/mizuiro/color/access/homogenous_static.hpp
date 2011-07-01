@@ -12,6 +12,7 @@
 #include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/access/is_last_channel.hpp>
 #include <mizuiro/color/access/layout.hpp>
+#include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/is_homogenous_static.hpp>
 #include <mizuiro/detail/index_of.hpp>
 #include <mizuiro/size_type.hpp>
@@ -44,7 +45,7 @@ struct channel_index<
 	static
 	mizuiro::size_type
 	execute(
-		Format const *,
+		color::format_store<Format> const &, 
 		Channel const &
 	)
 	{
@@ -71,7 +72,7 @@ struct layout<
 	static
 	typename Format::layout::order const
 	execute(
-		Format const *
+		color::format_store<Format> const &
 	)
 	{
 		return typename Format::layout::order();
@@ -95,7 +96,7 @@ struct is_last_channel<
 	static
 	bool
 	execute(
-		Format const *,
+		color::format_store<Format> const &, 
 		Channel const &
 	)
 	{
@@ -159,7 +160,7 @@ struct has_channel<
 	static
 	bool
 	execute(
-		Format const *
+		color::format_store<Format> const &
 	)
 	{
 		return

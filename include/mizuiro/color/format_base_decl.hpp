@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_BASE_DECL_HPP_INCLUDED
 
 #include <mizuiro/color/format_is_static.hpp>
+#include <mizuiro/color/format_store_decl.hpp>
 #include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
@@ -34,11 +35,15 @@ class format_base<
 >
 {
 protected:
-	format_base(
-		Format const *
+	typedef color::format_store<
+		Format
+	> format_store_type;
+
+	explicit format_base(
+		format_store_type const &
 	);
 
-	Format const *
+	format_store_type const
 	format_store_base() const;
 };
 
@@ -55,14 +60,18 @@ class format_base<
 >
 {
 protected:
-	format_base(
-		Format const *
+	typedef color::format_store<
+		Format
+	> format_store_type;
+
+	explicit format_base(
+		format_store_type const &
 	);
 
-	Format const *
+	format_store_type const
 	format_store_base() const;
 private:
-	Format const *format_;
+	format_store_type format_;
 };
 
 }

@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/init/detail/assign_object.hpp>
 #include <mizuiro/color/format_base_impl.hpp>
+#include <mizuiro/color/format_store_impl.hpp>
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/is_color.hpp>
@@ -18,7 +19,7 @@ template<
 	typename Format
 >
 mizuiro::color::object<Format>::object(
-	format const *const _format
+	format_store_type const &_format
 )
 :
 	base(
@@ -79,7 +80,7 @@ mizuiro::color::object<Format>::object(
 	init::detail::values<
 		Vector
 	> const &_init,
-	format const *const _format
+	format_store_type const &_format
 )
 :
 	base(
@@ -172,7 +173,7 @@ mizuiro::color::object<Format>::data() const
 template<
 	typename Format
 >
-typename mizuiro::color::object<Format>::format const *
+typename mizuiro::color::object<Format>::format_store_type const
 mizuiro::color::object<Format>::format_store() const
 {
 	return this->format_store_base();

@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_ARGUMENT_HPP_INCLUDED
 
 #include <mizuiro/color/format_is_static.hpp>
+#include <mizuiro/color/format_store_impl.hpp>
 #include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
@@ -22,11 +23,18 @@ typename boost::enable_if<
 	color::format_is_static<
 		Format
 	>,
-	Format const *
+	color::format_store<
+		Format
+	> const
 >::type
 format_argument()
 {
-	return 0;
+	return
+		color::format_store<
+			Format
+		>(
+			0
+		);
 }
 
 }

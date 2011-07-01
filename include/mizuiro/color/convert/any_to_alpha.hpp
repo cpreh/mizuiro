@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_CONVERT_ANY_TO_ALPHA_HPP_INCLUDED
 
 #include <mizuiro/color/convert/detail/copy_or_max_alpha.hpp>
+#include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/is_alpha.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <boost/mpl/and.hpp>
@@ -39,17 +40,14 @@ typename boost::enable_if<
 	> const
 >::type
 convert(
-	Src const &_src,
-	Dest const *const _format = 0
+	Src const &_src
 )
 {
 	typedef color::object<
 		Dest
 	> dest_type;
 	
-	dest_type dest(
-		_format
-	);
+	dest_type dest;
 
 	detail::copy_or_max_alpha(
 		_src,

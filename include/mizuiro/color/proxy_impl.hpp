@@ -10,6 +10,7 @@
 #include <mizuiro/color/access/extract_channel.hpp>
 #include <mizuiro/color/proxy_decl.hpp>
 #include <mizuiro/color/format_base_impl.hpp>
+#include <mizuiro/color/format_store_impl.hpp>
 #include <mizuiro/color/detail/copy_channel.hpp>
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
@@ -22,7 +23,7 @@ template<
 >
 mizuiro::color::proxy<Access, Format, Constness>::proxy(
 	pointer const _data,
-	Format const *const _format
+	format_store_type const &_format
 )
 :
 	base(
@@ -169,7 +170,7 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::color::proxy<Access, Format, Constness>::format const *
+typename mizuiro::color::proxy<Access, Format, Constness>::format_store_type const
 mizuiro::color::proxy<Access, Format, Constness>::format_store() const
 {
 	return this->format_store_base();

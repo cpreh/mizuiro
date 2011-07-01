@@ -14,6 +14,7 @@
 #include <mizuiro/color/access/is_last_channel.hpp>
 #include <mizuiro/color/access/layout.hpp>
 #include <mizuiro/color/channel/is_channel.hpp>
+#include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/is_homogenous_dynamic.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/mpl/and.hpp>
@@ -49,17 +50,17 @@ struct channel_index<
 	static
 	mizuiro::size_type
 	execute(
-		Format const *const _format,
+		color::format_store<Format> const &_format,
 		Channel const &_channel
 	)
 	{
 		return
-			_format->indices[
+			_format.get()->indices[
 				color::access::dynamic_index<
 					Format,
 					Channel
 				>::execute(
-					*_format,
+					_format,
 					_channel
 				)
 			];
@@ -90,12 +91,12 @@ struct channel_index<
 	static
 	mizuiro::size_type
 	execute(
-		Format const *const _format,
+		color::format_store<Format> const &_format,
 		Channel const &_channel
 	)
 	{
 		return
-			_format->indices[
+			_format.get()->indices[
 				_channel
 			];
 	}
@@ -116,11 +117,11 @@ struct layout<
 	static
 	typename Format::layout const &
 	execute(
-		Format const *const _format
+		color::format_store<Format> const &_format
 	)
 	{
 		return
-			_format->order;
+			_format.get()->order;
 	}
 };
 
@@ -141,12 +142,12 @@ struct is_last_channel<
 	static
 	bool
 	execute(
-		Format const *const _format,
+		color::format_store<Format> const &_format,
 		Channel const &_channel
 	)
 	{
 		return
-			_format->order.back()
+			_format.get()->order.back()
 			== _channel;
 	}
 };
@@ -203,7 +204,9 @@ struct has_channel<
 	static
 	bool
 	execute(
-		Format const *const _format
+		color::format_store<
+			Format
+		> const &_format
 	)
 	{
 		return
@@ -212,7 +215,7 @@ struct has_channel<
 					Format,
 					StaticChannel
 				>::execute(
-					*_format
+					_format
 				)
 			]
 			!= -1; // TODO: fix this constant

@@ -10,6 +10,7 @@
 #include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/format_base_decl.hpp>
+#include <mizuiro/color/format_store_decl.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
 #include <mizuiro/color/init/detail/values_fwd.hpp>
@@ -47,6 +48,8 @@ class object
 public:
 	typedef Format format;
 
+	typedef typename base::format_store_type format_store_type;
+
 	typedef mizuiro::access::normal access;
 
 	typedef typename color::types::pointer<
@@ -63,7 +66,7 @@ public:
 
 	/// constructs an uninitialized color
 	explicit object(
-		format const * =
+		format_store_type const & =
 			color::format_argument<Format>()
 	);
 
@@ -92,7 +95,7 @@ public:
 		init::detail::values<
 			Vector
 		> const &,
-		format const * =
+		format_store_type const & =
 			color::format_argument<Format>()
 	);
 
@@ -131,7 +134,7 @@ public:
 	const_pointer
 	data() const;
 
-	format const *
+	format_store_type const
 	format_store() const;
 private:
 	typedef color::proxy<
