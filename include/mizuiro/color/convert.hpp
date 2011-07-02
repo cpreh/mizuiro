@@ -35,7 +35,7 @@ convert(
 	typename color::object<
 		DestFormat
 	>::format_store_type const &_dest_format =
-		color::format_argument<DestFormat>()
+		color::format_argument<DestFormat>::get()
 )
 {
 	return

@@ -67,7 +67,7 @@ public:
 	/// constructs an uninitialized color
 	explicit object(
 		format_store_type const & =
-			color::format_argument<Format>()
+			color::format_argument<Format>::get()
 	);
 
 	object(
@@ -96,7 +96,7 @@ public:
 			Vector
 		> const &,
 		format_store_type const & =
-			color::format_argument<Format>()
+			color::format_argument<Format>::get()
 	);
 
 	/// Sets a color channel denoted by @tparam Channel

@@ -10,6 +10,7 @@
 #include <mizuiro/color/format_is_static.hpp>
 #include <mizuiro/color/format_store_impl.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <boost/static_assert.hpp>
 
 namespace mizuiro
 {
@@ -17,25 +18,66 @@ namespace color
 {
 
 template<
+	typename Format,
+	typename Enable = void
+>
+struct format_argument;
+
+// This is a hack for VC++
+// It instantiates default arguments even if they
+// are never used.
+// The static assert has to be put into the function
+// because VC++ doesn't look that far.
+template<
 	typename Format
 >
-typename boost::enable_if<
-	color::format_is_static<
-		Format
-	>,
+struct format_argument<
+	Format,
+	typename boost::disable_if<
+		color::format_is_static<
+			Format
+		>
+	>::type
+>
+{
+	static
 	color::format_store<
 		Format
 	> const
->::type
-format_argument()
-{
-	return
-		color::format_store<
-			Format
-		>(
-			0
+	get()
+	{
+		BOOST_STATIC_ASSERT(
+			false
 		);
-}
+	}
+};
+
+template<
+	typename Format
+>
+struct format_argument<
+	Format,
+	typename boost::enable_if<
+		color::format_is_static<
+			Format
+		>
+	>::type
+>
+{
+	static
+	color::format_store<
+		Format
+	> const
+	get()
+	{
+		return
+			color::format_store<
+				Format
+			>(
+				0
+			);
+	}
+};
 
 }
 }

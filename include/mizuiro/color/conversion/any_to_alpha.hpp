@@ -31,7 +31,7 @@ any_to_alpha(
 	typename color::object<
 		Dest
 	>::format_store_type const &_format
-		= color::format_argument<Dest>()
+		= color::format_argument<Dest>::get()
 )
 {
 	typedef color::object<

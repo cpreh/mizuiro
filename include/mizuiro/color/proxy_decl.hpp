@@ -50,7 +50,7 @@ public:
 	proxy(
 		pointer data,
 		format_store_type const & =
-			color::format_argument<Format>()
+			color::format_argument<Format>::get()
 	);
 
 	template<
