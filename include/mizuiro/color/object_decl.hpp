@@ -40,11 +40,11 @@ class object
 :
 	private color::format_base<
 		Format
-	>
+	>::type
 {
-	typedef color::format_base<
+	typedef typename color::format_base<
 		Format
-	> base;
+	>::type base;
 public:
 	typedef Format format;
 

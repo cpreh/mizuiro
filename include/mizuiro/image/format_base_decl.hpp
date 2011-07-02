@@ -4,12 +4,12 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_FORMAT_BASE_DECL_HPP_INCLUDED
-#define MIZUIRO_COLOR_FORMAT_BASE_DECL_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_BASE_DECL_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_BASE_DECL_HPP_INCLUDED
 
-#include <mizuiro/detail/format_base_decl.hpp>
-#include <mizuiro/color/format_is_static.hpp>
-#include <mizuiro/color/format_store_decl.hpp>
+#include <mizuiro/image/format_is_static.hpp>
+#include <mizuiro/image/format_store_decl.hpp>
+#include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
 {
@@ -23,8 +23,8 @@ struct format_base
 :
 mizuiro::detail::format_base<
 	Format,
-	color::format_store,
-	color::format_is_static
+	image::format_store
+	image::format_is_static,
 >
 {
 };
