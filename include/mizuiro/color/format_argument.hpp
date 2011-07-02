@@ -47,7 +47,7 @@ struct format_argument<
 	get()
 	{
 		BOOST_STATIC_ASSERT(
-			false
+			sizeof(Format) == 0
 		);
 	}
 };
