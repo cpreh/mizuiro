@@ -2,6 +2,8 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 PROJECT (mizuiro)
 
+INCLUDE(FcpptCMakeUtils)
+
 FIND_PACKAGE(
 	Boost 1.40.0 REQUIRED
 )
@@ -15,8 +17,6 @@ IF(ENABLE_FCPPT)
 		Fcppt
 		REQUIRED
 	)
-
-	INCLUDE(FcpptCMakeUtils)
 ENDIF()
 
 SET(
