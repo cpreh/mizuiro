@@ -8,6 +8,8 @@
 #define MIZUIRO_IMAGE_LINEAR_ITERATOR_DECL_HPP_INCLUDED
 
 #include <mizuiro/image/linear_iterator_fwd.hpp>
+#include <mizuiro/image/format_argument.hpp>
+#include <mizuiro/image/format_base_decl.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 
@@ -32,14 +34,22 @@ class linear_iterator
 		Access,
 		Format,
 		Constness
+	>::type,
+	private image::format_base<
+		Format
 	>::type
 {
+	typedef typename image::format_base<
+		Format
+	>::type format_base;
 public:
 	typedef Access access;
 
 	typedef Format format;
 
 	typedef Constness constness;
+
+	typedef typename format_base::format_store_type format_store_type;
 
 	typedef typename format::color_format color_format;
 
@@ -71,7 +81,9 @@ public:
 	typedef typename format::pitch_type pitch_type;
 
 	explicit linear_iterator(
-		pointer data
+		pointer data,
+		format_store_type const & =
+			image::format_argument<format>::get()
 	);
 
 	pointer

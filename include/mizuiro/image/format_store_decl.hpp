@@ -8,6 +8,7 @@
 #define MIZUIRO_IMAGE_FORMAT_STORE_DECL_HPP_INCLUDED
 
 #include <mizuiro/image/format_store_fwd.hpp>
+#include <mizuiro/color/format_store_decl.hpp>
 
 namespace mizuiro
 {
@@ -20,12 +21,19 @@ template<
 class format_store
 {
 public:
+	typedef color::format_store<
+		typename Format::color_format
+	> color_format_store;
+
 	explicit format_store(
 		Format const *
 	);
 
 	Format const *
 	get() const;
+
+	color_format_store const
+	color_format() const;
 private:
 	Format const *format_;
 };

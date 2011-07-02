@@ -39,13 +39,13 @@ class view
 {
 	typedef typename image::format_base<
 		Format
-	>::type base;
+	>::type format_base;
 public:
 	typedef Access access;
 
 	typedef Format format;
 
-	typedef typename base::format_store_type format_store_type;
+	typedef typename format_base::format_store_type format_store_type;
 
 	typedef Constness constness;
 

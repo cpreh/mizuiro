@@ -27,7 +27,7 @@ mizuiro::image::view<Access, Format, Constness>::view(
 	format_store_type const &_format
 )
 :
-	base(
+	format_base(
 		_format
 	),
 	dim_(
@@ -54,7 +54,7 @@ mizuiro::image::view<Access, Format, Constness>::view(
 	format_store_type const &_format
 )
 :
-	base(
+	format_base(
 		_format
 	),
 	dim_(
@@ -78,7 +78,7 @@ mizuiro::image::view<Access, Format, Constness>::view(
 	view const &_other
 )
 :
-	base(
+	format_base(
 		_other.format_store()
 	),
 	dim_(
@@ -109,7 +109,7 @@ mizuiro::image::view<Access, Format, Constness>::view(
 	> const &_other
 )
 :
-	base(
+	format_base(
 		_other.format_store()
 	),
 	dim_(
@@ -294,7 +294,8 @@ mizuiro::image::view<Access, Format, Constness>::linear_begin() const
 {
 	return
 		linear_iterator(
-			data_
+			data_,
+			this->format_store()
 		);
 }
 
@@ -328,7 +329,8 @@ mizuiro::image::view<Access, Format, Constness>::pitch_begin() const
 		pitch_iterator(
 			dim(),
 			data_,
-			pitch_ 
+			pitch_,
+			this->format_store()
 		);
 }
 

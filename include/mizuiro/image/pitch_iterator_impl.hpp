@@ -24,15 +24,32 @@ template<
 mizuiro::image::pitch_iterator<Access, Format, Constness>::pitch_iterator(
 	dim_type const &_dim,
 	pointer const _data,
-	pitch_type const &_pitch
+	pitch_type const &_pitch,
+	format_store_type const &_format
 )
 :
-	dim_(_dim),
-	root_data_(_data),
-	pitch_(_pitch),
-	line_advance_(0),
-	position_(0),
-	offset_(0),
+	base(),
+	format_base(
+		_format
+	),
+	dim_(
+		_dim
+	),
+	root_data_(
+		_data
+	),
+	pitch_(
+		_pitch
+	),
+	line_advance_(
+		0
+	),
+	position_(
+		0
+	),
+	offset_(
+		0
+	),
 	stacked_dim_(
 		detail::stacked_dim<
 			difference_type
@@ -40,7 +57,8 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::pitch_iterator(
 			dim_
 		)
 	)
-{}
+{
+}
 
 template<
 	typename Access,
@@ -125,7 +143,8 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::advance(
 			pitch_iterator(
 				dim_,
 				root_data_,
-				pitch_
+				pitch_,
+				this->format_store_base()
 			) += (offset_ + _diff);
 		return;
 	}
@@ -249,7 +268,8 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::dereference() const
 		reference(
 			underlying_data_pointer(
 				*this
-			)
+			),
+			this->format_store_base().color_format()
 		);
 }
 

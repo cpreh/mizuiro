@@ -17,11 +17,19 @@ template<
 	typename Constness
 >
 mizuiro::image::linear_iterator<Access, Format, Constness>::linear_iterator(
-	pointer const _data
+	pointer const _data,
+	format_store_type const &_format
 )
 :
-	data_(_data)
-{}
+	base(),
+	format_base(
+		_format
+	),
+	data_(
+		_data
+	)
+{
+}
 
 template<
 	typename Access,
@@ -101,7 +109,8 @@ mizuiro::image::linear_iterator<Access, Format, Constness>::dereference() const
 		reference(
 			underlying_data_pointer(
 				*this
-			)
+			),
+			this->format_store_base().color_format()
 		);
 }
 

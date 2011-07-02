@@ -8,6 +8,8 @@
 #define MIZUIRO_IMAGE_PITCH_ITERATOR_DECL_HPP_INCLUDED
 
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
+#include <mizuiro/image/format_argument.hpp>
+#include <mizuiro/image/format_base_decl.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/image/detail/pitch_type.hpp>
 #include <mizuiro/image/detail/stacked_dim_type.hpp>
@@ -34,14 +36,22 @@ class pitch_iterator
 		Access,
 		Format,
 		Constness
+	>::type,
+	private image::format_base<
+		Format
 	>::type
 {
+	typedef typename image::format_base<
+		Format
+	>::type format_base;
 public:
 	typedef Access access;
 
 	typedef Format format;
 
 	typedef Constness constness; 
+
+	typedef typename format_base::format_store_type format_store_type;
 
 	typedef typename format::color_format color_format;
 
@@ -79,7 +89,9 @@ public:
 	pitch_iterator(
 		dim_type const &,
 		pointer data,
-		pitch_type const &
+		pitch_type const &,
+		format_store_type const & =
+			image::format_argument<format>::get()
 	);
 
 	dim_type const &

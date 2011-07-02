@@ -8,6 +8,7 @@
 #define MIZUIRO_IMAGE_FORMAT_STORE_IMPL_HPP_INCLUDED
 
 #include <mizuiro/image/format_store_decl.hpp>
+#include <mizuiro/color/format_store_impl.hpp>
 
 template<
 	typename Format
@@ -27,6 +28,23 @@ Format const *
 mizuiro::image::format_store<Format>::get() const
 {
 	return format_;
+}
+
+template<
+	typename Format
+>
+typename mizuiro::image::format_store<Format>::color_format_store const
+mizuiro::image::format_store<Format>::color_format() const
+{
+	return
+		format_
+		?
+			format_->color_format_store()
+		:
+			color_format_store(
+				0
+			)
+		;
 }
 
 #endif
