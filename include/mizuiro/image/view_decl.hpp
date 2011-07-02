@@ -8,14 +8,16 @@
 #define MIZUIRO_IMAGE_VIEW_DECL_HPP_INCLUDED
 
 #include <mizuiro/image/view_fwd.hpp>
-#include <mizuiro/image/iterator_fwd.hpp>
-#include <mizuiro/image/range_fwd.hpp>
-#include <mizuiro/image/pitch_iterator_fwd.hpp>
-#include <mizuiro/image/linear_iterator_fwd.hpp>
 #include <mizuiro/image/bound_fwd.hpp>
-#include <mizuiro/image/types/reference.hpp>
-#include <mizuiro/image/types/pointer.hpp>
+#include <mizuiro/image/format_argument.hpp>
+#include <mizuiro/image/format_base_decl.hpp>
+#include <mizuiro/image/iterator_fwd.hpp>
+#include <mizuiro/image/linear_iterator_fwd.hpp>
+#include <mizuiro/image/pitch_iterator_fwd.hpp>
+#include <mizuiro/image/range_fwd.hpp>
 #include <mizuiro/image/types/normal.hpp>
+#include <mizuiro/image/types/pointer.hpp>
+#include <mizuiro/image/types/reference.hpp>
 #include <mizuiro/detail/make_variant.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 
@@ -30,11 +32,20 @@ template<
 	typename Constness
 >
 class view
+:
+	private image::format_base<
+		Format
+	>::type
 {
+	typedef typename image::format_base<
+		Format
+	>::type base;
 public:
 	typedef Access access;
 
 	typedef Format format;
+
+	typedef typename base::format_store_type format_store_type;
 
 	typedef Constness constness;
 
@@ -96,13 +107,17 @@ public:
 
 	view(
 		dim_type const &,
-		pointer data
+		pointer data,
+		format_store_type const & =
+			image::format_argument<format>::get()
 	);
 
 	view(
 		dim_type const &,
 		pointer data,
-		pitch_type const &
+		pitch_type const &,
+		format_store_type const & =
+			image::format_argument<format>::get()
 	);
 
 	view(
@@ -147,6 +162,9 @@ public:
 
 	pitch_type const &
 	pitch() const;
+
+	format_store_type const
+	format_store() const;
 private:
 	bool
 	is_linear() const;

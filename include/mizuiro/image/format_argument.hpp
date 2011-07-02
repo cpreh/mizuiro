@@ -4,27 +4,31 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_FORMAT_BASE_DECL_HPP_INCLUDED
-#define MIZUIRO_IMAGE_FORMAT_BASE_DECL_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_ARGUMENT_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_ARGUMENT_HPP_INCLUDED
 
 #include <mizuiro/image/format_is_static.hpp>
-#include <mizuiro/image/format_store_decl.hpp>
-#include <mizuiro/detail/format_base_decl.hpp>
+#include <mizuiro/image/format_store_impl.hpp>
+#include <mizuiro/detail/format_argument.hpp>
 
 namespace mizuiro
 {
-namespace image
+namespace image 
 {
 
 template<
 	typename Format
 >
-struct format_base
+struct format_argument
 :
-mizuiro::detail::format_base<
+mizuiro::detail::format_argument<
 	Format,
-	image::format_store,
-	image::format_is_static
+	image::format_is_static<
+		Format
+	>,
+	image::format_store<
+		Format
+	>
 >
 {
 };

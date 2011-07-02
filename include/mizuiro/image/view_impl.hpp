@@ -8,11 +8,12 @@
 #define MIZUIRO_IMAGE_VIEW_IMPL_HPP_INCLUDED
 
 #include <mizuiro/image/view_decl.hpp>
+#include <mizuiro/image/format_base_impl.hpp>
 #include <mizuiro/image/iterator_impl.hpp>
-#include <mizuiro/image/pitch_iterator_impl.hpp>
 #include <mizuiro/image/linear_iterator_impl.hpp>
-#include <mizuiro/image/range_impl.hpp>
 #include <mizuiro/image/move_iterator.hpp>
+#include <mizuiro/image/pitch_iterator_impl.hpp>
+#include <mizuiro/image/range_impl.hpp>
 #include <stdexcept>
 
 template<
@@ -22,13 +23,24 @@ template<
 >
 mizuiro::image::view<Access, Format, Constness>::view(
 	dim_type const &_dim,
-	pointer const _data
+	pointer const _data,
+	format_store_type const &_format
 )
 :
-	dim_(_dim),
-	data_(_data),
-	pitch_(pitch_type::null())
-{}
+	base(
+		_format
+	),
+	dim_(
+		_dim
+	),
+	data_(
+		_data
+	),
+	pitch_(
+		pitch_type::null()
+	)
+{
+}
 
 template<
 	typename Access,
@@ -38,13 +50,24 @@ template<
 mizuiro::image::view<Access, Format, Constness>::view(
 	dim_type const &_dim,
 	pointer const _data,
-	pitch_type const &_pitch
+	pitch_type const &_pitch,
+	format_store_type const &_format
 )
 :
-	dim_(_dim),
-	data_(_data),
-	pitch_(_pitch)
-{}
+	base(
+		_format
+	),
+	dim_(
+		_dim
+	),
+	data_(
+		_data
+	),
+	pitch_(
+		_pitch
+	)
+{
+}
 
 template<
 	typename Access,
@@ -55,10 +78,20 @@ mizuiro::image::view<Access, Format, Constness>::view(
 	view const &_other
 )
 :
-	dim_(_other.dim_),
-	data_(_other.data_),
-	pitch_(_other.pitch_)
-{}
+	base(
+		_other.format_store()
+	),
+	dim_(
+		_other.dim_
+	),
+	data_(
+		_other.data_
+	),
+	pitch_(
+		_other.pitch_
+	)
+{
+}
 
 template<
 	typename Access,
@@ -69,17 +102,27 @@ template<
 	typename OtherConstness
 >
 mizuiro::image::view<Access, Format, Constness>::view(
-	view<
+	image::view<
 		Access,
 		Format,
 		OtherConstness
 	> const &_other
 )
 :
-	dim_(_other.dim()),
-	data_(_other.data()),
-	pitch_(_other.pitch())
-{}
+	base(
+		_other.format_store()
+	),
+	dim_(
+		_other.dim()
+	),
+	data_(
+		_other.data()
+	),
+	pitch_(
+		_other.pitch()
+	)
+{
+}
 
 template<
 	typename Access,
@@ -167,7 +210,7 @@ mizuiro::image::view<Access, Format, Constness>::operator[](
 ) const
 {
 	return
-		*move_iterator(
+		*image::move_iterator(
 			*this,
 			_index
 		);
@@ -215,6 +258,17 @@ typename mizuiro::image::view<Access, Format, Constness>::pitch_type const &
 mizuiro::image::view<Access, Format, Constness>::pitch() const
 {
 	return pitch_;
+}
+
+template<
+	typename Access,
+	typename Format,
+	typename Constness
+>
+typename mizuiro::image::view<Access, Format, Constness>::format_store_type const
+mizuiro::image::view<Access, Format, Constness>::format_store() const
+{
+	return this->format_store_base();
 }
 
 template<
