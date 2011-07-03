@@ -8,6 +8,8 @@
 #define MIZUIRO_IMAGE_STORE_DECL_HPP_INCLUDED
 
 #include <mizuiro/image/store_fwd.hpp>
+#include <mizuiro/image/format_argument.hpp>
+#include <mizuiro/image/format_base_decl.hpp>
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/detail/raw_container_decl.hpp>
 #include <mizuiro/image/types/pointer.hpp>
@@ -26,11 +28,20 @@ template<
 	typename Access
 >
 class store
+:
+	private image::format_base<
+		Format
+	>::type
 {
+	typedef typename image::format_base<
+		Format
+	>::type format_base;
 public:
 	typedef Access access;
 
 	typedef Format format;
+
+	typedef typename format_base::format_store_type format_store_type;
 
 	typedef typename format::color_format color_format;
 
@@ -60,10 +71,15 @@ public:
 		mizuiro::const_tag
 	> const_view_type;
 	
-	store();
+	explicit store(
+		format_store_type const & =
+			image::format_argument<format>::get()
+	);
 
 	explicit store(
-		dim_type const &
+		dim_type const &,
+		format_store_type const & =
+			image::format_argument<format>::get()
 	);
 	
 	pointer

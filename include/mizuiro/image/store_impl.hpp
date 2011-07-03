@@ -16,22 +16,32 @@ template<
 	typename Format,
 	typename Access 
 >
-mizuiro::image::store<Format, Access>::store()
+mizuiro::image::store<Format, Access>::store(
+	format_store_type const &_format
+)
 :
+	format_base(
+		_format
+	),
 	dim_(
 		dim_type::null()
 	),
 	data_()
-{}
+{
+}
 
 template<
 	typename Format,
 	typename Access 
 >
 mizuiro::image::store<Format, Access>::store(
-	dim_type const &_dim
+	dim_type const &_dim,
+	format_store_type const &_format
 )
 :
+	format_base(
+		_format
+	),
 	dim_(
 		_dim
 	),
@@ -47,7 +57,8 @@ mizuiro::image::store<Format, Access>::store(
 			dim_
 		)
 	)
-{}
+{
+}
 
 template<
 	typename Format,
@@ -76,10 +87,11 @@ template<
 typename mizuiro::image::store<Format, Access>::view_type const
 mizuiro::image::store<Format, Access>::view()
 {
-	return view_type(
-		dim(),
-		data()
-	);
+	return
+		view_type(
+			dim(),
+			data()
+		);
 }
 
 template<
@@ -89,10 +101,11 @@ template<
 typename mizuiro::image::store<Format, Access>::const_view_type const
 mizuiro::image::store<Format, Access>::view() const
 {
-	return const_view_type(
-		dim(),
-		data()
-	);
+	return
+		const_view_type(
+			dim(),
+			data()
+		);
 }
 template<
 	typename Format,
