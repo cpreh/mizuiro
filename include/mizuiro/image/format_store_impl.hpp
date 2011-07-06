@@ -17,6 +17,25 @@ mizuiro::image::format_store<Format>::format_store(
 	Format const *const _format
 )
 :
+	format_(
+		_format
+		?
+			optional_format(
+				*_format
+			)
+		:
+			optional_format()
+	)
+{
+}
+
+template<
+	typename Format
+>
+mizuiro::image::format_store<Format>::format_store(
+	optional_format const &_format
+)
+:
 	format_(_format)
 {
 }
@@ -24,7 +43,7 @@ mizuiro::image::format_store<Format>::format_store(
 template<
 	typename Format
 >
-Format const *
+typename mizuiro::image::format_store<Format>::optional_format const
 mizuiro::image::format_store<Format>::get() const
 {
 	return format_;

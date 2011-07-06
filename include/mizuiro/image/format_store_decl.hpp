@@ -9,6 +9,8 @@
 
 #include <mizuiro/image/format_store_fwd.hpp>
 #include <mizuiro/color/format_store_decl.hpp>
+#include <mizuiro/detail/make_optional.hpp>
+#include <mizuiro/detail/optional_impl.hpp>
 
 namespace mizuiro
 {
@@ -21,21 +23,30 @@ template<
 class format_store
 {
 public:
+	typedef typename mizuiro::detail::make_optional<
+		Format
+	>::type optional_format;
+
 	typedef color::format_store<
 		typename Format::color_format
 	> color_format_store;
 
+	// compatibility to format_argument
 	explicit format_store(
 		Format const *
 	);
 
-	Format const *
+	explicit format_store(
+		optional_format const &
+	);
+
+	optional_format const
 	get() const;
 
 	color_format_store const
 	color_format() const;
 private:
-	Format const *format_;
+	optional_format format_;
 };
 
 }
