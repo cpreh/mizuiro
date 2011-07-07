@@ -24,8 +24,8 @@ template<
 >
 void
 fill(
-	ViewD const &dest,
-	Fun const &fun
+	ViewD const &_dest,
+	Fun const &_fun
 )
 {
 	mizuiro::detail::variant_apply_unary(
@@ -33,10 +33,10 @@ fill(
 			detail::fill<
 				Fun	
 			>(
-				fun	
+				_fun	
 			)
 		),
-		dest.range()
+		_dest.range()
 	);
 }
 

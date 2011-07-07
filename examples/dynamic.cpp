@@ -12,6 +12,7 @@
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
+#include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/format.hpp>
@@ -195,8 +196,15 @@ int main()
 		store.view()
 	);
 
+	mizuiro::image::algorithm::fill_c(
+		view,
+		test1
+	);
+
 	mizuiro::image::algorithm::print(
 		std::cout,
 		view
 	);
+
+	std::cout << '\n';
 }

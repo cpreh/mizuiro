@@ -23,14 +23,14 @@ template<
 >
 void
 fill_c(
-	ViewD const &dest,
-	Color const &color
+	ViewD const &_dest,
+	Color const &_color
 )
 {
-	fill(
-		dest,
+	algorithm::fill(
+		_dest,
 		boost::phoenix::val(
-			color
+			_color
 		)
 	);
 }
