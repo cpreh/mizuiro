@@ -7,13 +7,9 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_COPY_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_COPY_IMPL_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/detail/apply_binary_iteration.hpp>
-#include <mizuiro/image/algorithm/detail/copy_element.hpp>
-#include <mizuiro/image/algorithm/detail/copy_element_overlapping.hpp>
-#include <mizuiro/image/algorithm/detail/copy_raw.hpp>
+#include <mizuiro/image/algorithm/copy_different_channel_order.hpp>
+#include <mizuiro/image/algorithm/copy_same_channel_order.hpp>
 #include <mizuiro/image/views_have_same_channel_order.hpp>
-#include <mizuiro/image/views_overlap.hpp>
-#include <mizuiro/detail/variant_apply_binary.hpp>
 #include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
@@ -41,27 +37,10 @@ copy_impl(
 	ViewD const &_dest
 )
 {
-	if(
-		image::views_overlap(
-			_src,
-			_dest
-		)
-	)
-		mizuiro::detail::variant_apply_binary(
-			algorithm::detail::apply_binary_iteration(
-				algorithm::detail::copy_element_overlapping()
-			),
-			_src.range(),
-			_dest.range()
-		);
-	else
-		mizuiro::detail::variant_apply_binary(
-			algorithm::detail::apply_binary_iteration(
-				algorithm::detail::copy_element()
-			),
-			_src.range(),
-			_dest.range()
-		);
+	algorithm::copy_different_channel_order(
+		_src,
+		_dest
+	);
 }
 
 template<
@@ -80,10 +59,9 @@ copy_impl(
 	ViewD const &_dest
 )
 {
-	mizuiro::detail::variant_apply_binary(
-		detail::copy_raw(),
-		_src.range(),
-		_dest.range()
+	algorithm::copy_same_channel_order(
+		_src,
+		_dest
 	);
 }
 

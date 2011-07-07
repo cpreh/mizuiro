@@ -36,7 +36,7 @@ struct copy_element_overlapping
 			typename Src::format
 		> temp_object;
 
-		temp_object const temp(	
+		temp_object const temp(
 			_src
 		);
 
