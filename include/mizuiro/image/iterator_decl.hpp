@@ -15,6 +15,8 @@
 #include <mizuiro/detail/variant_decl.hpp>
 #include <mizuiro/detail/make_variant.hpp>
 #include <boost/mpl/vector/vector10.hpp>
+#include <boost/type_traits/is_same.hpp>
+#include <boost/static_assert.hpp>
 
 namespace mizuiro
 {
@@ -59,18 +61,31 @@ public:
 		constness
 	>::type base;
 
+	typedef image::pitch_iterator<
+		access,
+		format,
+		constness
+	> pitch_iterator;
+
+	typedef image::linear_iterator<
+		access,
+		format,
+		constness
+	> linear_iterator;
+
+	BOOST_STATIC_ASSERT((
+		boost::is_same<
+			typename pitch_iterator::format_store_type,
+			typename linear_iterator::format_store_type
+		>::value
+	));
+
+	typedef typename pitch_iterator::format_store_type format_store_type;
+
 	typedef typename mizuiro::detail::make_variant<
 		boost::mpl::vector2<
-			pitch_iterator<
-				access,
-				format,
-				constness
-			>,
-			linear_iterator<
-				access,
-				format,
-				constness
-			>
+			pitch_iterator,
+			linear_iterator
 		>
 	>::type internal_type;
 
@@ -97,6 +112,9 @@ public:
 
 	pointer
 	data() const;
+
+	format_store_type const
+	format_store() const;
 private:
 	friend class boost::iterator_core_access;
 

@@ -15,6 +15,7 @@
 #include <mizuiro/image/detail/dereference_iterator.hpp>
 #include <mizuiro/image/detail/compare_iterator.hpp>
 #include <mizuiro/image/detail/iterator_data.hpp>
+#include <mizuiro/image/detail/iterator_format_store.hpp>
 #include <mizuiro/detail/variant_impl.hpp>
 #include <mizuiro/detail/variant_apply_unary.hpp>
 #include <mizuiro/detail/variant_apply_binary.hpp>
@@ -54,6 +55,23 @@ mizuiro::image::iterator<Access, Format, Constness>::data() const
 		mizuiro::detail::variant_apply_unary(
 			detail::iterator_data<
 				pointer
+			>(),
+			internal_
+		);
+}
+
+template<
+	typename Access,
+	typename Format,
+	typename Constness
+>
+typename mizuiro::image::iterator<Access, Format, Constness>::format_store_type const
+mizuiro::image::iterator<Access, Format, Constness>::format_store() const
+{
+	return
+		mizuiro::detail::variant_apply_unary(
+			detail::iterator_format_store<
+				format_store_type
 			>(),
 			internal_
 		);

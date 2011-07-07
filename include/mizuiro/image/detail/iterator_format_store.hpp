@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_DETAIL_ITERATOR_DATA_HPP_INCLUDED
-#define MIZUIRO_IMAGE_DETAIL_ITERATOR_DATA_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_DETAIL_ITERATOR_FORMAT_STORE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_DETAIL_ITERATOR_FORMAT_STORE_HPP_INCLUDED
 
 namespace mizuiro
 {
@@ -15,11 +15,11 @@ namespace detail
 {
 
 template<
-	typename Pointer
+	typename FormatStore
 >
-struct iterator_data
+struct iterator_format_store
 {
-	typedef Pointer result_type;
+	typedef FormatStore result_type;
 
 	template<
 		typename T
@@ -29,7 +29,7 @@ struct iterator_data
 		T const &_value
 	) const
 	{
-		return _value.data();
+		return _value.format_store();
 	}
 };
 
