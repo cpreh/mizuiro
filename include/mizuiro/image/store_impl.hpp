@@ -49,11 +49,11 @@ mizuiro::image::store<Format, Access>::store(
 		// TODO:!
 		mizuiro::color::access::data_store_size<
 			Access,
-			Format,
+			typename Format::color_format,
 			dim_type
 		>::execute(
 			Access(),
-			Format(),
+			this->format_store_base().color_format(),
 			dim_
 		)
 	)
@@ -90,7 +90,8 @@ mizuiro::image::store<Format, Access>::view()
 	return
 		view_type(
 			dim(),
-			data()
+			data(),
+			this->format_store_base()
 		);
 }
 
@@ -104,7 +105,8 @@ mizuiro::image::store<Format, Access>::view() const
 	return
 		const_view_type(
 			dim(),
-			data()
+			data(),
+			this->format_store_base()
 		);
 }
 template<

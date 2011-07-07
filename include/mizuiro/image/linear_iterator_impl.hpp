@@ -47,6 +47,17 @@ template<
 	typename Format,
 	typename Constness
 >
+typename mizuiro::image::linear_iterator<Access, Format, Constness>::format_store_type const
+mizuiro::image::linear_iterator<Access, Format, Constness>::format_store() const
+{
+	return this->format_store_base();
+}
+
+template<
+	typename Access,
+	typename Format,
+	typename Constness
+>
 void
 mizuiro::image::linear_iterator<Access, Format, Constness>::advance(
 	difference_type	const diff

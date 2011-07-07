@@ -108,6 +108,9 @@ public:
 
 	pitch_type const &
 	pitch() const;
+
+	format_store_type const
+	format_store() const;
 private:
 	friend class boost::iterator_core_access;
 

@@ -85,7 +85,7 @@ struct data_store_size<
 	Dim,
 	typename boost::enable_if<
 		mizuiro::color::is_homogenous<
-			typename Format::color_format
+			Format
 		>
 	>::type
 >
@@ -94,14 +94,14 @@ struct data_store_size<
 	mizuiro::size_type
 	execute(
 		mizuiro::access::raw const &,
-		Format const &,
+		color::format_store<Format> const &,
 		Dim const &_dim
 	)
 	{
 		return
 			_dim.content()
-			* Format::color_format::element_count
-			* sizeof(typename Format::color_format::channel_type);
+			* Format::element_count
+			* sizeof(typename Format::channel_type);
 	}
 };
 

@@ -12,6 +12,11 @@
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
+#include <mizuiro/image/algorithm/print.hpp>
+#include <mizuiro/image/dimension.hpp>
+#include <mizuiro/image/format.hpp>
+#include <mizuiro/image/interleaved.hpp>
+#include <mizuiro/image/store.hpp>
 #include <mizuiro/size_type.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <boost/type_traits/is_same.hpp>
@@ -136,19 +141,55 @@ int main()
 
 	typedef mizuiro::color::format_store<
 		color_uint8_4_format
-	> format_store;
+	> color_format_store;
+
+	color_format_store const rgba_format_store(
+		&rgba_format
+	);
 
 	color_uint8_4 const test1(
 		(mizuiro::color::init::red %= 0.5)
 		(mizuiro::color::init::green %= 0.2)
 		(mizuiro::color::init::blue %= 0.1)
 		(mizuiro::color::init::alpha %= 0.3),
-		format_store(
-			&rgba_format
-		)
+		rgba_format_store
 	);
 
 	std::cout
 		<< test1
 		<< '\n';
+	
+	typedef mizuiro::image::format<
+		mizuiro::image::dimension<
+			2
+		>,
+		mizuiro::image::interleaved<
+			color_uint8_4_format
+		>
+	> image_uint8_4_format;
+
+	typedef mizuiro::image::store<
+		image_uint8_4_format
+	> uint8_4_store;
+
+	uint8_4_store store(
+		uint8_4_store::dim_type(
+			5,
+			3
+		),
+		uint8_4_store::format_store_type(
+			image_uint8_4_format(
+				rgba_format_store
+			)
+		)
+	);
+
+	uint8_4_store::view_type const view(
+		store.view()
+	);
+
+	mizuiro::image::algorithm::print(
+		std::cout,
+		view
+	);
 }

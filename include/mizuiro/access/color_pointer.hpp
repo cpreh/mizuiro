@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/image/types/pointer.hpp>
+#include <mizuiro/image/format_store.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <boost/utility/enable_if.hpp>
 
@@ -43,7 +44,9 @@ typename boost::enable_if<
 >::type
 color_pointer(
 	Access const &,
-	Format const &,
+	mizuiro::image::format_store<
+		Format
+	> const &,
 	Constness const &,
 	typename image::types::pointer<
 		Access,

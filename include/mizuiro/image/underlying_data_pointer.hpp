@@ -29,7 +29,7 @@ underlying_data_pointer(
 	return
 		color_pointer(
 			typename Iterator::access(),
-			typename Iterator::format(),
+			_iterator.format_store(),
 			typename Iterator::constness(),
 			_iterator.data()
 		);

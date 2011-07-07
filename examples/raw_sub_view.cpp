@@ -84,8 +84,6 @@ int main()
 	);
 
 	{
-		typedef view_type::dim_type dim_type;
-
 		typedef dim_type::size_type size_type;
 
 		dim_type const dim(

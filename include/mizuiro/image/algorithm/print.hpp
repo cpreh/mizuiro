@@ -24,8 +24,8 @@ template<
 >
 void
 print(
-	Sink &sink,
-	ViewS const &src
+	Sink &_sink,
+	ViewS const &_src
 )
 {
 	mizuiro::detail::variant_apply_unary(
@@ -33,10 +33,10 @@ print(
 			detail::print<
 				Sink
 			>(
-				sink
+				_sink
 			)
 		),
-		src.range()
+		_src.range()
 	);
 }
 

@@ -8,6 +8,7 @@
 #define MIZUIRO_ACCESS_COLOR_POINTER_RAW_HPP_INCLUDED
 
 #include <mizuiro/image/detail/stride_pointer_impl.hpp>
+#include <mizuiro/image/format_store.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/size_type.hpp>
 
@@ -30,7 +31,9 @@ typename color::types::pointer<
 >::type
 color_pointer(
 	Access const &,
-	Format const &,
+	mizuiro::image::format_store<
+		Format
+	> const &,
 	Constness const &,
 	mizuiro::image::detail::stride_pointer<
 		Ptr,
