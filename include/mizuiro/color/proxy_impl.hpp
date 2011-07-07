@@ -9,12 +9,12 @@
 
 #include <mizuiro/color/access/extract_channel.hpp>
 #include <mizuiro/color/proxy_decl.hpp>
+#include <mizuiro/color/for_each_channel.hpp>
 #include <mizuiro/color/format_base_impl.hpp>
 #include <mizuiro/color/format_store_impl.hpp>
 #include <mizuiro/color/detail/copy_channel.hpp>
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
-#include <boost/mpl/for_each.hpp>
 
 template<
 	typename Access,
@@ -71,9 +71,8 @@ mizuiro::color::proxy<Access, Format, Constness>::operator=(
 	Other const &_other
 ) const
 {
-	boost::mpl::for_each<
-		typename Format::layout::order
-	>(
+	color::for_each_channel(
+		*this,
 		detail::copy_channel<
 			color::proxy<
 				Access,

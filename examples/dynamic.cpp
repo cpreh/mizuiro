@@ -156,6 +156,13 @@ int main()
 	);
 
 	std::cout
+		<<
+		test1.get(
+			available_channels::red
+		)
+		<< '\n';
+
+	std::cout
 		<< test1
 		<< '\n';
 	
