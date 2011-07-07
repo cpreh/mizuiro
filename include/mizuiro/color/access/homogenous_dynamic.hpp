@@ -14,6 +14,7 @@
 #include <mizuiro/color/access/is_last_channel.hpp>
 #include <mizuiro/color/access/layout.hpp>
 #include <mizuiro/color/channel/is_channel.hpp>
+#include <mizuiro/color/detail/invalid_dynamic_index.hpp>
 #include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/is_homogenous_dynamic.hpp>
 #include <mizuiro/size_type.hpp>
@@ -172,6 +173,9 @@ struct compare_channels<
 	static
 	bool
 	execute(
+		color::format_store<
+			Format
+		> const &_format,
 		OtherChannel const &_other
 	)
 	{
@@ -182,7 +186,8 @@ struct compare_channels<
 				Format,
 				Channel
 			>::execute(
-				Channel()	
+				_format,
+				Channel()
 			);
 	}
 };
@@ -210,15 +215,16 @@ struct has_channel<
 	)
 	{
 		return
-			_format->incdices[
+			_format.get()->indices[
 				color::access::dynamic_index<
 					Format,
 					StaticChannel
 				>::execute(
-					_format
+					_format,
+					StaticChannel()
 				)
 			]
-			!= -1; // TODO: fix this constant
+			!= color::detail::invalid_dynamic_index();
 	}
 };
 

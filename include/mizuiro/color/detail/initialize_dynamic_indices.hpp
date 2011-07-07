@@ -7,6 +7,8 @@
 #ifndef MIZUIRO_COLOR_DETAIL_INITIALIZE_DYNAMIC_INDICES_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_INITIALIZE_DYNAMIC_INDICES_HPP_INCLUDED
 
+#include <mizuiro/color/detail/invalid_dynamic_index.hpp>
+
 namespace mizuiro
 {
 namespace color
@@ -28,7 +30,7 @@ initialize_dynamic_indices(
 		static_cast<
 			typename ChannelIndexArray::value_type
 		>(
-			-1
+			color::detail::invalid_dynamic_index()
 		)
 	}};
 

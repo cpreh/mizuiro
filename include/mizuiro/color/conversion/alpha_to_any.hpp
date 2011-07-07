@@ -55,7 +55,9 @@ alpha_to_any(
 		detail::exclude_channel_functor<
 			Dest,
 			channel::alpha
-		>()
+		>(
+			dest.format_store()
+		)
 	);
 
 	detail::copy_or_max_alpha(

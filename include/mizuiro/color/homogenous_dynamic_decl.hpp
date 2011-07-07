@@ -40,7 +40,7 @@ public:
 	>::type channel_array;
 
 	typedef typename mizuiro::array<
-		size_type,
+		mizuiro::size_type,
 		AllChannels
 	>::type channel_index_array;
 
@@ -51,7 +51,7 @@ public:
 
 	typedef ChannelType channel_type;
 
-	static size_type const element_count = Size;
+	static mizuiro::size_type const element_count = Size;
 
 	typedef channel_array layout;
 

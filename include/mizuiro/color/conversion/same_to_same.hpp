@@ -58,7 +58,9 @@ same_to_same(
 		detail::exclude_channel_functor<
 			typename Src::format,
 			channel::alpha
-		>()
+		>(
+			_src.format_store()
+		)
 	);
 		
 	detail::copy_or_max_alpha(

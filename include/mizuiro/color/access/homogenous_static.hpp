@@ -135,6 +135,7 @@ struct compare_channels<
 	static
 	bool
 	execute(
+		color::format_store<Format> const &,
 		OtherChannel const &
 	)
 	{

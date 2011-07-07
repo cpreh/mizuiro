@@ -7,7 +7,9 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_EXCLUDE_CHANNEL_FUNCTOR_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_EXCLUDE_CHANNEL_FUNCTOR_HPP_INCLUDED
 
+#include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/access/compare_channels.hpp>
+#include <mizuiro/detail/nonassignable.hpp>
 
 namespace mizuiro
 {
@@ -22,8 +24,24 @@ template<
 	typename Format,
 	typename StaticChannel
 >
-struct exclude_channel_functor
+class exclude_channel_functor
 {
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		exclude_channel_functor
+	);
+public:
+	typedef mizuiro::color::format_store<
+		Format
+	> format_store;
+
+	explicit exclude_channel_functor(
+		format_store const &_format
+	)
+	:
+		format_(_format)
+	{
+	}
+
 	typedef bool result_type;
 
 	template<
@@ -39,9 +57,12 @@ struct exclude_channel_functor
 				Format,
 				StaticChannel
 			>::execute(
+				format_,
 				_channel
 			);
 	}
+private:
+	format_store const format_;
 };
 
 }
