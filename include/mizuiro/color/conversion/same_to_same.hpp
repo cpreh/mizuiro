@@ -10,7 +10,9 @@
 #include <mizuiro/color/conversion/detail/copy_and_convert_channel_functor.hpp>
 #include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/conversion/detail/exclude_channel_functor.hpp>
+#include <mizuiro/color/conversion/detail/make_logical_and.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
+#include <mizuiro/color/channel/undefined.hpp>
 #include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/for_some_channels.hpp>
 #include <mizuiro/color/object_impl.hpp>
@@ -55,11 +57,19 @@ same_to_same(
 			_src,
 			dest
 		),
-		detail::exclude_channel_functor<
-			typename Src::format,
-			channel::alpha
-		>(
-			_src.format_store()
+		detail::make_logical_and(
+			detail::exclude_channel_functor<
+				typename Src::format,
+				channel::alpha
+			>(
+				_src.format_store()
+			),
+			detail::exclude_channel_functor<
+				typename Src::format,
+				channel::undefined
+			>(
+				_src.format_store()
+			)
 		)
 	);
 		
