@@ -53,7 +53,7 @@ mizuiro::image::store<Format, Access>::store(
 			dim_type
 		>::execute(
 			Access(),
-			this->format_store_base().color_format(),
+			_format.color_format(),
 			dim_
 		)
 	)
