@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_LUMINANCE_TO_RGB_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_LUMINANCE_TO_RGB_HPP_INCLUDED
 
-#include <mizuiro/color/conversion/detail/max_alpha.hpp>
+#include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/channel/blue.hpp>
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/luminance.hpp>
@@ -48,8 +48,8 @@ luminance_to_rgb(
 		_format
 	);
 
-	detail::max_alpha
-	(
+	conversion::detail::copy_or_max_alpha(
+		_src,
 		dest
 	);
 	
