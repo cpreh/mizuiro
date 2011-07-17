@@ -224,7 +224,11 @@ struct has_channel<
 					StaticChannel()
 				)
 			]
-			!= color::detail::invalid_dynamic_index();
+			!=
+			color::detail::invalid_dynamic_index<
+				typename Format::channel_index_array::value_type
+>
+			();
 	}
 };
 

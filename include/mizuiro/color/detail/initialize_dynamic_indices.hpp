@@ -25,14 +25,19 @@ initialize_dynamic_indices(
 	Layout const &_layout
 )
 {
-	ChannelIndexArray ret =
-	{{
-		static_cast<
-			typename ChannelIndexArray::value_type
-		>(
-			color::detail::invalid_dynamic_index()
-		)
-	}};
+	ChannelIndexArray ret;
+
+	for(
+		typename ChannelIndexArray::iterator it(
+			ret.begin()
+		);
+		it != ret.end();
+		++it
+	)
+		*it =
+			color::detail::invalid_dynamic_index<
+				typename ChannelIndexArray::value_type
+			>();
 
 	for(
 		typename Layout::size_type index(

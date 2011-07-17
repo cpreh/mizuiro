@@ -7,8 +7,6 @@
 #ifndef MIZUIRO_COLOR_DETAIL_INVALID_DYNAMIC_INDEX_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_INVALID_DYNAMIC_INDEX_HPP_INCLUDED
 
-#include <mizuiro/size_type.hpp>
-
 namespace mizuiro
 {
 namespace color
@@ -16,13 +14,16 @@ namespace color
 namespace detail
 {
 
+template<
+	typename T
+>
 inline
-mizuiro::size_type
+T
 invalid_dynamic_index()
 {
 	return
 		static_cast<
-			mizuiro::size_type
+			T
 		>(
 			-1
 		);
