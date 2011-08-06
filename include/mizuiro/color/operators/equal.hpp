@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_OPERATORS_EQUAL_HPP_INCLUDED
 #define MIZUIRO_COLOR_OPERATORS_EQUAL_HPP_INCLUDED
 
-#include <mizuiro/color/operators/detail/compare.hpp>
+#include <mizuiro/color/operators/detail/equal.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <boost/mpl/and.hpp>
@@ -41,14 +41,14 @@ typename boost::enable_if<
 	bool
 >::type
 operator==(
-	Color1 const &color1_,
-	Color2 const &color2_
+	Color1 const &_color1,
+	Color2 const &_color2
 )
 {
 	typedef typename Color1::format::layout::order channels;
 
 	return
-		operators::detail::compare<
+		operators::detail::equal<
 			false
 		>:: template execute<
 			typename boost::mpl::begin<
@@ -58,8 +58,8 @@ operator==(
 				channels
 			>::type
 		>(
-			color1_,
-			color2_
+			_color1,
+			_color2
 		);
 }
 

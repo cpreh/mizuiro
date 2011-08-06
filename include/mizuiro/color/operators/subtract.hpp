@@ -42,16 +42,16 @@ typename boost::enable_if<
 	>
 >::type
 operator-(
-	Color1 const &color1_,
-	Color2 const &color2_
+	Color1 const &_color1,
+	Color2 const &_color2
 )
 {
 	return
 		color::operators::detail::binary_op<
 			std::minus
 		>(
-			color1_,
-			color2_
+			_color1,
+			_color2
 		);
 }
 

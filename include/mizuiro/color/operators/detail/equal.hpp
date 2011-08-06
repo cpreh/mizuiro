@@ -4,10 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_OPERATORS_DETAIL_COMPARE_HPP_INCLUDED
-#define MIZUIRO_COLOR_OPERATORS_DETAIL_COMPARE_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_OPERATORS_DETAIL_EQUAL_HPP_INCLUDED
+#define MIZUIRO_COLOR_OPERATORS_DETAIL_EQUAL_HPP_INCLUDED
 
-#include <mizuiro/compare.hpp>
+#include <mizuiro/color/operators/detail/compare_channel.hpp>
 #include <boost/mpl/deref.hpp>
 #include <boost/mpl/next.hpp>
 #include <boost/type_traits/is_same.hpp>
@@ -24,10 +24,10 @@ namespace detail
 template<
 	bool Done
 >
-struct compare;
+struct equal;
 
 template<>
-struct compare<
+struct equal<
 	true
 >
 {
@@ -48,7 +48,7 @@ struct compare<
 };
 
 template<>
-struct compare<
+struct equal<
 	false
 >
 {
@@ -69,16 +69,16 @@ struct compare<
 		typedef typename boost::mpl::next<Iterator>::type iter;
 
 		return
-			::mizuiro::compare(
+			operators::detail::compare_channel(
 				_color1.get(
 					item()
 				),
 				_color2.get(
 					item()
-				)	
+				)
 			)
 			?
-				detail::compare<
+				detail::equal<
 					boost::is_same<
 						iter,
 						LastIterator
