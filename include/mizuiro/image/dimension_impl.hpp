@@ -266,7 +266,7 @@ mizuiro::image::operator+(
 		++i
 	)
 		ret[i] = _a[i] + _b[i];
-	
+
 	return ret;
 }
 

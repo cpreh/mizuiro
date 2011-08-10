@@ -48,28 +48,28 @@ BOOST_AUTO_TEST_CASE(
 		)
 	);
 
-	BOOST_CHECK(	
+	BOOST_CHECK(
 		bgra.get(
 			mizuiro::color::channel::red()
 		)
 		== static_cast<channel_type>(23)
 	);
 
-	BOOST_CHECK(	
+	BOOST_CHECK(
 		bgra.get(
 			mizuiro::color::channel::green()
 		)
 		== static_cast<channel_type>(100)
 	);
 
-	BOOST_CHECK(	
+	BOOST_CHECK(
 		bgra.get(
 			mizuiro::color::channel::blue()
 		)
 		== static_cast<channel_type>(42)
 	);
 
-	BOOST_CHECK(	
+	BOOST_CHECK(
 		bgra.get(
 			mizuiro::color::channel::alpha()
 		)

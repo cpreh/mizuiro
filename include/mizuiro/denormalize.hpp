@@ -38,7 +38,7 @@ denormalize
 	Float const src
 )
 {
-	return 
+	return
 		static_cast<Dest>
 		(
 			static_cast<Float>

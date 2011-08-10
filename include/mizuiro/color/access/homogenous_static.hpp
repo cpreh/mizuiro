@@ -48,7 +48,7 @@ struct channel_index<
 	static
 	mizuiro::size_type
 	execute(
-		color::format_store<Format> const &, 
+		color::format_store<Format> const &,
 		Channel const &
 	)
 	{
@@ -64,7 +64,7 @@ template<
 	typename Format
 >
 struct layout<
-	Format,	
+	Format,
 	typename boost::enable_if<
 		mizuiro::color::is_homogenous_static<
 			Format
@@ -99,7 +99,7 @@ struct is_last_channel<
 	static
 	bool
 	execute(
-		color::format_store<Format> const &, 
+		color::format_store<Format> const &,
 		Channel const &
 	)
 	{

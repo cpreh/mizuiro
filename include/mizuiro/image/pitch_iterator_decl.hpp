@@ -25,7 +25,7 @@ template<
 	typename Format,
 	typename Constness
 >
-class pitch_iterator 
+class pitch_iterator
 :
 	public detail::iterator_base<
 		pitch_iterator<
@@ -49,7 +49,7 @@ public:
 
 	typedef Format format;
 
-	typedef Constness constness; 
+	typedef Constness constness;
 
 	typedef typename format_base::format_store_type format_store_type;
 
@@ -118,7 +118,7 @@ private:
 	advance(
 		difference_type
 	);
-	
+
 	void
 	increment();
 

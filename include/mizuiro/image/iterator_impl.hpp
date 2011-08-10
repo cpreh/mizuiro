@@ -98,7 +98,7 @@ mizuiro::image::iterator<Access, Format, Constness>::advance(
 			internal_
 		);
 }
-	
+
 template<
 	typename Access,
 	typename Format,

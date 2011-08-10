@@ -24,7 +24,7 @@ namespace detail
 template<
 	typename Vector
 >
-class values 
+class values
 {
 public:
 	typedef Vector vector_type;

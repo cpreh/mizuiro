@@ -31,9 +31,9 @@ fill(
 	mizuiro::detail::variant_apply_unary(
 		detail::apply_unary_iteration(
 			detail::fill<
-				Fun	
+				Fun
 			>(
-				_fun	
+				_fun
 			)
 		),
 		_dest.range()

@@ -41,7 +41,7 @@ public:
 		value_(_value),
 		channel_(_channel)
 	{}
-	
+
 	Value const &
 	value() const
 	{

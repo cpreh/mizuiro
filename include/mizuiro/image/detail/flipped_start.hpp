@@ -30,7 +30,7 @@ flipped_start(
 		++index
 	)
 		ret[index] = 0;
-	
+
 	ret.back() = _last_dim;
 
 	return ret;

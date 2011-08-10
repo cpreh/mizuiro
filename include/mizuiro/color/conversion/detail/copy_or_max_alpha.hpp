@@ -41,7 +41,7 @@ copy_or_max_alpha(
 		)
 	)
 		return;
-	
+
 	if(
 		color::access::has_channel<
 			typename Src::format,

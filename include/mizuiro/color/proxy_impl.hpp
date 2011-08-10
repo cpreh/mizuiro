@@ -116,7 +116,7 @@ mizuiro::color::proxy<Access, Format, Constness>::set(
 		this->format_store(),
 		_channel,
 		mizuiro::nonconst_tag(),
-		data_	
+		data_
 	) = _ref;
 }
 

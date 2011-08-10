@@ -36,7 +36,7 @@ edge_pos_begin(
 			(i == index + 1)
 			? bound.positions()[i] + 1
 			: bound.positions()[i];
-	
+
 	return ret;
 }
 

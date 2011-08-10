@@ -12,7 +12,7 @@
 
 template<
 	typename DimType,
-	typename ImageFormat 
+	typename ImageFormat
 >
 mizuiro::image::format<
 	DimType,
@@ -29,7 +29,7 @@ mizuiro::image::format<
 
 template<
 	typename DimType,
-	typename ImageFormat 
+	typename ImageFormat
 >
 typename mizuiro::image::format<
 	DimType,

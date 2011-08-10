@@ -61,7 +61,7 @@ public:
 
 	typedef image::view<
 		access,
-		format,	
+		format,
 		mizuiro::nonconst_tag
 	> view_type;
 
@@ -70,7 +70,7 @@ public:
 		format,
 		mizuiro::const_tag
 	> const_view_type;
-	
+
 	explicit store(
 		format_store_type const & =
 			image::format_argument<format>::get()
@@ -81,7 +81,7 @@ public:
 		format_store_type const & =
 			image::format_argument<format>::get()
 	);
-	
+
 	pointer
 	data();
 

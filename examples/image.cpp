@@ -40,7 +40,7 @@ int main()
 		store::dim_type(
 			3,
 			2,
-			1	
+			1
 		)
 	);
 
@@ -84,6 +84,6 @@ int main()
 		++it
 	)
 		std::cout << *it << ' ';
-	
+
 	std::cout << '\n';
 }

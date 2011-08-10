@@ -12,7 +12,7 @@
 #include <boost/mpl/find.hpp>
 #include <boost/utility/enable_if.hpp>
 
-namespace mizuiro 
+namespace mizuiro
 {
 namespace detail
 {

@@ -74,7 +74,7 @@ public:
 	typedef image::range<
 		linear_iterator
 	> linear_range;
-	
+
 	typedef typename mizuiro::detail::make_variant<
 		boost::mpl::vector2<
 			linear_range,
@@ -92,7 +92,7 @@ public:
 	> bound_type;
 
 	typedef typename format::pitch_type pitch_type;
-	
+
 	typedef typename image::types::reference<
 		access,
 		format,

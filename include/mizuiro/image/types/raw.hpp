@@ -42,7 +42,7 @@ struct pointer<
 			Constness
 		>::type,
 		sizeof(typename Format::color_format::channel_type)
-	> type;	
+	> type;
 };
 
 template<

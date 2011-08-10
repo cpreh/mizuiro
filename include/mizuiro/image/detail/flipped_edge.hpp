@@ -30,7 +30,7 @@ flipped_edge(
 		++index
 	)
 		ret[index] = _view_dim[index];
-	
+
 	ret.back() = 1;
 
 	return ret;

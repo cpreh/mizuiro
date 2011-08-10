@@ -98,7 +98,7 @@ private:
 	advance(
 		difference_type
 	);
-	
+
 	void
 	increment();
 

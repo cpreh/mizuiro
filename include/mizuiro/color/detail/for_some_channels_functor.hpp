@@ -23,7 +23,7 @@ template<
 class for_some_channels_functor
 {
 	MIZUIRO_DETAIL_NONASSIGNABLE(
-		for_some_channels_functor	
+		for_some_channels_functor
 	);
 public:
 	for_some_channels_functor(

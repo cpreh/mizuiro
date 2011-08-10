@@ -102,7 +102,7 @@ rgb_from_chroma(
 
 	// TODO: add our own exception type!
 	throw std::logic_error(
-		"rgb_from_chroma: Invalid hue!"	
+		"rgb_from_chroma: Invalid hue!"
 	);
 }
 

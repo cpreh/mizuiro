@@ -48,7 +48,7 @@ int main()
 			5
 		),
 		channel_bytes(
-			sizeof(float) 
+			sizeof(float)
 		),
 		element_count(
 			format::color_format::element_count
@@ -118,7 +118,7 @@ int main()
 			view_type
 		>::value
 		<< '\n';
-	
+
 	mizuiro::image::algorithm::print(
 		std::cout,
 		view

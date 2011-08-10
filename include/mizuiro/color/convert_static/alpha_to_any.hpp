@@ -48,7 +48,7 @@ convert(
 		mizuiro::color::conversion::alpha_to_any<
 			Dest
 		>(
-			_src	
+			_src
 		);
 }
 

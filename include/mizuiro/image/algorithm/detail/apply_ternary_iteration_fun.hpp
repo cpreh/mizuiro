@@ -64,7 +64,7 @@ public:
 			typename T1::iterator it1(
 				_range1.begin()
 			);
-			it1 != end1; 
+			it1 != end1;
 			++it1, ++it2, ++it3
 		)
 			fun_(

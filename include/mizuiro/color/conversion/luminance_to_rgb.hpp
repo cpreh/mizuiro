@@ -52,8 +52,8 @@ luminance_to_rgb(
 		_src,
 		dest
 	);
-	
-	float const src_normalized = 
+
+	float const src_normalized =
 		color::normalize
 		<
 			float

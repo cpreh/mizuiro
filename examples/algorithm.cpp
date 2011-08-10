@@ -34,7 +34,7 @@ template<
 struct d2_format {
 	typedef mizuiro::image::format<
 		mizuiro::image::dimension<
-			2	
+			2
 		>,
 		mizuiro::image::interleaved<
 			ColorFormat
@@ -123,7 +123,7 @@ struct transform_test_2
 		Dest const &
 	) const
 	{
-		
+
 	}
 };
 

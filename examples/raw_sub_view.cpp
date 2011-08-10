@@ -28,7 +28,7 @@ int main()
 	typedef float channel_type;
 
 	typedef mizuiro::image::dimension<
-		3	
+		3
 	> dim_type;
 
 	typedef mizuiro::image::format<
@@ -49,7 +49,7 @@ int main()
 			4
 		),
 		depth(
-			4	
+			4
 		);
 
 	mizuiro::array<

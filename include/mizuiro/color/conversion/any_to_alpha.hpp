@@ -37,7 +37,7 @@ any_to_alpha(
 	typedef color::object<
 		Dest
 	> dest_type;
-	
+
 	dest_type dest(
 		_format
 	);

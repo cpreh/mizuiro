@@ -166,7 +166,7 @@ int main()
 	std::cout
 		<< test1
 		<< '\n';
-	
+
 	typedef mizuiro::image::format<
 		mizuiro::image::dimension<
 			2

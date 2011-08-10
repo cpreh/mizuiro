@@ -47,7 +47,7 @@ struct trampoline
 	{
 		return
 			detail::make_values(
-				boost::fusion::make_vector(	
+				boost::fusion::make_vector(
 					color::init::detail::channel_value<
 						Value,
 						Channel
@@ -81,7 +81,7 @@ struct trampoline
 	{
 		return
 			detail::make_values(
-				boost::fusion::make_vector(	
+				boost::fusion::make_vector(
 					color::init::detail::channel_percentage<
 						Value,
 						Channel

@@ -38,7 +38,7 @@ normalize
 	ChannelValue const &value
 )
 {
-	return 
+	return
 		(
 			static_cast<Float>
 			(

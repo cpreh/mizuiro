@@ -36,13 +36,13 @@ int main()
 	std::cout
 		<< test
 		<< '\n';
-	
+
 	test = test + test;
 
 	std::cout
 		<< test
 		<< '\n';
-	
+
 	rgba_color const test2(
 		(mizuiro::color::init::red %= 0.)
 		(mizuiro::color::init::green %= 0.3)

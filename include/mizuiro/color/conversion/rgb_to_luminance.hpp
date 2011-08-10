@@ -44,11 +44,11 @@ rgb_to_luminance(
 	typedef color::object<
 		Dest
 	> dest_type;
-	
+
 	dest_type dest(
 		_format
 	);
-	
+
 	dest.set(
 		channel::luminance(),
 		color::denormalize<

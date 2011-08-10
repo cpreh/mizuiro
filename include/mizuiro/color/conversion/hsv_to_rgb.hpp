@@ -75,7 +75,7 @@ hsv_to_rgb(
 			value
 			- chroma
 		);
-	
+
 	float_type const hue_part(
 		hue
 		*
@@ -85,9 +85,9 @@ hsv_to_rgb(
 			6
 		)
 	);
-	
+
 	typedef int int_type;
-		
+
 	float_type const
 		largest_part(
 			chroma
@@ -129,7 +129,7 @@ hsv_to_rgb(
 		_source,
 		dest
 	);
-	
+
 	return dest;
 }
 

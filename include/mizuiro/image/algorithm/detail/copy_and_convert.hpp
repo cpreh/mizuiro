@@ -32,7 +32,7 @@ struct copy_and_convert
 		Dest const &_dest
 	) const
 	{
-		_dest = 
+		_dest =
 			color::convert<
 				typename Dest::format
 			>(

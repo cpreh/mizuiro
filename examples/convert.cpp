@@ -53,14 +53,14 @@ int main()
 		)
 	);
 
-	std::cout 
-		<< "luminance value was: " 
-		<< test_luminance 
-		<< " and was converted to" 
+	std::cout
+		<< "luminance value was: "
+		<< test_luminance
+		<< " and was converted to"
 		<< test_rgb
 		<< '\n';
-	
-	typedef 
+
+	typedef
 		mizuiro::color::object
 		<
 			mizuiro::color::homogenous_static
@@ -80,12 +80,12 @@ int main()
 			test_rgb
 		)
 	);
-	
-	std::cout 
+
+	std::cout
 		<< "converted the rgb value to floats: "
 		<< test_float
 		<< '\n';
-	
+
 	luminance_color test_luminance2(
 		mizuiro::color::convert<
 			luminance_color::format
@@ -95,11 +95,11 @@ int main()
 		)
 	);
 
-	std::cout 
+	std::cout
 		<< "converted back to luminance: "
 		<< test_luminance2
 		<< '\n';
-	
+
 	alpha_color const test_alpha(
 		(mizuiro::color::init::alpha %= 0.5)
 	);

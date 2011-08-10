@@ -72,7 +72,7 @@ same_to_same(
 			)
 		)
 	);
-		
+
 	detail::copy_or_max_alpha(
 		_src,
 		dest

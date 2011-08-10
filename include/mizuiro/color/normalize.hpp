@@ -47,7 +47,7 @@ normalize
 	Channel const &_channel
 )
 {
-	return 
+	return
 		::mizuiro::normalize<
 			Float,
 			typename color::types::channel_value

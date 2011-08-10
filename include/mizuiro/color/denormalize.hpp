@@ -29,7 +29,7 @@ typename boost::enable_if
 	<
 		Float
 	>,
-	typename 
+	typename
 	types::channel_value
 	<
 		Format,

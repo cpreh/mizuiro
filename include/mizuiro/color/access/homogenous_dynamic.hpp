@@ -107,7 +107,7 @@ template<
 	typename Format
 >
 struct layout<
-	Format,	
+	Format,
 	typename boost::enable_if<
 		mizuiro::color::is_homogenous_dynamic<
 			Format

@@ -36,11 +36,11 @@ alpha_to_any(
 		= color::format_argument<Dest>::get()
 )
 {
-	typedef 
+	typedef
 	color::object<
 		Dest
 	> dest_type;
-	
+
 	dest_type dest(
 		_format
 	);

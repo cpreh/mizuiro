@@ -10,7 +10,7 @@ namespace color
 {
 
 // This calculates the luminance of three rgb values. This is
-// intentionally a function operating on floats because 
+// intentionally a function operating on floats because
 //
 // a) the calculation needs floating point arithmetic.
 // b) the calculation usually takes place in convert:: where we use floats, anyway

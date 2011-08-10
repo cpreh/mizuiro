@@ -62,7 +62,7 @@ mizuiro::image::detail::raw_container<T, A>::operator=(
 		this == &other
 	)
 		return *this;
-	
+
 	destroy();
 
 	copy(
@@ -177,7 +177,7 @@ mizuiro::image::detail::raw_container<T, A>::copy(
 	allocate(
 		other.size()
 	);
-	
+
 	if(
 		other.data()
 	)

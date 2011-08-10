@@ -67,7 +67,7 @@ int main()
 			mizuiro::color::layout::rgba
 		>
 	>::type rgba_format;
-	
+
 	mizuiro::size_type const
 		width(
 			3

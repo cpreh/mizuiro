@@ -43,7 +43,7 @@ iterator_position(
 	typedef typename detail::stacked_dim_type<
 		dim_type
 	>::type stacked_dim_type;
-	
+
 	stacked_dim_type const stacked_dims(
 		detail::stacked_dim<
 			typename dim_type::value_type
@@ -79,7 +79,7 @@ iterator_position(
 		if(i > 0)
 			ret[i] /= stacked_dims[i - 1];
 	}
-	
+
 	return ret;
 }
 

@@ -72,7 +72,7 @@ public:
 	#undef MIZUIRO_IMAGE_DIMENSION_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL
 
 	dimension();
-	
+
 	// Compatibility to "Collection" from multi_array
 	void
 	swap(
@@ -80,9 +80,9 @@ public:
 	);
 
 	// Compatibility to "Collection" from multi_array, always returns false
-	bool 
+	bool
 	empty() const;
-	
+
 	iterator
 	begin();
 

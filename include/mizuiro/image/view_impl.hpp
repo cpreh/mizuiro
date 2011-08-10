@@ -151,7 +151,7 @@ mizuiro::image::view<Access, Format, Constness>::begin() const
 			)
 		:
 			iterator(
-				pitch_begin()	
+				pitch_begin()
 			);
 }
 
@@ -234,7 +234,7 @@ mizuiro::image::view<Access, Format, Constness>::at(
 		// TODO: replace this with our own exception and add a better error message!
 		if(_index[i] >= dim()[i])
 			throw std::range_error("view::at out of range");
-	
+
 	return (*this)[_index];
 }
 

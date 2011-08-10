@@ -21,7 +21,7 @@ template
 struct has_channel
 :
 boost::mpl::contains<
-	typename Format::layout::order, 
+	typename Format::layout::order,
 	Channel
 >
 {

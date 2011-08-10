@@ -60,7 +60,7 @@ move_iterator(
 	}
 
 	ret += add;
-	
+
 	return ret;
 }
 

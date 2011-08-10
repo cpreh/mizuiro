@@ -49,7 +49,7 @@ int main()
 		store::dim_type(
 			100,
 			100,
-			100	
+			100
 		)
 	);
 
@@ -105,7 +105,7 @@ int main()
 				bound_type::dim_type(
 					3,
 					4,
-					3	
+					3
 				)
 			)
 		)
@@ -122,7 +122,7 @@ int main()
 			sub_view,
 			bound_type(
 				bound_type::dim_type(
-					1,	
+					1,
 					1,
 					1
 				),

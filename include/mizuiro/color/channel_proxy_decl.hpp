@@ -39,7 +39,7 @@ public:
 
 	operator value_type() const;
 private:
-	pointer data_;	
+	pointer data_;
 };
 
 }

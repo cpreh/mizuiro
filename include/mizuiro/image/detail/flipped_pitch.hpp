@@ -36,7 +36,7 @@ flipped_pitch(
 		++index
 	)
 		ret[index] = _old_pitch[index];
-	
+
 	ret.back() = _last_value;
 
 	return ret;

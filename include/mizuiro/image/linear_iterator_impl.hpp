@@ -72,7 +72,7 @@ mizuiro::image::linear_iterator<Access, Format, Constness>::advance(
 			Format::color_format::element_count
 		);
 }
-	
+
 template<
 	typename Access,
 	typename Format,

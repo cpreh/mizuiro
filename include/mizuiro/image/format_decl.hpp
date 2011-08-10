@@ -19,7 +19,7 @@ namespace image
 
 template<
 	typename DimType,
-	typename ImageFormat 
+	typename ImageFormat
 >
 class format
 :

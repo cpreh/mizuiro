@@ -13,7 +13,7 @@
 
 namespace mizuiro
 {
-namespace image 
+namespace image
 {
 
 template<
