@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_IMAGE_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 
-#include <mizuiro/image/detail/iterator_position.hpp>
+#include <mizuiro/image/detail/pitch_iterator_position.hpp>
 #include <mizuiro/image/detail/stacked_dim.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
@@ -207,9 +207,8 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::increment()
 			static_cast<
 				difference_type
 			>(
-				detail::iterator_position(
-					this->dim(),
-					this->offset()
+				detail::pitch_iterator_position(
+					*this
 				)[0]
 			);
 

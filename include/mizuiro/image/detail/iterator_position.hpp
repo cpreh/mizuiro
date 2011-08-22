@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_ITERATOR_POSITION_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_ITERATOR_POSITION_HPP_INCLUDED
 
-#include <mizuiro/image/detail/stacked_dim_type.hpp>
-#include <mizuiro/image/detail/stacked_dim.hpp>
-#include <mizuiro/image/dimension_impl.hpp>
+#include <mizuiro/image/detail/linear_iterator_position.hpp>
+#include <mizuiro/image/detail/pitch_iterator_position.hpp>
+#include <mizuiro/detail/nonassignable.hpp>
 
 namespace mizuiro
 {
@@ -19,69 +19,50 @@ namespace detail
 {
 
 template<
-	mizuiro::size_type Dim,
-	typename DimValue,
-	typename Offset
+	typename View
 >
-image::dimension<
-	Dim,
-	DimValue
-> const
-iterator_position(
-	image::dimension<
-		Dim,
-		DimValue
-	> const &_dim,
-	Offset const _offset
-)
+class iterator_difference
 {
-	typedef image::dimension<
-		Dim,
-		DimValue
-	> dim_type;
-
-	typedef typename detail::stacked_dim_type<
-		dim_type
-	>::type stacked_dim_type;
-
-	stacked_dim_type const stacked_dims(
-		detail::stacked_dim<
-			typename dim_type::value_type
-		>(
-			_dim
-		)
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		iterator_difference
 	);
-
-	typedef typename dim_type::size_type size_type;
-
-	dim_type ret;
-
-	for (
-		size_type i = 0;
-		i < dim_type::static_size;
-		++i
+public:
+	explicit iterator_difference(
+		View const &_view
 	)
+	:
+		view_(_view)
 	{
-		ret[i] =
-			static_cast<
-				typename dim_type::value_type
-			>(
-				_offset
+	}
+		
+	typedef typename View::dim_type result_type;
+
+	result_type
+	operator()(
+		typename View::liner_iterator const _it
+	) const
+	{
+		return
+			mizuiro::image::detail::linear_iterator_position(
+				view_,
+				_it
 			);
-
-		for (
-			size_type m = dim_type::static_size - 1;
-			m > i;
-			--m
-		)
-			ret[i] %= stacked_dims[i];
-
-		if(i > 0)
-			ret[i] /= stacked_dims[i - 1];
 	}
 
-	return ret;
-}
+	result_type
+	operator()(
+		typename View::pitch_iterator const _it
+	) const
+	{
+		return
+			mizuiro::image::detail::pitch_iterator_position(
+				view_,
+				_it
+			);
+	}
+private:
+	View const &view_;
+};
 
 }
 }
