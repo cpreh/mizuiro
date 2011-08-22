@@ -7,10 +7,10 @@
 #ifndef MIZUIRO_IMAGE_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 
+#include <mizuiro/image/detail/iterator_position.hpp>
 #include <mizuiro/image/detail/stacked_dim.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
-#include <mizuiro/image/iterator_position.hpp>
 #include <mizuiro/image/underlying_data_pointer.hpp>
 #include <mizuiro/access/color_pointer.hpp>
 #include <mizuiro/detail/unlikely.hpp>
@@ -207,8 +207,9 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::increment()
 			static_cast<
 				difference_type
 			>(
-				iterator_position(
-					*this
+				detail::iterator_position(
+					this->dim(),
+					this->offset()
 				)[0]
 			);
 
@@ -277,7 +278,7 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::dereference() const
 {
 	return
 		reference(
-			underlying_data_pointer(
+			image::underlying_data_pointer(
 				*this
 			),
 			this->format_store_base().color_format()
