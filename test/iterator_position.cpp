@@ -35,8 +35,8 @@ BOOST_AUTO_TEST_CASE(
 {
 	store_2d field(
 		store_2d::dim_type(
-			4,
-			4));
+			2,
+			2));
 
 	store_2d::view_type const field_view =
 		field.view();
@@ -58,7 +58,7 @@ BOOST_AUTO_TEST_CASE(
 	BOOST_CHECK(
 		mizuiro::image::iterator_position(
 			field_view,
-			i++) == store_2d::dim_type(1,0));
+			i++) == store_2d::dim_type(0,1));
 
 	BOOST_CHECK(
 		mizuiro::image::iterator_position(
