@@ -42,8 +42,8 @@ iterator_position(
 {
 	return
 		detail::linear_iterator_position(
-			_view.dim(),
-			_it - _view.begin()
+			_view,
+			_it
 		);
 }
 
@@ -58,7 +58,7 @@ iterator_position(
 		Access,
 		Format,
 		Constness
-	> const &,
+	> const &_view,
 	image::pitch_iterator<
 		Access,
 		Format,
@@ -68,8 +68,8 @@ iterator_position(
 {
 	return
 		image::detail::pitch_iterator_position(
-			_it.dim(),
-			_it.offset()
+			_view,
+			_it
 		);
 }
 

@@ -40,7 +40,15 @@ linear_iterator_position(
 	return
 		detail::relative_position(
 			_view.dim(),
-			_it - _view.begin()
+			_it
+			-
+			_view.begin().internal(). template get<
+				image::linear_iterator<
+					Access,
+					Format,
+					Constness
+				>
+			>()
 		);
 }
 
