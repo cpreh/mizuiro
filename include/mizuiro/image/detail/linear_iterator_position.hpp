@@ -8,8 +8,8 @@
 #define MIZUIRO_IMAGE_DETAIL_LINEAR_ITERATOR_POSITION_HPP_INCLUDED
 
 #include <mizuiro/image/detail/relative_position.hpp>
-#include <mizuiro/image/linear_iterator_fwd.hpp>
-#include <mizuiro/image/view_fwd.hpp>
+#include <mizuiro/image/linear_iterator_impl.hpp>
+#include <mizuiro/image/view_impl.hpp>
 
 namespace mizuiro
 {

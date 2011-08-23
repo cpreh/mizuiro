@@ -21,25 +21,25 @@ namespace detail
 template<
 	typename View
 >
-class iterator_difference
+class iterator_position
 {
 	MIZUIRO_DETAIL_NONASSIGNABLE(
-		iterator_difference
+		iterator_position
 	);
 public:
-	explicit iterator_difference(
+	explicit iterator_position(
 		View const &_view
 	)
 	:
 		view_(_view)
 	{
 	}
-		
+
 	typedef typename View::dim_type result_type;
 
 	result_type
 	operator()(
-		typename View::liner_iterator const _it
+		typename View::linear_iterator const _it
 	) const
 	{
 		return
@@ -56,7 +56,6 @@ public:
 	{
 		return
 			mizuiro::image::detail::pitch_iterator_position(
-				view_,
 				_it
 			);
 	}

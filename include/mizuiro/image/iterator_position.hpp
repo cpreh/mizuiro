@@ -14,7 +14,7 @@
 #include <mizuiro/image/linear_iterator_fwd.hpp>
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/view_fwd.hpp>
-#include <mizuiro/detail/apply_unary.hpp>
+#include <mizuiro/detail/variant_apply_unary.hpp>
 
 namespace mizuiro
 {
@@ -41,7 +41,7 @@ iterator_position(
 )
 {
 	return
-		detail::iterator_position(
+		detail::linear_iterator_position(
 			_view.dim(),
 			_it - _view.begin()
 		);
@@ -93,8 +93,16 @@ iterator_position(
 )
 {
 	return
-		mizuiro::detail::apply_unary(
-			image::detail::iterator_position(
+		mizuiro::detail::variant_apply_unary(
+			image::detail::iterator_position
+			<
+				image::view
+				<
+					Access,
+					Format,
+					Constness
+				>
+			>(
 				_view
 			),
 			_it.internal()
