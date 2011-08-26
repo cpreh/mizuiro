@@ -35,7 +35,7 @@ public:
 	{
 	}
 
-	typedef typename View::dim_type result_type;
+	typedef typename View::dim result_type;
 
 	result_type
 	operator()(

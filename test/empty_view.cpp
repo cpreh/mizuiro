@@ -28,7 +28,7 @@ BOOST_AUTO_TEST_CASE(
 	> store_3d_rgba8;
 
 	store_3d_rgba8 store(
-		store_3d_rgba8::dim_type::null()
+		store_3d_rgba8::dim::null()
 	);
 
 	typedef store_3d_rgba8::view_type view_3d_rgba8;
@@ -45,7 +45,7 @@ BOOST_AUTO_TEST_CASE(
 	}
 
 	store = store_3d_rgba8(
-		store_3d_rgba8::dim_type(
+		store_3d_rgba8::dim(
 			0,
 			1,
 			2

@@ -23,7 +23,7 @@ template<
 	typename Format,
 	typename Constness
 >
-typename Format::dim_type const
+typename Format::dim const
 linear_iterator_position(
 	image::view<
 		Access,
@@ -39,7 +39,7 @@ linear_iterator_position(
 {
 	return
 		detail::relative_position(
-			_view.dim(),
+			_view.size(),
 			_it
 			-
 			_view.begin().internal(). template get<

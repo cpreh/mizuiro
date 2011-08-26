@@ -40,7 +40,7 @@ subview_pitch(
 		++i
 	)
 	{
-		typename View::dim_type const edge_pos_end(
+		typename View::dim const edge_pos_end(
 			mizuiro::image::detail::edge_pos_end(
 				_bound,
 				i
@@ -48,7 +48,7 @@ subview_pitch(
 		);
 
 		ret[i] =
-			_view.dim()[i] > 1
+			_view.size()[i] > 1
 			?
 				std::distance(
 					mizuiro::image::move_iterator(
@@ -69,7 +69,7 @@ subview_pitch(
 		// if the end is one past the parent view's dim,
 		// the pitch will be skipped by the iterator, so readd it
 		if(
-			edge_pos_end[i] == _view.dim()[i]
+			edge_pos_end[i] == _view.size()[i]
 		)
 			ret[i] += _view.pitch()[i];
 	}

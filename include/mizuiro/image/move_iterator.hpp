@@ -18,17 +18,17 @@ template<
 typename View::iterator
 move_iterator(
 	View const &_view,
-	typename View::dim_type const &_pos
+	typename View::dim const &_pos
 )
 {
 	typename View::iterator ret(
 		_view.begin()
 	);
 
-	typedef typename View::dim_type dim_type;
+	typedef typename View::dim dim;
 
-	dim_type const dim(
-		_view.dim()
+	dim const size(
+		_view.size()
 	);
 
 	typedef typename View::iterator::difference_type difference_type;
@@ -38,8 +38,8 @@ move_iterator(
 		multiplier = 1;
 
 	for(
-		typename dim_type::size_type i = 0;
-		i < dim_type::static_size;
+		typename dim::size_type i = 0;
+		i < dim::static_size;
 		++i
 	)
 	{
@@ -55,7 +55,7 @@ move_iterator(
 			static_cast<
 				difference_type
 			>(
-				dim[i]
+				size[i]
 			);
 	}
 

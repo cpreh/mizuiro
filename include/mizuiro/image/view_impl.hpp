@@ -22,7 +22,7 @@ template<
 	typename Constness
 >
 mizuiro::image::view<Access, Format, Constness>::view(
-	dim_type const &_dim,
+	dim const &_size,
 	pointer const _data,
 	format_store_type const &_format
 )
@@ -30,8 +30,8 @@ mizuiro::image::view<Access, Format, Constness>::view(
 	format_base(
 		_format
 	),
-	dim_(
-		_dim
+	size_(
+		_size
 	),
 	data_(
 		_data
@@ -48,7 +48,7 @@ template<
 	typename Constness
 >
 mizuiro::image::view<Access, Format, Constness>::view(
-	dim_type const &_dim,
+	dim const &_size,
 	pointer const _data,
 	pitch_type const &_pitch,
 	format_store_type const &_format
@@ -57,8 +57,8 @@ mizuiro::image::view<Access, Format, Constness>::view(
 	format_base(
 		_format
 	),
-	dim_(
-		_dim
+	size_(
+		_size
 	),
 	data_(
 		_data
@@ -81,8 +81,8 @@ mizuiro::image::view<Access, Format, Constness>::view(
 	format_base(
 		_other.format_store()
 	),
-	dim_(
-		_other.dim_
+	size_(
+		_other.size_
 	),
 	data_(
 		_other.data_
@@ -112,8 +112,8 @@ mizuiro::image::view<Access, Format, Constness>::view(
 	format_base(
 		_other.format_store()
 	),
-	dim_(
-		_other.dim()
+	size_(
+		_other.size()
 	),
 	data_(
 		_other.data()
@@ -129,10 +129,10 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::view<Access, Format, Constness>::dim_type const &
-mizuiro::image::view<Access, Format, Constness>::dim() const
+typename mizuiro::image::view<Access, Format, Constness>::dim const &
+mizuiro::image::view<Access, Format, Constness>::size() const
 {
-	return dim_;
+	return size_;
 }
 
 template<
@@ -169,7 +169,7 @@ mizuiro::image::view<Access, Format, Constness>::end() const
 		static_cast<
 			typename iterator::difference_type
 		>(
-			dim().content()
+			this->size().content()
 		);
 }
 
@@ -206,7 +206,7 @@ template<
 >
 typename mizuiro::image::view<Access, Format, Constness>::reference
 mizuiro::image::view<Access, Format, Constness>::operator[](
-	dim_type const &_index
+	dim const &_index
 ) const
 {
 	return
@@ -223,16 +223,18 @@ template<
 >
 typename mizuiro::image::view<Access, Format, Constness>::reference
 mizuiro::image::view<Access, Format, Constness>::at(
-	dim_type const &_index
+	dim const &_index
 ) const
 {
 	for(
 		size_type i = 0;
-		i < dim_type::static_size;
+		i < dim::static_size;
 		++i
 	)
 		// TODO: replace this with our own exception and add a better error message!
-		if(_index[i] >= dim()[i])
+		if(
+			_index[i] >= this->size()[i]
+		)
 			throw std::range_error("view::at out of range");
 
 	return (*this)[_index];
@@ -281,7 +283,7 @@ mizuiro::image::view<Access, Format, Constness>::is_linear() const
 {
 	return
 		pitch_ == pitch_type::null()
-		|| dim().content() == 0;
+		|| this->size().content() == 0;
 }
 
 template<
@@ -313,7 +315,7 @@ mizuiro::image::view<Access, Format, Constness>::linear_end() const
 		static_cast<
 			typename linear_iterator::difference_type
 		>(
-			dim().content()
+			this->size().content()
 		);
 }
 
@@ -327,7 +329,7 @@ mizuiro::image::view<Access, Format, Constness>::pitch_begin() const
 {
 	return
 		pitch_iterator(
-			dim(),
+			this->size(),
 			data_,
 			pitch_,
 			this->format_store()
@@ -348,7 +350,7 @@ mizuiro::image::view<Access, Format, Constness>::pitch_end() const
 		static_cast<
 			typename pitch_iterator::difference_type
 		>(
-			dim().content()
+			this->size().content()
 		);
 }
 

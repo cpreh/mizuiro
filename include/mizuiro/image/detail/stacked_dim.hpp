@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_STACKED_DIM_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_STACKED_DIM_HPP_INCLUDED
 
-#include <mizuiro/image/detail/stacked_dim_type.hpp>
+#include <mizuiro/image/detail/stacked_dim_array.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 
 namespace mizuiro
@@ -21,7 +21,7 @@ template<
 	typename RetValue,
 	typename Dim
 >
-typename detail::stacked_dim_type<
+typename detail::stacked_dim_array<
 	image::dimension<
 		Dim::static_size,
 		RetValue
@@ -31,7 +31,7 @@ stacked_dim(
 	Dim const &_dim
 )
 {
-	typedef typename detail::stacked_dim_type<
+	typedef typename detail::stacked_dim_array<
 		image::dimension<
 			Dim::static_size,
 			RetValue

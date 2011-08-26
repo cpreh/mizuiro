@@ -84,11 +84,11 @@ public:
 
 	typedef typename format::color_format color_format;
 
-	typedef typename format::dim_type dim_type;
+	typedef typename format::dim dim;
 
-	typedef bound<
-		dim_type::static_size,
-		typename dim_type::value_type
+	typedef image::bound<
+		dim::static_size,
+		typename dim::value_type
 	> bound_type;
 
 	typedef typename format::pitch_type pitch_type;
@@ -106,14 +106,14 @@ public:
 	>::type pointer;
 
 	view(
-		dim_type const &,
+		dim const &,
 		pointer data,
 		format_store_type const & =
 			image::format_argument<format>::get()
 	);
 
 	view(
-		dim_type const &,
+		dim const &,
 		pointer data,
 		pitch_type const &,
 		format_store_type const & =
@@ -135,8 +135,8 @@ public:
 		> const &
 	);
 
-	dim_type const &
-	dim() const;
+	dim const &
+	size() const;
 
 	iterator const
 	begin() const;
@@ -149,12 +149,12 @@ public:
 
 	reference
 	operator[](
-		dim_type const &
+		dim const &
 	) const;
 
 	reference
 	at(
-		dim_type const &
+		dim const &
 	) const;
 
 	pointer
@@ -181,7 +181,7 @@ private:
 	pitch_iterator const
 	pitch_end() const;
 
-	dim_type dim_;
+	dim size_;
 
 	pointer data_;
 

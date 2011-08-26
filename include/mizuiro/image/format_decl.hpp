@@ -33,12 +33,12 @@ class format
 public:
 	typedef typename color_format_base::format_store_type color_format_store_type;
 
-	typedef DimType dim_type;
+	typedef DimType dim;
 
 	typedef ImageFormat image_format;
 
 	typedef typename detail::pitch_type<
-		dim_type
+		dim
 	>::type pitch_type;
 
 	typedef typename image_format::color_format color_format;

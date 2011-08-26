@@ -17,25 +17,25 @@ namespace detail
 template<
 	typename Bound
 >
-typename Bound::dim_type const
+typename Bound::dim const
 edge_pos_end(
 	Bound const &bound,
 	typename Bound::size_type const index
 )
 {
-	typedef typename Bound::dim_type dim_type;
+	typedef typename Bound::dim dim;
 
-	dim_type ret;
+	dim ret;
 
 	for(
-		typename dim_type::size_type i = 0;
-		i < dim_type::static_size;
+		typename dim::size_type i = 0;
+		i < dim::static_size;
 		++i
 	)
 		ret[i] =
 			i == index
-			? bound.dimensions()[i] + bound.positions()[i]
-			: bound.positions()[i];
+			? bound.size()[i] + bound.pos()[i]
+			: bound.pos()[i];
 
 	return ret;
 }

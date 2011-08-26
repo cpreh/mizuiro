@@ -54,7 +54,7 @@ int main()
 	> store;
 
 	store img(
-		store::dim_type(
+		store::dim(
 			32,
 			64
 		)

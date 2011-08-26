@@ -15,32 +15,32 @@ template<
 	typename ValueType
 >
 mizuiro::image::bound<Dim, ValueType>::bound(
-	dim_type const &_positions,
-	dim_type const &_dimensions
+	dim const &_pos,
+	dim const &_size
 )
 :
-	positions_(_positions),
-	dimensions_(_dimensions)
+	pos_(_pos),
+	size_(_size)
 {}
 
 template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-typename mizuiro::image::bound<Dim, ValueType>::dim_type const &
-mizuiro::image::bound<Dim, ValueType>::positions() const
+typename mizuiro::image::bound<Dim, ValueType>::dim const &
+mizuiro::image::bound<Dim, ValueType>::pos() const
 {
-	return positions_;
+	return pos_;
 }
 
 template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-typename mizuiro::image::bound<Dim, ValueType>::dim_type const &
-mizuiro::image::bound<Dim, ValueType>::dimensions() const
+typename mizuiro::image::bound<Dim, ValueType>::dim const &
+mizuiro::image::bound<Dim, ValueType>::size() const
 {
-	return dimensions_;
+	return size_;
 }
 
 #endif

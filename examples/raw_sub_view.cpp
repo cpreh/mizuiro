@@ -29,10 +29,10 @@ int main()
 
 	typedef mizuiro::image::dimension<
 		3
-	> dim_type;
+	> dim;
 
 	typedef mizuiro::image::format<
-		dim_type,
+		dim,
 		mizuiro::image::interleaved<
 			mizuiro::color::homogenous_static<
 				channel_type,
@@ -74,7 +74,7 @@ int main()
 			format
 		>(
 			raw_data.data(),
-			dim_type(
+			dim(
 				width,
 				height,
 				depth
@@ -84,17 +84,17 @@ int main()
 	);
 
 	{
-		typedef dim_type::size_type size_type;
+		typedef dim::size_type size_type;
 
-		dim_type const dim(
-			view.dim()
+		dim const size(
+			view.size()
 		);
 
-		for(size_type x = 0; x < dim[0]; ++x)
-			for(size_type y = 0; y < dim[1]; ++y)
-				for(size_type z = 0; z < dim[2]; ++z)
+		for(size_type x = 0; x < size[0]; ++x)
+			for(size_type y = 0; y < size[1]; ++y)
+				for(size_type z = 0; z < size[2]; ++z)
 					view.at(
-						dim_type(
+						dim(
 							x,
 							y,
 							z
@@ -114,12 +114,12 @@ int main()
 		mizuiro::image::sub_view(
 			view,
 			bound_type(
-				bound_type::dim_type(
+				bound_type::dim(
 					1,
 					1,
 					0
 				),
-				bound_type::dim_type(
+				bound_type::dim(
 					2,
 					3,
 					2

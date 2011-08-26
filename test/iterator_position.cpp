@@ -34,7 +34,7 @@ BOOST_AUTO_TEST_CASE(
 	iterator_position_test)
 {
 	store_2d field(
-		store_2d::dim_type(
+		store_2d::dim(
 			2,
 			2));
 
@@ -48,20 +48,20 @@ BOOST_AUTO_TEST_CASE(
 		mizuiro::image::iterator_position(
 			field_view,
 			i++),
-		store_2d::dim_type(0,0));
+		store_2d::dim(0,0));
 
 	BOOST_CHECK(
 		mizuiro::image::iterator_position(
 			field_view,
-			i++) == store_2d::dim_type(1,0));
+			i++) == store_2d::dim(1,0));
 
 	BOOST_CHECK(
 		mizuiro::image::iterator_position(
 			field_view,
-			i++) == store_2d::dim_type(0,1));
+			i++) == store_2d::dim(0,1));
 
 	BOOST_CHECK(
 		mizuiro::image::iterator_position(
 			field_view,
-			i++) == store_2d::dim_type(1,1));
+			i++) == store_2d::dim(1,1));
 }

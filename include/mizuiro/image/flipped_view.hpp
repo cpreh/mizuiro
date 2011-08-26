@@ -25,28 +25,28 @@ template<
 	typename View
 >
 typename boost::enable_if_c<
-	View::dim_type::static_size >= 2,
+	View::dim::static_size >= 2,
 	View const
 >::type
 flipped_view(
 	View const &_view
 )
 {
-	typedef typename View::dim_type dim_type;
+	typedef typename View::dim dim;
 
-	typename dim_type::value_type const last_dim(
-		_view.dim().back()
+	typename dim::value_type const last_dim(
+		_view.size().back()
 	);
 
 	return
 		last_dim > 1
 		?
 			View(
-				_view.dim(),
+				_view.size(),
 				mizuiro::image::move_iterator(
 					_view,
 					mizuiro::image::detail::flipped_start<
-						dim_type
+						dim
 					>(
 						last_dim
 					)
@@ -57,7 +57,7 @@ flipped_view(
 						mizuiro::image::move_iterator(
 							_view,
 							mizuiro::image::detail::flipped_edge(
-								_view.dim()
+								_view.size()
 							)
 						).data(),
 						_view.begin().data()

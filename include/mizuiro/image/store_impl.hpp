@@ -23,8 +23,8 @@ mizuiro::image::store<Format, Access>::store(
 	format_base(
 		_format
 	),
-	dim_(
-		dim_type::null()
+	size_(
+		dim::null()
 	),
 	data_()
 {
@@ -35,26 +35,26 @@ template<
 	typename Access
 >
 mizuiro::image::store<Format, Access>::store(
-	dim_type const &_dim,
+	dim const &_size,
 	format_store_type const &_format
 )
 :
 	format_base(
 		_format
 	),
-	dim_(
-		_dim
+	size_(
+		_size
 	),
 	data_(
 		// TODO:!
 		mizuiro::color::access::data_store_size<
 			Access,
 			typename Format::color_format,
-			dim_type
+			dim
 		>::execute(
 			Access(),
 			_format.color_format(),
-			dim_
+			size_
 		)
 	)
 {
@@ -113,10 +113,10 @@ template<
 	typename Format,
 	typename Access
 >
-typename mizuiro::image::store<Format, Access>::dim_type const &
-mizuiro::image::store<Format, Access>::dim() const
+typename mizuiro::image::store<Format, Access>::dim const &
+mizuiro::image::store<Format, Access>::size() const
 {
-	return dim_;
+	return size_;
 }
 
 #endif

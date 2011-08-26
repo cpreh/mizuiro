@@ -12,7 +12,7 @@
 #include <mizuiro/image/format_base_decl.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/image/detail/pitch_type.hpp>
-#include <mizuiro/image/detail/stacked_dim_type.hpp>
+#include <mizuiro/image/detail/stacked_dim_array.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 
 namespace mizuiro
@@ -66,10 +66,10 @@ public:
 		constness
 	>::type base;
 
-	typedef typename format::dim_type dim_type;
+	typedef typename format::dim dim;
 
 	typedef typename detail::pitch_type<
-		dim_type
+		dim
 	>::type pitch_type;
 
 	typedef typename base::value_type value_type;
@@ -87,15 +87,15 @@ public:
 	typedef typename base::iterator_category iterator_category;
 
 	pitch_iterator(
-		dim_type const &,
+		dim const &,
 		pointer data,
 		pitch_type const &,
 		format_store_type const & =
 			image::format_argument<format>::get()
 	);
 
-	dim_type const &
-	dim() const;
+	dim const &
+	size() const;
 
 	difference_type
 	offset() const;
@@ -138,7 +138,7 @@ private:
 		pitch_iterator const &
 	) const;
 
-	dim_type dim_;
+	dim size_;
 
 	pointer root_data_;
 
@@ -149,8 +149,8 @@ private:
 		position_,
 		offset_;
 
-	typedef typename detail::stacked_dim_type<
-		dim_type,
+	typedef typename detail::stacked_dim_array<
+		dim,
 		difference_type
 	>::type stacked_dim_array;
 

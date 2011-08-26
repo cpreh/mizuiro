@@ -316,20 +316,20 @@ mizuiro::image::operator<<(
 	typedef dimension<
 		Dim,
 		ValueType
-	> dim_type;
+	> dim;
 
 	_stream << _stream.widen('(');
 
 	for(
-		typename dim_type::size_type i = 0;
-		i < dim_type::static_size;
+		typename dim::size_type i = 0;
+		i < dim::static_size;
 		++i
 	)
 	{
 		_stream << _dim[i];
 
 		if(
-			i != dim_type::static_size - 1
+			i != dim::static_size - 1
 		)
 			_stream << _stream.widen(',');
 	}

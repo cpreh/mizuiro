@@ -32,15 +32,15 @@ typename boost::enable_if<
 	>::type
 >::type const
 make_raw_view(
-	Pointer const data,
+	Pointer const _data,
 	typename detail::raw_view_from_pointer<
 		Format,
 		Pointer
-	>::type::dim_type const &dim,
+	>::type::dim const &_size,
 	typename detail::raw_view_from_pointer<
 		Format,
 		Pointer
-	>::type::pitch_type const &pitch
+	>::type::pitch_type const &_pitch
 )
 {
 	return
@@ -48,9 +48,9 @@ make_raw_view(
 			Format,
 			Pointer
 		>::type(
-			dim,
-			data,
-			pitch
+			_size,
+			_data,
+			_pitch
 		);
 }
 

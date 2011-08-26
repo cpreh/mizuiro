@@ -22,7 +22,7 @@ template<
 	typename Constness
 >
 mizuiro::image::pitch_iterator<Access, Format, Constness>::pitch_iterator(
-	dim_type const &_dim,
+	dim const &_size,
 	pointer const _data,
 	pitch_type const &_pitch,
 	format_store_type const &_format
@@ -32,8 +32,8 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::pitch_iterator(
 	format_base(
 		_format
 	),
-	dim_(
-		_dim
+	size_(
+		_size
 	),
 	root_data_(
 		_data
@@ -54,7 +54,7 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::pitch_iterator(
 		detail::stacked_dim<
 			difference_type
 		>(
-			dim_
+			size_
 		)
 	)
 {
@@ -65,10 +65,10 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<Access, Format, Constness>::dim_type const &
-mizuiro::image::pitch_iterator<Access, Format, Constness>::dim() const
+typename mizuiro::image::pitch_iterator<Access, Format, Constness>::dim const &
+mizuiro::image::pitch_iterator<Access, Format, Constness>::size() const
 {
-	return dim_;
+	return size_;
 }
 
 template<
@@ -137,7 +137,7 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::advance(
 )
 {
 	assert(
-		dim_.content()
+		size_.content()
 	);
 
 	assert(
@@ -152,7 +152,7 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::advance(
 	{
 		*this =
 			pitch_iterator(
-				dim_,
+				size_,
 				root_data_,
 				pitch_,
 				this->format_store_base()
@@ -221,7 +221,7 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::increment()
 			static_cast<
 				difference_type
 			>(
-				dim_[0]
+				size_[0]
 			)
 		)
 	)

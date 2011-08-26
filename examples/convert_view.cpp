@@ -104,7 +104,7 @@ int main()
 		::mizuiro::access::raw
 	> rgba_store;
 
-	rgba_store::dim_type const dim(
+	rgba_store::dim const dim(
 		width,
 		height
 	);

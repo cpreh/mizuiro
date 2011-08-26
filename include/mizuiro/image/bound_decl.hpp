@@ -20,7 +20,8 @@ template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-class bound {
+class bound
+{
 public:
 	typedef ValueType value_type;
 	typedef mizuiro::size_type size_type;
@@ -28,22 +29,22 @@ public:
 	typedef dimension<
 		Dim,
 		value_type
-	> dim_type;
+	> dim;
 
 	bound(
-		dim_type const &positions,
-		dim_type const &dimensions
+		dim const &pos,
+		dim const &size
 	);
 
-	dim_type const &
-	positions() const;
+	dim const &
+	pos() const;
 
-	dim_type const &
-	dimensions() const;
+	dim const &
+	size() const;
 private:
-	dim_type
-		positions_,
-		dimensions_;
+	dim
+		pos_,
+		size_;
 };
 
 }

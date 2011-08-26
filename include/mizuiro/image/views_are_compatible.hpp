@@ -26,8 +26,8 @@ struct views_are_compatible
 :
 boost::mpl::and_<
 	boost::is_same<
-		typename View1::dim_type,
-		typename View2::dim_type
+		typename View1::dim,
+		typename View2::dim
 	>,
 	boost::mpl::equal_to<
 		boost::mpl::size<

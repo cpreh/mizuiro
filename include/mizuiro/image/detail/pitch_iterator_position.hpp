@@ -22,7 +22,7 @@ template<
 	typename Format,
 	typename Constness
 >
-typename Format::dim_type const
+typename Format::dim const
 pitch_iterator_position(
 	image::pitch_iterator<
 		Access,
@@ -33,7 +33,7 @@ pitch_iterator_position(
 {
 	return
 		image::detail::relative_position(
-			_it.dim(),
+			_it.size(),
 			_it.offset()
 		);
 }

@@ -26,7 +26,7 @@ template<
 	typename Format,
 	typename Constness
 >
-typename Format::dim_type const
+typename Format::dim const
 iterator_position(
 	image::view<
 		Access,
@@ -52,7 +52,7 @@ template<
 	typename Format,
 	typename Constness
 >
-typename Format::dim_type const
+typename Format::dim const
 iterator_position(
 	image::view<
 		Access,
@@ -78,7 +78,7 @@ template<
 	typename Format,
 	typename Constness
 >
-typename Format::dim_type const
+typename Format::dim const
 iterator_position(
 	image::view<
 		Access,

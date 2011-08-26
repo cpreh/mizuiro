@@ -181,7 +181,7 @@ int main()
 	> uint8_4_store;
 
 	uint8_4_store store(
-		uint8_4_store::dim_type(
+		uint8_4_store::dim(
 			5,
 			3
 		),

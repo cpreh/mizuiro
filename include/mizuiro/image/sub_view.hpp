@@ -22,21 +22,22 @@ template<
 >
 View const
 sub_view(
-	View const &view,
-	typename View::bound_type const &bound
+	View const &_view,
+	typename View::bound_type const &_bound
 )
 {
-	return View(
-		bound.dimensions(),
-		move_iterator(
-			view,
-			bound.positions()
-		).data(),
-		detail::subview_pitch(
-			view,
-			bound
-		)
-	);
+	return
+		View(
+			_bound.size(),
+			image::move_iterator(
+				_view,
+				_bound.pos()
+			).data(),
+			detail::subview_pitch(
+				_view,
+				_bound
+			)
+		);
 }
 
 }

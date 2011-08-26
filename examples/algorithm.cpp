@@ -155,7 +155,7 @@ int main()
 		format2
 	> store2;
 
-	store1::dim_type const dim(
+	store1::dim const dim(
 		4,
 		2
 	);

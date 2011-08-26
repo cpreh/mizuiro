@@ -46,7 +46,7 @@ int main()
 	> store;
 
 	store img(
-		store::dim_type(
+		store::dim(
 			100,
 			100,
 			100
@@ -63,19 +63,19 @@ int main()
 			img.view()
 		);
 
-		typedef view_type::dim_type dim_type;
+		typedef view_type::dim dim;
 
-		typedef dim_type::size_type size_type;
+		typedef dim::size_type size_type;
 
-		dim_type const dim(
-			img.view().dim()
+		dim const size(
+			img.view().size()
 		);
 
-		for(size_type x = 0; x < dim[0]; ++x)
-			for(size_type y = 0; y < dim[1]; ++y)
-				for(size_type z = 0; z < dim[2]; ++z)
+		for(size_type x = 0; x < size[0]; ++x)
+			for(size_type y = 0; y < size[1]; ++y)
+				for(size_type z = 0; z < size[2]; ++z)
 					view[
-						dim_type(
+						dim(
 							x,
 							y,
 							z
@@ -97,12 +97,12 @@ int main()
 		mizuiro::image::sub_view(
 			img.view(),
 			bound_type(
-				bound_type::dim_type(
+				bound_type::dim(
 					1,
 					1,
 					1
 				),
-				bound_type::dim_type(
+				bound_type::dim(
 					3,
 					4,
 					3
@@ -121,12 +121,12 @@ int main()
 		mizuiro::image::sub_view(
 			sub_view,
 			bound_type(
-				bound_type::dim_type(
+				bound_type::dim(
 					1,
 					1,
 					1
 				),
-				bound_type::dim_type(
+				bound_type::dim(
 					2,
 					3,
 					2

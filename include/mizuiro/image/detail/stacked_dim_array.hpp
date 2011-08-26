@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_DETAIL_STACKED_DIM_TYPE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_DETAIL_STACKED_DIM_TYPE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_DETAIL_STACKED_DIM_ARRAY_HPP_INCLUDED
+#define MIZUIRO_IMAGE_DETAIL_STACKED_DIM_ARRAY_HPP_INCLUDED
 
 #include <mizuiro/image/dimension_decl.hpp>
 #include <mizuiro/array.hpp>
@@ -21,7 +21,7 @@ template<
 	typename Dim,
 	typename ValueType = typename Dim::value_type
 >
-struct stacked_dim_type
+struct stacked_dim_array
 :
 mizuiro::array<
 	ValueType,

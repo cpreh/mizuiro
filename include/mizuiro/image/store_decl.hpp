@@ -57,7 +57,7 @@ public:
 		mizuiro::const_tag
 	>::type const_pointer;
 
-	typedef typename format::dim_type dim_type;
+	typedef typename format::dim dim;
 
 	typedef image::view<
 		access,
@@ -77,7 +77,7 @@ public:
 	);
 
 	explicit store(
-		dim_type const &,
+		dim const &,
 		format_store_type const & =
 			image::format_argument<format>::get()
 	);
@@ -94,10 +94,10 @@ public:
 	const_view_type const
 	view() const;
 
-	dim_type const &
-	dim() const;
+	dim const &
+	size() const;
 private:
-	dim_type dim_;
+	dim size_;
 
 	typedef typename mizuiro::image::types::data_store<
 		access,

@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_RELATIVE_POSITION_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_RELATIVE_POSITION_HPP_INCLUDED
 
-#include <mizuiro/image/detail/stacked_dim_type.hpp>
+#include <mizuiro/image/detail/stacked_dim_array.hpp>
 #include <mizuiro/image/detail/stacked_dim.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 
@@ -38,39 +38,39 @@ relative_position(
 	typedef image::dimension<
 		Dim,
 		DimValue
-	> dim_type;
+	> dim;
 
-	typedef typename detail::stacked_dim_type<
-		dim_type
-	>::type stacked_dim_type;
+	typedef typename detail::stacked_dim_array<
+		dim
+	>::type stacked_dim_array;
 
-	stacked_dim_type const stacked_dims(
+	stacked_dim_array const stacked_dims(
 		detail::stacked_dim<
-			typename dim_type::value_type
+			typename dim::value_type
 		>(
 			_dim
 		)
 	);
 
-	typedef typename dim_type::size_type size_type;
+	typedef typename dim::size_type size_type;
 
-	dim_type ret;
+	dim ret;
 
 	for (
 		size_type i = 0;
-		i < dim_type::static_size;
+		i < dim::static_size;
 		++i
 	)
 	{
 		ret[i] =
 			static_cast<
-				typename dim_type::value_type
+				typename dim::value_type
 			>(
 				_offset
 			);
 
 		for (
-			size_type m = dim_type::static_size - 1;
+			size_type m = dim::static_size - 1;
 			m > i;
 			--m
 		)
