@@ -21,8 +21,8 @@ template<
 struct views_have_same_channel_order
 :
 boost::is_same<
-	typename View1::color_format::layout::order,
-	typename View2::color_format::layout::order
+	typename View1::format::color_format::layout::order,
+	typename View2::format::color_format::layout::order
 >
 {};
 

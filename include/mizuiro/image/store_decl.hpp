@@ -10,7 +10,7 @@
 #include <mizuiro/image/store_fwd.hpp>
 #include <mizuiro/image/format_argument.hpp>
 #include <mizuiro/image/format_base_decl.hpp>
-#include <mizuiro/image/view_fwd.hpp>
+#include <mizuiro/image/linear_view_fwd.hpp>
 #include <mizuiro/image/detail/raw_container_decl.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/data_store.hpp>
@@ -59,13 +59,13 @@ public:
 
 	typedef typename format::dim dim;
 
-	typedef image::view<
+	typedef image::linear_view<
 		access,
 		format,
 		mizuiro::nonconst_tag
 	> view_type;
 
-	typedef image::view<
+	typedef image::linear_view<
 		access,
 		format,
 		mizuiro::const_tag

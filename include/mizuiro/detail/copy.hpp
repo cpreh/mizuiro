@@ -19,6 +19,7 @@ template<
 	typename Source,
 	typename Dest
 >
+// TODO: enable on fundamental types!
 void
 copy(
 	Source const *const _begin,

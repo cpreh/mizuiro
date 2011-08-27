@@ -89,8 +89,8 @@ mizuiro::image::store<Format, Access>::view()
 {
 	return
 		view_type(
-			dim(),
-			data(),
+			this->size(),
+			this->data(),
 			this->format_store_base()
 		);
 }
@@ -104,8 +104,8 @@ mizuiro::image::store<Format, Access>::view() const
 {
 	return
 		const_view_type(
-			dim(),
-			data(),
+			this->size(),
+			this->data(),
 			this->format_store_base()
 		);
 }

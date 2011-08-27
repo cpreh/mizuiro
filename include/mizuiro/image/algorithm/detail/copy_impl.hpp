@@ -9,6 +9,7 @@
 
 #include <mizuiro/image/algorithm/copy_different_channel_order.hpp>
 #include <mizuiro/image/algorithm/copy_same_channel_order.hpp>
+#include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/views_have_same_channel_order.hpp>
 #include <boost/utility/enable_if.hpp>
 
@@ -34,12 +35,14 @@ typename boost::disable_if<
 >::type
 copy_impl(
 	ViewS const &_src,
-	ViewD const &_dest
+	ViewD const &_dest,
+	algorithm::may_overlap::type const _overlap
 )
 {
 	algorithm::copy_different_channel_order(
 		_src,
-		_dest
+		_dest,
+		_overlap
 	);
 }
 
@@ -56,7 +59,8 @@ typename boost::enable_if<
 >::type
 copy_impl(
 	ViewS const &_src,
-	ViewD const &_dest
+	ViewD const &_dest,
+	algorithm::may_overlap::type
 )
 {
 	algorithm::copy_same_channel_order(

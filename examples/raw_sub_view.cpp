@@ -14,6 +14,7 @@
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
+#include <mizuiro/image/pitch_view_impl.hpp>
 #include <mizuiro/image/sub_view.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/access/raw.hpp>
@@ -61,7 +62,7 @@ int main()
 		* format::color_format::element_count
 	>::type raw_data;
 
-	typedef mizuiro::image::view<
+	typedef mizuiro::image::pitch_view<
 		mizuiro::access::raw,
 		format,
 		mizuiro::nonconst_tag
@@ -93,13 +94,13 @@ int main()
 		for(size_type x = 0; x < size[0]; ++x)
 			for(size_type y = 0; y < size[1]; ++y)
 				for(size_type z = 0; z < size[2]; ++z)
-					view.at(
+					view[
 						dim(
 							x,
 							y,
 							z
 						)
-					)
+					]
 					= mizuiro::color::object<
 						format::color_format
 					>(

@@ -6,11 +6,12 @@
 
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/format.hpp>
-#include <mizuiro/image/view.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/bound.hpp>
+#include <mizuiro/image/pitch_view_impl.hpp>
 #include <mizuiro/image/sub_view.hpp>
+#include <mizuiro/image/to_pitch_view.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/algorithm/copy.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
@@ -93,7 +94,11 @@ int main()
 
 	std::cout << '\n';
 
-	view_type const sub_view(
+	typedef mizuiro::image::to_pitch_view<
+		view_type
+	>::type pitch_view;
+
+	pitch_view const sub_view(
 		mizuiro::image::sub_view(
 			img.view(),
 			bound_type(
@@ -117,7 +122,7 @@ int main()
 		<< ")\n";
 
 
-	view_type const sub_sub_view(
+	pitch_view const sub_sub_view(
 		mizuiro::image::sub_view(
 			sub_view,
 			bound_type(
@@ -149,7 +154,7 @@ int main()
 
 	{
 		typedef std::reverse_iterator<
-			view_type::iterator
+			pitch_view::iterator
 		> reverse_iterator;
 
 		for(

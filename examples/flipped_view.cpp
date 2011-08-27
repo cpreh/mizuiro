@@ -14,6 +14,7 @@
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/flipped_view.hpp>
 #include <mizuiro/image/sub_view.hpp>
+#include <mizuiro/image/to_pitch_view.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <iostream>
 #include <ostream>
@@ -80,7 +81,11 @@ int main()
 
 	typedef view_type::bound_type bound_type;
 
-	view_type const sub_view(
+	typedef mizuiro::image::to_pitch_view<
+		view_type
+	>::type pitch_view;
+
+	pitch_view const sub_view(
 		mizuiro::image::sub_view(
 			img.view(),
 			bound_type(
@@ -96,7 +101,7 @@ int main()
 		)
 	);
 
-	view_type const flipped_view(
+	pitch_view const flipped_view(
 		mizuiro::image::flipped_view(
 			sub_view
 		)

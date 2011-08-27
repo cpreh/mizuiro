@@ -4,26 +4,26 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_IS_LINEAR_RANGE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_IS_LINEAR_RANGE_HPP_INCLUDED
-
-#include <mizuiro/image/is_linear_iterator.hpp>
+#ifndef MIZUIRO_IMAGE_ALGORITHM_MAY_OVERLAP_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ALGORITHM_MAY_OVERLAP_HPP_INCLUDED
 
 namespace mizuiro
 {
 namespace image
 {
+namespace algorithm
+{
 
-template<
-	typename Range
->
-struct is_linear_range
-:
-is_linear_iterator<
-	typename Range::iterator
->
-{};
+namespace may_overlap
+{
+enum type
+{
+	yes,
+	no
+};
+}
 
+}
 }
 }
 

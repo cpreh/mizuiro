@@ -8,6 +8,7 @@
 #define MIZUIRO_IMAGE_ALGORITHM_COPY_HPP_INCLUDED
 
 #include <mizuiro/image/algorithm/detail/copy_impl.hpp>
+#include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/views_are_compatible.hpp>
 #include <boost/utility/enable_if.hpp>
 
@@ -31,12 +32,14 @@ typename boost::enable_if<
 >::type
 copy(
 	ViewS const &_src,
-	ViewD const &_dest
+	ViewD const &_dest,
+	algorithm::may_overlap::type const _overlap
 )
 {
 	detail::copy_impl(
 		_src,
-		_dest
+		_dest,
+		_overlap
 	);
 }
 

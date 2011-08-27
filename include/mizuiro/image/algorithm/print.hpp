@@ -7,9 +7,8 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_PRINT_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_PRINT_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/detail/apply_unary_iteration.hpp>
 #include <mizuiro/image/algorithm/detail/print.hpp>
-#include <mizuiro/detail/variant_apply_unary.hpp>
+#include <mizuiro/image/algorithm/unary_iteration.hpp>
 
 namespace mizuiro
 {
@@ -28,15 +27,13 @@ print(
 	ViewS const &_src
 )
 {
-	mizuiro::detail::variant_apply_unary(
-		detail::apply_unary_iteration(
-			detail::print<
-				Sink
-			>(
-				_sink
-			)
+	algorithm::unary_iteration(
+		detail::print<
+			Sink
+		>(
+			_sink
 		),
-		_src.range()
+		_src
 	);
 }
 

@@ -7,14 +7,12 @@
 #ifndef MIZUIRO_IMAGE_ITERATOR_POSITION_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ITERATOR_POSITION_HPP_INCLUDED
 
-#include <mizuiro/image/detail/iterator_position.hpp>
 #include <mizuiro/image/detail/linear_iterator_position.hpp>
 #include <mizuiro/image/detail/pitch_iterator_position.hpp>
-#include <mizuiro/image/iterator_fwd.hpp>
 #include <mizuiro/image/linear_iterator_fwd.hpp>
+#include <mizuiro/image/linear_view_fwd.hpp>
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
-#include <mizuiro/image/view_fwd.hpp>
-#include <mizuiro/detail/variant_apply_unary.hpp>
+#include <mizuiro/image/pitch_view_fwd.hpp>
 
 namespace mizuiro
 {
@@ -28,7 +26,7 @@ template<
 >
 typename Format::dim const
 iterator_position(
-	image::view<
+	image::linear_view<
 		Access,
 		Format,
 		Constness
@@ -54,11 +52,11 @@ template<
 >
 typename Format::dim const
 iterator_position(
-	image::view<
+	image::pitch_view<
 		Access,
 		Format,
 		Constness
-	> const &_view,
+	> const &,
 	image::pitch_iterator<
 		Access,
 		Format,
@@ -68,44 +66,7 @@ iterator_position(
 {
 	return
 		image::detail::pitch_iterator_position(
-			_view,
 			_it
-		);
-}
-
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
-typename Format::dim const
-iterator_position(
-	image::view<
-		Access,
-		Format,
-		Constness
-	> const &_view,
-	image::iterator<
-		Access,
-		Format,
-		Constness
-	> const &_it
-)
-{
-	return
-		mizuiro::detail::variant_apply_unary(
-			image::detail::iterator_position
-			<
-				image::view
-				<
-					Access,
-					Format,
-					Constness
-				>
-			>(
-				_view
-			),
-			_it.internal()
 		);
 }
 

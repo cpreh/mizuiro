@@ -14,6 +14,7 @@
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
+#include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
@@ -121,7 +122,8 @@ int main()
 			dim,
 			rgba_store::view_type::pitch_type::null()
 		),
-		store.view()
+		store.view(),
+		mizuiro::image::algorithm::may_overlap::no
 	);
 
 	mizuiro::image::algorithm::print(

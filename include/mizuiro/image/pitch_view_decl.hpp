@@ -4,19 +4,17 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_VIEW_DECL_HPP_INCLUDED
-#define MIZUIRO_IMAGE_VIEW_DECL_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_PITCH_VIEW_DECL_HPP_INCLUDED
+#define MIZUIRO_IMAGE_PITCH_VIEW_DECL_HPP_INCLUDED
 
-#include <mizuiro/image/view_fwd.hpp>
-#include <mizuiro/image/format_store_fwd.hpp>
-#include <mizuiro/image/iterator_fwd.hpp>
-#include <mizuiro/image/linear_view_decl.hpp>
-#include <mizuiro/image/pitch_view_decl.hpp>
+#include <mizuiro/image/pitch_view_fwd.hpp>
+#include <mizuiro/image/bound_fwd.hpp>
+#include <mizuiro/image/format_argument.hpp>
+#include <mizuiro/image/format_base_decl.hpp>
+#include <mizuiro/image/pitch_iterator_fwd.hpp>
+#include <mizuiro/image/range_fwd.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
-#include <mizuiro/detail/make_variant.hpp>
-#include <mizuiro/detail/variant_decl.hpp>
-#include <boost/mpl/vector/vector10.hpp>
 
 namespace mizuiro
 {
@@ -28,8 +26,15 @@ template<
 	typename Format,
 	typename Constness
 >
-class view
+class pitch_view
+:
+	private image::format_base<
+		Format
+	>::type
 {
+	typedef typename image::format_base<
+		Format
+	>::type format_base;
 public:
 	typedef Access access;
 
@@ -37,9 +42,7 @@ public:
 
 	typedef Constness constness;
 
-	typedef image::format_store<
-		format
-	> format_store_type;
+	typedef typename format_base::format_store_type format_store_type;
 
 	typedef typename image::types::pointer<
 		access,
@@ -53,30 +56,15 @@ public:
 		constness
 	>::type reference;
 
-	typedef image::linear_view<
-		access,
-		format,
-		constness
-	> linear_view;
-
-	typedef image::pitch_view<
-		access,
-		format,
-		constness
-	> pitch_view;
-
-	typedef typename mizuiro::detail::make_variant<
-		boost::mpl::vector2<
-			linear_view,
-			pitch_view
-		>
-	>::type view_variant;
-
-	typedef mizuiro::image::iterator<
+	typedef image::pitch_iterator<
 		access,
 		format,
 		constness
 	> iterator;
+
+	typedef image::range<
+		iterator
+	> range_type;
 
 	typedef typename format::dim dim;
 
@@ -87,15 +75,7 @@ public:
 
 	typedef typename format::pitch_type pitch_type;
 
-	explicit view(
-		linear_view const &
-	);
-
-	explicit view(
-		pitch_view const &
-	);
-
-	view(
+	pitch_view(
 		dim const &,
 		pointer data,
 		pitch_type const &,
@@ -103,32 +83,25 @@ public:
 			image::format_argument<format>::get()
 	);
 
-	view(
-		dim const &,
-		pointer data,
-		format_store_type const & =
-			image::format_argument<format>::get()
-	);
-
-	view(
-		view const &
+	pitch_view(
+		pitch_view const &
 	);
 
 	template<
 		typename OtherConstness
 	>
-	explicit view(
-		view<
+	explicit pitch_view(
+		image::pitch_view<
 			access,
 			format,
 			OtherConstness
 		> const &
 	);
 
-	dim const
+	dim const &
 	size() const;
 
-	pitch_type const
+	pitch_type const &
 	pitch() const;
 
 	iterator const
@@ -136,6 +109,9 @@ public:
 
 	iterator const
 	end() const;
+
+	range_type const
+	range() const;
 
 	reference
 	operator[](
@@ -147,11 +123,12 @@ public:
 
 	format_store_type const
 	format_store() const;
-
-	view_variant const &
-	impl() const;
 private:
-	view_variant impl_;
+	dim size_;
+
+	pointer data_;
+
+	pitch_type pitch_;
 };
 
 }

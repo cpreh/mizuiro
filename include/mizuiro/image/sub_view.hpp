@@ -7,9 +7,10 @@
 #ifndef MIZUIRO_IMAGE_SUB_VIEW_HPP_INCLUDED
 #define MIZUIRO_IMAGE_SUB_VIEW_HPP_INCLUDED
 
-#include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/bound_impl.hpp>
 #include <mizuiro/image/move_iterator.hpp>
+#include <mizuiro/image/pitch_view_impl.hpp>
+#include <mizuiro/image/to_pitch_view.hpp>
 #include <mizuiro/image/detail/subview_pitch.hpp>
 
 namespace mizuiro
@@ -20,14 +21,20 @@ namespace image
 template<
 	typename View
 >
-View const
+image::pitch_view<
+	typename View::access,
+	typename View::format,
+	typename View::constness
+> const
 sub_view(
 	View const &_view,
 	typename View::bound_type const &_bound
 )
 {
 	return
-		View(
+		typename image::to_pitch_view<
+			View
+		>::type(
 			_bound.size(),
 			image::move_iterator(
 				_view,

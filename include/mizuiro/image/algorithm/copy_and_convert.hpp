@@ -7,11 +7,11 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_COPY_AND_CONVERT_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_COPY_AND_CONVERT_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/detail/apply_binary_iteration.hpp>
 #include <mizuiro/image/algorithm/detail/copy_and_convert.hpp>
+#include <mizuiro/image/algorithm/binary_iteration.hpp>
 #include <mizuiro/image/algorithm/copy.hpp>
+#include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/views_are_compatible.hpp>
-#include <mizuiro/detail/variant_apply_binary.hpp>
 #include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
@@ -34,15 +34,14 @@ typename boost::disable_if<
 >::type
 copy_and_convert(
 	ViewS const &_src,
-	ViewD const &_dest
+	ViewD const &_dest,
+	algorithm::may_overlap::type
 )
 {
-	mizuiro::detail::variant_apply_binary(
-		detail::apply_binary_iteration(
-			detail::copy_and_convert()
-		),
-		_src.range(),
-		_dest.range()
+	algorithm::binary_iteration(
+		detail::copy_and_convert(),
+		_src,
+		_dest
 	);
 }
 
@@ -59,12 +58,14 @@ typename boost::enable_if<
 >::type
 copy_and_convert(
 	ViewS const &_src,
-	ViewD const &_dest
+	ViewD const &_dest,
+	algorithm::may_overlap::type const _overlap
 )
 {
 	algorithm::copy(
 		_src,
-		_dest
+		_dest,
+		_overlap
 	);
 }
 

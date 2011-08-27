@@ -2,7 +2,8 @@
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/view.hpp>
+#include <mizuiro/image/linear_view_impl.hpp>
+#include <mizuiro/image/types/normal.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/bgra.hpp>
@@ -81,13 +82,13 @@ BOOST_AUTO_TEST_CASE(
 	views_are_compatible
 )
 {
-	typedef ::mizuiro::image::view<
+	typedef ::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
 		::format_3d_bgra8,
 		::mizuiro::nonconst_tag
 	> view_3d_bgra8;
 
-	typedef ::mizuiro::image::view<
+	typedef ::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
 		::format_3d_bgra8,
 		::mizuiro::nonconst_tag
@@ -101,7 +102,7 @@ BOOST_AUTO_TEST_CASE(
 		>::value
 	));
 
-	typedef ::mizuiro::image::view<
+	typedef ::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
 		::format_2d_bgra8,
 		::mizuiro::nonconst_tag
@@ -115,7 +116,7 @@ BOOST_AUTO_TEST_CASE(
 		>::value
 	));
 
-	typedef ::mizuiro::image::view<
+	typedef ::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
 		::format_2d_bgra_f,
 		::mizuiro::nonconst_tag
@@ -129,7 +130,7 @@ BOOST_AUTO_TEST_CASE(
 		>::value
 	));
 
-	typedef ::mizuiro::image::view<
+	typedef ::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
 		::format_2d_rgb8,
 		::mizuiro::nonconst_tag

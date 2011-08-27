@@ -7,8 +7,11 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_COPY_SAME_CHANNEL_ORDER_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_COPY_SAME_CHANNEL_ORDER_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/detail/copy_raw.hpp>
-#include <mizuiro/detail/variant_apply_binary.hpp>
+#include <mizuiro/image/algorithm/detail/copy_element.hpp>
+#include <mizuiro/image/algorithm/binary_iteration.hpp>
+#include <mizuiro/image/linear_view_fwd.hpp>
+#include <mizuiro/image/underlying_data_pointer.hpp> // TODO: remove this!
+#include <mizuiro/detail/copy.hpp>
 
 namespace mizuiro
 {
@@ -27,10 +30,45 @@ copy_same_channel_order(
 	ViewD const &_dest
 )
 {
-	mizuiro::detail::variant_apply_binary(
-		detail::copy_raw(),
-		_src.range(),
-		_dest.range()
+	algorithm::binary_iteration(
+		detail::copy_element(),
+		_src,
+		_dest
+	);
+}
+
+template<
+	typename Access1,
+	typename Format1,
+	typename Constness1,
+	typename Access2,
+	typename Format2,
+	typename Constness2
+>
+void
+copy_same_channel_order(
+	image::linear_view<
+		Access1,
+		Format1,
+		Constness1
+	> const &_src,
+	image::linear_view<
+		Access2,
+		Format2,
+		Constness2
+	> const &_dest
+)
+{
+	mizuiro::detail::copy(
+		underlying_data_pointer(
+			_src.begin()
+		),
+		underlying_data_pointer(
+			_src.end()
+		),
+		underlying_data_pointer(
+			_dest.begin()
+		)
 	);
 }
 

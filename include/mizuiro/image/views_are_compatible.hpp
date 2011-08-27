@@ -31,15 +31,15 @@ boost::mpl::and_<
 	>,
 	boost::mpl::equal_to<
 		boost::mpl::size<
-			typename View1::color_format::layout::order
+			typename View1::format::color_format::layout::order
 		>,
 		boost::mpl::size<
-			typename View2::color_format::layout::order
+			typename View2::format::color_format::layout::order
 		>
 	>,
 	color::formats_are_compatible<
-		typename View1::color_format,
-		typename View2::color_format
+		typename View1::format::color_format,
+		typename View2::format::color_format
 	>
 >
 {};

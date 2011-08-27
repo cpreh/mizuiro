@@ -7,9 +7,8 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_FILL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_FILL_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/detail/apply_unary_iteration.hpp>
 #include <mizuiro/image/algorithm/detail/fill.hpp>
-#include <mizuiro/detail/variant_apply_unary.hpp>
+#include <mizuiro/image/algorithm/unary_iteration.hpp>
 
 namespace mizuiro
 {
@@ -28,15 +27,13 @@ fill(
 	Fun const &_fun
 )
 {
-	mizuiro::detail::variant_apply_unary(
-		detail::apply_unary_iteration(
-			detail::fill<
-				Fun
-			>(
-				_fun
-			)
+	algorithm::unary_iteration(
+		detail::fill<
+			Fun
+		>(
+			_fun
 		),
-		_dest.range()
+		_dest
 	);
 }
 

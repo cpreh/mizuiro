@@ -4,10 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_MAKE_CONST_VIEW_HPP_INCLUDED
-#define MIZUIRO_IMAGE_MAKE_CONST_VIEW_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_TO_PITCH_VIEW_HPP_INCLUDED
+#define MIZUIRO_IMAGE_TO_PITCH_VIEW_HPP_INCLUDED
 
-#include <mizuiro/image/const_view.hpp>
+#include <mizuiro/image/pitch_view_fwd.hpp>
 
 namespace mizuiro
 {
@@ -17,20 +17,14 @@ namespace image
 template<
 	typename View
 >
-typename image::const_view<
-	View
->::type const
-make_const_view(
-	View const &_view
-)
+struct to_pitch_view
 {
-	return
-		typename image::const_view<
-			View
-		>::type(
-			_view
-		);
-}
+	typedef image::pitch_view<
+		typename View::access,
+		typename View::format,
+		typename View::constness
+	> type;
+};
 
 }
 }

@@ -7,11 +7,7 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_TRANSFORM_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_TRANSFORM_HPP_INCLUDED
 
-#include <mizuiro/config.hpp>
-#include <mizuiro/image/algorithm/transform_binary.hpp>
-#ifdef MIZUIRO_HAVE_FCPPT
-#include <mizuiro/image/algorithm/transform_ternary.hpp>
-#endif
+#include <mizuiro/image/algorithm/binary_iteration.hpp>
 
 namespace mizuiro
 {
@@ -27,41 +23,17 @@ template<
 >
 void
 transform(
-	ViewS const &source,
-	ViewD const &dest,
-	Fun const &fun
+	ViewS const &_source,
+	ViewD const &_dest,
+	Fun const &_fun
 )
 {
-	transform_binary(
-		source,
-		dest,
-		fun
+	algorithm::binary_iteration(
+		_fun,
+		_source,
+		_dest
 	);
 }
-
-#ifdef MIZUIRO_HAVE_FCPPT
-template<
-	typename ViewS1,
-	typename ViewS2,
-	typename ViewD,
-	typename Fun
->
-void
-transform(
-	ViewS1 const &source1,
-	ViewS2 const &source2,
-	ViewD const &dest,
-	Fun const &fun
-)
-{
-	transform_ternary(
-		source1,
-		source2,
-		dest,
-		fun
-	);
-}
-#endif
 
 }
 }

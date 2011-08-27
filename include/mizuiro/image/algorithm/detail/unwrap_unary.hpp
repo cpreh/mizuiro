@@ -4,9 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_APPLY_UNARY_ITERATION_FUN_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ALGORITHM_DETAIL_APPLY_UNARY_ITERATION_FUN_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_UNWRAP_UNARY_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ALGORITHM_DETAIL_UNWRAP_UNARY_HPP_INCLUDED
 
+#include <mizuiro/image/algorithm/detail/unary_iteration.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 
 namespace mizuiro
@@ -21,46 +22,39 @@ namespace detail
 template<
 	typename Function
 >
-class apply_unary_iteration_fun
+class unwrap_unary
 {
 	MIZUIRO_DETAIL_NONASSIGNABLE(
-		apply_unary_iteration_fun
+		unwrap_unary
 	);
 public:
-	explicit apply_unary_iteration_fun(
-		Function const &_fun
+	explicit
+	unwrap_unary(
+		Function const &_function
 	)
 	:
-		fun_(_fun)
-	{}
+		function_(_function)
+	{
+	}
 
 	typedef void result_type;
 
 	template<
-		typename T
+		typename View
 	>
 	result_type
 	operator()(
-		T const &_range
+		View const &_view
 	) const
 	{
-		typename T::iterator const end(
-			_range.end()
-		);
-
-		for(
-			typename T::iterator it(
-				_range.begin()
-			);
-			it != end;
-			++it
-		)
-			fun_(
-				*it
+		return
+			detail::unary_iteration(
+				function_,
+				_view
 			);
 	}
 private:
-	Function const fun_;
+	Function const &function_;
 };
 
 }

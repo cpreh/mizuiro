@@ -10,8 +10,10 @@
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/is_raw_view.hpp>
+#include <mizuiro/image/pitch_view_impl.hpp>
 #include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
+#include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/proxy.hpp>
@@ -86,7 +88,7 @@ int main()
 			);
 	}
 
-	typedef mizuiro::image::view<
+	typedef mizuiro::image::pitch_view<
 		mizuiro::access::raw,
 		format,
 		mizuiro::nonconst_tag
@@ -109,7 +111,8 @@ int main()
 		mizuiro::image::make_const_view(
 			view
 		),
-		view
+		view,
+		mizuiro::image::algorithm::may_overlap::yes
 	);
 
 	std::cout

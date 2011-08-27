@@ -12,6 +12,7 @@
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
+#include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/algorithm/transform.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
@@ -107,26 +108,6 @@ struct transform_test
 	}
 };
 
-struct transform_test_2
-{
-	typedef void result_type;
-
-	template<
-		typename Src1,
-		typename Src2,
-		typename Dest
-	>
-	result_type
-	operator()(
-		Src1 const &,
-		Src2 const &,
-		Dest const &
-	) const
-	{
-
-	}
-};
-
 }
 
 int main()
@@ -193,7 +174,8 @@ int main()
 		mizuiro::image::make_const_view(
 			img1.view()
 		),
-		img2.view()
+		img2.view(),
+		mizuiro::image::algorithm::may_overlap::no
 	);
 
 	std::cout << "after\n";
@@ -209,13 +191,7 @@ int main()
 		img1.view(),
 		transform_test()
 	);
-
-	mizuiro::image::algorithm::transform(
-		img2.view(),
-		img1.view(),
-		img1.view(),
-		transform_test_2()
-	);
 #endif
+
 	std::cout << '\n';
 }

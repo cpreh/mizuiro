@@ -9,7 +9,7 @@
 
 #include <mizuiro/image/detail/relative_position.hpp>
 #include <mizuiro/image/linear_iterator_impl.hpp>
-#include <mizuiro/image/view_impl.hpp>
+#include <mizuiro/image/linear_view_impl.hpp>
 
 namespace mizuiro
 {
@@ -25,7 +25,7 @@ template<
 >
 typename Format::dim const
 linear_iterator_position(
-	image::view<
+	image::linear_view<
 		Access,
 		Format,
 		Constness
@@ -42,13 +42,7 @@ linear_iterator_position(
 			_view.size(),
 			_it
 			-
-			_view.begin().internal(). template get<
-				image::linear_iterator<
-					Access,
-					Format,
-					Constness
-				>
-			>()
+			_view.begin()
 		);
 }
 
