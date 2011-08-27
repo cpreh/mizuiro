@@ -60,12 +60,13 @@ typename boost::enable_if<
 copy_impl(
 	ViewS const &_src,
 	ViewD const &_dest,
-	algorithm::may_overlap::type
+	algorithm::may_overlap::type const _overlap
 )
 {
 	algorithm::copy_same_channel_order(
 		_src,
-		_dest
+		_dest,
+		_overlap
 	);
 }
 

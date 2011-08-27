@@ -26,14 +26,16 @@ template<
 	typename A
 >
 mizuiro::image::detail::raw_container<T, A>::raw_container(
-	size_type const sz
+	size_type const _size
 )
 :
 	allocator(),
 	data_(),
 	data_end_()
 {
-	allocate(sz);
+	this->allocate(
+		_size
+	);
 }
 
 template<
@@ -41,11 +43,11 @@ template<
 	typename A
 >
 mizuiro::image::detail::raw_container<T, A>::raw_container(
-	raw_container const &other
+	raw_container const &_other
 )
 {
-	copy(
-		other
+	this->copy(
+		_other
 	);
 }
 
@@ -55,18 +57,18 @@ template<
 >
 mizuiro::image::detail::raw_container<T, A> &
 mizuiro::image::detail::raw_container<T, A>::operator=(
-	raw_container const &other
+	raw_container const &_other
 )
 {
 	if(
-		this == &other
+		this == &_other
 	)
 		return *this;
 
-	destroy();
+	this->destroy();
 
-	copy(
-		other
+	this->copy(
+		_other
 	);
 
 	return *this;
@@ -78,7 +80,7 @@ template<
 >
 mizuiro::image::detail::raw_container<T, A>::~raw_container()
 {
-	destroy();
+	this->destroy();
 }
 
 template<
@@ -87,13 +89,13 @@ template<
 >
 void
 mizuiro::image::detail::raw_container<T, A>::resize(
-	size_type const nsz
+	size_type const _size
 )
 {
-	destroy();
+	this->destroy();
 
-	allocate(
-		nsz
+	this->allocate(
+		_size
 	);
 }
 
@@ -158,11 +160,15 @@ template<
 >
 void
 mizuiro::image::detail::raw_container<T, A>::allocate(
-	size_type const sz
+	size_type const _size
 )
 {
-	data_ = allocator.allocate(sz);
-	data_end_ = data_ + sz;
+	data_ =
+		allocator.allocate(
+			_size
+		);
+
+	data_end_ = data_ + _size;
 }
 
 template<
@@ -171,20 +177,20 @@ template<
 >
 void
 mizuiro::image::detail::raw_container<T, A>::copy(
-	raw_container const &other
+	raw_container const &_other
 )
 {
-	allocate(
-		other.size()
+	this->allocate(
+		_other.size()
 	);
 
 	if(
-		other.data()
+		_other.data()
 	)
 		std::uninitialized_copy(
-			other.data(),
-			other.data_end(),
-			data()
+			_other.data(),
+			_other.data_end(),
+			this->data()
 		);
 }
 
@@ -195,10 +201,12 @@ template<
 void
 mizuiro::image::detail::raw_container<T, A>::destroy()
 {
-	if(data_)
+	if(
+		data_
+	)
 		allocator.deallocate(
 			data_,
-			size()
+			this->size()
 		);
 }
 

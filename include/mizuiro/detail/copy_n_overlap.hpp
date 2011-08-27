@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_DETAIL_COPY_N_HPP_INCLUDED
-#define MIZUIRO_DETAIL_COPY_N_HPP_INCLUDED
+#ifndef MIZUIRO_DETAIL_COPY_N_OVERLAP_HPP_INCLUDED
+#define MIZUIRO_DETAIL_COPY_N_OVERLAP_HPP_INCLUDED
 
 #include <mizuiro/detail/copy_n_base.hpp>
 #include <cstring>
@@ -22,14 +22,14 @@ template<
 	typename Dest
 >
 void
-copy_n(
+copy_n_overlap(
 	Source const *const _src,
 	Size const _size,
 	Dest *const _dest
 )
 {
-	detail::copy_n_base(
-		std::memcpy,
+	detail::copy_n(
+		std::memmove,
 		_src,
 		_size,
 		_dest

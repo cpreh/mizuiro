@@ -9,9 +9,11 @@
 
 #include <mizuiro/image/algorithm/detail/copy_element.hpp>
 #include <mizuiro/image/algorithm/binary_iteration.hpp>
+#include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/linear_view_fwd.hpp>
 #include <mizuiro/image/underlying_data_pointer.hpp> // TODO: remove this!
 #include <mizuiro/detail/copy.hpp>
+#include <mizuiro/detail/copy_overlap.hpp>
 
 namespace mizuiro
 {
@@ -27,7 +29,8 @@ template<
 void
 copy_same_channel_order(
 	ViewS const &_src,
-	ViewD const &_dest
+	ViewD const &_dest,
+	algorithm::may_overlap::type
 )
 {
 	algorithm::binary_iteration(
@@ -56,20 +59,37 @@ copy_same_channel_order(
 		Access2,
 		Format2,
 		Constness2
-	> const &_dest
+	> const &_dest,
+	algorithm::may_overlap::type const _overlap
 )
 {
-	mizuiro::detail::copy(
-		underlying_data_pointer(
-			_src.begin()
-		),
-		underlying_data_pointer(
-			_src.end()
-		),
-		underlying_data_pointer(
-			_dest.begin()
-		)
-	);
+	if(
+		_overlap
+		== algorithm::may_overlap::yes
+	)
+		mizuiro::detail::copy_overlap(
+			underlying_data_pointer(
+				_src.begin()
+			),
+			underlying_data_pointer(
+				_src.end()
+			),
+			underlying_data_pointer(
+				_dest.begin()
+			)
+		);
+	else
+		mizuiro::detail::copy(
+			underlying_data_pointer(
+				_src.begin()
+			),
+			underlying_data_pointer(
+				_src.end()
+			),
+			underlying_data_pointer(
+				_dest.begin()
+			)
+		);
 }
 
 }
