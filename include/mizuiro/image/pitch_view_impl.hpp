@@ -11,7 +11,6 @@
 #include <mizuiro/image/format_base_impl.hpp>
 #include <mizuiro/image/pitch_iterator_impl.hpp>
 #include <mizuiro/image/move_iterator.hpp>
-#include <mizuiro/image/range_impl.hpp>
 
 template<
 	typename Access,
@@ -193,29 +192,6 @@ mizuiro::image::pitch_view<
 			typename iterator::difference_type
 		>(
 			this->size().content()
-		);
-}
-
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
-typename mizuiro::image::pitch_view<
-	Access,
-	Format,
-	Constness
->::range_type const
-mizuiro::image::pitch_view<
-	Access,
-	Format,
-	Constness
->::range() const
-{
-	return
-		range_type(
-			this->begin(),
-			this->end()
 		);
 }
 

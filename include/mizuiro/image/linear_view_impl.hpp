@@ -11,7 +11,6 @@
 #include <mizuiro/image/format_base_impl.hpp>
 #include <mizuiro/image/linear_iterator_impl.hpp>
 #include <mizuiro/image/move_iterator.hpp>
-#include <mizuiro/image/range_impl.hpp>
 
 template<
 	typename Access,
@@ -181,29 +180,6 @@ mizuiro::image::linear_view<
 			typename iterator::difference_type
 		>(
 			this->size().content()
-		);
-}
-
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
-typename mizuiro::image::linear_view<
-	Access,
-	Format,
-	Constness
->::range_type const
-mizuiro::image::linear_view<
-	Access,
-	Format,
-	Constness
->::range() const
-{
-	return
-		range_type(
-			this->begin(),
-			this->end()
 		);
 }
 

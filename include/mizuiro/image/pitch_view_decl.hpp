@@ -12,7 +12,6 @@
 #include <mizuiro/image/format_argument.hpp>
 #include <mizuiro/image/format_base_decl.hpp>
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
-#include <mizuiro/image/range_fwd.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
 
@@ -62,10 +61,6 @@ public:
 		constness
 	> iterator;
 
-	typedef image::range<
-		iterator
-	> range_type;
-
 	typedef typename format::dim dim;
 
 	typedef image::bound<
@@ -109,9 +104,6 @@ public:
 
 	iterator const
 	end() const;
-
-	range_type const
-	range() const;
 
 	reference
 	operator[](
