@@ -7,7 +7,6 @@
 #ifndef MIZUIRO_COLOR_ACCESS_HOMOGENOUS_RAW_HPP_INCLUDED
 #define MIZUIRO_COLOR_ACCESS_HOMOGENOUS_RAW_HPP_INCLUDED
 
-#include <mizuiro/access/data_store_size.hpp>
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/color/access/channel_index.hpp>
 #include <mizuiro/color/access/extract_channel.hpp>
@@ -15,7 +14,6 @@
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/is_homogenous.hpp>
-#include <mizuiro/size_type.hpp>
 #include <boost/utility/enable_if.hpp>
 
 namespace mizuiro
@@ -72,36 +70,6 @@ struct extract_channel<
 			)
 			* sizeof(typename Format::channel_type)
 		;
-	}
-};
-
-template<
-	typename Format,
-	typename Dim
->
-struct data_store_size<
-	mizuiro::access::raw,
-	Format,
-	Dim,
-	typename boost::enable_if<
-		mizuiro::color::is_homogenous<
-			Format
-		>
-	>::type
->
-{
-	static
-	mizuiro::size_type
-	execute(
-		mizuiro::access::raw const &,
-		color::format_store<Format> const &,
-		Dim const &_dim
-	)
-	{
-		return
-			_dim.content()
-			* Format::element_count
-			* sizeof(typename Format::channel_type);
 	}
 };
 

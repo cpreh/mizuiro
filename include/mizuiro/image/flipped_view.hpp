@@ -14,8 +14,8 @@
 #include <mizuiro/image/detail/flipped_edge.hpp>
 #include <mizuiro/image/detail/flipped_pitch.hpp>
 #include <mizuiro/image/detail/flipped_start.hpp>
+#include <mizuiro/image/detail/pitch_difference.hpp>
 #include <boost/utility/enable_if.hpp>
-#include <iterator>
 
 namespace mizuiro
 {
@@ -61,14 +61,14 @@ flipped_view(
 				).data(),
 				mizuiro::image::detail::flipped_pitch(
 					_view.pitch(),
-					std::distance(
+					image::detail::pitch_difference(
 						mizuiro::image::move_iterator(
 							_view,
 							mizuiro::image::detail::flipped_edge(
 								_view.size()
 							)
-						).data(),
-						_view.begin().data()
+						),
+						_view.begin()
 					)
 					+
 					_view.pitch().back()
@@ -79,7 +79,8 @@ flipped_view(
 				_view.size(),
 				_view.data(),
 				_view.pitch()
-			);
+			)
+		;
 }
 
 }

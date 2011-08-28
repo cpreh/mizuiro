@@ -16,6 +16,7 @@
 #include <mizuiro/image/sub_view.hpp>
 #include <mizuiro/image/to_pitch_view.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
+#include <mizuiro/image/access/homogenous_normal.hpp>
 #include <iostream>
 #include <ostream>
 

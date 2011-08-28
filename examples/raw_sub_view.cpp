@@ -16,6 +16,7 @@
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/pitch_view_impl.hpp>
 #include <mizuiro/image/sub_view.hpp>
+#include <mizuiro/image/access/homogenous_raw.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/nonconst_tag.hpp>

@@ -8,8 +8,7 @@
 #define MIZUIRO_IMAGE_LINEAR_ITERATOR_IMPL_HPP_INCLUDED
 
 #include <mizuiro/image/linear_iterator_decl.hpp>
-#include <mizuiro/image/underlying_data_pointer.hpp>
-#include <mizuiro/access/color_pointer.hpp>
+#include <mizuiro/image/access/color_stride.hpp>
 
 template<
 	typename Access,
@@ -60,16 +59,22 @@ template<
 >
 void
 mizuiro::image::linear_iterator<Access, Format, Constness>::advance(
-	difference_type	const diff
+	difference_type	const _diff
 )
 {
 	data_ +=
-		diff
+		_diff
 		*
 		static_cast<
 			difference_type
 		>(
-			Format::color_format::element_count
+			image::access::color_stride<
+				Access,
+				Format
+			>::execute(
+				Access(),
+				this->format_store_base()
+			)
 		);
 }
 
@@ -81,7 +86,9 @@ template<
 void
 mizuiro::image::linear_iterator<Access, Format, Constness>::increment()
 {
-	advance(1);
+	this->advance(
+		1
+	);
 }
 
 template<
@@ -92,7 +99,9 @@ template<
 void
 mizuiro::image::linear_iterator<Access, Format, Constness>::decrement()
 {
-	advance(-1);
+	this->advance(
+		-1
+	);
 }
 
 template<
@@ -105,7 +114,22 @@ mizuiro::image::linear_iterator<Access, Format, Constness>::distance_to(
 	linear_iterator const &_other
 ) const
 {
-	return _other.data_ - data_;
+	return
+		(
+			_other.data_ - data_
+		)
+		/
+		static_cast<
+			difference_type
+		>(
+			image::access::color_stride<
+				Access,
+				Format
+			>::execute(
+				Access(),
+				this->format_store_base()
+			)
+		);
 }
 
 template<
@@ -118,9 +142,7 @@ mizuiro::image::linear_iterator<Access, Format, Constness>::dereference() const
 {
 	return
 		reference(
-			underlying_data_pointer(
-				*this
-			),
+			this->data(),
 			this->format_store_base().color_format()
 		);
 }

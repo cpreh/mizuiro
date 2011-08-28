@@ -4,23 +4,22 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_DETAIL_STRIDE_POINTER_FWD_HPP_INCLUDED
-#define MIZUIRO_IMAGE_DETAIL_STRIDE_POINTER_FWD_HPP_INCLUDED
-
-#include <mizuiro/size_type.hpp>
+#ifndef MIZUIRO_IMAGE_ACCESS_DATA_STORE_SIZE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ACCESS_DATA_STORE_SIZE_HPP_INCLUDED
 
 namespace mizuiro
 {
 namespace image
 {
-namespace detail
+namespace access
 {
 
 template<
-	typename T,
-	mizuiro::size_type Stride
+	typename Access,
+	typename ImageFormat,
+	typename Enable = void
 >
-class stride_pointer;
+struct data_store_size;
 
 }
 }

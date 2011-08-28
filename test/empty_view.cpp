@@ -2,6 +2,7 @@
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
+#include <mizuiro/image/access/homogenous_normal.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <boost/test/unit_test.hpp>

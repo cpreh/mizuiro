@@ -11,8 +11,7 @@
 #include <mizuiro/image/detail/stacked_dim.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
-#include <mizuiro/image/underlying_data_pointer.hpp>
-#include <mizuiro/access/color_pointer.hpp>
+#include <mizuiro/image/access/color_stride.hpp>
 #include <mizuiro/detail/unlikely.hpp>
 #include <cassert>
 
@@ -166,7 +165,13 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::advance(
 		static_cast<
 			difference_type
 		>(
-			Format::color_format::element_count
+			image::access::color_stride<
+				Access,
+				Format
+			>::execute(
+				Access(),
+				this->format_store_base()
+			)
 		);
 
 	for(
@@ -226,17 +231,23 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::increment()
 		)
 	)
 	{
-		advance(1);
+		this->advance(1);
+
 		line_advance_ = 0;
 	}
 	else
 	{
-		// FIXME:
 		position_ +=
 			static_cast<
 				difference_type
 			>(
-				Format::color_format::element_count
+				image::access::color_stride<
+					Access,
+					Format
+				>::execute(
+					Access(),
+					this->format_store_base()
+				)
 			);
 
 		++offset_;
@@ -251,7 +262,7 @@ template<
 void
 mizuiro::image::pitch_iterator<Access, Format, Constness>::decrement()
 {
-	advance(-1);
+	this->advance(-1);
 }
 
 template<
@@ -261,10 +272,10 @@ template<
 >
 typename mizuiro::image::pitch_iterator<Access, Format, Constness>::difference_type
 mizuiro::image::pitch_iterator<Access, Format, Constness>::distance_to(
-	pitch_iterator const &other
+	pitch_iterator const &_other
 ) const
 {
-	return other.offset_ - offset_;
+	return _other.offset_ - offset_;
 }
 
 template<
@@ -277,9 +288,7 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::dereference() const
 {
 	return
 		reference(
-			image::underlying_data_pointer(
-				*this
-			),
+			this->data(),
 			this->format_store_base().color_format()
 		);
 }
@@ -291,10 +300,10 @@ template<
 >
 bool
 mizuiro::image::pitch_iterator<Access, Format, Constness>::equal(
-	pitch_iterator const &other
+	pitch_iterator const &_other
 ) const
 {
-	return position_ == other.position_;
+	return position_ == _other.position_;
 }
 
 #endif

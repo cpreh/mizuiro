@@ -14,6 +14,7 @@
 #include <mizuiro/image/to_pitch_view.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/algorithm/copy.hpp>
+#include <mizuiro/image/access/homogenous_raw.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>

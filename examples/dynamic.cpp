@@ -14,6 +14,7 @@
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
+#include <mizuiro/image/access/homogenous_normal.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>

@@ -9,7 +9,6 @@
 
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/data_store.hpp>
-#include <mizuiro/image/detail/stride_pointer_impl.hpp>
 #include <mizuiro/image/detail/raw_container_fwd.hpp>
 #include <mizuiro/color/types/homogenous_raw.hpp>
 #include <mizuiro/color/types/pointer.hpp>
@@ -34,15 +33,13 @@ struct pointer<
 	Format,
 	Constness
 >
+:
+color::types::pointer<
+	::mizuiro::access::raw,
+	typename Format::color_format,
+	Constness
+>
 {
-	typedef detail::stride_pointer<
-		typename color::types::pointer<
-			::mizuiro::access::raw,
-			typename Format::color_format,
-			Constness
-		>::type,
-		sizeof(typename Format::color_format::channel_type)
-	> type;
 };
 
 template<

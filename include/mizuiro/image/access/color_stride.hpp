@@ -4,24 +4,22 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_ACCESS_DATA_STORE_SIZE_HPP_INCLUDED
-#define MIZUIRO_ACCESS_DATA_STORE_SIZE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_ACCESS_COLOR_STRIDE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ACCESS_COLOR_STRIDE_HPP_INCLUDED
 
 namespace mizuiro
 {
-namespace color
+namespace image
 {
 namespace access
 {
 
-// TODO: where to put this?
 template<
 	typename Access,
-	typename Format,
-	typename Dim,
+	typename ImageFormat,
 	typename Enable = void
 >
-struct data_store_size;
+struct color_stride;
 
 }
 }

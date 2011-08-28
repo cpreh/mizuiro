@@ -10,6 +10,7 @@
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/make_const_view.hpp>
+#include <mizuiro/image/access/homogenous_normal.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>

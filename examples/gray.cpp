@@ -14,6 +14,7 @@
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/algorithm/for_each.hpp>
+#include <mizuiro/image/access/homogenous_normal.hpp>
 #include <boost/cstdint.hpp>
 
 typedef mizuiro::image::format<

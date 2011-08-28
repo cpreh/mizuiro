@@ -39,7 +39,8 @@ mizuiro::color::types::pointer<
 	typename Format::color_format,
 	Constness
 >
-{};
+{
+};
 
 template<
 	typename Format

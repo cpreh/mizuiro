@@ -12,6 +12,7 @@
 #include <mizuiro/image/is_raw_view.hpp>
 #include <mizuiro/image/pitch_view_impl.hpp>
 #include <mizuiro/image/raw_view.hpp>
+#include <mizuiro/image/access/homogenous_raw.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>

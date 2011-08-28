@@ -11,7 +11,6 @@
 #include <mizuiro/image/algorithm/binary_iteration.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/linear_view_fwd.hpp>
-#include <mizuiro/image/underlying_data_pointer.hpp> // TODO: remove this!
 #include <mizuiro/detail/copy.hpp>
 #include <mizuiro/detail/copy_overlap.hpp>
 
@@ -68,27 +67,15 @@ copy_same_channel_order(
 		== algorithm::may_overlap::yes
 	)
 		mizuiro::detail::copy_overlap(
-			underlying_data_pointer(
-				_src.begin()
-			),
-			underlying_data_pointer(
-				_src.end()
-			),
-			underlying_data_pointer(
-				_dest.begin()
-			)
+			_src.begin().data(),
+			_src.end().data(),
+			_dest.begin().data()
 		);
 	else
 		mizuiro::detail::copy(
-			underlying_data_pointer(
-				_src.begin()
-			),
-			underlying_data_pointer(
-				_src.end()
-			),
-			underlying_data_pointer(
-				_dest.begin()
-			)
+			_src.begin().data(),
+			_src.end().data(),
+			_dest.begin().data()
 		);
 }
 

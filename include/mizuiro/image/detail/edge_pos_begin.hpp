@@ -19,8 +19,8 @@ template<
 >
 typename Bound::dim const
 edge_pos_begin(
-	Bound const &bound,
-	typename Bound::size_type const index
+	Bound const &_bound,
+	typename Bound::size_type const _index
 )
 {
 	typedef typename Bound::dim dim;
@@ -33,9 +33,9 @@ edge_pos_begin(
 		++i
 	)
 		ret[i] =
-			(i == index + 1)
-			? bound.pos()[i] + 1
-			: bound.pos()[i];
+			(i == _index + 1)
+			? _bound.pos()[i] + 1
+			: _bound.pos()[i];
 
 	return ret;
 }
