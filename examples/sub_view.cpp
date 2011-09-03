@@ -19,9 +19,11 @@
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <iterator>
 #include <iostream>
 #include <ostream>
+#include <mizuiro/detail/external_end.hpp>
 
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/image/raw_view.hpp>

@@ -20,11 +20,13 @@
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/size_type.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace
 {

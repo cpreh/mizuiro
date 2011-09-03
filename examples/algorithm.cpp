@@ -22,10 +22,12 @@
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/for_each_channel.hpp>
 #include <mizuiro/color/proxy.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/spirit/home/phoenix/core/argument.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace
 {

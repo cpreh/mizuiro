@@ -13,3 +13,5 @@
 #endif
 
 #endif
+
+#undef MIZUIRO_DETAIL_EXTERNAL_END_HPP_INCLUDED

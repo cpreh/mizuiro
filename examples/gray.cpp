@@ -15,7 +15,9 @@
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/algorithm/for_each.hpp>
 #include <mizuiro/image/access/homogenous_normal.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 typedef mizuiro::image::format<
 	mizuiro::image::dimension<

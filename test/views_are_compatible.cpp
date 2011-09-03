@@ -10,8 +10,10 @@
 #include <mizuiro/color/layout/rgb.hpp>
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/nonconst_tag.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
 #include <boost/cstdint.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace
 {

@@ -15,9 +15,11 @@
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/const_view.hpp>
 #include <mizuiro/image/access/homogenous_normal.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>
+#include <mizuiro/detail/external_end.hpp>
 
 int main()
 {

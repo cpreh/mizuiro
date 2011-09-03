@@ -12,9 +12,11 @@
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>
+#include <mizuiro/detail/external_end.hpp>
 
 int main()
 {

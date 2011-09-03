@@ -10,9 +10,11 @@
 #include <mizuiro/color/operators.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/output.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>
+#include <mizuiro/detail/external_end.hpp>
 
 int main()
 {

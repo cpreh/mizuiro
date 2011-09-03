@@ -17,8 +17,10 @@
 #include <mizuiro/image/to_pitch_view.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/access/homogenous_normal.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <iostream>
 #include <ostream>
+#include <mizuiro/detail/external_end.hpp>
 
 int main()
 {

@@ -23,9 +23,11 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/array.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <algorithm>
 #include <iostream>
 #include <ostream>
+#include <mizuiro/detail/external_end.hpp>
 
 int main()
 {

@@ -5,8 +5,10 @@
 #include <mizuiro/image/access/homogenous_normal.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
 #include <boost/cstdint.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 BOOST_AUTO_TEST_CASE(
 	empty_view
