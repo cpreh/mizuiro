@@ -15,7 +15,9 @@
 #include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/normalize.hpp>
 #include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <cmath>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

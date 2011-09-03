@@ -10,8 +10,10 @@
 #include <mizuiro/color/init/detail/channel_percentage.hpp>
 #include <mizuiro/color/init/detail/channel_value.hpp>
 #include <mizuiro/color/denormalize.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

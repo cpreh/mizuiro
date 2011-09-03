@@ -14,9 +14,11 @@
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/detail/variant_decl.hpp>
 #include <mizuiro/detail/make_variant.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <boost/static_assert.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

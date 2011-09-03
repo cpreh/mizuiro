@@ -11,7 +11,9 @@
 #include <mizuiro/color/channel/hue.hpp>
 #include <mizuiro/color/channel/saturation.hpp>
 #include <mizuiro/color/channel/value.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/vector/vector10.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

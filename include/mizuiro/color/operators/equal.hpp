@@ -10,11 +10,13 @@
 #include <mizuiro/color/operators/detail/equal.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/mpl/begin.hpp>
 #include <boost/mpl/end.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <boost/type_traits/is_same.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

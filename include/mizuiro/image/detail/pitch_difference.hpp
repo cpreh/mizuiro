@@ -7,7 +7,9 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_PITCH_DIFFERENCE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_PITCH_DIFFERENCE_HPP_INCLUDED
 
+#include <mizuiro/detail/external_begin.hpp>
 #include <iterator>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

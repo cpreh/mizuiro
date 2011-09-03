@@ -8,9 +8,11 @@
 #define MIZUIRO_COLOR_INIT_DETAIL_VALUES_HPP_INCLUDED
 
 #include <mizuiro/color/init/detail/values_fwd.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/fusion/algorithm/transformation/push_back.hpp>
 #include <boost/fusion/container/vector/convert.hpp>
 #include <boost/fusion/sequence/intrinsic/front.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

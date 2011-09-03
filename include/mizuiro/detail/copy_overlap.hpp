@@ -8,7 +8,9 @@
 #define MIZUIRO_DETAIL_COPY_OVERLAP_HPP_INCLUDED
 
 #include <mizuiro/detail/copy_n_overlap.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <iterator>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

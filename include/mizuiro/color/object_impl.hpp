@@ -13,7 +13,9 @@
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/is_color.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 template<
 	typename Format

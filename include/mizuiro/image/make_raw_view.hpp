@@ -11,7 +11,9 @@
 #include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/is_raw_pointer.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

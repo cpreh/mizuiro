@@ -9,7 +9,9 @@
 
 #include <mizuiro/color/is_homogenous_dynamic.hpp>
 #include <mizuiro/color/is_homogenous_static.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/or.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

@@ -11,7 +11,9 @@
 #include <mizuiro/color/detail/promote_channel.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <ostream>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

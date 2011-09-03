@@ -7,7 +7,9 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_FLIPPED_PITCH_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_FLIPPED_PITCH_HPP_INCLUDED
 
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

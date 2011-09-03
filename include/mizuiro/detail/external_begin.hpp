@@ -4,19 +4,12 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_ACCESS_RAW_HPP_INCLUDED
-#define MIZUIRO_ACCESS_RAW_HPP_INCLUDED
+#ifndef MIZUIRO_DETAIL_EXTERNAL_BEGIN_HPP_INCLUDED
+#define MIZUIRO_DETAIL_EXTERNAL_BEGIN_HPP_INCLUDED
 
-namespace mizuiro
-{
-namespace access
-{
-
-struct raw
-{
-};
-
-}
-}
+#include <mizuiro/config.hpp>
+#ifdef MIZUIRO_HAVE_FCPPT
+#include <fcppt/config/external_begin.hpp>
+#endif
 
 #endif

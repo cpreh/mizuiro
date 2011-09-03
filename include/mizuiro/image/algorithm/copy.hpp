@@ -10,7 +10,9 @@
 #include <mizuiro/image/algorithm/detail/copy_impl.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/views_are_compatible.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

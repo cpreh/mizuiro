@@ -8,6 +8,7 @@
 #define MIZUIRO_IMAGE_DIMENSION_IMPL_HPP_INCLUDED
 
 #include <mizuiro/image/dimension_decl.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
@@ -17,6 +18,7 @@
 #include <functional>
 #include <algorithm>
 #include <ostream>
+#include <mizuiro/detail/external_end.hpp>
 
 #define MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_ASSIGN(\
 	z,\

@@ -6,10 +6,14 @@
 #include <fcppt/container/array.hpp>
 #include <fcppt/container/array_fusion.hpp>
 #else
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/fusion/adapted/boost_array.hpp>
 #include <boost/array.hpp>
+#include <mizuiro/detail/external_end.hpp>
 #endif
+#include <mizuiro/detail/external_begin.hpp>
 #include <cstddef>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

@@ -10,7 +10,9 @@
 #include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/init/blue.hpp>
 #include <mizuiro/color/init/green.hpp>
-#include <stdexcept>
+#include <mizuiro/detail/external_begin.hpp>
+#include <exception>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {
@@ -100,10 +102,7 @@ rgb_from_chroma(
 				_format
 			);
 
-	// TODO: add our own exception type!
-	throw std::logic_error(
-		"rgb_from_chroma: Invalid hue!"
-	);
+	std::terminate();
 }
 
 }

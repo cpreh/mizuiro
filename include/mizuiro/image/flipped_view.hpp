@@ -15,7 +15,9 @@
 #include <mizuiro/image/detail/flipped_pitch.hpp>
 #include <mizuiro/image/detail/flipped_start.hpp>
 #include <mizuiro/image/detail/pitch_difference.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

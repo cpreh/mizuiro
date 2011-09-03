@@ -7,7 +7,6 @@
 #ifndef MIZUIRO_COLOR_DETAIL_IS_LAST_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_IS_LAST_CHANNEL_HPP_INCLUDED
 
-
 namespace mizuiro
 {
 namespace color

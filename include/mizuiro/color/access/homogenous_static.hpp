@@ -19,10 +19,12 @@
 #include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/detail/index_of.hpp>
 #include <mizuiro/size_type.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/fusion/adapted/mpl.hpp>
 #include <boost/mpl/contains.hpp>
 #include <boost/mpl/size.hpp>
 #include <boost/type_traits/is_same.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

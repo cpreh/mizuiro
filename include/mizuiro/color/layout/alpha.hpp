@@ -8,7 +8,9 @@
 #define MIZUIRO_COLOR_LAYOUT_ALPHA_HPP_INCLUDED
 
 #include <mizuiro/color/channel/alpha.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/vector/vector10.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

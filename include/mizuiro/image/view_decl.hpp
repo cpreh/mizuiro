@@ -16,7 +16,9 @@
 #include <mizuiro/image/types/reference.hpp>
 #include <mizuiro/detail/make_variant.hpp>
 #include <mizuiro/detail/variant_decl.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/vector/vector10.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

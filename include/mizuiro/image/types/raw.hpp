@@ -15,7 +15,9 @@
 #include <mizuiro/color/is_homogenous.hpp>
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/raw_value.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

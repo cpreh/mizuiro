@@ -18,9 +18,11 @@
 #include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/is_homogenous_dynamic.hpp>
 #include <mizuiro/size_type.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/mpl/not.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

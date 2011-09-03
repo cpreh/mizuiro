@@ -7,7 +7,9 @@
 #ifndef MIZUIRO_COLOR_HAS_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_HAS_CHANNEL_HPP_INCLUDED
 
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/contains.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

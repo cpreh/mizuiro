@@ -7,10 +7,12 @@
 #ifndef MIZUIRO_DETAIL_INDEX_OF_HPP_INCLUDED
 #define MIZUIRO_DETAIL_INDEX_OF_HPP_INCLUDED
 
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/begin.hpp>
 #include <boost/mpl/distance.hpp>
 #include <boost/mpl/find.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

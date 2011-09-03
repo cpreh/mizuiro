@@ -7,10 +7,12 @@
 #ifndef MIZUIRO_COLOR_CHANNEL_MIN_HPP_INCLUDED
 #define MIZUIRO_COLOR_CHANNEL_MIN_HPP_INCLUDED
 
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/is_integral.hpp>
 #include <boost/type_traits/is_floating_point.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <limits>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

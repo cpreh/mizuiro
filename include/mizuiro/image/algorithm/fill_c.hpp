@@ -8,7 +8,9 @@
 #define MIZUIRO_IMAGE_ALGORITHM_FILL_C_HPP_INCLUDED
 
 #include <mizuiro/image/algorithm/fill.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/spirit/home/phoenix/core/value.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

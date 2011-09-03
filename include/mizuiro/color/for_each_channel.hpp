@@ -8,7 +8,9 @@
 #define MIZUIRO_COLOR_FOR_EACH_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/access/layout.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/fusion/algorithm/iteration/for_each.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

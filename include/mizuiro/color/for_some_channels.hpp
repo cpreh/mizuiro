@@ -9,7 +9,9 @@
 
 #include <mizuiro/color/access/layout.hpp>
 #include <mizuiro/color/detail/for_some_channels_functor.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/fusion/algorithm/iteration/for_each.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

@@ -9,7 +9,9 @@
 
 #include <mizuiro/config.hpp>
 #ifdef MIZUIRO_HAVE_FCPPT
+#include <mizuiro/detail/external_begin.hpp>
 #include <fcppt/variant/apply_ternary.hpp>
+#include <mizuiro/detail/external_end.hpp>
 #else
 #error \
 	"Sorry, ternary visitation isn't implemented for boost." \

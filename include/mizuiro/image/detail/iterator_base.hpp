@@ -10,7 +10,9 @@
 #include <mizuiro/image/types/reference.hpp>
 #include <mizuiro/image/types/value_type.hpp>
 #include <mizuiro/difference_type.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/iterator/iterator_facade.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

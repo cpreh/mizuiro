@@ -7,10 +7,12 @@
 #ifndef MIZUIRO_DETAIL_COPY_N_BASE_HPP_INCLUDED
 #define MIZUIRO_DETAIL_COPY_N_BASE_HPP_INCLUDED
 
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <boost/type_traits/is_fundamental.hpp>
 #include <cstddef>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

@@ -8,9 +8,11 @@
 #define MIZUIRO_COLOR_OPERATORS_DETAIL_EQUAL_HPP_INCLUDED
 
 #include <mizuiro/color/operators/detail/compare_channel.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/deref.hpp>
 #include <boost/mpl/next.hpp>
 #include <boost/type_traits/is_same.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

@@ -8,7 +8,9 @@
 #define MIZUIRO_COLOR_CHANNEL_IS_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/channel/tag.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/is_base_of.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

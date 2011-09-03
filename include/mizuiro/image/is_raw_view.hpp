@@ -8,7 +8,9 @@
 #define MIZUIRO_IMAGE_IS_RAW_VIEW_HPP_INCLUDED
 
 #include <mizuiro/access/raw.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/is_same.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

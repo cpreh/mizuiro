@@ -9,7 +9,9 @@
 
 #include <mizuiro/detail/empty_format_base_fwd.hpp>
 #include <mizuiro/detail/normal_format_base_fwd.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/if.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

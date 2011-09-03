@@ -7,8 +7,10 @@
 #ifndef MIZUIRO_COLOR_LAYOUT_IS_SAME_HPP_INCLUDED
 #define MIZUIRO_COLOR_LAYOUT_IS_SAME_HPP_INCLUDED
 
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/integral_constant.hpp>
 #include <boost/type_traits/is_same.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

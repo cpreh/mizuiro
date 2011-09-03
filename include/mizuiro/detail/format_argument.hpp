@@ -7,8 +7,10 @@
 #ifndef MIZUIRO_DETAIL_FORMAT_ARGUMENT_HPP_INCLUDED
 #define MIZUIRO_DETAIL_FORMAT_ARGUMENT_HPP_INCLUDED
 
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <boost/static_assert.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

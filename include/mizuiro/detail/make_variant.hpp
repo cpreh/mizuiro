@@ -11,7 +11,9 @@
 #ifdef MIZUIRO_HAVE_FCPPT
 #include <fcppt/variant/object_fwd.hpp>
 #else
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/variant/variant.hpp>
+#include <mizuiro/detail/external_end.hpp>
 #endif
 
 namespace mizuiro

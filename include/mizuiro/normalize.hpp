@@ -9,8 +9,10 @@
 
 #include <mizuiro/color/channel_min.hpp>
 #include <mizuiro/color/channel_max.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/is_floating_point.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

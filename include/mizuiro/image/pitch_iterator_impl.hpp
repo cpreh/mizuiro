@@ -13,7 +13,9 @@
 #include <mizuiro/image/pitch_iterator_decl.hpp>
 #include <mizuiro/image/access/color_stride.hpp>
 #include <mizuiro/detail/unlikely.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <cassert>
+#include <mizuiro/detail/external_end.hpp>
 
 template<
 	typename Access,

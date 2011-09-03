@@ -11,7 +11,9 @@
 #ifdef MIZUIRO_HAVE_FCPPT
 #include <fcppt/variant/apply_unary.hpp>
 #else
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/variant/apply_visitor.hpp>
+#include <mizuiro/detail/external_end.hpp>
 #endif
 
 namespace mizuiro

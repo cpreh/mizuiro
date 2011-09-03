@@ -8,7 +8,9 @@
 #define MIZUIRO_COLOR_FORMAT_IS_STATIC_HPP_INCLUDED
 
 #include <mizuiro/color/homogenous_static_fwd.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/integral_constant.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

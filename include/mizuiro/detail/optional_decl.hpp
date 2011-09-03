@@ -11,7 +11,9 @@
 #ifdef MIZUIRO_HAVE_FCPPT
 #include <fcppt/optional_decl.hpp>
 #else
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/optional/optional.hpp>
+#include <mizuiro/detail/external_end.hpp>
 #endif
 
 #endif

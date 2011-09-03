@@ -13,7 +13,9 @@
 #include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
 #include <mizuiro/size_type.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/size.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {

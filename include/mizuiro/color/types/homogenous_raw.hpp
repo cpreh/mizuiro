@@ -19,7 +19,9 @@
 #include <mizuiro/array.hpp>
 #include <mizuiro/raw_value.hpp>
 #include <mizuiro/raw_pointer.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 namespace mizuiro
 {
