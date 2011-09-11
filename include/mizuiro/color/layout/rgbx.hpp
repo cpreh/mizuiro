@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_LAYOUT_XRGB_HPP_INCLUDED
-#define MIZUIRO_COLOR_LAYOUT_XRGB_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_LAYOUT_RGBX_HPP_INCLUDED
+#define MIZUIRO_COLOR_LAYOUT_RGBX_HPP_INCLUDED
 
 #include <mizuiro/color/layout/additive.hpp>
 #include <mizuiro/color/channel/red.hpp>
@@ -25,12 +25,12 @@ namespace layout
 
 typedef layout::additive<
 	boost::mpl::vector4<
-		channel::undefined,
 		channel::red,
 		channel::green,
-		channel::blue
+		channel::blue,
+		channel::undefined
 	>
-> xrgb;
+> rgbx;
 
 }
 }
