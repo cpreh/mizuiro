@@ -152,10 +152,10 @@ int main()
 	);
 
 	color_uint8_4 const test1(
-		(mizuiro::color::init::red %= 0.5)
-		(mizuiro::color::init::green %= 0.2)
-		(mizuiro::color::init::blue %= 0.1)
-		(mizuiro::color::init::alpha %= 0.3),
+		(mizuiro::color::init::red() %= 0.5)
+		(mizuiro::color::init::green() %= 0.2)
+		(mizuiro::color::init::blue() %= 0.1)
+		(mizuiro::color::init::alpha() %= 0.3),
 		rgba_format_store
 	);
 

@@ -44,7 +44,7 @@ int main()
 	> alpha_color;
 
 	luminance_color test_luminance(
-		(mizuiro::color::init::luminance = static_cast<channel_type>(42))
+		(mizuiro::color::init::luminance() = static_cast<channel_type>(42))
 	);
 
 	rgba_color const test_rgb(
@@ -103,7 +103,7 @@ int main()
 		<< '\n';
 
 	alpha_color const test_alpha(
-		(mizuiro::color::init::alpha %= 0.5)
+		(mizuiro::color::init::alpha() %= 0.5)
 	);
 
 	std::cout

@@ -12,8 +12,16 @@
 #define MIZUIRO_COLOR_INIT_DETAIL_MAKE_TRAMPOLINE(\
 	name\
 )\
+inline \
 detail::trampoline<\
 	channel::name\
-> const name = {};
+> const \
+name() \
+{ \
+	return \
+		detail::trampoline< \
+			channel::name\
+		>();\
+}
 
 #endif

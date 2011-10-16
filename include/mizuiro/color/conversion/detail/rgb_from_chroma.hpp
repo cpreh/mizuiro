@@ -41,9 +41,9 @@ rgb_from_chroma(
 	)
 		return
 			Dest(
-				(color::init::red %= _chroma + _diff)
-				(color::init::green %= _largest_part + _diff)
-				(color::init::blue %= _diff),
+				(color::init::red() %= _chroma + _diff)
+				(color::init::green() %= _largest_part + _diff)
+				(color::init::blue() %= _diff),
 				_format
 			);
 
@@ -52,9 +52,9 @@ rgb_from_chroma(
 	)
 		return
 			Dest(
-				(color::init::red %= _largest_part + _diff)
-				(color::init::green %= _chroma + _diff)
-				(color::init::blue %= _diff),
+				(color::init::red() %= _largest_part + _diff)
+				(color::init::green() %= _chroma + _diff)
+				(color::init::blue() %= _diff),
 				_format
 			);
 
@@ -63,9 +63,9 @@ rgb_from_chroma(
 	)
 		return
 			Dest(
-				(color::init::red %= _diff)
-				(color::init::green %= _chroma + _diff)
-				(color::init::blue %= _largest_part + _diff),
+				(color::init::red() %= _diff)
+				(color::init::green() %= _chroma + _diff)
+				(color::init::blue() %= _largest_part + _diff),
 				_format
 			);
 
@@ -74,9 +74,9 @@ rgb_from_chroma(
 	)
 		return
 			Dest(
-				(color::init::red %= _diff)
-				(color::init::green %= _largest_part + _diff)
-				(color::init::blue %= _chroma + _diff),
+				(color::init::red() %= _diff)
+				(color::init::green() %= _largest_part + _diff)
+				(color::init::blue() %= _chroma + _diff),
 				_format
 			);
 
@@ -85,9 +85,9 @@ rgb_from_chroma(
 	)
 		return
 			Dest(
-				(color::init::red %= _largest_part + _diff)
-				(color::init::green %= _diff)
-				(color::init::blue %= _chroma + _diff),
+				(color::init::red() %= _largest_part + _diff)
+				(color::init::green() %= _diff)
+				(color::init::blue() %= _chroma + _diff),
 				_format
 			);
 
@@ -96,9 +96,9 @@ rgb_from_chroma(
 	)
 		return
 			Dest(
-				(color::init::red %= _chroma + _diff)
-				(color::init::green %= _diff)
-				(color::init::blue %= _largest_part + _diff),
+				(color::init::red() %= _chroma + _diff)
+				(color::init::green() %= _diff)
+				(color::init::blue() %= _largest_part + _diff),
 				_format
 			);
 

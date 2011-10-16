@@ -153,10 +153,10 @@ int main()
 		mizuiro::color::object<
 			format1::color_format
 		>(
-			(mizuiro::color::init::red = static_cast<channel_type>(42))
-			(mizuiro::color::init::blue = static_cast<channel_type>(150))
-			(mizuiro::color::init::green = static_cast<channel_type>(80))
-			(mizuiro::color::init::alpha = static_cast<channel_type>(255))
+			(mizuiro::color::init::red() = static_cast<channel_type>(42))
+			(mizuiro::color::init::blue() = static_cast<channel_type>(150))
+			(mizuiro::color::init::green() = static_cast<channel_type>(80))
+			(mizuiro::color::init::alpha() = static_cast<channel_type>(255))
 		)
 	);
 

@@ -36,10 +36,10 @@ BOOST_AUTO_TEST_CASE(
 	> bgra_color;
 
 	rgba_color const rgba(
-		(mizuiro::color::init::red = static_cast<channel_type>(23))
-		(mizuiro::color::init::blue = static_cast<channel_type>(42))
-		(mizuiro::color::init::green = static_cast<channel_type>(100))
-		(mizuiro::color::init::alpha = static_cast<channel_type>(150))
+		(mizuiro::color::init::red() = static_cast<channel_type>(23))
+		(mizuiro::color::init::blue() = static_cast<channel_type>(42))
+		(mizuiro::color::init::green() = static_cast<channel_type>(100))
+		(mizuiro::color::init::alpha() = static_cast<channel_type>(150))
 	);
 
 	bgra_color const bgra(
