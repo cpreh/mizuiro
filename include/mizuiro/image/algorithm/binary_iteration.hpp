@@ -7,13 +7,14 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_BINARY_ITERATION_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_BINARY_ITERATION_HPP_INCLUDED
 
+#include <mizuiro/detail/variant_apply_binary.hpp>
+#include <mizuiro/detail/variant_apply_unary.hpp>
+#include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/algorithm/detail/binary_iteration.hpp>
 #include <mizuiro/image/algorithm/detail/unwrap_binary_both.hpp>
 #include <mizuiro/image/algorithm/detail/unwrap_binary_first.hpp>
 #include <mizuiro/image/algorithm/detail/unwrap_binary_second.hpp>
-#include <mizuiro/image/view_fwd.hpp>
-#include <mizuiro/detail/variant_apply_binary.hpp>
-#include <mizuiro/detail/variant_apply_unary.hpp>
+
 
 namespace mizuiro
 {

@@ -7,10 +7,11 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_ANY_TO_ALPHA_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_ANY_TO_ALPHA_HPP_INCLUDED
 
-#include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/is_alpha.hpp>
 #include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
+
 
 namespace mizuiro
 {

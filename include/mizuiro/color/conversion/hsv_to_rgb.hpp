@@ -7,17 +7,18 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_HSV_TO_RGB_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_HSV_TO_RGB_HPP_INCLUDED
 
-#include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
-#include <mizuiro/color/conversion/detail/rgb_from_chroma.hpp>
-#include <mizuiro/color/channel/hue.hpp>
-#include <mizuiro/color/channel/saturation.hpp>
-#include <mizuiro/color/channel/value.hpp>
 #include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/normalize.hpp>
 #include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/channel/hue.hpp>
+#include <mizuiro/color/channel/saturation.hpp>
+#include <mizuiro/color/channel/value.hpp>
+#include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
+#include <mizuiro/color/conversion/detail/rgb_from_chroma.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <cmath>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

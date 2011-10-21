@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_COLOR_FORMAT_STORE_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_STORE_HPP_INCLUDED
 
-#include <mizuiro/color/format_store_fwd.hpp>
 #include <mizuiro/color/format_store_decl.hpp>
+#include <mizuiro/color/format_store_fwd.hpp>
 #include <mizuiro/color/format_store_impl.hpp>
+
 
 #endif

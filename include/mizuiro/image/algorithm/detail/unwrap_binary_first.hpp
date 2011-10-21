@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_UNWRAP_BINARY_FIRST_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_UNWRAP_BINARY_FIRST_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/detail/binary_iteration.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
+#include <mizuiro/image/algorithm/detail/binary_iteration.hpp>
+
 
 namespace mizuiro
 {

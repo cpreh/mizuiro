@@ -7,10 +7,11 @@
 #ifndef MIZUIRO_IMAGE_PITCH_VIEW_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_PITCH_VIEW_IMPL_HPP_INCLUDED
 
-#include <mizuiro/image/pitch_view_decl.hpp>
 #include <mizuiro/image/format_base_impl.hpp>
-#include <mizuiro/image/pitch_iterator_impl.hpp>
 #include <mizuiro/image/move_iterator.hpp>
+#include <mizuiro/image/pitch_iterator_impl.hpp>
+#include <mizuiro/image/pitch_view_decl.hpp>
+
 
 template<
 	typename Access,

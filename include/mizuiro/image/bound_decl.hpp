@@ -7,9 +7,10 @@
 #ifndef MIZUIRO_IMAGE_BOUND_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_BOUND_DECL_HPP_INCLUDED
 
+#include <mizuiro/size_type.hpp>
 #include <mizuiro/image/bound_fwd.hpp>
 #include <mizuiro/image/dimension_decl.hpp>
-#include <mizuiro/size_type.hpp>
+
 
 namespace mizuiro
 {

@@ -7,18 +7,19 @@
 #ifndef MIZUIRO_IMAGE_ITERATOR_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ITERATOR_IMPL_HPP_INCLUDED
 
+#include <mizuiro/detail/variant_apply_binary.hpp>
+#include <mizuiro/detail/variant_apply_unary.hpp>
+#include <mizuiro/detail/variant_impl.hpp>
 #include <mizuiro/image/iterator_decl.hpp>
 #include <mizuiro/image/detail/advance_iterator.hpp>
-#include <mizuiro/image/detail/increment_iterator.hpp>
-#include <mizuiro/image/detail/decrement_iterator.hpp>
-#include <mizuiro/image/detail/iterator_difference.hpp>
-#include <mizuiro/image/detail/dereference_iterator.hpp>
 #include <mizuiro/image/detail/compare_iterator.hpp>
+#include <mizuiro/image/detail/decrement_iterator.hpp>
+#include <mizuiro/image/detail/dereference_iterator.hpp>
+#include <mizuiro/image/detail/increment_iterator.hpp>
 #include <mizuiro/image/detail/iterator_data.hpp>
+#include <mizuiro/image/detail/iterator_difference.hpp>
 #include <mizuiro/image/detail/iterator_format_store.hpp>
-#include <mizuiro/detail/variant_impl.hpp>
-#include <mizuiro/detail/variant_apply_unary.hpp>
-#include <mizuiro/detail/variant_apply_binary.hpp>
+
 
 template<
 	typename Access,

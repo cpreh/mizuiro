@@ -7,15 +7,16 @@
 #ifndef MIZUIRO_COLOR_HOMOGENOUS_STATIC_HPP_INCLUDED
 #define MIZUIRO_COLOR_HOMOGENOUS_STATIC_HPP_INCLUDED
 
+#include <mizuiro/size_type.hpp>
 #include <mizuiro/color/homogenous_static_fwd.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/color/access/homogenous_static.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/size_type.hpp>
+#include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/size.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

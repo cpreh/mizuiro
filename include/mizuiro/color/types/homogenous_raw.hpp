@@ -7,21 +7,22 @@
 #ifndef MIZUIRO_COLOR_TYPES_HOMOGENOUS_RAW_HPP_INCLUDED
 #define MIZUIRO_COLOR_TYPES_HOMOGENOUS_RAW_HPP_INCLUDED
 
-#include <mizuiro/color/types/pointer.hpp>
-#include <mizuiro/color/types/channel_reference.hpp>
-#include <mizuiro/color/types/store.hpp>
-#include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/color/types/channel_value.hpp>
+#include <mizuiro/array.hpp>
+#include <mizuiro/raw_pointer.hpp>
+#include <mizuiro/raw_value.hpp>
+#include <mizuiro/access/raw.hpp>
 #include <mizuiro/color/channel_proxy_impl.hpp>
 #include <mizuiro/color/is_homogenous.hpp>
-#include <mizuiro/access/raw.hpp>
+#include <mizuiro/color/types/channel_reference.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
+#include <mizuiro/color/types/homogenous.hpp>
+#include <mizuiro/color/types/pointer.hpp>
+#include <mizuiro/color/types/store.hpp>
 #include <mizuiro/detail/apply_const.hpp>
-#include <mizuiro/array.hpp>
-#include <mizuiro/raw_value.hpp>
-#include <mizuiro/raw_pointer.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

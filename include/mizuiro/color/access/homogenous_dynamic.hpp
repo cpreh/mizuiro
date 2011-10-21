@@ -7,6 +7,9 @@
 #ifndef MIZUIRO_COLOR_ACCESS_HOMOGENOUS_DYNAMIC_HPP_INCLUDED
 #define MIZUIRO_COLOR_ACCESS_HOMOGENOUS_DYNAMIC_HPP_INCLUDED
 
+#include <mizuiro/size_type.hpp>
+#include <mizuiro/color/format_store.hpp>
+#include <mizuiro/color/is_homogenous_dynamic.hpp>
 #include <mizuiro/color/access/channel_index.hpp>
 #include <mizuiro/color/access/compare_channels.hpp>
 #include <mizuiro/color/access/dynamic_index.hpp>
@@ -15,14 +18,12 @@
 #include <mizuiro/color/access/layout.hpp>
 #include <mizuiro/color/channel/is_channel.hpp>
 #include <mizuiro/color/detail/invalid_dynamic_index.hpp>
-#include <mizuiro/color/format_store.hpp>
-#include <mizuiro/color/is_homogenous_dynamic.hpp>
-#include <mizuiro/size_type.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/mpl/not.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

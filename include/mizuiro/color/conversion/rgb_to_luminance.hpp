@@ -7,16 +7,17 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_RGB_TO_LUMINANCE_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_RGB_TO_LUMINANCE_HPP_INCLUDED
 
-#include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
-#include <mizuiro/color/channel/red.hpp>
-#include <mizuiro/color/channel/green.hpp>
-#include <mizuiro/color/channel/blue.hpp>
-#include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/denormalize.hpp>
 #include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/luminance.hpp>
 #include <mizuiro/color/normalize.hpp>
 #include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/channel/blue.hpp>
+#include <mizuiro/color/channel/green.hpp>
+#include <mizuiro/color/channel/luminance.hpp>
+#include <mizuiro/color/channel/red.hpp>
+#include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
+
 
 namespace mizuiro
 {

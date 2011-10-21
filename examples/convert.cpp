@@ -4,19 +4,20 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/color/layout/gray.hpp>
-#include <mizuiro/color/layout/alpha.hpp>
 #include <mizuiro/color/convert.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
-#include <mizuiro/color/homogenous_static.hpp>
+#include <mizuiro/color/layout/alpha.hpp>
+#include <mizuiro/color/layout/gray.hpp>
+#include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
+
 
 int main()
 {

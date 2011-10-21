@@ -7,14 +7,15 @@
 #ifndef MIZUIRO_COLOR_LAYOUT_HSVA_HPP_INCLUDED
 #define MIZUIRO_COLOR_LAYOUT_HSVA_HPP_INCLUDED
 
-#include <mizuiro/color/layout/cylindrical.hpp>
+#include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/channel/hue.hpp>
 #include <mizuiro/color/channel/saturation.hpp>
 #include <mizuiro/color/channel/value.hpp>
-#include <mizuiro/color/channel/alpha.hpp>
+#include <mizuiro/color/layout/cylindrical.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

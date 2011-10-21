@@ -7,15 +7,16 @@
 #ifndef MIZUIRO_IMAGE_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 
-#include <mizuiro/image/detail/pitch_iterator_position.hpp>
-#include <mizuiro/image/detail/stacked_dim.hpp>
+#include <mizuiro/detail/unlikely.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
 #include <mizuiro/image/access/color_stride.hpp>
-#include <mizuiro/detail/unlikely.hpp>
+#include <mizuiro/image/detail/pitch_iterator_position.hpp>
+#include <mizuiro/image/detail/stacked_dim.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <cassert>
 #include <mizuiro/detail/external_end.hpp>
+
 
 template<
 	typename Access,

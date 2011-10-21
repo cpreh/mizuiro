@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MAX_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MAX_HPP_INCLUDED
 
-#include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/channel_max.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
+
 
 namespace mizuiro
 {

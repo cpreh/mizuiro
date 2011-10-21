@@ -7,13 +7,14 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_COPY_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_COPY_IMPL_HPP_INCLUDED
 
+#include <mizuiro/image/views_have_same_channel_order.hpp>
 #include <mizuiro/image/algorithm/copy_different_channel_order.hpp>
 #include <mizuiro/image/algorithm/copy_same_channel_order.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
-#include <mizuiro/image/views_have_same_channel_order.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

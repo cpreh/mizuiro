@@ -7,12 +7,13 @@
 #ifndef MIZUIRO_IMAGE_ITERATOR_POSITION_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ITERATOR_POSITION_HPP_INCLUDED
 
-#include <mizuiro/image/detail/linear_iterator_position.hpp>
-#include <mizuiro/image/detail/pitch_iterator_position.hpp>
 #include <mizuiro/image/linear_iterator_fwd.hpp>
 #include <mizuiro/image/linear_view_fwd.hpp>
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/pitch_view_fwd.hpp>
+#include <mizuiro/image/detail/linear_iterator_position.hpp>
+#include <mizuiro/image/detail/pitch_iterator_position.hpp>
+
 
 namespace mizuiro
 {

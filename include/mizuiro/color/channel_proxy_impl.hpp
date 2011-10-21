@@ -7,10 +7,11 @@
 #ifndef MIZUIRO_COLOR_CHANNEL_PROXY_IMPL_HPP_INCLUDED
 #define MIZUIRO_COLOR_CHANNEL_PROXY_IMPL_HPP_INCLUDED
 
+#include <mizuiro/const_raw_pointer.hpp>
+#include <mizuiro/raw_pointer.hpp>
 #include <mizuiro/color/channel_proxy_decl.hpp>
 #include <mizuiro/detail/copy_n.hpp>
-#include <mizuiro/raw_pointer.hpp>
-#include <mizuiro/const_raw_pointer.hpp>
+
 
 template<
 	typename Pointer,

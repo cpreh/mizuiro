@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_COLOR_IS_LUMINANCE_HPP_INCLUDED
 #define MIZUIRO_COLOR_IS_LUMINANCE_HPP_INCLUDED
 
-#include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/has_channel.hpp>
+#include <mizuiro/color/channel/luminance.hpp>
+
 
 namespace mizuiro
 {

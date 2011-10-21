@@ -7,14 +7,15 @@
 #ifndef MIZUIRO_COLOR_PROXY_IMPL_HPP_INCLUDED
 #define MIZUIRO_COLOR_PROXY_IMPL_HPP_INCLUDED
 
-#include <mizuiro/color/access/extract_channel.hpp>
-#include <mizuiro/color/proxy_decl.hpp>
+#include <mizuiro/const_tag.hpp>
+#include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/color/for_each_channel.hpp>
 #include <mizuiro/color/format_base_impl.hpp>
 #include <mizuiro/color/format_store_impl.hpp>
+#include <mizuiro/color/proxy_decl.hpp>
+#include <mizuiro/color/access/extract_channel.hpp>
 #include <mizuiro/color/detail/copy_channel.hpp>
-#include <mizuiro/const_tag.hpp>
-#include <mizuiro/nonconst_tag.hpp>
+
 
 template<
 	typename Access,

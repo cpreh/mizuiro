@@ -7,9 +7,10 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_RELATIVE_POSITION_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_RELATIVE_POSITION_HPP_INCLUDED
 
-#include <mizuiro/image/detail/stacked_dim_array.hpp>
-#include <mizuiro/image/detail/stacked_dim.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
+#include <mizuiro/image/detail/stacked_dim.hpp>
+#include <mizuiro/image/detail/stacked_dim_array.hpp>
+
 
 namespace mizuiro
 {

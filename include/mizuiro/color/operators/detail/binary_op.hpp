@@ -7,9 +7,10 @@
 #ifndef MIZUIRO_COLOR_OPERATORS_DETAIL_BINARY_OP_HPP_INCLUDED
 #define MIZUIRO_COLOR_OPERATORS_DETAIL_BINARY_OP_HPP_INCLUDED
 
-#include <mizuiro/color/operators/detail/binary_op_channel.hpp>
-#include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/for_each_channel.hpp>
+#include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/operators/detail/binary_op_channel.hpp>
+
 
 namespace mizuiro
 {

@@ -9,10 +9,11 @@
 
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
-#include <boost/utility/enable_if.hpp>
 #include <boost/type_traits/is_fundamental.hpp>
+#include <boost/utility/enable_if.hpp>
 #include <cstddef>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

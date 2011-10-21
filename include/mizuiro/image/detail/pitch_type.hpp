@@ -7,9 +7,10 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_PITCH_TYPE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_PITCH_TYPE_HPP_INCLUDED
 
-#include <mizuiro/image/dimension_decl.hpp>//fwd.hpp>
-#include <mizuiro/size_type.hpp>
 #include <mizuiro/difference_type.hpp>
+#include <mizuiro/size_type.hpp>
+#include <mizuiro/image/dimension_decl.hpp>
+
 
 namespace mizuiro
 {

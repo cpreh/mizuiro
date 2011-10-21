@@ -9,9 +9,10 @@
 
 #include <mizuiro/detail/copy_n_base.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <cstring>
 #include <cstddef>
+#include <cstring>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

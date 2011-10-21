@@ -7,13 +7,14 @@
 #ifndef MIZUIRO_COLOR_OPERATORS_SCALAR_MULTIPLY_HPP_INCLUDED
 #define MIZUIRO_COLOR_OPERATORS_SCALAR_MULTIPLY_HPP_INCLUDED
 
-#include <mizuiro/color/operators/detail/scalar_multiply.hpp>
+#include <mizuiro/color/for_each_channel.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_impl.hpp>
-#include <mizuiro/color/for_each_channel.hpp>
+#include <mizuiro/color/operators/detail/scalar_multiply.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

@@ -7,16 +7,17 @@
 #ifndef MIZUIRO_COLOR_TYPES_HOMOGENOUS_NORMAL_HPP_INCLUDED
 #define MIZUIRO_COLOR_TYPES_HOMOGENOUS_NORMAL_HPP_INCLUDED
 
-#include <mizuiro/color/types/pointer.hpp>
-#include <mizuiro/color/types/channel_reference.hpp>
-#include <mizuiro/color/types/store.hpp>
-#include <mizuiro/color/is_homogenous.hpp>
-#include <mizuiro/access/normal.hpp>
-#include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/array.hpp>
+#include <mizuiro/access/normal.hpp>
+#include <mizuiro/color/is_homogenous.hpp>
+#include <mizuiro/color/types/channel_reference.hpp>
+#include <mizuiro/color/types/pointer.hpp>
+#include <mizuiro/color/types/store.hpp>
+#include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

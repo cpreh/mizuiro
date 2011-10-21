@@ -7,9 +7,10 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_RAW_VIEW_FROM_POINTER_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_RAW_VIEW_FROM_POINTER_HPP_INCLUDED
 
-#include <mizuiro/image/pitch_view_fwd.hpp>
-#include <mizuiro/detail/choose_const.hpp>
 #include <mizuiro/access/raw.hpp>
+#include <mizuiro/detail/choose_const.hpp>
+#include <mizuiro/image/pitch_view_fwd.hpp>
+
 
 namespace mizuiro
 {

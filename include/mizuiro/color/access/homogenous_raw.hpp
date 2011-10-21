@@ -8,15 +8,16 @@
 #define MIZUIRO_COLOR_ACCESS_HOMOGENOUS_RAW_HPP_INCLUDED
 
 #include <mizuiro/access/raw.hpp>
+#include <mizuiro/color/format_store.hpp>
+#include <mizuiro/color/is_homogenous.hpp>
 #include <mizuiro/color/access/channel_index.hpp>
 #include <mizuiro/color/access/extract_channel.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/pointer.hpp>
-#include <mizuiro/color/format_store.hpp>
-#include <mizuiro/color/is_homogenous.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

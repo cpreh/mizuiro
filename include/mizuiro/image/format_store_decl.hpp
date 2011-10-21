@@ -7,10 +7,11 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_STORE_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_STORE_DECL_HPP_INCLUDED
 
-#include <mizuiro/image/format_store_fwd.hpp>
 #include <mizuiro/color/format_store_decl.hpp>
 #include <mizuiro/detail/make_optional.hpp>
 #include <mizuiro/detail/optional_impl.hpp>
+#include <mizuiro/image/format_store_fwd.hpp>
+
 
 namespace mizuiro
 {

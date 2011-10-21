@@ -7,18 +7,19 @@
 #ifndef MIZUIRO_IMAGE_VIEW_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_VIEW_DECL_HPP_INCLUDED
 
-#include <mizuiro/image/view_fwd.hpp>
+#include <mizuiro/detail/make_variant.hpp>
+#include <mizuiro/detail/variant_decl.hpp>
 #include <mizuiro/image/format_store_fwd.hpp>
 #include <mizuiro/image/iterator_fwd.hpp>
 #include <mizuiro/image/linear_view_decl.hpp>
 #include <mizuiro/image/pitch_view_decl.hpp>
+#include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
-#include <mizuiro/detail/make_variant.hpp>
-#include <mizuiro/detail/variant_decl.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

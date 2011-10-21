@@ -7,12 +7,13 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_ASSIGN_OBJECT_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_ASSIGN_OBJECT_HPP_INCLUDED
 
+#include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <mizuiro/color/init/detail/visitor.hpp>
-#include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/fusion/algorithm/iteration/for_each.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

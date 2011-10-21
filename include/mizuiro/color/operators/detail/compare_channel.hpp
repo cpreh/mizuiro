@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_COLOR_OPERATORS_DETAIL_COMPARE_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_OPERATORS_DETAIL_COMPARE_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/color/detail/unwrap_channel.hpp>
 #include <mizuiro/compare.hpp>
+#include <mizuiro/color/detail/unwrap_channel.hpp>
+
 
 namespace mizuiro
 {

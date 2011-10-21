@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/external_begin.hpp>
+#include <boost/none_t.hpp>
 #include <boost/mpl/bind.hpp>
 #include <boost/mpl/contains.hpp>
 #include <boost/mpl/fold.hpp>
@@ -17,8 +18,8 @@
 #include <boost/mpl/quote.hpp>
 #include <boost/type_traits/integral_constant.hpp>
 #include <boost/type_traits/is_same.hpp>
-#include <boost/none_t.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_PITCH_ITERATOR_POSITION_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_PITCH_ITERATOR_POSITION_HPP_INCLUDED
 
-#include <mizuiro/image/detail/relative_position.hpp>
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
+#include <mizuiro/image/detail/relative_position.hpp>
+
 
 namespace mizuiro
 {

@@ -7,10 +7,11 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MAX_ALPHA_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MAX_ALPHA_HPP_INCLUDED
 
-#include <mizuiro/color/conversion/detail/channel_to_max.hpp>
-#include <mizuiro/color/conversion/detail/copy_and_convert_channel.hpp>
 #include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
+#include <mizuiro/color/conversion/detail/channel_to_max.hpp>
+#include <mizuiro/color/conversion/detail/copy_and_convert_channel.hpp>
+
 
 namespace mizuiro
 {

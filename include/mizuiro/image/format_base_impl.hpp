@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_BASE_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_BASE_IMPL_HPP_INCLUDED
 
+#include <mizuiro/detail/format_base_impl.hpp>
 #include <mizuiro/image/format_base_decl.hpp>
 #include <mizuiro/image/format_store_impl.hpp>
-#include <mizuiro/detail/format_base_impl.hpp>
+
 
 #endif

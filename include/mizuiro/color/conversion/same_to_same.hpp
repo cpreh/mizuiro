@@ -7,15 +7,16 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_SAME_TO_SAME_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_SAME_TO_SAME_HPP_INCLUDED
 
+#include <mizuiro/color/for_some_channels.hpp>
+#include <mizuiro/color/format_argument.hpp>
+#include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/channel/alpha.hpp>
+#include <mizuiro/color/channel/undefined.hpp>
 #include <mizuiro/color/conversion/detail/copy_and_convert_channel_functor.hpp>
 #include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/conversion/detail/exclude_channel_functor.hpp>
 #include <mizuiro/color/conversion/detail/make_logical_and.hpp>
-#include <mizuiro/color/channel/alpha.hpp>
-#include <mizuiro/color/channel/undefined.hpp>
-#include <mizuiro/color/format_argument.hpp>
-#include <mizuiro/color/for_some_channels.hpp>
-#include <mizuiro/color/object_impl.hpp>
+
 
 namespace mizuiro
 {

@@ -9,16 +9,17 @@
 
 #include <mizuiro/image/dimension_decl.hpp>
 #include <mizuiro/detail/external_begin.hpp>
+#include <boost/next_prior.hpp>
+#include <boost/static_assert.hpp>
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
-#include <boost/next_prior.hpp>
-#include <boost/static_assert.hpp>
-#include <numeric>
-#include <functional>
 #include <algorithm>
+#include <functional>
+#include <numeric>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
+
 
 #define MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_ASSIGN(\
 	z,\

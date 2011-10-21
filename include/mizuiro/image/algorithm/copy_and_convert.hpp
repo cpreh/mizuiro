@@ -7,14 +7,15 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_COPY_AND_CONVERT_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_COPY_AND_CONVERT_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/detail/copy_and_convert.hpp>
+#include <mizuiro/image/views_are_compatible.hpp>
 #include <mizuiro/image/algorithm/binary_iteration.hpp>
 #include <mizuiro/image/algorithm/copy.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
-#include <mizuiro/image/views_are_compatible.hpp>
+#include <mizuiro/image/algorithm/detail/copy_and_convert.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

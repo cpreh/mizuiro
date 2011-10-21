@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_HPP_INCLUDED
 
-#include <mizuiro/image/format_fwd.hpp>
 #include <mizuiro/image/format_decl.hpp>
+#include <mizuiro/image/format_fwd.hpp>
 #include <mizuiro/image/format_impl.hpp>
+
 
 #endif

@@ -7,12 +7,14 @@
 #ifndef MIZUIRO_IMAGE_VIEW_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_VIEW_IMPL_HPP_INCLUDED
 
-#include <mizuiro/image/view_decl.hpp>
+#include <mizuiro/detail/variant_apply_unary.hpp>
+#include <mizuiro/detail/variant_impl.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/iterator_impl.hpp>
 #include <mizuiro/image/linear_view_impl.hpp>
 #include <mizuiro/image/move_iterator.hpp>
 #include <mizuiro/image/pitch_view_impl.hpp>
+#include <mizuiro/image/view_decl.hpp>
 #include <mizuiro/image/detail/view_begin.hpp>
 #include <mizuiro/image/detail/view_convert_const.hpp>
 #include <mizuiro/image/detail/view_data.hpp>
@@ -20,8 +22,7 @@
 #include <mizuiro/image/detail/view_format_store.hpp>
 #include <mizuiro/image/detail/view_pitch.hpp>
 #include <mizuiro/image/detail/view_size.hpp>
-#include <mizuiro/detail/variant_apply_unary.hpp>
-#include <mizuiro/detail/variant_impl.hpp>
+
 
 template<
 	typename Access,

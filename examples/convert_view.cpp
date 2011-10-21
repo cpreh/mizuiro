@@ -4,28 +4,28 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/array.hpp>
+#include <mizuiro/access/raw.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
-#include <mizuiro/image/raw_view.hpp>
+#include <mizuiro/color/layout/alpha.hpp>
+#include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/interleaved.hpp>
-#include <mizuiro/image/view.hpp>
 #include <mizuiro/image/format.hpp>
+#include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/store.hpp>
+#include <mizuiro/image/view.hpp>
+#include <mizuiro/image/access/homogenous_raw.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
-#include <mizuiro/image/access/homogenous_raw.hpp>
-#include <mizuiro/access/raw.hpp>
-#include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/color/layout/alpha.hpp>
-#include <mizuiro/array.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace
 {

@@ -7,16 +7,17 @@
 #ifndef MIZUIRO_IMAGE_STORE_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_STORE_DECL_HPP_INCLUDED
 
-#include <mizuiro/image/store_fwd.hpp>
+#include <mizuiro/const_tag.hpp>
+#include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/image/format_argument.hpp>
 #include <mizuiro/image/format_base_decl.hpp>
 #include <mizuiro/image/linear_view_fwd.hpp>
+#include <mizuiro/image/store_fwd.hpp>
 #include <mizuiro/image/detail/raw_container_decl.hpp>
-#include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/data_store.hpp>
 #include <mizuiro/image/types/normal.hpp>
-#include <mizuiro/const_tag.hpp>
-#include <mizuiro/nonconst_tag.hpp>
+#include <mizuiro/image/types/pointer.hpp>
+
 
 namespace mizuiro
 {

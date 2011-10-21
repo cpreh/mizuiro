@@ -7,13 +7,14 @@
 #ifndef MIZUIRO_IMAGE_PITCH_VIEW_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_PITCH_VIEW_DECL_HPP_INCLUDED
 
-#include <mizuiro/image/pitch_view_fwd.hpp>
 #include <mizuiro/image/bound_fwd.hpp>
 #include <mizuiro/image/format_argument.hpp>
 #include <mizuiro/image/format_base_decl.hpp>
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
+#include <mizuiro/image/pitch_view_fwd.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
+
 
 namespace mizuiro
 {

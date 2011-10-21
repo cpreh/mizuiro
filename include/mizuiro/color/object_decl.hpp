@@ -7,23 +7,24 @@
 #ifndef MIZUIRO_COLOR_OBJECT_DECL_HPP_INCLUDED
 #define MIZUIRO_COLOR_OBJECT_DECL_HPP_INCLUDED
 
-#include <mizuiro/color/object_fwd.hpp>
+#include <mizuiro/const_tag.hpp>
+#include <mizuiro/nonconst_tag.hpp>
+#include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/format_base_decl.hpp>
 #include <mizuiro/color/format_store_decl.hpp>
 #include <mizuiro/color/is_color.hpp>
+#include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
 #include <mizuiro/color/init/detail/values_fwd.hpp>
-#include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/pointer.hpp>
-#include <mizuiro/access/normal.hpp>
-#include <mizuiro/const_tag.hpp>
-#include <mizuiro/nonconst_tag.hpp>
+#include <mizuiro/color/types/store.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

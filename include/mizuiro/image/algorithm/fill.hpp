@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_FILL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_FILL_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/detail/fill.hpp>
 #include <mizuiro/image/algorithm/unary_iteration.hpp>
+#include <mizuiro/image/algorithm/detail/fill.hpp>
+
 
 namespace mizuiro
 {

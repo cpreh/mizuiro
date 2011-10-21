@@ -7,13 +7,14 @@
 #ifndef MIZUIRO_COLOR_HOMOGENOUS_DYNAMIC_DECL_HPP_INCLUDED
 #define MIZUIRO_COLOR_HOMOGENOUS_DYNAMIC_DECL_HPP_INCLUDED
 
-#include <mizuiro/color/homogenous_dynamic_fwd.hpp>
-#include <mizuiro/color/access/homogenous_dynamic.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/detail/nonassignable.hpp>
 #include <mizuiro/array.hpp>
 #include <mizuiro/size_type.hpp>
+#include <mizuiro/color/homogenous_dynamic_fwd.hpp>
+#include <mizuiro/color/access/homogenous_dynamic.hpp>
+#include <mizuiro/color/types/homogenous.hpp>
+#include <mizuiro/color/types/homogenous_normal.hpp>
+#include <mizuiro/detail/nonassignable.hpp>
+
 
 namespace mizuiro
 {

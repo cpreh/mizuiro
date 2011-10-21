@@ -4,20 +4,21 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/color/channel/luminance.hpp>
-#include <mizuiro/color/layout/gray.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/proxy.hpp>
-#include <mizuiro/image/store.hpp>
-#include <mizuiro/image/format.hpp>
-#include <mizuiro/image/view.hpp>
-#include <mizuiro/image/interleaved.hpp>
+#include <mizuiro/color/channel/luminance.hpp>
+#include <mizuiro/color/layout/gray.hpp>
 #include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/algorithm/for_each.hpp>
+#include <mizuiro/image/format.hpp>
+#include <mizuiro/image/interleaved.hpp>
+#include <mizuiro/image/store.hpp>
+#include <mizuiro/image/view.hpp>
 #include <mizuiro/image/access/homogenous_normal.hpp>
+#include <mizuiro/image/algorithm/for_each.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 typedef mizuiro::image::format<
 	mizuiro::image::dimension<

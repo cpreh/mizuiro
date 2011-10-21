@@ -11,9 +11,10 @@
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/type_traits/is_pointer.hpp>
-#include <boost/type_traits/remove_pointer.hpp>
 #include <boost/type_traits/remove_const.hpp>
+#include <boost/type_traits/remove_pointer.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

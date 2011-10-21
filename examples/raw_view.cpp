@@ -4,30 +4,31 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/array.hpp>
+#include <mizuiro/nonconst_tag.hpp>
+#include <mizuiro/size_type.hpp>
+#include <mizuiro/access/raw.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
+#include <mizuiro/color/proxy.hpp>
+#include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
-#include <mizuiro/image/make_raw_view.hpp>
-#include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/is_raw_view.hpp>
+#include <mizuiro/image/make_const_view.hpp>
+#include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/pitch_view_impl.hpp>
 #include <mizuiro/image/raw_view.hpp>
 #include <mizuiro/image/access/homogenous_raw.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
-#include <mizuiro/color/homogenous_static.hpp>
-#include <mizuiro/color/proxy.hpp>
-#include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/access/raw.hpp>
-#include <mizuiro/size_type.hpp>
-#include <mizuiro/nonconst_tag.hpp>
-#include <mizuiro/array.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <algorithm>
 #include <iostream>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
+
 
 int main()
 {

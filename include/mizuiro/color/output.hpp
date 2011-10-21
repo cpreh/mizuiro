@@ -7,11 +7,12 @@
 #ifndef MIZUIRO_COLOR_OUTPUT_HPP_INCLUDED
 #define MIZUIRO_COLOR_OUTPUT_HPP_INCLUDED
 
-#include <mizuiro/color/detail/output_channel.hpp>
 #include <mizuiro/color/for_each_channel.hpp>
+#include <mizuiro/color/detail/output_channel.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

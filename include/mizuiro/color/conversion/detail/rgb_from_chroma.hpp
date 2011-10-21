@@ -7,12 +7,13 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_RGB_FROM_CHROMA_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_RGB_FROM_CHROMA_HPP_INCLUDED
 
-#include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/init/blue.hpp>
 #include <mizuiro/color/init/green.hpp>
+#include <mizuiro/color/init/red.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <exception>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

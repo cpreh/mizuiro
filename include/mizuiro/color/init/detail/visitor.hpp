@@ -7,9 +7,10 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_VISITOR_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_VISITOR_HPP_INCLUDED
 
-#include <mizuiro/color/init/detail/set_channel.hpp>
 #include <mizuiro/color/object_fwd.hpp>
+#include <mizuiro/color/init/detail/set_channel.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
+
 
 namespace mizuiro
 {

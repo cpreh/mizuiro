@@ -7,12 +7,13 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_SUBVIEW_PITCH_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_SUBVIEW_PITCH_HPP_INCLUDED
 
-#include <mizuiro/image/detail/edge_pos_end.hpp>
-#include <mizuiro/image/detail/edge_pos_begin.hpp>
-#include <mizuiro/image/detail/pitch_difference.hpp>
-#include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/bound_impl.hpp>
+#include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/move_iterator.hpp>
+#include <mizuiro/image/detail/edge_pos_begin.hpp>
+#include <mizuiro/image/detail/edge_pos_end.hpp>
+#include <mizuiro/image/detail/pitch_difference.hpp>
+
 
 namespace mizuiro
 {

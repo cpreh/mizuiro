@@ -7,15 +7,16 @@
 #ifndef MIZUIRO_IMAGE_ACCESS_HOMOGENOUS_NORMAL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ACCESS_HOMOGENOUS_NORMAL_HPP_INCLUDED
 
+#include <mizuiro/size_type.hpp>
+#include <mizuiro/access/normal.hpp>
+#include <mizuiro/color/is_homogenous.hpp>
+#include <mizuiro/image/format_store_fwd.hpp>
 #include <mizuiro/image/access/color_stride.hpp>
 #include <mizuiro/image/access/data_store_size.hpp>
-#include <mizuiro/image/format_store_fwd.hpp>
-#include <mizuiro/color/is_homogenous.hpp>
-#include <mizuiro/access/normal.hpp>
-#include <mizuiro/size_type.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

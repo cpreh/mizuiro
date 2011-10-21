@@ -7,16 +7,17 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_TRAMPOLINE_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_TRAMPOLINE_HPP_INCLUDED
 
-#include <mizuiro/color/init/detail/channel_value.hpp>
 #include <mizuiro/color/init/detail/channel_percentage.hpp>
+#include <mizuiro/color/init/detail/channel_value.hpp>
 #include <mizuiro/color/init/detail/make_values.hpp>
 #include <mizuiro/color/init/detail/values.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/fusion/container/generation/make_vector.hpp>
 #include <boost/fusion/container/vector/vector.hpp>
-#include <boost/utility/enable_if.hpp>
 #include <boost/type_traits/is_floating_point.hpp>
+#include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

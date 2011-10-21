@@ -5,21 +5,22 @@
 
 
 #include <mizuiro/color/homogenous_static.hpp>
-#include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/output.hpp>
+#include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/image/store.hpp>
-#include <mizuiro/image/format.hpp>
-#include <mizuiro/image/view.hpp>
-#include <mizuiro/image/interleaved.hpp>
-#include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/const_view.hpp>
+#include <mizuiro/image/dimension.hpp>
+#include <mizuiro/image/format.hpp>
+#include <mizuiro/image/interleaved.hpp>
+#include <mizuiro/image/store.hpp>
+#include <mizuiro/image/view.hpp>
 #include <mizuiro/image/access/homogenous_normal.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
+
 
 int main()
 {

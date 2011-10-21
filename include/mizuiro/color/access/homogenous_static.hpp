@@ -7,24 +7,25 @@
 #ifndef MIZUIRO_COLOR_ACCESS_HOMOGENOUS_STATIC_HPP_INCLUDED
 #define MIZUIRO_COLOR_ACCESS_HOMOGENOUS_STATIC_HPP_INCLUDED
 
+#include <mizuiro/size_type.hpp>
+#include <mizuiro/color/convert_static.hpp>
+#include <mizuiro/color/format_store.hpp>
+#include <mizuiro/color/is_homogenous_static.hpp>
+#include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/access/channel_index.hpp>
 #include <mizuiro/color/access/compare_channels.hpp>
 #include <mizuiro/color/access/convert.hpp>
 #include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/access/is_last_channel.hpp>
 #include <mizuiro/color/access/layout.hpp>
-#include <mizuiro/color/convert_static.hpp>
-#include <mizuiro/color/format_store.hpp>
-#include <mizuiro/color/is_homogenous_static.hpp>
-#include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/detail/index_of.hpp>
-#include <mizuiro/size_type.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/fusion/adapted/mpl.hpp>
 #include <boost/mpl/contains.hpp>
 #include <boost/mpl/size.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

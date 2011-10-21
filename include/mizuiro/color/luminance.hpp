@@ -2,9 +2,10 @@
 #define MIZUIRO_COLOR_LUMINANCE_HPP_INCLUDED
 
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
 #include <boost/type_traits/is_floating_point.hpp>
+#include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

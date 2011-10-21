@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_UNWRAP_UNARY_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_UNWRAP_UNARY_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/detail/unary_iteration.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
+#include <mizuiro/image/algorithm/detail/unary_iteration.hpp>
+
 
 namespace mizuiro
 {

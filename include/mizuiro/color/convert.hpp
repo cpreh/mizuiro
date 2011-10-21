@@ -7,13 +7,14 @@
 #ifndef MIZUIRO_COLOR_CONVERT_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_HPP_INCLUDED
 
-#include <mizuiro/color/access/convert.hpp>
 #include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/access/convert.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

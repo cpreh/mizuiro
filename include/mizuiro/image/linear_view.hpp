@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_IMAGE_LINEAR_VIEW_HPP_INCLUDED
 #define MIZUIRO_IMAGE_LINEAR_VIEW_HPP_INCLUDED
 
-#include <mizuiro/image/linear_view_fwd.hpp>
 #include <mizuiro/image/linear_view_decl.hpp>
+#include <mizuiro/image/linear_view_fwd.hpp>
 #include <mizuiro/image/linear_view_impl.hpp>
+
 
 #endif

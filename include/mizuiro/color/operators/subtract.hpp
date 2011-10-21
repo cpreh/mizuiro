@@ -7,15 +7,16 @@
 #ifndef MIZUIRO_COLOR_OPERATORS_SUBTRACT_HPP_INCLUDED
 #define MIZUIRO_COLOR_OPERATORS_SUBTRACT_HPP_INCLUDED
 
-#include <mizuiro/color/operators/detail/binary_op.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/operators/detail/binary_op.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
-#include <boost/utility/enable_if.hpp>
 #include <boost/type_traits/is_same.hpp>
+#include <boost/utility/enable_if.hpp>
 #include <functional>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

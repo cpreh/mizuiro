@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_AND_CONVERT_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_AND_CONVERT_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/color/normalize.hpp>
 #include <mizuiro/color/denormalize.hpp>
+#include <mizuiro/color/normalize.hpp>
+
 
 namespace mizuiro
 {

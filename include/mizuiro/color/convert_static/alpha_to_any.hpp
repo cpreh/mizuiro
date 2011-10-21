@@ -7,12 +7,15 @@
 #ifndef MIZUIRO_COLOR_CONVERT_STATIC_ALPHA_TO_ANY_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_STATIC_ALPHA_TO_ANY_HPP_INCLUDED
 
-#include <mizuiro/color/conversion/alpha_to_any.hpp>
 #include <mizuiro/color/is_alpha.hpp>
 #include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/conversion/alpha_to_any.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/mpl/not.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

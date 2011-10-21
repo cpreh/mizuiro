@@ -7,9 +7,10 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_ARGUMENT_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_ARGUMENT_HPP_INCLUDED
 
+#include <mizuiro/detail/format_argument.hpp>
 #include <mizuiro/image/format_is_static.hpp>
 #include <mizuiro/image/format_store_impl.hpp>
-#include <mizuiro/detail/format_argument.hpp>
+
 
 namespace mizuiro
 {

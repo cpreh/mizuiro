@@ -7,13 +7,14 @@
 #ifndef MIZUIRO_COLOR_IS_RGB_HPP_INCLUDED
 #define MIZUIRO_COLOR_IS_RGB_HPP_INCLUDED
 
-#include <mizuiro/color/channel/red.hpp>
-#include <mizuiro/color/channel/green.hpp>
-#include <mizuiro/color/channel/blue.hpp>
 #include <mizuiro/color/has_channel.hpp>
+#include <mizuiro/color/channel/blue.hpp>
+#include <mizuiro/color/channel/green.hpp>
+#include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

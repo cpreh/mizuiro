@@ -7,11 +7,12 @@
 #ifndef MIZUIRO_IMAGE_LINEAR_ITERATOR_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_LINEAR_ITERATOR_DECL_HPP_INCLUDED
 
-#include <mizuiro/image/linear_iterator_fwd.hpp>
 #include <mizuiro/image/format_argument.hpp>
 #include <mizuiro/image/format_base_decl.hpp>
+#include <mizuiro/image/linear_iterator_fwd.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/image/types/pointer.hpp>
+
 
 namespace mizuiro
 {

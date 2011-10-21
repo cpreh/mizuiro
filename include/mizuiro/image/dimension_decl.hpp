@@ -7,15 +7,16 @@
 #ifndef MIZUIRO_IMAGE_DIMENSION_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DIMENSION_DECL_HPP_INCLUDED
 
-#include <mizuiro/image/dimension_fwd.hpp>
 #include <mizuiro/array.hpp>
 #include <mizuiro/size_type.hpp>
+#include <mizuiro/image/dimension_fwd.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
 #include <iosfwd>
 #include <mizuiro/detail/external_end.hpp>
+
 
 #ifndef MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_MAX_SIZE
 #define MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_MAX_SIZE 3

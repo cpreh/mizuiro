@@ -7,14 +7,15 @@
 #ifndef MIZUIRO_COLOR_NORMALIZE_HPP_INCLUDED
 #define MIZUIRO_COLOR_NORMALIZE_HPP_INCLUDED
 
+#include <mizuiro/normalize.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
-#include <mizuiro/normalize.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/type_traits/is_floating_point.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

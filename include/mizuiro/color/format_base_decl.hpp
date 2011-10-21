@@ -7,9 +7,10 @@
 #ifndef MIZUIRO_COLOR_FORMAT_BASE_DECL_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_BASE_DECL_HPP_INCLUDED
 
-#include <mizuiro/detail/format_base_decl.hpp>
 #include <mizuiro/color/format_is_static.hpp>
 #include <mizuiro/color/format_store_decl.hpp>
+#include <mizuiro/detail/format_base_decl.hpp>
+
 
 namespace mizuiro
 {

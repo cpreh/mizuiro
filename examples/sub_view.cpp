@@ -4,29 +4,29 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/image/store.hpp>
-#include <mizuiro/image/format.hpp>
-#include <mizuiro/image/interleaved.hpp>
-#include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/bound.hpp>
-#include <mizuiro/image/pitch_view_impl.hpp>
-#include <mizuiro/image/sub_view.hpp>
-#include <mizuiro/image/to_pitch_view.hpp>
-#include <mizuiro/image/algorithm/print.hpp>
-#include <mizuiro/image/algorithm/copy.hpp>
-#include <mizuiro/image/access/homogenous_raw.hpp>
-#include <mizuiro/color/layout/rgba.hpp>
+#include <mizuiro/access/raw.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
-#include <mizuiro/color/homogenous_static.hpp>
+#include <mizuiro/color/layout/rgba.hpp>
+#include <mizuiro/image/bound.hpp>
+#include <mizuiro/image/dimension.hpp>
+#include <mizuiro/image/format.hpp>
+#include <mizuiro/image/interleaved.hpp>
+#include <mizuiro/image/pitch_view_impl.hpp>
+#include <mizuiro/image/raw_view.hpp>
+#include <mizuiro/image/store.hpp>
+#include <mizuiro/image/sub_view.hpp>
+#include <mizuiro/image/to_pitch_view.hpp>
+#include <mizuiro/image/access/homogenous_raw.hpp>
+#include <mizuiro/image/algorithm/copy.hpp>
+#include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <iterator>
 #include <iostream>
+#include <iterator>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
 
-#include <mizuiro/access/raw.hpp>
-#include <mizuiro/image/raw_view.hpp>
 
 int main()
 {

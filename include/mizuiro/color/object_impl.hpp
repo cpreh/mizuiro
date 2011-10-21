@@ -7,15 +7,16 @@
 #ifndef MIZUIRO_COLOR_OBJECT_IMPL_HPP_INCLUDED
 #define MIZUIRO_COLOR_OBJECT_IMPL_HPP_INCLUDED
 
-#include <mizuiro/color/init/detail/assign_object.hpp>
 #include <mizuiro/color/format_base_impl.hpp>
 #include <mizuiro/color/format_store_impl.hpp>
+#include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
-#include <mizuiro/color/is_color.hpp>
+#include <mizuiro/color/init/detail/assign_object.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
+
 
 template<
 	typename Format

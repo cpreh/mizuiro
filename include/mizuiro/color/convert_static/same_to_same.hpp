@@ -7,11 +7,14 @@
 #ifndef MIZUIRO_COLOR_CONVERT_STATIC_SAME_TO_SAME_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_STATIC_SAME_TO_SAME_HPP_INCLUDED
 
+#include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/conversion/same_to_same.hpp>
 #include <mizuiro/color/layout/is_same.hpp>
-#include <mizuiro/color/object_impl.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/is_same.hpp>
+#include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

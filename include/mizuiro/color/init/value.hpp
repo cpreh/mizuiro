@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_COLOR_INIT_VALUE_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_VALUE_HPP_INCLUDED
 
-#include <mizuiro/color/init/detail/make_trampoline.hpp>
 #include <mizuiro/color/channel/value.hpp>
+#include <mizuiro/color/init/detail/make_trampoline.hpp>
+
 
 namespace mizuiro
 {

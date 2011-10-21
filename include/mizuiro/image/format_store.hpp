@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_STORE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_STORE_HPP_INCLUDED
 
-#include <mizuiro/image/format_store_fwd.hpp>
 #include <mizuiro/image/format_store_decl.hpp>
+#include <mizuiro/image/format_store_fwd.hpp>
 #include <mizuiro/image/format_store_impl.hpp>
+
 
 #endif

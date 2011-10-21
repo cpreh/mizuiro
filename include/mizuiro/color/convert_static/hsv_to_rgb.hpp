@@ -7,12 +7,15 @@
 #ifndef MIZUIRO_COLOR_CONVERT_STATIC_HSV_TO_RGB_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_STATIC_HSV_TO_RGB_HPP_INCLUDED
 
-#include <mizuiro/color/conversion/hsv_to_rgb.hpp>
-#include <mizuiro/color/is_rgb.hpp>
 #include <mizuiro/color/is_hsv.hpp>
+#include <mizuiro/color/is_rgb.hpp>
 #include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/conversion/hsv_to_rgb.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {

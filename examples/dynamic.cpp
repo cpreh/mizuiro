@@ -4,29 +4,30 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/color/access/dynamic_index.hpp>
-#include <mizuiro/color/access/homogenous_dynamic.hpp>
-#include <mizuiro/color/access/homogenous_normal.hpp>
+#include <mizuiro/size_type.hpp>
 #include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/homogenous_dynamic.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
-#include <mizuiro/image/algorithm/fill_c.hpp>
-#include <mizuiro/image/algorithm/print.hpp>
-#include <mizuiro/image/access/homogenous_normal.hpp>
+#include <mizuiro/color/access/dynamic_index.hpp>
+#include <mizuiro/color/access/homogenous_dynamic.hpp>
+#include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/store.hpp>
-#include <mizuiro/size_type.hpp>
+#include <mizuiro/image/access/homogenous_normal.hpp>
+#include <mizuiro/image/algorithm/fill_c.hpp>
+#include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <boost/type_traits/is_same.hpp>
 #include <boost/cstdint.hpp>
+#include <boost/type_traits/is_same.hpp>
+#include <boost/utility/enable_if.hpp>
 #include <iostream>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace
 {

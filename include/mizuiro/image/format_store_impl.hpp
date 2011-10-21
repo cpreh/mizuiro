@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_STORE_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_STORE_IMPL_HPP_INCLUDED
 
-#include <mizuiro/image/format_store_decl.hpp>
 #include <mizuiro/color/format_store_impl.hpp>
+#include <mizuiro/image/format_store_decl.hpp>
+
 
 template<
 	typename Format

@@ -7,10 +7,11 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_DECL_HPP_INCLUDED
 
-#include <mizuiro/image/format_fwd.hpp>
-#include <mizuiro/image/detail/pitch_type.hpp>
 #include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/format_base_decl.hpp>
+#include <mizuiro/image/format_fwd.hpp>
+#include <mizuiro/image/detail/pitch_type.hpp>
+
 
 namespace mizuiro
 {
