@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_DETAIL_NORMAL_FORMAT_BASE_IMPL_HPP_INCLUDED
 #define MIZUIRO_DETAIL_NORMAL_FORMAT_BASE_IMPL_HPP_INCLUDED
 
-#include <mizuiro/detail/normal_format_base_fwd.hpp>
+#include <mizuiro/detail/normal_format_base_decl.hpp>
 
 template<
 	typename Format,

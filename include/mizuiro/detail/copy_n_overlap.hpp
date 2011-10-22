@@ -31,7 +31,7 @@ copy_n_overlap(
 	Dest *const _dest
 )
 {
-	detail::copy_n(
+	detail::copy_n_base(
 		std::memmove,
 		_src,
 		_size,
