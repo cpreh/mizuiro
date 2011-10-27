@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <mizuiro/detail/external_begin.hpp>
+#include <boost/fusion/view/iterator_range.hpp>
 #include <boost/fusion/algorithm/transformation/push_back.hpp>
 #include <boost/fusion/container/vector/convert.hpp>
 #include <boost/fusion/sequence/intrinsic/front.hpp>
