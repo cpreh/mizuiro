@@ -38,7 +38,7 @@ public:
 	);
 
 	explicit format_store(
-		optional_format const &
+		Format const &
 	);
 
 	optional_format const

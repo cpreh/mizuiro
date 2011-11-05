@@ -34,10 +34,14 @@ template<
 	typename Format
 >
 mizuiro::image::format_store<Format>::format_store(
-	optional_format const &_format
+	Format const &_format
 )
 :
-	format_(_format)
+	format_(
+		optional_format(
+			_format
+		)
+	)
 {
 }
 
