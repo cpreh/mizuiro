@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_COLOR_IS_LUMINANCE_HPP_INCLUDED
 #define MIZUIRO_COLOR_IS_LUMINANCE_HPP_INCLUDED
 
-#include <mizuiro/color/has_channel.hpp>
 #include <mizuiro/color/channel/luminance.hpp>
+#include <mizuiro/color/types/has_channel_static.hpp>
 
 
 namespace mizuiro
@@ -21,7 +21,7 @@ template<
 >
 struct is_luminance
 :
-color::has_channel<
+color::types::has_channel_static<
 	Format,
 	channel::luminance
 >

@@ -11,6 +11,12 @@
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/conversion/detail/channel_to_max.hpp>
 #include <mizuiro/color/conversion/detail/copy_and_convert_channel.hpp>
+#include <mizuiro/color/types/has_channel_static.hpp>
+#include <mizuiro/detail/external_begin.hpp>
+#include <boost/mpl/and.hpp>
+#include <boost/mpl/not.hpp>
+#include <boost/utility/enable_if.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
@@ -24,10 +30,22 @@ namespace detail
 
 template
 <
-	class Src,
-	class Dest
+	typename Src,
+	typename Dest
 >
-void
+typename boost::enable_if<
+	boost::mpl::and_<
+		mizuiro::color::types::has_channel_static<
+			typename Src::format,
+			mizuiro::color::channel::alpha
+		>,
+		mizuiro::color::types::has_channel_static<
+			typename Dest::format,
+			mizuiro::color::channel::alpha
+		>
+	>,
+	void
+>::type
 copy_or_max_alpha(
 	Src const &_src,
 	Dest &_dest
@@ -66,6 +84,57 @@ copy_or_max_alpha(
 			channel::alpha()
 		);
 
+}
+
+template<
+	typename Src,
+	typename Dest
+>
+typename boost::enable_if<
+	boost::mpl::and_<
+		boost::mpl::not_<
+			mizuiro::color::types::has_channel_static<
+				typename Src::format,
+				mizuiro::color::channel::alpha
+			>
+		>,
+		mizuiro::color::types::has_channel_static<
+			typename Dest::format,
+			mizuiro::color::channel::alpha
+		>
+	>,
+	void
+>::type
+copy_or_max_alpha(
+	Src const &,
+	Dest &_dest
+)
+{
+	conversion::detail::channel_to_max
+	(
+		_dest,
+		channel::alpha()
+	);
+}
+
+template<
+	typename Src,
+	typename Dest
+>
+typename boost::enable_if<
+	boost::mpl::not_<
+		mizuiro::color::types::has_channel_static<
+			typename Dest::format,
+			mizuiro::color::channel::alpha
+		>
+	>,
+	void
+>::type
+copy_or_max_alpha(
+	Src const &,
+	Dest &
+)
+{
 }
 
 }

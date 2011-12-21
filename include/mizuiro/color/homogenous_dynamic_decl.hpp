@@ -12,6 +12,7 @@
 #include <mizuiro/color/homogenous_dynamic_fwd.hpp>
 #include <mizuiro/color/access/homogenous_dynamic.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
+#include <mizuiro/color/types/homogenous_dynamic.hpp>
 #include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 

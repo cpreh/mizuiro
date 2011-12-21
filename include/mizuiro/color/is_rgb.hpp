@@ -7,10 +7,10 @@
 #ifndef MIZUIRO_COLOR_IS_RGB_HPP_INCLUDED
 #define MIZUIRO_COLOR_IS_RGB_HPP_INCLUDED
 
-#include <mizuiro/color/has_channel.hpp>
 #include <mizuiro/color/channel/blue.hpp>
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/red.hpp>
+#include <mizuiro/color/types/has_channel_static.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -29,17 +29,17 @@ struct is_rgb
 :
 boost::mpl::and_
 <
-	has_channel
+	color::types::has_channel_static
 	<
 		Format,
 		channel::red
 	>,
-	has_channel
+	color::types::has_channel_static
 	<
 		Format,
 		channel::green
 	>,
-	has_channel
+	color::types::has_channel_static
 	<
 		Format,
 		channel::blue

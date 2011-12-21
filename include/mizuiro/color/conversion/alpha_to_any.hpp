@@ -13,6 +13,10 @@
 #include <mizuiro/color/conversion/detail/channel_to_max_functor.hpp>
 #include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/conversion/detail/exclude_channel_functor.hpp>
+#include <mizuiro/detail/external_begin.hpp>
+#include <boost/mpl/not.hpp>
+#include <boost/type_traits/is_same.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
@@ -46,7 +50,14 @@ alpha_to_any(
 		_format
 	);
 
-	mizuiro::color::for_some_channels(
+	mizuiro::color::for_some_channels<
+		boost::mpl::not_<
+			boost::is_same<
+				mizuiro::color::channel::alpha,
+				boost::mpl::placeholders::_1
+			>
+		>
+	>(
 		dest,
 		detail::channel_to_max_functor<
 			dest_type

@@ -16,6 +16,12 @@
 #include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/conversion/detail/exclude_channel_functor.hpp>
 #include <mizuiro/color/conversion/detail/make_logical_and.hpp>
+#include <mizuiro/detail/external_begin.hpp>
+#include <boost/mpl/and.hpp>
+#include <boost/mpl/not.hpp>
+#include <boost/mpl/placeholders.hpp>
+#include <boost/type_traits/is_same.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
@@ -48,7 +54,22 @@ same_to_same(
 		_format
 	);
 
-	mizuiro::color::for_some_channels(
+	mizuiro::color::for_some_channels<
+		boost::mpl::and_<
+			boost::mpl::not_<
+				boost::is_same<
+					mizuiro::color::channel::alpha,
+					boost::mpl::_1
+				>
+			>,
+			boost::mpl::not_<
+				boost::is_same<
+					mizuiro::color::channel::undefined,
+					boost::mpl::_1
+				>
+			>
+		>
+	>(
 		_src,
 		detail::copy_and_convert_channel_functor<
 			Src,

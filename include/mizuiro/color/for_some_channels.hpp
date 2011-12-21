@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/access/layout.hpp>
 #include <mizuiro/color/detail/for_some_channels_functor.hpp>
+#include <mizuiro/detail/make_filter_view.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/fusion/algorithm/iteration/for_each.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -19,26 +20,31 @@ namespace color
 {
 
 template<
+	typename StaticFilter,
 	typename Color,
 	typename Function,
-	typename Filter
+	typename DynamicFilter
 >
 void
 for_some_channels(
 	Color const  &_color,
 	Function const &_function,
-	Filter const &_filter
+	DynamicFilter const &_filter
 )
 {
 	boost::fusion::for_each(
-		color::access::layout<
-			typename Color::format
-		>::execute(
-			_color.format_store()
+		mizuiro::detail::make_filter_view<
+			StaticFilter
+		>(
+			color::access::layout<
+				typename Color::format
+			>::execute(
+				_color.format_store()
+			)
 		),
 		detail::for_some_channels_functor<
 			Function,
-			Filter
+			DynamicFilter
 		>(
 			_function,
 			_filter
