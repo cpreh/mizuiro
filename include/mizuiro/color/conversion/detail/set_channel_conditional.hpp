@@ -45,10 +45,10 @@ set_channel_conditional(
 {
 	if(
 		mizuiro::color::access::has_channel<
-			typename Color::format,
-			Channel
+			typename Color::format
 		>::execute(
-			_color.format_store()
+			_color.format_store(),
+			Channel()
 		)
 	)
 		_color.set(

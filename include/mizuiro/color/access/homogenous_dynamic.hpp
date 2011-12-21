@@ -196,12 +196,10 @@ struct compare_channels<
 };
 
 template<
-	typename Format,
-	typename StaticChannel
+	typename Format
 >
 struct has_channel<
 	Format,
-	StaticChannel,
 	typename boost::enable_if<
 		mizuiro::color::is_homogenous_dynamic<
 			Format
@@ -209,29 +207,31 @@ struct has_channel<
 	>::type
 >
 {
+	template<
+		typename Channel
+	>
 	static
 	bool
 	execute(
 		color::format_store<
 			Format
-		> const &_format
+		> const &_format,
+		Channel const &_channel
 	)
 	{
 		return
-			_format.get()->indices[
-				color::access::dynamic_index<
-					Format,
-					StaticChannel
-				>::execute(
-					_format,
-					StaticChannel()
-				)
-			]
+			mizuiro::color::access::channel_index<
+				Format,
+				Channel
+			>::execute(
+				_format,
+				_channel
+			)
 			!=
-			color::detail::invalid_dynamic_index<
+			mizuiro::color::detail::invalid_dynamic_index<
 				typename Format::channel_index_array::value_type
-			>
-			();
+			>()
+			;
 	}
 };
 

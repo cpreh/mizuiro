@@ -32,10 +32,10 @@ max_alpha(
 {
 	if(
 		color::access::has_channel<
-			typename Color::format,
-			channel::alpha
+			typename Color::format
 		>::execute(
-			_color.format_store()
+			_color.format_store(),
+			channel::alpha()
 		)
 	)
 		conversion::detail::channel_to_max

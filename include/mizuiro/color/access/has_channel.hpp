@@ -16,7 +16,6 @@ namespace access
 
 template<
 	typename Format,
-	typename StaticChannel,
 	typename Enable = void
 >
 struct has_channel;

@@ -42,10 +42,10 @@ extract_luminance_part(
 {
 	return
 		mizuiro::color::access::has_channel<
-			typename Src::format,
-			Channel
+			typename Src::format
 		>::execute(
-			_src.format_store()
+			_src.format_store(),
+			Channel()
 		)
 		?
 			mizuiro::color::normalize<

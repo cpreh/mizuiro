@@ -4,10 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MAX_FUNCTOR_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MAX_FUNCTOR_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MIN_FUNCTOR_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MIN_FUNCTOR_HPP_INCLUDED
 
-#include <mizuiro/color/conversion/detail/channel_to_max.hpp>
+#include <mizuiro/color/conversion/detail/channel_to_min.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 
 
@@ -23,16 +23,14 @@ namespace detail
 template<
 	typename Dest
 >
-class channel_to_max_functor
+class channel_to_min_functor
 {
 	MIZUIRO_DETAIL_NONASSIGNABLE(
-		channel_to_max_functor
+		channel_to_min_functor
 	);
 public:
-	typedef void result_type;
-
 	explicit
-	channel_to_max_functor(
+	channel_to_min_functor(
 		Dest &_dest
 	)
 	:
@@ -42,6 +40,8 @@ public:
 	{
 	}
 
+	typedef void result_type;
+
 	template<
 		typename Channel
 	>
@@ -50,7 +50,7 @@ public:
 		Channel const &_channel
 	) const
 	{
-		conversion::detail::channel_to_max(
+		conversion::detail::channel_to_min(
 			dest_,
 			_channel
 		);

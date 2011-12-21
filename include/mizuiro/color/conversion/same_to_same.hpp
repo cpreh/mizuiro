@@ -12,7 +12,7 @@
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/channel/undefined.hpp>
-#include <mizuiro/color/conversion/detail/copy_and_convert_channel_functor.hpp>
+#include <mizuiro/color/conversion/detail/copy_or_min_channel_functor.hpp>
 #include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/conversion/detail/exclude_channel_functor.hpp>
 #include <mizuiro/color/conversion/detail/make_logical_and.hpp>
@@ -35,18 +35,18 @@ template<
 	typename Dest,
 	typename Src
 >
-color::object<
+mizuiro::color::object<
 	Dest
 > const
 same_to_same(
 	Src const &_src,
-	typename color::object<
+	typename mizuiro::color::object<
 		Dest
 	>::format_store_type const &_format
-		= color::format_argument<Dest>::get()
+		= mizuiro::color::format_argument<Dest>::get()
 )
 {
-	typedef color::object<
+	typedef mizuiro::color::object<
 		Dest
 	> dest_type;
 
@@ -71,22 +71,21 @@ same_to_same(
 		>
 	>(
 		_src,
-		detail::copy_and_convert_channel_functor<
+		mizuiro::color::conversion::detail::copy_or_min_channel_functor<
 			Src,
-			dest_type,
-			float
+			dest_type
 		>(
 			_src,
 			dest
 		),
-		detail::make_logical_and(
-			detail::exclude_channel_functor<
+		mizuiro::color::conversion::detail::make_logical_and(
+			mizuiro::color::conversion::detail::exclude_channel_functor<
 				typename Src::format,
 				channel::alpha
 			>(
 				_src.format_store()
 			),
-			detail::exclude_channel_functor<
+			mizuiro::color::conversion::detail::exclude_channel_functor<
 				typename Src::format,
 				channel::undefined
 			>(
@@ -95,7 +94,7 @@ same_to_same(
 		)
 	);
 
-	detail::copy_or_max_alpha(
+	mizuiro::color::conversion::detail::copy_or_max_alpha(
 		_src,
 		dest
 	);

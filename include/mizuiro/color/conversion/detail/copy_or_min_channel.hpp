@@ -4,11 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MAX_ALPHA_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MAX_ALPHA_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MIN_CHANNEL_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MIN_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/color/channel/alpha.hpp>
-#include <mizuiro/color/conversion/detail/channel_to_max_functor.hpp>
+#include <mizuiro/color/conversion/detail/channel_to_min_functor.hpp>
 #include <mizuiro/color/conversion/detail/copy_or_default_channel.hpp>
 
 
@@ -23,22 +22,24 @@ namespace detail
 
 template
 <
+	typename Channel,
 	typename Src,
 	typename Dest
 >
 void
-copy_or_max_alpha(
+copy_or_min_channel(
+	Channel const &_channel,
 	Src const &_src,
 	Dest &_dest
 )
 {
 	mizuiro::color::conversion::detail::copy_or_default_channel(
-		mizuiro::color::conversion::detail::channel_to_max_functor<
+		mizuiro::color::conversion::detail::channel_to_min_functor<
 			Dest
 		>(
 			_dest
 		),
-		mizuiro::color::channel::alpha(),
+		_channel,
 		_src,
 		_dest
 	);

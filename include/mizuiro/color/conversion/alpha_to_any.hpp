@@ -30,19 +30,19 @@ template<
 	typename Dest,
 	typename Src
 >
-color::object<
+mizuiro::color::object<
 	Dest
 > const
 alpha_to_any(
 	Src const &_src,
-	typename color::object<
+	typename mizuiro::color::object<
 		Dest
 	>::format_store_type const &_format
-		= color::format_argument<Dest>::get()
+		= mizuiro::color::format_argument<Dest>::get()
 )
 {
 	typedef
-	color::object<
+	mizuiro::color::object<
 		Dest
 	> dest_type;
 
@@ -59,12 +59,12 @@ alpha_to_any(
 		>
 	>(
 		dest,
-		detail::channel_to_max_functor<
+		mizuiro::color::conversion::detail::channel_to_max_functor<
 			dest_type
 		>(
 			dest
 		),
-		detail::exclude_channel_functor<
+		mizuiro::color::conversion::detail::exclude_channel_functor<
 			Dest,
 			channel::alpha
 		>(
@@ -72,7 +72,7 @@ alpha_to_any(
 		)
 	);
 
-	detail::copy_or_max_alpha(
+	mizuiro::color::conversion::detail::copy_or_max_alpha(
 		_src,
 		dest
 	);

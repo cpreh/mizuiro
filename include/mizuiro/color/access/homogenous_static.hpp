@@ -152,12 +152,10 @@ struct compare_channels<
 };
 
 template<
-	typename Format,
-	typename StaticChannel
+	typename Format
 >
 struct has_channel<
 	Format,
-	StaticChannel,
 	typename boost::enable_if<
 		mizuiro::color::is_homogenous_static<
 			Format
@@ -165,16 +163,20 @@ struct has_channel<
 	>::type
 >
 {
+	template<
+		typename Channel
+	>
 	static
 	bool
 	execute(
-		color::format_store<Format> const &
+		color::format_store<Format> const &,
+		Channel const &
 	)
 	{
 		return
 			mizuiro::color::types::has_channel_static<
 				Format,
-				StaticChannel
+				Channel
 			>::value;
 	}
 };
