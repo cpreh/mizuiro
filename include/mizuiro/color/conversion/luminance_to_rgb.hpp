@@ -7,7 +7,6 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_LUMINANCE_TO_RGB_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_LUMINANCE_TO_RGB_HPP_INCLUDED
 
-#include <mizuiro/color/denormalize.hpp>
 #include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/normalize.hpp>
 #include <mizuiro/color/object_impl.hpp>
@@ -16,6 +15,7 @@
 #include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
+#include <mizuiro/color/conversion/detail/luminance_to_rgb_channel.hpp>
 
 
 namespace mizuiro
@@ -64,40 +64,25 @@ luminance_to_rgb(
 			channel::luminance()
 		);
 
-	dest.set
-	(
-		channel::red(),
-		color::denormalize<
-			typename dest_object::format
-		>
-		(
-			channel::red(),
-			0.3f * src_normalized
-		)
+	mizuiro::color::conversion::detail::luminance_to_rgb_channel<
+		mizuiro::color::channel::red
+	>(
+		dest,
+		src_normalized
 	);
 
-	dest.set
-	(
-		channel::green(),
-		color::denormalize<
-			typename dest_object::format
-		>
-		(
-			channel::green(),
-			0.59f * src_normalized
-		)
+	mizuiro::color::conversion::detail::luminance_to_rgb_channel<
+		mizuiro::color::channel::green
+	>(
+		dest,
+		src_normalized
 	);
 
-	dest.set
-	(
-		channel::blue(),
-		color::denormalize<
-			typename dest_object::format
-		>
-		(
-			channel::blue(),
-			0.11f * src_normalized
-		)
+	mizuiro::color::conversion::detail::luminance_to_rgb_channel<
+		mizuiro::color::channel::blue
+	>(
+		dest,
+		src_normalized
 	);
 
 	return dest;

@@ -12,7 +12,7 @@
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/types/has_channel_static.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/and.hpp>
+#include <boost/mpl/or.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -27,7 +27,7 @@ template
 >
 struct is_rgb
 :
-boost::mpl::and_
+boost::mpl::or_
 <
 	color::types::has_channel_static
 	<

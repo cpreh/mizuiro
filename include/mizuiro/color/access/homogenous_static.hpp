@@ -18,10 +18,11 @@
 #include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/access/is_last_channel.hpp>
 #include <mizuiro/color/access/layout.hpp>
+#include <mizuiro/color/types/has_channel_static.hpp>
+#include <mizuiro/color/types/homogenous_static.hpp>
 #include <mizuiro/detail/index_of.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/fusion/adapted/mpl.hpp>
-#include <boost/mpl/contains.hpp>
 #include <boost/mpl/size.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -171,8 +172,8 @@ struct has_channel<
 	)
 	{
 		return
-			boost::mpl::contains<
-				typename Format::order,
+			mizuiro::color::types::has_channel_static<
+				Format,
 				StaticChannel
 			>::value;
 	}

@@ -9,14 +9,13 @@
 
 #include <mizuiro/color/denormalize.hpp>
 #include <mizuiro/color/format_argument.hpp>
-#include <mizuiro/color/luminance.hpp>
-#include <mizuiro/color/normalize.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/channel/blue.hpp>
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
+#include <mizuiro/color/conversion/detail/extract_luminance_part.hpp>
 
 
 namespace mizuiro
@@ -50,31 +49,33 @@ rgb_to_luminance(
 		_format
 	);
 
+	typedef float intermediate_type;
+
 	dest.set(
 		channel::luminance(),
 		color::denormalize<
 			typename dest_type::format
 		>(
 			channel::luminance(),
-			color::luminance(
-				color::normalize<
-					float
-				>(
-					_src,
-					channel::red()
-				),
-				color::normalize<
-					float
-				>(
-					_src,
-					channel::green()
-				),
-				color::normalize<
-					float
-				>(
-					_src,
-					channel::blue()
-				)
+			color::conversion::detail::extract_luminance_part<
+				channel::red,
+				intermediate_type
+			>(
+				_src
+			)
+			+
+			color::conversion::detail::extract_luminance_part<
+				channel::green,
+				intermediate_type
+			>(
+				_src
+			)
+			+
+			color::conversion::detail::extract_luminance_part<
+				channel::blue,
+				intermediate_type
+			>(
+				_src
 			)
 		)
 	);
