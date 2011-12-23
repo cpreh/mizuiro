@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_ACCESS_DYNAMIC_INDEX_HPP_INCLUDED
-#define MIZUIRO_COLOR_ACCESS_DYNAMIC_INDEX_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_ACCESS_DYNAMIC_CHANNEL_HPP_INCLUDED
+#define MIZUIRO_COLOR_ACCESS_DYNAMIC_CHANNEL_HPP_INCLUDED
 
 namespace mizuiro
 {
@@ -19,7 +19,7 @@ template<
 	typename StaticChannel,
 	typename Enable = void
 >
-struct dynamic_index;
+struct dynamic_channel;
 
 }
 }

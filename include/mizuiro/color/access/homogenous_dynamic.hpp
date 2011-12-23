@@ -12,7 +12,7 @@
 #include <mizuiro/color/is_homogenous_dynamic.hpp>
 #include <mizuiro/color/access/channel_index.hpp>
 #include <mizuiro/color/access/compare_channels.hpp>
-#include <mizuiro/color/access/dynamic_index.hpp>
+#include <mizuiro/color/access/dynamic_channel.hpp>
 #include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/access/is_last_channel.hpp>
 #include <mizuiro/color/access/layout.hpp>
@@ -60,12 +60,16 @@ struct channel_index<
 	{
 		return
 			_format.get()->indices[
-				color::access::dynamic_index<
-					Format,
-					Channel
-				>::execute(
-					_format,
-					_channel
+				static_cast<
+					mizuiro::size_type
+				>(
+					color::access::dynamic_channel<
+						Format,
+						Channel
+					>::execute(
+						_format,
+						_channel
+					)
 				)
 			];
 	}
@@ -170,22 +174,19 @@ struct compare_channels<
 	>::type
 >
 {
-	template<
-		typename OtherChannel
-	>
 	static
 	bool
 	execute(
 		color::format_store<
 			Format
 		> const &_format,
-		OtherChannel const &_other
+		typename Format::available_channels const &_other
 	)
 	{
 		return
 			_other
 			==
-			color::access::dynamic_index<
+			color::access::dynamic_channel<
 				Format,
 				Channel
 			>::execute(

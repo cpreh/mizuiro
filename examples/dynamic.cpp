@@ -4,13 +4,12 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/size_type.hpp>
 #include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/homogenous_dynamic.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
-#include <mizuiro/color/access/dynamic_index.hpp>
+#include <mizuiro/color/access/dynamic_channel.hpp>
 #include <mizuiro/color/access/homogenous_dynamic.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/image/dimension.hpp>
@@ -46,35 +45,30 @@ enum type
 }
 
 #define MAKE_DYNAMIC_CHANNEL_INDEX(\
-	Channel,\
-	index\
+	channel_name \
 )\
-mizuiro::size_type \
+available_channels::type \
 dynamic_channel_index( \
-	Channel const &\
+	mizuiro::color::channel::channel_name const &\
 )\
 {\
-	return index;\
+	return available_channels::channel_name;\
 }
 
 MAKE_DYNAMIC_CHANNEL_INDEX(
-	mizuiro::color::channel::alpha,
-	0
+	alpha
 )
 
 MAKE_DYNAMIC_CHANNEL_INDEX(
-	mizuiro::color::channel::red,
-	1
+	red
 )
 
 MAKE_DYNAMIC_CHANNEL_INDEX(
-	mizuiro::color::channel::green,
-	2
+	green
 )
 
 MAKE_DYNAMIC_CHANNEL_INDEX(
-	mizuiro::color::channel::blue,
-	3
+	blue
 )
 
 }
@@ -90,7 +84,7 @@ template<
 	typename Format,
 	typename Channel
 >
-struct dynamic_index<
+struct dynamic_channel<
 	Format,
 	Channel,
 	typename boost::enable_if<
@@ -102,7 +96,7 @@ struct dynamic_index<
 >
 {
 	static
-	mizuiro::size_type
+	available_channels::type
 	execute(
 		mizuiro::color::format_store<Format> const &,
 		Channel const &
