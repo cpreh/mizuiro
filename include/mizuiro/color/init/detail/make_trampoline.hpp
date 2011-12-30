@@ -7,19 +7,19 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_MAKE_TRAMPOLINE_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_MAKE_TRAMPOLINE_HPP_INCLUDED
 
-#include <mizuiro/color/init/detail/trampoline.hpp>
+#include <mizuiro/color/init/trampoline.hpp>
 
 #define MIZUIRO_COLOR_INIT_DETAIL_MAKE_TRAMPOLINE(\
 	name\
 )\
 inline \
-detail::trampoline<\
+mizuiro::color::init::trampoline<\
 	channel::name\
 > const \
 name() \
 { \
 	return \
-		detail::trampoline< \
+		mizuiro::color::init::trampoline< \
 			channel::name\
 		>();\
 }

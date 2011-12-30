@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_INIT_DETAIL_TRAMPOLINE_HPP_INCLUDED
-#define MIZUIRO_COLOR_INIT_DETAIL_TRAMPOLINE_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_INIT_TRAMPOLINE_HPP_INCLUDED
+#define MIZUIRO_COLOR_INIT_TRAMPOLINE_HPP_INCLUDED
 
 #include <mizuiro/color/init/detail/channel_percentage.hpp>
 #include <mizuiro/color/init/detail/channel_value.hpp>
@@ -24,8 +24,6 @@ namespace mizuiro
 namespace color
 {
 namespace init
-{
-namespace detail
 {
 
 template<
@@ -97,7 +95,6 @@ struct trampoline
 	}
 };
 
-}
 }
 }
 }
