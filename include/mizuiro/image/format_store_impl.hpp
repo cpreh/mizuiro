@@ -8,6 +8,7 @@
 #define MIZUIRO_IMAGE_FORMAT_STORE_IMPL_HPP_INCLUDED
 
 #include <mizuiro/color/format_store_impl.hpp>
+#include <mizuiro/detail/null_ptr.hpp>
 #include <mizuiro/image/format_store_decl.hpp>
 
 
@@ -66,7 +67,7 @@ mizuiro::image::format_store<Format>::color_format() const
 			format_->color_format_store()
 		:
 			color_format_store(
-				0
+				mizuiro::detail::null_ptr()
 			)
 		;
 }

@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_RAW_CONTAINER_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_RAW_CONTAINER_IMPL_HPP_INCLUDED
 
+#include <mizuiro/detail/null_ptr.hpp>
 #include <mizuiro/image/detail/raw_container_decl.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <memory>
@@ -167,7 +168,8 @@ mizuiro::image::detail::raw_container<T, A>::allocate(
 {
 	data_ =
 		allocator.allocate(
-			_size
+			_size,
+			mizuiro::detail::null_ptr()
 		);
 
 	data_end_ = data_ + _size;

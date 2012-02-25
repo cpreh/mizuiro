@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_DETAIL_FORMAT_ARGUMENT_HPP_INCLUDED
 #define MIZUIRO_DETAIL_FORMAT_ARGUMENT_HPP_INCLUDED
 
+#include <mizuiro/detail/null_ptr.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/static_assert.hpp>
 #include <boost/utility/enable_if.hpp>
@@ -75,7 +76,7 @@ struct format_argument<
 	{
 		return
 			FormatStore(
-				0
+				mizuiro::detail::null_ptr()
 			);
 	}
 };
