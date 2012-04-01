@@ -8,6 +8,8 @@
 #define MIZUIRO_COLOR_IS_ALPHA_HPP_INCLUDED
 
 #include <mizuiro/color/layout/alpha.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -16,6 +18,8 @@ namespace mizuiro
 {
 namespace color
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template
 <
@@ -29,6 +33,8 @@ boost::is_same<
 >
 {
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

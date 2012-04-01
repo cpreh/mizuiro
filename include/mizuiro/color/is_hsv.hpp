@@ -11,6 +11,8 @@
 #include <mizuiro/color/channel/saturation.hpp>
 #include <mizuiro/color/channel/value.hpp>
 #include <mizuiro/color/types/has_channel_static.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -20,6 +22,8 @@ namespace mizuiro
 {
 namespace color
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template
 <
@@ -47,6 +51,8 @@ boost::mpl::and_
 >
 {
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

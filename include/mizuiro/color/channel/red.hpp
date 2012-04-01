@@ -8,6 +8,8 @@
 #define MIZUIRO_COLOR_CHANNEL_RED_HPP_INCLUDED
 
 #include <mizuiro/color/channel/tag.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 
 namespace mizuiro
 {
@@ -16,10 +18,14 @@ namespace color
 namespace channel
 {
 
+MIZUIRO_DETAIL_IGNORE_EFFCPP
+
 struct red
 :
 channel::tag
 {};
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

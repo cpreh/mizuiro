@@ -20,9 +20,14 @@ template<
 mizuiro::image::detail::raw_container<T, A>::raw_container()
 :
 	allocator(),
-	data_(0),
-	data_end_(0)
-{}
+	data_(
+		mizuiro::detail::null_ptr()
+	),
+	data_end_(
+		mizuiro::detail::null_ptr()
+	)
+{
+}
 
 template<
 	typename T,

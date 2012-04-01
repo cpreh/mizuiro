@@ -8,6 +8,8 @@
 #define MIZUIRO_COLOR_CHANNEL_IS_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/channel/tag.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/is_base_of.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -18,6 +20,8 @@ namespace color
 {
 namespace channel
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename T
@@ -30,6 +34,8 @@ boost::is_base_of<
 >
 {
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

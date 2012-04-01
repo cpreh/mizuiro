@@ -9,12 +9,16 @@
 
 #include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/types/has_channel_static.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 
 
 namespace mizuiro
 {
 namespace color
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Format
@@ -27,6 +31,8 @@ color::types::has_channel_static<
 >
 {
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

@@ -10,12 +10,16 @@
 #include <mizuiro/color/format_is_static.hpp>
 #include <mizuiro/color/format_store_decl.hpp>
 #include <mizuiro/detail/format_base_decl.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 
 
 namespace mizuiro
 {
 namespace color
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Format
@@ -29,6 +33,8 @@ mizuiro::detail::format_base<
 >
 {
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

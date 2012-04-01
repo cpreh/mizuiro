@@ -8,6 +8,8 @@
 #define MIZUIRO_IMAGE_FORMAT_ARGUMENT_HPP_INCLUDED
 
 #include <mizuiro/detail/format_argument.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/format_is_static.hpp>
 #include <mizuiro/image/format_store_impl.hpp>
 
@@ -16,6 +18,8 @@ namespace mizuiro
 {
 namespace image
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Format
@@ -33,6 +37,8 @@ mizuiro::detail::format_argument<
 >
 {
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

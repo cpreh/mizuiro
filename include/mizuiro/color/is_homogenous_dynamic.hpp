@@ -9,6 +9,8 @@
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/homogenous_dynamic_fwd.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/integral_constant.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -18,6 +20,8 @@ namespace mizuiro
 {
 namespace color
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Format
@@ -44,6 +48,8 @@ struct is_homogenous_dynamic<
 :
 boost::true_type
 {};
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

@@ -8,6 +8,8 @@
 #define MIZUIRO_IMAGE_DETAIL_STACKED_DIM_ARRAY_HPP_INCLUDED
 
 #include <mizuiro/array.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension_decl.hpp>
 
 
@@ -17,6 +19,8 @@ namespace image
 {
 namespace detail
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Dim,
@@ -30,6 +34,8 @@ mizuiro::array<
 >
 {
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

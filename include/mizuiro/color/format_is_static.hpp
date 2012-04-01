@@ -8,6 +8,8 @@
 #define MIZUIRO_COLOR_FORMAT_IS_STATIC_HPP_INCLUDED
 
 #include <mizuiro/color/homogenous_static_fwd.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/integral_constant.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -16,6 +18,8 @@ namespace mizuiro
 {
 namespace color
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Format
@@ -40,6 +44,8 @@ struct format_is_static<
 boost::true_type
 {
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

@@ -11,6 +11,8 @@
 #include <mizuiro/color/init/detail/channel_value.hpp>
 #include <mizuiro/color/init/detail/make_values.hpp>
 #include <mizuiro/color/init/detail/values.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/fusion/container/generation/make_vector.hpp>
 #include <boost/fusion/container/vector/vector.hpp>
@@ -46,6 +48,7 @@ struct trampoline
 		Value const &_value
 	) const
 	{
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 		return
 			detail::make_values(
 				boost::fusion::make_vector(
@@ -58,6 +61,7 @@ struct trampoline
 					)
 				)
 			);
+MIZUIRO_DETAIL_POP_WARNING
 	}
 
 	template<
@@ -80,6 +84,7 @@ struct trampoline
 		Value const &_value
 	) const
 	{
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 		return
 			detail::make_values(
 				boost::fusion::make_vector(
@@ -92,6 +97,7 @@ struct trampoline
 					)
 				)
 			);
+MIZUIRO_DETAIL_POP_WARNING
 	}
 };
 

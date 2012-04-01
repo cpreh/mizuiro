@@ -7,6 +7,8 @@
 #ifndef MIZUIRO_IMAGE_LINEAR_ITERATOR_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_LINEAR_ITERATOR_DECL_HPP_INCLUDED
 
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/format_argument.hpp>
 #include <mizuiro/image/format_base_decl.hpp>
 #include <mizuiro/image/linear_iterator_fwd.hpp>
@@ -18,6 +20,8 @@ namespace mizuiro
 {
 namespace image
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Access,
@@ -40,6 +44,8 @@ class linear_iterator
 		Format
 	>::type
 {
+MIZUIRO_DETAIL_POP_WARNING
+
 	typedef typename image::format_base<
 		Format
 	>::type format_base;

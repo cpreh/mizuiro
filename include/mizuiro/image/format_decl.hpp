@@ -9,6 +9,8 @@
 
 #include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/format_base_decl.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/format_fwd.hpp>
 #include <mizuiro/image/detail/pitch_type.hpp>
 
@@ -17,6 +19,8 @@ namespace mizuiro
 {
 namespace image
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename DimType,
@@ -28,6 +32,8 @@ class format
 		typename ImageFormat::color_format
 	>::type
 {
+MIZUIRO_DETAIL_POP_WARNING
+
 	typedef typename color::format_base<
 		typename ImageFormat::color_format
 	>::type color_format_base;

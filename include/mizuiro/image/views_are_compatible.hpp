@@ -8,6 +8,8 @@
 #define MIZUIRO_IMAGE_VIEWS_ARE_COMPATIBLE_HPP_INCLUDED
 
 #include <mizuiro/color/formats_are_compatible.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/mpl/equal_to.hpp>
@@ -20,6 +22,8 @@ namespace mizuiro
 {
 namespace image
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename View1,
@@ -46,6 +50,8 @@ boost::mpl::and_<
 	>
 >
 {};
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

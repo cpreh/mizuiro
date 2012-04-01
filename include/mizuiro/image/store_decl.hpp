@@ -9,6 +9,8 @@
 
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/format_argument.hpp>
 #include <mizuiro/image/format_base_decl.hpp>
 #include <mizuiro/image/linear_view_fwd.hpp>
@@ -24,6 +26,8 @@ namespace mizuiro
 namespace image
 {
 
+MIZUIRO_DETAIL_IGNORE_EFFCPP
+
 template<
 	typename Format,
 	typename Access
@@ -34,6 +38,8 @@ class store
 		Format
 	>::type
 {
+MIZUIRO_DETAIL_POP_WARNING
+
 	typedef typename image::format_base<
 		Format
 	>::type format_base;

@@ -12,6 +12,8 @@
 #include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/detail/raw_container_fwd.hpp>
 #include <mizuiro/image/types/data_store.hpp>
 #include <mizuiro/image/types/pointer.hpp>
@@ -26,6 +28,8 @@ namespace image
 {
 namespace types
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Format,
@@ -44,6 +48,8 @@ mizuiro::color::types::pointer<
 >
 {
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 template<
 	typename Format

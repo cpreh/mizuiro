@@ -21,6 +21,9 @@
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/null_ptr.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -30,6 +33,8 @@ namespace mizuiro
 {
 namespace color
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 /// A color object that stores a color by value
 /**
@@ -45,6 +50,8 @@ class object
 		Format
 	>::type
 {
+MIZUIRO_DETAIL_POP_WARNING
+
 	typedef typename color::format_base<
 		Format
 	>::type base;
@@ -87,7 +94,7 @@ public:
 			color::is_color<
 				Other
 			>
-		>::type * = 0
+		>::type * = mizuiro::detail::null_ptr()
 	);
 
 	/// Constructs a color from a special init expression

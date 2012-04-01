@@ -8,11 +8,15 @@
 #define MIZUIRO_IMAGE_FORMAT_IS_STATIC_HPP_INCLUDED
 
 #include <mizuiro/color/format_is_static.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 
 namespace mizuiro
 {
 namespace image
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Format
@@ -24,6 +28,8 @@ mizuiro::color::format_is_static<
 >
 {
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

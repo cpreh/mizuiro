@@ -14,6 +14,8 @@
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/detail/apply_const.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -25,6 +27,8 @@ namespace color
 {
 namespace types
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Format,
@@ -88,6 +92,8 @@ mizuiro::array<
 	Format::element_count
 >
 {};
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }
