@@ -8,6 +8,8 @@
 #define MIZUIRO_IMAGE_DETAIL_RAW_CONTAINER_IMPL_HPP_INCLUDED
 
 #include <mizuiro/detail/null_ptr.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/detail/raw_container_decl.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <memory>
@@ -29,6 +31,8 @@ mizuiro::image::detail::raw_container<T, A>::raw_container()
 {
 }
 
+MIZUIRO_DETAIL_IGNORE_EFFCPP
+
 template<
 	typename T,
 	typename A
@@ -37,9 +41,8 @@ mizuiro::image::detail::raw_container<T, A>::raw_container(
 	size_type const _size
 )
 :
-	allocator(),
-	data_(),
-	data_end_()
+	allocator()
+	// Dont' initialize data_ and data_end_
 {
 	this->allocate(
 		_size
@@ -53,11 +56,16 @@ template<
 mizuiro::image::detail::raw_container<T, A>::raw_container(
 	raw_container const &_other
 )
+:
+	allocator()
+	// Dont' initialize data_ and data_end_
 {
 	this->copy(
 		_other
 	);
 }
+
+MIZUIRO_DETAIL_POP_WARNING
 
 template<
 	typename T,

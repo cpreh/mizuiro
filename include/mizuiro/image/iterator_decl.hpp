@@ -7,7 +7,9 @@
 #ifndef MIZUIRO_IMAGE_ITERATOR_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ITERATOR_DECL_HPP_INCLUDED
 
+#include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/make_variant.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/variant_decl.hpp>
 #include <mizuiro/image/iterator_fwd.hpp>
 #include <mizuiro/image/linear_iterator_decl.hpp>
@@ -25,6 +27,8 @@ namespace mizuiro
 {
 namespace image
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Access,
@@ -44,6 +48,8 @@ class iterator
 		Constness
 	>::type
 {
+MIZUIRO_DETAIL_POP_WARNING
+
 public:
 	typedef Access access;
 

@@ -9,6 +9,8 @@
 
 #include <mizuiro/color/is_homogenous_dynamic.hpp>
 #include <mizuiro/color/types/has_channel_static.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/bool.hpp>
 #include <boost/utility/enable_if.hpp>
@@ -20,6 +22,8 @@ namespace color
 {
 namespace types
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template
 <
@@ -39,6 +43,8 @@ struct has_channel_static<
 boost::mpl::true_
 {
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }
