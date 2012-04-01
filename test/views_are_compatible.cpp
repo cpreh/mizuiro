@@ -4,6 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/views_are_compatible.hpp>
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
@@ -86,10 +88,14 @@ typedef mizuiro::image::format<
 
 }
 
+MIZUIRO_DETAIL_IGNORE_EFFCPP
+
 BOOST_AUTO_TEST_CASE(
 	views_are_compatible
 )
 {
+MIZUIRO_DETAIL_POP_WARNING
+
 	typedef ::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
 		::format_3d_bgra8,

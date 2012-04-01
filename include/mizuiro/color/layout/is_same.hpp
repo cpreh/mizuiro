@@ -7,6 +7,8 @@
 #ifndef MIZUIRO_COLOR_LAYOUT_IS_SAME_HPP_INCLUDED
 #define MIZUIRO_COLOR_LAYOUT_IS_SAME_HPP_INCLUDED
 
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/integral_constant.hpp>
 #include <boost/type_traits/is_same.hpp>
@@ -18,6 +20,8 @@ namespace color
 {
 namespace layout
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename A,
@@ -51,6 +55,8 @@ struct is_same<
 boost::true_type
 {
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

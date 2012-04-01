@@ -8,6 +8,8 @@
 #define MIZUIRO_IS_RAW_POINTER_HPP_INCLUDED
 
 #include <mizuiro/raw_value.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/type_traits/is_pointer.hpp>
@@ -19,6 +21,8 @@
 
 namespace mizuiro
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 /// A meta function that checks if T is raw_pointer or const_raw_pointer
 template<
@@ -40,6 +44,8 @@ boost::mpl::and_<
 	>
 >
 {};
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 

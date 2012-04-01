@@ -25,7 +25,7 @@ struct undefined
 channel::tag
 {};
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

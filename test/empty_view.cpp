@@ -4,6 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension.hpp>
@@ -16,10 +18,14 @@
 #include <boost/cstdint.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
+MIZUIRO_DETAIL_IGNORE_EFFCPP
+
 BOOST_AUTO_TEST_CASE(
 	empty_view
 )
 {
+MIZUIRO_DETAIL_POP_WARNING
+
 	typedef mizuiro::image::format<
 		mizuiro::image::dimension<
 			3

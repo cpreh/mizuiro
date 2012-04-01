@@ -7,6 +7,8 @@
 #ifndef MIZUIRO_DETAIL_INDEX_OF_HPP_INCLUDED
 #define MIZUIRO_DETAIL_INDEX_OF_HPP_INCLUDED
 
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/begin.hpp>
 #include <boost/mpl/contains.hpp>
@@ -20,6 +22,8 @@ namespace mizuiro
 {
 namespace detail
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Elements,
@@ -44,6 +48,8 @@ boost::mpl::distance<
 		>::value
 	));
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

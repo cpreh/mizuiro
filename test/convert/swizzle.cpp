@@ -10,15 +10,21 @@
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/convert.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
 #include <boost/cstdint.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
+MIZUIRO_DETAIL_IGNORE_EFFCPP
+
 BOOST_AUTO_TEST_CASE(
 	convert_shuffle
 )
 {
+MIZUIRO_DETAIL_POP_WARNING
+
 	typedef boost::uint8_t channel_type;
 
 	typedef mizuiro::color::object<

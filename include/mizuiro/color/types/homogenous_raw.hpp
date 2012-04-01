@@ -19,6 +19,8 @@
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/detail/apply_const.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -30,6 +32,8 @@ namespace color
 {
 namespace types
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Format,
@@ -52,6 +56,8 @@ mizuiro::detail::apply_const<
 >
 {
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 template<
 	typename Format,
@@ -83,6 +89,8 @@ struct channel_reference<
 	> type;
 };
 
+MIZUIRO_DETAIL_IGNORE_EFFCPP
+
 template<
 	typename Format
 >
@@ -102,6 +110,8 @@ mizuiro::array<
 	* sizeof(typename Format::channel_type)
 >
 {};
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }
