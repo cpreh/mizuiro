@@ -11,9 +11,16 @@
 
 #ifdef MIZUIRO_HAVE_FCPPT
 #include <fcppt/preprocessor/disable_gcc_warning.hpp>
-#define MIZUIRO_DETAIL_DISABLE_GCC_WARNING FCPPT_PP_DISABLE_GCC_WARNING
+#define MIZUIRO_DETAIL_DISABLE_GCC_WARNING(\
+	warning\
+)\
+FCPPT_PP_DISABLE_GCC_WARNING(\
+	warning\
+)
 #else
-#define MIZUIRO_DETAIL_DISABLE_GCC_WARNING
+#define MIZUIRO_DETAIL_DISABLE_GCC_WARNING(\
+	warning\
+)
 #endif
 
 #endif

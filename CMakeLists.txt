@@ -1,57 +1,57 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+cmake_minimum_required(VERSION 2.6)
 
-PROJECT (mizuiro)
+project (mizuiro)
 
-INCLUDE(FcpptCMakeUtils)
-
-FIND_PACKAGE(
+find_package(
 	Boost 1.40.0 REQUIRED
 )
 
-OPTION(
+option(
 	ENABLE_FCPPT "Use fcppt's variant. Required for ternary visitation." OFF
 )
 
-IF(ENABLE_FCPPT)
-	FIND_PACKAGE(
+if(ENABLE_FCPPT)
+	find_package(
 		Fcppt
 		REQUIRED
 	)
-ENDIF()
+endif()
 
-SET(
+set(
 	MIZUIRO_HAVE_FCPPT
 	${FCPPT_FOUND}
 )
 
-INCLUDE_DIRECTORIES(
+include_directories(
 	include
 )
 
-IF(
+if(
 	MIZUIRO_HAVE_FCPPT
 )
-	INCLUDE_DIRECTORIES(
+	include(FcpptCMakeUtils)
+
+	include_directories(
 		${FCPPT_UTILS_INCLUDE_SYSTEM}
 		${Boost_INCLUDE_DIR}
 	)
-ELSE()
-	INCLUDE_DIRECTORIES(
+else()
+	include_directories(
 		SYSTEM
 		${Boost_INCLUDE_DIR}
 	)
-ENDIF()
+endif()
 
-IF(FCPPT_FOUND)
-	INCLUDE_DIRECTORIES(
+if(FCPPT_FOUND)
+	include_directories(
 		${Fcppt_INCLUDE_DIRS}
 	)
-ENDIF()
+endif()
 
-IF (CMAKE_COMPILER_IS_GNUCXX OR FCPPT_UTILS_COMPILER_IS_CLANGPP)
-	INCLUDE (CheckCXXSourceCompiles)
+if (CMAKE_COMPILER_IS_GNUCXX OR FCPPT_UTILS_COMPILER_IS_CLANGPP)
+	include (CheckCXXSourceCompiles)
 
-	CHECK_CXX_SOURCE_COMPILES(
+	check_cxx_source_compiles(
 		"int main()
 		{
 		if(__builtin_expect(true, 0))
@@ -59,53 +59,53 @@ IF (CMAKE_COMPILER_IS_GNUCXX OR FCPPT_UTILS_COMPILER_IS_CLANGPP)
 		}"
 		MIZUIRO_HAVE_BUILTIN_EXPECT
 	)
-ENDIF ()
+endif ()
 
-CONFIGURE_FILE(
+configure_file(
 	${CMAKE_SOURCE_DIR}/config.hpp.in
 	${CMAKE_BINARY_DIR}/include/mizuiro/config.hpp
 )
 
-INCLUDE_DIRECTORIES(
+include_directories(
 	${CMAKE_BINARY_DIR}/include
 )
 
-INSTALL(
+install(
 	DIRECTORY
 	include/
 	DESTINATION
 	${INSTALL_INCLUDE_DIR}
 )
 
-INSTALL(
+install(
 	FILES
 	${CMAKE_BINARY_DIR}/include/mizuiro/config.hpp
 	DESTINATION
 	${INSTALL_INCLUDE_DIR}/mizuiro
 )
 
-INSTALL(
+install(
 	FILES
 	${CMAKE_SOURCE_DIR}/CMakeModules/FindMizuiro.cmake
 	DESTINATION
 	${INSTALL_CMAKEMODULES_DIR}
 )
 
-OPTION(ENABLE_DOC "Build the documentation" OFF)
+option(ENABLE_DOC "Build the documentation" OFF)
 
-IF (ENABLE_DOC)
-	ADD_SUBDIRECTORY (doc)
-ENDIF ()
+if (ENABLE_DOC)
+	add_subdirectory (doc)
+endif ()
 
-OPTION (ENABLE_EXAMPLES "Build the examples" ON)
+option (ENABLE_EXAMPLES "Build the examples" ON)
 
-IF(ENABLE_EXAMPLES)
-	ADD_SUBDIRECTORY(examples)
-ENDIF()
+if(ENABLE_EXAMPLES)
+	add_subdirectory(examples)
+endif()
 
-OPTION (ENABLE_TEST "Build the tests" ON)
+option (ENABLE_TEST "Build the tests" ON)
 
-IF(ENABLE_TEST)
-	ENABLE_TESTING()
-	ADD_SUBDIRECTORY(test)
-ENDIF()
+if(ENABLE_TEST)
+	enable_testing()
+	add_subdirectory(test)
+endif()
