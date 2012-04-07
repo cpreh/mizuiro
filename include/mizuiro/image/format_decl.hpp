@@ -32,8 +32,6 @@ class format
 		typename ImageFormat::color_format
 	>::type
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef typename color::format_base<
 		typename ImageFormat::color_format
 	>::type color_format_base;
@@ -58,6 +56,8 @@ public:
 	color_format_store_type const
 	color_format_store() const;
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

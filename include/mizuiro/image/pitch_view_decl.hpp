@@ -36,8 +36,6 @@ class pitch_view
 		Format
 	>::type
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef typename image::format_base<
 		Format
 	>::type format_base;
@@ -129,6 +127,8 @@ private:
 
 	pitch_type pitch_;
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

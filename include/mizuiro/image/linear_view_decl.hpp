@@ -36,8 +36,6 @@ class linear_view
 		Format
 	>::type
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef typename image::format_base<
 		Format
 	>::type format_base;
@@ -126,6 +124,8 @@ private:
 
 	pointer data_;
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

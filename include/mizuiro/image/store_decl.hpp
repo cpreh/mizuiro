@@ -38,8 +38,6 @@ class store
 		Format
 	>::type
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef typename image::format_base<
 		Format
 	>::type format_base;
@@ -113,6 +111,8 @@ private:
 
 	container data_;
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

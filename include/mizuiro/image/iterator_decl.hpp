@@ -48,8 +48,6 @@ class iterator
 		Constness
 	>::type
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 public:
 	typedef Access access;
 
@@ -153,6 +151,8 @@ private:
 
 	internal_type internal_;
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

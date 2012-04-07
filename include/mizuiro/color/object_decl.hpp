@@ -50,8 +50,6 @@ class object
 		Format
 	>::type
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef typename color::format_base<
 		Format
 	>::type base;
@@ -166,6 +164,8 @@ private:
 
 	store data_;
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

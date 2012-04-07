@@ -36,8 +36,6 @@ class proxy
 		Format
 	>::type
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef typename color::format_base<
 		Format
 	>::type base;
@@ -112,6 +110,8 @@ public:
 private:
 	pointer data_;
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

@@ -46,8 +46,6 @@ class pitch_iterator
 		Format
 	>::type
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef typename image::format_base<
 		Format
 	>::type format_base;
@@ -163,6 +161,8 @@ private:
 
 	stacked_dim_array stacked_dim_;
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }
