@@ -15,6 +15,22 @@ if(ENABLE_FCPPT)
 		Fcppt
 		REQUIRED
 	)
+else()
+	set(
+		INSTALL_INCLUDE_DIR
+		"${CMAKE_INSTALL_PREFIX}/include"
+		CACHE
+		STRING
+		"Custom include installation directory"
+	)
+
+	set(
+		INSTALL_CMAKEMODULES_DIR
+		"${CMAKE_INSTALL_PREFIX}/share/cmake/Modules"
+		CACHE
+		STRING
+		"Custom cmake module installation directory"
+	)
 endif()
 
 set(
