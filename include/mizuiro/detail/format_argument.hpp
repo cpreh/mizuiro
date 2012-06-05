@@ -8,8 +8,8 @@
 #define MIZUIRO_DETAIL_FORMAT_ARGUMENT_HPP_INCLUDED
 
 #include <mizuiro/detail/null_ptr.hpp>
+#include <mizuiro/detail/static_assert_expression.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/static_assert.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
@@ -50,7 +50,7 @@ struct format_argument<
 	FormatStore const
 	get()
 	{
-		BOOST_STATIC_ASSERT(
+		MIZUIRO_DETAIL_STATIC_ASSERT_EXPRESSION(
 			sizeof(Format) == 0
 		);
 	}

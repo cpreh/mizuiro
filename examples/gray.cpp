@@ -70,8 +70,6 @@ int main()
 		img.view()
 	);
 
-	typedef view_type::iterator iterator;
-
 	mizuiro::image::algorithm::for_each(
 		view,
 		set_color()

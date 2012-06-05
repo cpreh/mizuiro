@@ -89,8 +89,6 @@ hsv_to_rgb(
 		)
 	);
 
-	typedef int int_type;
-
 	float_type const
 		largest_part(
 			chroma

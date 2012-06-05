@@ -7,10 +7,10 @@
 #ifndef MIZUIRO_IMAGE_DIMENSION_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DIMENSION_IMPL_HPP_INCLUDED
 
+#include <mizuiro/detail/static_assert_expression.hpp>
 #include <mizuiro/image/dimension_decl.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/next_prior.hpp>
-#include <boost/static_assert.hpp>
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
@@ -46,7 +46,7 @@ mizuiro::image::dimension<Dim, ValueType>::dimension(\
 :\
 	data_()\
 {\
-	BOOST_STATIC_ASSERT(( \
+	MIZUIRO_DETAIL_STATIC_ASSERT_EXPRESSION(( \
 		Dim == BOOST_PP_INC(n) \
 	)); \
 \

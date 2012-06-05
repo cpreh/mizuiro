@@ -10,6 +10,7 @@
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/make_variant.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
+#include <mizuiro/detail/static_assert_statement.hpp>
 #include <mizuiro/detail/variant_decl.hpp>
 #include <mizuiro/image/iterator_fwd.hpp>
 #include <mizuiro/image/linear_iterator_decl.hpp>
@@ -17,7 +18,6 @@
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/static_assert.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -80,7 +80,7 @@ public:
 		constness
 	> linear_iterator;
 
-	BOOST_STATIC_ASSERT((
+	MIZUIRO_DETAIL_STATIC_ASSERT_STATEMENT((
 		boost::is_same<
 			typename pitch_iterator::format_store_type,
 			typename linear_iterator::format_store_type
