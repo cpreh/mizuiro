@@ -2,10 +2,6 @@ cmake_minimum_required(VERSION 2.6)
 
 project (mizuiro)
 
-find_package(
-	Boost 1.40.0 REQUIRED
-)
-
 option(
 	ENABLE_FCPPT "Use fcppt's variant. Required for ternary visitation." OFF
 )
@@ -32,6 +28,10 @@ else()
 		"Custom cmake module installation directory"
 	)
 endif()
+
+find_package(
+	Boost 1.40.0 REQUIRED
+)
 
 set(
 	MIZUIRO_HAVE_FCPPT
