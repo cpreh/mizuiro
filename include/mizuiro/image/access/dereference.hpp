@@ -4,8 +4,9 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_ACCESS_COLOR_STRIDE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ACCESS_COLOR_STRIDE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_ACCESS_DEREFERENCE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ACCESS_DEREFERENCE_HPP_INCLUDED
+
 
 namespace mizuiro
 {
@@ -17,9 +18,10 @@ namespace access
 template<
 	typename Access,
 	typename ImageFormat,
+	typename Constness,
 	typename Enable = void
 >
-struct color_stride;
+struct dereference;
 
 }
 }

@@ -30,19 +30,21 @@ template<
 >
 class linear_iterator
 :
-	public detail::iterator_base<
-		linear_iterator<
+	public
+		mizuiro::image::detail::iterator_base<
+			linear_iterator<
+				Access,
+				Format,
+				Constness
+			>,
 			Access,
 			Format,
 			Constness
-		>,
-		Access,
-		Format,
-		Constness
-	>::type,
-	private image::format_base<
-		Format
-	>::type
+		>::type,
+	private
+		mizuiro::image::format_base<
+			Format
+		>::type
 {
 	typedef typename image::format_base<
 		Format

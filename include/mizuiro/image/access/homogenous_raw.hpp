@@ -11,8 +11,8 @@
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/color/is_homogenous.hpp>
 #include <mizuiro/image/format_store_fwd.hpp>
-#include <mizuiro/image/access/color_stride.hpp>
 #include <mizuiro/image/access/data_store_size.hpp>
+#include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -28,7 +28,7 @@ namespace access
 template<
 	typename ImageFormat
 >
-struct color_stride<
+struct stride<
 	mizuiro::access::raw,
 	ImageFormat,
 	typename boost::enable_if<
@@ -42,7 +42,7 @@ struct color_stride<
 	mizuiro::size_type
 	execute(
 		mizuiro::access::raw const &,
-		image::format_store<ImageFormat> const &
+		mizuiro::image::format_store<ImageFormat> const &
 	)
 	{
 		return
@@ -72,14 +72,14 @@ struct data_store_size<
 	mizuiro::size_type
 	execute(
 		mizuiro::access::raw const &_access,
-		image::format_store<ImageFormat> const &_format,
+		mizuiro::image::format_store<ImageFormat> const &_format,
 		Dim const &_dim
 	)
 	{
 		return
 			_dim.content()
 			*
-			access::color_stride<
+			mizuiro::image::access::stride<
 				mizuiro::access::raw,
 				ImageFormat
 			>::execute(

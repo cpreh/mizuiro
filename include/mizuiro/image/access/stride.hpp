@@ -4,33 +4,23 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_TYPES_REFERENCE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_TYPES_REFERENCE_HPP_INCLUDED
-
-#include <mizuiro/color/proxy_impl.hpp>
+#ifndef MIZUIRO_IMAGE_ACCESS_STRIDE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ACCESS_STRIDE_HPP_INCLUDED
 
 
 namespace mizuiro
 {
 namespace image
 {
-namespace types
+namespace access
 {
 
 template<
 	typename Access,
-	typename Format,
-	typename Constness,
+	typename ImageFormat,
 	typename Enable = void
 >
-struct reference
-{
-	typedef ::mizuiro::color::proxy<
-		Access,
-		typename Format::color_format,
-		Constness
-	> type;
-};
+struct stride;
 
 }
 }

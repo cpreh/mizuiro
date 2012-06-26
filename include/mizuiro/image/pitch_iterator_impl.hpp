@@ -10,7 +10,8 @@
 #include <mizuiro/detail/unlikely.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
-#include <mizuiro/image/access/color_stride.hpp>
+#include <mizuiro/image/access/dereference.hpp>
+#include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/detail/pitch_iterator_position.hpp>
 #include <mizuiro/image/detail/stacked_dim.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -23,7 +24,11 @@ template<
 	typename Format,
 	typename Constness
 >
-mizuiro::image::pitch_iterator<Access, Format, Constness>::pitch_iterator(
+mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::pitch_iterator(
 	dim const &_size,
 	pointer const _data,
 	pitch_type const &_pitch,
@@ -53,7 +58,7 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::pitch_iterator(
 		0
 	),
 	stacked_dim_(
-		detail::stacked_dim<
+		mizuiro::image::detail::stacked_dim<
 			difference_type
 		>(
 			size_
@@ -67,10 +72,19 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<Access, Format, Constness>::dim const &
-mizuiro::image::pitch_iterator<Access, Format, Constness>::size() const
+typename mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::dim const &
+mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::size() const
 {
-	return size_;
+	return
+		size_;
 }
 
 template<
@@ -78,10 +92,19 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<Access, Format, Constness>::difference_type
-mizuiro::image::pitch_iterator<Access, Format, Constness>::offset() const
+typename mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::difference_type
+mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::offset() const
 {
-	return offset_;
+	return
+		offset_;
 }
 
 template<
@@ -89,10 +112,19 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<Access, Format, Constness>::pointer
-mizuiro::image::pitch_iterator<Access, Format, Constness>::data() const
+typename mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::pointer
+mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::data() const
 {
-	return root_data_ + position_;
+	return
+		root_data_ + position_;
 }
 
 template<
@@ -100,10 +132,19 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<Access, Format, Constness>::pointer
-mizuiro::image::pitch_iterator<Access, Format, Constness>::root_data() const
+typename mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::pointer
+mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::root_data() const
 {
-	return root_data_;
+	return
+		root_data_;
 }
 
 template<
@@ -111,10 +152,19 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<Access, Format, Constness>::pitch_type const &
-mizuiro::image::pitch_iterator<Access, Format, Constness>::pitch() const
+typename mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::pitch_type const &
+mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::pitch() const
 {
-	return pitch_;
+	return
+		pitch_;
 }
 
 template<
@@ -122,10 +172,19 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<Access, Format, Constness>::format_store_type const
-mizuiro::image::pitch_iterator<Access, Format, Constness>::format_store() const
+typename mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::format_store_type const
+mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::format_store() const
 {
-	return this->format_store_base();
+	return
+		this->format_store_base();
 }
 
 template<
@@ -134,7 +193,11 @@ template<
 	typename Constness
 >
 void
-mizuiro::image::pitch_iterator<Access, Format, Constness>::advance(
+mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::advance(
 	difference_type const _diff
 )
 {
@@ -168,7 +231,7 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::advance(
 		static_cast<
 			difference_type
 		>(
-			image::access::color_stride<
+			mizuiro::image::access::stride<
 				Access,
 				Format
 			>::execute(
@@ -204,7 +267,11 @@ template<
 	typename Constness
 >
 void
-mizuiro::image::pitch_iterator<Access, Format, Constness>::increment()
+mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::increment()
 {
 	if(
 		MIZUIRO_DETAIL_UNLIKELY(
@@ -215,7 +282,7 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::increment()
 			static_cast<
 				difference_type
 			>(
-				detail::pitch_iterator_position(
+				mizuiro::image::detail::pitch_iterator_position(
 					*this
 				)[0]
 			);
@@ -244,7 +311,7 @@ mizuiro::image::pitch_iterator<Access, Format, Constness>::increment()
 			static_cast<
 				difference_type
 			>(
-				image::access::color_stride<
+				mizuiro::image::access::stride<
 					Access,
 					Format
 				>::execute(
@@ -263,9 +330,15 @@ template<
 	typename Constness
 >
 void
-mizuiro::image::pitch_iterator<Access, Format, Constness>::decrement()
+mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::decrement()
 {
-	this->advance(-1);
+	this->advance(
+		-1
+	);
 }
 
 template<
@@ -273,12 +346,21 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<Access, Format, Constness>::difference_type
-mizuiro::image::pitch_iterator<Access, Format, Constness>::distance_to(
+typename mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::difference_type
+mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::distance_to(
 	pitch_iterator const &_other
 ) const
 {
-	return _other.offset_ - offset_;
+	return
+		_other.offset_ - offset_;
 }
 
 template<
@@ -286,13 +368,25 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<Access, Format, Constness>::reference
-mizuiro::image::pitch_iterator<Access, Format, Constness>::dereference() const
+typename mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::reference
+mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::dereference() const
 {
 	return
-		reference(
+		mizuiro::image::access::dereference<
+			Access,
+			Format,
+			Constness
+		>::execute(
 			this->data(),
-			this->format_store_base().color_format()
+			this->format_store_base()
 		);
 }
 
@@ -302,11 +396,16 @@ template<
 	typename Constness
 >
 bool
-mizuiro::image::pitch_iterator<Access, Format, Constness>::equal(
+mizuiro::image::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::equal(
 	pitch_iterator const &_other
 ) const
 {
-	return position_ == _other.position_;
+	return
+		position_ == _other.position_;
 }
 
 #endif

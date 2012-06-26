@@ -14,6 +14,7 @@
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/view.hpp>
+#include <mizuiro/image/access/homogenous.hpp>
 #include <mizuiro/image/access/homogenous_normal.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>

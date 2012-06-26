@@ -15,6 +15,7 @@
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/sub_view.hpp>
 #include <mizuiro/image/to_pitch_view.hpp>
+#include <mizuiro/image/access/homogenous.hpp>
 #include <mizuiro/image/access/homogenous_normal.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/detail/external_begin.hpp>
