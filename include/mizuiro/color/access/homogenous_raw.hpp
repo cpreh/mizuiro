@@ -7,11 +7,13 @@
 #ifndef MIZUIRO_COLOR_ACCESS_HOMOGENOUS_RAW_HPP_INCLUDED
 #define MIZUIRO_COLOR_ACCESS_HOMOGENOUS_RAW_HPP_INCLUDED
 
+#include <mizuiro/size_type.hpp>
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/is_homogenous.hpp>
 #include <mizuiro/color/access/channel_index.hpp>
 #include <mizuiro/color/access/extract_channel.hpp>
+#include <mizuiro/color/access/stride.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -52,7 +54,9 @@ struct extract_channel<
 	>::type
 	execute(
 		mizuiro::access::raw const &,
-		color::format_store<Format> const &_format,
+		mizuiro::color::format_store<
+			Format
+		> const &_format,
 		Channel const &_channel,
 		Constness const &,
 		typename mizuiro::color::types::pointer<
@@ -64,7 +68,7 @@ struct extract_channel<
 	{
 		return
 			_ptr +
-			access::channel_index<
+			mizuiro::color::access::channel_index<
 				Format,
 				Channel
 			>::execute(
@@ -73,6 +77,34 @@ struct extract_channel<
 			)
 			* sizeof(typename Format::channel_type)
 		;
+	}
+};
+
+template<
+	typename ColorFormat
+>
+struct stride<
+	mizuiro::access::raw,
+	ColorFormat,
+	typename boost::enable_if<
+		mizuiro::color::is_homogenous<
+			ColorFormat
+		>
+	>::type
+>
+{
+	static
+	mizuiro::size_type
+	execute(
+		mizuiro::access::raw const &,
+		mizuiro::color::format_store<
+			ColorFormat
+		> const &
+	)
+	{
+		return
+			ColorFormat::element_count
+			* sizeof(typename ColorFormat::channel_type);
 	}
 };
 

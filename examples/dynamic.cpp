@@ -13,10 +13,12 @@
 #include <mizuiro/color/access/dynamic_channel.hpp>
 #include <mizuiro/color/access/homogenous_dynamic.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
+#include <mizuiro/color/types/homogenous.hpp>
+#include <mizuiro/color/types/homogenous_dynamic.hpp>
+#include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/store.hpp>
-#include <mizuiro/image/access/homogenous_normal.hpp>
 #include <mizuiro/image/access/interleaved.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/algorithm/print.hpp>

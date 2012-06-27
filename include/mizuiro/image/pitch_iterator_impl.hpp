@@ -385,6 +385,7 @@ mizuiro::image::pitch_iterator<
 			Format,
 			Constness
 		>::execute(
+			Access(),
 			this->data(),
 			this->format_store_base()
 		);

@@ -1,10 +1,19 @@
+//          Copyright Carl Philipp Reh 2009 - 2012.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          http://www.boost.org/LICENSE_1_0.txt)
+
+
 #ifndef MIZUIRO_IMAGE_ACCESS_INTERLEAVED_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ACCESS_INTERLEAVED_HPP_INCLUDED
 
-#include <mizuiro/detail/null_ptr.hpp>
-#include <mizuiro/image/format_store_impl.hpp>
+#include <mizuiro/size_type.hpp>
+#include <mizuiro/image/format_store_fwd.hpp>
 #include <mizuiro/image/is_interleaved.hpp>
+#include <mizuiro/image/to_color_format_store.hpp>
+#include <mizuiro/image/access/data_store_size.hpp>
 #include <mizuiro/image/access/dereference.hpp>
+#include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -51,25 +60,95 @@ struct dereference<
 	static
 	result_type
 	execute(
+		Access const &,
 		pointer const _data,
 		mizuiro::image::format_store<
 			ImageFormat
 		> const &_format
 	)
 	{
-		// Currently, interleaved formats have state if their color
-		// formats have state. This code could be simplified if this
-		// will be always the case.
 		return
 			result_type(
 				_data,
-				_format.get()
-				?
-					_format.get()->format_store()
-				:
-					typename ImageFormat::format_store_type(
-						mizuiro::detail::null_ptr()
-					)
+				mizuiro::image::to_color_format_store(
+					_format
+				)
+			);
+	}
+};
+
+template<
+	typename Access,
+	typename ImageFormat
+>
+struct data_store_size<
+	Access,
+	ImageFormat,
+	typename boost::enable_if<
+		mizuiro::image::is_interleaved<
+			ImageFormat
+		>
+	>::type
+>
+{
+	template<
+		typename Dim
+	>
+	static
+	mizuiro::size_type
+	execute(
+		Access const &_access,
+		mizuiro::image::format_store<
+			ImageFormat
+		> const &_format,
+		Dim const &_dim
+	)
+	{
+		return
+			_dim.content()
+			*
+			mizuiro::image::access::stride<
+				Access,
+				ImageFormat
+			>::execute(
+				_access,
+				_format
+			);
+	}
+};
+
+template<
+	typename Access,
+	typename ImageFormat
+>
+struct stride<
+	Access,
+	ImageFormat,
+	typename boost::enable_if<
+		mizuiro::image::is_interleaved<
+			ImageFormat
+		>
+	>::type
+>
+{
+	static
+	mizuiro::size_type
+	execute(
+		Access const &_access,
+		mizuiro::image::format_store<
+			ImageFormat
+		> const &_format
+	)
+	{
+		return
+			mizuiro::color::access::stride<
+				Access,
+				typename ImageFormat::color_format
+			>::execute(
+				_access,
+				mizuiro::image::to_color_format_store(
+					_format
+				)
 			);
 	}
 };

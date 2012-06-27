@@ -4,7 +4,13 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/access/normal.hpp>
+#include <mizuiro/color/homogenous_static.hpp>
+#include <mizuiro/color/layout/rgba.hpp>
+#include <mizuiro/color/layout/bgra.hpp>
+#include <mizuiro/color/layout/rgb.hpp>
+#include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/views_are_compatible.hpp>
@@ -12,12 +18,6 @@
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/linear_view_impl.hpp>
 #include <mizuiro/image/types/interleaved.hpp>
-#include <mizuiro/color/homogenous_static.hpp>
-#include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/color/layout/bgra.hpp>
-#include <mizuiro/color/layout/rgb.hpp>
-#include <mizuiro/access/raw.hpp>
-#include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
 #include <boost/cstdint.hpp>

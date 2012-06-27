@@ -6,14 +6,19 @@
 
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
+#include <mizuiro/color/access/homogenous_normal.hpp>
+#include <mizuiro/color/access/homogenous_static.hpp>
 #include <mizuiro/color/layout/gray.hpp>
+#include <mizuiro/color/types/homogenous.hpp>
+#include <mizuiro/color/types/homogenous_normal.hpp>
+#include <mizuiro/color/types/homogenous_static.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/iterator_position.hpp>
 #include <mizuiro/image/store.hpp>
-#include <mizuiro/image/access/homogenous_normal.hpp>
+#include <mizuiro/image/access/interleaved.hpp>
 #include <mizuiro/image/types/interleaved.hpp>
 #include <mizuiro/image/types/interleaved_normal.hpp>
 #include <mizuiro/detail/external_begin.hpp>

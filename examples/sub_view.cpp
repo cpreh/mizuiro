@@ -8,9 +8,14 @@
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
+#include <mizuiro/color/access/homogenous_normal.hpp>
+#include <mizuiro/color/access/homogenous_static.hpp>
 #include <mizuiro/color/access/homogenous_raw.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
+#include <mizuiro/color/types/homogenous.hpp>
+#include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/color/types/homogenous_raw.hpp>
+#include <mizuiro/color/types/homogenous_static.hpp>
 #include <mizuiro/image/bound.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/interleaved.hpp>
@@ -18,7 +23,6 @@
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/sub_view.hpp>
 #include <mizuiro/image/to_pitch_view.hpp>
-#include <mizuiro/image/access/homogenous_raw.hpp>
 #include <mizuiro/image/access/interleaved.hpp>
 #include <mizuiro/image/algorithm/copy.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
