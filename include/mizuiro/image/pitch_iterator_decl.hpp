@@ -32,21 +32,23 @@ template<
 >
 class pitch_iterator
 :
-	public detail::iterator_base<
-		pitch_iterator<
+	public
+		mizuiro::image::detail::iterator_base<
+			mizuiro::image::pitch_iterator<
+				Access,
+				Format,
+				Constness
+			>,
 			Access,
 			Format,
 			Constness
-		>,
-		Access,
-		Format,
-		Constness
-	>::type,
-	private image::format_base<
-		Format
-	>::type
+		>::type,
+	private
+		mizuiro::image::format_base<
+			Format
+		>::type
 {
-	typedef typename image::format_base<
+	typedef typename mizuiro::image::format_base<
 		Format
 	>::type format_base;
 public:
@@ -58,10 +60,8 @@ public:
 
 	typedef typename format_base::format_store_type format_store_type;
 
-	typedef typename format::color_format color_format;
-
-	typedef typename detail::iterator_base<
-		pitch_iterator<
+	typedef typename mizuiro::image::detail::iterator_base<
+		mizuiro::image::pitch_iterator<
 			access,
 			format,
 			constness
@@ -73,7 +73,7 @@ public:
 
 	typedef typename format::dim dim;
 
-	typedef typename detail::pitch_type<
+	typedef typename mizuiro::image::detail::pitch_type<
 		dim
 	>::type pitch_type;
 
@@ -81,7 +81,7 @@ public:
 
 	typedef typename base::reference reference;
 
-	typedef typename image::types::pointer<
+	typedef typename mizuiro::image::types::pointer<
 		access,
 		format,
 		Constness
@@ -96,7 +96,9 @@ public:
 		pointer data,
 		pitch_type const &,
 		format_store_type const & =
-			image::format_argument<format>::get()
+			mizuiro::image::format_argument<
+				format
+			>::get()
 	);
 
 	dim const &
@@ -154,7 +156,7 @@ private:
 		position_,
 		offset_;
 
-	typedef typename detail::stacked_dim_array<
+	typedef typename mizuiro::image::detail::stacked_dim_array<
 		dim,
 		difference_type
 	>::type stacked_dim_array;

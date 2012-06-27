@@ -37,16 +37,17 @@ template<
 >
 class iterator
 :
-	public detail::iterator_base<
-		iterator<
+	public
+		mizuiro::image::detail::iterator_base<
+			mizuiro::image::iterator<
+				Access,
+				Format,
+				Constness
+			>,
 			Access,
 			Format,
 			Constness
-		>,
-		Access,
-		Format,
-		Constness
-	>::type
+		>::type
 {
 public:
 	typedef Access access;
@@ -55,10 +56,8 @@ public:
 
 	typedef Constness constness;
 
-	typedef typename format::color_format color_format;
-
-	typedef typename detail::iterator_base<
-		iterator<
+	typedef typename mizuiro::image::detail::iterator_base<
+		mizuiro::image::iterator<
 			access,
 			format,
 			constness
@@ -68,13 +67,13 @@ public:
 		constness
 	>::type base;
 
-	typedef image::pitch_iterator<
+	typedef mizuiro::image::pitch_iterator<
 		access,
 		format,
 		constness
 	> pitch_iterator;
 
-	typedef image::linear_iterator<
+	typedef mizuiro::image::linear_iterator<
 		access,
 		format,
 		constness

@@ -9,35 +9,34 @@
 
 #include <mizuiro/detail/normal_format_base_decl.hpp>
 
+
 template<
-	typename Format,
 	typename Store
 >
 mizuiro::detail::normal_format_base<
-	Format,
 	Store
 >::normal_format_base(
 	format_store_type const &_format
 )
 :
-	format_(_format)
+	format_(
+		_format
+	)
 {
 }
 
 template<
-	typename Format,
 	typename Store
 >
 typename mizuiro::detail::normal_format_base<
-	Format,
 	Store
 >::format_store_type const
 mizuiro::detail::normal_format_base<
-	Format,
 	Store
 >::format_store_base() const
 {
-	return format_;
+	return
+		format_;
 }
 
 #endif

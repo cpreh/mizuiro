@@ -4,20 +4,22 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/flipped_view.hpp>
-#include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/sub_view.hpp>
 #include <mizuiro/image/to_pitch_view.hpp>
-#include <mizuiro/image/access/homogenous.hpp>
 #include <mizuiro/image/access/homogenous_normal.hpp>
+#include <mizuiro/image/access/interleaved.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
+#include <mizuiro/image/types/interleaved.hpp>
+#include <mizuiro/image/types/interleaved_normal.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <iostream>
 #include <ostream>
@@ -28,20 +30,19 @@ int main()
 {
 	typedef float channel_type;
 
-	typedef mizuiro::image::format<
+	typedef mizuiro::image::interleaved<
 		mizuiro::image::dimension<
 			2
 		>,
-		mizuiro::image::interleaved<
-			mizuiro::color::homogenous_static<
-				channel_type,
-				mizuiro::color::layout::rgba
-			>
+		mizuiro::color::homogenous_static<
+			channel_type,
+			mizuiro::color::layout::rgba
 		>
 	> format;
 
 	typedef mizuiro::image::store<
-		format
+		format,
+		mizuiro::access::normal
 	> store;
 
 	store img(

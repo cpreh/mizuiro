@@ -1,8 +1,9 @@
-#ifndef MIZUIRO_IMAGE_ACCESS_HOMOGENOUS_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ACCESS_HOMOGENOUS_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_ACCESS_INTERLEAVED_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ACCESS_INTERLEAVED_HPP_INCLUDED
 
-#include <mizuiro/color/is_homogenous.hpp>
+#include <mizuiro/detail/null_ptr.hpp>
 #include <mizuiro/image/format_store_impl.hpp>
+#include <mizuiro/image/is_interleaved.hpp>
 #include <mizuiro/image/access/dereference.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
@@ -29,8 +30,8 @@ struct dereference<
 	ImageFormat,
 	Constness,
 	typename boost::enable_if<
-		mizuiro::color::is_homogenous<
-			typename ImageFormat::color_format
+		mizuiro::image::is_interleaved<
+			ImageFormat
 		>
 	>::type
 >
@@ -56,10 +57,19 @@ struct dereference<
 		> const &_format
 	)
 	{
+		// Currently, interleaved formats have state if their color
+		// formats have state. This code could be simplified if this
+		// will be always the case.
 		return
 			result_type(
 				_data,
-				_format.color_format()
+				_format.get()
+				?
+					_format.get()->format_store()
+				:
+					typename ImageFormat::format_store_type(
+						mizuiro::detail::null_ptr()
+					)
 			);
 	}
 };

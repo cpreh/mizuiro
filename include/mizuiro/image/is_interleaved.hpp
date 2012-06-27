@@ -4,14 +4,14 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_IS_RAW_VIEW_HPP_INCLUDED
-#define MIZUIRO_IMAGE_IS_RAW_VIEW_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_IS_INTERLEAVED_HPP_INCLUDED
+#define MIZUIRO_IMAGE_IS_INTERLEAVED_HPP_INCLUDED
 
-#include <mizuiro/access/raw.hpp>
+#include <mizuiro/image/interleaved_fwd.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/type_traits/is_same.hpp>
+#include <boost/type_traits/integral_constant.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -23,15 +23,28 @@ namespace image
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
-	typename View
+	typename Format
 >
-struct is_raw_view
+struct is_interleaved
 :
-boost::is_same<
-	typename View::access,
-	::mizuiro::access::raw
+boost::false_type
+{
+};
+
+template<
+	typename DimType,
+	typename ColorFormat
 >
-{};
+struct is_interleaved<
+	mizuiro::image::interleaved<
+		DimType,
+		ColorFormat
+	>
+>
+:
+boost::true_type
+{
+};
 
 MIZUIRO_DETAIL_POP_WARNING
 

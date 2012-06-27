@@ -28,8 +28,8 @@ struct format_base
 :
 mizuiro::detail::format_base<
 	Format,
-	image::format_store,
-	image::format_is_static
+	mizuiro::image::format_store,
+	mizuiro::image::format_is_static
 >
 {
 };

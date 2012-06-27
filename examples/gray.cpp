@@ -4,32 +4,32 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/layout/gray.hpp>
 #include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/view.hpp>
-#include <mizuiro/image/access/homogenous.hpp>
 #include <mizuiro/image/access/homogenous_normal.hpp>
+#include <mizuiro/image/access/interleaved.hpp>
 #include <mizuiro/image/algorithm/for_each.hpp>
+#include <mizuiro/image/types/interleaved.hpp>
+#include <mizuiro/image/types/interleaved_normal.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
 
-typedef mizuiro::image::format<
+typedef mizuiro::image::interleaved<
 	mizuiro::image::dimension<
 		2
 	>,
-	mizuiro::image::interleaved<
-		mizuiro::color::homogenous_static<
-			boost::uint8_t,
-			mizuiro::color::layout::gray
-		>
+	mizuiro::color::homogenous_static<
+		boost::uint8_t,
+		mizuiro::color::layout::gray
 	>
 > format;
 
@@ -55,7 +55,8 @@ struct set_color
 int main()
 {
 	typedef mizuiro::image::store<
-		format
+		format,
+		mizuiro::access::normal
 	> store;
 
 	store img(

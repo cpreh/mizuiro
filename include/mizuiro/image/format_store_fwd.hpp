@@ -7,13 +7,14 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_STORE_FWD_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_STORE_FWD_HPP_INCLUDED
 
+
 namespace mizuiro
 {
 namespace image
 {
 
 template<
-	typename Format
+	typename ImageFormat
 >
 class format_store;
 

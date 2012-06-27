@@ -32,7 +32,7 @@ class linear_iterator
 :
 	public
 		mizuiro::image::detail::iterator_base<
-			linear_iterator<
+			mizuiro::image::linear_iterator<
 				Access,
 				Format,
 				Constness
@@ -46,7 +46,7 @@ class linear_iterator
 			Format
 		>::type
 {
-	typedef typename image::format_base<
+	typedef typename mizuiro::image::format_base<
 		Format
 	>::type format_base;
 public:
@@ -58,10 +58,8 @@ public:
 
 	typedef typename format_base::format_store_type format_store_type;
 
-	typedef typename format::color_format color_format;
-
-	typedef typename detail::iterator_base<
-		linear_iterator<
+	typedef typename mizuiro::image::detail::iterator_base<
+		mizuiro::image::linear_iterator<
 			access,
 			format,
 			constness
@@ -75,7 +73,7 @@ public:
 
 	typedef typename base::reference reference;
 
-	typedef typename image::types::pointer<
+	typedef typename mizuiro::image::types::pointer<
 		access,
 		format,
 		Constness
@@ -90,7 +88,9 @@ public:
 	explicit linear_iterator(
 		pointer data,
 		format_store_type const & =
-			image::format_argument<format>::get()
+			mizuiro::image::format_argument<
+				format
+			>::get()
 	);
 
 	pointer

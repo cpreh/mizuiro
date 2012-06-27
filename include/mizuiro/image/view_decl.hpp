@@ -103,14 +103,18 @@ public:
 		pointer data,
 		pitch_type const &,
 		format_store_type const & =
-			image::format_argument<format>::get()
+			mizuiro::image::format_argument<
+				format
+			>::get()
 	);
 
 	view(
 		dim const &,
 		pointer data,
 		format_store_type const & =
-			image::format_argument<format>::get()
+			mizuiro::image::format_argument<
+				format
+			>::get()
 	);
 
 	view(

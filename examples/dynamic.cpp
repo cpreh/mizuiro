@@ -4,6 +4,7 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/homogenous_dynamic.hpp>
 #include <mizuiro/color/init.hpp>
@@ -13,13 +14,14 @@
 #include <mizuiro/color/access/homogenous_dynamic.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/store.hpp>
-#include <mizuiro/image/access/homogenous.hpp>
 #include <mizuiro/image/access/homogenous_normal.hpp>
+#include <mizuiro/image/access/interleaved.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
+#include <mizuiro/image/types/interleaved.hpp>
+#include <mizuiro/image/types/interleaved_normal.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>
 #include <boost/type_traits/is_same.hpp>
@@ -166,17 +168,16 @@ int main()
 		<< test1
 		<< '\n';
 
-	typedef mizuiro::image::format<
+	typedef mizuiro::image::interleaved<
 		mizuiro::image::dimension<
 			2
 		>,
-		mizuiro::image::interleaved<
-			color_uint8_4_format
-		>
+		color_uint8_4_format
 	> image_uint8_4_format;
 
 	typedef mizuiro::image::store<
-		image_uint8_4_format
+		image_uint8_4_format,
+		mizuiro::access::normal
 	> uint8_4_store;
 
 	uint8_4_store store(

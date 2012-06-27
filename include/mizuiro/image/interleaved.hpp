@@ -7,20 +7,9 @@
 #ifndef MIZUIRO_IMAGE_INTERLEAVED_HPP_INCLUDED
 #define MIZUIRO_IMAGE_INTERLEAVED_HPP_INCLUDED
 
-namespace mizuiro
-{
-namespace image
-{
+#include <mizuiro/image/interleaved_decl.hpp>
+#include <mizuiro/image/interleaved_fwd.hpp>
+#include <mizuiro/image/interleaved_impl.hpp>
 
-template<
-	typename ColorFormat
->
-struct interleaved
-{
-	typedef ColorFormat color_format;
-};
-
-}
-}
 
 #endif

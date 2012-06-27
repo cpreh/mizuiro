@@ -7,7 +7,6 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_STORE_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_STORE_DECL_HPP_INCLUDED
 
-#include <mizuiro/color/format_store_decl.hpp>
 #include <mizuiro/detail/make_optional.hpp>
 #include <mizuiro/detail/optional_impl.hpp>
 #include <mizuiro/image/format_store_fwd.hpp>
@@ -19,33 +18,26 @@ namespace image
 {
 
 template<
-	typename Format
+	typename ImageFormat
 >
 class format_store
 {
 public:
 	typedef typename mizuiro::detail::make_optional<
-		Format
+		ImageFormat
 	>::type optional_format;
-
-	typedef color::format_store<
-		typename Format::color_format
-	> color_format_store;
 
 	// compatibility to format_argument
 	explicit format_store(
-		Format const *
+		ImageFormat const *
 	);
 
 	explicit format_store(
-		Format const &
+		ImageFormat const &
 	);
 
 	optional_format const
 	get() const;
-
-	color_format_store const
-	color_format() const;
 private:
 	optional_format format_;
 };

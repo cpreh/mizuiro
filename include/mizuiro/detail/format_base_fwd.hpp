@@ -37,14 +37,12 @@ boost::mpl::if_<
 	FormatIsStatic<
 		Format
 	>,
-	detail::empty_format_base<
-		Format,
+	mizuiro::detail::empty_format_base<
 		FormatStore<
 			Format
 		>
 	>,
-	detail::normal_format_base<
-		Format,
+	mizuiro::detail::normal_format_base<
 		FormatStore<
 			Format
 		>

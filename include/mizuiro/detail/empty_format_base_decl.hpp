@@ -15,7 +15,6 @@ namespace detail
 {
 
 template<
-	typename Format,
 	typename Store
 >
 class empty_format_base

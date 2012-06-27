@@ -10,18 +10,19 @@
 #include <mizuiro/color/access/homogenous_raw.hpp>
 #include <mizuiro/color/layout/alpha.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
+#include <mizuiro/color/types/homogenous_raw.hpp>
 #include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/view.hpp>
-#include <mizuiro/image/access/homogenous.hpp>
 #include <mizuiro/image/access/homogenous_raw.hpp>
+#include <mizuiro/image/access/interleaved.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
-#include <mizuiro/image/types/raw.hpp>
+#include <mizuiro/image/types/interleaved.hpp>
+#include <mizuiro/image/types/interleaved_raw.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
@@ -37,13 +38,11 @@ template<
 >
 struct make_2d_format
 {
-	typedef mizuiro::image::format<
+	typedef mizuiro::image::interleaved<
 		mizuiro::image::dimension<
 			2
 		>,
-		mizuiro::image::interleaved<
-			Format
-		>
+		Format
 	> type;
 };
 

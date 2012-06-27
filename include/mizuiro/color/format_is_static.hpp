@@ -14,6 +14,7 @@
 #include <boost/type_traits/integral_constant.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -35,7 +36,7 @@ template<
 	typename Layout
 >
 struct format_is_static<
-	color::homogenous_static<
+	mizuiro::color::homogenous_static<
 		ChannelType,
 		Layout
 	>

@@ -28,8 +28,8 @@ struct format_base
 :
 mizuiro::detail::format_base<
 	Format,
-	color::format_store,
-	color::format_is_static
+	mizuiro::color::format_store,
+	mizuiro::color::format_is_static
 >
 {
 };

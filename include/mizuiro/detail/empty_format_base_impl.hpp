@@ -12,11 +12,9 @@
 
 
 template<
-	typename Format,
 	typename Store
 >
 mizuiro::detail::empty_format_base<
-	Format,
 	Store
 >::empty_format_base(
 	format_store_type const &
@@ -25,15 +23,12 @@ mizuiro::detail::empty_format_base<
 }
 
 template<
-	typename Format,
 	typename Store
 >
 typename mizuiro::detail::empty_format_base<
-	Format,
 	Store
 >::format_store_type const
 mizuiro::detail::empty_format_base<
-	Format,
 	Store
 >::format_store_base() const
 {

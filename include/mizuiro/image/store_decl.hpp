@@ -17,7 +17,6 @@
 #include <mizuiro/image/store_fwd.hpp>
 #include <mizuiro/image/detail/raw_container_decl.hpp>
 #include <mizuiro/image/types/data_store.hpp>
-#include <mizuiro/image/types/normal.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 
 
@@ -34,11 +33,12 @@ template<
 >
 class store
 :
-	private image::format_base<
-		Format
-	>::type
+	private
+		mizuiro::image::format_base<
+			Format
+		>::type
 {
-	typedef typename image::format_base<
+	typedef typename mizuiro::image::format_base<
 		Format
 	>::type format_base;
 public:
@@ -48,15 +48,13 @@ public:
 
 	typedef typename format_base::format_store_type format_store_type;
 
-	typedef typename format::color_format color_format;
-
-	typedef typename image::types::pointer<
+	typedef typename mizuiro::image::types::pointer<
 		access,
 		format,
 		mizuiro::nonconst_tag
 	>::type pointer;
 
-	typedef typename image::types::pointer<
+	typedef typename mizuiro::image::types::pointer<
 		access,
 		format,
 		mizuiro::const_tag
@@ -64,13 +62,13 @@ public:
 
 	typedef typename format::dim dim;
 
-	typedef image::linear_view<
+	typedef mizuiro::image::linear_view<
 		access,
 		format,
 		mizuiro::nonconst_tag
 	> view_type;
 
-	typedef image::linear_view<
+	typedef mizuiro::image::linear_view<
 		access,
 		format,
 		mizuiro::const_tag
@@ -78,13 +76,17 @@ public:
 
 	explicit store(
 		format_store_type const & =
-			image::format_argument<format>::get()
+			mizuiro::image::format_argument<
+				format
+			>::get()
 	);
 
 	explicit store(
 		dim const &,
 		format_store_type const & =
-			image::format_argument<format>::get()
+			mizuiro::image::format_argument<
+				format
+			>::get()
 	);
 
 	pointer
@@ -106,7 +108,7 @@ private:
 
 	typedef typename mizuiro::image::types::data_store<
 		access,
-		typename format::color_format // TODO!
+		format
 	>::type container;
 
 	container data_;

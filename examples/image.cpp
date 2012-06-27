@@ -4,18 +4,20 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/image/const_view.hpp>
 #include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/view.hpp>
-#include <mizuiro/image/access/homogenous.hpp>
 #include <mizuiro/image/access/homogenous_normal.hpp>
+#include <mizuiro/image/access/interleaved.hpp>
+#include <mizuiro/image/types/interleaved.hpp>
+#include <mizuiro/image/types/interleaved_normal.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>
@@ -25,20 +27,19 @@
 
 int main()
 {
-	typedef mizuiro::image::format<
+	typedef mizuiro::image::interleaved<
 		mizuiro::image::dimension<
 			3
 		>,
-		mizuiro::image::interleaved<
-			mizuiro::color::homogenous_static<
-				boost::uint8_t,
-				mizuiro::color::layout::rgba
-			>
+		mizuiro::color::homogenous_static<
+			boost::uint8_t,
+			mizuiro::color::layout::rgba
 		>
 	> format;
 
 	typedef mizuiro::image::store<
-		format
+		format,
+		mizuiro::access::normal
 	> store;
 
 	store img(

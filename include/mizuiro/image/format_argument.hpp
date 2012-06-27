@@ -22,17 +22,17 @@ namespace image
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
-	typename Format
+	typename ImageFormat
 >
 struct format_argument
 :
 mizuiro::detail::format_argument<
-	Format,
-	image::format_is_static<
-		Format
+	ImageFormat,
+	mizuiro::image::format_is_static<
+		ImageFormat
 	>,
-	image::format_store<
-		Format
+	mizuiro::image::format_store<
+		ImageFormat
 	>
 >
 {

@@ -12,11 +12,15 @@
 #include <mizuiro/image/access/data_store_size.hpp>
 #include <mizuiro/image/detail/raw_container_impl.hpp>
 
+
 template<
 	typename Format,
 	typename Access
 >
-mizuiro::image::store<Format, Access>::store(
+mizuiro::image::store<
+	Format,
+	Access
+>::store(
 	format_store_type const &_format
 )
 :
@@ -34,7 +38,10 @@ template<
 	typename Format,
 	typename Access
 >
-mizuiro::image::store<Format, Access>::store(
+mizuiro::image::store<
+	Format,
+	Access
+>::store(
 	dim const &_size,
 	format_store_type const &_format
 )
@@ -62,10 +69,17 @@ template<
 	typename Format,
 	typename Access
 >
-typename mizuiro::image::store<Format, Access>::pointer
-mizuiro::image::store<Format, Access>::data()
+typename mizuiro::image::store<
+	Format,
+	Access
+>::pointer
+mizuiro::image::store<
+	Format,
+	Access
+>::data()
 {
-	return data_.data();
+	return
+		data_.data();
 }
 
 template<

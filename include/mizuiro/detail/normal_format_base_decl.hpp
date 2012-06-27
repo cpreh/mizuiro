@@ -15,7 +15,6 @@ namespace detail
 {
 
 template<
-	typename Format,
 	typename Store
 >
 class normal_format_base

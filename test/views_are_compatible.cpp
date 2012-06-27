@@ -4,14 +4,14 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/access/normal.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/views_are_compatible.hpp>
-#include <mizuiro/image/format.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/linear_view_impl.hpp>
-#include <mizuiro/image/types/normal.hpp>
+#include <mizuiro/image/types/interleaved.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/bgra.hpp>
@@ -26,63 +26,53 @@
 namespace
 {
 
-typedef mizuiro::image::format<
+typedef mizuiro::image::interleaved<
 	mizuiro::image::dimension<
 		3
 	>,
-	mizuiro::image::interleaved<
-		mizuiro::color::homogenous_static<
-			boost::uint8_t,
-			mizuiro::color::layout::rgba
-		>
+	mizuiro::color::homogenous_static<
+		boost::uint8_t,
+		mizuiro::color::layout::rgba
 	>
 > format_3d_rgba8;
 
-typedef mizuiro::image::format<
+typedef mizuiro::image::interleaved<
 	mizuiro::image::dimension<
 		3
 	>,
-	mizuiro::image::interleaved<
-		mizuiro::color::homogenous_static<
-			boost::uint8_t,
-			mizuiro::color::layout::bgra
-		>
+	mizuiro::color::homogenous_static<
+		boost::uint8_t,
+		mizuiro::color::layout::bgra
 	>
 > format_3d_bgra8;
 
-typedef mizuiro::image::format<
+typedef mizuiro::image::interleaved<
 	mizuiro::image::dimension<
 		2
 	>,
-	mizuiro::image::interleaved<
-		mizuiro::color::homogenous_static<
-			boost::uint8_t,
-			mizuiro::color::layout::bgra
-		>
+	mizuiro::color::homogenous_static<
+		boost::uint8_t,
+		mizuiro::color::layout::bgra
 	>
 > format_2d_bgra8;
 
-typedef mizuiro::image::format<
+typedef mizuiro::image::interleaved<
 	mizuiro::image::dimension<
 		2
 	>,
-	mizuiro::image::interleaved<
-		mizuiro::color::homogenous_static<
-			float,
-			mizuiro::color::layout::bgra
-		>
+	mizuiro::color::homogenous_static<
+		float,
+		mizuiro::color::layout::bgra
 	>
 > format_2d_bgra_f;
 
-typedef mizuiro::image::format<
+typedef mizuiro::image::interleaved<
 	mizuiro::image::dimension<
 		2
 	>,
-	mizuiro::image::interleaved<
-		mizuiro::color::homogenous_static<
-			float,
-			mizuiro::color::layout::rgb
-		>
+	mizuiro::color::homogenous_static<
+		float,
+		mizuiro::color::layout::rgb
 	>
 > format_2d_rgb8;
 
