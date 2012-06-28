@@ -7,7 +7,6 @@
 #ifndef MIZUIRO_IMAGE_TYPES_VALUE_TYPE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_TYPES_VALUE_TYPE_HPP_INCLUDED
 
-#include <mizuiro/color/object_impl.hpp>
 
 namespace mizuiro
 {
@@ -20,12 +19,7 @@ template<
 	typename Format,
 	typename Enable = void
 >
-struct value_type
-{
-	typedef ::mizuiro::color::object<
-		typename Format::color_format
-	> type;
-};
+struct value_type;
 
 }
 }

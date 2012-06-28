@@ -7,9 +7,11 @@
 #ifndef MIZUIRO_IMAGE_TYPES_INTERLEAVED_HPP_INCLUDED
 #define MIZUIRO_IMAGE_TYPES_INTERLEAVED_HPP_INCLUDED
 
+#include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/image/is_interleaved.hpp>
 #include <mizuiro/image/types/pointer.hpp>
+#include <mizuiro/image/types/value_type.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 
@@ -48,6 +50,23 @@ mizuiro::color::types::pointer<
 };
 
 MIZUIRO_DETAIL_POP_WARNING
+
+template<
+	typename ImageFormat
+>
+struct value_type<
+	ImageFormat,
+	typename boost::enable_if<
+		mizuiro::image::is_interleaved<
+			ImageFormat
+		>
+	>::type
+>
+{
+	typedef ::mizuiro::color::object<
+		typename ImageFormat::color_format
+	> type;
+};
 
 }
 }
