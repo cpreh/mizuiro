@@ -6,6 +6,8 @@
 
 #include <mizuiro/apply_const.hpp>
 #include <mizuiro/nonconst_tag.hpp>
+#include <mizuiro/raw_pointer.hpp>
+#include <mizuiro/raw_value.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
@@ -99,7 +101,7 @@ struct pointer<
 >
 :
 mizuiro::apply_const<
-	unsigned char *,
+	mizuiro::raw_pointer,
 	Constness
 >
 {
@@ -242,7 +244,7 @@ class proxy
 		proxy
 	);
 public:
-	typedef unsigned char *pointer;
+	typedef mizuiro::raw_pointer pointer;
 
 	explicit proxy(
 		pointer const _data
@@ -295,7 +297,8 @@ private:
 
 }
 
-int main()
+int
+main()
 {
 	typedef unsigned value_type;
 
@@ -313,7 +316,7 @@ int main()
 	> native_view;
 
 	typedef std::vector<
-		unsigned char
+		mizuiro::raw_value
 	> raw_vector;
 
 	dim2 const size(
