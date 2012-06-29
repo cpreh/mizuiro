@@ -7,13 +7,13 @@
 #ifndef MIZUIRO_COLOR_TYPES_HOMOGENOUS_NORMAL_HPP_INCLUDED
 #define MIZUIRO_COLOR_TYPES_HOMOGENOUS_NORMAL_HPP_INCLUDED
 
+#include <mizuiro/apply_const.hpp>
 #include <mizuiro/array.hpp>
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/is_homogenous.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
-#include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -39,17 +39,18 @@ struct pointer<
 	Format,
 	Constness,
 	typename boost::enable_if<
-		color::is_homogenous<
+		mizuiro::color::is_homogenous<
 			Format
 		>
 	>::type
 >
 :
-mizuiro::detail::apply_const<
+mizuiro::apply_const<
 	typename Format::channel_type *,
 	Constness
 >
-{};
+{
+};
 
 template<
 	typename Format,
@@ -62,17 +63,18 @@ struct channel_reference<
 	Channel,
 	Constness,
 	typename boost::enable_if<
-		color::is_homogenous<
+		mizuiro::color::is_homogenous<
 			Format
 		>
 	>::type
 >
 :
-mizuiro::detail::apply_const<
+mizuiro::apply_const<
 	typename Format::channel_type &,
 	Constness
 >
-{};
+{
+};
 
 template<
 	typename Format
@@ -81,7 +83,7 @@ struct store<
 	::mizuiro::access::normal,
 	Format,
 	typename boost::enable_if<
-		color::is_homogenous<
+		mizuiro::color::is_homogenous<
 			Format
 		>
 	>::type
@@ -91,7 +93,8 @@ mizuiro::array<
 	typename Format::channel_type,
 	Format::element_count
 >
-{};
+{
+};
 
 MIZUIRO_DETAIL_POP_WARNING
 

@@ -12,8 +12,8 @@
 #include <mizuiro/image/format_argument.hpp>
 #include <mizuiro/image/format_base_decl.hpp>
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
+#include <mizuiro/image/pitch_type.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
-#include <mizuiro/image/detail/pitch_type.hpp>
 #include <mizuiro/image/detail/stacked_dim_array.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 
@@ -73,7 +73,7 @@ public:
 
 	typedef typename format::dim dim;
 
-	typedef typename mizuiro::image::detail::pitch_type<
+	typedef typename mizuiro::image::pitch_type<
 		dim
 	>::type pitch_type;
 

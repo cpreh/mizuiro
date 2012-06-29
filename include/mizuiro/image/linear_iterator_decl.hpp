@@ -83,7 +83,7 @@ public:
 
 	typedef typename base::iterator_category iterator_category;
 
-	typedef typename format::pitch_type pitch_type;
+	typedef typename format::pitch pitch_type;
 
 	explicit linear_iterator(
 		pointer data,

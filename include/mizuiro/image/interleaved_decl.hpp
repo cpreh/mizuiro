@@ -12,7 +12,7 @@
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/interleaved_fwd.hpp>
-#include <mizuiro/image/detail/pitch_type.hpp>
+#include <mizuiro/image/pitch_type.hpp>
 
 
 namespace mizuiro
@@ -44,9 +44,9 @@ public:
 
 	typedef DimType dim;
 
-	typedef typename mizuiro::image::detail::pitch_type<
+	typedef typename mizuiro::image::pitch_type<
 		dim
-	>::type pitch_type;
+	>::type pitch;
 
 	explicit interleaved(
 		format_store_type const & =

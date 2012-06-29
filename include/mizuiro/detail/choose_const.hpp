@@ -10,6 +10,7 @@
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 
+
 namespace mizuiro
 {
 namespace detail
@@ -27,7 +28,7 @@ struct choose_const<
 	T *
 >
 {
-	typedef nonconst_tag type;
+	typedef mizuiro::nonconst_tag type;
 };
 
 template<
@@ -37,7 +38,7 @@ struct choose_const<
 	T const *
 >
 {
-	typedef const_tag type;
+	typedef mizuiro::const_tag type;
 };
 
 }

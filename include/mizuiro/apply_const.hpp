@@ -4,15 +4,14 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_DETAIL_APPLY_CONST_HPP_INCLUDED
-#define MIZUIRO_DETAIL_APPLY_CONST_HPP_INCLUDED
+#ifndef MIZUIRO_APPLY_CONST_HPP_INCLUDED
+#define MIZUIRO_APPLY_CONST_HPP_INCLUDED
 
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 
+
 namespace mizuiro
-{
-namespace detail
 {
 
 template<
@@ -62,7 +61,6 @@ struct apply_const<
 	typedef BaseType type;
 };
 
-}
 }
 
 #endif

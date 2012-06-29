@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_COLOR_TYPES_HOMOGENOUS_RAW_HPP_INCLUDED
 #define MIZUIRO_COLOR_TYPES_HOMOGENOUS_RAW_HPP_INCLUDED
 
+#include <mizuiro/apply_const.hpp>
 #include <mizuiro/array.hpp>
 #include <mizuiro/raw_pointer.hpp>
 #include <mizuiro/raw_value.hpp>
@@ -18,7 +19,6 @@
 #include <mizuiro/color/types/homogenous.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
-#include <mizuiro/detail/apply_const.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -44,13 +44,13 @@ struct pointer<
 	Format,
 	Constness,
 	typename boost::enable_if<
-		color::is_homogenous<
+		mizuiro::color::is_homogenous<
 			Format
 		>
 	>::type
 >
 :
-mizuiro::detail::apply_const<
+mizuiro::apply_const<
 	mizuiro::raw_pointer,
 	Constness
 >
@@ -70,19 +70,19 @@ struct channel_reference<
 	Channel,
 	Constness,
 	typename boost::enable_if<
-		color::is_homogenous<
+		mizuiro::color::is_homogenous<
 			Format
 		>
 	>::type
 >
 {
-	typedef color::channel_proxy<
+	typedef mizuiro::color::channel_proxy<
 		typename types::pointer<
 			::mizuiro::access::raw,
 			Format,
 			Constness
 		>::type,
-		typename types::channel_value<
+		typename mizuiro::color::types::channel_value<
 			Format,
 			Channel
 		>::type
@@ -98,7 +98,7 @@ struct store<
 	::mizuiro::access::raw,
 	Format,
 	typename boost::enable_if<
-		color::is_homogenous<
+		mizuiro::color::is_homogenous<
 			Format
 		>
 	>::type
