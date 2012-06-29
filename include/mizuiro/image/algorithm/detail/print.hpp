@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_PRINT_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_PRINT_HPP_INCLUDED
 
-#include <mizuiro/color/output.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
+
 
 namespace mizuiro
 {
@@ -30,12 +30,16 @@ class print
 public:
 	typedef void result_type;
 
-	explicit print(
+	explicit
+	print(
 		Sink &_sink
 	)
 	:
-		sink_(_sink)
-	{}
+		sink_(
+			_sink
+		)
+	{
+	}
 
 	template<
 		typename Src

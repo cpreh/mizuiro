@@ -7,7 +7,6 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_COPY_ELEMENT_OVERLAPPING_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_COPY_ELEMENT_OVERLAPPING_HPP_INCLUDED
 
-#include <mizuiro/color/object.hpp>
 
 namespace mizuiro
 {
@@ -18,6 +17,9 @@ namespace algorithm
 namespace detail
 {
 
+template<
+	typename ValueType
+>
 struct copy_element_overlapping
 {
 	typedef void result_type;
@@ -32,11 +34,7 @@ struct copy_element_overlapping
 		Dest const &_dest
 	) const
 	{
-		typedef mizuiro::color::object<
-			typename Src::format
-		> temp_object;
-
-		temp_object const temp(
+		ValueType const temp(
 			_src
 		);
 

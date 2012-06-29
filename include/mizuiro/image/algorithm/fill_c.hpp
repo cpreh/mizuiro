@@ -12,6 +12,7 @@
 #include <boost/spirit/home/phoenix/core/value.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
+
 namespace mizuiro
 {
 namespace image
@@ -21,18 +22,18 @@ namespace algorithm
 
 template<
 	typename ViewD,
-	typename Color
+	typename Value
 >
 void
 fill_c(
 	ViewD const &_dest,
-	Color const &_color
+	Value const &_value
 )
 {
-	algorithm::fill(
+	mizuiro::image::algorithm::fill(
 		_dest,
 		boost::phoenix::val(
-			_color
+			_value
 		)
 	);
 }

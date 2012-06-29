@@ -11,6 +11,7 @@
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/detail/copy_element.hpp>
 #include <mizuiro/image/algorithm/detail/copy_element_overlapping.hpp>
+#include <mizuiro/image/types/value_type.hpp>
 
 
 namespace mizuiro
@@ -28,21 +29,26 @@ void
 copy_different_channel_order(
 	ViewS const &_src,
 	ViewD const &_dest,
-	algorithm::may_overlap::type const _overlap
+	mizuiro::image::algorithm::may_overlap::type const _overlap
 )
 {
 	if(
 		_overlap
-		== algorithm::may_overlap::yes
+		==
+		mizuiro::image::algorithm::may_overlap::yes
 	)
-		algorithm::binary_iteration(
-			algorithm::detail::copy_element_overlapping(),
+		mizuiro::image::algorithm::binary_iteration(
+			mizuiro::image::algorithm::detail::copy_element_overlapping<
+				typename mizuiro::image::types::value_type<
+					typename ViewS::format
+				>::type
+			>(),
 			_src,
 			_dest
 		);
 	else
-		algorithm::binary_iteration(
-			algorithm::detail::copy_element(),
+		mizuiro::image::algorithm::binary_iteration(
+			mizuiro::image::algorithm::detail::copy_element(),
 			_src,
 			_dest
 		);
