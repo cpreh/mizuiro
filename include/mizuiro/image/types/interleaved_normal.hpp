@@ -8,9 +8,9 @@
 #define MIZUIRO_IMAGE_TYPES_INTERLEAVED_NORMAL_HPP_INCLUDED
 
 #include <mizuiro/access/normal.hpp>
-#include <mizuiro/color/types/store.hpp>
+#include <mizuiro/image/is_interleaved.hpp>
 #include <mizuiro/image/detail/raw_container_fwd.hpp>
-#include <mizuiro/image/types/data_store.hpp>
+#include <mizuiro/image/types/store.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -26,7 +26,7 @@ namespace types
 template<
 	typename ImageFormat
 >
-struct data_store<
+struct store<
 	::mizuiro::access::normal,
 	ImageFormat,
 	typename boost::enable_if<

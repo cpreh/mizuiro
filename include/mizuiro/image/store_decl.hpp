@@ -16,8 +16,8 @@
 #include <mizuiro/image/linear_view_fwd.hpp>
 #include <mizuiro/image/store_fwd.hpp>
 #include <mizuiro/image/detail/raw_container_decl.hpp>
-#include <mizuiro/image/types/data_store.hpp>
 #include <mizuiro/image/types/pointer.hpp>
+#include <mizuiro/image/types/store.hpp>
 
 
 namespace mizuiro
@@ -106,7 +106,7 @@ public:
 private:
 	dim size_;
 
-	typedef typename mizuiro::image::types::data_store<
+	typedef typename mizuiro::image::types::store<
 		access,
 		format
 	>::type container;

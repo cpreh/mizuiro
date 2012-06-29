@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_ACCESS_DATA_STORE_SIZE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ACCESS_DATA_STORE_SIZE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_ACCESS_STORE_SIZE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ACCESS_STORE_SIZE_HPP_INCLUDED
 
 namespace mizuiro
 {
@@ -19,7 +19,7 @@ template<
 	typename ImageFormat,
 	typename Enable = void
 >
-struct data_store_size;
+struct store_size;
 
 }
 }

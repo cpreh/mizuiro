@@ -4,8 +4,9 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_TYPES_DATA_STORE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_TYPES_DATA_STORE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_TYPES_STORE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_TYPES_STORE_HPP_INCLUDED
+
 
 namespace mizuiro
 {
@@ -19,7 +20,7 @@ template<
 	typename Format,
 	typename Enable = void
 >
-struct data_store;
+struct store;
 
 }
 }

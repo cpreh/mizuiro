@@ -9,8 +9,8 @@
 
 #include <mizuiro/image/store_decl.hpp>
 #include <mizuiro/image/view_impl.hpp>
-#include <mizuiro/image/access/data_store_size.hpp>
 #include <mizuiro/image/detail/raw_container_impl.hpp>
+#include <mizuiro/image/access/store_size.hpp>
 
 
 template<
@@ -53,7 +53,7 @@ mizuiro::image::store<
 		_size
 	),
 	data_(
-		mizuiro::image::access::data_store_size<
+		mizuiro::image::access::store_size<
 			Access,
 			Format
 		>::execute(

@@ -8,12 +8,13 @@
 #define MIZUIRO_IMAGE_ACCESS_INTERLEAVED_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
+#include <mizuiro/color/access/stride.hpp>
 #include <mizuiro/image/format_store_fwd.hpp>
 #include <mizuiro/image/is_interleaved.hpp>
 #include <mizuiro/image/to_color_format_store.hpp>
-#include <mizuiro/image/access/data_store_size.hpp>
 #include <mizuiro/image/access/dereference.hpp>
 #include <mizuiro/image/access/stride.hpp>
+#include <mizuiro/image/access/store_size.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -81,7 +82,7 @@ template<
 	typename Access,
 	typename ImageFormat
 >
-struct data_store_size<
+struct store_size<
 	Access,
 	ImageFormat,
 	typename boost::enable_if<
