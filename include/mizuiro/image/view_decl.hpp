@@ -88,7 +88,7 @@ public:
 		typename dim::value_type
 	> bound_type;
 
-	typedef typename format::pitch_type pitch_type;
+	typedef typename format::pitch pitch_type;
 
 	explicit view(
 		linear_view const &
