@@ -10,7 +10,6 @@
 #include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_impl.hpp>
-#include <mizuiro/color/access/convert.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -22,6 +21,7 @@ namespace color
 {
 
 template<
+	typename Converter,
 	typename DestFormat,
 	typename Src
 >
@@ -29,23 +29,24 @@ typename boost::enable_if<
 	mizuiro::color::is_color<
 		Src
 	>,
-	color::object<
+	mizuiro::color::object<
 		DestFormat
 	>
 >::type
 convert(
 	Src const &_src,
-	typename color::object<
+	typename mizuiro::color::object<
 		DestFormat
 	>::format_store_type const &_dest_format =
-		color::format_argument<DestFormat>::get()
+		mizuiro::color::format_argument<
+			DestFormat
+		>::get()
 )
 {
 	return
-		color::access::convert<
-			typename Src::format,
+		Converter:: template execute<
 			DestFormat
-		>::execute(
+		>(
 			_src,
 			_dest_format
 		);

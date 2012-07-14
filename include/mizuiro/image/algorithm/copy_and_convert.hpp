@@ -25,11 +25,12 @@ namespace algorithm
 {
 
 template<
+	typename Converter,
 	typename ViewS,
 	typename ViewD
 >
 typename boost::disable_if<
-	image::views_are_compatible<
+	mizuiro::image::views_are_compatible<
 		ViewS,
 		ViewD
 	>,
@@ -38,22 +39,25 @@ typename boost::disable_if<
 copy_and_convert(
 	ViewS const &_src,
 	ViewD const &_dest,
-	algorithm::may_overlap::type
+	mizuiro::image::algorithm::may_overlap::type
 )
 {
-	algorithm::binary_iteration(
-		detail::copy_and_convert(),
+	mizuiro::image::algorithm::binary_iteration(
+		mizuiro::image::algorithm::detail::copy_and_convert<
+			Converter
+		>(),
 		_src,
 		_dest
 	);
 }
 
 template<
+	typename Converter,
 	typename ViewS,
 	typename ViewD
 >
 typename boost::enable_if<
-	image::views_are_compatible<
+	mizuiro::image::views_are_compatible<
 		ViewS,
 		ViewD
 	>,
@@ -62,10 +66,10 @@ typename boost::enable_if<
 copy_and_convert(
 	ViewS const &_src,
 	ViewD const &_dest,
-	algorithm::may_overlap::type const _overlap
+	mizuiro::image::algorithm::may_overlap::type const _overlap
 )
 {
-	algorithm::copy(
+	mizuiro::image::algorithm::copy(
 		_src,
 		_dest,
 		_overlap

@@ -11,6 +11,7 @@
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/color/access/homogenous_static.hpp>
+#include <mizuiro/color/convert_static/converter.hpp>
 #include <mizuiro/color/layout/hsva.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
@@ -54,6 +55,7 @@ int main()
 
 	rgba_object const converted(
 		mizuiro::color::convert<
+			mizuiro::color::convert_static::converter,
 			rgba_format
 		>(
 			source

@@ -8,13 +8,10 @@
 #define MIZUIRO_COLOR_ACCESS_HOMOGENOUS_STATIC_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/color/convert_static.hpp>
 #include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/is_homogenous_static.hpp>
-#include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/access/channel_index.hpp>
 #include <mizuiro/color/access/compare_channels.hpp>
-#include <mizuiro/color/access/convert.hpp>
 #include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/access/is_last_channel.hpp>
 #include <mizuiro/color/access/layout.hpp>
@@ -25,6 +22,7 @@
 #include <boost/fusion/adapted/mpl.hpp>
 #include <boost/mpl/size.hpp>
 #include <boost/type_traits/is_same.hpp>
+#include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -178,46 +176,6 @@ struct has_channel<
 				Format,
 				Channel
 			>::value;
-	}
-};
-
-template<
-	typename SourceFormat,
-	typename DestFormat
->
-struct convert<
-	SourceFormat,
-	DestFormat,
-	typename boost::enable_if<
-		boost::mpl::and_<
-			mizuiro::color::is_homogenous_static<
-				SourceFormat
-			>,
-			mizuiro::color::is_homogenous_static<
-				DestFormat
-			>
-		>
-	>::type
->
-{
-	template<
-		typename Source
-	>
-	static
-	color::object<
-		DestFormat
-	> const
-	execute(
-		Source const &_source,
-		color::format_store<DestFormat> const &
-	)
-	{
-		return
-			color::convert_static::convert<
-				DestFormat
-			>(
-				_source
-			);
 	}
 };
 

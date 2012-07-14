@@ -11,7 +11,8 @@
 #include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/color/access/homogenous_static.hpp>
 #include <mizuiro/color/access/homogenous_raw.hpp>
-#include <mizuiro/color/layout/alpha.hpp>
+#include <mizuiro/color/convert_static/converter.hpp>
+#include <mizuiro/color/layout/rgb.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
 #include <mizuiro/color/types/homogenous_normal.hpp>
@@ -67,9 +68,9 @@ int main()
 	typedef make_2d_format<
 		mizuiro::color::homogenous_static<
 			base_type,
-			mizuiro::color::layout::alpha
+			mizuiro::color::layout::rgb
 		>
-	>::type alpha_format;
+	>::type rgb_format;
 
 	typedef make_2d_format<
 		mizuiro::color::homogenous_static<
@@ -83,7 +84,7 @@ int main()
 			3
 		),
 		height(
-			12
+			4
 		);
 
 	typedef mizuiro::array<
@@ -91,7 +92,7 @@ int main()
 		width
 		* height
 		* sizeof(base_type)
-		* alpha_format::color_format::element_count
+		* rgb_format::color_format::element_count
 	>::type raw_array;
 
 	raw_array const data = {{
@@ -123,9 +124,11 @@ int main()
 		dim
 	);
 
-	mizuiro::image::algorithm::copy_and_convert(
+	mizuiro::image::algorithm::copy_and_convert<
+		mizuiro::color::convert_static::converter
+	>(
 		mizuiro::image::make_raw_view<
-			alpha_format
+			rgb_format
 		>(
 			data.data(),
 			dim,

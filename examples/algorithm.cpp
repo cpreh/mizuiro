@@ -12,6 +12,7 @@
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/color/access/homogenous_static.hpp>
+#include <mizuiro/color/convert_static/converter.hpp>
 #include <mizuiro/color/layout/argb.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
@@ -183,7 +184,9 @@ int main()
 		dim
 	);
 
-	mizuiro::image::algorithm::copy_and_convert(
+	mizuiro::image::algorithm::copy_and_convert<
+		mizuiro::color::convert_static::converter
+	>(
 		mizuiro::image::make_const_view(
 			img1.view()
 		),

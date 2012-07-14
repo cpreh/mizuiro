@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/convert.hpp>
 
+
 namespace mizuiro
 {
 namespace image
@@ -18,6 +19,10 @@ namespace algorithm
 namespace detail
 {
 
+
+template<
+	typename Converter
+>
 struct copy_and_convert
 {
 	typedef void result_type;
@@ -33,10 +38,12 @@ struct copy_and_convert
 	) const
 	{
 		_dest =
-			color::convert<
+			mizuiro::color::convert<
+				Converter,
 				typename Dest::format
 			>(
-				_src
+				_src,
+				_dest.format_store()
 			);
 	}
 };

@@ -11,8 +11,8 @@
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/color/access/homogenous_static.hpp>
-#include <mizuiro/color/layout/alpha.hpp>
-#include <mizuiro/color/layout/gray.hpp>
+#include <mizuiro/color/convert_static/converter.hpp>
+#include <mizuiro/color/layout/rgb.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
 #include <mizuiro/color/types/homogenous_normal.hpp>
@@ -38,86 +38,51 @@ int main()
 	typedef mizuiro::color::object<
 		mizuiro::color::homogenous_static<
 			channel_type,
-			mizuiro::color::layout::gray
+			mizuiro::color::layout::rgb
 		>
-	> luminance_color;
+	> rgb_color;
 
-	typedef mizuiro::color::object<
-		mizuiro::color::homogenous_static<
-			channel_type,
-			mizuiro::color::layout::alpha
-		>
-	> alpha_color;
-
-	luminance_color test_luminance(
-		(mizuiro::color::init::luminance() = static_cast<channel_type>(42))
+	rgba_color const test_rgba(
+		(mizuiro::color::init::red() = static_cast<channel_type>(42))
+		(mizuiro::color::init::blue() = static_cast<channel_type>(10))
+		(mizuiro::color::init::green() = static_cast<channel_type>(99))
+		(mizuiro::color::init::alpha() = static_cast<channel_type>(50))
 	);
 
-	rgba_color const test_rgb(
+	rgb_color const test_rgb(
 		mizuiro::color::convert<
-			rgba_color::format
+			mizuiro::color::convert_static::converter,
+			rgb_color::format
 		>(
-			test_luminance
+			test_rgba
 		)
 	);
 
 	std::cout
-		<< "luminance value was: "
-		<< test_luminance
-		<< " and was converted to"
+		<< "rgba value was: "
+		<< test_rgba
+		<< " and was converted to rgb: "
 		<< test_rgb
 		<< '\n';
 
-	typedef
-		mizuiro::color::object
-		<
-			mizuiro::color::homogenous_static
-			<
-				float,
-				mizuiro::color::layout::rgba
-			>
-		> rgba_float_color;
-
-	rgba_float_color test_float
-	(
-		mizuiro::color::convert
-		<
-			rgba_float_color::format
+	typedef mizuiro::color::object<
+		mizuiro::color::homogenous_static<
+			float,
+			mizuiro::color::layout::rgba
 		>
-		(
+	> rgba_float_color;
+
+	rgba_float_color const test_rgba_float(
+		mizuiro::color::convert<
+			mizuiro::color::convert_static::converter,
+			rgba_float_color::format
+		>(
 			test_rgb
 		)
 	);
 
 	std::cout
-		<< "converted the rgb value to floats: "
-		<< test_float
-		<< '\n';
-
-	luminance_color test_luminance2(
-		mizuiro::color::convert<
-			luminance_color::format
-		>
-		(
-			test_float
-		)
-	);
-
-	std::cout
-		<< "converted back to luminance: "
-		<< test_luminance2
-		<< '\n';
-
-	alpha_color const test_alpha(
-		(mizuiro::color::init::alpha() %= 0.5)
-	);
-
-	std::cout
-		<< "alpha converted to rgba: "
-		<< mizuiro::color::convert<
-			rgba_float_color::format
-		>(
-			test_alpha
-		)
+		<< "converted the rgb value to rgba floats: "
+		<< test_rgba_float
 		<< '\n';
 }

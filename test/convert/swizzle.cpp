@@ -12,6 +12,7 @@
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/color/access/homogenous_static.hpp>
+#include <mizuiro/color/convert_static/converter.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
 #include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/color/types/homogenous_static.hpp>
@@ -56,6 +57,7 @@ MIZUIRO_DETAIL_POP_WARNING
 
 	bgra_color const bgra(
 		mizuiro::color::convert<
+			mizuiro::color::convert_static::converter,
 			bgra_color::format
 		>(
 			rgba

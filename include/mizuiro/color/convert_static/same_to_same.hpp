@@ -28,11 +28,11 @@ template<
 	typename Src
 >
 typename boost::enable_if<
-	layout::is_same<
+	mizuiro::color::layout::is_same<
 		typename Dest::layout,
 		typename Src::format::layout
 	>,
-	color::object<
+	mizuiro::color::object<
 		Dest
 	> const
 >::type
@@ -41,7 +41,7 @@ convert(
 )
 {
 	return
-		conversion::same_to_same<
+		mizuiro::color::conversion::same_to_same<
 			Dest
 		>(
 			_src
