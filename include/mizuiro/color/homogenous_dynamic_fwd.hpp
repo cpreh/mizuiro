@@ -9,6 +9,7 @@
 
 #include <mizuiro/size_type.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -18,7 +19,6 @@ template<
 	typename ChannelType,
 	typename AvailableChannels,
 	AvailableChannels AllChannels,
-	typename AvailableLayouts,
 	mizuiro::size_type Size
 >
 struct homogenous_dynamic;

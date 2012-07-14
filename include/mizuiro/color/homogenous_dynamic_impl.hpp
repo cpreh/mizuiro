@@ -15,25 +15,19 @@ template<
 	typename ChannelType,
 	typename AvailableChannels,
 	AvailableChannels AllChannels,
-	typename AvailableLayouts,
 	mizuiro::size_type Size
 >
 mizuiro::color::homogenous_dynamic<
 	ChannelType,
 	AvailableChannels,
 	AllChannels,
-	AvailableLayouts,
 	Size
 >::homogenous_dynamic(
-	channel_array const &_order,
-	available_layouts const _layout_type
+	channel_array const &_order
 )
 :
 	order(
 		_order
-	),
-	layout_type(
-		_layout_type
 	),
 	indices(
 		color::detail::initialize_dynamic_indices<
