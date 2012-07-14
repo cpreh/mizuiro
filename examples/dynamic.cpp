@@ -46,7 +46,14 @@ enum type
 	blue,
 	size
 };
+}
 
+namespace available_layouts
+{
+enum type
+{
+	default_
+};
 }
 
 #define MAKE_DYNAMIC_CHANNEL_INDEX(\
@@ -124,6 +131,7 @@ int main()
 		boost::uint8_t,
 		available_channels::type,
 		available_channels::size,
+		available_layouts::type,
 		4
 	> color_uint8_4_format;
 
@@ -136,7 +144,8 @@ int main()
 	}};
 
 	color_uint8_4_format const rgba_format(
-		rgba_order
+		rgba_order,
+		available_layouts::default_
 	);
 
 	typedef mizuiro::color::object<

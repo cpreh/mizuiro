@@ -18,6 +18,7 @@ template<
 	typename ChannelType,
 	typename AvailableChannels,
 	AvailableChannels AllChannels,
+	typename AvailableLayouts,
 	mizuiro::size_type Size
 >
 struct homogenous_dynamic;

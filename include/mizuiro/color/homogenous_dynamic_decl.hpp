@@ -22,6 +22,7 @@ template<
 	typename ChannelType,
 	typename AvailableChannels,
 	AvailableChannels AllChannels,
+	typename AvailableLayouts,
 	mizuiro::size_type Size
 >
 struct homogenous_dynamic
@@ -42,9 +43,11 @@ public:
 		AllChannels
 	>::type channel_index_array;
 
-	explicit
+	typedef AvailableLayouts available_layouts;
+
 	homogenous_dynamic(
-		channel_array const &
+		channel_array const &,
+		available_layouts layout_type
 	);
 
 	typedef ChannelType channel_type;
@@ -54,6 +57,8 @@ public:
 	typedef channel_array layout;
 
 	channel_array const order;
+
+	available_layouts const layout_type;
 
 	channel_index_array const indices;
 };
