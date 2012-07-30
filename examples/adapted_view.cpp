@@ -10,8 +10,8 @@
 #include <mizuiro/raw_value.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/access/raw.hpp>
-#include <mizuiro/detail/nonassignable.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/nonassignable.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/format_is_static.hpp>
@@ -21,8 +21,8 @@
 #include <mizuiro/image/access/dereference.hpp>
 #include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
-#include <mizuiro/image/types/reference.hpp>
 #include <mizuiro/image/types/pointer.hpp>
+#include <mizuiro/image/types/reference.hpp>
 #include <mizuiro/image/types/value_type.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/integral_constant.hpp>

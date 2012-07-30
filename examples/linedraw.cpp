@@ -8,8 +8,8 @@
 #include <mizuiro/color/for_each_channel.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/init.hpp>
-#include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/output.hpp>
+#include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/color/access/homogenous_static.hpp>
 #include <mizuiro/color/convert_static/converter.hpp>
@@ -29,9 +29,9 @@
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>
 #include <boost/spirit/home/phoenix/core/argument.hpp>
+#include <cmath>
 #include <iostream>
 #include <ostream>
-#include <cmath>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -91,8 +91,8 @@ int main()
 			view,
 			start,
 			view_type::dim(
-				15 + static_cast<int>(15 * std::cos(angle / 180.0 * pi)),
-				15 + static_cast<int>(15 * std::sin(angle / 180.0 * pi))),
+				static_cast<view_type::dim::value_type>(15 + static_cast<int>(15 * std::cos(angle / 180.0 * pi))),
+				static_cast<view_type::dim::value_type>(15 + static_cast<int>(15 * std::sin(angle / 180.0 * pi)))),
 			color
 		);
 	}

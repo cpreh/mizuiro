@@ -10,12 +10,12 @@
 #include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/types/pointer.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/is_interleaved.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
 #include <mizuiro/image/types/value_type.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 
 
 namespace mizuiro

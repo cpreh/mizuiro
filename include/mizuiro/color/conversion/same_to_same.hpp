@@ -12,8 +12,8 @@
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/channel/undefined.hpp>
-#include <mizuiro/color/conversion/detail/copy_or_min_channel_functor.hpp>
 #include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
+#include <mizuiro/color/conversion/detail/copy_or_min_channel_functor.hpp>
 #include <mizuiro/color/conversion/detail/exclude_channel_functor.hpp>
 #include <mizuiro/color/conversion/detail/make_logical_and.hpp>
 #include <mizuiro/detail/external_begin.hpp>

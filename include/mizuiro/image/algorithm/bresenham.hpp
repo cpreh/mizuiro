@@ -7,8 +7,12 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_BRESENHAM_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_BRESENHAM_HPP_INCLUDED
 
+#include <mizuiro/detail/external_begin.hpp>
+#include <boost/type_traits/make_signed.hpp>
 #include <algorithm>
 #include <cmath>
+#include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {
@@ -31,10 +35,17 @@ bresenham
 	Color const &c
 )
 {
-	int x0 = static_cast<int>(start[0]);
-	int y0 = static_cast<int>(start[1]);
-	int x1 = static_cast<int>(end[0]);
-	int y1 = static_cast<int>(end[1]);
+	typedef typename
+	boost::make_signed
+	<
+		typename View::dim::value_type
+	>::type
+	int_type;
+
+	int_type x0 = static_cast<int_type>(start[0]);
+	int_type y0 = static_cast<int_type>(start[1]);
+	int_type x1 = static_cast<int_type>(end[0]);
+	int_type y1 = static_cast<int_type>(end[1]);
 
 	bool steep = std::abs(y1 - y0) > std::abs(x1 - x0);
 	if (steep){
@@ -47,18 +58,18 @@ bresenham
 		std::swap(y0, y1);
 	}
 
-	int deltax = x1 - x0;
-	int deltay = std::abs(y1 - y0);
-	int error = deltax / 2;
-	int ystep;
-	int y = y0;
+	int_type deltax = x1 - x0;
+	int_type deltay = std::abs(y1 - y0);
+	int_type error = deltax / 2;
+	int_type ystep;
+	int_type y = y0;
 	ystep = (y0 < y1) ? 1 : -1;
-	for (int x = x0; x <= x1; ++x)
+	for (int_type x = x0; x <= x1; ++x)
 	{
 		if (steep)
-			v[typename View::dim(y, x)] = c;
+			v[typename View::dim(static_cast<typename View::dim::value_type>(y), static_cast<typename View::dim::value_type>(x))] = c;
 		else
-			v[typename View::dim(x, y)] = c;
+			v[typename View::dim(static_cast<typename View::dim::value_type>(x), static_cast<typename View::dim::value_type>(y))] = c;
 		error -= deltay;
 		if (error < 0)
 		{

@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_IMAGE_IS_INTERLEAVED_HPP_INCLUDED
 #define MIZUIRO_IMAGE_IS_INTERLEAVED_HPP_INCLUDED
 
-#include <mizuiro/image/interleaved_fwd.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
+#include <mizuiro/image/interleaved_fwd.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/integral_constant.hpp>
 #include <mizuiro/detail/external_end.hpp>

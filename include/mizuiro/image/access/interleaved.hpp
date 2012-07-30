@@ -13,8 +13,8 @@
 #include <mizuiro/image/is_interleaved.hpp>
 #include <mizuiro/image/to_color_format_store.hpp>
 #include <mizuiro/image/access/dereference.hpp>
-#include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/access/store_size.hpp>
+#include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
 #include <mizuiro/detail/external_begin.hpp>
