@@ -10,7 +10,7 @@
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/make_signed.hpp>
 #include <algorithm>
-#include <cmath>
+#include <cstdlib>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -47,7 +47,7 @@ bresenham
 	int_type x1 = static_cast<int_type>(end[0]);
 	int_type y1 = static_cast<int_type>(end[1]);
 
-	bool steep = std::abs(y1 - y0) > std::abs(x1 - x0);
+	bool const steep = std::abs(y1 - y0) > std::abs(x1 - x0);
 	if (steep){
 		std::swap(x0, y0);
 		std::swap(x1, y1);
@@ -58,12 +58,11 @@ bresenham
 		std::swap(y0, y1);
 	}
 
-	int_type deltax = x1 - x0;
-	int_type deltay = std::abs(y1 - y0);
+	int_type const deltax = x1 - x0;
+	int_type const deltay = std::abs(y1 - y0);
 	int_type error = deltax / 2;
-	int_type ystep;
 	int_type y = y0;
-	ystep = (y0 < y1) ? 1 : -1;
+	int_type const ystep = (y0 < y1) ? 1 : -1;
 	for (int_type x = x0; x <= x1; ++x)
 	{
 		if (steep)
