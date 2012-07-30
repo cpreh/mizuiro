@@ -55,6 +55,7 @@ struct d2_format
 	> type;
 };
 
+/*
 template<
 	typename Src,
 	typename Dest
@@ -119,6 +120,7 @@ struct transform_test
 		);
 	}
 };
+*/
 
 }
 
