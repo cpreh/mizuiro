@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_BRESENHAM_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_BRESENHAM_HPP_INCLUDED
 
+#include <mizuiro/color/operators.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/make_signed.hpp>
 #include <algorithm>
@@ -32,7 +33,8 @@ bresenham
 	View const &v,
 	typename View::dim const &start,
 	typename View::dim const &end,
-	Color const &c
+	Color const &c0,
+	Color const &c1
 )
 {
 	typedef typename
@@ -61,11 +63,26 @@ bresenham
 	int_type deltax = x1 - x0;
 	int_type deltay = std::abs(y1 - y0);
 	int_type error = deltax / 2;
-	int_type ystep;
 	int_type y = y0;
-	ystep = (y0 < y1) ? 1 : -1;
+	int_type ystep = (y0 < y1) ? 1 : -1;
+
+	double length =
+			static_cast<double>(x1 - x0) *
+			static_cast<double>(x1 - x0) +
+			static_cast<double>(y1 - y0) *
+			static_cast<double>(y1 - y0);
+
 	for (int_type x = x0; x <= x1; ++x)
 	{
+		double pos =
+				static_cast<double>(x - x0) *
+				static_cast<double>(x - x0) +
+				static_cast<double>(y - y0) *
+				static_cast<double>(y - y0);
+		double t = pos / length;
+
+		Color c = t * c1 + (1.0 - t) * c0;
+
 		if (steep)
 			v[typename View::dim(static_cast<typename View::dim::value_type>(y), static_cast<typename View::dim::value_type>(x))] = c;
 		else

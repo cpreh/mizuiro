@@ -73,11 +73,18 @@ int main()
 		img.view()
 	);
 
-	mizuiro::color::object<format::color_format> color =
+	mizuiro::color::object<format::color_format> color0 =
 		mizuiro::color::object<
 			format::color_format
 		>(
-			(mizuiro::color::init::luminance() = static_cast<channel_type>(42))
+			(mizuiro::color::init::luminance() = static_cast<channel_type>(10))
+		);
+
+	mizuiro::color::object<format::color_format> color1 =
+		mizuiro::color::object<
+			format::color_format
+		>(
+			(mizuiro::color::init::luminance() = static_cast<channel_type>(99))
 		);
 
 	view_type::dim start(15,15);
@@ -93,7 +100,8 @@ int main()
 			view_type::dim(
 				static_cast<view_type::dim::value_type>(15 + static_cast<int>(15 * std::cos(angle / 180.0 * pi))),
 				static_cast<view_type::dim::value_type>(15 + static_cast<int>(15 * std::sin(angle / 180.0 * pi)))),
-			color
+			color0,
+			color1
 		);
 	}
 
@@ -101,7 +109,11 @@ int main()
 	{
 		for (view_type::dim::value_type x = 0; x < view.size()[0]; ++x)
 		{
-			std::cout << (view[view_type::dim(x, y)].get(mizuiro::color::channel::luminance()) ? "[]" : "  ");
+			int value = view[view_type::dim(x, y)].get(mizuiro::color::channel::luminance());
+			if (value)
+				std::cout << value;
+			else
+				std::cout << "  ";
 		}
 		std::cout << std::endl;
 	}
