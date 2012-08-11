@@ -12,6 +12,7 @@
 #include <boost/type_traits/make_signed.hpp>
 #include <algorithm>
 #include <cstdlib>
+#include <cmath>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -79,7 +80,7 @@ bresenham
 				static_cast<double>(x - x0) +
 				static_cast<double>(y - y0) *
 				static_cast<double>(y - y0);
-		double t = pos / length;
+		double t = std::sqrt(pos / length);
 
 		Color c = t * c1 + (1.0 - t) * c0;
 
