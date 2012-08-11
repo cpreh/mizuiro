@@ -79,21 +79,23 @@ mizuiro::image::view<
 )
 :
 	impl_(
-		_pitch.content()
+		_pitch
+		==
+		pitch_type::null()
 		?
 			view_variant(
-				pitch_view(
+				linear_view(
 					_size,
 					_data,
-					_pitch,
 					_format
 				)
 			)
 		:
 			view_variant(
-				linear_view(
+				pitch_view(
 					_size,
 					_data,
+					_pitch,
 					_format
 				)
 			)
