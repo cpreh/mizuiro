@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/channel_proxy_fwd.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -29,13 +30,15 @@ unwrap_channel(
 
 template<
 	typename Pointer,
-	typename ValueType
+	typename ValueType,
+	typename ChannelAccess
 >
 ValueType
 unwrap_channel(
-	color::channel_proxy<
+	mizuiro::color::channel_proxy<
 		Pointer,
-		ValueType
+		ValueType,
+		ChannelAccess
 	> const &_proxy
 )
 {

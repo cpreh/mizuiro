@@ -9,7 +9,7 @@
 
 #include <mizuiro/color/convert_static.hpp>
 #include <mizuiro/color/format_store.hpp>
-#include <mizuiro/color/is_homogenous_static.hpp>
+#include <mizuiro/color/is_static.hpp>
 #include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
@@ -33,10 +33,10 @@ struct converter
 	static
 	typename boost::enable_if<
 		boost::mpl::and_<
-			mizuiro::color::is_homogenous_static<
+			mizuiro::color::is_static<
 				typename Source::format
 			>,
-			mizuiro::color::is_homogenous_static<
+			mizuiro::color::is_static<
 				DestFormat
 			>
 		>,

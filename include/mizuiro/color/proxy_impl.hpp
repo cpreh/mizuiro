@@ -22,7 +22,11 @@ template<
 	typename Format,
 	typename Constness
 >
-mizuiro::color::proxy<Access, Format, Constness>::proxy(
+mizuiro::color::proxy<
+	Access,
+	Format,
+	Constness
+>::proxy(
 	pointer const _data,
 	format_store_type const &_format
 )
@@ -33,7 +37,8 @@ mizuiro::color::proxy<Access, Format, Constness>::proxy(
 	data_(
 		_data
 	)
-{}
+{
+}
 
 template<
 	typename Access,
@@ -43,8 +48,12 @@ template<
 template<
 	typename OtherConstness
 >
-mizuiro::color::proxy<Access, Format, Constness>::proxy(
-	color::proxy<
+mizuiro::color::proxy<
+	Access,
+	Format,
+	Constness
+>::proxy(
+	mizuiro::color::proxy<
 		Access,
 		Format,
 		OtherConstness
@@ -57,7 +66,8 @@ mizuiro::color::proxy<Access, Format, Constness>::proxy(
 	data_(
 		_other.data()
 	)
-{}
+{
+}
 
 template<
 	typename Access,
@@ -67,15 +77,23 @@ template<
 template<
 	typename Other
 >
-mizuiro::color::proxy<Access, Format, Constness> const &
-mizuiro::color::proxy<Access, Format, Constness>::operator=(
+mizuiro::color::proxy<
+	Access,
+	Format,
+	Constness
+> const &
+mizuiro::color::proxy<
+	Access,
+	Format,
+	Constness
+>::operator=(
 	Other const &_other
 ) const
 {
-	color::for_each_channel(
+	mizuiro::color::for_each_channel(
 		*this,
-		detail::copy_channel<
-			color::proxy<
+		mizuiro::color::detail::copy_channel<
+			mizuiro::color::proxy<
 				Access,
 				Format,
 				Constness
@@ -99,15 +117,19 @@ template<
 	typename Channel
 >
 void
-mizuiro::color::proxy<Access, Format, Constness>::set(
+mizuiro::color::proxy<
+	Access,
+	Format,
+	Constness
+>::set(
 	Channel const &_channel,
-	typename types::channel_value<
+	typename mizuiro::color::types::channel_value<
 		Format,
 		Channel
 	>::type const &_ref
 ) const
 {
-	color::access::extract_channel<
+	mizuiro::color::access::extract_channel<
 		Access,
 		Format,
 		Channel,
@@ -135,12 +157,16 @@ typename mizuiro::color::types::channel_reference<
 	Channel,
 	mizuiro::const_tag
 >::type
-mizuiro::color::proxy<Access, Format, Constness>::get(
+mizuiro::color::proxy<
+	Access,
+	Format,
+	Constness
+>::get(
 	Channel const &_channel
 ) const
 {
 	return
-		color::access::extract_channel<
+		mizuiro::color::access::extract_channel<
 			Access,
 			Format,
 			Channel,
@@ -159,8 +185,16 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::color::proxy<Access, Format, Constness>::pointer
-mizuiro::color::proxy<Access, Format, Constness>::data() const
+typename mizuiro::color::proxy<
+	Access,
+	Format,
+	Constness
+>::pointer
+mizuiro::color::proxy<
+	Access,
+	Format,
+	Constness
+>::data() const
 {
 	return data_;
 }
@@ -170,8 +204,16 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::color::proxy<Access, Format, Constness>::format_store_type const
-mizuiro::color::proxy<Access, Format, Constness>::format_store() const
+typename mizuiro::color::proxy<
+	Access,
+	Format,
+	Constness
+>::format_store_type const
+mizuiro::color::proxy<
+	Access,
+	Format,
+	Constness
+>::format_store() const
 {
 	return this->format_store_base();
 }

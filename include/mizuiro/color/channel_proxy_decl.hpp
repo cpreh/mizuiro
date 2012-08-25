@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/channel_proxy_fwd.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -16,7 +17,8 @@ namespace color
 
 template<
 	typename Pointer,
-	typename ValueType
+	typename ValueType,
+	typename ChannelAccess
 >
 class channel_proxy
 {
@@ -25,6 +27,9 @@ public:
 
 	typedef Pointer pointer;
 
+	typedef ChannelAccess channel_access;
+
+	explicit
 	channel_proxy(
 		pointer data
 	);

@@ -32,10 +32,10 @@ compare_channel(
 {
 	return
 		::mizuiro::compare(
-			color::detail::unwrap_channel(
+			mizuiro::color::detail::unwrap_channel(
 				_t1
 			),
-			color::detail::unwrap_channel(
+			mizuiro::color::detail::unwrap_channel(
 				_t2
 			)
 		);

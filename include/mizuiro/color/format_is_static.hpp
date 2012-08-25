@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_COLOR_FORMAT_IS_STATIC_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_IS_STATIC_HPP_INCLUDED
 
+#include <mizuiro/color/heterogenous_static_fwd.hpp>
 #include <mizuiro/color/homogenous_static_fwd.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
@@ -38,6 +39,21 @@ template<
 struct format_is_static<
 	mizuiro::color::homogenous_static<
 		ChannelType,
+		Layout
+	>
+>
+:
+boost::true_type
+{
+};
+
+template<
+	typename ChannelBits,
+	typename Layout
+>
+struct format_is_static<
+	mizuiro::color::heterogenous_static<
+		ChannelBits,
 		Layout
 	>
 >

@@ -4,48 +4,51 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_IS_HOMOGENOUS_STATIC_HPP_INCLUDED
-#define MIZUIRO_COLOR_IS_HOMOGENOUS_STATIC_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_TYPES_STATIC_HPP_INCLUDED
+#define MIZUIRO_COLOR_TYPES_STATIC_HPP_INCLUDED
 
-#include <mizuiro/color/homogenous_static_fwd.hpp>
+#include <mizuiro/color/is_static.hpp>
+#include <mizuiro/color/types/has_channel_static.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <boost/mpl/contains.hpp>
+#include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
-
 
 namespace mizuiro
 {
 namespace color
 {
+namespace types
+{
 
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
-	typename Format
+	typename Format,
+	typename Channel
 >
-struct is_homogenous_static
-:
-boost::false_type
-{};
-
-template<
-	typename ChannelType,
-	typename Layout
->
-struct is_homogenous_static<
-	mizuiro::color::homogenous_static<
-		ChannelType,
-		Layout
-	>
+struct has_channel_static<
+	Format,
+	Channel,
+	typename boost::enable_if<
+		mizuiro::color::is_static<
+			Format
+		>
+	>::type
 >
 :
-boost::true_type
-{};
+boost::mpl::contains<
+	typename Format::layout::order,
+	Channel
+>
+{
+};
 
 MIZUIRO_DETAIL_POP_WARNING
 
+}
 }
 }
 

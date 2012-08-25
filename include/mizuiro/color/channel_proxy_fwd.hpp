@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_COLOR_CHANNEL_PROXY_FWD_HPP_INCLUDED
 #define MIZUIRO_COLOR_CHANNEL_PROXY_FWD_HPP_INCLUDED
 
+
 namespace mizuiro
 {
 namespace color
@@ -14,7 +15,8 @@ namespace color
 
 template<
 	typename Pointer,
-	typename ValueType
+	typename ValueType,
+	typename ChannelAccess
 >
 class channel_proxy;
 

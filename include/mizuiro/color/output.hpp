@@ -8,8 +8,10 @@
 #define MIZUIRO_COLOR_OUTPUT_HPP_INCLUDED
 
 #include <mizuiro/color/for_each_channel.hpp>
+#include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/detail/output_channel.hpp>
 #include <mizuiro/detail/external_begin.hpp>
+#include <boost/utility/enable_if.hpp>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
 
@@ -24,10 +26,15 @@ template<
 	typename Traits,
 	typename Color
 >
-std::basic_ostream<
-	Ch,
-	Traits
-> &
+typename boost::enable_if<
+	mizuiro::color::is_color<
+		Color
+	>,
+	std::basic_ostream<
+		Ch,
+		Traits
+	> &
+>::type
 operator<<(
 	std::basic_ostream<
 		Ch,

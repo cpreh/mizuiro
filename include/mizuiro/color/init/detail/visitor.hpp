@@ -40,8 +40,11 @@ public:
 		color_type &_object
 	)
 	:
-		object_(_object)
-	{}
+		object_(
+			_object
+		)
+	{
+	}
 
 	template<
 		typename T
@@ -51,7 +54,7 @@ public:
 		T const &_value
 	) const
 	{
-		detail::set_channel(
+		mizuiro::color::init::detail::set_channel(
 			object_,
 			_value
 		);

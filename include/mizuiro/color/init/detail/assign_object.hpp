@@ -30,20 +30,19 @@ template<
 >
 void
 assign_object(
-	color::object<
+	mizuiro::color::object<
 		Format
 	> &_object,
-	detail::values<
+	mizuiro::color::init::detail::values<
 		Vector
 	> const &_init
 )
 {
 	boost::fusion::for_each<
 		Vector
-	>
-	(
+	>(
 		_init.get(),
-		detail::visitor<
+		mizuiro::color::init::detail::visitor<
 			Format
 		>(
 			_object

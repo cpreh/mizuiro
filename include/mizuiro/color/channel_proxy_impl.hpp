@@ -7,40 +7,49 @@
 #ifndef MIZUIRO_COLOR_CHANNEL_PROXY_IMPL_HPP_INCLUDED
 #define MIZUIRO_COLOR_CHANNEL_PROXY_IMPL_HPP_INCLUDED
 
-#include <mizuiro/const_raw_pointer.hpp>
-#include <mizuiro/raw_pointer.hpp>
 #include <mizuiro/color/channel_proxy_decl.hpp>
-#include <mizuiro/detail/copy_n.hpp>
 
 
 template<
 	typename Pointer,
-	typename ValueType
+	typename ValueType,
+	typename ChannelAccess
 >
-mizuiro::color::channel_proxy<Pointer, ValueType>::channel_proxy(
+mizuiro::color::channel_proxy<
+	Pointer,
+	ValueType,
+	ChannelAccess
+>::channel_proxy(
 	pointer const _data
 )
 :
-	data_(_data)
-{}
+	data_(
+		_data
+	)
+{
+}
 
 template<
 	typename Pointer,
-	typename ValueType
+	typename ValueType,
+	typename ChannelAccess
 >
-mizuiro::color::channel_proxy<Pointer, ValueType> &
-mizuiro::color::channel_proxy<Pointer, ValueType>::operator=(
+mizuiro::color::channel_proxy<
+	Pointer,
+	ValueType,
+	ChannelAccess
+> &
+mizuiro::color::channel_proxy<
+	Pointer,
+	ValueType,
+	ChannelAccess
+>::operator=(
 	value_type const _ref
 )
 {
-	mizuiro::detail::copy_n(
-		reinterpret_cast<
-			const_raw_pointer
-		>(
-			&_ref
-		),
-		sizeof(_ref),
-		data_
+	ChannelAccess::write(
+		data_,
+		_ref
 	);
 
 	return *this;
@@ -48,34 +57,43 @@ mizuiro::color::channel_proxy<Pointer, ValueType>::operator=(
 
 template<
 	typename Pointer,
-	typename ValueType
+	typename ValueType,
+	typename ChannelAccess
 >
-typename mizuiro::color::channel_proxy<Pointer, ValueType>::value_type
-mizuiro::color::channel_proxy<Pointer, ValueType>::get() const
+typename mizuiro::color::channel_proxy<
+	Pointer,
+	ValueType,
+	ChannelAccess
+>::value_type
+mizuiro::color::channel_proxy<
+	Pointer,
+	ValueType,
+	ChannelAccess
+>::get() const
 {
-	value_type ret;
-
-	mizuiro::detail::copy_n(
-		data_,
-		sizeof(ret),
-		reinterpret_cast<
-			raw_pointer
-		>(
-			&ret
-		)
-	);
-
-	return ret;
+	return
+		ChannelAccess::read(
+			data_
+		);
 }
 
 template<
 	typename Pointer,
-	typename ValueType
+	typename ValueType,
+	typename ChannelAccess
 >
-mizuiro::color::channel_proxy<Pointer, ValueType>::
-operator typename mizuiro::color::channel_proxy<Pointer, ValueType>::value_type() const
+mizuiro::color::channel_proxy<
+	Pointer,
+	ValueType,
+	ChannelAccess
+>::
+operator typename mizuiro::color::channel_proxy<
+	Pointer,
+	ValueType,
+	ChannelAccess
+>::value_type() const
 {
-	return get();
+	return this->get();
 }
 
 #endif

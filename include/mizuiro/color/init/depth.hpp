@@ -4,24 +4,23 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_LAYOUT_ADDITIVE_HPP_INCLUDED
-#define MIZUIRO_COLOR_LAYOUT_ADDITIVE_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_INIT_DEPTH_HPP_INCLUDED
+#define MIZUIRO_COLOR_INIT_DEPTH_HPP_INCLUDED
+
+#include <mizuiro/color/channel/depth.hpp>
+#include <mizuiro/color/init/detail/make_trampoline.hpp>
 
 
 namespace mizuiro
 {
 namespace color
 {
-namespace layout
+namespace init
 {
 
-template<
-	typename Order
->
-struct additive
-{
-	typedef Order order;
-};
+MIZUIRO_COLOR_INIT_DETAIL_MAKE_TRAMPOLINE(
+	depth
+)
 
 }
 }

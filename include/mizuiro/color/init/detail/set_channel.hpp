@@ -32,7 +32,7 @@ template<
 >
 typename boost::enable_if<
 	boost::is_same<
-		typename color::types::channel_value<
+		typename mizuiro::color::types::channel_value<
 			typename Color::format,
 			Channel
 		>::type,
@@ -42,7 +42,7 @@ typename boost::enable_if<
 >::type
 set_channel(
 	Color &_color,
-	detail::channel_value<
+	mizuiro::color::init::detail::channel_value<
 		Value,
 		Channel
 	> const &_init
@@ -62,7 +62,7 @@ template<
 void
 set_channel(
 	Color &_color,
-	detail::channel_percentage<
+	mizuiro::color::init::detail::channel_percentage<
 		Value,
 		Channel
 	> const &_init
@@ -70,7 +70,7 @@ set_channel(
 {
 	_color.set(
 		_init.channel(),
-		color::denormalize<
+		mizuiro::color::denormalize<
 			typename Color::format
 		>(
 			_init.channel(),

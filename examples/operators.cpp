@@ -10,11 +10,11 @@
 #include <mizuiro/color/operators.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/access/homogenous_static.hpp>
+#include <mizuiro/color/access/static.hpp>
 #include <mizuiro/color/layout/rgb.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
 #include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/homogenous_static.hpp>
+#include <mizuiro/color/types/static.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>
 #include <iostream>

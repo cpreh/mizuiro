@@ -4,33 +4,36 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CHANNEL_RED_HPP_INCLUDED
-#define MIZUIRO_COLOR_CHANNEL_RED_HPP_INCLUDED
+#ifndef MIZUIRO_INTEGRAL_SIZE_HPP_INCLUDED
+#define MIZUIRO_INTEGRAL_SIZE_HPP_INCLUDED
 
-#include <mizuiro/color/channel/tag.hpp>
+#include <mizuiro/size_type.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
+#include <mizuiro/detail/external_begin.hpp>
+#include <boost/mpl/integral_c.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
 {
-namespace color
-{
-namespace channel
-{
 
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
-struct red
+template<
+	mizuiro::size_type Size
+>
+struct integral_size
 :
-mizuiro::color::channel::tag
+boost::mpl::integral_c<
+	mizuiro::size_type,
+	Size
+>
 {
 };
 
 MIZUIRO_DETAIL_POP_WARNING
 
-}
-}
 }
 
 #endif

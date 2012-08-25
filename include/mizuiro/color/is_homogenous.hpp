@@ -15,6 +15,7 @@
 #include <boost/mpl/or.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -28,10 +29,10 @@ template<
 struct is_homogenous
 :
 boost::mpl::or_<
-	color::is_homogenous_static<
+	mizuiro::color::is_homogenous_static<
 		Format
 	>,
-	color::is_homogenous_dynamic<
+	mizuiro::color::is_homogenous_dynamic<
 		Format
 	>
 >

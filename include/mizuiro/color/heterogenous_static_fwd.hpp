@@ -4,26 +4,20 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_LAYOUT_ADDITIVE_HPP_INCLUDED
-#define MIZUIRO_COLOR_LAYOUT_ADDITIVE_HPP_INCLUDED
-
+#ifndef MIZUIRO_COLOR_HETEROGENOUS_STATIC_FWD_HPP_INCLUDED
+#define MIZUIRO_COLOR_HETEROGENOUS_STATIC_FWD_HPP_INCLUDED
 
 namespace mizuiro
 {
 namespace color
 {
-namespace layout
-{
 
 template<
-	typename Order
+	typename ChannelTypes,
+	typename Layout
 >
-struct additive
-{
-	typedef Order order;
-};
+struct heterogenous_static;
 
-}
 }
 }
 

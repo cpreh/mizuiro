@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CHANNEL_RED_HPP_INCLUDED
-#define MIZUIRO_COLOR_CHANNEL_RED_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CHANNEL_STENCIL_HPP_INCLUDED
+#define MIZUIRO_COLOR_CHANNEL_STENCIL_HPP_INCLUDED
 
 #include <mizuiro/color/channel/tag.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
@@ -21,7 +21,7 @@ namespace channel
 
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
-struct red
+struct stencil
 :
 mizuiro::color::channel::tag
 {

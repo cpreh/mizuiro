@@ -15,12 +15,12 @@
 #include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/color/access/homogenous_raw.hpp>
-#include <mizuiro/color/access/homogenous_static.hpp>
+#include <mizuiro/color/access/static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
 #include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/color/types/homogenous_raw.hpp>
-#include <mizuiro/color/types/homogenous_static.hpp>
+#include <mizuiro/color/types/static.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/make_raw_view.hpp>

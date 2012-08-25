@@ -1,29 +1,30 @@
 include_directories(
-	${CMAKE_SOURCE_DIR}/include
+	"${CMAKE_SOURCE_DIR}/include"
 )
 
 macro(
-	BUILD_FCPPT_EXAMPLE
+	BUILD_MIZUIRO_EXAMPLE
 	example
 )
 	add_executable(
-		mizuiro${example}example
-		${example}.cpp
+		"mizuiro_example_${example}"
+		"${example}.cpp"
 	)
 endmacro()
 
-build_fcppt_example(adapted_view)
-build_fcppt_example(algorithm)
-build_fcppt_example(convert)
-build_fcppt_example(convert_view)
-build_fcppt_example(dynamic)
-build_fcppt_example(flipped_view)
-build_fcppt_example(hsv)
-build_fcppt_example(gray)
-build_fcppt_example(image)
-build_fcppt_example(init)
-build_fcppt_example(linedraw)
-build_fcppt_example(operators)
-build_fcppt_example(sub_view)
-build_fcppt_example(raw_view)
-build_fcppt_example(raw_sub_view)
+build_mizuiro_example(adapted_view)
+build_mizuiro_example(algorithm)
+build_mizuiro_example(convert)
+build_mizuiro_example(convert_view)
+build_mizuiro_example(dynamic)
+build_mizuiro_example(flipped_view)
+build_mizuiro_example(heterogenous)
+build_mizuiro_example(hsv)
+build_mizuiro_example(gray)
+build_mizuiro_example(image)
+build_mizuiro_example(init)
+build_mizuiro_example(linedraw)
+build_mizuiro_example(operators)
+build_mizuiro_example(sub_view)
+build_mizuiro_example(raw_view)
+build_mizuiro_example(raw_sub_view)

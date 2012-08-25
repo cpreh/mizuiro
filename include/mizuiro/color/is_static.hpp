@@ -4,11 +4,11 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_IS_COLOR_HPP_INCLUDED
-#define MIZUIRO_COLOR_IS_COLOR_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_IS_STATIC_HPP_INCLUDED
+#define MIZUIRO_COLOR_IS_STATIC_HPP_INCLUDED
 
-#include <mizuiro/color/object_fwd.hpp>
-#include <mizuiro/color/proxy_fwd.hpp>
+#include <mizuiro/color/heterogenous_static_fwd.hpp>
+#include <mizuiro/color/homogenous_static_fwd.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -24,20 +24,22 @@ namespace color
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
-	typename T
+	typename Format
 >
-struct is_color
+struct is_static
 :
 boost::false_type
 {
 };
 
 template<
-	typename Format
+	typename ChannelType,
+	typename Layout
 >
-struct is_color<
-	mizuiro::color::object<
-		Format
+struct is_static<
+	mizuiro::color::homogenous_static<
+		ChannelType,
+		Layout
 	>
 >
 :
@@ -46,15 +48,13 @@ boost::true_type
 };
 
 template<
-	typename Access,
-	typename Format,
-	typename Constness
+	typename ChannelBits,
+	typename Layout
 >
-struct is_color<
-	mizuiro::color::proxy<
-		Access,
-		Format,
-		Constness
+struct is_static<
+	mizuiro::color::heterogenous_static<
+		ChannelBits,
+		Layout
 	>
 >
 :

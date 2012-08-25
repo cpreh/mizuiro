@@ -43,5 +43,6 @@ ENDMACRO()
 
 ADD_MIZUIRO_TEST(convert/swizzle)
 ADD_MIZUIRO_TEST(empty_view)
+ADD_MIZUIRO_TEST(heterogenous)
 ADD_MIZUIRO_TEST(iterator_position)
 ADD_MIZUIRO_TEST(views_are_compatible)

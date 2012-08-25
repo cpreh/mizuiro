@@ -11,11 +11,11 @@
 #include <mizuiro/color/convert.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/access/homogenous_static.hpp>
+#include <mizuiro/color/access/static.hpp>
 #include <mizuiro/color/convert_static/converter.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
 #include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/homogenous_static.hpp>
+#include <mizuiro/color/types/static.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>

@@ -36,21 +36,23 @@ namespace color
 
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
-/// A color object that stores a color by value
 /**
- * color::object is a class that can be used to store a color value.
- * @tparam Format specifies the color format
+\brief A color object stores a color by value
+
+mizuiro::color::object is a class that can be used to store a color by value.
+
+\tparam Format specifies the color format
 */
 template<
 	typename Format
 >
 class object
 :
-	private color::format_base<
+	private mizuiro::color::format_base<
 		Format
 	>::type
 {
-	typedef typename color::format_base<
+	typedef typename mizuiro::color::format_base<
 		Format
 	>::type base;
 public:
@@ -75,7 +77,7 @@ public:
 	/// constructs an uninitialized color
 	explicit object(
 		format_store_type const & =
-			color::format_argument<Format>::get()
+			mizuiro::color::format_argument<Format>::get()
 	);
 
 	object(
@@ -89,7 +91,7 @@ public:
 	object(
 		Other const &,
 		typename boost::enable_if<
-			color::is_color<
+			mizuiro::color::is_color<
 				Other
 			>
 		>::type * = mizuiro::detail::null_ptr()
@@ -100,11 +102,11 @@ public:
 		typename Vector
 	>
 	object(
-		init::detail::values<
+		mizuiro::color::init::detail::values<
 			Vector
 		> const &,
 		format_store_type const & =
-			color::format_argument<Format>::get()
+			mizuiro::color::format_argument<Format>::get()
 	);
 
 	/// Sets a color channel denoted by @tparam Channel
@@ -114,7 +116,7 @@ public:
 	void
 	set(
 		Channel const &,
-		typename types::channel_value<
+		typename mizuiro::color::types::channel_value<
 			format,
 			Channel
 		>::type const &
@@ -124,7 +126,7 @@ public:
 	template<
 		typename Channel
 	>
-	typename types::channel_reference<
+	typename mizuiro::color::types::channel_reference<
 		access,
 		format,
 		Channel,
@@ -145,19 +147,19 @@ public:
 	format_store_type const
 	format_store() const;
 private:
-	typedef color::proxy<
+	typedef mizuiro::color::proxy<
 		access,
 		format,
 		mizuiro::nonconst_tag
 	> proxy;
 
-	typedef color::proxy<
+	typedef mizuiro::color::proxy<
 		access,
 		format,
 		mizuiro::const_tag
 	> const_proxy;
 
-	typedef typename color::types::store<
+	typedef typename mizuiro::color::types::store<
 		access,
 		format
 	>::type store;

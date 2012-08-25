@@ -8,11 +8,11 @@
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/access/homogenous_static.hpp>
+#include <mizuiro/color/access/static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/types/homogenous.hpp>
 #include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/homogenous_static.hpp>
+#include <mizuiro/color/types/static.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/interleaved.hpp>

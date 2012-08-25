@@ -21,7 +21,9 @@
 template<
 	typename Format
 >
-mizuiro::color::object<Format>::object(
+mizuiro::color::object<
+	Format
+>::object(
 	format_store_type const &_format
 )
 :
@@ -29,12 +31,15 @@ mizuiro::color::object<Format>::object(
 		_format
 	),
 	data_()
-{}
+{
+}
 
 template<
 	typename Format
 >
-mizuiro::color::object<Format>::object(
+mizuiro::color::object<
+	Format
+>::object(
 	object const &_other
 )
 :
@@ -45,7 +50,8 @@ mizuiro::color::object<Format>::object(
 		_other.data_
 	)
 
-{}
+{
+}
 
 template<
 	typename Format
@@ -53,10 +59,12 @@ template<
 template<
 	typename Other
 >
-mizuiro::color::object<Format>::object(
+mizuiro::color::object<
+	Format
+>::object(
 	Other const &_other,
 	typename boost::enable_if<
-		color::is_color<
+		mizuiro::color::is_color<
 			Other
 		>
 	>::type *
@@ -79,8 +87,10 @@ template<
 template<
 	typename Vector
 >
-mizuiro::color::object<Format>::object(
-	init::detail::values<
+mizuiro::color::object<
+	Format
+>::object(
+	mizuiro::color::init::detail::values<
 		Vector
 	> const &_init,
 	format_store_type const &_format
@@ -91,7 +101,7 @@ mizuiro::color::object<Format>::object(
 	),
 	data_()
 {
-	init::detail::assign_object(
+	mizuiro::color::init::detail::assign_object(
 		*this,
 		_init
 	);
@@ -104,9 +114,11 @@ template<
 	typename Channel
 >
 void
-mizuiro::color::object<Format>::set(
+mizuiro::color::object<
+	Format
+>::set(
 	Channel const &_channel,
-	typename types::channel_value<
+	typename mizuiro::color::types::channel_value<
 		format,
 		Channel
 	>::type const &_ref
@@ -138,7 +150,9 @@ typename mizuiro::color::types::channel_reference<
 	Channel,
 	mizuiro::const_tag
 >::type
-mizuiro::color::object<Format>::get(
+mizuiro::color::object<
+	Format
+>::get(
 	Channel const &_channel
 ) const
 {
@@ -157,7 +171,9 @@ template<
 typename mizuiro::color::object<
 	Format
 >::pointer
-mizuiro::color::object<Format>::data()
+mizuiro::color::object<
+	Format
+>::data()
 {
 	return data_.data();
 }
@@ -168,7 +184,9 @@ template<
 typename mizuiro::color::object<
 	Format
 >::const_pointer
-mizuiro::color::object<Format>::data() const
+mizuiro::color::object<
+	Format
+>::data() const
 {
 	return data_.data();
 }
@@ -176,8 +194,12 @@ mizuiro::color::object<Format>::data() const
 template<
 	typename Format
 >
-typename mizuiro::color::object<Format>::format_store_type const
-mizuiro::color::object<Format>::format_store() const
+typename mizuiro::color::object<
+	Format
+>::format_store_type const
+mizuiro::color::object<
+	Format
+>::format_store() const
 {
 	return this->format_store_base();
 }

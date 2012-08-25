@@ -4,16 +4,15 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_ACCESS_HOMOGENOUS_RAW_HPP_INCLUDED
-#define MIZUIRO_COLOR_ACCESS_HOMOGENOUS_RAW_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_ACCESS_HETEROGENOUS_HPP_INCLUDED
+#define MIZUIRO_COLOR_ACCESS_HETEROGENOUS_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/access/raw.hpp>
 #include <mizuiro/color/format_store_fwd.hpp>
-#include <mizuiro/color/is_homogenous.hpp>
-#include <mizuiro/color/access/channel_index.hpp>
+#include <mizuiro/color/is_heterogenous.hpp>
 #include <mizuiro/color/access/extract_channel.hpp>
 #include <mizuiro/color/access/stride.hpp>
+#include <mizuiro/color/detail/byte_count_from_bits.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -29,17 +28,18 @@ namespace access
 {
 
 template<
+	typename Access,
 	typename Format,
 	typename Channel,
 	typename Constness
 >
 struct extract_channel<
-	mizuiro::access::raw,
+	Access,
 	Format,
 	Channel,
 	Constness,
 	typename boost::enable_if<
-		mizuiro::color::is_homogenous<
+		mizuiro::color::is_heterogenous<
 			Format
 		>
 	>::type
@@ -47,20 +47,20 @@ struct extract_channel<
 {
 	static
 	typename mizuiro::color::types::channel_reference<
-		mizuiro::access::raw,
+		Access,
 		Format,
 		Channel,
 		Constness
 	>::type
 	execute(
-		mizuiro::access::raw const &,
+		Access,
 		mizuiro::color::format_store<
 			Format
-		> const &_format,
-		Channel const &_channel,
+		> const &,
+		Channel const &,
 		Constness const &,
 		typename mizuiro::color::types::pointer<
-			mizuiro::access::raw,
+			Access,
 			Format,
 			Constness
 		>::type const _ptr
@@ -68,32 +68,25 @@ struct extract_channel<
 	{
 		return
 			typename mizuiro::color::types::channel_reference<
-				mizuiro::access::raw,
+				Access,
 				Format,
 				Channel,
 				Constness
 			>::type(
-				_ptr +
-				mizuiro::color::access::channel_index<
-					Format,
-					Channel
-				>::execute(
-					_format,
-					_channel
-				)
-				* sizeof(typename Format::channel_type)
+				_ptr
 			);
 	}
 };
 
 template<
+	typename Access,
 	typename ColorFormat
 >
 struct stride<
-	mizuiro::access::raw,
+	Access,
 	ColorFormat,
 	typename boost::enable_if<
-		mizuiro::color::is_homogenous<
+		mizuiro::color::is_heterogenous<
 			ColorFormat
 		>
 	>::type
@@ -102,15 +95,16 @@ struct stride<
 	static
 	mizuiro::size_type
 	execute(
-		mizuiro::access::raw const &,
+		Access const &,
 		mizuiro::color::format_store<
 			ColorFormat
 		> const &
 	)
 	{
 		return
-			ColorFormat::element_count
-			* sizeof(typename ColorFormat::channel_type);
+			mizuiro::color::detail::byte_count_from_bits<
+				typename ColorFormat::channel_bits
+			>::value;
 	}
 };
 

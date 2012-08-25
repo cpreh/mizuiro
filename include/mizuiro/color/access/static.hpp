@@ -4,19 +4,18 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_ACCESS_HOMOGENOUS_STATIC_HPP_INCLUDED
-#define MIZUIRO_COLOR_ACCESS_HOMOGENOUS_STATIC_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_ACCESS_STATIC_HPP_INCLUDED
+#define MIZUIRO_COLOR_ACCESS_STATIC_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/format_store.hpp>
-#include <mizuiro/color/is_homogenous_static.hpp>
+#include <mizuiro/color/is_static.hpp>
 #include <mizuiro/color/access/channel_index.hpp>
 #include <mizuiro/color/access/compare_channels.hpp>
 #include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/access/is_last_channel.hpp>
 #include <mizuiro/color/access/layout.hpp>
 #include <mizuiro/color/types/has_channel_static.hpp>
-#include <mizuiro/color/types/homogenous_static.hpp>
 #include <mizuiro/detail/index_of.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/fusion/adapted/mpl.hpp>
@@ -41,7 +40,7 @@ struct channel_index<
 	Format,
 	Channel,
 	typename boost::enable_if<
-		mizuiro::color::is_homogenous_static<
+		mizuiro::color::is_static<
 			Format
 		>
 	>::type
@@ -50,7 +49,7 @@ struct channel_index<
 	static
 	mizuiro::size_type
 	execute(
-		color::format_store<Format> const &,
+		mizuiro::color::format_store<Format> const &,
 		Channel const &
 	)
 	{
@@ -68,7 +67,7 @@ template<
 struct layout<
 	Format,
 	typename boost::enable_if<
-		mizuiro::color::is_homogenous_static<
+		mizuiro::color::is_static<
 			Format
 		>
 	>::type
@@ -77,7 +76,7 @@ struct layout<
 	static
 	typename Format::layout::order const
 	execute(
-		color::format_store<Format> const &
+		mizuiro::color::format_store<Format> const &
 	)
 	{
 		return typename Format::layout::order();
@@ -92,7 +91,7 @@ struct is_last_channel<
 	Format,
 	Channel,
 	typename boost::enable_if<
-		mizuiro::color::is_homogenous_static<
+		mizuiro::color::is_static<
 			Format
 		>
 	>::type
@@ -101,7 +100,7 @@ struct is_last_channel<
 	static
 	bool
 	execute(
-		color::format_store<Format> const &,
+		mizuiro::color::format_store<Format> const &,
 		Channel const &
 	)
 	{
@@ -125,7 +124,7 @@ struct compare_channels<
 	Format,
 	Channel,
 	typename boost::enable_if<
-		mizuiro::color::is_homogenous_static<
+		mizuiro::color::is_static<
 			Format
 		>
 	>::type
@@ -137,7 +136,7 @@ struct compare_channels<
 	static
 	bool
 	execute(
-		color::format_store<Format> const &,
+		mizuiro::color::format_store<Format> const &,
 		OtherChannel const &
 	)
 	{
@@ -155,7 +154,7 @@ template<
 struct has_channel<
 	Format,
 	typename boost::enable_if<
-		mizuiro::color::is_homogenous_static<
+		mizuiro::color::is_static<
 			Format
 		>
 	>::type
@@ -167,7 +166,7 @@ struct has_channel<
 	static
 	bool
 	execute(
-		color::format_store<Format> const &,
+		mizuiro::color::format_store<Format> const &,
 		Channel const &
 	)
 	{
