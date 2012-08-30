@@ -139,11 +139,15 @@ private:
 	)
 	{
 		return
-			_value
-			&
-			bit_channel_access::part(
-				_begin,
-				_count
+			static_cast<
+				mizuiro::raw_value
+			>(
+				_value
+				&
+				bit_channel_access::part(
+					_begin,
+					_count
+				)
 			);
 	}
 
