@@ -165,6 +165,12 @@ private:
 		mizuiro::const_tag
 	> const_proxy;
 
+	proxy const
+	make_proxy();
+
+	const_proxy const
+	make_const_proxy() const;
+
 	typedef typename mizuiro::color::types::store<
 		access,
 		format

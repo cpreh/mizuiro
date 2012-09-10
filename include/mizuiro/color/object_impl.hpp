@@ -124,11 +124,7 @@ mizuiro::color::object<
 	>::type const &_ref
 )
 {
-	proxy(
-		data_.data(),
-		this->format_store()
-	)
-	.set(
+	this->make_proxy().set(
 		_channel,
 		_ref
 	);
@@ -157,10 +153,7 @@ mizuiro::color::object<
 ) const
 {
 	return
-		const_proxy(
-			data_.data(),
-			this->format_store()
-		).get(
+		this->make_const_proxy().get(
 			_channel
 		);
 }
@@ -175,7 +168,8 @@ mizuiro::color::object<
 	Format
 >::data()
 {
-	return data_.data();
+	return
+		this->make_proxy().data();
 }
 
 template<
@@ -188,7 +182,8 @@ mizuiro::color::object<
 	Format
 >::data() const
 {
-	return data_.data();
+	return
+		this->make_const_proxy().data();
 }
 
 template<
@@ -201,7 +196,8 @@ mizuiro::color::object<
 	Format
 >::data_end()
 {
-	return data_.data_end();
+	return
+		this->make_proxy().data_end();
 }
 
 template<
@@ -214,7 +210,8 @@ mizuiro::color::object<
 	Format
 >::data_end() const
 {
-	return data_.data_end();
+	return
+		this->make_const_proxy().data_end();
 }
 
 template<
@@ -227,7 +224,42 @@ mizuiro::color::object<
 	Format
 >::format_store() const
 {
-	return this->format_store_base();
+	return
+		this->format_store_base();
+}
+
+template<
+	typename Format
+>
+typename mizuiro::color::object<
+	Format
+>::proxy const
+mizuiro::color::object<
+	Format
+>::make_proxy()
+{
+	return
+		proxy(
+			data_.data(),
+			this->format_store()
+		);
+}
+
+template<
+	typename Format
+>
+typename mizuiro::color::object<
+	Format
+>::const_proxy const
+mizuiro::color::object<
+	Format
+>::make_const_proxy() const
+{
+	return
+		const_proxy(
+			data_.data(),
+			this->format_store()
+		);
 }
 
 #endif
