@@ -144,6 +144,12 @@ public:
 	const_pointer
 	data() const;
 
+	pointer
+	data_end();
+
+	const_pointer
+	data_end() const;
+
 	format_store_type const
 	format_store() const;
 private:

@@ -14,6 +14,7 @@
 #include <mizuiro/color/format_store_impl.hpp>
 #include <mizuiro/color/proxy_decl.hpp>
 #include <mizuiro/color/access/extract_channel.hpp>
+#include <mizuiro/color/access/stride.hpp>
 #include <mizuiro/color/detail/copy_channel.hpp>
 
 
@@ -197,6 +198,34 @@ mizuiro::color::proxy<
 >::data() const
 {
 	return data_;
+}
+
+template<
+	typename Access,
+	typename Format,
+	typename Constness
+>
+typename mizuiro::color::proxy<
+	Access,
+	Format,
+	Constness
+>::pointer
+mizuiro::color::proxy<
+	Access,
+	Format,
+	Constness
+>::data_end() const
+{
+	return
+		this->data()
+		+
+		mizuiro::color::access::stride<
+			Access,
+			Format
+		>::execute(
+			Access(),
+			this->format_store()
+		);
 }
 
 template<

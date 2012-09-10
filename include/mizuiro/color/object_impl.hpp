@@ -196,6 +196,32 @@ template<
 >
 typename mizuiro::color::object<
 	Format
+>::pointer
+mizuiro::color::object<
+	Format
+>::data_end()
+{
+	return data_.data_end();
+}
+
+template<
+	typename Format
+>
+typename mizuiro::color::object<
+	Format
+>::const_pointer
+mizuiro::color::object<
+	Format
+>::data_end() const
+{
+	return data_.data_end();
+}
+
+template<
+	typename Format
+>
+typename mizuiro::color::object<
+	Format
 >::format_store_type const
 mizuiro::color::object<
 	Format
