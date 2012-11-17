@@ -3,12 +3,14 @@ cmake_minimum_required(VERSION 2.6)
 project (mizuiro)
 
 option(
-	ENABLE_FCPPT "Use fcppt's variant. Required for ternary visitation." OFF
+	ENABLE_FCPPT
+	"Use fcppt utilities"
+	OFF
 )
 
 if(ENABLE_FCPPT)
 	find_package(
-		Fcppt
+		fcppt
 		REQUIRED
 	)
 else()
@@ -35,7 +37,7 @@ find_package(
 
 set(
 	MIZUIRO_HAVE_FCPPT
-	${FCPPT_FOUND}
+	${ENABLE_FCPPT}
 )
 
 include_directories(
@@ -58,9 +60,9 @@ else()
 	)
 endif()
 
-if(FCPPT_FOUND)
+if(ENABLE_FCPPT)
 	include_directories(
-		${Fcppt_INCLUDE_DIRS}
+		${fcppt_INCLUDE_DIRS}
 	)
 endif()
 
@@ -509,5 +511,13 @@ if(
 		PROPERTIES
 		LINKER_LANGUAGE
 		"CXX"
+	)
+
+	fcppt_utils_include_path(
+		mizuiro_INCLUDE_DIR
+	)
+
+	fcppt_utils_generate_config(
+		mizuiro
 	)
 endif()

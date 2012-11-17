@@ -1,0 +1,24 @@
+include(
+	FcpptExport
+)
+
+set(
+	MIZUIRO_BINARY_DIR
+	@CMAKE_BINARY_DIR@
+)
+
+set(
+	FCPPT_EXPORT_IN_SOURCE_BUILD
+	@FCPPT_UTILS_IN_SOURCE_BUILD@
+)
+
+fcppt_export_init(
+	"mizuiro"
+	"${MIZUIRO_BINARY_DIR}"
+	""
+)
+
+set(
+	mizuiro_INCLUDE_DIRS
+	"@Boost_INCLUDE_DIRS@;@fcppt_INCLUDE_DIRS@;@mizuiro_INCLUDE_DIR@"
+)
