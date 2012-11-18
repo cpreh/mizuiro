@@ -102,13 +102,6 @@ install(
 	${INSTALL_INCLUDE_DIR}/mizuiro
 )
 
-install(
-	FILES
-	${CMAKE_SOURCE_DIR}/CMakeModules/FindMizuiro.cmake
-	DESTINATION
-	${INSTALL_CMAKEMODULES_DIR}
-)
-
 option(ENABLE_DOC "Build the documentation" OFF)
 
 if (ENABLE_DOC)
