@@ -506,5 +506,10 @@ if(
 		"CXX"
 	)
 
+	set(
+		FCPPT_UTILS_NO_TARGETS
+		TRUE
+	)
+
 	fcppt_utils_generate_config()
 endif()
