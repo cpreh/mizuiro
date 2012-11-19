@@ -506,11 +506,5 @@ if(
 		"CXX"
 	)
 
-	fcppt_utils_include_path(
-		mizuiro_INCLUDE_DIR
-	)
-
-	fcppt_utils_generate_config(
-		mizuiro
-	)
+	fcppt_utils_generate_config()
 endif()
