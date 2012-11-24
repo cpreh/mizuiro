@@ -11,14 +11,14 @@
 #include <mizuiro/integral_size.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/raw_pointer.hpp>
-#include <mizuiro/raw_value.hpp>
+#include <mizuiro/color/detail/heterogenous_bits.hpp>
 #include <mizuiro/color/detail/heterogenous_channel_bits.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/bit_count.hpp>
+#include <mizuiro/detail/copy_n.hpp>
 #include <mizuiro/detail/index_of.hpp>
+#include <mizuiro/detail/uint_least.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <algorithm>
-#include <limits>
 #include <boost/mpl/accumulate.hpp>
 #include <boost/mpl/advance.hpp>
 #include <boost/mpl/begin.hpp>
@@ -26,9 +26,9 @@
 #include <boost/mpl/iterator_range.hpp>
 #include <boost/mpl/placeholders.hpp>
 #include <boost/mpl/plus.hpp>
+#include <boost/type_traits/promote.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
-#include <iostream>
 
 namespace mizuiro
 {
@@ -78,194 +78,39 @@ private:
 		Channel
 	>::type bit_count;
 
-	typedef typename mizuiro::detail::bit_count<
-		mizuiro::raw_value
-	>::type bits_per_byte;
+	typedef typename mizuiro::color::detail::heterogenous_bits<
+		typename Format::channel_bits
+	>::type total_bits;
 
-	typedef typename boost::mpl::divides<
-		start_bit,
-		bits_per_byte
-	>::type first_byte;
+	typedef mizuiro::integral_size<
+		total_bits::value - bit_count::value - start_bit::value
+	> real_start_bit;
 
-	static
-	mizuiro::size_type
-	flipped_begin(
-		mizuiro::size_type const _begin,
-		mizuiro::size_type const _count
-	)
-	{
-		return
-			static_cast<
-				mizuiro::size_type
-			>(
-				std::numeric_limits<
-					mizuiro::raw_value
-				>::digits
-			)
-			-
-			_begin
-			-
-			_count
-			;
-	}
+	typedef typename mizuiro::detail::uint_least<
+		total_bits
+	>::type color_uint;
+
+	typedef typename boost::promote<
+		color_uint
+	>::type promoted_color;
 
 	static
-	mizuiro::raw_value
+	color_uint
 	part(
 		mizuiro::size_type const _begin,
 		mizuiro::size_type const _count
 	)
 	{
-		mizuiro::size_type const begin(
-			bit_channel_access::flipped_begin(
-				_begin,
-				_count
-			)
+		promoted_color const one(
+			1u
 		);
-
-		std::cout << begin << ' ' << _count << '\n';
 
 		return
 			static_cast<
-				mizuiro::raw_value
+				color_uint
 			>(
-				((1u << begin) - 1u) ^ ((1u << (begin + _count)) - 1u)
+				((one << _begin) - one) ^ ((one << (_begin + _count)) - one)
 			);
-	}
-
-	static
-	void
-	set_bits(
-		mizuiro::size_type const _begin,
-		mizuiro::size_type const _count,
-		mizuiro::raw_value const _value,
-		mizuiro::raw_value &_result
-	)
-	{
-		_result =
-			static_cast<
-				mizuiro::raw_value
-			>(
-				(
-					_result
-					&
-					~bit_channel_access::part(
-						_begin,
-						_count
-					)
-				)
-				|
-				(
-					_value
-				)
-			);
-	}
-
-	static
-	mizuiro::raw_value
-	get_bits(
-		mizuiro::size_type const _begin,
-		mizuiro::size_type const _count,
-		mizuiro::raw_value const _value
-	)
-	{
-		return
-			static_cast<
-				mizuiro::raw_value
-			>(
-				(
-					_value
-					&
-					bit_channel_access::part(
-						_begin,
-						_count
-					)
-				)
-			);
-	}
-
-	template<
-		typename Operation
-	>
-	static
-	inline
-	void
-	loop_bits(
-		mizuiro::const_raw_pointer _source,
-		mizuiro::raw_pointer _dest,
-		Operation const &_operation
-	)
-	{
-		mizuiro::size_type current_bit(
-			start_bit::value - bits_per_byte::value * first_byte::value
-		);
-
-		for(
-			mizuiro::size_type remaining_bits(
-				bit_count::value
-			);
-			remaining_bits != 0u;
-			++_dest, ++_source
-		)
-		{
-			// The number of bits to set for the last byte is
-			// remaining_bits. For the first bit, the number is how
-			// many bits fit into the current byte when current_bit
-			// is subtracted. If a full byte is written, the second
-			// case also takes care of that because current_bit
-			// will be 0.
-			mizuiro::size_type const bits_done(
-				std::min(
-					remaining_bits,
-					bits_per_byte::value - current_bit % bits_per_byte::value
-				)
-			);
-
-			_operation(
-				*_dest,
-				*_source,
-				current_bit,
-				bits_done
-			);
-
-			current_bit = 0u;
-
-			remaining_bits -= bits_done;
-		}
-	}
-
-	static
-	void
-	read_bits(
-		mizuiro::raw_value &_dest,
-		mizuiro::raw_value const _source,
-		mizuiro::size_type const _start_bit,
-		mizuiro::size_type const _bit_count
-	)
-	{
-		_dest =
-			bit_channel_access::get_bits(
-				_start_bit,
-				_bit_count,
-				_source
-			);
-	}
-
-	static
-	void
-	write_bits(
-		mizuiro::raw_value &_dest,
-		mizuiro::raw_value const _source,
-		mizuiro::size_type const _start_bit,
-		mizuiro::size_type const _bit_count
-	)
-	{
-		bit_channel_access::set_bits(
-			_start_bit,
-			_bit_count,
-			_source,
-			_dest
-		);
 	}
 public:
 	static
@@ -274,23 +119,34 @@ public:
 		mizuiro::const_raw_pointer const _data
 	)
 	{
-		value_type result(
-			0u
-		);
+		color_uint temp;
 
-		bit_channel_access::loop_bits(
-			_data
-			+
-			first_byte::value,
+		mizuiro::detail::copy_n(
+			_data,
+			sizeof(color_uint),
 			reinterpret_cast<
 				mizuiro::raw_pointer
 			>(
-				&result
-			),
-			&bit_channel_access::read_bits
+				&temp
+			)
 		);
 
-		return result;
+		return
+			static_cast<
+				value_type
+			>(
+				(
+					bit_channel_access::part(
+						real_start_bit::value,
+						bit_count::value
+					)
+					&
+					temp
+				)
+				>>
+				real_start_bit::value
+			)
+			;
 	}
 
 	static
@@ -300,16 +156,62 @@ public:
 		value_type const _value
 	)
 	{
-		bit_channel_access::loop_bits(
+		color_uint temp;
+
+		mizuiro::detail::copy_n(
+			_data,
+			sizeof(color_uint),
+			reinterpret_cast<
+				mizuiro::raw_pointer
+			>(
+				&temp
+			)
+		);
+
+		temp
+			=
+			temp
+			&
+			static_cast<
+				color_uint
+			>(
+				~bit_channel_access::part(
+					real_start_bit::value,
+					bit_count::value
+				)
+			);
+
+		temp
+			=
+			static_cast<
+				color_uint
+			>(
+				temp
+				|
+				static_cast<
+					color_uint
+				>
+				(
+					static_cast<
+						color_uint
+					>
+					(
+						_value
+					)
+					<<
+					real_start_bit::value
+				)
+			)
+			;
+
+		mizuiro::detail::copy_n(
 			reinterpret_cast<
 				mizuiro::const_raw_pointer
 			>(
-				&_value
+				&temp
 			),
+			sizeof(color_uint),
 			_data
-			+
-			first_byte::value,
-			&bit_channel_access::write_bits
 		);
 	}
 };
