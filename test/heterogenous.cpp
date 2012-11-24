@@ -99,11 +99,24 @@ MIZUIRO_DETAIL_POP_WARNING
 	> rgb565_color;
 
 	rgb565_color const test1(
-		(mizuiro::color::init::red() = static_cast<boost::uint8_t>(0x18))
+		//(mizuiro::color::init::red() = static_cast<boost::uint8_t>(0x0))
 		(mizuiro::color::init::green() = static_cast<boost::uint8_t>(0x35))
-		(mizuiro::color::init::blue() = static_cast<boost::uint8_t>(0x15))
+		//(mizuiro::color::init::blue() = static_cast<boost::uint8_t>(0x0))
 	);
 
+	std::cout << "values: ";
+
+	for(
+		rgb565_color::const_pointer ptr(
+			test1.data()
+		);
+		ptr != test1.data_end();
+		++ptr
+	)
+		std::cout << std::hex << static_cast<unsigned>(*ptr) << ' ';
+	std::cout << '\n';
+
+/*
 	BOOST_CHECK(
 		test1.get(
 			mizuiro::color::channel::red()
@@ -111,7 +124,7 @@ MIZUIRO_DETAIL_POP_WARNING
 		==
 		static_cast<boost::uint8_t>(0x18)
 	);
-
+*/
 	BOOST_CHECK(
 		test1.get(
 			mizuiro::color::channel::green()
@@ -119,7 +132,7 @@ MIZUIRO_DETAIL_POP_WARNING
 		==
 		static_cast<boost::uint8_t>(0x35)
 	);
-
+/*
 	BOOST_CHECK(
 		test1.get(
 			mizuiro::color::channel::blue()
@@ -127,4 +140,5 @@ MIZUIRO_DETAIL_POP_WARNING
 		==
 		static_cast<boost::uint8_t>(0x15)
 	);
+*/
 }

@@ -18,6 +18,7 @@
 #include <mizuiro/detail/index_of.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <algorithm>
+#include <limits>
 #include <boost/mpl/accumulate.hpp>
 #include <boost/mpl/advance.hpp>
 #include <boost/mpl/begin.hpp>
@@ -27,6 +28,7 @@
 #include <boost/mpl/plus.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
+#include <iostream>
 
 namespace mizuiro
 {
@@ -86,17 +88,48 @@ private:
 	>::type first_byte;
 
 	static
-	mizuiro::raw_value
-	part(
+	mizuiro::size_type
+	flipped_begin(
 		mizuiro::size_type const _begin,
 		mizuiro::size_type const _count
 	)
 	{
 		return
 			static_cast<
+				mizuiro::size_type
+			>(
+				std::numeric_limits<
+					mizuiro::raw_value
+				>::digits
+			)
+			-
+			_begin
+			-
+			_count
+			;
+	}
+
+	static
+	mizuiro::raw_value
+	part(
+		mizuiro::size_type const _begin,
+		mizuiro::size_type const _count
+	)
+	{
+		mizuiro::size_type const begin(
+			bit_channel_access::flipped_begin(
+				_begin,
+				_count
+			)
+		);
+
+		std::cout << begin << ' ' << _count << '\n';
+
+		return
+			static_cast<
 				mizuiro::raw_value
 			>(
-				((1u << _begin) - 1u) ^ ((1u << (_begin + _count)) - 1u)
+				((1u << begin) - 1u) ^ ((1u << (begin + _count)) - 1u)
 			);
 	}
 
@@ -124,8 +157,6 @@ private:
 				|
 				(
 					_value
-					<<
-					_begin
 				)
 			);
 	}
@@ -142,11 +173,13 @@ private:
 			static_cast<
 				mizuiro::raw_value
 			>(
-				_value
-				&
-				bit_channel_access::part(
-					_begin,
-					_count
+				(
+					_value
+					&
+					bit_channel_access::part(
+						_begin,
+						_count
+					)
 				)
 			);
 	}
@@ -171,28 +204,33 @@ private:
 			mizuiro::size_type remaining_bits(
 				bit_count::value
 			);
-			bit_count::value >= remaining_bits && remaining_bits != 0;
-			remaining_bits -= bits_per_byte::value, ++_dest, ++_source
+			remaining_bits != 0u;
+			++_dest, ++_source
 		)
 		{
-			_operation(
-				*_dest,
-				*_source,
-				current_bit,
-				// The number of bits to set for the last byte
-				// is remaining_bits. For the first bit, the
-				// number is how many bits fit into the current
-				// byte when current_bit is subtracted. If a
-				// full byte is written, the second case also
-				// takes care of that because current_bit will
-				// be 0.
+			// The number of bits to set for the last byte is
+			// remaining_bits. For the first bit, the number is how
+			// many bits fit into the current byte when current_bit
+			// is subtracted. If a full byte is written, the second
+			// case also takes care of that because current_bit
+			// will be 0.
+			mizuiro::size_type const bits_done(
 				std::min(
 					remaining_bits,
 					bits_per_byte::value - current_bit % bits_per_byte::value
 				)
 			);
 
+			_operation(
+				*_dest,
+				*_source,
+				current_bit,
+				bits_done
+			);
+
 			current_bit = 0u;
+
+			remaining_bits -= bits_done;
 		}
 	}
 
