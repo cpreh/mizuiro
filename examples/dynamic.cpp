@@ -11,6 +11,7 @@
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/access/dynamic_channel.hpp>
+#include <mizuiro/color/access/homogenous.hpp>
 #include <mizuiro/color/access/homogenous_dynamic.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/color/types/homogenous.hpp>

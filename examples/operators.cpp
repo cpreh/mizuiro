@@ -9,6 +9,7 @@
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/operators.hpp>
 #include <mizuiro/color/output.hpp>
+#include <mizuiro/color/access/homogenous.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/color/access/static.hpp>
 #include <mizuiro/color/layout/rgb.hpp>

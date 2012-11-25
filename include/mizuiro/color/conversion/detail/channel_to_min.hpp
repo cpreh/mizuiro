@@ -8,7 +8,6 @@
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MIN_HPP_INCLUDED
 
 #include <mizuiro/color/channel_min.hpp>
-#include <mizuiro/color/types/channel_value.hpp>
 
 
 namespace mizuiro
@@ -32,12 +31,10 @@ channel_to_min(
 {
 	_color.set(
 		_channel,
-		color::channel_min<
-			typename color::types::channel_value<
-				typename Color::format,
-				Channel
-			>::type
-		>()
+		mizuiro::color::channel_min(
+			_color.format_store(),
+			_channel
+		)
 	);
 }
 

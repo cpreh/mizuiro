@@ -8,6 +8,7 @@
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/output.hpp>
+#include <mizuiro/color/access/homogenous.hpp>
 #include <mizuiro/color/access/homogenous_normal.hpp>
 #include <mizuiro/color/access/homogenous_raw.hpp>
 #include <mizuiro/color/access/static.hpp>

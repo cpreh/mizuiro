@@ -128,6 +128,8 @@ set(
 	include/mizuiro/apply_const.hpp
 	include/mizuiro/array.hpp
 	include/mizuiro/color/access/channel_index.hpp
+	include/mizuiro/color/access/channel_max.hpp
+	include/mizuiro/color/access/channel_min.hpp
 	include/mizuiro/color/access/compare_channels.hpp
 	include/mizuiro/color/access/dynamic_channel.hpp
 	include/mizuiro/color/access/extract_channel.hpp
@@ -135,6 +137,7 @@ set(
 	include/mizuiro/color/access/heterogenous.hpp
 	include/mizuiro/color/access/heterogenous_normal.hpp
 	include/mizuiro/color/access/heterogenous_raw.hpp
+	include/mizuiro/color/access/homogenous.hpp
 	include/mizuiro/color/access/homogenous_dynamic.hpp
 	include/mizuiro/color/access/homogenous_normal.hpp
 	include/mizuiro/color/access/homogenous_raw.hpp
@@ -189,6 +192,8 @@ set(
 	include/mizuiro/color/detail/bit_channel_access_raw.hpp
 	include/mizuiro/color/detail/copy_channel.hpp
 	include/mizuiro/color/detail/for_some_channels_functor.hpp
+	include/mizuiro/color/detail/full_channel_max.hpp
+	include/mizuiro/color/detail/full_channel_min.hpp
 	include/mizuiro/color/detail/heterogenous_bits.hpp
 	include/mizuiro/color/detail/heterogenous_channel_bits.hpp
 	include/mizuiro/color/detail/initialize_dynamic_indices.hpp
@@ -308,7 +313,6 @@ set(
 	include/mizuiro/compare.hpp
 	include/mizuiro/const_raw_pointer.hpp
 	include/mizuiro/const_tag.hpp
-	include/mizuiro/denormalize.hpp
 	include/mizuiro/detail/bit_count.hpp
 	include/mizuiro/detail/byte_count_from_bits.hpp
 	include/mizuiro/detail/choose_const.hpp
@@ -486,7 +490,6 @@ set(
 	include/mizuiro/integral_size.hpp
 	include/mizuiro/is_raw_pointer.hpp
 	include/mizuiro/nonconst_tag.hpp
-	include/mizuiro/normalize.hpp
 	include/mizuiro/raw_pointer.hpp
 	include/mizuiro/raw_value.hpp
 	include/mizuiro/size_type.hpp

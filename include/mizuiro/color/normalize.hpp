@@ -7,7 +7,8 @@
 #ifndef MIZUIRO_COLOR_NORMALIZE_HPP_INCLUDED
 #define MIZUIRO_COLOR_NORMALIZE_HPP_INCLUDED
 
-#include <mizuiro/normalize.hpp>
+#include <mizuiro/color/channel_max.hpp>
+#include <mizuiro/color/channel_min.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -51,16 +52,46 @@ normalize
 )
 {
 	return
-		::mizuiro::normalize<
-			Float,
-			typename color::types::channel_value
-			<
-				typename Color::format,
-				Channel
-			>::type
-		>(
-			_color.get(
-				_channel
+		(
+			static_cast<
+				Float
+			>
+			(
+				_color.get(
+					_channel
+				)
+			)
+			-
+			static_cast<
+				Float
+			>
+			(
+				mizuiro::color::channel_min(
+					_color.format_store(),
+					_channel
+				)
+			)
+		)
+		/
+		(
+			static_cast<
+				Float
+			>
+			(
+				mizuiro::color::channel_max(
+					_color.format_store(),
+					_channel
+				)
+			)
+			-
+			static_cast<
+				Float
+			>
+			(
+				mizuiro::color::channel_min(
+					_color.format_store(),
+					_channel
+				)
 			)
 		);
 }

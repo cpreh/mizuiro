@@ -7,12 +7,9 @@
 #ifndef MIZUIRO_COLOR_CHANNEL_MAX_HPP_INCLUDED
 #define MIZUIRO_COLOR_CHANNEL_MAX_HPP_INCLUDED
 
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/type_traits/is_floating_point.hpp>
-#include <boost/type_traits/is_integral.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <limits>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/color/format_store_fwd.hpp>
+#include <mizuiro/color/access/channel_max.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
 
 
 namespace mizuiro
@@ -21,38 +18,27 @@ namespace color
 {
 
 template<
-	typename T
+	typename Format,
+	typename Channel
 >
-typename boost::enable_if<
-	boost::is_integral<
-		T
-	>,
-	T
+typename mizuiro::color::types::channel_value<
+	Format,
+	Channel
 >::type
-channel_max()
+channel_max(
+	mizuiro::color::format_store<
+		Format
+	> const &_format,
+	Channel const &_channel
+)
 {
 	return
-		std::numeric_limits<
-			T
-		>::max();
-}
-
-template<
-	typename T
->
-typename boost::enable_if<
-	boost::is_floating_point<
-		T
-	>,
-	T
->::type
-channel_max()
-{
-	return
-		static_cast<
-			T
-		>(
-			1.0
+		mizuiro::color::access::channel_max<
+			Format,
+			Channel
+		>::execute(
+			_format,
+			_channel
 		);
 }
 

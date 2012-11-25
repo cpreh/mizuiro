@@ -73,6 +73,7 @@ set_channel(
 		mizuiro::color::denormalize<
 			typename Color::format
 		>(
+			_color.format_store(),
 			_init.channel(),
 			_init.value()
 		)

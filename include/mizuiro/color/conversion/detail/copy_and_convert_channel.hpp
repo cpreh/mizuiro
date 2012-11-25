@@ -22,10 +22,10 @@ namespace detail
 
 template
 <
-	class Float,
-	class Channel,
-	class Src,
-	class Dest
+	typename Float,
+	typename Channel,
+	typename Src,
+	typename Dest
 >
 void
 copy_and_convert_channel(
@@ -36,15 +36,14 @@ copy_and_convert_channel(
 {
 	_dest.set(
 		_channel,
-		color::denormalize
+		mizuiro::color::denormalize
 		<
-			typename Dest::format,
-			Channel,
-			Float
+			typename Dest::format
 		>
 		(
+			_dest.format_store(),
 			_channel,
-			color::normalize<
+			mizuiro::color::normalize<
 				Float
 			>
 			(
