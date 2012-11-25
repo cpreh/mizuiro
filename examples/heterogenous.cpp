@@ -14,6 +14,7 @@
 #include <mizuiro/color/init/stencil.hpp>
 #include <mizuiro/color/layout/depth_stencil.hpp>
 #include <mizuiro/color/types/heterogenous.hpp>
+#include <mizuiro/color/types/heterogenous_normal.hpp>
 #include <mizuiro/color/types/static.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/cstdint.hpp>

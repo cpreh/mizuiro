@@ -7,12 +7,9 @@
 #ifndef MIZUIRO_COLOR_ACCESS_HETEROGENOUS_HPP_INCLUDED
 #define MIZUIRO_COLOR_ACCESS_HETEROGENOUS_HPP_INCLUDED
 
-#include <mizuiro/size_type.hpp>
 #include <mizuiro/color/format_store_fwd.hpp>
 #include <mizuiro/color/is_heterogenous.hpp>
 #include <mizuiro/color/access/extract_channel.hpp>
-#include <mizuiro/color/access/stride.hpp>
-#include <mizuiro/color/detail/byte_count_from_bits.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -78,35 +75,6 @@ struct extract_channel<
 	}
 };
 
-template<
-	typename Access,
-	typename ColorFormat
->
-struct stride<
-	Access,
-	ColorFormat,
-	typename boost::enable_if<
-		mizuiro::color::is_heterogenous<
-			ColorFormat
-		>
-	>::type
->
-{
-	static
-	mizuiro::size_type
-	execute(
-		Access const &,
-		mizuiro::color::format_store<
-			ColorFormat
-		> const &
-	)
-	{
-		return
-			mizuiro::color::detail::byte_count_from_bits<
-				typename ColorFormat::channel_bits
-			>::value;
-	}
-};
 
 }
 }

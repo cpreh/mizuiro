@@ -4,18 +4,17 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_DETAIL_BIT_CHANNEL_ACCESS_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_BIT_CHANNEL_ACCESS_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_DETAIL_BIT_CHANNEL_ACCESS_NORMAL_HPP_INCLUDED
+#define MIZUIRO_COLOR_DETAIL_BIT_CHANNEL_ACCESS_NORMAL_HPP_INCLUDED
 
-#include <mizuiro/const_raw_pointer.hpp>
+#include <mizuiro/const_tag.hpp>
+#include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/integral_size.hpp>
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/raw_pointer.hpp>
 #include <mizuiro/color/detail/heterogenous_bits.hpp>
 #include <mizuiro/color/detail/heterogenous_channel_bits.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
-#include <mizuiro/detail/bit_count.hpp>
-#include <mizuiro/detail/copy_n.hpp>
+#include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/detail/index_of.hpp>
 #include <mizuiro/detail/uint_least.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -41,7 +40,7 @@ template<
 	typename Format,
 	typename Channel
 >
-class bit_channel_access
+class bit_channel_access_normal
 {
 private:
 	typedef typename mizuiro::color::types::channel_value<
@@ -77,6 +76,18 @@ private:
 		Format,
 		Channel
 	>::type bit_count;
+
+	typedef typename mizuiro::color::types::pointer<
+		mizuiro::access::normal,
+		Format,
+		mizuiro::const_tag
+	>::type const_pointer;
+
+	typedef typename mizuiro::color::types::pointer<
+		mizuiro::access::normal,
+		Format,
+		mizuiro::nonconst_tag
+	>::type pointer;
 
 	typedef typename mizuiro::color::detail::heterogenous_bits<
 		typename Format::channel_bits
@@ -116,32 +127,20 @@ public:
 	static
 	value_type
 	read(
-		mizuiro::const_raw_pointer const _data
+		const_pointer const _data
 	)
 	{
-		color_uint temp;
-
-		mizuiro::detail::copy_n(
-			_data,
-			sizeof(color_uint),
-			reinterpret_cast<
-				mizuiro::raw_pointer
-			>(
-				&temp
-			)
-		);
-
 		return
 			static_cast<
 				value_type
 			>(
 				(
-					bit_channel_access::part(
+					bit_channel_access_normal::part(
 						real_start_bit::value,
 						bit_count::value
 					)
 					&
-					temp
+					*_data
 				)
 				>>
 				real_start_bit::value
@@ -152,41 +151,29 @@ public:
 	static
 	void
 	write(
-		mizuiro::raw_pointer const _data,
+		pointer const _data,
 		value_type const _value
 	)
 	{
-		color_uint temp;
-
-		mizuiro::detail::copy_n(
-			_data,
-			sizeof(color_uint),
-			reinterpret_cast<
-				mizuiro::raw_pointer
-			>(
-				&temp
-			)
-		);
-
-		temp
+		*_data
 			=
-			temp
+			*_data
 			&
 			static_cast<
 				color_uint
 			>(
-				~bit_channel_access::part(
+				~bit_channel_access_normal::part(
 					real_start_bit::value,
 					bit_count::value
 				)
 			);
 
-		temp
+		*_data
 			=
 			static_cast<
 				color_uint
 			>(
-				temp
+				*_data
 				|
 				static_cast<
 					color_uint
@@ -203,16 +190,6 @@ public:
 				)
 			)
 			;
-
-		mizuiro::detail::copy_n(
-			reinterpret_cast<
-				mizuiro::const_raw_pointer
-			>(
-				&temp
-			),
-			sizeof(color_uint),
-			_data
-		);
 	}
 };
 

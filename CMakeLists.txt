@@ -133,6 +133,8 @@ set(
 	include/mizuiro/color/access/extract_channel.hpp
 	include/mizuiro/color/access/has_channel.hpp
 	include/mizuiro/color/access/heterogenous.hpp
+	include/mizuiro/color/access/heterogenous_normal.hpp
+	include/mizuiro/color/access/heterogenous_raw.hpp
 	include/mizuiro/color/access/homogenous_dynamic.hpp
 	include/mizuiro/color/access/homogenous_normal.hpp
 	include/mizuiro/color/access/homogenous_raw.hpp
@@ -183,10 +185,11 @@ set(
 	include/mizuiro/color/convert_static/hsv_to_rgb.hpp
 	include/mizuiro/color/convert_static/same_to_same.hpp
 	include/mizuiro/color/denormalize.hpp
-	include/mizuiro/color/detail/bit_channel_access.hpp
-	include/mizuiro/color/detail/byte_count_from_bits.hpp
+	include/mizuiro/color/detail/bit_channel_access_normal.hpp
+	include/mizuiro/color/detail/bit_channel_access_raw.hpp
 	include/mizuiro/color/detail/copy_channel.hpp
 	include/mizuiro/color/detail/for_some_channels_functor.hpp
+	include/mizuiro/color/detail/heterogenous_bits.hpp
 	include/mizuiro/color/detail/heterogenous_channel_bits.hpp
 	include/mizuiro/color/detail/initialize_dynamic_indices.hpp
 	include/mizuiro/color/detail/invalid_dynamic_index.hpp
@@ -293,6 +296,8 @@ set(
 	include/mizuiro/color/types/channel_value.hpp
 	include/mizuiro/color/types/has_channel_static.hpp
 	include/mizuiro/color/types/heterogenous.hpp
+	include/mizuiro/color/types/heterogenous_normal.hpp
+	include/mizuiro/color/types/heterogenous_raw.hpp
 	include/mizuiro/color/types/homogenous.hpp
 	include/mizuiro/color/types/homogenous_dynamic.hpp
 	include/mizuiro/color/types/homogenous_normal.hpp
@@ -305,6 +310,7 @@ set(
 	include/mizuiro/const_tag.hpp
 	include/mizuiro/denormalize.hpp
 	include/mizuiro/detail/bit_count.hpp
+	include/mizuiro/detail/byte_count_from_bits.hpp
 	include/mizuiro/detail/choose_const.hpp
 	include/mizuiro/detail/compare.hpp
 	include/mizuiro/detail/copy.hpp
