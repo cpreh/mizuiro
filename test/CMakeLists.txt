@@ -1,9 +1,4 @@
-FIND_PACKAGE(
-	Boost 1.40.0 REQUIRED COMPONENTS
-	unit_test_framework
-)
-
-MACRO(
+function(
 	ADD_MIZUIRO_TEST
 	PATHNAME
 )
@@ -39,7 +34,7 @@ MACRO(
 		COMMAND
 		${MIZUIRO_TEST_NAME}
 	)
-ENDMACRO()
+endfunction()
 
 ADD_MIZUIRO_TEST(convert/swizzle)
 ADD_MIZUIRO_TEST(data)

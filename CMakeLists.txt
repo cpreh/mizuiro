@@ -31,8 +31,20 @@ else()
 	)
 endif()
 
+option (ENABLE_TEST "Build the tests" ON)
+
+if(
+	ENABLE_TEST
+)
+	set(
+		NEEDED_BOOST_LIBS
+		"unit_test_framework"
+	)
+endif()
+
 find_package(
 	Boost 1.40.0 REQUIRED
+	${NEEDED_BOOST_LIBS}
 )
 
 set(
@@ -113,8 +125,6 @@ option (ENABLE_EXAMPLES "Build the examples" ON)
 if(ENABLE_EXAMPLES)
 	add_subdirectory(examples)
 endif()
-
-option (ENABLE_TEST "Build the tests" ON)
 
 if(ENABLE_TEST)
 	enable_testing()
