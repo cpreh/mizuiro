@@ -11,6 +11,7 @@
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/integral_size.hpp>
 #include <mizuiro/size_type.hpp>
+#include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/detail/heterogenous_bits.hpp>
 #include <mizuiro/color/detail/heterogenous_channel_bits.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
@@ -21,7 +22,6 @@
 #include <boost/mpl/accumulate.hpp>
 #include <boost/mpl/advance.hpp>
 #include <boost/mpl/begin.hpp>
-#include <boost/mpl/divides.hpp>
 #include <boost/mpl/iterator_range.hpp>
 #include <boost/mpl/placeholders.hpp>
 #include <boost/mpl/plus.hpp>

@@ -75,7 +75,7 @@ struct channel_reference<
 {
 	typedef mizuiro::color::channel_proxy<
 		typename mizuiro::color::types::pointer<
-			Access,
+			::mizuiro::access::raw,
 			Format,
 			Constness
 		>::type,

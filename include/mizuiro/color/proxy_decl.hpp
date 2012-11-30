@@ -32,11 +32,11 @@ template<
 >
 class proxy
 :
-	private color::format_base<
+	private mizuiro::color::format_base<
 		Format
 	>::type
 {
-	typedef typename color::format_base<
+	typedef typename mizuiro::color::format_base<
 		Format
 	>::type base;
 public:
@@ -46,7 +46,7 @@ public:
 
 	typedef typename base::format_store_type format_store_type;
 
-	typedef typename color::types::pointer<
+	typedef typename mizuiro::color::types::pointer<
 		Access,
 		Format,
 		Constness
@@ -62,7 +62,7 @@ public:
 		typename OtherConstness
 	>
 	proxy(
-		color::proxy<
+		mizuiro::color::proxy<
 			Access,
 			Format,
 			OtherConstness
@@ -83,7 +83,7 @@ public:
 	void
 	set(
 		Channel const &,
-		typename types::channel_value<
+		typename mizuiro::color::types::channel_value<
 			Format,
 			Channel
 		>::type const &
@@ -92,7 +92,7 @@ public:
 	template<
 		typename Channel
 	>
-	typename types::channel_reference<
+	typename mizuiro::color::types::channel_reference<
 		Access,
 		Format,
 		Channel,

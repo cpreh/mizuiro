@@ -4,10 +4,15 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/array.hpp>
+#include <mizuiro/const_tag.hpp>
+#include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/size_type.hpp>
+#include <mizuiro/access/raw.hpp>
 #include <mizuiro/color/heterogenous_static.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
+#include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/access/heterogenous.hpp>
 #include <mizuiro/color/access/static.hpp>
 #include <mizuiro/color/channel/blue.hpp>
@@ -24,7 +29,9 @@
 #include <mizuiro/color/layout/rgb.hpp>
 #include <mizuiro/color/types/heterogenous.hpp>
 #include <mizuiro/color/types/heterogenous_normal.hpp>
+#include <mizuiro/color/types/heterogenous_raw.hpp>
 #include <mizuiro/color/types/static.hpp>
+#include <mizuiro/color/types/store.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/vector/vector10_c.hpp>
 #include <boost/test/unit_test.hpp>
@@ -35,7 +42,7 @@
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 BOOST_AUTO_TEST_CASE(
-	homogenous_depth_stencil
+	heterogenous_depth_stencil
 )
 {
 MIZUIRO_DETAIL_POP_WARNING
@@ -78,7 +85,7 @@ MIZUIRO_DETAIL_POP_WARNING
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 BOOST_AUTO_TEST_CASE(
-	homogenous_rgb
+	heterogenous_rgb
 )
 {
 MIZUIRO_DETAIL_POP_WARNING
@@ -121,6 +128,87 @@ MIZUIRO_DETAIL_POP_WARNING
 
 	BOOST_CHECK(
 		test1.get(
+			mizuiro::color::channel::blue()
+		)
+		==
+		static_cast<boost::uint8_t>(0x15)
+	);
+}
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
+
+BOOST_AUTO_TEST_CASE(
+	heterogenous_raw
+)
+{
+MIZUIRO_DETAIL_POP_WARNING
+
+	typedef mizuiro::color::heterogenous_static<
+		boost::mpl::vector3_c<
+			mizuiro::size_type,
+			5u,
+			6u,
+			5u
+		>,
+		mizuiro::color::layout::rgb
+	> rgb565_format;
+
+	typedef mizuiro::color::types::store<
+		mizuiro::access::raw,
+		rgb565_format
+	>::type store_type;
+
+	store_type store;
+
+	typedef mizuiro::color::proxy<
+		mizuiro::access::raw,
+		rgb565_format,
+		mizuiro::nonconst_tag
+	> nonconst_proxy;
+
+	typedef mizuiro::color::proxy<
+		mizuiro::access::raw,
+		rgb565_format,
+		mizuiro::const_tag
+	> const_proxy;
+
+	typedef mizuiro::color::object<
+		rgb565_format
+	> rgb565_color;
+
+	nonconst_proxy(
+		store.data()
+	) =
+		rgb565_color(
+			(mizuiro::color::init::red() = static_cast<boost::uint8_t>(0x18))
+			(mizuiro::color::init::green() = static_cast<boost::uint8_t>(0x35))
+			(mizuiro::color::init::blue() = static_cast<boost::uint8_t>(0x15))
+		);
+
+	BOOST_CHECK(
+		const_proxy(
+			store.data()
+		).get(
+			mizuiro::color::channel::red()
+		)
+		==
+		static_cast<boost::uint8_t>(0x18)
+	);
+
+	BOOST_CHECK(
+		const_proxy(
+			store.data()
+		).get(
+			mizuiro::color::channel::green()
+		)
+		==
+		static_cast<boost::uint8_t>(0x35)
+	);
+
+	BOOST_CHECK(
+		const_proxy(
+			store.data()
+		).get(
 			mizuiro::color::channel::blue()
 		)
 		==

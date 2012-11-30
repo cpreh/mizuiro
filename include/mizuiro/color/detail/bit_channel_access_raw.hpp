@@ -10,6 +10,7 @@
 #include <mizuiro/const_raw_pointer.hpp>
 #include <mizuiro/raw_pointer.hpp>
 #include <mizuiro/color/detail/bit_channel_access_normal.hpp>
+#include <mizuiro/color/detail/heterogenous_bits.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/copy_n.hpp>
 #include <mizuiro/detail/uint_least.hpp>
@@ -40,7 +41,9 @@ private:
 	>::type value_type;
 
 	typedef typename mizuiro::detail::uint_least<
-		total_bits
+		typename mizuiro::color::detail::heterogenous_bits<
+			typename Format::channel_bits
+		>::type
 	>::type color_uint;
 public:
 	static
