@@ -49,8 +49,8 @@ struct stride<
 	)
 	{
 		return
-			mizuiro::color::detail::heterogenous_bits<
-				typename mizuiro::detail::byte_count_from_bits<
+			mizuiro::detail::byte_count_from_bits<
+				typename mizuiro::color::detail::heterogenous_bits<
 					typename ColorFormat::channel_bits
 				>::type
 			>::value;
