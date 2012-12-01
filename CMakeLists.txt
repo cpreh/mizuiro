@@ -272,6 +272,7 @@ set(
 	include/mizuiro/color/layout/bgra.hpp
 	include/mizuiro/color/layout/bgrx.hpp
 	include/mizuiro/color/layout/cylindrical.hpp
+	include/mizuiro/color/layout/depth.hpp
 	include/mizuiro/color/layout/depth_stencil.hpp
 	include/mizuiro/color/layout/gray.hpp
 	include/mizuiro/color/layout/hsv.hpp

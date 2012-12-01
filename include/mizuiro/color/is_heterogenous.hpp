@@ -25,7 +25,11 @@ MIZUIRO_DETAIL_IGNORE_EFFCPP
 template<
 	typename Format
 >
-struct is_heterogenous;
+struct is_heterogenous
+:
+boost::false_type
+{
+};
 
 template<
 	typename ChannelBits,
