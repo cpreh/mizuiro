@@ -157,11 +157,11 @@ public:
 	{
 		*_data
 			=
-			*_data
-			&
 			static_cast<
 				color_uint
 			>(
+				*_data
+				&
 				~bit_channel_access_normal::part(
 					real_start_bit::value,
 					bit_count::value
@@ -179,15 +179,10 @@ public:
 					color_uint
 				>
 				(
-					static_cast<
-						color_uint
-					>
-					(
-						_value
-					)
-					<<
-					real_start_bit::value
+					_value
 				)
+				<<
+				real_start_bit::value
 			)
 			;
 	}
