@@ -9,8 +9,7 @@
 
 #include <mizuiro/config.hpp>
 #ifdef MIZUIRO_HAVE_FCPPT
-#include <fcppt/null_ptr.hpp>
-#include <fcppt/null_ptr_t.hpp>
+#include <cstddef>
 #else
 #include <mizuiro/detail/null_ptr_t.hpp>
 #endif
@@ -22,10 +21,10 @@ namespace detail
 
 #ifdef MIZUIRO_HAVE_FCPPT
 inline
-fcppt::null_ptr_t const
+std::nullptr_t
 null_ptr()
 {
-	return fcppt::null_ptr();
+	return nullptr;
 }
 #else
 inline

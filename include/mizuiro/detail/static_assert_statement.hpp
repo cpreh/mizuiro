@@ -11,13 +11,12 @@
 
 #if defined(MIZUIRO_HAVE_FCPPT)
 
-#include <fcppt/static_assert_statement.hpp>
-
 #define MIZUIRO_DETAIL_STATIC_ASSERT_STATEMENT(\
 	cond\
 )\
-FCPPT_STATIC_ASSERT_STATEMENT(\
-	cond\
+static_assert(\
+	cond,\
+	""\
 )
 
 #else
