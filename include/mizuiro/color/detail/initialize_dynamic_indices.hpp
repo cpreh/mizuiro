@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/detail/invalid_dynamic_index.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -35,7 +36,7 @@ initialize_dynamic_indices(
 		++it
 	)
 		*it =
-			color::detail::invalid_dynamic_index<
+			mizuiro::color::detail::invalid_dynamic_index<
 				typename ChannelIndexArray::value_type
 			>();
 
@@ -47,9 +48,13 @@ initialize_dynamic_indices(
 		++index
 	)
 		ret[
-			_layout[
-				index
-			]
+			static_cast<
+				typename ChannelIndexArray::size_type
+			>(
+				_layout[
+					index
+				]
+			)
 		] = index;
 
 	return ret;

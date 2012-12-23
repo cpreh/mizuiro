@@ -11,6 +11,9 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/homogenous_dynamic_fwd.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <cstddef>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -39,7 +42,11 @@ public:
 
 	typedef typename mizuiro::array<
 		mizuiro::size_type,
-		AllChannels
+		static_cast<
+			std::size_t
+		>(
+			AllChannels
+		)
 	>::type channel_index_array;
 
 	explicit

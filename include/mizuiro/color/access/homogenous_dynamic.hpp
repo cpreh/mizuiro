@@ -54,7 +54,7 @@ struct channel_index<
 	static
 	mizuiro::size_type
 	execute(
-		color::format_store<Format> const &_format,
+		mizuiro::color::format_store<Format> const &_format,
 		Channel const &_channel
 	)
 	{
@@ -63,7 +63,7 @@ struct channel_index<
 				static_cast<
 					mizuiro::size_type
 				>(
-					color::access::dynamic_channel<
+					mizuiro::color::access::dynamic_channel<
 						Format,
 						Channel
 					>::execute(
@@ -99,13 +99,17 @@ struct channel_index<
 	static
 	mizuiro::size_type
 	execute(
-		color::format_store<Format> const &_format,
+		mizuiro::color::format_store<Format> const &_format,
 		Channel const &_channel
 	)
 	{
 		return
 			_format.get()->indices[
-				_channel
+				static_cast<
+					mizuiro::size_type
+				>(
+					_channel
+				)
 			];
 	}
 };
@@ -125,7 +129,7 @@ struct layout<
 	static
 	typename Format::layout const &
 	execute(
-		color::format_store<Format> const &_format
+		mizuiro::color::format_store<Format> const &_format
 	)
 	{
 		return
@@ -150,7 +154,7 @@ struct is_last_channel<
 	static
 	bool
 	execute(
-		color::format_store<Format> const &_format,
+		mizuiro::color::format_store<Format> const &_format,
 		Channel const &_channel
 	)
 	{
@@ -214,7 +218,7 @@ struct has_channel<
 	static
 	bool
 	execute(
-		color::format_store<
+		mizuiro::color::format_store<
 			Format
 		> const &_format,
 		Channel const &_channel
