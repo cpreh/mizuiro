@@ -11,9 +11,9 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/homogenous_dynamic_fwd.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
-#include <fcppt/config/external_begin.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <cstddef>
-#include <fcppt/config/external_end.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro

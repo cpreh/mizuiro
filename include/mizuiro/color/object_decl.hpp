@@ -109,7 +109,6 @@ public:
 			mizuiro::color::format_argument<Format>::get()
 	);
 
-	/// Sets a color channel denoted by @tparam Channel
 	template<
 		typename Channel
 	>
@@ -122,7 +121,6 @@ public:
 		>::type const &
 	);
 
-	/// Gets a color channel denoted by @tparam Channel
 	template<
 		typename Channel
 	>
