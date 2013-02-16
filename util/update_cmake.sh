@@ -1,17 +1,8 @@
 #!/bin/sh
-function update_cmake_file()
-{
-	local cmakefile="$1"
 
-	update_cmake \
-		"${cmakefile}" \
-		"${@:2}" \
-		|| exit -1
+set -e -u
 
-	mv "${cmakefile}".new "${cmakefile}" || exit -1
-}
-
-update_cmake_file \
+update_cmake \
 	CMakeLists.txt \
 	MIZUIRO_FILES \
 	include
