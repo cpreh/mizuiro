@@ -513,17 +513,9 @@ if(
 		"${MIZUIRO_FILES}"
 	)
 
-	add_library(
-		mizuiro_dummy
-		STATIC
-		${MIZUIRO_FILES}
-	)
-
-	set_target_properties(
-		mizuiro_dummy
-		PROPERTIES
-		LINKER_LANGUAGE
-		"CXX"
+	fcppt_utils_add_dummy_target(
+		mizuiro
+		"${MIZUIRO_FILES}"
 	)
 
 	set(
