@@ -1,6 +1,11 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(
+	VERSION
+	2.6
+)
 
-project (mizuiro)
+project(
+	mizuiro
+)
 
 option(
 	ENABLE_FCPPT
@@ -8,7 +13,9 @@ option(
 	OFF
 )
 
-if(ENABLE_FCPPT)
+if(
+	ENABLE_FCPPT
+)
 	find_package(
 		fcppt
 		REQUIRED
@@ -31,7 +38,11 @@ else()
 	)
 endif()
 
-option (ENABLE_TEST "Build the tests" ON)
+option(
+	ENABLE_TEST
+	"Build the tests"
+	ON
+)
 
 if(
 	ENABLE_TEST
@@ -57,7 +68,7 @@ include_directories(
 )
 
 if(
-	MIZUIRO_HAVE_FCPPT
+	ENABLE_FCPPT
 )
 	include(FcpptCMakeUtils)
 
@@ -72,14 +83,20 @@ else()
 	)
 endif()
 
-if(ENABLE_FCPPT)
+if(
+	ENABLE_FCPPT
+)
 	include_directories(
 		${fcppt_INCLUDE_DIRS}
 	)
 endif()
 
-if (CMAKE_COMPILER_IS_GNUCXX OR FCPPT_UTILS_COMPILER_IS_CLANGPP)
-	include (CheckCXXSourceCompiles)
+if(
+	CMAKE_COMPILER_IS_GNUCXX OR FCPPT_UTILS_COMPILER_IS_CLANGPP
+)
+	include(
+		CheckCXXSourceCompiles
+	)
 
 	check_cxx_source_compiles(
 		"int main()
@@ -89,15 +106,25 @@ if (CMAKE_COMPILER_IS_GNUCXX OR FCPPT_UTILS_COMPILER_IS_CLANGPP)
 		}"
 		MIZUIRO_HAVE_BUILTIN_EXPECT
 	)
-endif ()
+endif()
+
+set(
+	MIZUIRO_SOURCE_DIR
+	"${${PROJECT_NAME}_SOURCE_DIR}"
+)
+
+set(
+	MIZUIRO_BINARY_DIR
+	"${${PROJECT_NAME}_BINARY_DIR}"
+)
 
 configure_file(
-	${CMAKE_SOURCE_DIR}/config.hpp.in
-	${CMAKE_BINARY_DIR}/include/mizuiro/config.hpp
+	${MIZUIRO_SOURCE_DIR}/config.hpp.in
+	${MIZUIRO_BINARY_DIR}/include/mizuiro/config.hpp
 )
 
 include_directories(
-	${CMAKE_BINARY_DIR}/include
+	${MIZUIRO_BINARY_DIR}/include
 )
 
 install(
@@ -109,26 +136,47 @@ install(
 
 install(
 	FILES
-	${CMAKE_BINARY_DIR}/include/mizuiro/config.hpp
+	${MIZUIRO_BINARY_DIR}/include/mizuiro/config.hpp
 	DESTINATION
 	${INSTALL_INCLUDE_DIR}/mizuiro
 )
 
-option(ENABLE_DOC "Build the documentation" OFF)
+option(
+	ENABLE_DOC
+	"Build the documentation"
+	OFF
+)
 
-if (ENABLE_DOC)
-	add_subdirectory (doc)
-endif ()
-
-option (ENABLE_EXAMPLES "Build the examples" ON)
-
-if(ENABLE_EXAMPLES)
-	add_subdirectory(examples)
+if(
+	ENABLE_DOC
+)
+	add_subdirectory(
+		doc
+	)
 endif()
 
-if(ENABLE_TEST)
+option(
+	ENABLE_EXAMPLES
+	"Build the examples"
+	ON
+)
+
+if(
+	ENABLE_EXAMPLES
+)
+	add_subdirectory(
+		examples
+	)
+endif()
+
+if(
+	ENABLE_TEST
+)
 	enable_testing()
-	add_subdirectory(test)
+
+	add_subdirectory(
+		test
+	)
 endif()
 
 set(
@@ -507,7 +555,7 @@ set(
 )
 
 if(
-	MIZUIRO_HAVE_FCPPT
+	ENABLE_FCPPT
 )
 	fcppt_utils_add_source_groups(
 		"${MIZUIRO_FILES}"
