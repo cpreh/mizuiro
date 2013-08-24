@@ -142,20 +142,6 @@ install(
 )
 
 option(
-	ENABLE_DOC
-	"Build the documentation"
-	OFF
-)
-
-if(
-	ENABLE_DOC
-)
-	add_subdirectory(
-		doc
-	)
-endif()
-
-option(
 	ENABLE_EXAMPLES
 	"Build the examples"
 	ON
