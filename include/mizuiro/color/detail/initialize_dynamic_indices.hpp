@@ -28,17 +28,12 @@ initialize_dynamic_indices(
 {
 	ChannelIndexArray ret;
 
-	for(
-		typename ChannelIndexArray::iterator it(
-			ret.begin()
-		);
-		it != ret.end();
-		++it
-	)
-		*it =
-			mizuiro::color::detail::invalid_dynamic_index<
-				typename ChannelIndexArray::value_type
-			>();
+	ret.fill(
+		mizuiro::color::detail::invalid_dynamic_index<
+			typename
+			ChannelIndexArray::value_type
+		>()
+	);
 
 	for(
 		typename Layout::size_type index(
@@ -55,9 +50,11 @@ initialize_dynamic_indices(
 					index
 				]
 			)
-		] = index;
+		] =
+			index;
 
-	return ret;
+	return
+		ret;
 }
 
 }

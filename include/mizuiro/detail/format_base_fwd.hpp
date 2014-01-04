@@ -30,20 +30,20 @@ template<
 	> class FormatStore,
 	template<
 		typename
-	> class FormatIsStatic
+	> class FormatNeedsStore
 >
 struct format_base
 :
 boost::mpl::if_<
-	FormatIsStatic<
+	FormatNeedsStore<
 		Format
 	>,
-	mizuiro::detail::empty_format_base<
+	mizuiro::detail::normal_format_base<
 		FormatStore<
 			Format
 		>
 	>,
-	mizuiro::detail::normal_format_base<
+	mizuiro::detail::empty_format_base<
 		FormatStore<
 			Format
 		>

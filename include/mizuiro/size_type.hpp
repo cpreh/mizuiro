@@ -11,10 +11,13 @@
 #include <cstddef>
 #include <mizuiro/detail/external_end.hpp>
 
+
 namespace mizuiro
 {
 
-/// The size type used by mizuiro
+/**
+\brief The size type used by mizuiro
+*/
 typedef std::size_t size_type;
 
 }

@@ -9,11 +9,14 @@
 
 #include <mizuiro/raw_value.hpp>
 
+
 namespace mizuiro
 {
 
-/// A pointer to raw memory
-typedef raw_value *raw_pointer;
+/**
+\brief A pointer to nonconst raw memory
+*/
+typedef mizuiro::raw_value *raw_pointer;
 
 }
 

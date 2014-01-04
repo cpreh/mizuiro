@@ -7,6 +7,13 @@
 #ifndef MIZUIRO_COLOR_TYPES_CHANNEL_REFERENCE_HPP_INCLUDED
 #define MIZUIRO_COLOR_TYPES_CHANNEL_REFERENCE_HPP_INCLUDED
 
+#include <mizuiro/color/format/make_tag_of.hpp>
+#include <mizuiro/color/types/channel_reference_ns/tag.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <type_traits>
+#include <fcppt/config/external_end.hpp>
+
+
 namespace mizuiro
 {
 namespace color
@@ -18,10 +25,29 @@ template<
 	typename Access,
 	typename Format,
 	typename Channel,
-	typename Constness,
-	typename Enable = void
+	typename Constness
 >
-struct channel_reference;
+using channel_reference
+=
+decltype(
+	channel_reference_adl(
+		std::declval<
+			mizuiro::color::types::channel_reference_ns::tag
+		>(),
+		std::declval<
+			Access
+		>(),
+		mizuiro::color::format::make_tag_of<
+			Format
+		>(),
+		std::declval<
+			Channel
+		>(),
+		std::declval<
+			Constness
+		>()
+	)
+);
 
 }
 }

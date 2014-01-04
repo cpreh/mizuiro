@@ -24,7 +24,14 @@ namespace mizuiro
 
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
-/// A meta function that checks if T is raw_pointer or const_raw_pointer
+/**
+\brief A meta function that checks if T is mizuiro::raw_pointer or
+mizuiro::const_raw_pointer
+
+Checks if \a T is either mizuiro::raw_pointer or mizuiro::const_raw_pointer.
+
+TODO: Use <type_traits> here?
+*/
 template<
 	typename T
 >

@@ -28,9 +28,11 @@ mizuiro::detail::normal_format_base<
 template<
 	typename Store
 >
-typename mizuiro::detail::normal_format_base<
+typename
+mizuiro::detail::normal_format_base<
 	Store
->::format_store_type const
+>::format_store_type
+const
 mizuiro::detail::normal_format_base<
 	Store
 >::format_store_base() const

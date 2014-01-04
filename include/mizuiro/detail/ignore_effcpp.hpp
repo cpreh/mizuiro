@@ -10,6 +10,7 @@
 #include <mizuiro/detail/disable_gcc_warning.hpp>
 #include <mizuiro/detail/push_warning.hpp>
 
+
 #define MIZUIRO_DETAIL_IGNORE_EFFCPP \
 MIZUIRO_DETAIL_PUSH_WARNING \
 MIZUIRO_DETAIL_DISABLE_GCC_WARNING(-Weffc++)

@@ -24,7 +24,9 @@ template<
 >
 struct raw_channel_access
 {
-	typedef ValueType value_type;
+	typedef
+	ValueType
+	value_type;
 
 	template<
 		typename Pointer

@@ -32,11 +32,14 @@ class visitor
 public:
 	typedef void result_type;
 
-	typedef color::object<
+	typedef
+	mizuiro::color::object<
 		Format
-	> color_type;
+	>
+	color_type;
 
-	explicit visitor(
+	explicit
+	visitor(
 		color_type &_object
 	)
 	:

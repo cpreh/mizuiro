@@ -7,6 +7,13 @@
 #ifndef MIZUIRO_COLOR_TYPES_POINTER_HPP_INCLUDED
 #define MIZUIRO_COLOR_TYPES_POINTER_HPP_INCLUDED
 
+#include <mizuiro/color/format/make_tag_of.hpp>
+#include <mizuiro/color/types/pointer_ns/tag.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <type_traits>
+#include <fcppt/config/external_end.hpp>
+
+
 namespace mizuiro
 {
 namespace color
@@ -17,10 +24,27 @@ namespace types
 template<
 	typename Access,
 	typename Format,
-	typename Constness,
-	typename Enable = void
+	typename Constness
 >
-struct pointer;
+using
+pointer
+=
+decltype(
+	pointer_adl(
+		std::declval<
+			mizuiro::color::types::pointer_ns::tag
+		>(),
+		std::declval<
+			Access
+		>(),
+		mizuiro::color::format::make_tag_of<
+			Format
+		>(),
+		std::declval<
+			Constness
+		>()
+	)
+);
 
 }
 }

@@ -7,6 +7,13 @@
 #ifndef MIZUIRO_COLOR_TYPES_STORE_HPP_INCLUDED
 #define MIZUIRO_COLOR_TYPES_STORE_HPP_INCLUDED
 
+#include <mizuiro/color/format/make_tag_of.hpp>
+#include <mizuiro/color/types/store_ns/tag.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <type_traits>
+#include <fcppt/config/external_end.hpp>
+
+
 namespace mizuiro
 {
 namespace color
@@ -15,11 +22,20 @@ namespace types
 {
 
 template<
-	typename Access,
-	typename Format,
-	typename Enable = void
+	typename Format
 >
-struct store;
+using store
+=
+decltype(
+	store_adl(
+		std::declval<
+			mizuiro::color::types::store_ns::tag
+		>(),
+		mizuiro::color::format::make_tag_of<
+			Format
+		>()
+	)
+);
 
 }
 }

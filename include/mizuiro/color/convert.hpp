@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_COLOR_CONVERT_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_HPP_INCLUDED
 
-#include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/format/argument.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -25,7 +25,8 @@ template<
 	typename DestFormat,
 	typename Src
 >
-typename boost::enable_if<
+typename
+boost::enable_if<
 	mizuiro::color::is_color<
 		Src
 	>,
@@ -35,10 +36,11 @@ typename boost::enable_if<
 >::type
 convert(
 	Src const &_src,
-	typename mizuiro::color::object<
+	typename
+	mizuiro::color::object<
 		DestFormat
 	>::format_store_type const &_dest_format =
-		mizuiro::color::format_argument<
+		mizuiro::color::format::argument<
 			DestFormat
 		>::get()
 )

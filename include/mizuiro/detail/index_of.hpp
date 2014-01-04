@@ -9,7 +9,6 @@
 
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
-#include <mizuiro/detail/static_assert_statement.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/begin.hpp>
 #include <boost/mpl/contains.hpp>
@@ -33,21 +32,24 @@ template<
 struct index_of
 :
 boost::mpl::distance<
-	typename boost::mpl::begin<
+	typename
+	boost::mpl::begin<
 		Elements
 	>::type,
-	typename boost::mpl::find<
+	typename
+	boost::mpl::find<
 		Elements,
 		Element
 	>::type
 >
 {
-	MIZUIRO_DETAIL_STATIC_ASSERT_STATEMENT((
+	static_assert(
 		boost::mpl::contains<
 			Elements,
 			Element
-		>::value
-	));
+		>::value,
+		"Contains failed"
+	);
 };
 
 MIZUIRO_DETAIL_POP_WARNING

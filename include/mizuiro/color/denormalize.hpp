@@ -7,13 +7,13 @@
 #ifndef MIZUIRO_COLOR_DENORMALIZE_HPP_INCLUDED
 #define MIZUIRO_COLOR_DENORMALIZE_HPP_INCLUDED
 
-#include <mizuiro/color/channel_max.hpp>
-#include <mizuiro/color/channel_min.hpp>
-#include <mizuiro/color/format_store_fwd.hpp>
+#include <mizuiro/color/access/channel_max.hpp>
+#include <mizuiro/color/access/channel_min.hpp>
+#include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/type_traits/is_floating_point.hpp>
 #include <boost/utility/enable_if.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -22,28 +22,23 @@ namespace mizuiro
 namespace color
 {
 
-template
-<
+template<
 	typename Format,
 	typename Channel,
 	typename Float
 >
-typename boost::enable_if
-<
-	boost::is_floating_point
-	<
+typename
+boost::enable_if<
+	std::is_floating_point<
 		Float
 	>,
-	typename
-	mizuiro::color::types::channel_value
-	<
+	mizuiro::color::types::channel_value<
 		Format,
 		Channel
-	>::type
+	>
 >::type
-denormalize
-(
-	mizuiro::color::format_store<
+denormalize(
+	mizuiro::color::format::store<
 		Format
 	> const &_format_store,
 	Channel const &_channel,
@@ -52,19 +47,15 @@ denormalize
 {
 	return
 		static_cast<
-			typename
-			mizuiro::color::types::channel_value
-			<
+			mizuiro::color::types::channel_value<
 				Format,
 				Channel
-			>::type
-		>
-		(
+			>
+		>(
 			static_cast<
 				Float
-			>
-			(
-				mizuiro::color::channel_min(
+			>(
+				mizuiro::color::access::channel_min(
 					_format_store,
 					_channel
 				)
@@ -75,9 +66,8 @@ denormalize
 			(
 				static_cast<
 					Float
-				>
-				(
-					mizuiro::color::channel_max(
+				>(
+					mizuiro::color::access::channel_max(
 						_format_store,
 						_channel
 					)
@@ -85,9 +75,8 @@ denormalize
 				-
 				static_cast<
 					Float
-				>
-				(
-					mizuiro::color::channel_min(
+				>(
+					mizuiro::color::access::channel_min(
 						_format_store,
 						_channel
 					)

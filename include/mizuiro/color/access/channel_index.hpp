@@ -7,6 +7,12 @@
 #ifndef MIZUIRO_COLOR_ACCESS_CHANNEL_INDEX_HPP_INCLUDED
 #define MIZUIRO_COLOR_ACCESS_CHANNEL_INDEX_HPP_INCLUDED
 
+#include <mizuiro/size_type.hpp>
+#include <mizuiro/color/access/channel_index_ns/tag.hpp>
+#include <mizuiro/color/format/make_tag_of.hpp>
+#include <mizuiro/color/format/store_fwd.hpp>
+
+
 namespace mizuiro
 {
 namespace color
@@ -16,10 +22,26 @@ namespace access
 
 template<
 	typename Format,
-	typename Channel,
-	typename Enable = void
+	typename Channel
 >
-struct channel_index;
+mizuiro::size_type
+channel_index(
+	mizuiro::color::format::store<
+		Format
+	> const &_format,
+	Channel const &_channel
+)
+{
+	return
+		channel_index_adl(
+			mizuiro::color::access::channel_index_ns::tag(),
+			mizuiro::color::format::make_tag_of<
+				Format
+			>(),
+			_format,
+			_channel
+		);
+}
 
 }
 }

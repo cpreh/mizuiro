@@ -5,16 +5,12 @@
 
 
 #include <mizuiro/access/normal.hpp>
-#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/proxy.hpp>
-#include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/access/static.hpp>
 #include <mizuiro/color/channel/luminance.hpp>
+#include <mizuiro/color/format/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/gray.hpp>
-#include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/static.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/store.hpp>
@@ -28,11 +24,14 @@
 #include <mizuiro/detail/external_end.hpp>
 
 
+namespace
+{
+
 typedef mizuiro::image::interleaved<
 	mizuiro::image::dimension<
 		2
 	>,
-	mizuiro::color::homogenous_static<
+	mizuiro::color::format::homogenous_static<
 		boost::uint8_t,
 		mizuiro::color::layout::gray
 	>
@@ -56,6 +55,8 @@ struct set_color
 		);
 	}
 };
+
+}
 
 int main()
 {

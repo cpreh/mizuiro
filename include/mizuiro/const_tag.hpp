@@ -7,10 +7,13 @@
 #ifndef MIZUIRO_CONST_TAG_HPP_INCLUDED
 #define MIZUIRO_CONST_TAG_HPP_INCLUDED
 
+
 namespace mizuiro
 {
 
-/// The const tag used for colors and views
+/**
+\brief A tag used telling that a color or image view points to const data
+*/
 struct const_tag
 {};
 

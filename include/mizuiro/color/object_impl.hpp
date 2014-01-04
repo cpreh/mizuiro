@@ -7,12 +7,14 @@
 #ifndef MIZUIRO_COLOR_OBJECT_IMPL_HPP_INCLUDED
 #define MIZUIRO_COLOR_OBJECT_IMPL_HPP_INCLUDED
 
-#include <mizuiro/color/format_base_impl.hpp>
-#include <mizuiro/color/format_store_impl.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
+#include <mizuiro/color/format/base_impl.hpp>
+#include <mizuiro/color/format/store_impl.hpp>
 #include <mizuiro/color/init/detail/assign_object.hpp>
+#include <mizuiro/color/types/channel_reference.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -118,10 +120,10 @@ mizuiro::color::object<
 	Format
 >::set(
 	Channel const &_channel,
-	typename mizuiro::color::types::channel_value<
+	mizuiro::color::types::channel_value<
 		format,
 		Channel
-	>::type const &_ref
+	> const &_ref
 )
 {
 	this->make_proxy().set(
@@ -136,16 +138,18 @@ template<
 template<
 	typename Channel
 >
-typename mizuiro::color::types::channel_reference<
-	typename mizuiro::color::object<
+mizuiro::color::types::channel_reference<
+	typename
+	mizuiro::color::object<
 		Format
 	>::access,
-	typename mizuiro::color::object<
+	typename
+	mizuiro::color::object<
 		Format
 	>::format,
 	Channel,
 	mizuiro::const_tag
->::type
+>
 mizuiro::color::object<
 	Format
 >::get(

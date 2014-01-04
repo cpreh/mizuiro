@@ -7,6 +7,13 @@
 #ifndef MIZUIRO_COLOR_TYPES_HAS_CHANNEL_STATIC_HPP_INCLUDED
 #define MIZUIRO_COLOR_TYPES_HAS_CHANNEL_STATIC_HPP_INCLUDED
 
+#include <mizuiro/color/format/make_tag_of.hpp>
+#include <mizuiro/color/types/has_channel_static_ns/tag.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <type_traits>
+#include <fcppt/config/external_end.hpp>
+
+
 namespace mizuiro
 {
 namespace color
@@ -14,13 +21,26 @@ namespace color
 namespace types
 {
 
-template
-<
+template<
 	typename Format,
-	typename Channel,
-	typename Enable = void
+	typename Channel
 >
-struct has_channel_static;
+using
+has_channel_static
+=
+decltype(
+	has_channel_static_adl(
+		std::declval<
+			mizuiro::color::types::has_channel_static_ns::tag
+		>(),
+		mizuiro::color::format::make_tag_of<
+			Format
+		>(),
+		std::declval<
+			Channel
+		>()
+	)
+);
 
 }
 }

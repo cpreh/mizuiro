@@ -20,6 +20,13 @@ namespace mizuiro
 
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
+/**
+\brief An integral constant size of mizuiro::size_type
+
+TODO: Use std::integral_constant here?
+
+\tparam Size The constant size
+*/
 template<
 	mizuiro::size_type Size
 >

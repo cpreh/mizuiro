@@ -26,7 +26,8 @@ template<
 	typename Traits,
 	typename Color
 >
-typename boost::enable_if<
+typename
+boost::enable_if<
 	mizuiro::color::is_color<
 		Color
 	>,

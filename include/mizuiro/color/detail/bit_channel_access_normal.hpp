@@ -43,27 +43,39 @@ template<
 class bit_channel_access_normal
 {
 private:
-	typedef typename mizuiro::color::types::channel_value<
+	typedef
+	mizuiro::color::types::channel_value<
 		Format,
 		Channel
-	>::type value_type;
+	>
+	value_type;
 
-	typedef typename boost::mpl::accumulate<
+	typedef
+	typename
+	boost::mpl::accumulate<
 		boost::mpl::iterator_range<
-			typename boost::mpl::begin<
-				typename Format::channel_bits
+			typename
+			boost::mpl::begin<
+				typename
+				Format::channel_bits
 			>::type,
-			typename boost::mpl::advance<
-				typename boost::mpl::begin<
-					typename Format::channel_bits
+			typename
+			boost::mpl::advance<
+				typename
+				boost::mpl::begin<
+					typename
+					Format::channel_bits
 				>::type,
-				typename mizuiro::detail::index_of<
-					typename Format::layout::order,
+				typename
+				mizuiro::detail::index_of<
+					typename
+					Format::layout::order,
 					Channel
 				>::type
 			>::type
 		>,
-		typename mizuiro::integral_size<
+		typename
+		mizuiro::integral_size<
 			0u
 		>::type,
 		boost::mpl::plus<
@@ -72,38 +84,55 @@ private:
 		>
 	>::type start_bit;
 
-	typedef typename mizuiro::color::detail::heterogenous_channel_bits<
+	typedef typename
+	mizuiro::color::detail::heterogenous_channel_bits<
 		Format,
 		Channel
-	>::type bit_count;
+	>::type
+	bit_count;
 
-	typedef typename mizuiro::color::types::pointer<
+	typedef
+	mizuiro::color::types::pointer<
 		mizuiro::access::normal,
 		Format,
 		mizuiro::const_tag
-	>::type const_pointer;
+	>
+	const_pointer;
 
-	typedef typename mizuiro::color::types::pointer<
+	typedef
+	mizuiro::color::types::pointer<
 		mizuiro::access::normal,
 		Format,
 		mizuiro::nonconst_tag
-	>::type pointer;
+	>
+	pointer;
 
-	typedef typename mizuiro::color::detail::heterogenous_bits<
-		typename Format::channel_bits
-	>::type total_bits;
+	typedef typename
+	mizuiro::color::detail::heterogenous_bits<
+		typename
+		Format::channel_bits
+	>::type
+	total_bits;
 
-	typedef mizuiro::integral_size<
+	typedef
+	mizuiro::integral_size<
 		total_bits::value - bit_count::value - start_bit::value
-	> real_start_bit;
+	>
+	real_start_bit;
 
-	typedef typename mizuiro::detail::uint_least<
+	typedef
+	typename
+	mizuiro::detail::uint_least<
 		total_bits
-	>::type color_uint;
+	>::type
+	color_uint;
 
-	typedef typename boost::promote<
+	typedef
+	typename
+	boost::promote<
 		color_uint
-	>::type promoted_color;
+	>::type
+	promoted_color;
 
 	static
 	color_uint

@@ -10,19 +10,18 @@
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/access/normal.hpp>
-#include <mizuiro/color/format_argument.hpp>
-#include <mizuiro/color/format_base_decl.hpp>
-#include <mizuiro/color/format_store_decl.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
+#include <mizuiro/color/format/argument.hpp>
+#include <mizuiro/color/format/base_decl.hpp>
+#include <mizuiro/color/format/store_decl.hpp>
 #include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/null_ptr.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
@@ -48,36 +47,52 @@ template<
 >
 class object
 :
-	private mizuiro::color::format_base<
+	private mizuiro::color::format::base<
 		Format
 	>::type
 {
-	typedef typename mizuiro::color::format_base<
+	typedef
+	typename mizuiro::color::format::base<
 		Format
-	>::type base;
+	>::type
+	base;
 public:
-	typedef Format format;
+	typedef
+	Format
+	format;
 
-	typedef typename base::format_store_type format_store_type;
+	typedef
+	typename
+	base::format_store_type
+	format_store_type;
 
-	typedef mizuiro::access::normal access;
+	typedef
+	mizuiro::access::normal
+	access;
 
-	typedef typename color::types::pointer<
+	typedef
+	mizuiro::color::types::pointer<
 		access,
 		format,
 		mizuiro::nonconst_tag
-	>::type pointer;
+	>
+	pointer;
 
-	typedef typename color::types::pointer<
+	typedef
+	mizuiro::color::types::pointer<
 		access,
 		format,
 		mizuiro::const_tag
-	>::type const_pointer;
+	>
+	const_pointer;
 
 	/// constructs an uninitialized color
-	explicit object(
+	explicit
+	object(
 		format_store_type const & =
-			mizuiro::color::format_argument<Format>::get()
+			mizuiro::color::format::argument<
+				Format
+			>::get()
 	);
 
 	object(
@@ -94,19 +109,22 @@ public:
 			mizuiro::color::is_color<
 				Other
 			>
-		>::type * = mizuiro::detail::null_ptr()
+		>::type * = nullptr
 	);
 
 	/// Constructs a color from a special init expression
 	template<
 		typename Vector
 	>
+	explicit
 	object(
 		mizuiro::color::init::detail::values<
 			Vector
 		> const &,
 		format_store_type const & =
-			mizuiro::color::format_argument<Format>::get()
+			mizuiro::color::format::argument<
+				Format
+			>::get()
 	);
 
 	template<
@@ -115,21 +133,21 @@ public:
 	void
 	set(
 		Channel const &,
-		typename mizuiro::color::types::channel_value<
+		mizuiro::color::types::channel_value<
 			format,
 			Channel
-		>::type const &
+		> const &
 	);
 
 	template<
 		typename Channel
 	>
-	typename mizuiro::color::types::channel_reference<
+	mizuiro::color::types::channel_reference<
 		access,
 		format,
 		Channel,
 		mizuiro::const_tag
-	>::type
+	>
 	get(
 		Channel const &
 	) const;
@@ -151,17 +169,21 @@ public:
 	format_store_type const
 	format_store() const;
 private:
-	typedef mizuiro::color::proxy<
+	typedef
+	mizuiro::color::proxy<
 		access,
 		format,
 		mizuiro::nonconst_tag
-	> proxy;
+	>
+	proxy;
 
-	typedef mizuiro::color::proxy<
+	typedef
+	mizuiro::color::proxy<
 		access,
 		format,
 		mizuiro::const_tag
-	> const_proxy;
+	>
+	const_proxy;
 
 	proxy const
 	make_proxy();
@@ -169,10 +191,11 @@ private:
 	const_proxy const
 	make_const_proxy() const;
 
-	typedef typename mizuiro::color::types::store<
-		access,
+	typedef
+	mizuiro::color::types::store<
 		format
-	>::type store;
+	>
+	store;
 
 	store data_;
 };

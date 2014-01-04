@@ -7,10 +7,10 @@
 #ifndef MIZUIRO_COLOR_CONVERT_STATIC_HSV_TO_RGB_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_STATIC_HSV_TO_RGB_HPP_INCLUDED
 
-#include <mizuiro/color/is_hsv.hpp>
-#include <mizuiro/color/is_rgb.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/conversion/hsv_to_rgb.hpp>
+#include <mizuiro/color/convert_static/is_hsv.hpp>
+#include <mizuiro/color/convert_static/is_rgb.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/utility/enable_if.hpp>
@@ -24,26 +24,22 @@ namespace color
 namespace convert_static
 {
 
-template
-<
+template<
 	typename Dest,
 	typename Src
 >
 typename
-boost::enable_if
-<
-	boost::mpl::and_
-	<
-		color::is_rgb
-		<
+boost::enable_if<
+	boost::mpl::and_<
+		mizuiro::color::convert_static::is_rgb<
 			Dest
 		>,
-		color::is_hsv
-		<
-			typename Src::format
+		mizuiro::color::convert_static::is_hsv<
+			typename
+			Src::format
 		>
 	>,
-	color::object<
+	mizuiro::color::object<
 		Dest
 	> const
 >::type
@@ -52,7 +48,7 @@ convert(
 )
 {
 	return
-		conversion::hsv_to_rgb<
+		mizuiro::color::conversion::hsv_to_rgb<
 			Dest
 		>(
 			_source

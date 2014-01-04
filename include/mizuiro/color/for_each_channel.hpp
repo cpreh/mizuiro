@@ -24,7 +24,8 @@ template<
 	typename Color,
 	typename Function
 >
-typename boost::enable_if<
+typename
+boost::enable_if<
 	mizuiro::color::is_color<
 		Color
 	>,
@@ -36,9 +37,7 @@ for_each_channel(
 )
 {
 	boost::fusion::for_each(
-		mizuiro::color::access::layout<
-			typename Color::format
-		>::execute(
+		mizuiro::color::access::layout(
 			_color.format_store()
 		),
 		_function

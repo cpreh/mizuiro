@@ -9,6 +9,7 @@
 
 #include <mizuiro/detail/normal_format_base_fwd.hpp>
 
+
 namespace mizuiro
 {
 namespace detail
@@ -22,7 +23,8 @@ class normal_format_base
 protected:
 	typedef Store format_store_type;
 
-	explicit normal_format_base(
+	explicit
+	normal_format_base(
 		format_store_type const &
 	);
 

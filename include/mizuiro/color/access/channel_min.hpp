@@ -7,6 +7,11 @@
 #ifndef MIZUIRO_COLOR_ACCESS_CHANNEL_MIN_HPP_INCLUDED
 #define MIZUIRO_COLOR_ACCESS_CHANNEL_MIN_HPP_INCLUDED
 
+#include <mizuiro/color/access/channel_min_ns/tag.hpp>
+#include <mizuiro/color/format/make_tag_of.hpp>
+#include <mizuiro/color/format/store_fwd.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
+
 
 namespace mizuiro
 {
@@ -17,10 +22,29 @@ namespace access
 
 template<
 	typename Format,
-	typename Channel,
-	typename Enable = void
+	typename Channel
 >
-struct channel_min;
+mizuiro::color::types::channel_value<
+	Format,
+	Channel
+>
+channel_min(
+	mizuiro::color::format::store<
+		Format
+	> const &_format,
+	Channel const &_channel
+)
+{
+	return
+		channel_min_adl(
+			mizuiro::color::access::channel_min_ns::tag(),
+			mizuiro::color::format::make_tag_of<
+				Format
+			>(),
+			_format,
+			_channel
+		);
+}
 
 }
 }

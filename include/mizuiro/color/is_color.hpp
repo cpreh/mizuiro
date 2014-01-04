@@ -12,7 +12,7 @@
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -28,7 +28,7 @@ template<
 >
 struct is_color
 :
-boost::false_type
+std::false_type
 {
 };
 
@@ -41,7 +41,7 @@ struct is_color<
 	>
 >
 :
-boost::true_type
+std::true_type
 {
 };
 
@@ -58,7 +58,7 @@ struct is_color<
 	>
 >
 :
-boost::true_type
+std::true_type
 {
 };
 

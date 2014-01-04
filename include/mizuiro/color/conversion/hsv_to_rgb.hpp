@@ -7,7 +7,6 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_HSV_TO_RGB_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_HSV_TO_RGB_HPP_INCLUDED
 
-#include <mizuiro/color/format_argument.hpp>
 #include <mizuiro/color/normalize.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/channel/hue.hpp>
@@ -15,6 +14,7 @@
 #include <mizuiro/color/channel/value.hpp>
 #include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/conversion/detail/rgb_from_chroma.hpp>
+#include <mizuiro/color/format/argument.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <cmath>
 #include <mizuiro/detail/external_end.hpp>
@@ -27,47 +27,49 @@ namespace color
 namespace conversion
 {
 
-template
-<
+template<
 	typename Dest,
 	typename Src
 >
-color::object<
+mizuiro::color::object<
 	Dest
 > const
 hsv_to_rgb(
 	Src const &_source,
-	typename color::object<
+	typename
+	mizuiro::color::object<
 		Dest
 	>::format_store_type const &_format
-		= color::format_argument<Dest>::get()
+		= mizuiro::color::format::argument<
+			Dest
+		>::get()
 )
 {
 	typedef float float_type;
 
 	float_type const
 		hue(
-			color::normalize<
+			mizuiro::color::normalize<
 				float_type
 			>(
 				_source,
-				channel::hue()
+				mizuiro::color::channel::hue()
 			)
 		),
 		saturation(
-			color::normalize<
+			mizuiro::color::normalize<
 				float_type
 			>(
 				_source,
-				channel::saturation()
+				mizuiro::color::channel::saturation()
 			)
 		),
 		value(
-			color::normalize<
+			mizuiro::color::normalize<
 				float_type
 			>(
 				_source,
-				channel::value()
+				mizuiro::color::channel::value()
 			)
 		),
 		chroma(
@@ -107,14 +109,14 @@ hsv_to_rgb(
 				)
 			));
 
-	typedef color::object<
+	typedef
+	mizuiro::color::object<
 		Dest
-	> dest_type;
+	>
+	dest_type;
 
-	dest_type dest
-	(
-		conversion::detail::rgb_from_chroma
-		<
+	dest_type dest(
+		mizuiro::color::conversion::detail::rgb_from_chroma<
 			dest_type
 		>(
 			chroma,
@@ -125,13 +127,13 @@ hsv_to_rgb(
 		)
 	);
 
-	detail::copy_or_max_alpha
-	(
+	mizuiro::color::conversion::detail::copy_or_max_alpha(
 		_source,
 		dest
 	);
 
-	return dest;
+	return
+		dest;
 }
 
 }

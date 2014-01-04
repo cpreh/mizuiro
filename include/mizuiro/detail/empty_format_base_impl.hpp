@@ -8,7 +8,6 @@
 #define MIZUIRO_DETAIL_EMPTY_FORMAT_BASE_IMPL_HPP_INCLUDED
 
 #include <mizuiro/detail/empty_format_base_decl.hpp>
-#include <mizuiro/detail/null_ptr.hpp>
 
 
 template<
@@ -25,7 +24,8 @@ mizuiro::detail::empty_format_base<
 template<
 	typename Store
 >
-typename mizuiro::detail::empty_format_base<
+typename
+mizuiro::detail::empty_format_base<
 	Store
 >::format_store_type const
 mizuiro::detail::empty_format_base<
@@ -34,7 +34,7 @@ mizuiro::detail::empty_format_base<
 {
 	return
 		format_store_type(
-			mizuiro::detail::null_ptr()
+			nullptr
 		);
 }
 

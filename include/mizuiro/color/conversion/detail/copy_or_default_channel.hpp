@@ -55,9 +55,7 @@ copy_or_default_channel(
 )
 {
 	if(
-		!color::access::has_channel<
-			typename Dest::format
-		>::execute(
+		!mizuiro::color::access::has_channel(
 			_dest.format_store(),
 			_channel
 		)
@@ -65,14 +63,12 @@ copy_or_default_channel(
 		return;
 
 	if(
-		color::access::has_channel<
-			typename Src::format
-		>::execute(
+		mizuiro::color::access::has_channel(
 			_src.format_store(),
 			_channel
 		)
 	)
-		conversion::detail::copy_and_convert_channel<
+		mizuiro::color::conversion::detail::copy_and_convert_channel<
 			float
 		>(
 			_channel,

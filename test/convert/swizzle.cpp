@@ -4,24 +4,26 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/color/object.hpp>
-#include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/color/layout/bgra.hpp>
-#include <mizuiro/color/init.hpp>
 #include <mizuiro/color/convert.hpp>
-#include <mizuiro/color/homogenous_static.hpp>
-#include <mizuiro/color/access/homogenous.hpp>
-#include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/access/static.hpp>
+#include <mizuiro/color/object.hpp>
+#include <mizuiro/color/channel/alpha.hpp>
+#include <mizuiro/color/channel/blue.hpp>
+#include <mizuiro/color/channel/green.hpp>
+#include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/convert_static/converter.hpp>
-#include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/static.hpp>
+#include <mizuiro/color/format/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp>
+#include <mizuiro/color/init/alpha.hpp>
+#include <mizuiro/color/init/blue.hpp>
+#include <mizuiro/color/init/green.hpp>
+#include <mizuiro/color/init/red.hpp>
+#include <mizuiro/color/layout/bgra.hpp>
+#include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
-#include <boost/cstdint.hpp>
+#include <cstdint>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -33,21 +35,27 @@ BOOST_AUTO_TEST_CASE(
 {
 MIZUIRO_DETAIL_POP_WARNING
 
-	typedef boost::uint8_t channel_type;
+	typedef
+	std::uint8_t
+	channel_type;
 
-	typedef mizuiro::color::object<
-		mizuiro::color::homogenous_static<
+	typedef
+	mizuiro::color::object<
+		mizuiro::color::format::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::rgba
 		>
-	> rgba_color;
+	>
+	rgba_color;
 
-	typedef mizuiro::color::object<
-		mizuiro::color::homogenous_static<
+	typedef
+	mizuiro::color::object<
+		mizuiro::color::format::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::bgra
 		>
-	> bgra_color;
+	>
+	bgra_color;
 
 	rgba_color const rgba(
 		(mizuiro::color::init::red() = static_cast<channel_type>(23))

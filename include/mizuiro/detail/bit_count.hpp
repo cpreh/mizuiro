@@ -8,10 +8,9 @@
 #define MIZUIRO_DETAIL_BIT_COUNT_HPP_INCLUDED
 
 #include <mizuiro/integral_size.hpp>
-#include <mizuiro/detail/static_assert_statement.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/type_traits/is_unsigned.hpp>
 #include <limits>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -33,10 +32,11 @@ mizuiro::integral_size<
 	>::digits
 >
 {
-	MIZUIRO_DETAIL_STATIC_ASSERT_STATEMENT(
-		boost::is_unsigned<
+	static_assert(
+		std::is_unsigned<
 			IntType
-		>::value
+		>::value,
+		"IntType must be unsigned"
 	);
 };
 

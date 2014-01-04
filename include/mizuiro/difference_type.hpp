@@ -11,10 +11,13 @@
 #include <cstddef>
 #include <mizuiro/detail/external_end.hpp>
 
+
 namespace mizuiro
 {
 
-/// The difference_type used by mizuiro
+/**
+\brief The difference type used by mizuiro
+*/
 typedef std::ptrdiff_t difference_type;
 
 }

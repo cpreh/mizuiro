@@ -7,9 +7,10 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_EXCLUDE_CHANNEL_FUNCTOR_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_EXCLUDE_CHANNEL_FUNCTOR_HPP_INCLUDED
 
-#include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/access/compare_channels.hpp>
+#include <mizuiro/color/format/store.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
+
 
 namespace mizuiro
 {
@@ -30,19 +31,26 @@ class exclude_channel_functor
 		exclude_channel_functor
 	);
 public:
-	typedef mizuiro::color::format_store<
+	typedef
+	mizuiro::color::format::store<
 		Format
-	> format_store;
+	>
+	format_store;
 
-	explicit exclude_channel_functor(
+	explicit
+	exclude_channel_functor(
 		format_store const &_format
 	)
 	:
-		format_(_format)
+		format_(
+			_format
+		)
 	{
 	}
 
-	typedef bool result_type;
+	typedef
+	bool
+	result_type;
 
 	template<
 		typename OtherChannel
@@ -53,11 +61,9 @@ public:
 	) const
 	{
 		return
-			!color::access::compare_channels<
-				Format,
-				StaticChannel
-			>::execute(
+			!mizuiro::color::access::compare_channels(
 				format_,
+				StaticChannel(),
 				_channel
 			);
 	}

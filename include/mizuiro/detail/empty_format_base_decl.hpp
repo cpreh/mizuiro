@@ -9,6 +9,7 @@
 
 #include <mizuiro/detail/empty_format_base_fwd.hpp>
 
+
 namespace mizuiro
 {
 namespace detail
@@ -20,9 +21,12 @@ template<
 class empty_format_base
 {
 protected:
-	typedef Store format_store_type;
+	typedef
+	Store
+	format_store_type;
 
-	explicit empty_format_base(
+	explicit
+	empty_format_base(
 		format_store_type const &
 	);
 

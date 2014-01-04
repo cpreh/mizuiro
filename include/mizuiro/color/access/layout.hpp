@@ -7,6 +7,15 @@
 #ifndef MIZUIRO_COLOR_ACCESS_LAYOUT_HPP_INCLUDED
 #define MIZUIRO_COLOR_ACCESS_LAYOUT_HPP_INCLUDED
 
+#include <mizuiro/color/access/layout_ns/tag.hpp>
+#include <mizuiro/color/format/make_tag_of.hpp>
+#include <mizuiro/color/format/store_fwd.hpp>
+#include <mizuiro/color/format/tag_of_fwd.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <type_traits>
+#include <fcppt/config/external_end.hpp>
+
+
 namespace mizuiro
 {
 namespace color
@@ -15,10 +24,42 @@ namespace access
 {
 
 template<
-	typename Format,
-	typename Enable = void
+	typename Format
 >
-struct layout;
+// TODO: Make a typedef for this?
+decltype(
+	layout_adl(
+		std::declval<
+			mizuiro::color::access::layout_ns::tag
+		>(),
+		std::declval<
+			typename
+			mizuiro::color::format::tag_of<
+				Format
+			>::type
+		>(),
+		std::declval<
+			mizuiro::color::format::store<
+				Format
+			>
+		>()
+	)
+)
+layout(
+	mizuiro::color::format::store<
+		Format
+	> const &_format
+)
+{
+	return
+		layout_adl(
+			mizuiro::color::access::layout_ns::tag(),
+			mizuiro::color::format::make_tag_of<
+				Format
+			>(),
+			_format
+		);
+}
 
 }
 }

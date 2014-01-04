@@ -8,9 +8,9 @@
 #define MIZUIRO_COLOR_PROXY_DECL_HPP_INCLUDED
 
 #include <mizuiro/const_tag.hpp>
-#include <mizuiro/color/format_argument.hpp>
-#include <mizuiro/color/format_base_decl.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
+#include <mizuiro/color/format/argument.hpp>
+#include <mizuiro/color/format/base_decl.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/pointer.hpp>
@@ -32,30 +32,44 @@ template<
 >
 class proxy
 :
-	private mizuiro::color::format_base<
+	private mizuiro::color::format::base<
 		Format
 	>::type
 {
-	typedef typename mizuiro::color::format_base<
+	typedef
+	typename mizuiro::color::format::base<
 		Format
-	>::type base;
+	>::type
+	base;
 public:
-	typedef Access access;
+	typedef
+	Access
+	access;
 
-	typedef Format format;
+	typedef
+	Format
+	format;
 
-	typedef typename base::format_store_type format_store_type;
+	typedef
+	typename
+	base::format_store_type
+	format_store_type;
 
-	typedef typename mizuiro::color::types::pointer<
+	typedef
+	mizuiro::color::types::pointer<
 		Access,
 		Format,
 		Constness
-	>::type pointer;
+	>
+	pointer;
 
+	explicit
 	proxy(
 		pointer data,
 		format_store_type const & =
-			color::format_argument<Format>::get()
+			mizuiro::color::format::argument<
+				Format
+			>::get()
 	);
 
 	template<
@@ -83,21 +97,21 @@ public:
 	void
 	set(
 		Channel const &,
-		typename mizuiro::color::types::channel_value<
+		mizuiro::color::types::channel_value<
 			Format,
 			Channel
-		>::type const &
+		> const &
 	) const;
 
 	template<
 		typename Channel
 	>
-	typename mizuiro::color::types::channel_reference<
+	mizuiro::color::types::channel_reference<
 		Access,
 		Format,
 		Channel,
 		mizuiro::const_tag
-	>::type
+	>
 	get(
 		Channel const &
 	) const;

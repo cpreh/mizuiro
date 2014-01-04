@@ -10,9 +10,9 @@
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/is_same.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {
@@ -29,7 +29,7 @@ template<
 >
 struct is_same
 :
-boost::is_same<
+std::is_same<
 	A,
 	B
 >
@@ -52,7 +52,7 @@ struct is_same<
 	>
 >
 :
-boost::true_type
+std::true_type
 {
 };
 

@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MIN_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MIN_HPP_INCLUDED
 
-#include <mizuiro/color/channel_min.hpp>
+#include <mizuiro/color/access/channel_min.hpp>
 
 
 namespace mizuiro
@@ -31,7 +31,7 @@ channel_to_min(
 {
 	_color.set(
 		_channel,
-		mizuiro::color::channel_min(
+		mizuiro::color::access::channel_min(
 			_color.format_store(),
 			_channel
 		)

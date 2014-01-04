@@ -10,12 +10,12 @@
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/color/for_each_channel.hpp>
-#include <mizuiro/color/format_base_impl.hpp>
-#include <mizuiro/color/format_store_impl.hpp>
 #include <mizuiro/color/proxy_decl.hpp>
 #include <mizuiro/color/access/extract_channel.hpp>
 #include <mizuiro/color/access/stride.hpp>
 #include <mizuiro/color/detail/copy_channel.hpp>
+#include <mizuiro/color/format/base_impl.hpp>
+#include <mizuiro/color/format/store_impl.hpp>
 
 
 template<
@@ -106,7 +106,8 @@ mizuiro::color::proxy<
 		)
 	);
 
-	return *this;
+	return
+		*this;
 }
 
 template<
@@ -124,24 +125,21 @@ mizuiro::color::proxy<
 	Constness
 >::set(
 	Channel const &_channel,
-	typename mizuiro::color::types::channel_value<
+	mizuiro::color::types::channel_value<
 		Format,
 		Channel
-	>::type const &_ref
+	> const &_ref
 ) const
 {
 	mizuiro::color::access::extract_channel<
 		Access,
-		Format,
-		Channel,
 		mizuiro::nonconst_tag
-	>::execute(
-		Access(),
+	>(
 		this->format_store(),
 		_channel,
-		mizuiro::nonconst_tag(),
 		data_
-	) = _ref;
+	) =
+		_ref;
 }
 
 template<
@@ -152,12 +150,12 @@ template<
 template<
 	typename Channel
 >
-typename mizuiro::color::types::channel_reference<
+mizuiro::color::types::channel_reference<
 	Access,
 	Format,
 	Channel,
 	mizuiro::const_tag
->::type
+>
 mizuiro::color::proxy<
 	Access,
 	Format,
@@ -169,14 +167,10 @@ mizuiro::color::proxy<
 	return
 		mizuiro::color::access::extract_channel<
 			Access,
-			Format,
-			Channel,
 			mizuiro::const_tag
-		>::execute(
-			Access(),
+		>(
 			this->format_store(),
 			_channel,
-			mizuiro::const_tag(),
 			data_
 		);
 }
@@ -186,7 +180,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::color::proxy<
+typename
+mizuiro::color::proxy<
 	Access,
 	Format,
 	Constness
@@ -197,7 +192,8 @@ mizuiro::color::proxy<
 	Constness
 >::data() const
 {
-	return data_;
+	return
+		data_;
 }
 
 template<
@@ -205,7 +201,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::color::proxy<
+typename
+mizuiro::color::proxy<
 	Access,
 	Format,
 	Constness
@@ -220,10 +217,8 @@ mizuiro::color::proxy<
 		this->data()
 		+
 		mizuiro::color::access::stride<
-			Access,
-			Format
-		>::execute(
-			Access(),
+			Access
+		>(
 			this->format_store()
 		);
 }
@@ -233,7 +228,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::color::proxy<
+typename
+mizuiro::color::proxy<
 	Access,
 	Format,
 	Constness
@@ -244,7 +240,8 @@ mizuiro::color::proxy<
 	Constness
 >::format_store() const
 {
-	return this->format_store_base();
+	return
+		this->format_store_base();
 }
 
 #endif

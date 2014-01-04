@@ -10,6 +10,7 @@
 #include <mizuiro/color/denormalize.hpp>
 #include <mizuiro/color/init/detail/channel_percentage.hpp>
 #include <mizuiro/color/init/detail/channel_value.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <boost/utility/enable_if.hpp>
@@ -30,12 +31,14 @@ template<
 	typename Value,
 	typename Channel
 >
-typename boost::enable_if<
+typename
+boost::enable_if<
 	boost::is_same<
-		typename mizuiro::color::types::channel_value<
-			typename Color::format,
+		mizuiro::color::types::channel_value<
+			typename
+			Color::format,
 			Channel
-		>::type,
+		>,
 		Value
 	>,
 	void
@@ -71,7 +74,8 @@ set_channel(
 	_color.set(
 		_init.channel(),
 		mizuiro::color::denormalize<
-			typename Color::format
+			typename
+			Color::format
 		>(
 			_color.format_store(),
 			_init.channel(),

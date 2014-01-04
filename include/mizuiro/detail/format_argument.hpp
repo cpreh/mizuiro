@@ -7,8 +7,6 @@
 #ifndef MIZUIRO_DETAIL_FORMAT_ARGUMENT_HPP_INCLUDED
 #define MIZUIRO_DETAIL_FORMAT_ARGUMENT_HPP_INCLUDED
 
-#include <mizuiro/detail/null_ptr.hpp>
-#include <mizuiro/detail/static_assert_expression.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -21,7 +19,7 @@ namespace detail
 
 template<
 	typename Format,
-	typename FormatIsStatic,
+	typename FormatNeedsStore,
 	typename FormatStore,
 	typename Enable = void
 >
@@ -34,15 +32,16 @@ struct format_argument;
 // because VC++ doesn't look that far.
 template<
 	typename Format,
-	typename FormatIsStatic,
+	typename FormatNeedsStore,
 	typename FormatStore
 >
 struct format_argument<
 	Format,
-	FormatIsStatic,
+	FormatNeedsStore,
 	FormatStore,
-	typename boost::disable_if<
-		FormatIsStatic
+	typename
+	boost::enable_if<
+		FormatNeedsStore
 	>::type
 >
 {
@@ -50,23 +49,25 @@ struct format_argument<
 	FormatStore const
 	get()
 	{
-		MIZUIRO_DETAIL_STATIC_ASSERT_EXPRESSION(
-			sizeof(Format) == 0
+		static_assert(
+			sizeof(Format) == 0,
+			"This color format requires a store!"
 		);
 	}
 };
 
 template<
 	typename Format,
-	typename FormatIsStatic,
+	typename FormatNeedsStore,
 	typename FormatStore
 >
 struct format_argument<
 	Format,
-	FormatIsStatic,
+	FormatNeedsStore,
 	FormatStore,
-	typename boost::enable_if<
-		FormatIsStatic
+	typename
+	boost::disable_if<
+		FormatNeedsStore
 	>::type
 >
 {
@@ -76,7 +77,7 @@ struct format_argument<
 	{
 		return
 			FormatStore(
-				mizuiro::detail::null_ptr()
+				nullptr
 			);
 	}
 };

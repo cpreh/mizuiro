@@ -5,18 +5,12 @@
 
 
 #include <mizuiro/access/normal.hpp>
-#include <mizuiro/color/format_store.hpp>
 #include <mizuiro/color/homogenous_dynamic.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/access/dynamic_channel.hpp>
-#include <mizuiro/color/access/homogenous.hpp>
-#include <mizuiro/color/access/homogenous_dynamic.hpp>
-#include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/color/types/homogenous_dynamic.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
+#include <mizuiro/color/format/store.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/store.hpp>
@@ -37,16 +31,13 @@
 namespace
 {
 
-namespace available_channels
-{
-enum type
+enum class available_channels
 {
 	alpha,
 	red,
 	green,
 	blue,
-	size
-};
+	mizuiro_enum_maximum = blue
 }
 
 #define MAKE_DYNAMIC_CHANNEL_INDEX(\
@@ -82,34 +73,28 @@ namespace mizuiro
 {
 namespace color
 {
-namespace access
+namespace format
+{
+namespace dynamic_ns
 {
 
 template<
-	typename Format,
-	typename Channel
+	typename StaticChannel
 >
-struct dynamic_channel<
-	Format,
-	Channel,
-	typename boost::enable_if<
-		boost::is_same<
-			typename Format::available_channels,
-			available_channels::type
-		>
-	>::type
+struct static_to_dynamic_channel<
+	available_channels,
+	StaticChannel
 >
 {
 	static
-	available_channels::type
+	available_channels
 	execute(
-		mizuiro::color::format_store<Format> const &,
-		Channel const &
+		Channel const &_channel
 	)
 	{
 		return
 			::dynamic_channel_index(
-				Channel()
+				_channel
 			);
 	}
 };
@@ -117,15 +102,20 @@ struct dynamic_channel<
 }
 }
 }
+}
 
-int main()
+int
+main()
 {
-	typedef mizuiro::color::homogenous_dynamic<
+	typedef mizuiro::color::format::homogenous_dynamic<
 		boost::uint8_t,
-		available_channels::type,
-		available_channels::size,
+		available_channels,
+		mizuiro::color::format::channel_count_from_enum<
+			available_channels
+		>::value,
 		4
-	> color_uint8_4_format;
+	>
+	color_uint8_4_format;
 
 	color_uint8_4_format::channel_array const rgba_order =
 	{{
@@ -143,7 +133,7 @@ int main()
 		color_uint8_4_format
 	> color_uint8_4;
 
-	typedef mizuiro::color::format_store<
+	typedef mizuiro::color::format::store<
 		color_uint8_4_format
 	> color_format_store;
 

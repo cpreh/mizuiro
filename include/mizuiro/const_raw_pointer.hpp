@@ -9,11 +9,14 @@
 
 #include <mizuiro/raw_value.hpp>
 
+
 namespace mizuiro
 {
 
-/// A pointer to const raw memory
-typedef raw_value const *const_raw_pointer;
+/**
+\brief A pointer to const raw memory
+*/
+typedef mizuiro::raw_value const *const_raw_pointer;
 
 }
 

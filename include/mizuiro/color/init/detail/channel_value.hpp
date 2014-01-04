@@ -10,6 +10,7 @@
 #include <mizuiro/color/init/detail/channel_value_fwd.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -29,29 +30,40 @@ class channel_value
 		channel_value
 	);
 public:
-	typedef Value value_type;
+	typedef
+	Value
+	value_type;
 
-	typedef Channel channel_type;
+	typedef
+	Channel
+	channel_type;
 
 	channel_value(
 		Value const &_value,
 		Channel const &_channel
 	)
 	:
-		value_(_value),
-		channel_(_channel)
-	{}
+		value_(
+			_value
+		),
+		channel_(
+			_channel
+		)
+	{
+	}
 
 	Value const &
 	value() const
 	{
-		return value_;
+		return
+			value_;
 	}
 
 	Channel const &
 	channel() const
 	{
-		return channel_;
+		return
+			channel_;
 	}
 private:
 	Value const value_;

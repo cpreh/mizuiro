@@ -9,6 +9,7 @@
 
 #include <mizuiro/detail/nonassignable.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -33,9 +34,14 @@ public:
 		Src const &_src
 	)
 	:
-		dest_(_dest),
-		src_(_src)
-	{}
+		dest_(
+			_dest
+		),
+		src_(
+			_src
+		)
+	{
+	}
 
 	template<
 		typename Channel

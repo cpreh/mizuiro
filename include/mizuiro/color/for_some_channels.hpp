@@ -14,6 +14,7 @@
 #include <boost/fusion/algorithm/iteration/for_each.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -36,13 +37,11 @@ for_some_channels(
 		mizuiro::detail::make_filter_view<
 			StaticFilter
 		>(
-			color::access::layout<
-				typename Color::format
-			>::execute(
+			mizuiro::color::access::layout(
 				_color.format_store()
 			)
 		),
-		detail::for_some_channels_functor<
+		mizuiro::color::detail::for_some_channels_functor<
 			Function,
 			DynamicFilter
 		>(

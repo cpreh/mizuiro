@@ -27,10 +27,13 @@ template<
 	typename Dest,
 	typename Src
 >
-typename boost::enable_if<
+typename
+boost::enable_if<
 	mizuiro::color::layout::is_same<
-		typename Dest::layout,
-		typename Src::format::layout
+		typename
+		Dest::layout,
+		typename
+		Src::format::layout
 	>,
 	mizuiro::color::object<
 		Dest

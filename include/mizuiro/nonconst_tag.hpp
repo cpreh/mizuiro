@@ -7,10 +7,13 @@
 #ifndef MIZUIRO_NONCONST_TAG_HPP_INCLUDED
 #define MIZUIRO_NONCONST_TAG_HPP_INCLUDED
 
+
 namespace mizuiro
 {
 
-/// The nonconst tag used for colors and views
+/**
+\brief A tag used telling that a color or image view points to nonconst data
+*/
 struct nonconst_tag
 {};
 

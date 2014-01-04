@@ -47,7 +47,7 @@ boost::mpl::fold<
 			>,
 			boost::mpl::bind<
 				boost::mpl::quote3<
-					color::types::channel_value
+					mizuiro::color::types::channel_value
 				>,
 				Format1,
 				boost::mpl::_2,
@@ -66,7 +66,7 @@ boost::mpl::fold<
 				>,
 				boost::mpl::bind<
 					boost::mpl::quote3<
-						color::types::channel_value
+						mizuiro::color::types::channel_value
 					>,
 					Format2,
 					boost::mpl::_2,
