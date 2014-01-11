@@ -7,6 +7,12 @@
 #ifndef MIZUIRO_IMAGE_ACCESS_DEREFERENCE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ACCESS_DEREFERENCE_HPP_INCLUDED
 
+#include <mizuiro/image/access/dereference_ns/tag.hpp>
+#include <mizuiro/image/format/make_tag_of.hpp>
+#include <mizuiro/image/format/store_fwd.hpp>
+#include <mizuiro/image/types/pointer.hpp>
+#include <mizuiro/image/types/reference.hpp>
+
 
 namespace mizuiro
 {
@@ -17,11 +23,37 @@ namespace access
 
 template<
 	typename Access,
-	typename ImageFormat,
 	typename Constness,
-	typename Enable = void
+	typename ImageFormat
 >
-struct dereference;
+mizuiro::image::types::reference<
+	Access,
+	ImageFormat,
+	Constness
+>
+dereference(
+	mizuiro::image::format::store<
+		ImageFormat
+	> const &_format,
+	mizuiro::image::types::pointer<
+		Access,
+		ImageFormat,
+		Constness
+	> const _data
+)
+{
+	return
+		dereference_adl(
+			mizuiro::image::access::dereference_ns::tag(),
+			Access(),
+			mizuiro::image::format::make_tag_of<
+				ImageFormat
+			>(),
+			Constness(),
+			_format,
+			_data
+		);
+}
 
 }
 }

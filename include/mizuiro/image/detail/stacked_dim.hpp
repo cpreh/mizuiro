@@ -22,22 +22,24 @@ template<
 	typename RetValue,
 	typename Dim
 >
-typename detail::stacked_dim_array<
-	image::dimension<
+mizuiro::image::detail::stacked_dim_array<
+	mizuiro::image::dimension<
 		Dim::static_size,
 		RetValue
 	>
->::type const
+> const
 stacked_dim(
 	Dim const &_dim
 )
 {
-	typedef typename detail::stacked_dim_array<
-		image::dimension<
+	typedef
+	mizuiro::image::detail::stacked_dim_array<
+		mizuiro::image::dimension<
 			Dim::static_size,
 			RetValue
 		>
-	>::type stacked_type;
+	>
+	stacked_type;
 
 	stacked_type ret = {{}};
 

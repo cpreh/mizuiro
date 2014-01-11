@@ -13,6 +13,7 @@
 #include <mizuiro/image/to_pitch_view.hpp>
 #include <mizuiro/image/detail/subview_pitch.hpp>
 
+
 namespace mizuiro
 {
 namespace image
@@ -21,10 +22,8 @@ namespace image
 template<
 	typename View
 >
-image::pitch_view<
-	typename View::access,
-	typename View::format,
-	typename View::constness
+mizuiro::image::to_pitch_view<
+	View
 > const
 sub_view(
 	View const &_view,
@@ -32,15 +31,15 @@ sub_view(
 )
 {
 	return
-		typename image::to_pitch_view<
+		mizuiro::image::to_pitch_view<
 			View
-		>::type(
+		>(
 			_bound.size(),
-			image::move_iterator(
+			mizuiro::image::move_iterator(
 				_view,
 				_bound.pos()
 			).data(),
-			detail::subview_pitch(
+			mizuiro::image::detail::subview_pitch(
 				_view,
 				_bound
 			)

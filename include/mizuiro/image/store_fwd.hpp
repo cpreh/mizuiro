@@ -14,8 +14,7 @@ namespace image
 {
 
 template<
-	typename Format,
-	typename Access
+	typename Format
 >
 class store;
 

@@ -10,6 +10,7 @@
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/access/layout.hpp>
 #include <mizuiro/detail/external_begin.hpp>
+#include <boost/fusion/adapted/mpl.hpp>
 #include <boost/fusion/algorithm/iteration/for_each.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>

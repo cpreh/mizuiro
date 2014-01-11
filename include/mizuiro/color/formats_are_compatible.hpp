@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_FORMATS_ARE_COMPATIBLE_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMATS_ARE_COMPATIBLE_HPP_INCLUDED
 
-#include <mizuiro/color/types/channel_value.hpp>
+#include <mizuiro/color/types/channel_value_tpl.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -46,12 +46,11 @@ boost::mpl::fold<
 				boost::is_same
 			>,
 			boost::mpl::bind<
-				boost::mpl::quote3<
-					mizuiro::color::types::channel_value
+				boost::mpl::quote2<
+					mizuiro::color::types::channel_value_tpl
 				>,
 				Format1,
-				boost::mpl::_2,
-				void
+				boost::mpl::_2
 			>,
 			boost::mpl::bind<
 				boost::mpl::quote3<
@@ -65,12 +64,11 @@ boost::mpl::fold<
 					boost::mpl::_2
 				>,
 				boost::mpl::bind<
-					boost::mpl::quote3<
-						mizuiro::color::types::channel_value
+					boost::mpl::quote2<
+						mizuiro::color::types::channel_value_tpl
 					>,
 					Format2,
-					boost::mpl::_2,
-					void
+					boost::mpl::_2
 				>,
 				boost::none_t
 			>

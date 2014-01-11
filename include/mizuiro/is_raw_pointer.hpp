@@ -12,10 +12,7 @@
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
-#include <boost/type_traits/is_pointer.hpp>
-#include <boost/type_traits/is_same.hpp>
-#include <boost/type_traits/remove_const.hpp>
-#include <boost/type_traits/remove_pointer.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -38,13 +35,13 @@ template<
 struct is_raw_pointer
 :
 boost::mpl::and_<
-	boost::is_pointer<
+	std::is_pointer<
 		T
 	>,
-	boost::is_same<
+	std::is_same<
 		raw_value,
-		typename boost::remove_const<
-			typename boost::remove_pointer<
+		typename std::remove_const<
+			typename std::remove_pointer<
 				T
 			>::type
 		>::type

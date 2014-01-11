@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_DETAIL_OPTIONAL_DECL_HPP_INCLUDED
 #define MIZUIRO_DETAIL_OPTIONAL_DECL_HPP_INCLUDED
 
+#include <mizuiro/detail/optional_fwd.hpp>
 #include <mizuiro/config.hpp>
 #ifdef MIZUIRO_HAVE_FCPPT
 #include <fcppt/optional_decl.hpp>

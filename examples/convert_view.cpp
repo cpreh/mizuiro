@@ -5,33 +5,23 @@
 
 
 #include <mizuiro/array.hpp>
-#include <mizuiro/access/raw.hpp>
-#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/output.hpp>
-#include <mizuiro/color/access/homogenous.hpp>
-#include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/access/homogenous_raw.hpp>
-#include <mizuiro/color/access/static.hpp>
 #include <mizuiro/color/convert_static/converter.hpp>
+#include <mizuiro/color/format/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgb.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/homogenous_raw.hpp>
-#include <mizuiro/color/types/static.hpp>
 #include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/view.hpp>
-#include <mizuiro/image/access/interleaved.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
-#include <mizuiro/image/types/interleaved.hpp>
-#include <mizuiro/image/types/interleaved_raw.hpp>
+#include <mizuiro/image/format/interleaved.hpp>
+#include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/cstdint.hpp>
+#include <cstdint>
 #include <iostream>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
@@ -43,42 +33,42 @@ namespace
 template<
 	typename Format
 >
-struct make_2d_format
-{
-	typedef mizuiro::image::interleaved<
-		mizuiro::image::dimension<
-			2
-		>,
-		Format
-	> type;
-};
+using make_2d_format
+=
+mizuiro::image::format::interleaved<
+	mizuiro::image::dimension<
+		2
+	>,
+	Format
+>;
 
 }
 
-int main()
+int
+main()
 {
-	typedef boost::uint8_t base_type;
+	typedef std::uint8_t base_type;
 
 	typedef make_2d_format<
-		mizuiro::color::homogenous_static<
+		mizuiro::color::format::homogenous_static<
 			base_type,
 			mizuiro::color::layout::rgba
 		>
-	>::type rgba_format;
+	> rgba_format;
 
 	typedef make_2d_format<
-		mizuiro::color::homogenous_static<
+		mizuiro::color::format::homogenous_static<
 			base_type,
 			mizuiro::color::layout::rgb
 		>
-	>::type rgb_format;
+	> rgb_format;
 
 	typedef make_2d_format<
-		mizuiro::color::homogenous_static<
+		mizuiro::color::format::homogenous_static<
 			base_type,
 			mizuiro::color::layout::rgba
 		>
-	>::type rgba_format;
+	> rgba_format;
 
 	mizuiro::size_type const
 		width(
@@ -94,7 +84,7 @@ int main()
 		* height
 		* sizeof(base_type)
 		* rgb_format::color_format::element_count
-	>::type raw_array;
+	> raw_array;
 
 	raw_array const data = {{
 		152, 34, 0,
@@ -112,8 +102,7 @@ int main()
 	}};
 
 	typedef mizuiro::image::store<
-		rgba_format,
-		::mizuiro::access::raw
+		rgba_format
 	> rgba_store;
 
 	rgba_store::dim const dim(

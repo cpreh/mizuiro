@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_COLOR_CHANNEL_TAG_HPP_INCLUDED
 #define MIZUIRO_COLOR_CHANNEL_TAG_HPP_INCLUDED
 
+
 namespace mizuiro
 {
 namespace color
@@ -14,6 +15,9 @@ namespace color
 namespace channel
 {
 
+template<
+	typename Channel
+>
 struct tag
 {
 };

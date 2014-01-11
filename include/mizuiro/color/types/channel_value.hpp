@@ -9,9 +9,9 @@
 
 #include <mizuiro/color/format/make_tag_of.hpp>
 #include <mizuiro/color/types/channel_value_ns/tag.hpp>
-#include <fcppt/config/external_begin.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
-#include <fcppt/config/external_end.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro

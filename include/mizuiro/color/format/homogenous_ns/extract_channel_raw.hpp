@@ -36,9 +36,9 @@ mizuiro::color::types::channel_reference<
 	Channel,
 	Constness
 >
-extract_channel(
+extract_channel_adl(
 	mizuiro::color::access::extract_channel_ns::tag,
-	mizuiro::access::raw const &,
+	mizuiro::access::raw,
 	mizuiro::color::format::homogenous_ns::tag<
 		Format
 	>,

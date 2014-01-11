@@ -9,11 +9,14 @@
 
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
-#include <mizuiro/image/format_argument.hpp>
-#include <mizuiro/image/format_base_decl.hpp>
 #include <mizuiro/image/linear_iterator_fwd.hpp>
+#include <mizuiro/image/format/argument.hpp>
+#include <mizuiro/image/format/base_decl.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/image/types/pointer.hpp>
+#include <mizuiro/detail/external_begin.hpp>
+#include <boost/iterator/iterator_facade.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
@@ -40,25 +43,38 @@ class linear_iterator
 			Access,
 			Format,
 			Constness
-		>::type,
+		>,
 	private
-		mizuiro::image::format_base<
+		mizuiro::image::format::base<
 			Format
 		>::type
 {
-	typedef typename mizuiro::image::format_base<
+	typedef
+	typename
+	mizuiro::image::format::base<
 		Format
-	>::type format_base;
+	>::type
+	format_base;
 public:
-	typedef Access access;
+	typedef
+	Access
+	access;
 
-	typedef Format format;
+	typedef
+	Format
+	format;
 
-	typedef Constness constness;
+	typedef
+	Constness
+	constness;
 
-	typedef typename format_base::format_store_type format_store_type;
+	typedef
+	typename
+	format_base::format_store_type
+	format_store_type;
 
-	typedef typename mizuiro::image::detail::iterator_base<
+	typedef
+	mizuiro::image::detail::iterator_base<
 		mizuiro::image::linear_iterator<
 			access,
 			format,
@@ -67,28 +83,45 @@ public:
 		access,
 		format,
 		constness
-	>::type base;
+	>
+	base;
 
-	typedef typename base::value_type value_type;
+	typedef
+	typename
+	base::value_type value_type;
 
-	typedef typename base::reference reference;
+	typedef
+	typename
+	base::reference reference;
 
-	typedef typename mizuiro::image::types::pointer<
+	typedef
+	mizuiro::image::types::pointer<
 		access,
 		format,
 		Constness
-	>::type pointer;
+	>
+	pointer;
 
-	typedef typename base::difference_type difference_type;
+	typedef
+	typename
+	base::difference_type
+	difference_type;
 
-	typedef typename base::iterator_category iterator_category;
+	typedef
+	typename
+	base::iterator_category
+	iterator_category;
 
-	typedef typename format::pitch pitch_type;
+	typedef
+	typename
+	format::pitch
+	pitch_type;
 
-	explicit linear_iterator(
+	explicit
+	linear_iterator(
 		pointer data,
 		format_store_type const & =
-			mizuiro::image::format_argument<
+			mizuiro::image::format::argument<
 				format
 			>::get()
 	);

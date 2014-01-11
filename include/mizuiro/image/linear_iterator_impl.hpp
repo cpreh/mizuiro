@@ -41,7 +41,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::linear_iterator<
+typename
+mizuiro::image::linear_iterator<
 	Access,
 	Format,
 	Constness
@@ -61,7 +62,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::linear_iterator<
+typename
+mizuiro::image::linear_iterator<
 	Access,
 	Format,
 	Constness
@@ -97,11 +99,9 @@ mizuiro::image::linear_iterator<
 			difference_type
 		>(
 			mizuiro::image::access::stride<
-				Access,
-				Format
-			>::execute(
-				Access(),
-				this->format_store_base()
+				Access
+			>(
+				this->format_store()
 			)
 		);
 }
@@ -145,7 +145,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::linear_iterator<
+typename
+mizuiro::image::linear_iterator<
 	Access,
 	Format,
 	Constness
@@ -167,11 +168,9 @@ mizuiro::image::linear_iterator<
 			difference_type
 		>(
 			mizuiro::image::access::stride<
-				Access,
-				Format
-			>::execute(
-				Access(),
-				this->format_store_base()
+				Access
+			>(
+				this->format_store()
 			)
 		);
 }
@@ -181,7 +180,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::linear_iterator<
+typename
+mizuiro::image::linear_iterator<
 	Access,
 	Format,
 	Constness
@@ -195,12 +195,10 @@ mizuiro::image::linear_iterator<
 	return
 		mizuiro::image::access::dereference<
 			Access,
-			Format,
 			Constness
-		>::execute(
-			Access(),
-			this->data(),
-			this->format_store_base()
+		>(
+			this->format_store(),
+			this->data()
 		);
 }
 

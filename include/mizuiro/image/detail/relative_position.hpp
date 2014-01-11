@@ -24,40 +24,46 @@ template<
 	typename DimValue,
 	typename Offset
 >
-image::dimension<
+mizuiro::image::dimension<
 	Dim,
 	DimValue
 > const
 relative_position(
-	image::dimension<
+	mizuiro::image::dimension<
 		Dim,
 		DimValue
 	> const &_dim,
 	Offset const _offset
 )
 {
-	typedef image::dimension<
+	typedef
+	mizuiro::image::dimension<
 		Dim,
 		DimValue
 	> dim;
 
-	typedef typename detail::stacked_dim_array<
+	typedef
+	mizuiro::image::detail::stacked_dim_array<
 		dim
-	>::type stacked_dim_array;
+	>
+	stacked_dim_array;
 
 	stacked_dim_array const stacked_dims(
-		detail::stacked_dim<
+		mizuiro::image::detail::stacked_dim<
 			typename dim::value_type
 		>(
 			_dim
 		)
 	);
 
-	typedef typename dim::size_type size_type;
+	typedef
+	typename
+	dim::size_type
+	size_type;
 
 	dim ret;
 
-	for (
+	for(
 		size_type i = 0;
 		i < dim::static_size;
 		++i

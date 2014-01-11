@@ -16,8 +16,9 @@
 #include <mizuiro/image/detail/flipped_start.hpp>
 #include <mizuiro/image/detail/pitch_difference.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {
@@ -27,20 +28,22 @@ namespace image
 template<
 	typename View
 >
-typename boost::enable_if_c<
+typename
+std::enable_if<
 	View::dim::static_size >= 2,
-	typename image::to_pitch_view<
+	mizuiro::image::to_pitch_view<
 		View
-	>::type const
+	> const
 >::type
 flipped_view(
 	View const &_view
 )
 {
-	typedef typename
-	image::to_pitch_view<
+	typedef
+	mizuiro::image::to_pitch_view<
 		View
-	>::type result_type;
+	>
+	result_type;
 
 	typedef typename View::dim dim;
 

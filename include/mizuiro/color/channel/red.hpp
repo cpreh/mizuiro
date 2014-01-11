@@ -23,7 +23,9 @@ MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 struct red
 :
-mizuiro::color::channel::tag
+mizuiro::color::channel::tag<
+	red
+>
 {
 };
 

@@ -24,32 +24,35 @@ template<
 	typename Format,
 	typename Pointer
 >
-typename boost::enable_if<
+typename
+boost::enable_if<
 	mizuiro::is_raw_pointer<
 		Pointer
 	>,
-	typename mizuiro::image::detail::raw_view_from_pointer<
+	mizuiro::image::detail::raw_view_from_pointer<
 		Format,
 		Pointer
-	>::type
+	>
 >::type const
 make_raw_view(
 	Pointer const _data,
-	typename mizuiro::image::detail::raw_view_from_pointer<
+	typename
+	mizuiro::image::detail::raw_view_from_pointer<
 		Format,
 		Pointer
-	>::type::dim const &_size,
-	typename mizuiro::image::detail::raw_view_from_pointer<
+	>::dim const &_size,
+	typename
+	mizuiro::image::detail::raw_view_from_pointer<
 		Format,
 		Pointer
-	>::type::pitch_type const &_pitch
+	>::pitch_type const &_pitch
 )
 {
 	return
-		typename mizuiro::image::detail::raw_view_from_pointer<
+		mizuiro::image::detail::raw_view_from_pointer<
 			Format,
 			Pointer
-		>::type(
+		>(
 			_size,
 			_data,
 			_pitch

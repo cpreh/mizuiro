@@ -23,16 +23,15 @@ template<
 	typename Format,
 	typename Pointer
 >
-struct raw_view_from_pointer
-{
-	typedef image::pitch_view<
-		::mizuiro::access::raw,
-		Format,
-		typename mizuiro::detail::choose_const<
-			Pointer
-		>::type
-	> type;
-};
+using raw_view_from_pointer
+=
+mizuiro::image::pitch_view<
+	mizuiro::access::raw,
+	Format,
+	typename mizuiro::detail::choose_const<
+		Pointer
+	>::type
+>;
 
 }
 }

@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_DETAIL_VARIANT_IMPL_HPP_INCLUDED
 #define MIZUIRO_DETAIL_VARIANT_IMPL_HPP_INCLUDED
 
+#include <mizuiro/detail/variant_decl.hpp>
 #include <mizuiro/config.hpp>
 #ifdef MIZUIRO_HAVE_FCPPT
 #include <fcppt/variant/object_impl.hpp>

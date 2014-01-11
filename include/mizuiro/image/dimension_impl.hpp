@@ -7,15 +7,14 @@
 #ifndef MIZUIRO_IMAGE_DIMENSION_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DIMENSION_IMPL_HPP_INCLUDED
 
-#include <mizuiro/detail/static_assert_expression.hpp>
 #include <mizuiro/image/dimension_decl.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/next_prior.hpp>
 #include <boost/preprocessor/arithmetic/inc.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/preprocessor/repetition/repeat.hpp>
 #include <algorithm>
 #include <functional>
+#include <iterator>
 #include <numeric>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
@@ -37,7 +36,10 @@ template< \
 	mizuiro::size_type Dim,\
 	typename ValueType\
 >\
-mizuiro::image::dimension<Dim, ValueType>::dimension(\
+mizuiro::image::dimension<\
+	Dim,\
+	ValueType\
+>::dimension(\
 	BOOST_PP_ENUM_PARAMS(\
 		BOOST_PP_INC(n),\
 		const_reference _param\
@@ -46,9 +48,10 @@ mizuiro::image::dimension<Dim, ValueType>::dimension(\
 :\
 	data_()\
 {\
-	MIZUIRO_DETAIL_STATIC_ASSERT_EXPRESSION(( \
-		Dim == BOOST_PP_INC(n) \
-	)); \
+	static_assert( \
+		Dim == BOOST_PP_INC(n), \
+		"invalid argument count to image::dimension"\
+	); \
 \
 	BOOST_PP_REPEAT(\
 		BOOST_PP_INC(n),\
@@ -70,23 +73,13 @@ template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-mizuiro::image::dimension<Dim, ValueType>::dimension()
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::dimension()
 :
 	data_()
-{}
-
-template<
-	mizuiro::size_type Dim,
-	typename ValueType
->
-void
-mizuiro::image::dimension<Dim, ValueType>::swap(
-	dimension &_other
-)
 {
-	data_.swap(
-		_other.data_
-	);
 }
 
 template<
@@ -94,7 +87,10 @@ template<
 	typename ValueType
 >
 bool
-mizuiro::image::dimension<Dim, ValueType>::empty() const
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::empty() const
 {
 	return false;
 }
@@ -103,8 +99,14 @@ template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-typename mizuiro::image::dimension<Dim, ValueType>::iterator
-mizuiro::image::dimension<Dim, ValueType>::begin()
+typename mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::iterator
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::begin()
 {
 	return data_.begin();
 }
@@ -113,48 +115,87 @@ template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-typename mizuiro::image::dimension<Dim, ValueType>::iterator
-mizuiro::image::dimension<Dim, ValueType>::end()
+typename
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::iterator
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::end()
 {
-	return data_.end();
+	return
+		data_.end();
 }
 
 template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-typename mizuiro::image::dimension<Dim, ValueType>::const_iterator
-mizuiro::image::dimension<Dim, ValueType>::begin() const
+typename
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::const_iterator
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::begin() const
 {
-	return data_.begin();
+	return
+		data_.begin();
 }
 
 template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-typename mizuiro::image::dimension<Dim, ValueType>::const_iterator
-mizuiro::image::dimension<Dim, ValueType>::end() const
+typename
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::const_iterator
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::end() const
 {
-	return data_.end();
+	return
+		data_.end();
 }
 
 template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-typename mizuiro::image::dimension<Dim, ValueType>::size_type
-mizuiro::image::dimension<Dim, ValueType>::size() const
+typename
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::size_type
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::size() const
 {
-	return data_.size();
+	return
+		data_.size();
 }
 
 template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-typename mizuiro::image::dimension<Dim, ValueType>::size_type
-mizuiro::image::dimension<Dim, ValueType>::content() const
+typename
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::size_type
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::content() const
 {
 	return
 		std::accumulate(
@@ -175,61 +216,124 @@ template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-typename mizuiro::image::dimension<Dim, ValueType>::reference
-mizuiro::image::dimension<Dim, ValueType>::operator[](
+typename
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::reference
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::operator[](
 	size_type const _index
 )
 {
-	return data_[_index];
+	return
+		data_[
+			_index
+		];
 }
 
 template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-typename mizuiro::image::dimension<Dim, ValueType>::const_reference
-mizuiro::image::dimension<Dim, ValueType>::operator[](
+typename
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::const_reference
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::operator[](
 	size_type const _index
 ) const
 {
-	return data_[_index];
+	return
+		data_[
+			_index
+		];
 }
 
 template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-typename mizuiro::image::dimension<Dim, ValueType>::reference
-mizuiro::image::dimension<Dim, ValueType>::back()
+typename
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::reference
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::back()
 {
-	return *boost::prior(end());
+	return
+		*std::prev(
+			this->end()
+		);
 }
 
 template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-typename mizuiro::image::dimension<Dim, ValueType>::const_reference
-mizuiro::image::dimension<Dim, ValueType>::back() const
+typename
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::const_reference
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::back() const
 {
-	return *boost::prior(end());
+	return
+		*std::prev(
+			this->end()
+		);
 }
 
 template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-mizuiro::image::dimension<Dim, ValueType> const
-mizuiro::image::dimension<Dim, ValueType>::null()
+void
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::swap(
+	dimension &_other
+)
+{
+	data_.swap(
+		_other.data_
+	);
+}
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+> const
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::null()
 {
 	dimension ret;
 
 	for(
-		size_type i = 0;
-		i < static_size;
-		++i
+		auto &elem
+		:
+		ret
 	)
-		ret[i] = 0;
+		elem = 0;
 
 	return ret;
 }
@@ -240,8 +344,14 @@ template<
 >
 void
 mizuiro::image::swap(
-	dimension<Dim, ValueType> &_a,
-	dimension<Dim, ValueType> &_b
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> &_a,
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> &_b
 )
 {
 	_a.swap(
@@ -253,13 +363,25 @@ template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-mizuiro::image::dimension<Dim, ValueType> const
-mizuiro::image::operator+(
-	dimension<Dim, ValueType> const &_a,
-	dimension<Dim, ValueType> const &_b
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+> const
+	mizuiro::image::operator+(
+		mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> const &_a,
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> const &_b
 )
 {
-	typedef dimension<Dim, ValueType> dim;
+	typedef mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> dim;
 
 	dim ret;
 
@@ -279,8 +401,14 @@ template<
 >
 bool
 mizuiro::image::operator==(
-	dimension<Dim, ValueType> const &_a,
-	dimension<Dim, ValueType> const &_b
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> const &_a,
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> const &_b
 )
 {
 	return
@@ -297,8 +425,14 @@ template<
 >
 bool
 mizuiro::image::operator!=(
-	dimension<Dim, ValueType> const &_a,
-	dimension<Dim, ValueType> const &_b
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> const &_a,
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> const &_b
 )
 {
 	return !(_a == _b);
@@ -310,13 +444,23 @@ template<
 	typename Ch,
 	typename Traits
 >
-std::basic_ostream<Ch, Traits> &
+std::basic_ostream<
+	Ch,
+	Traits
+> &
 mizuiro::image::operator<<(
-	std::basic_ostream<Ch, Traits> &_stream,
-	dimension<Dim, ValueType> const &_dim
+	std::basic_ostream<
+		Ch,
+		Traits
+	> &_stream,
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> const &_dim
 )
 {
-	typedef dimension<
+	typedef
+	mizuiro::image::dimension<
 		Dim,
 		ValueType
 	> dim;

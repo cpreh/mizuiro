@@ -27,14 +27,14 @@ namespace conversion
 namespace detail
 {
 
-template
-<
+template<
 	typename DefaultAction,
 	typename Channel,
 	typename Src,
 	typename Dest
 >
-typename boost::enable_if<
+typename
+boost::enable_if<
 	boost::mpl::and_<
 		mizuiro::color::types::has_channel_static<
 			typename Src::format,
@@ -87,7 +87,8 @@ template<
 	typename Src,
 	typename Dest
 >
-typename boost::enable_if<
+typename
+boost::enable_if<
 	boost::mpl::and_<
 		boost::mpl::not_<
 			mizuiro::color::types::has_channel_static<
@@ -120,7 +121,8 @@ template<
 	typename Src,
 	typename Dest
 >
-typename boost::enable_if<
+typename
+boost::enable_if<
 	boost::mpl::not_<
 		mizuiro::color::types::has_channel_static<
 			typename Dest::format,

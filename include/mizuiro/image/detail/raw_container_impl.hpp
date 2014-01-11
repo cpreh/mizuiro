@@ -8,7 +8,6 @@
 #define MIZUIRO_IMAGE_DETAIL_RAW_CONTAINER_IMPL_HPP_INCLUDED
 
 #include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/null_ptr.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/detail/raw_container_decl.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -20,14 +19,17 @@ template<
 	typename T,
 	typename A
 >
-mizuiro::image::detail::raw_container<T, A>::raw_container()
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::raw_container()
 :
 	allocator(),
 	data_(
-		mizuiro::detail::null_ptr()
+		nullptr
 	),
 	data_end_(
-		mizuiro::detail::null_ptr()
+		nullptr
 	)
 {
 }
@@ -38,7 +40,10 @@ template<
 	typename T,
 	typename A
 >
-mizuiro::image::detail::raw_container<T, A>::raw_container(
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::raw_container(
 	size_type const _size
 )
 :
@@ -54,7 +59,10 @@ template<
 	typename T,
 	typename A
 >
-mizuiro::image::detail::raw_container<T, A>::raw_container(
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::raw_container(
 	raw_container const &_other
 )
 :
@@ -72,30 +80,86 @@ template<
 	typename T,
 	typename A
 >
-mizuiro::image::detail::raw_container<T, A> &
-mizuiro::image::detail::raw_container<T, A>::operator=(
-	raw_container const &_other
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::raw_container(
+	raw_container &&_other
 )
-{
-	if(
-		this == &_other
+:
+	allocator(),
+	data_(
+		_other.data_
+	),
+	data_end_(
+		_other.data_end_
 	)
-		return *this;
-
-	this->destroy();
-
-	this->copy(
-		_other
-	);
-
-	return *this;
+{
+	_other.after_move();
 }
 
 template<
 	typename T,
 	typename A
 >
-mizuiro::image::detail::raw_container<T, A>::~raw_container()
+mizuiro::image::detail::raw_container<
+	T,
+	A
+> &
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::operator=(
+	raw_container const &_other
+)
+{
+	this->destroy();
+
+	this->copy(
+		_other
+	);
+
+	return
+		*this;
+}
+
+template<
+	typename T,
+	typename A
+>
+mizuiro::image::detail::raw_container<
+	T,
+	A
+> &
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::operator=(
+	raw_container &&_other
+)
+{
+	this->destroy();
+
+	data_ =
+		_other.data_;
+
+	data_end_ =
+		_other.data_end_;
+
+	_other.after_move();
+
+	return
+		*this;
+}
+
+template<
+	typename T,
+	typename A
+>
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::~raw_container()
 {
 	this->destroy();
 }
@@ -105,7 +169,10 @@ template<
 	typename A
 >
 void
-mizuiro::image::detail::raw_container<T, A>::resize(
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::resize(
 	size_type const _size
 )
 {
@@ -120,48 +187,87 @@ template<
 	typename T,
 	typename A
 >
-typename mizuiro::image::detail::raw_container<T, A>::pointer
-mizuiro::image::detail::raw_container<T, A>::data()
+typename
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::pointer
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::data()
 {
-	return data_;
+	return
+		data_;
 }
 
 template<
 	typename T,
 	typename A
 >
-typename mizuiro::image::detail::raw_container<T, A>::const_pointer
-mizuiro::image::detail::raw_container<T, A>::data() const
+typename
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::const_pointer
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::data() const
 {
-	return data_;
+	return
+		data_;
 }
 
 template<
 	typename T,
 	typename A
 >
-typename mizuiro::image::detail::raw_container<T, A>::pointer
-mizuiro::image::detail::raw_container<T, A>::data_end()
+typename
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::pointer
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::data_end()
 {
-	return data_end_;
+	return
+		data_end_;
 }
 
 template<
 	typename T,
 	typename A
 >
-typename mizuiro::image::detail::raw_container<T, A>::const_pointer
-mizuiro::image::detail::raw_container<T, A>::data_end() const
+typename
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::const_pointer
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::data_end() const
 {
-	return data_end_;
+	return
+		data_end_;
 }
 
 template<
 	typename T,
 	typename A
 >
-typename mizuiro::image::detail::raw_container<T, A>::size_type
-mizuiro::image::detail::raw_container<T, A>::size() const
+typename
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::size_type
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::size() const
 {
 	return
 		static_cast<
@@ -176,14 +282,17 @@ template<
 	typename A
 >
 void
-mizuiro::image::detail::raw_container<T, A>::allocate(
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::allocate(
 	size_type const _size
 )
 {
 	data_ =
 		allocator.allocate(
 			_size,
-			mizuiro::detail::null_ptr()
+			nullptr
 		);
 
 	data_end_ = data_ + _size;
@@ -194,7 +303,10 @@ template<
 	typename A
 >
 void
-mizuiro::image::detail::raw_container<T, A>::copy(
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::copy(
 	raw_container const &_other
 )
 {
@@ -217,7 +329,10 @@ template<
 	typename A
 >
 void
-mizuiro::image::detail::raw_container<T, A>::destroy()
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::destroy()
 {
 	if(
 		data_
@@ -226,6 +341,23 @@ mizuiro::image::detail::raw_container<T, A>::destroy()
 			data_,
 			this->size()
 		);
+}
+
+template<
+	typename T,
+	typename A
+>
+void
+mizuiro::image::detail::raw_container<
+	T,
+	A
+>::after_move()
+{
+	data_ =
+		nullptr;
+
+	data_end_ =
+		nullptr;
 }
 
 #endif

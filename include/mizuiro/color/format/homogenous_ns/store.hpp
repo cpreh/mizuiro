@@ -7,11 +7,9 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HOMOGENOUS_NS_STORE_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_NS_STORE_HPP_INCLUDED
 
+#include <mizuiro/array.hpp>
 #include <mizuiro/color/format/homogenous_ns/tag.hpp>
 #include <mizuiro/color/types/store_ns/tag.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <array>
-#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -26,7 +24,7 @@ namespace store_ns
 template<
 	typename Format
 >
-std::array<
+mizuiro::array<
 	typename Format::channel_type,
 	Format::element_count
 >

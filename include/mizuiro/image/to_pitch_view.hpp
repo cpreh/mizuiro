@@ -9,6 +9,7 @@
 
 #include <mizuiro/image/pitch_view_fwd.hpp>
 
+
 namespace mizuiro
 {
 namespace image
@@ -17,14 +18,14 @@ namespace image
 template<
 	typename View
 >
-struct to_pitch_view
-{
-	typedef image::pitch_view<
-		typename View::access,
-		typename View::format,
-		typename View::constness
-	> type;
-};
+using
+to_pitch_view
+=
+mizuiro::image::pitch_view<
+	typename View::access,
+	typename View::format,
+	typename View::constness
+>;
 
 }
 }

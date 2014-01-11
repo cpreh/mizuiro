@@ -7,13 +7,11 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HETEROGENOUS_NS_STORE_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HETEROGENOUS_NS_STORE_HPP_INCLUDED
 
+#include <mizuiro/array.hpp>
 #include <mizuiro/color/detail/heterogenous_bits.hpp>
 #include <mizuiro/color/format/heterogenous_ns/tag.hpp>
 #include <mizuiro/color/types/store_ns/tag.hpp>
 #include <mizuiro/detail/uint_least.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <array>
-#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -29,7 +27,7 @@ template<
 	typename Format
 >
 // TODO: Make it possible to use something else here which doesn't require .data()
-std::array<
+mizuiro::array<
 	// TODO: Also refactor this to use channel_value
 	typename
 	mizuiro::detail::uint_least<

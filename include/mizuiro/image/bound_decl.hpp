@@ -24,10 +24,16 @@ template<
 class bound
 {
 public:
-	typedef ValueType value_type;
-	typedef mizuiro::size_type size_type;
+	typedef
+	ValueType
+	value_type;
 
-	typedef dimension<
+	typedef
+	mizuiro::size_type
+	size_type;
+
+	typedef
+	mizuiro::image::dimension<
 		Dim,
 		value_type
 	> dim;

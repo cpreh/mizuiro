@@ -7,6 +7,13 @@
 #ifndef MIZUIRO_IMAGE_TYPES_POINTER_HPP_INCLUDED
 #define MIZUIRO_IMAGE_TYPES_POINTER_HPP_INCLUDED
 
+#include <mizuiro/image/format/make_tag_of.hpp>
+#include <mizuiro/image/types/pointer_ns/tag.hpp>
+#include <mizuiro/detail/external_begin.hpp>
+#include <type_traits>
+#include <mizuiro/detail/external_end.hpp>
+
+
 namespace mizuiro
 {
 namespace image
@@ -17,10 +24,27 @@ namespace types
 template<
 	typename Access,
 	typename Format,
-	typename Constness,
-	typename Enable = void
+	typename Constness
 >
-struct pointer;
+using
+pointer
+=
+decltype(
+	pointer_adl(
+		std::declval<
+			mizuiro::image::types::pointer_ns::tag
+		>(),
+		std::declval<
+			Access
+		>(),
+		mizuiro::image::format::make_tag_of<
+			Format
+		>(),
+		std::declval<
+			Constness
+		>()
+	)
+);
 
 }
 }

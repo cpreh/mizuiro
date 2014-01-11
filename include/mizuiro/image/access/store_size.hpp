@@ -7,6 +7,12 @@
 #ifndef MIZUIRO_IMAGE_ACCESS_STORE_SIZE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ACCESS_STORE_SIZE_HPP_INCLUDED
 
+#include <mizuiro/size_type.hpp>
+#include <mizuiro/image/access/store_size_ns/tag.hpp>
+#include <mizuiro/image/format/make_tag_of.hpp>
+#include <mizuiro/image/format/store_fwd.hpp>
+
+
 namespace mizuiro
 {
 namespace image
@@ -15,11 +21,27 @@ namespace access
 {
 
 template<
-	typename Access,
-	typename ImageFormat,
-	typename Enable = void
+	typename ImageFormat
 >
-struct store_size;
+mizuiro::size_type
+store_size(
+	mizuiro::image::format::store<
+		ImageFormat
+	> const &_format,
+	typename
+	ImageFormat::dim const _dim
+)
+{
+	return
+		store_size_adl(
+			mizuiro::image::access::store_size_ns::tag(),
+			mizuiro::image::format::make_tag_of<
+				ImageFormat
+			>(),
+			_format,
+			_dim
+		);
+}
 
 }
 }

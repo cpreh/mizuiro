@@ -7,6 +7,12 @@
 #ifndef MIZUIRO_IMAGE_TYPES_VALUE_TYPE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_TYPES_VALUE_TYPE_HPP_INCLUDED
 
+#include <mizuiro/image/format/make_tag_of.hpp>
+#include <mizuiro/image/types/value_type_ns/tag.hpp>
+#include <mizuiro/detail/external_begin.hpp>
+#include <type_traits>
+#include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {
@@ -16,10 +22,21 @@ namespace types
 {
 
 template<
-	typename Format,
-	typename Enable = void
+	typename Format
 >
-struct value_type;
+using
+value_type
+=
+decltype(
+	value_type_adl(
+		std::declval<
+			mizuiro::image::types::value_type_ns::tag
+		>(),
+		mizuiro::image::format::make_tag_of<
+			Format
+		>()
+	)
+);
 
 }
 }

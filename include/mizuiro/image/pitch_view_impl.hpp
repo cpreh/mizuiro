@@ -7,10 +7,10 @@
 #ifndef MIZUIRO_IMAGE_PITCH_VIEW_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_PITCH_VIEW_IMPL_HPP_INCLUDED
 
-#include <mizuiro/image/format_base_impl.hpp>
 #include <mizuiro/image/move_iterator.hpp>
 #include <mizuiro/image/pitch_iterator_impl.hpp>
 #include <mizuiro/image/pitch_view_decl.hpp>
+#include <mizuiro/image/format/base_impl.hpp>
 
 
 template<
@@ -85,7 +85,7 @@ mizuiro::image::pitch_view<
 	Format,
 	Constness
 >::pitch_view(
-	image::pitch_view<
+	mizuiro::image::pitch_view<
 		access,
 		format,
 		OtherConstness
@@ -112,7 +112,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_view<
+typename
+mizuiro::image::pitch_view<
 	Access,
 	Format,
 	Constness
@@ -123,7 +124,8 @@ mizuiro::image::pitch_view<
 	Constness
 >::size() const
 {
-	return size_;
+	return
+		size_;
 }
 
 template<
@@ -131,7 +133,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_view<
+typename
+mizuiro::image::pitch_view<
 	Access,
 	Format,
 	Constness
@@ -142,7 +145,8 @@ mizuiro::image::pitch_view<
 	Constness
 >::pitch() const
 {
-	return pitch_;
+	return
+		pitch_;
 }
 
 template<
@@ -150,7 +154,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_view<
+typename
+mizuiro::image::pitch_view<
 	Access,
 	Format,
 	Constness
@@ -175,7 +180,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_view<
+typename
+mizuiro::image::pitch_view<
 	Access,
 	Format,
 	Constness
@@ -201,7 +207,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_view<
+typename
+mizuiro::image::pitch_view<
 	Access,
 	Format,
 	Constness
@@ -215,7 +222,7 @@ mizuiro::image::pitch_view<
 ) const
 {
 	return
-		*image::move_iterator(
+		*mizuiro::image::move_iterator(
 			*this,
 			_index
 		);
@@ -226,7 +233,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_view<
+typename
+mizuiro::image::pitch_view<
 	Access,
 	Format,
 	Constness
@@ -237,7 +245,8 @@ mizuiro::image::pitch_view<
 	Constness
 >::data() const
 {
-	return data_;
+	return
+		data_;
 }
 
 template<
@@ -245,7 +254,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_view<
+typename
+mizuiro::image::pitch_view<
 	Access,
 	Format,
 	Constness
@@ -256,7 +266,8 @@ mizuiro::image::pitch_view<
 	Constness
 >::format_store() const
 {
-	return this->format_store_base();
+	return
+		this->format_store_base();
 }
 
 #endif

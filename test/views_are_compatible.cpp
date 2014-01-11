@@ -6,71 +6,72 @@
 
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/access/normal.hpp>
-#include <mizuiro/color/homogenous_static.hpp>
+#include <mizuiro/color/format/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/bgra.hpp>
 #include <mizuiro/color/layout/rgb.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/views_are_compatible.hpp>
-#include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/linear_view_impl.hpp>
-#include <mizuiro/image/types/interleaved.hpp>
+#include <mizuiro/image/format/interleaved.hpp>
+#include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
-#include <boost/cstdint.hpp>
+#include <cstdint>
 #include <mizuiro/detail/external_end.hpp>
+
 
 namespace
 {
 
-typedef mizuiro::image::interleaved<
+typedef mizuiro::image::format::interleaved<
 	mizuiro::image::dimension<
 		3
 	>,
-	mizuiro::color::homogenous_static<
-		boost::uint8_t,
+	mizuiro::color::format::homogenous_static<
+		std::uint8_t,
 		mizuiro::color::layout::rgba
 	>
 > format_3d_rgba8;
 
-typedef mizuiro::image::interleaved<
+typedef mizuiro::image::format::interleaved<
 	mizuiro::image::dimension<
 		3
 	>,
-	mizuiro::color::homogenous_static<
-		boost::uint8_t,
+	mizuiro::color::format::homogenous_static<
+		std::uint8_t,
 		mizuiro::color::layout::bgra
 	>
 > format_3d_bgra8;
 
-typedef mizuiro::image::interleaved<
+typedef mizuiro::image::format::interleaved<
 	mizuiro::image::dimension<
 		2
 	>,
-	mizuiro::color::homogenous_static<
-		boost::uint8_t,
+	mizuiro::color::format::homogenous_static<
+		std::uint8_t,
 		mizuiro::color::layout::bgra
 	>
 > format_2d_bgra8;
 
-typedef mizuiro::image::interleaved<
+typedef mizuiro::image::format::interleaved<
 	mizuiro::image::dimension<
 		2
 	>,
-	mizuiro::color::homogenous_static<
+	mizuiro::color::format::homogenous_static<
 		float,
 		mizuiro::color::layout::bgra
 	>
 > format_2d_bgra_f;
 
-typedef mizuiro::image::interleaved<
+typedef mizuiro::image::format::interleaved<
 	mizuiro::image::dimension<
 		2
 	>,
-	mizuiro::color::homogenous_static<
+	mizuiro::color::format::homogenous_static<
 		float,
 		mizuiro::color::layout::rgb
 	>

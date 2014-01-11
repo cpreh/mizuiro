@@ -29,22 +29,22 @@ template<
 	typename Constness,
 	typename Category = boost::random_access_traversal_tag
 >
-struct iterator_base
-{
-	typedef boost::iterator_facade<
-		Iterator,
-		typename image::types::value_type<
-			Format
-		>::type,
-		Category,
-		typename image::types::reference<
-			Access,
-			Format,
-			Constness
-		>::type,
-		difference_type
-	> type;
-};
+using
+iterator_base
+=
+boost::iterator_facade<
+	Iterator,
+	mizuiro::image::types::value_type<
+		Format
+	>,
+	Category,
+	mizuiro::image::types::reference<
+		Access,
+		Format,
+		Constness
+	>,
+	mizuiro::difference_type
+>;
 
 }
 }

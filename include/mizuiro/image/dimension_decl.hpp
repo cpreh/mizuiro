@@ -18,9 +18,11 @@
 #include <mizuiro/detail/external_end.hpp>
 
 
+// TODO: variadic ctor?
 #ifndef MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_MAX_SIZE
 #define MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_MAX_SIZE 3
 #endif
+
 
 namespace mizuiro
 {
@@ -34,23 +36,45 @@ template<
 class dimension
 {
 public:
-	typedef ValueType value_type;
-	typedef mizuiro::size_type size_type;
-	typedef value_type &reference;
-	typedef value_type const &const_reference;
+	typedef
+	ValueType
+	value_type;
 
-	typedef typename mizuiro::array<
+	typedef
+	mizuiro::size_type
+	size_type;
+
+	typedef
+	value_type &
+	reference;
+
+	typedef
+	value_type const &
+	const_reference;
+
+	typedef
+	mizuiro::array<
 		value_type,
 		Dim
-	>::type array_type;
+	>
+	array_type;
 
-	static size_type const static_size = Dim;
+	static
+	size_type const static_size
+		= Dim;
 
 	typedef typename array_type::iterator iterator;
-	typedef typename array_type::const_iterator const_iterator;
+
+	typedef
+	typename
+	array_type::const_iterator
+	const_iterator;
 	// NOTE: The types below are usually not needed, they make "dimension" an instance of the
 	// "Collection" concept from multi_array.
-	typedef typename array_type::difference_type difference_type;
+	typedef
+	typename
+	array_type::difference_type
+	difference_type;
 	// NOTE: Ideally, array should have a type ::pointer. It apparently doesn't, however
 	//typedef typename array_type::pointer pointer;
 
@@ -75,12 +99,6 @@ public:
 	#undef MIZUIRO_IMAGE_DIMENSION_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL
 
 	dimension();
-
-	// Compatibility to "Collection" from multi_array
-	void
-	swap(
-		dimension &
-	);
 
 	// Compatibility to "Collection" from multi_array, always returns false
 	bool
@@ -120,7 +138,13 @@ public:
 	const_reference
 	back() const;
 
-	static dimension const
+	void
+	swap(
+		dimension &
+	);
+
+	static
+	dimension const
 	null();
 private:
 	array_type data_;
@@ -132,18 +156,33 @@ template<
 >
 void
 swap(
-	dimension<Dim, ValueType> &,
-	dimension<Dim, ValueType> &
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> &,
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> &
 );
 
 template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
-dimension<Dim, ValueType> const
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+> const
 operator+(
-	dimension<Dim, ValueType> const &,
-	dimension<Dim, ValueType> const &
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> const &,
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> const &
 );
 
 template<
@@ -152,8 +191,14 @@ template<
 >
 bool
 operator==(
-	dimension<Dim, ValueType> const &,
-	dimension<Dim, ValueType> const &
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> const &,
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> const &
 );
 
 template<
@@ -162,8 +207,14 @@ template<
 >
 bool
 operator!=(
-	dimension<Dim, ValueType> const &,
-	dimension<Dim, ValueType> const &
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> const &,
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> const &
 );
 
 template<
@@ -172,10 +223,19 @@ template<
 	typename Ch,
 	typename Traits
 >
-std::basic_ostream<Ch, Traits> &
+std::basic_ostream<
+	Ch,
+	Traits
+> &
 operator<<(
-	std::basic_ostream<Ch, Traits> &,
-	dimension<Dim, ValueType> const &
+	std::basic_ostream<
+		Ch,
+		Traits
+	> &,
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	> const &
 );
 
 }

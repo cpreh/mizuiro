@@ -7,11 +7,11 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_DECL_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_DECL_HPP_INCLUDED
 
+#include <mizuiro/array.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_fwd.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <array>
 #include <cstddef>
 #include <mizuiro/detail/external_end.hpp>
 
@@ -40,14 +40,14 @@ public:
 	available_channels;
 
 	typedef
-	std::array<
+	mizuiro::array<
 		AvailableChannels,
 		ChannelCount
 	>
 	channel_array;
 
 	typedef
-	std::array<
+	mizuiro::array<
 		mizuiro::size_type,
 		NumAvailableChannels
 	>

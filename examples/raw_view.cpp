@@ -8,28 +8,22 @@
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/access/raw.hpp>
-#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/proxy.hpp>
-#include <mizuiro/color/access/homogenous_raw.hpp>
-#include <mizuiro/color/access/static.hpp>
 #include <mizuiro/color/convert_static/converter.hpp>
+#include <mizuiro/color/format/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/homogenous_raw.hpp>
 #include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/is_raw_view.hpp>
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/pitch_view_impl.hpp>
-#include <mizuiro/image/access/interleaved.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
-#include <mizuiro/image/types/interleaved.hpp>
-#include <mizuiro/image/types/interleaved_raw.hpp>
+#include <mizuiro/image/format/interleaved.hpp>
+#include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <algorithm>
 #include <iostream>
@@ -43,9 +37,9 @@ int main()
 		2
 	> dim_type;
 
-	typedef mizuiro::image::interleaved<
+	typedef mizuiro::image::format::interleaved<
 		dim_type,
-		mizuiro::color::homogenous_static<
+		mizuiro::color::format::homogenous_static<
 			float,
 			mizuiro::color::layout::rgba
 		>
@@ -68,7 +62,7 @@ int main()
 	typedef mizuiro::array<
 		mizuiro::raw_value,
 		width * height * channel_bytes * element_count
-	>::type raw_array;
+	> raw_array;
 
 	raw_array raw_data = {{ 0 }};
 

@@ -9,6 +9,7 @@
 
 #include <mizuiro/image/detail/raw_container_fwd.hpp>
 
+
 namespace mizuiro
 {
 namespace image
@@ -20,18 +21,23 @@ template<
 	typename T,
 	typename A
 >
-class raw_container {
+class raw_container
+{
 public:
 	typedef T value_type;
+
 	typedef A allocator_type;
 
 	typedef typename A::pointer pointer;
+
 	typedef typename A::const_pointer const_pointer;
+
 	typedef typename A::size_type size_type;
 
 	raw_container();
 
-	explicit raw_container(
+	explicit
+	raw_container(
 		size_type
 	);
 
@@ -39,9 +45,18 @@ public:
 		raw_container const &
 	);
 
+	raw_container(
+		raw_container &&
+	);
+
 	raw_container &
 	operator=(
 		raw_container const &
+	);
+
+	raw_container &
+	operator=(
+		raw_container &&
 	);
 
 	~raw_container();
@@ -79,7 +94,11 @@ private:
 	void
 	destroy();
 
+	void
+	after_move();
+
 	allocator_type allocator;
+
 	pointer
 		data_,
 		data_end_;

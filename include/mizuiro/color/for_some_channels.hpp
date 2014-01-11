@@ -11,6 +11,7 @@
 #include <mizuiro/color/detail/for_some_channels_functor.hpp>
 #include <mizuiro/detail/make_filter_view.hpp>
 #include <mizuiro/detail/external_begin.hpp>
+#include <boost/fusion/adapted/mpl.hpp>
 #include <boost/fusion/algorithm/iteration/for_each.hpp>
 #include <mizuiro/detail/external_end.hpp>
 

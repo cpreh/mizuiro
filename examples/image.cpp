@@ -4,27 +4,20 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/access/normal.hpp>
-#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/proxy.hpp>
-#include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/access/static.hpp>
+#include <mizuiro/color/format/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/static.hpp>
 #include <mizuiro/image/const_view.hpp>
 #include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/view.hpp>
-#include <mizuiro/image/access/interleaved.hpp>
-#include <mizuiro/image/types/interleaved.hpp>
-#include <mizuiro/image/types/interleaved_normal.hpp>
+#include <mizuiro/image/format/interleaved.hpp>
+#include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/cstdint.hpp>
+#include <cstdint>
 #include <iostream>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
@@ -32,19 +25,18 @@
 
 int main()
 {
-	typedef mizuiro::image::interleaved<
+	typedef mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
 			3
 		>,
-		mizuiro::color::homogenous_static<
-			boost::uint8_t,
+		mizuiro::color::format::homogenous_static<
+			std::uint8_t,
 			mizuiro::color::layout::rgba
 		>
 	> format;
 
 	typedef mizuiro::image::store<
-		format,
-		mizuiro::access::normal
+		format
 	> store;
 
 	store img(
@@ -61,19 +53,15 @@ int main()
 		img.view()
 	);
 
-	typedef view_type::iterator iterator;
-
 	for(
-		iterator it(
-			view.begin()
-		);
-		it != view.end();
-		++it
+		auto color
+		:
+		view
 	)
 	{
-		(*it).set(
+		color.set(
 			mizuiro::color::channel::red(),
-			static_cast<unsigned char>(10)
+			static_cast<std::uint8_t>(10)
 		);
 	}
 
@@ -85,16 +73,12 @@ int main()
 		view
 	);
 
-	typedef const_view_type::iterator const_iterator;
-
 	for(
-		const_iterator it(
-			const_view.begin()
-		);
-		it != const_view.end();
-		++it
+		auto const &color
+		:
+		const_view
 	)
-		std::cout << *it << ' ';
+		std::cout << color << ' ';
 
 	std::cout << '\n';
 }

@@ -14,12 +14,10 @@
 
 
 template<
-	typename Format,
-	typename Access
+	typename Format
 >
 mizuiro::image::store<
-	Format,
-	Access
+	Format
 >::store(
 	format_store_type const &_format
 )
@@ -35,12 +33,10 @@ mizuiro::image::store<
 }
 
 template<
-	typename Format,
-	typename Access
+	typename Format
 >
 mizuiro::image::store<
-	Format,
-	Access
+	Format
 >::store(
 	dim const &_size,
 	format_store_type const &_format
@@ -53,11 +49,7 @@ mizuiro::image::store<
 		_size
 	),
 	data_(
-		mizuiro::image::access::store_size<
-			Access,
-			Format
-		>::execute(
-			Access(),
+		mizuiro::image::access::store_size(
 			_format,
 			size_
 		)
@@ -66,16 +58,14 @@ mizuiro::image::store<
 }
 
 template<
-	typename Format,
-	typename Access
+	typename Format
 >
-typename mizuiro::image::store<
-	Format,
-	Access
+typename
+mizuiro::image::store<
+	Format
 >::pointer
 mizuiro::image::store<
-	Format,
-	Access
+	Format
 >::data()
 {
 	return
@@ -83,21 +73,30 @@ mizuiro::image::store<
 }
 
 template<
-	typename Format,
-	typename Access
+	typename Format
 >
-typename mizuiro::image::store<Format, Access>::const_pointer
-mizuiro::image::store<Format, Access>::data() const
+typename
+mizuiro::image::store<
+	Format
+>::const_pointer
+mizuiro::image::store<
+	Format
+>::data() const
 {
-	return data_.data();
+	return
+		data_.data();
 }
 
 template<
-	typename Format,
-	typename Access
+	typename Format
 >
-typename mizuiro::image::store<Format, Access>::view_type const
-mizuiro::image::store<Format, Access>::view()
+typename
+mizuiro::image::store<
+	Format
+>::view_type const
+mizuiro::image::store<
+	Format
+>::view()
 {
 	return
 		view_type(
@@ -108,11 +107,15 @@ mizuiro::image::store<Format, Access>::view()
 }
 
 template<
-	typename Format,
-	typename Access
+	typename Format
 >
-typename mizuiro::image::store<Format, Access>::const_view_type const
-mizuiro::image::store<Format, Access>::view() const
+typename
+mizuiro::image::store<
+	Format
+>::const_view_type const
+mizuiro::image::store<
+	Format
+>::view() const
 {
 	return
 		const_view_type(
@@ -122,13 +125,18 @@ mizuiro::image::store<Format, Access>::view() const
 		);
 }
 template<
-	typename Format,
-	typename Access
+	typename Format
 >
-typename mizuiro::image::store<Format, Access>::dim const &
-mizuiro::image::store<Format, Access>::size() const
+typename
+mizuiro::image::store<
+	Format
+>::dim const &
+mizuiro::image::store<
+	Format
+>::size() const
 {
-	return size_;
+	return
+		size_;
 }
 
 #endif

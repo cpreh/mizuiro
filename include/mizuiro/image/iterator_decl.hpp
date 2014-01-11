@@ -8,9 +8,7 @@
 #define MIZUIRO_IMAGE_ITERATOR_DECL_HPP_INCLUDED
 
 #include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/make_variant.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
-#include <mizuiro/detail/static_assert_statement.hpp>
 #include <mizuiro/detail/variant_decl.hpp>
 #include <mizuiro/image/iterator_fwd.hpp>
 #include <mizuiro/image/linear_iterator_decl.hpp>
@@ -18,8 +16,9 @@
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/detail/external_begin.hpp>
+#include <boost/iterator/iterator_facade.hpp>
 #include <boost/mpl/vector/vector10.hpp>
-#include <boost/type_traits/is_same.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -47,16 +46,23 @@ class iterator
 			Access,
 			Format,
 			Constness
-		>::type
+		>
 {
 public:
-	typedef Access access;
+	typedef
+	Access
+	access;
 
-	typedef Format format;
+	typedef
+	Format
+	format;
 
-	typedef Constness constness;
+	typedef
+	Constness
+	constness;
 
-	typedef typename mizuiro::image::detail::iterator_base<
+	typedef
+	mizuiro::image::detail::iterator_base<
 		mizuiro::image::iterator<
 			access,
 			format,
@@ -65,51 +71,77 @@ public:
 		access,
 		format,
 		constness
-	>::type base;
+	>
+	base;
 
-	typedef mizuiro::image::pitch_iterator<
+	typedef
+	mizuiro::image::pitch_iterator<
 		access,
 		format,
 		constness
-	> pitch_iterator;
+	>
+	pitch_iterator;
 
-	typedef mizuiro::image::linear_iterator<
+	typedef
+	mizuiro::image::linear_iterator<
 		access,
 		format,
 		constness
-	> linear_iterator;
+	>
+	linear_iterator;
 
-	MIZUIRO_DETAIL_STATIC_ASSERT_STATEMENT((
-		boost::is_same<
+	static_assert(
+		std::is_same<
 			typename pitch_iterator::format_store_type,
 			typename linear_iterator::format_store_type
-		>::value
-	));
+		>::value,
+		"pitch_iterator and linear_iterator need the same format store"
+	);
 
-	typedef typename pitch_iterator::format_store_type format_store_type;
+	typedef
+	typename
+	pitch_iterator::format_store_type
+	format_store_type;
 
-	typedef typename mizuiro::detail::make_variant<
+	typedef
+	mizuiro::detail::variant<
 		boost::mpl::vector2<
 			pitch_iterator,
 			linear_iterator
 		>
-	>::type internal_type;
+	>
+	internal_type;
 
-	typedef typename base::value_type value_type;
+	typedef
+	typename
+	base::value_type
+	value_type;
 
-	typedef typename base::reference reference;
+	typedef
+	typename
+	base::reference
+	reference;
 
-	typedef typename image::types::pointer<
+	typedef
+	mizuiro::image::types::pointer<
 		access,
 		format,
 		constness
-	>::type pointer;
+	>
+	pointer;
 
-	typedef typename base::difference_type difference_type;
+	typedef
+	typename
+	base::difference_type
+	difference_type;
 
-	typedef typename base::iterator_category iterator_category;
+	typedef
+	typename
+	base::iterator_category
+	iterator_category;
 
-	explicit iterator(
+	explicit
+	iterator(
 		internal_type const &
 	);
 

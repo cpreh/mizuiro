@@ -28,7 +28,7 @@ template<
 	typename Color1,
 	typename Color2
 >
-color::object<
+mizuiro::color::object<
 	typename Color1::format
 > const
 binary_op(
@@ -36,17 +36,19 @@ binary_op(
 	Color2 const &_color2
 )
 {
-	typedef color::object<
+	typedef
+	mizuiro::color::object<
 		typename Color1::format
-	> result_type;
+	>
+	result_type;
 
 	result_type result(
 		_color1
 	);
 
-	color::for_each_channel(
+	mizuiro::color::for_each_channel(
 		_color1,
-		color::operators::detail::binary_op_channel<
+		mizuiro::color::operators::detail::binary_op_channel<
 			Operation,
 			result_type,
 			Color2

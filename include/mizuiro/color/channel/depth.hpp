@@ -23,7 +23,9 @@ MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 struct depth
 :
-mizuiro::color::channel::tag
+mizuiro::color::channel::tag<
+	depth
+>
 {
 };
 

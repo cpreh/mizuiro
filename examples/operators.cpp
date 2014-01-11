@@ -4,31 +4,27 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/operators.hpp>
 #include <mizuiro/color/output.hpp>
-#include <mizuiro/color/access/homogenous.hpp>
-#include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/access/static.hpp>
+#include <mizuiro/color/format/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgb.hpp>
-#include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/static.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/cstdint.hpp>
+#include <cstdint>
 #include <iostream>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
 
 
-int main()
+int
+main()
 {
-	typedef boost::uint8_t channel_type;
+	typedef std::uint8_t channel_type;
 
 	typedef mizuiro::color::object<
-		mizuiro::color::homogenous_static<
+		mizuiro::color::format::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::rgb
 		>
@@ -51,17 +47,4 @@ int main()
 	std::cout
 		<< test
 		<< '\n';
-
-	rgba_color const test2(
-		(mizuiro::color::init::red() %= 0.)
-		(mizuiro::color::init::green() %= 0.3)
-		(mizuiro::color::init::blue() %= 0.4)
-	);
-
-	if(
-		test == test2
-	)
-		std::cout << "equal\n";
-	else
-		std::cout << "not equal\n";
 }

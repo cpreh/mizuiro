@@ -7,13 +7,12 @@
 #ifndef MIZUIRO_IMAGE_VIEW_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_VIEW_DECL_HPP_INCLUDED
 
-#include <mizuiro/detail/make_variant.hpp>
 #include <mizuiro/detail/variant_decl.hpp>
-#include <mizuiro/image/format_store_fwd.hpp>
 #include <mizuiro/image/iterator_fwd.hpp>
 #include <mizuiro/image/linear_view_decl.hpp>
 #include <mizuiro/image/pitch_view_decl.hpp>
 #include <mizuiro/image/view_fwd.hpp>
+#include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -34,67 +33,96 @@ template<
 class view
 {
 public:
-	typedef Access access;
+	typedef
+	Access
+	access;
 
-	typedef Format format;
+	typedef
+	Format
+	format;
 
-	typedef Constness constness;
+	typedef
+	Constness
+	constness;
 
-	typedef image::format_store<
+	typedef
+	mizuiro::image::format::store<
 		format
-	> format_store_type;
+	>
+	format_store_type;
 
-	typedef typename image::types::pointer<
+	typedef
+	mizuiro::image::types::pointer<
 		access,
 		format,
 		constness
-	>::type pointer;
+	>
+	pointer;
 
-	typedef typename image::types::reference<
+	typedef
+	mizuiro::image::types::reference<
 		access,
 		format,
 		constness
-	>::type reference;
+	>
+	reference;
 
-	typedef image::linear_view<
+	typedef
+	mizuiro::image::linear_view<
 		access,
 		format,
 		constness
-	> linear_view;
+	>
+	linear_view;
 
-	typedef image::pitch_view<
+	typedef
+	mizuiro::image::pitch_view<
 		access,
 		format,
 		constness
-	> pitch_view;
+	>
+	pitch_view;
 
-	typedef typename mizuiro::detail::make_variant<
+	typedef
+	mizuiro::detail::variant<
 		boost::mpl::vector2<
 			linear_view,
 			pitch_view
 		>
-	>::type view_variant;
+	>
+	view_variant;
 
-	typedef mizuiro::image::iterator<
+	typedef
+	mizuiro::image::iterator<
 		access,
 		format,
 		constness
-	> iterator;
+	>
+	iterator;
 
-	typedef typename format::dim dim;
+	typedef
+	typename
+	format::dim dim;
 
-	typedef image::bound<
+	typedef
+	mizuiro::image::bound<
 		dim::static_size,
 		typename dim::value_type
-	> bound_type;
+	>
+	bound_type;
 
-	typedef typename format::pitch pitch_type;
+	typedef
+	typename
+	format::pitch
+	pitch_type;
 
-	explicit view(
+	explicit
+	view(
 		linear_view const &
 	);
 
-	explicit view(
+	explicit
+	view(
 		pitch_view const &
 	);
 
@@ -103,7 +131,7 @@ public:
 		pointer data,
 		pitch_type const &,
 		format_store_type const & =
-			mizuiro::image::format_argument<
+			mizuiro::image::format::argument<
 				format
 			>::get()
 	);
@@ -112,7 +140,7 @@ public:
 		dim const &,
 		pointer data,
 		format_store_type const & =
-			mizuiro::image::format_argument<
+			mizuiro::image::format::argument<
 				format
 			>::get()
 	);
@@ -124,7 +152,8 @@ public:
 	template<
 		typename OtherConstness
 	>
-	explicit view(
+	explicit
+	view(
 		view<
 			access,
 			format,

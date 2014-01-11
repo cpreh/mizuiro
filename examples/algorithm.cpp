@@ -4,37 +4,28 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/for_each_channel.hpp>
-#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/proxy.hpp>
-#include <mizuiro/color/access/homogenous.hpp>
-#include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/access/static.hpp>
 #include <mizuiro/color/convert_static/converter.hpp>
+#include <mizuiro/color/format/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/argb.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/static.hpp>
 #include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/view.hpp>
-#include <mizuiro/image/access/interleaved.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/algorithm/transform.hpp>
-#include <mizuiro/image/types/interleaved.hpp>
-#include <mizuiro/image/types/interleaved_normal.hpp>
+#include <mizuiro/image/format/interleaved.hpp>
+#include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/cstdint.hpp>
-#include <boost/spirit/home/phoenix/core/argument.hpp>
+#include <cstdint>
 #include <iostream>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
@@ -46,16 +37,17 @@ namespace
 template<
 	typename ColorFormat
 >
-struct d2_format
-{
-	typedef mizuiro::image::interleaved<
-		mizuiro::image::dimension<
-			2
-		>,
-		ColorFormat
-	> type;
-};
+using
+d2_format
+=
+mizuiro::image::format::interleaved<
+	mizuiro::image::dimension<
+		2
+	>,
+	ColorFormat
+>;
 
+// TODO: Use this?
 /*
 template<
 	typename Src,
@@ -127,30 +119,28 @@ struct transform_test
 
 int main()
 {
-	typedef boost::uint8_t channel_type;
+	typedef std::uint8_t channel_type;
 
 	typedef d2_format<
-		mizuiro::color::homogenous_static<
+		mizuiro::color::format::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::rgba
 		>
-	>::type format1;
+	> format1;
 
 	typedef d2_format<
-		mizuiro::color::homogenous_static<
+		mizuiro::color::format::homogenous_static<
 			float,
 			mizuiro::color::layout::argb
 		>
-	>::type format2;
+	> format2;
 
 	typedef mizuiro::image::store<
-		format1,
-		mizuiro::access::normal
+		format1
 	> store1;
 
 	typedef mizuiro::image::store<
-		format2,
-		mizuiro::access::normal
+		format2
 	> store2;
 
 	store1::dim const dim(

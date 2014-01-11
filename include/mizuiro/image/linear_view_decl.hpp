@@ -10,10 +10,10 @@
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/bound_fwd.hpp>
-#include <mizuiro/image/format_argument.hpp>
-#include <mizuiro/image/format_base_decl.hpp>
 #include <mizuiro/image/linear_iterator_fwd.hpp>
 #include <mizuiro/image/linear_view_fwd.hpp>
+#include <mizuiro/image/format/argument.hpp>
+#include <mizuiro/image/format/base_decl.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
 
@@ -32,54 +32,83 @@ template<
 >
 class linear_view
 :
-	private image::format_base<
+	private
+	mizuiro::image::format::base<
 		Format
 	>::type
 {
-	typedef typename image::format_base<
+	typedef
+	typename
+	mizuiro::image::format::base<
 		Format
-	>::type format_base;
+	>::type
+	format_base;
 public:
-	typedef Access access;
+	typedef
+	Access
+	access;
 
-	typedef Format format;
+	typedef
+	Format
+	format;
 
-	typedef Constness constness;
+	typedef
+	Constness
+	constness;
 
-	typedef typename format_base::format_store_type format_store_type;
+	typedef
+	typename
+	format_base::format_store_type
+	format_store_type;
 
-	typedef typename image::types::pointer<
+	typedef
+	mizuiro::image::types::pointer<
 		access,
 		format,
 		constness
-	>::type pointer;
+	>
+	pointer;
 
-	typedef typename image::types::reference<
+	typedef
+	mizuiro::image::types::reference<
 		access,
 		format,
 		constness
-	>::type reference;
+	>
+	reference;
 
-	typedef image::linear_iterator<
+	typedef
+	mizuiro::image::linear_iterator<
 		access,
 		format,
 		constness
-	> iterator;
+	>
+	iterator;
 
-	typedef typename format::dim dim;
+	typedef
+	typename
+	format::dim
+	dim;
 
-	typedef image::bound<
+	typedef
+	mizuiro::image::bound<
 		dim::static_size,
-		typename dim::value_type
-	> bound_type;
+		typename
+		dim::value_type
+	>
+	bound_type;
 
-	typedef typename format::pitch pitch_type;
+	typedef
+	typename
+	format::pitch pitch_type;
 
 	linear_view(
 		dim const &,
 		pointer data,
 		format_store_type const & =
-			image::format_argument<format>::get()
+			mizuiro::image::format::argument<
+				format
+			>::get()
 	);
 
 	linear_view(
@@ -89,8 +118,9 @@ public:
 	template<
 		typename OtherConstness
 	>
-	explicit linear_view(
-		image::linear_view<
+	explicit
+	linear_view(
+		mizuiro::image::linear_view<
 			access,
 			format,
 			OtherConstness

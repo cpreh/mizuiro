@@ -4,26 +4,19 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/access/normal.hpp>
-#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/object.hpp>
-#include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/access/static.hpp>
+#include <mizuiro/color/format/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/static.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
-#include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
-#include <mizuiro/image/access/interleaved.hpp>
-#include <mizuiro/image/types/interleaved.hpp>
-#include <mizuiro/image/types/interleaved_normal.hpp>
+#include <mizuiro/image/format/interleaved.hpp>
+#include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
-#include <boost/cstdint.hpp>
+#include <cstdint>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -35,19 +28,18 @@ BOOST_AUTO_TEST_CASE(
 {
 MIZUIRO_DETAIL_POP_WARNING
 
-	typedef mizuiro::image::interleaved<
+	typedef mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
 			3
 		>,
-		mizuiro::color::homogenous_static<
-			boost::uint8_t,
+		mizuiro::color::format::homogenous_static<
+			std::uint8_t,
 			mizuiro::color::layout::rgba
 		>
 	> format_3d_rgba8;
 
 	typedef mizuiro::image::store<
-		format_3d_rgba8,
-		mizuiro::access::normal
+		format_3d_rgba8
 	> store_3d_rgba8;
 
 	store_3d_rgba8 store(

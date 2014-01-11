@@ -4,31 +4,23 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/for_each_channel.hpp>
-#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/proxy.hpp>
-#include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/access/static.hpp>
 #include <mizuiro/color/convert_static/converter.hpp>
+#include <mizuiro/color/format/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/gray.hpp>
-#include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/static.hpp>
 #include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/view.hpp>
-#include <mizuiro/image/access/interleaved.hpp>
 #include <mizuiro/image/algorithm/bresenham.hpp>
-#include <mizuiro/image/types/interleaved.hpp>
-#include <mizuiro/image/types/interleaved_normal.hpp>
+#include <mizuiro/image/format/interleaved.hpp>
+#include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/cstdint.hpp>
-#include <boost/spirit/home/phoenix/core/argument.hpp>
+#include <cstdint>
 #include <cmath>
 #include <iostream>
 #include <ostream>
@@ -43,19 +35,18 @@ int main()
 {
 	typedef int channel_type;
 
-	typedef mizuiro::image::interleaved<
+	typedef mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
 			2
 		>,
-		mizuiro::color::homogenous_static<
-			int,
+		mizuiro::color::format::homogenous_static<
+			channel_type,
 			mizuiro::color::layout::gray
 		>
 	> format;
 
 	typedef mizuiro::image::store<
-		format,
-		mizuiro::access::normal
+		format
 	> store;
 
 	typedef store::view_type view_type;

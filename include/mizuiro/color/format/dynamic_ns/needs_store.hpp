@@ -9,9 +9,9 @@
 
 #include <mizuiro/color/format/dynamic_ns/tag.hpp>
 #include <mizuiro/color/types/needs_store_ns/tag.hpp>
-#include <fcppt/config/external_begin.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
-#include <fcppt/config/external_end.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro

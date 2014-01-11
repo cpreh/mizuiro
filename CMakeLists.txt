@@ -36,6 +36,14 @@ else()
 		STRING
 		"Custom cmake module installation directory"
 	)
+
+	if(
+		CMAKE_COMPILER_IS_GNUCXX
+	)
+		add_definitions(
+			-std=c++11
+		)
+	endif()
 endif()
 
 option(
@@ -171,6 +179,7 @@ set(
 	include/mizuiro/access/raw.hpp
 	include/mizuiro/apply_const.hpp
 	include/mizuiro/apply_const_result.hpp
+	include/mizuiro/array.hpp
 	include/mizuiro/color/access/channel_index.hpp
 	include/mizuiro/color/access/channel_index_ns/tag.hpp
 	include/mizuiro/color/access/channel_max.hpp
@@ -192,7 +201,6 @@ set(
 	include/mizuiro/color/channel/depth.hpp
 	include/mizuiro/color/channel/green.hpp
 	include/mizuiro/color/channel/hue.hpp
-	include/mizuiro/color/channel/is_channel.hpp
 	include/mizuiro/color/channel/luminance.hpp
 	include/mizuiro/color/channel/red.hpp
 	include/mizuiro/color/channel/saturation.hpp
@@ -234,6 +242,7 @@ set(
 	include/mizuiro/color/detail/bit_channel_access_normal.hpp
 	include/mizuiro/color/detail/bit_channel_access_raw.hpp
 	include/mizuiro/color/detail/copy_channel.hpp
+	include/mizuiro/color/detail/dynamic_channel_to_pos.hpp
 	include/mizuiro/color/detail/for_some_channels_functor.hpp
 	include/mizuiro/color/detail/full_channel_max.hpp
 	include/mizuiro/color/detail/full_channel_min.hpp
@@ -316,8 +325,6 @@ set(
 	include/mizuiro/color/format/store_fwd.hpp
 	include/mizuiro/color/format/store_impl.hpp
 	include/mizuiro/color/format/tag_of_fwd.hpp
-	include/mizuiro/color/format/tags/static.hpp
-	include/mizuiro/color/format/tags/static_fwd.hpp
 	include/mizuiro/color/formats_are_compatible.hpp
 	include/mizuiro/color/init.hpp
 	include/mizuiro/color/init/alpha.hpp
@@ -419,13 +426,12 @@ set(
 	include/mizuiro/detail/index_of.hpp
 	include/mizuiro/detail/likely.hpp
 	include/mizuiro/detail/make_filter_view.hpp
-	include/mizuiro/detail/make_optional.hpp
-	include/mizuiro/detail/make_variant.hpp
 	include/mizuiro/detail/nonassignable.hpp
 	include/mizuiro/detail/normal_format_base_decl.hpp
 	include/mizuiro/detail/normal_format_base_fwd.hpp
 	include/mizuiro/detail/normal_format_base_impl.hpp
 	include/mizuiro/detail/optional_decl.hpp
+	include/mizuiro/detail/optional_fwd.hpp
 	include/mizuiro/detail/optional_impl.hpp
 	include/mizuiro/detail/pop_warning.hpp
 	include/mizuiro/detail/push_warning.hpp
@@ -435,14 +441,17 @@ set(
 	include/mizuiro/detail/variant_apply_ternary.hpp
 	include/mizuiro/detail/variant_apply_unary.hpp
 	include/mizuiro/detail/variant_decl.hpp
+	include/mizuiro/detail/variant_fwd.hpp
 	include/mizuiro/detail/variant_impl.hpp
 	include/mizuiro/difference_type.hpp
 	include/mizuiro/enum_size.hpp
 	include/mizuiro/enum_size_fwd.hpp
 	include/mizuiro/image/access/dereference.hpp
-	include/mizuiro/image/access/interleaved.hpp
+	include/mizuiro/image/access/dereference_ns/tag.hpp
 	include/mizuiro/image/access/store_size.hpp
+	include/mizuiro/image/access/store_size_ns/tag.hpp
 	include/mizuiro/image/access/stride.hpp
+	include/mizuiro/image/access/stride_ns/tag.hpp
 	include/mizuiro/image/algorithm/binary_iteration.hpp
 	include/mizuiro/image/algorithm/bresenham.hpp
 	include/mizuiro/image/algorithm/copy.hpp
@@ -512,19 +521,31 @@ set(
 	include/mizuiro/image/dimension_fwd.hpp
 	include/mizuiro/image/dimension_impl.hpp
 	include/mizuiro/image/flipped_view.hpp
-	include/mizuiro/image/format_argument.hpp
-	include/mizuiro/image/format_base_decl.hpp
-	include/mizuiro/image/format_base_impl.hpp
-	include/mizuiro/image/format_is_static.hpp
-	include/mizuiro/image/format_store.hpp
-	include/mizuiro/image/format_store_decl.hpp
-	include/mizuiro/image/format_store_fwd.hpp
-	include/mizuiro/image/format_store_impl.hpp
-	include/mizuiro/image/interleaved.hpp
-	include/mizuiro/image/interleaved_decl.hpp
-	include/mizuiro/image/interleaved_fwd.hpp
-	include/mizuiro/image/interleaved_impl.hpp
-	include/mizuiro/image/is_interleaved.hpp
+	include/mizuiro/image/format/argument.hpp
+	include/mizuiro/image/format/base_decl.hpp
+	include/mizuiro/image/format/base_impl.hpp
+	include/mizuiro/image/format/include/interleaved.hpp
+	include/mizuiro/image/format/interleaved.hpp
+	include/mizuiro/image/format/interleaved_decl.hpp
+	include/mizuiro/image/format/interleaved_fwd.hpp
+	include/mizuiro/image/format/interleaved_impl.hpp
+	include/mizuiro/image/format/interleaved_ns/dereference.hpp
+	include/mizuiro/image/format/interleaved_ns/needs_store.hpp
+	include/mizuiro/image/format/interleaved_ns/pointer.hpp
+	include/mizuiro/image/format/interleaved_ns/reference.hpp
+	include/mizuiro/image/format/interleaved_ns/store.hpp
+	include/mizuiro/image/format/interleaved_ns/store_size.hpp
+	include/mizuiro/image/format/interleaved_ns/stride.hpp
+	include/mizuiro/image/format/interleaved_ns/tag.hpp
+	include/mizuiro/image/format/interleaved_ns/tag_of.hpp
+	include/mizuiro/image/format/interleaved_ns/value_type.hpp
+	include/mizuiro/image/format/make_tag_of.hpp
+	include/mizuiro/image/format/store.hpp
+	include/mizuiro/image/format/store_decl.hpp
+	include/mizuiro/image/format/store_fwd.hpp
+	include/mizuiro/image/format/store_impl.hpp
+	include/mizuiro/image/format/tag_of_fwd.hpp
+	include/mizuiro/image/format/to_color_store.hpp
 	include/mizuiro/image/is_raw_view.hpp
 	include/mizuiro/image/iterator_decl.hpp
 	include/mizuiro/image/iterator_fwd.hpp
@@ -553,15 +574,17 @@ set(
 	include/mizuiro/image/store_fwd.hpp
 	include/mizuiro/image/store_impl.hpp
 	include/mizuiro/image/sub_view.hpp
-	include/mizuiro/image/to_color_format_store.hpp
 	include/mizuiro/image/to_pitch_view.hpp
-	include/mizuiro/image/types/interleaved.hpp
-	include/mizuiro/image/types/interleaved_normal.hpp
-	include/mizuiro/image/types/interleaved_raw.hpp
+	include/mizuiro/image/types/needs_store.hpp
+	include/mizuiro/image/types/needs_store_ns/tag.hpp
 	include/mizuiro/image/types/pointer.hpp
+	include/mizuiro/image/types/pointer_ns/tag.hpp
 	include/mizuiro/image/types/reference.hpp
+	include/mizuiro/image/types/reference_ns/tag.hpp
 	include/mizuiro/image/types/store.hpp
+	include/mizuiro/image/types/store_ns/tag.hpp
 	include/mizuiro/image/types/value_type.hpp
+	include/mizuiro/image/types/value_type_ns/tag.hpp
 	include/mizuiro/image/view.hpp
 	include/mizuiro/image/view_decl.hpp
 	include/mizuiro/image/view_fwd.hpp

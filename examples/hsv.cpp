@@ -5,21 +5,16 @@
 
 
 #include <mizuiro/color/convert.hpp>
-#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
-#include <mizuiro/color/access/homogenous.hpp>
-#include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/access/static.hpp>
 #include <mizuiro/color/convert_static/converter.hpp>
+#include <mizuiro/color/format/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/hsva.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/static.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/cstdint.hpp>
+#include <cstdint>
 #include <iostream>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
@@ -27,9 +22,9 @@
 
 int main()
 {
-	typedef boost::uint8_t channel_type;
+	typedef std::uint8_t channel_type;
 
-	typedef mizuiro::color::homogenous_static<
+	typedef mizuiro::color::format::homogenous_static<
 		channel_type,
 		mizuiro::color::layout::hsva
 	> hsva_format;
@@ -45,7 +40,7 @@ int main()
 		(mizuiro::color::init::alpha() %= 1.0)
 	);
 
-	typedef mizuiro::color::homogenous_static<
+	typedef mizuiro::color::format::homogenous_static<
 		channel_type,
 		mizuiro::color::layout::rgba
 	> rgba_format;

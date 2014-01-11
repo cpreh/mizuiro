@@ -26,22 +26,18 @@ template<
 	typename Format,
 	typename Constness
 >
-mizuiro::image::iterator<Access, Format, Constness>::iterator(
+mizuiro::image::iterator<
+	Access,
+	Format,
+	Constness
+>::iterator(
 	internal_type const &_internal
 )
 :
-	internal_(_internal)
-{}
-
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
-typename mizuiro::image::iterator<Access, Format, Constness>::internal_type const &
-mizuiro::image::iterator<Access, Format, Constness>::internal() const
+	internal_(
+		_internal
+	)
 {
-	return internal_;
 }
 
 template<
@@ -49,12 +45,42 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::iterator<Access, Format, Constness>::pointer
-mizuiro::image::iterator<Access, Format, Constness>::data() const
+typename
+mizuiro::image::iterator<
+	Access,
+	Format,
+	Constness
+>::internal_type const &
+mizuiro::image::iterator<
+	Access,
+	Format,
+	Constness
+>::internal() const
+{
+	return
+		internal_;
+}
+
+template<
+	typename Access,
+	typename Format,
+	typename Constness
+>
+typename
+mizuiro::image::iterator<
+	Access,
+	Format,
+	Constness
+>::pointer
+mizuiro::image::iterator<
+	Access,
+	Format,
+	Constness
+>::data() const
 {
 	return
 		mizuiro::detail::variant_apply_unary(
-			detail::iterator_data<
+			mizuiro::image::detail::iterator_data<
 				pointer
 			>(),
 			internal_
@@ -66,12 +92,21 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::iterator<Access, Format, Constness>::format_store_type const
-mizuiro::image::iterator<Access, Format, Constness>::format_store() const
+typename
+mizuiro::image::iterator<
+	Access,
+	Format,
+	Constness
+>::format_store_type const
+mizuiro::image::iterator<
+	Access,
+	Format,
+	Constness
+>::format_store() const
 {
 	return
 		mizuiro::detail::variant_apply_unary(
-			detail::iterator_format_store<
+			mizuiro::image::detail::iterator_format_store<
 				format_store_type
 			>(),
 			internal_
@@ -84,13 +119,17 @@ template<
 	typename Constness
 >
 void
-mizuiro::image::iterator<Access, Format, Constness>::advance(
+mizuiro::image::iterator<
+	Access,
+	Format,
+	Constness
+>::advance(
 	difference_type	const _diff
 )
 {
 	internal_ =
 		mizuiro::detail::variant_apply_unary(
-			detail::advance_iterator<
+			mizuiro::image::detail::advance_iterator<
 				internal_type,
 				difference_type
 			>(
@@ -106,11 +145,15 @@ template<
 	typename Constness
 >
 void
-mizuiro::image::iterator<Access, Format, Constness>::increment()
+mizuiro::image::iterator<
+	Access,
+	Format,
+	Constness
+>::increment()
 {
 	internal_ =
 		mizuiro::detail::variant_apply_unary(
-			detail::increment_iterator<
+			mizuiro::image::detail::increment_iterator<
 				internal_type
 			>(),
 			internal_
@@ -123,11 +166,15 @@ template<
 	typename Constness
 >
 void
-mizuiro::image::iterator<Access, Format, Constness>::decrement()
+mizuiro::image::iterator<
+	Access,
+	Format,
+	Constness
+>::decrement()
 {
 	internal_ =
 		mizuiro::detail::variant_apply_unary(
-			detail::decrement_iterator<
+			mizuiro::image::detail::decrement_iterator<
 				internal_type
 			>(),
 			internal_
@@ -139,14 +186,23 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::iterator<Access, Format, Constness>::difference_type
-mizuiro::image::iterator<Access, Format, Constness>::distance_to(
+typename
+mizuiro::image::iterator<
+	Access,
+	Format,
+	Constness
+>::difference_type
+mizuiro::image::iterator<
+	Access,
+	Format,
+	Constness
+>::distance_to(
 	iterator const &_other
 ) const
 {
 	return
 		mizuiro::detail::variant_apply_binary(
-			detail::iterator_difference<
+			mizuiro::image::detail::iterator_difference<
 				difference_type
 			>(),
 			internal_,
@@ -159,12 +215,21 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::iterator<Access, Format, Constness>::reference
-mizuiro::image::iterator<Access, Format, Constness>::dereference() const
+typename
+mizuiro::image::iterator<
+	Access,
+	Format,
+	Constness
+>::reference
+mizuiro::image::iterator<
+	Access,
+	Format,
+	Constness
+>::dereference() const
 {
 	return
 		mizuiro::detail::variant_apply_unary(
-			detail::dereference_iterator<
+			mizuiro::image::detail::dereference_iterator<
 				reference
 			>(),
 			internal_
@@ -177,13 +242,17 @@ template<
 	typename Constness
 >
 bool
-mizuiro::image::iterator<Access, Format, Constness>::equal(
+mizuiro::image::iterator<
+	Access,
+	Format,
+	Constness
+>::equal(
 	iterator const &_other
 ) const
 {
 	return
 		mizuiro::detail::variant_apply_binary(
-			detail::compare_iterator(),
+			mizuiro::image::detail::compare_iterator(),
 			internal_,
 			_other.internal_
 		);

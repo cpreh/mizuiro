@@ -10,6 +10,7 @@
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -29,16 +30,23 @@ class scalar_multiply
 		scalar_multiply
 	);
 public:
-	explicit scalar_multiply(
+	scalar_multiply(
 		Color &_color,
 		Scalar const _scalar
 	)
 	:
-		color_(_color),
-		scalar_(_scalar)
-	{}
+		color_(
+			_color
+		),
+		scalar_(
+			_scalar
+		)
+	{
+	}
 
-	typedef void result_type;
+	typedef
+	void
+	result_type;
 
 	template<
 		typename Channel
@@ -51,10 +59,10 @@ public:
 		color_.set(
 			_channel,
 			static_cast<
-				typename color::types::channel_value<
+				mizuiro::color::types::channel_value<
 					typename Color::format,
 					Channel
-				>::type
+				>
 			>(
 				static_cast<
 					Scalar

@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_MOVE_ITERATOR_HPP_INCLUDED
 #define MIZUIRO_IMAGE_MOVE_ITERATOR_HPP_INCLUDED
 
+
 namespace mizuiro
 {
 namespace image
@@ -15,10 +16,11 @@ namespace image
 template<
 	typename View
 >
-typename View::iterator
+typename
+View::iterator
 move_iterator(
 	View const &_view,
-	typename View::dim const &_pos
+	typename View::dim const _pos
 )
 {
 	typename View::iterator ret(
@@ -31,7 +33,10 @@ move_iterator(
 		_view.size()
 	);
 
-	typedef typename View::iterator::difference_type difference_type;
+	typedef
+	typename
+	View::iterator::difference_type
+	difference_type;
 
 	difference_type
 		add = 0,

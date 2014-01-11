@@ -9,6 +9,7 @@
 
 #include <mizuiro/size_type.hpp>
 
+
 namespace mizuiro
 {
 namespace image
@@ -16,7 +17,8 @@ namespace image
 
 template<
 	mizuiro::size_type Dim,
-	typename ValueType = mizuiro::size_type
+	typename ValueType =
+		mizuiro::size_type
 >
 class bound;
 

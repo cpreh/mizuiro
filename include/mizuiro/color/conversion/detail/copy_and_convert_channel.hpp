@@ -20,8 +20,7 @@ namespace conversion
 namespace detail
 {
 
-template
-<
+template<
 	typename Float,
 	typename Channel,
 	typename Src,
@@ -36,8 +35,7 @@ copy_and_convert_channel(
 {
 	_dest.set(
 		_channel,
-		mizuiro::color::denormalize
-		<
+		mizuiro::color::denormalize<
 			typename Dest::format
 		>
 		(
@@ -45,8 +43,7 @@ copy_and_convert_channel(
 			_channel,
 			mizuiro::color::normalize<
 				Float
-			>
-			(
+			>(
 				_src,
 				_channel
 			)

@@ -72,7 +72,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<
+typename
+mizuiro::image::pitch_iterator<
 	Access,
 	Format,
 	Constness
@@ -92,7 +93,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<
+typename
+mizuiro::image::pitch_iterator<
 	Access,
 	Format,
 	Constness
@@ -112,7 +114,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<
+typename
+mizuiro::image::pitch_iterator<
 	Access,
 	Format,
 	Constness
@@ -132,7 +135,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<
+typename
+mizuiro::image::pitch_iterator<
 	Access,
 	Format,
 	Constness
@@ -152,7 +156,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<
+typename
+mizuiro::image::pitch_iterator<
 	Access,
 	Format,
 	Constness
@@ -172,7 +177,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<
+typename
+mizuiro::image::pitch_iterator<
 	Access,
 	Format,
 	Constness
@@ -232,10 +238,8 @@ mizuiro::image::pitch_iterator<
 			difference_type
 		>(
 			mizuiro::image::access::stride<
-				Access,
-				Format
-			>::execute(
-				Access(),
+				Access
+			>(
 				this->format_store_base()
 			)
 		);
@@ -312,10 +316,8 @@ mizuiro::image::pitch_iterator<
 				difference_type
 			>(
 				mizuiro::image::access::stride<
-					Access,
-					Format
-				>::execute(
-					Access(),
+					Access
+				>(
 					this->format_store_base()
 				)
 			);
@@ -346,7 +348,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<
+typename
+mizuiro::image::pitch_iterator<
 	Access,
 	Format,
 	Constness
@@ -368,7 +371,8 @@ template<
 	typename Format,
 	typename Constness
 >
-typename mizuiro::image::pitch_iterator<
+typename
+mizuiro::image::pitch_iterator<
 	Access,
 	Format,
 	Constness
@@ -382,12 +386,10 @@ mizuiro::image::pitch_iterator<
 	return
 		mizuiro::image::access::dereference<
 			Access,
-			Format,
 			Constness
-		>::execute(
-			Access(),
-			this->data(),
-			this->format_store_base()
+		>(
+			this->format_store_base(),
+			this->data()
 		);
 }
 

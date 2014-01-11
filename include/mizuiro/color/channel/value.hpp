@@ -11,6 +11,7 @@
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -22,8 +23,11 @@ MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 struct value
 :
-channel::tag
-{};
+mizuiro::color::channel::tag<
+	value
+>
+{
+};
 
 MIZUIRO_DETAIL_POP_WARNING
 

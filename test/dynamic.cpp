@@ -85,6 +85,7 @@ struct static_to_dynamic_channel<
 		typename StaticChannel
 	>
 	static
+	inline
 	available_channels
 	execute(
 		StaticChannel const &_channel

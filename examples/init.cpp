@@ -4,19 +4,14 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
-#include <mizuiro/color/access/homogenous.hpp>
-#include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/access/static.hpp>
+#include <mizuiro/color/format/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/static.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/cstdint.hpp>
+#include <cstdint>
 #include <iostream>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
@@ -25,10 +20,10 @@
 int
 main()
 {
-	typedef boost::uint8_t channel;
+	typedef std::uint8_t channel;
 
 	typedef mizuiro::color::object<
-		mizuiro::color::homogenous_static<
+		mizuiro::color::format::homogenous_static<
 			channel,
 			mizuiro::color::layout::rgba
 		>

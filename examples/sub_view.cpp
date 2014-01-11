@@ -4,31 +4,22 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/access/raw.hpp>
-#include <mizuiro/color/homogenous_static.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
-#include <mizuiro/color/access/homogenous_normal.hpp>
-#include <mizuiro/color/access/homogenous_raw.hpp>
-#include <mizuiro/color/access/static.hpp>
+#include <mizuiro/color/format/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/color/types/homogenous.hpp>
-#include <mizuiro/color/types/homogenous_normal.hpp>
-#include <mizuiro/color/types/homogenous_raw.hpp>
-#include <mizuiro/color/types/static.hpp>
 #include <mizuiro/image/bound.hpp>
 #include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/interleaved.hpp>
 #include <mizuiro/image/pitch_view_impl.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/sub_view.hpp>
 #include <mizuiro/image/to_pitch_view.hpp>
-#include <mizuiro/image/access/interleaved.hpp>
 #include <mizuiro/image/algorithm/copy.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
-#include <mizuiro/image/types/interleaved.hpp>
-#include <mizuiro/image/types/interleaved_raw.hpp>
+#include <mizuiro/image/format/interleaved.hpp>
+#include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <iostream>
 #include <iterator>
@@ -40,19 +31,18 @@ int main()
 {
 	typedef float channel_type;
 
-	typedef mizuiro::image::interleaved<
+	typedef mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
 			3
 		>,
-		mizuiro::color::homogenous_static<
+		mizuiro::color::format::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::rgba
 		>
 	> format;
 
 	typedef mizuiro::image::store<
-		format,
-		mizuiro::access::raw
+		format
 	> store;
 
 	store img(
@@ -105,7 +95,7 @@ int main()
 
 	typedef mizuiro::image::to_pitch_view<
 		view_type
-	>::type pitch_view;
+	> pitch_view;
 
 	pitch_view const sub_view(
 		mizuiro::image::sub_view(
