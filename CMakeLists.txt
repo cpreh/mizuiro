@@ -212,6 +212,7 @@ set(
 	include/mizuiro/color/channel_proxy_decl.hpp
 	include/mizuiro/color/channel_proxy_fwd.hpp
 	include/mizuiro/color/channel_proxy_impl.hpp
+	include/mizuiro/color/compare.hpp
 	include/mizuiro/color/conversion/detail/channel_to_max.hpp
 	include/mizuiro/color/conversion/detail/channel_to_max_functor.hpp
 	include/mizuiro/color/conversion/detail/channel_to_min.hpp
@@ -225,9 +226,7 @@ set(
 	include/mizuiro/color/conversion/detail/exclude_channel_functor.hpp
 	include/mizuiro/color/conversion/detail/logical_and.hpp
 	include/mizuiro/color/conversion/detail/make_logical_and.hpp
-	include/mizuiro/color/conversion/detail/max_alpha.hpp
 	include/mizuiro/color/conversion/detail/rgb_from_chroma.hpp
-	include/mizuiro/color/conversion/detail/set_channel_conditional.hpp
 	include/mizuiro/color/conversion/hsv_to_rgb.hpp
 	include/mizuiro/color/conversion/same_to_same.hpp
 	include/mizuiro/color/convert.hpp
@@ -241,6 +240,7 @@ set(
 	include/mizuiro/color/denormalize.hpp
 	include/mizuiro/color/detail/bit_channel_access_normal.hpp
 	include/mizuiro/color/detail/bit_channel_access_raw.hpp
+	include/mizuiro/color/detail/compare.hpp
 	include/mizuiro/color/detail/copy_channel.hpp
 	include/mizuiro/color/detail/dynamic_channel_to_pos.hpp
 	include/mizuiro/color/detail/for_some_channels_functor.hpp
@@ -502,9 +502,6 @@ set(
 	include/mizuiro/image/detail/linear_iterator_position.hpp
 	include/mizuiro/image/detail/pitch_difference.hpp
 	include/mizuiro/image/detail/pitch_iterator_position.hpp
-	include/mizuiro/image/detail/raw_container_decl.hpp
-	include/mizuiro/image/detail/raw_container_fwd.hpp
-	include/mizuiro/image/detail/raw_container_impl.hpp
 	include/mizuiro/image/detail/raw_view_from_pointer.hpp
 	include/mizuiro/image/detail/relative_position.hpp
 	include/mizuiro/image/detail/stacked_dim.hpp
@@ -571,6 +568,9 @@ set(
 	include/mizuiro/image/pitch_view_decl.hpp
 	include/mizuiro/image/pitch_view_fwd.hpp
 	include/mizuiro/image/pitch_view_impl.hpp
+	include/mizuiro/image/raw_container_decl.hpp
+	include/mizuiro/image/raw_container_fwd.hpp
+	include/mizuiro/image/raw_container_impl.hpp
 	include/mizuiro/image/store.hpp
 	include/mizuiro/image/store_decl.hpp
 	include/mizuiro/image/store_fwd.hpp
