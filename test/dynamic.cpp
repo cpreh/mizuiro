@@ -12,7 +12,7 @@
 #include <mizuiro/color/format/homogenous_dynamic.hpp>
 #include <mizuiro/color/format/store.hpp>
 #include <mizuiro/color/format/include/homogenous_dynamic.hpp>
-#include <mizuiro/color/format/dynamic_ns/static_to_dynamic_channel.hpp>
+#include <mizuiro/color/format/dynamic_ns/static_to_dynamic_channel_fwd.hpp>
 #include <mizuiro/color/init/alpha.hpp>
 #include <mizuiro/color/init/blue.hpp>
 #include <mizuiro/color/init/green.hpp>

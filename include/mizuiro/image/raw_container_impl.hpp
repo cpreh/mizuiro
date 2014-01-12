@@ -9,7 +9,7 @@
 
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
-#include <mizuiro/image/detail/raw_container_decl.hpp>
+#include <mizuiro/image/raw_container_decl.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <memory>
 #include <mizuiro/detail/external_end.hpp>
@@ -19,7 +19,7 @@ template<
 	typename T,
 	typename A
 >
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::raw_container()
@@ -40,7 +40,7 @@ template<
 	typename T,
 	typename A
 >
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::raw_container(
@@ -59,7 +59,7 @@ template<
 	typename T,
 	typename A
 >
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::raw_container(
@@ -80,7 +80,7 @@ template<
 	typename T,
 	typename A
 >
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::raw_container(
@@ -102,11 +102,11 @@ template<
 	typename T,
 	typename A
 >
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 > &
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::operator=(
@@ -127,11 +127,11 @@ template<
 	typename T,
 	typename A
 >
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 > &
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::operator=(
@@ -156,7 +156,7 @@ template<
 	typename T,
 	typename A
 >
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::~raw_container()
@@ -169,7 +169,7 @@ template<
 	typename A
 >
 void
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::resize(
@@ -188,11 +188,11 @@ template<
 	typename A
 >
 typename
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::pointer
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::data()
@@ -206,11 +206,11 @@ template<
 	typename A
 >
 typename
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::const_pointer
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::data() const
@@ -224,11 +224,11 @@ template<
 	typename A
 >
 typename
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::pointer
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::data_end()
@@ -242,11 +242,11 @@ template<
 	typename A
 >
 typename
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::const_pointer
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::data_end() const
@@ -260,11 +260,11 @@ template<
 	typename A
 >
 typename
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::size_type
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::size() const
@@ -282,7 +282,7 @@ template<
 	typename A
 >
 void
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::allocate(
@@ -303,7 +303,7 @@ template<
 	typename A
 >
 void
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::copy(
@@ -329,7 +329,7 @@ template<
 	typename A
 >
 void
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::destroy()
@@ -348,7 +348,7 @@ template<
 	typename A
 >
 void
-mizuiro::image::detail::raw_container<
+mizuiro::image::raw_container<
 	T,
 	A
 >::after_move()

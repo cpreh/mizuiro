@@ -8,7 +8,6 @@
 #define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_STORE_SIZE_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/access/normal.hpp>
 #include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/access/store_size_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
@@ -26,11 +25,13 @@ namespace store_size_ns
 {
 
 template<
+	typename Access,
 	typename ImageFormat
 >
 mizuiro::size_type
 store_size_adl(
 	mizuiro::image::access::store_size_ns::tag,
+	Access,
 	mizuiro::image::format::interleaved_ns::tag<
 		ImageFormat
 	>,
@@ -44,7 +45,7 @@ store_size_adl(
 		_dim.content()
 		*
 		mizuiro::image::access::stride<
-			mizuiro::access::normal
+			Access
 		>(
 			_format
 		);

@@ -4,10 +4,12 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_STORE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_STORE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_STORE_RAW_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_STORE_RAW_HPP_INCLUDED
 
-#include <mizuiro/image/detail/raw_container_fwd.hpp>
+#include <mizuiro/raw_value.hpp>
+#include <mizuiro/access/raw.hpp>
+#include <mizuiro/image/raw_container_impl.hpp>
 #include <mizuiro/image/format/interleaved_ns/tag.hpp>
 #include <mizuiro/image/types/store_ns/tag.hpp>
 
@@ -24,12 +26,12 @@ namespace store_ns
 template<
 	typename ImageFormat
 >
-mizuiro::image::detail::raw_container<
-	typename
-	ImageFormat::color_format::channel_type
+mizuiro::image::raw_container<
+	mizuiro::raw_value
 >
 store_adl(
 	mizuiro::image::types::store_ns::tag,
+	mizuiro::access::raw,
 	mizuiro::image::format::interleaved_ns::tag<
 		ImageFormat
 	>

@@ -12,7 +12,8 @@
 #include <mizuiro/image/format/interleaved_ns/needs_store.hpp>
 #include <mizuiro/image/format/interleaved_ns/pointer.hpp>
 #include <mizuiro/image/format/interleaved_ns/reference.hpp>
-#include <mizuiro/image/format/interleaved_ns/store.hpp>
+#include <mizuiro/image/format/interleaved_ns/store_normal.hpp>
+#include <mizuiro/image/format/interleaved_ns/store_raw.hpp>
 #include <mizuiro/image/format/interleaved_ns/store_size.hpp>
 #include <mizuiro/image/format/interleaved_ns/stride.hpp>
 #include <mizuiro/image/format/interleaved_ns/tag_of.hpp>

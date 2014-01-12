@@ -12,7 +12,7 @@
 #include <mizuiro/color/access/stride_ns/tag.hpp>
 #include <mizuiro/color/detail/heterogenous_bits.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
-#include <mizuiro/color/format/homogenous_ns/tag.hpp>
+#include <mizuiro/color/format/heterogenous_ns/tag.hpp>
 #include <mizuiro/detail/byte_count_from_bits.hpp>
 
 
@@ -32,7 +32,7 @@ mizuiro::size_type
 stride_adl(
 	mizuiro::color::access::stride_ns::tag,
 	mizuiro::access::raw const &,
-	mizuiro::color::format::homogenous_ns::tag<
+	mizuiro::color::format::heterogenous_ns::tag<
 		Format
 	>,
 	mizuiro::color::format::store<

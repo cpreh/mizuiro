@@ -28,7 +28,7 @@ template<
 	typename Channel
 >
 std::true_type
-has_channel_static(
+has_channel_static_adl(
 	mizuiro::color::types::has_channel_static_ns::tag,
 	mizuiro::color::format::dynamic_ns::tag<
 		Format

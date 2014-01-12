@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_DETAIL_STATIC_TO_DYNAMIC_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_STATIC_TO_DYNAMIC_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/color/format/dynamic_ns/static_to_dynamic_channel.hpp>
+#include <mizuiro/color/format/dynamic_ns/static_to_dynamic_channel_fwd.hpp>
 
 
 namespace mizuiro

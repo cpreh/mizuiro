@@ -4,6 +4,7 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/color/compare.hpp>
 #include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/operators.hpp>
@@ -47,4 +48,29 @@ main()
 	std::cout
 		<< test
 		<< '\n';
+
+	rgba_color const test2(
+		(mizuiro::color::init::red() %= 0.5)
+		(mizuiro::color::init::green() %= 0.15)
+		(mizuiro::color::init::blue() %= 0.25)
+	);
+
+	if(
+		mizuiro::color::compare(
+			test,
+			test2,
+			[](
+				channel_type const _a,
+				channel_type const _b
+			)
+			{
+				return
+					_a
+					==
+					_b;
+			}
+		)
+	)
+		std::cout
+			<< "equal\n";
 }

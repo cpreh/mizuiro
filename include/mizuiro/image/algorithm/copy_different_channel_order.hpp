@@ -39,9 +39,9 @@ copy_different_channel_order(
 	)
 		mizuiro::image::algorithm::binary_iteration(
 			mizuiro::image::algorithm::detail::copy_element_overlapping<
-				typename mizuiro::image::types::value_type<
+				mizuiro::image::types::value_type<
 					typename ViewS::format
-				>::type
+				>
 			>(),
 			_src,
 			_dest

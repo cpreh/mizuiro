@@ -21,6 +21,7 @@ namespace access
 {
 
 template<
+	typename Access,
 	typename ImageFormat
 >
 mizuiro::size_type
@@ -35,6 +36,7 @@ store_size(
 	return
 		store_size_adl(
 			mizuiro::image::access::store_size_ns::tag(),
+			Access(),
 			mizuiro::image::format::make_tag_of<
 				ImageFormat
 			>(),

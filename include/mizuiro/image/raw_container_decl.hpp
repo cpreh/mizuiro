@@ -4,17 +4,15 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_DETAIL_RAW_CONTAINER_DECL_HPP_INCLUDED
-#define MIZUIRO_IMAGE_DETAIL_RAW_CONTAINER_DECL_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_RAW_CONTAINER_DECL_HPP_INCLUDED
+#define MIZUIRO_IMAGE_RAW_CONTAINER_DECL_HPP_INCLUDED
 
-#include <mizuiro/image/detail/raw_container_fwd.hpp>
+#include <mizuiro/image/raw_container_fwd.hpp>
 
 
 namespace mizuiro
 {
 namespace image
-{
-namespace detail
 {
 
 template<
@@ -104,7 +102,6 @@ private:
 		data_end_;
 };
 
-}
 }
 }
 

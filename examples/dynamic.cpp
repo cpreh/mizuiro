@@ -13,6 +13,7 @@
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/format/homogenous_dynamic.hpp>
 #include <mizuiro/color/format/store.hpp>
+#include <mizuiro/color/format/dynamic_ns/static_to_dynamic_channel_fwd.hpp>
 #include <mizuiro/color/format/include/homogenous_dynamic.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>

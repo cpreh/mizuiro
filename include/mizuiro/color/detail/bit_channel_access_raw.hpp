@@ -35,10 +35,11 @@ private:
 		Channel
 	> access_normal;
 
-	typedef typename mizuiro::color::types::channel_value<
+	typedef
+	mizuiro::color::types::channel_value<
 		Format,
 		Channel
-	>::type value_type;
+	> value_type;
 
 	typedef typename mizuiro::detail::uint_least<
 		typename mizuiro::color::detail::heterogenous_bits<

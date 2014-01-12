@@ -10,14 +10,15 @@
 #include <mizuiro/image/store_decl.hpp>
 #include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/access/store_size.hpp>
-#include <mizuiro/image/detail/raw_container_impl.hpp>
 
 
 template<
-	typename Format
+	typename Format,
+	typename Access
 >
 mizuiro::image::store<
-	Format
+	Format,
+	Access
 >::store(
 	format_store_type const &_format
 )
@@ -33,10 +34,12 @@ mizuiro::image::store<
 }
 
 template<
-	typename Format
+	typename Format,
+	typename Access
 >
 mizuiro::image::store<
-	Format
+	Format,
+	Access
 >::store(
 	dim const &_size,
 	format_store_type const &_format
@@ -49,7 +52,9 @@ mizuiro::image::store<
 		_size
 	),
 	data_(
-		mizuiro::image::access::store_size(
+		mizuiro::image::access::store_size<
+			access
+		>(
 			_format,
 			size_
 		)
@@ -58,14 +63,17 @@ mizuiro::image::store<
 }
 
 template<
-	typename Format
+	typename Format,
+	typename Access
 >
 typename
 mizuiro::image::store<
-	Format
+	Format,
+	Access
 >::pointer
 mizuiro::image::store<
-	Format
+	Format,
+	Access
 >::data()
 {
 	return
@@ -73,14 +81,17 @@ mizuiro::image::store<
 }
 
 template<
-	typename Format
+	typename Format,
+	typename Access
 >
 typename
 mizuiro::image::store<
-	Format
+	Format,
+	Access
 >::const_pointer
 mizuiro::image::store<
-	Format
+	Format,
+	Access
 >::data() const
 {
 	return
@@ -88,14 +99,17 @@ mizuiro::image::store<
 }
 
 template<
-	typename Format
+	typename Format,
+	typename Access
 >
 typename
 mizuiro::image::store<
-	Format
+	Format,
+	Access
 >::view_type const
 mizuiro::image::store<
-	Format
+	Format,
+	Access
 >::view()
 {
 	return
@@ -107,14 +121,17 @@ mizuiro::image::store<
 }
 
 template<
-	typename Format
+	typename Format,
+	typename Access
 >
 typename
 mizuiro::image::store<
-	Format
+	Format,
+	Access
 >::const_view_type const
 mizuiro::image::store<
-	Format
+	Format,
+	Access
 >::view() const
 {
 	return
@@ -125,14 +142,17 @@ mizuiro::image::store<
 		);
 }
 template<
-	typename Format
+	typename Format,
+	typename Access
 >
 typename
 mizuiro::image::store<
-	Format
+	Format,
+	Access
 >::dim const &
 mizuiro::image::store<
-	Format
+	Format,
+	Access
 >::size() const
 {
 	return

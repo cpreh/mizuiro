@@ -267,7 +267,7 @@ set(
 	include/mizuiro/color/format/dynamic_ns/has_channel_static.hpp
 	include/mizuiro/color/format/dynamic_ns/layout.hpp
 	include/mizuiro/color/format/dynamic_ns/needs_store.hpp
-	include/mizuiro/color/format/dynamic_ns/static_to_dynamic_channel.hpp
+	include/mizuiro/color/format/dynamic_ns/static_to_dynamic_channel_fwd.hpp
 	include/mizuiro/color/format/dynamic_ns/tag.hpp
 	include/mizuiro/color/format/heterogenous_ns/channel_reference_normal.hpp
 	include/mizuiro/color/format/heterogenous_ns/channel_reference_raw.hpp
@@ -394,6 +394,7 @@ set(
 	include/mizuiro/color/types/channel_reference_ns/tag.hpp
 	include/mizuiro/color/types/channel_value.hpp
 	include/mizuiro/color/types/channel_value_ns/tag.hpp
+	include/mizuiro/color/types/channel_value_tpl.hpp
 	include/mizuiro/color/types/has_channel_static.hpp
 	include/mizuiro/color/types/has_channel_static_ns/tag.hpp
 	include/mizuiro/color/types/needs_store.hpp
@@ -533,7 +534,8 @@ set(
 	include/mizuiro/image/format/interleaved_ns/needs_store.hpp
 	include/mizuiro/image/format/interleaved_ns/pointer.hpp
 	include/mizuiro/image/format/interleaved_ns/reference.hpp
-	include/mizuiro/image/format/interleaved_ns/store.hpp
+	include/mizuiro/image/format/interleaved_ns/store_normal.hpp
+	include/mizuiro/image/format/interleaved_ns/store_raw.hpp
 	include/mizuiro/image/format/interleaved_ns/store_size.hpp
 	include/mizuiro/image/format/interleaved_ns/stride.hpp
 	include/mizuiro/image/format/interleaved_ns/tag.hpp

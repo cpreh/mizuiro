@@ -11,7 +11,7 @@
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/access/stride_ns/tag.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
-#include <mizuiro/color/format/homogenous_ns/tag.hpp>
+#include <mizuiro/color/format/heterogenous_ns/tag.hpp>
 
 
 namespace mizuiro
@@ -30,7 +30,7 @@ mizuiro::size_type
 stride_adl(
 	mizuiro::color::access::stride_ns::tag,
 	mizuiro::access::normal const &,
-	mizuiro::color::format::homogenous_ns::tag<
+	mizuiro::color::format::heterogenous_ns::tag<
 		Format
 	>,
 	mizuiro::color::format::store<

@@ -9,7 +9,6 @@
 
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
-#include <mizuiro/access/normal.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/linear_view_fwd.hpp>
@@ -28,7 +27,8 @@ namespace image
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
-	typename Format
+	typename Format,
+	typename Access
 >
 class store
 :
@@ -45,7 +45,7 @@ class store
 	format_base;
 public:
 	typedef
-	mizuiro::access::normal
+	Access
 	access;
 
 	typedef
@@ -127,6 +127,7 @@ private:
 
 	typedef
 	mizuiro::image::types::store<
+		access,
 		format
 	>
 	container;

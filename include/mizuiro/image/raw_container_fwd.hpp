@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_DETAIL_RAW_CONTAINER_FWD_HPP_INCLUDED
-#define MIZUIRO_IMAGE_DETAIL_RAW_CONTAINER_FWD_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_RAW_CONTAINER_FWD_HPP_INCLUDED
+#define MIZUIRO_IMAGE_RAW_CONTAINER_FWD_HPP_INCLUDED
 
 #include <mizuiro/detail/external_begin.hpp>
 #include <memory>
@@ -16,8 +16,6 @@ namespace mizuiro
 {
 namespace image
 {
-namespace detail
-{
 
 template<
 	typename T,
@@ -25,7 +23,6 @@ template<
 >
 class raw_container;
 
-}
 }
 }
 

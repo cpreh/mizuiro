@@ -22,6 +22,7 @@ namespace types
 {
 
 template<
+	typename Access,
 	typename Format
 >
 using
@@ -31,6 +32,9 @@ decltype(
 	store_adl(
 		std::declval<
 			mizuiro::image::types::store_ns::tag
+		>(),
+		std::declval<
+			Access
 		>(),
 		mizuiro::image::format::make_tag_of<
 			Format
