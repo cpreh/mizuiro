@@ -2,33 +2,62 @@ function(
 	ADD_MIZUIRO_TEST
 	PATHNAME
 )
-	STRING(REGEX REPLACE "\\/" "_" TESTNAME ${PATHNAME})
+	string(
+		REGEX
+		REPLACE
+		"\\/"
+		"_"
+		TESTNAME
+		${PATHNAME}
+	)
 
-	SET(MIZUIRO_TEST_NAME test_${TESTNAME})
+	set(
+		MIZUIRO_TEST_NAME
+		test_${TESTNAME}
+	)
 
-	ADD_EXECUTABLE (${MIZUIRO_TEST_NAME} ${PATHNAME}.cpp)
+	add_executable(
+		${MIZUIRO_TEST_NAME}
+		${PATHNAME}.cpp
+	)
 
-	IF(Boost_USE_STATIC_LIBS)
-		SET_PROPERTY(
-			TARGET ${MIZUIRO_TEST_NAME}
-			PROPERTY COMPILE_FLAGS
-			"-DBOOST_TEST_NO_LIB -DBOOST_TEST_MODULE=${TESTNAME}"
+	target_compile_definitions(
+		${MIZUIRO_TEST_NAME}
+		PRIVATE
+		BOOST_TEST_MODULE=${TESTNAME}
+	)
+
+	if(
+		Boost_USE_STATIC_LIBS
+	)
+		target_compile_definitions(
+			${MIZUIRO_TEST_NAME}
+			PRIVATE
+			BOOST_TEST_NO_LIB
 		)
-	ELSE()
-		SET_PROPERTY(
-			TARGET ${MIZUIRO_TEST_NAME}
-			PROPERTY COMPILE_FLAGS
-			"-DBOOST_TEST_DYN_LINK -DBOOST_TEST_MODULE=${TESTNAME}"
+	else()
+		target_compile_definitions(
+			${MIZUIRO_TEST_NAME}
+			PRIVATE
+			BOOST_TEST_DYN_LINK
 		)
-	ENDIF()
+	endif()
 
-	TARGET_LINK_LIBRARIES (
+	if(
+		ENABLE_FCPPT
+	)
+		fcppt_utils_set_target_compiler_flags(
+			${MIZUIRO_TEST_NAME}
+		)
+	endif()
+
+	target_link_libraries (
 		${MIZUIRO_TEST_NAME}
 		${MIZUIRO_DEFAULT_LINK_TARGET}
 		${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
 	)
 
-	ADD_TEST(
+	add_test(
 		NAME
 		${MIZUIRO_TEST_NAME}
 		COMMAND
@@ -36,11 +65,11 @@ function(
 	)
 endfunction()
 
-ADD_MIZUIRO_TEST(convert/swizzle)
-ADD_MIZUIRO_TEST(data)
-ADD_MIZUIRO_TEST(dynamic)
-ADD_MIZUIRO_TEST(empty_view)
-ADD_MIZUIRO_TEST(heterogenous)
-ADD_MIZUIRO_TEST(homogenous)
-ADD_MIZUIRO_TEST(iterator_position)
-ADD_MIZUIRO_TEST(views_are_compatible)
+add_mizuiro_test(convert/swizzle)
+add_mizuiro_test(data)
+add_mizuiro_test(dynamic)
+add_mizuiro_test(empty_view)
+add_mizuiro_test(heterogenous)
+add_mizuiro_test(homogenous)
+add_mizuiro_test(iterator_position)
+add_mizuiro_test(views_are_compatible)

@@ -2,15 +2,28 @@ include_directories(
 	"${CMAKE_SOURCE_DIR}/include"
 )
 
-macro(
+function(
 	BUILD_MIZUIRO_EXAMPLE
 	example
 )
-	add_executable(
+	set(
+		EXAMPLE_NAME
 		"mizuiro_example_${example}"
+	)
+
+	add_executable(
+		${EXAMPLE_NAME}
 		"${example}.cpp"
 	)
-endmacro()
+
+	if(
+		ENABLE_FCPPT
+	)
+		fcppt_utils_set_target_compiler_flags(
+			${EXAMPLE_NAME}
+		)
+	endif()
+endfunction()
 
 build_mizuiro_example(adapted_view)
 build_mizuiro_example(algorithm)

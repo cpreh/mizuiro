@@ -1,6 +1,6 @@
 cmake_minimum_required(
 	VERSION
-	2.6
+	2.8.12
 )
 
 project(
@@ -78,7 +78,9 @@ include_directories(
 if(
 	ENABLE_FCPPT
 )
-	include(FcpptCMakeUtils)
+	include(
+		FcpptCMakeUtils
+	)
 
 	include_directories(
 		${FCPPT_UTILS_INCLUDE_SYSTEM}
@@ -99,22 +101,18 @@ if(
 	)
 endif()
 
-if(
-	CMAKE_COMPILER_IS_GNUCXX OR FCPPT_UTILS_COMPILER_IS_CLANGPP
+include(
+	CheckCXXSourceCompiles
 )
-	include(
-		CheckCXXSourceCompiles
-	)
 
-	check_cxx_source_compiles(
-		"int main()
-		{
-		if(__builtin_expect(true, 0))
-		{}
-		}"
-		MIZUIRO_HAVE_BUILTIN_EXPECT
-	)
-endif()
+check_cxx_source_compiles(
+	"int main()
+	{
+	if(__builtin_expect(true, 0))
+	{}
+	}"
+	MIZUIRO_HAVE_BUILTIN_EXPECT
+)
 
 set(
 	MIZUIRO_SOURCE_DIR
@@ -618,5 +616,7 @@ if(
 		TRUE
 	)
 
-	fcppt_utils_generate_config()
+	fcppt_utils_generate_config(
+		TRUE
+	)
 endif()
