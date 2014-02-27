@@ -29,7 +29,7 @@ void
 copy_different_channel_order(
 	ViewS const &_src,
 	ViewD const &_dest,
-	mizuiro::image::algorithm::may_overlap::type const _overlap
+	mizuiro::image::algorithm::may_overlap const _overlap
 )
 {
 	if(

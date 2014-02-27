@@ -39,10 +39,10 @@ typename boost::disable_if<
 copy_impl(
 	ViewS const &_src,
 	ViewD const &_dest,
-	algorithm::may_overlap::type const _overlap
+	mizuiro::image::algorithm::may_overlap const _overlap
 )
 {
-	algorithm::copy_different_channel_order(
+	mizuiro::image::algorithm::copy_different_channel_order(
 		_src,
 		_dest,
 		_overlap
@@ -63,10 +63,10 @@ typename boost::enable_if<
 copy_impl(
 	ViewS const &_src,
 	ViewD const &_dest,
-	algorithm::may_overlap::type const _overlap
+	mizuiro::image::algorithm::may_overlap const _overlap
 )
 {
-	algorithm::copy_same_channel_order(
+	mizuiro::image::algorithm::copy_same_channel_order(
 		_src,
 		_dest,
 		_overlap

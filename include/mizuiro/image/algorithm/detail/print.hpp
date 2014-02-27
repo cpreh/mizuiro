@@ -28,7 +28,9 @@ class print
 		print
 	);
 public:
-	typedef void result_type;
+	typedef
+	void
+	result_type;
 
 	explicit
 	print(

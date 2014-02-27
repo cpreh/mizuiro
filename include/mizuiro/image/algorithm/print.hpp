@@ -28,8 +28,8 @@ print(
 	ViewS const &_src
 )
 {
-	algorithm::unary_iteration(
-		detail::print<
+	mizuiro::image::algorithm::unary_iteration(
+		mizuiro::image::algorithm::detail::print<
 			Sink
 		>(
 			_sink

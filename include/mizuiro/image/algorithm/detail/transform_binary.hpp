@@ -9,6 +9,7 @@
 
 #include <mizuiro/detail/nonassignable.hpp>
 
+
 namespace mizuiro
 {
 namespace image
@@ -27,14 +28,20 @@ class transform_binary
 		transform_binary
 	);
 public:
-	typedef void result_type;
+	typedef
+	void
+	result_type;
 
-	explicit transform_binary(
+	explicit
+	transform_binary(
 		Fun const &_fun
 	)
 	:
-		fun_(_fun)
-	{}
+		fun_(
+			_fun
+		)
+	{
+	}
 
 	template<
 		typename Source,

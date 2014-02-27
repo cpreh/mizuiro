@@ -19,7 +19,6 @@ namespace algorithm
 namespace detail
 {
 
-
 template<
 	typename Converter
 >

@@ -35,12 +35,18 @@ public:
 		View2 const &_view2
 	)
 	:
-		function_(_function),
-		view2_(_view2)
+		function_(
+			_function
+		),
+		view2_(
+			_view2
+		)
 	{
 	}
 
-	typedef void result_type;
+	typedef
+	void
+	result_type;
 
 	template<
 		typename View1
@@ -51,7 +57,7 @@ public:
 	) const
 	{
 		return
-			detail::binary_iteration(
+			mizuiro::image::algorithm::detail::binary_iteration(
 				function_,
 				_view1,
 				view2_

@@ -9,6 +9,7 @@
 
 #include <mizuiro/image/algorithm/unary_iteration.hpp>
 
+
 namespace mizuiro
 {
 namespace image
@@ -20,18 +21,19 @@ template<
 	typename View,
 	typename Fun
 >
-Fun const
+Fun
 for_each(
 	View const &_view,
 	Fun const &_fun
 )
 {
-	algorithm::unary_iteration(
+	mizuiro::image::algorithm::unary_iteration(
 		_fun,
 		_view
 	);
 
-	return _fun;
+	return
+		_fun;
 }
 
 }

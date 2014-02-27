@@ -22,12 +22,14 @@ namespace color
 namespace layout
 {
 
-typedef layout::luminance<
+typedef
+mizuiro::color::layout::luminance<
 	boost::mpl::vector2<
-		channel::luminance,
-		channel::alpha
+		mizuiro::color::channel::luminance,
+		mizuiro::color::channel::alpha
 	>
-> la;
+>
+la;
 
 }
 }

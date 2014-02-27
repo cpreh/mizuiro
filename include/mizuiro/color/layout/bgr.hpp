@@ -23,13 +23,15 @@ namespace color
 namespace layout
 {
 
-typedef layout::additive<
+typedef
+mizuiro::color::layout::additive<
 	boost::mpl::vector3<
-		channel::blue,
-		channel::green,
-		channel::red
+		mizuiro::color::channel::blue,
+		mizuiro::color::channel::green,
+		mizuiro::color::channel::red
 	>
-> bgr;
+>
+bgr;
 
 }
 }

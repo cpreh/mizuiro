@@ -12,6 +12,7 @@
 #include <boost/mpl/vector/vector10.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -21,9 +22,11 @@ namespace layout
 
 struct alpha
 {
-	typedef boost::mpl::vector1<
-		channel::alpha
-	> order;
+	typedef
+	boost::mpl::vector1<
+		mizuiro::color::channel::alpha
+	>
+	order;
 };
 
 }

@@ -35,7 +35,7 @@ binary_iteration(
 	View2 const &_view2
 )
 {
-	algorithm::detail::binary_iteration(
+	mizuiro::image::algorithm::detail::binary_iteration(
 		_function,
 		_view1,
 		_view2
@@ -53,7 +53,7 @@ void
 binary_iteration(
 	Function const &_function,
 	View1 const &_view1,
-	image::view<
+	mizuiro::image::view<
 		Access2,
 		Format2,
 		Constness2
@@ -61,7 +61,7 @@ binary_iteration(
 )
 {
 	mizuiro::detail::variant_apply_unary(
-		algorithm::detail::unwrap_binary_second<
+		mizuiro::image::algorithm::detail::unwrap_binary_second<
 			Function,
 			View1
 		>(
@@ -82,7 +82,7 @@ template<
 void
 binary_iteration(
 	Function const &_function,
-	image::view<
+	mizuiro::image::view<
 		Access1,
 		Format1,
 		Constness1
@@ -91,7 +91,7 @@ binary_iteration(
 )
 {
 	mizuiro::detail::variant_apply_unary(
-		algorithm::detail::unwrap_binary_first<
+		mizuiro::image::algorithm::detail::unwrap_binary_first<
 			Function,
 			View2
 		>(
@@ -114,12 +114,12 @@ template<
 void
 binary_iteration(
 	Function const &_function,
-	image::view<
+	mizuiro::image::view<
 		Access1,
 		Format1,
 		Constness1
 	> const &_view1,
-	image::view<
+	mizuiro::image::view<
 		Access2,
 		Format2,
 		Constness2
@@ -127,7 +127,7 @@ binary_iteration(
 )
 {
 	mizuiro::detail::variant_apply_binary(
-		algorithm::detail::unwrap_binary_both<
+		mizuiro::image::algorithm::detail::unwrap_binary_both<
 			Function
 		>(
 			_function

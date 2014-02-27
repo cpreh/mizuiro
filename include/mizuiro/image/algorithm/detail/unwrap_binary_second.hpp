@@ -35,8 +35,12 @@ public:
 		View1 const &_view1
 	)
 	:
-		function_(_function),
-		view1_(_view1)
+		function_(
+			_function
+		),
+		view1_(
+			_view1
+		)
 	{
 	}
 
@@ -51,7 +55,7 @@ public:
 	) const
 	{
 		return
-			detail::binary_iteration(
+			mizuiro::image::algorithm::detail::binary_iteration(
 				function_,
 				view1_,
 				_view2

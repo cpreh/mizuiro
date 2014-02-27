@@ -9,6 +9,7 @@
 
 #include <mizuiro/image/algorithm/binary_iteration.hpp>
 
+
 namespace mizuiro
 {
 namespace image
@@ -28,7 +29,7 @@ transform(
 	Fun const &_fun
 )
 {
-	algorithm::binary_iteration(
+	mizuiro::image::algorithm::binary_iteration(
 		_fun,
 		_source,
 		_dest

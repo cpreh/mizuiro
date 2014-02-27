@@ -65,6 +65,7 @@ function(
 	)
 endfunction()
 
+add_mizuiro_test(algorithm/clone)
 add_mizuiro_test(convert/swizzle)
 add_mizuiro_test(data)
 add_mizuiro_test(dynamic)

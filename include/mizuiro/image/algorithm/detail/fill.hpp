@@ -9,6 +9,7 @@
 
 #include <mizuiro/detail/nonassignable.hpp>
 
+
 namespace mizuiro
 {
 namespace image
@@ -27,14 +28,20 @@ class fill
 		fill
 	);
 public:
-	typedef void result_type;
+	typedef
+	void
+	result_type;
 
-	explicit fill(
+	explicit
+	fill(
 		Fun const &_fun
 	)
 	:
-		fun_(_fun)
-	{}
+		fun_(
+			_fun
+		)
+	{
+	}
 
 	template<
 		typename Dest

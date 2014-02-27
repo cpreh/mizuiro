@@ -13,6 +13,7 @@
 #include <boost/mpl/vector/vector10.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -20,11 +21,13 @@ namespace color
 namespace layout
 {
 
-typedef layout::luminance<
+typedef
+mizuiro::color::layout::luminance<
 	boost::mpl::vector1<
-		channel::luminance
+		mizuiro::color::channel::luminance
 	>
-> gray;
+>
+gray;
 
 }
 }

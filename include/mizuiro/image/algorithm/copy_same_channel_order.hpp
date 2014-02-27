@@ -30,11 +30,11 @@ void
 copy_same_channel_order(
 	ViewS const &_src,
 	ViewD const &_dest,
-	algorithm::may_overlap::type
+	mizuiro::image::algorithm::may_overlap
 )
 {
-	algorithm::binary_iteration(
-		detail::copy_element(),
+	mizuiro::image::algorithm::binary_iteration(
+		mizuiro::image::algorithm::detail::copy_element(),
 		_src,
 		_dest
 	);
@@ -50,22 +50,23 @@ template<
 >
 void
 copy_same_channel_order(
-	image::linear_view<
+	mizuiro::image::linear_view<
 		Access1,
 		Format1,
 		Constness1
 	> const &_src,
-	image::linear_view<
+	mizuiro::image::linear_view<
 		Access2,
 		Format2,
 		Constness2
 	> const &_dest,
-	algorithm::may_overlap::type const _overlap
+	mizuiro::image::algorithm::may_overlap const _overlap
 )
 {
 	if(
 		_overlap
-		== algorithm::may_overlap::yes
+		==
+		mizuiro::image::algorithm::may_overlap::yes
 	)
 		mizuiro::detail::copy_overlap(
 			_src.begin().data(),

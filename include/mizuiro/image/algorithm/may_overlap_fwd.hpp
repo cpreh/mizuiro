@@ -4,24 +4,18 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_LAYOUT_S_ADDITIVE_HPP_INCLUDED
-#define MIZUIRO_COLOR_LAYOUT_S_ADDITIVE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_ALGORITHM_MAY_OVERLAP_FWD_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ALGORITHM_MAY_OVERLAP_FWD_HPP_INCLUDED
 
 
 namespace mizuiro
 {
-namespace color
+namespace image
 {
-namespace layout
+namespace algorithm
 {
 
-template<
-	typename Order
->
-struct s_additive
-{
-	typedef Order order;
-};
+enum class may_overlap;
 
 }
 }

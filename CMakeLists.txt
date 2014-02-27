@@ -453,6 +453,7 @@ set(
 	include/mizuiro/image/access/stride_ns/tag.hpp
 	include/mizuiro/image/algorithm/binary_iteration.hpp
 	include/mizuiro/image/algorithm/bresenham.hpp
+	include/mizuiro/image/algorithm/clone.hpp
 	include/mizuiro/image/algorithm/copy.hpp
 	include/mizuiro/image/algorithm/copy_and_convert.hpp
 	include/mizuiro/image/algorithm/copy_different_channel_order.hpp
@@ -475,6 +476,7 @@ set(
 	include/mizuiro/image/algorithm/fill_c.hpp
 	include/mizuiro/image/algorithm/for_each.hpp
 	include/mizuiro/image/algorithm/may_overlap.hpp
+	include/mizuiro/image/algorithm/may_overlap_fwd.hpp
 	include/mizuiro/image/algorithm/print.hpp
 	include/mizuiro/image/algorithm/transform.hpp
 	include/mizuiro/image/algorithm/unary_iteration.hpp

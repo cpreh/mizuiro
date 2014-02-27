@@ -39,7 +39,7 @@ typename boost::disable_if<
 copy_and_convert(
 	ViewS const &_src,
 	ViewD const &_dest,
-	mizuiro::image::algorithm::may_overlap::type
+	mizuiro::image::algorithm::may_overlap
 )
 {
 	mizuiro::image::algorithm::binary_iteration(
@@ -66,7 +66,7 @@ typename boost::enable_if<
 copy_and_convert(
 	ViewS const &_src,
 	ViewD const &_dest,
-	mizuiro::image::algorithm::may_overlap::type const _overlap
+	mizuiro::image::algorithm::may_overlap const _overlap
 )
 {
 	mizuiro::image::algorithm::copy(

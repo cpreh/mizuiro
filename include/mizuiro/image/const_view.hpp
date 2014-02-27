@@ -9,6 +9,7 @@
 
 #include <mizuiro/const_tag.hpp>
 
+
 namespace mizuiro
 {
 namespace image

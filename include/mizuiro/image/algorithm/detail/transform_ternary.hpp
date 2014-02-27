@@ -7,6 +7,9 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_TRANSFORM_TERNARY_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_TRANSFORM_TERNARY_HPP_INCLUDED
 
+#include <mizuiro/detail/nonassignable.hpp>
+
+
 namespace mizuiro
 {
 namespace image
@@ -21,14 +24,24 @@ template<
 >
 struct transform_ternary
 {
-	typedef void result_type;
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		transform_ternary
+	);
+public:
+	typedef
+	void
+	result_type;
 
-	explicit transform_ternary(
+	explicit
+	transform_ternary(
 		Fun const &_fun
 	)
 	:
-		fun_(_fun)
-	{}
+		fun_(
+			_fun
+		)
+	{
+	}
 
 	template<
 		typename Source1,

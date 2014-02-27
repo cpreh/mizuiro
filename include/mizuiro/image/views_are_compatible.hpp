@@ -36,6 +36,7 @@ boost::mpl::and_<
 		typename View1::dim,
 		typename View2::dim
 	>,
+	// TODO: Is this correct?
 	boost::mpl::equal_to<
 		boost::mpl::size<
 			typename View1::format::color_format::layout::order
@@ -44,7 +45,7 @@ boost::mpl::and_<
 			typename View2::format::color_format::layout::order
 		>
 	>,
-	color::formats_are_compatible<
+	mizuiro::color::formats_are_compatible<
 		typename View1::format::color_format,
 		typename View2::format::color_format
 	>

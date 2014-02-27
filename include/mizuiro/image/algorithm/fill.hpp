@@ -28,8 +28,8 @@ fill(
 	Fun const &_fun
 )
 {
-	algorithm::unary_iteration(
-		detail::fill<
+	mizuiro::image::algorithm::unary_iteration(
+		mizuiro::image::algorithm::detail::fill<
 			Fun
 		>(
 			_fun

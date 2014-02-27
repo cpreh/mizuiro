@@ -7,6 +7,9 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_MAY_OVERLAP_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_MAY_OVERLAP_HPP_INCLUDED
 
+#include <mizuiro/image/algorithm/may_overlap_fwd.hpp>
+
+
 namespace mizuiro
 {
 namespace image
@@ -14,14 +17,11 @@ namespace image
 namespace algorithm
 {
 
-namespace may_overlap
-{
-enum type
+enum class may_overlap
 {
 	yes,
 	no
 };
-}
 
 }
 }

@@ -13,6 +13,7 @@
 #include <boost/type_traits/is_same.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
+
 namespace mizuiro
 {
 namespace image
@@ -27,10 +28,12 @@ template<
 struct views_have_same_channel_order
 :
 boost::is_same<
+	// TODO: Is this ok?
 	typename View1::format::color_format::layout::order,
 	typename View2::format::color_format::layout::order
 >
-{};
+{
+};
 
 MIZUIRO_DETAIL_POP_WARNING
 

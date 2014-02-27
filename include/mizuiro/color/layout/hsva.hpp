@@ -24,12 +24,13 @@ namespace color
 namespace layout
 {
 
-typedef cylindrical<
+typedef
+mizuiro::color::layout::cylindrical<
 	boost::mpl::vector4<
-		channel::hue,
-		channel::saturation,
-		channel::value,
-		channel::alpha
+		mizuiro::color::channel::hue,
+		mizuiro::color::channel::saturation,
+		mizuiro::color::channel::value,
+		mizuiro::color::channel::alpha
 	>
 > hsva;
 

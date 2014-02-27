@@ -34,11 +34,15 @@ public:
 		Function const &_function
 	)
 	:
-		function_(_function)
+		function_(
+			_function
+		)
 	{
 	}
 
-	typedef void result_type;
+	typedef
+	void
+	result_type;
 
 	template<
 		typename View1,
@@ -51,7 +55,7 @@ public:
 	) const
 	{
 		return
-			detail::binary_iteration(
+			mizuiro::image::algorithm::detail::binary_iteration(
 				function_,
 				_view1,
 				_view2

@@ -27,7 +27,7 @@ template<
 	typename ViewD
 >
 typename boost::enable_if<
-	image::views_are_compatible<
+	mizuiro::image::views_are_compatible<
 		ViewS,
 		ViewD
 	>,
@@ -36,10 +36,10 @@ typename boost::enable_if<
 copy(
 	ViewS const &_src,
 	ViewD const &_dest,
-	algorithm::may_overlap::type const _overlap
+	mizuiro::image::algorithm::may_overlap const _overlap
 )
 {
-	detail::copy_impl(
+	mizuiro::image::algorithm::detail::copy_impl(
 		_src,
 		_dest,
 		_overlap

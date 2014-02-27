@@ -30,7 +30,7 @@ unary_iteration(
 	View const &_view
 )
 {
-	algorithm::detail::unary_iteration(
+	mizuiro::image::algorithm::detail::unary_iteration(
 		_function,
 		_view
 	);
@@ -45,7 +45,7 @@ template<
 void
 unary_iteration(
 	Function const &_function,
-	image::view<
+	mizuiro::image::view<
 		Access,
 		Format,
 		Constness
@@ -53,7 +53,7 @@ unary_iteration(
 )
 {
 	mizuiro::detail::variant_apply_unary(
-		algorithm::detail::unwrap_unary<
+		mizuiro::image::algorithm::detail::unwrap_unary<
 			Function
 		>(
 			_function

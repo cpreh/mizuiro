@@ -9,6 +9,7 @@
 
 #include <mizuiro/image/const_view.hpp>
 
+
 namespace mizuiro
 {
 namespace image
@@ -17,7 +18,8 @@ namespace image
 template<
 	typename View
 >
-typename image::const_view<
+typename
+mizuiro::image::const_view<
 	View
 >::type const
 make_const_view(
@@ -25,7 +27,8 @@ make_const_view(
 )
 {
 	return
-		typename image::const_view<
+		typename
+		mizuiro::image::const_view<
 			View
 		>::type(
 			_view
