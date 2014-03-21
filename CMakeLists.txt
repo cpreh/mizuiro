@@ -613,6 +613,10 @@ if(
 		"${MIZUIRO_FILES}"
 	)
 
+	fcppt_utils_set_target_compiler_flags(
+		mizuiro_dummy
+	)
+
 	set(
 		FCPPT_UTILS_NO_TARGETS
 		TRUE
