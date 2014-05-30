@@ -368,6 +368,8 @@ set(
 	include/mizuiro/color/layout/rgba.hpp
 	include/mizuiro/color/layout/rgbx.hpp
 	include/mizuiro/color/layout/s_additive.hpp
+	include/mizuiro/color/layout/s_bgr.hpp
+	include/mizuiro/color/layout/s_bgra.hpp
 	include/mizuiro/color/layout/s_rgb.hpp
 	include/mizuiro/color/layout/s_rgba.hpp
 	include/mizuiro/color/layout/special.hpp

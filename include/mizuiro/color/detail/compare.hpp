@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_OPERATORS_DETAIL_EQUAL_HPP_INCLUDED
-#define MIZUIRO_COLOR_OPERATORS_DETAIL_EQUAL_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_DETAIL_COMPARE_HPP_INCLUDED
+#define MIZUIRO_COLOR_DETAIL_COMPARE_HPP_INCLUDED
 
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/deref.hpp>

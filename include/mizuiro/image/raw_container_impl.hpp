@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_DETAIL_RAW_CONTAINER_IMPL_HPP_INCLUDED
-#define MIZUIRO_IMAGE_DETAIL_RAW_CONTAINER_IMPL_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_RAW_CONTAINER_IMPL_HPP_INCLUDED
+#define MIZUIRO_IMAGE_RAW_CONTAINER_IMPL_HPP_INCLUDED
 
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
