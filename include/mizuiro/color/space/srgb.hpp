@@ -23,6 +23,8 @@ namespace color
 namespace space
 {
 
+MIZUIRO_DETAIL_IGNORE_EFFCPP
+
 template<
 	typename Order
 >
