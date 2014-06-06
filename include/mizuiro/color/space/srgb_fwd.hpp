@@ -4,24 +4,21 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_LAYOUT_ADDITIVE_HPP_INCLUDED
-#define MIZUIRO_COLOR_LAYOUT_ADDITIVE_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_SPACE_SRGB_FWD_HPP_INCLUDED
+#define MIZUIRO_COLOR_SPACE_SRGB_FWD_HPP_INCLUDED
 
 
 namespace mizuiro
 {
 namespace color
 {
-namespace layout
+namespace space
 {
 
 template<
 	typename Order
 >
-struct additive
-{
-	typedef Order order;
-};
+struct srgb;
 
 }
 }

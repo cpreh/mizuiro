@@ -4,10 +4,11 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CHANNEL_DEPTH_HPP_INCLUDED
-#define MIZUIRO_COLOR_CHANNEL_DEPTH_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_SPACE_LUMINANCE_HPP_INCLUDED
+#define MIZUIRO_COLOR_SPACE_LUMINANCE_HPP_INCLUDED
 
-#include <mizuiro/color/channel/tag.hpp>
+#include <mizuiro/color/channel/luminance_fwd.hpp>
+#include <mizuiro/color/space/base.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 
@@ -16,15 +17,19 @@ namespace mizuiro
 {
 namespace color
 {
-namespace channel
+namespace space
 {
 
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
-struct depth
+template<
+	typename Order
+>
+struct luminance
 :
-mizuiro::color::channel::tag<
-	depth
+mizuiro::color::space::base<
+	Order,
+	mizuiro::color::channel::luminance
 >
 {
 };

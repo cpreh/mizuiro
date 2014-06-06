@@ -22,6 +22,7 @@ namespace layout
 
 struct alpha
 {
+	// TODO: Which color space is this, if any?
 	typedef
 	boost::mpl::vector1<
 		mizuiro::color::channel::alpha

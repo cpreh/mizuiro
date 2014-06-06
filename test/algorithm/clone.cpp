@@ -8,7 +8,7 @@
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/init/luminance.hpp>
-#include <mizuiro/color/layout/gray.hpp>
+#include <mizuiro/color/layout/l.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/algorithm/clone.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
@@ -33,7 +33,7 @@ MIZUIRO_DETAIL_POP_WARNING
 	typedef
 	mizuiro::color::format::homogenous_static<
 		std::uint8_t,
-		mizuiro::color::layout::gray
+		mizuiro::color::layout::l
 	>
 	homogenous_gray8;
 

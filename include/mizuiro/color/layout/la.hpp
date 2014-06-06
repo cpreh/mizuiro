@@ -9,7 +9,7 @@
 
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/channel/luminance.hpp>
-#include <mizuiro/color/layout/luminance.hpp>
+#include <mizuiro/color/space/luminance.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -23,7 +23,7 @@ namespace layout
 {
 
 typedef
-mizuiro::color::layout::luminance<
+mizuiro::color::space::luminance<
 	boost::mpl::vector2<
 		mizuiro::color::channel::luminance,
 		mizuiro::color::channel::alpha

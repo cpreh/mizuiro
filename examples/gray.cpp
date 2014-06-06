@@ -9,7 +9,7 @@
 #include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
-#include <mizuiro/color/layout/gray.hpp>
+#include <mizuiro/color/layout/l.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/view.hpp>
@@ -30,7 +30,7 @@ typedef mizuiro::image::format::interleaved<
 	>,
 	mizuiro::color::format::homogenous_static<
 		std::uint8_t,
-		mizuiro::color::layout::gray
+		mizuiro::color::layout::l
 	>
 > format;
 

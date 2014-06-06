@@ -11,7 +11,7 @@
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/channel/undefined.hpp>
-#include <mizuiro/color/layout/additive.hpp>
+#include <mizuiro/color/space/rgb.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -25,7 +25,7 @@ namespace layout
 {
 
 typedef
-mizuiro::color::layout::additive<
+mizuiro::color::space::rgb<
 	boost::mpl::vector4<
 		mizuiro::color::channel::blue,
 		mizuiro::color::channel::green,

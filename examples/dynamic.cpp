@@ -4,7 +4,6 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
@@ -15,6 +14,10 @@
 #include <mizuiro/color/format/store.hpp>
 #include <mizuiro/color/format/dynamic_ns/static_to_dynamic_channel_fwd.hpp>
 #include <mizuiro/color/format/include/homogenous_dynamic.hpp>
+#include <mizuiro/color/init/alpha.hpp>
+#include <mizuiro/color/init/blue.hpp>
+#include <mizuiro/color/init/green.hpp>
+#include <mizuiro/color/init/red.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>

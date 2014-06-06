@@ -5,12 +5,14 @@
 
 
 #include <mizuiro/color/compare.hpp>
-#include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/operators.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
+#include <mizuiro/color/init/blue.hpp>
+#include <mizuiro/color/init/green.hpp>
+#include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/layout/rgb.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <cstdint>

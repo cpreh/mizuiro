@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_COLOR_CHANNEL_ALPHA_HPP_INCLUDED
 #define MIZUIRO_COLOR_CHANNEL_ALPHA_HPP_INCLUDED
 
+#include <mizuiro/color/channel/alpha_fwd.hpp>
 #include <mizuiro/color/channel/tag.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>

@@ -4,11 +4,11 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_LAYOUT_DEPTH_HPP_INCLUDED
-#define MIZUIRO_COLOR_LAYOUT_DEPTH_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_LAYOUT_L_HPP_INCLUDED
+#define MIZUIRO_COLOR_LAYOUT_L_HPP_INCLUDED
 
-#include <mizuiro/color/channel/depth.hpp>
-#include <mizuiro/color/layout/special.hpp>
+#include <mizuiro/color/channel/luminance.hpp>
+#include <mizuiro/color/space/luminance.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -21,11 +21,13 @@ namespace color
 namespace layout
 {
 
-typedef mizuiro::color::layout::special<
+typedef
+mizuiro::color::space::luminance<
 	boost::mpl::vector1<
-		mizuiro::color::channel::depth
+		mizuiro::color::channel::luminance
 	>
-> depth;
+>
+l;
 
 }
 }

@@ -5,12 +5,15 @@
 
 
 #include <mizuiro/color/for_each_channel.hpp>
-#include <mizuiro/color/init.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/convert_static/converter.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
+#include <mizuiro/color/init/alpha.hpp>
+#include <mizuiro/color/init/blue.hpp>
+#include <mizuiro/color/init/green.hpp>
+#include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/layout/argb.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/image/dimension.hpp>

@@ -5,12 +5,15 @@
 
 
 #include <mizuiro/color/convert.hpp>
-#include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/convert_static/converter.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
+#include <mizuiro/color/init/alpha.hpp>
+#include <mizuiro/color/init/hue.hpp>
+#include <mizuiro/color/init/saturation.hpp>
+#include <mizuiro/color/init/value.hpp>
 #include <mizuiro/color/layout/hsva.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/detail/external_begin.hpp>

@@ -4,23 +4,21 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_INIT_STENCIL_HPP_INCLUDED
-#define MIZUIRO_COLOR_INIT_STENCIL_HPP_INCLUDED
-
-#include <mizuiro/color/channel/stencil.hpp>
-#include <mizuiro/color/init/detail/make_trampoline.hpp>
+#ifndef MIZUIRO_COLOR_SPACE_LUMINANCE_FWD_HPP_INCLUDED
+#define MIZUIRO_COLOR_SPACE_LUMINANCE_FWD_HPP_INCLUDED
 
 
 namespace mizuiro
 {
 namespace color
 {
-namespace init
+namespace space
 {
 
-MIZUIRO_COLOR_INIT_DETAIL_MAKE_TRAMPOLINE(
-	stencil
-)
+template<
+	typename Order
+>
+struct luminance;
 
 }
 }

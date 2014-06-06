@@ -4,11 +4,14 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/color/init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
+#include <mizuiro/color/init/alpha.hpp>
+#include <mizuiro/color/init/blue.hpp>
+#include <mizuiro/color/init/green.hpp>
+#include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/image/bound.hpp>
 #include <mizuiro/image/dimension.hpp>

@@ -195,17 +195,24 @@ set(
 	include/mizuiro/color/access/stride.hpp
 	include/mizuiro/color/access/stride_ns/tag.hpp
 	include/mizuiro/color/channel/alpha.hpp
+	include/mizuiro/color/channel/alpha_fwd.hpp
 	include/mizuiro/color/channel/blue.hpp
-	include/mizuiro/color/channel/depth.hpp
+	include/mizuiro/color/channel/blue_fwd.hpp
 	include/mizuiro/color/channel/green.hpp
+	include/mizuiro/color/channel/green_fwd.hpp
 	include/mizuiro/color/channel/hue.hpp
+	include/mizuiro/color/channel/hue_fwd.hpp
 	include/mizuiro/color/channel/luminance.hpp
+	include/mizuiro/color/channel/luminance_fwd.hpp
 	include/mizuiro/color/channel/red.hpp
+	include/mizuiro/color/channel/red_fwd.hpp
 	include/mizuiro/color/channel/saturation.hpp
-	include/mizuiro/color/channel/stencil.hpp
+	include/mizuiro/color/channel/saturation_fwd.hpp
 	include/mizuiro/color/channel/tag.hpp
 	include/mizuiro/color/channel/undefined.hpp
+	include/mizuiro/color/channel/undefined_fwd.hpp
 	include/mizuiro/color/channel/value.hpp
+	include/mizuiro/color/channel/value_fwd.hpp
 	include/mizuiro/color/channel_proxy.hpp
 	include/mizuiro/color/channel_proxy_decl.hpp
 	include/mizuiro/color/channel_proxy_fwd.hpp
@@ -324,55 +331,46 @@ set(
 	include/mizuiro/color/format/store_impl.hpp
 	include/mizuiro/color/format/tag_of_fwd.hpp
 	include/mizuiro/color/formats_are_compatible.hpp
-	include/mizuiro/color/init.hpp
 	include/mizuiro/color/init/alpha.hpp
 	include/mizuiro/color/init/blue.hpp
-	include/mizuiro/color/init/depth.hpp
 	include/mizuiro/color/init/detail/assign_object.hpp
 	include/mizuiro/color/init/detail/channel_percentage.hpp
 	include/mizuiro/color/init/detail/channel_percentage_fwd.hpp
 	include/mizuiro/color/init/detail/channel_value.hpp
 	include/mizuiro/color/init/detail/channel_value_fwd.hpp
-	include/mizuiro/color/init/detail/make_trampoline.hpp
+	include/mizuiro/color/init/detail/make.hpp
 	include/mizuiro/color/init/detail/make_values.hpp
 	include/mizuiro/color/init/detail/set_channel.hpp
+	include/mizuiro/color/init/detail/trampoline.hpp
 	include/mizuiro/color/init/detail/values.hpp
 	include/mizuiro/color/init/detail/values_fwd.hpp
 	include/mizuiro/color/init/detail/visitor.hpp
 	include/mizuiro/color/init/green.hpp
 	include/mizuiro/color/init/hue.hpp
 	include/mizuiro/color/init/luminance.hpp
+	include/mizuiro/color/init/make.hpp
 	include/mizuiro/color/init/red.hpp
 	include/mizuiro/color/init/saturation.hpp
-	include/mizuiro/color/init/stencil.hpp
-	include/mizuiro/color/init/trampoline.hpp
 	include/mizuiro/color/init/value.hpp
 	include/mizuiro/color/is_color.hpp
-	include/mizuiro/color/layout/additive.hpp
 	include/mizuiro/color/layout/alpha.hpp
 	include/mizuiro/color/layout/argb.hpp
 	include/mizuiro/color/layout/bgr.hpp
 	include/mizuiro/color/layout/bgra.hpp
 	include/mizuiro/color/layout/bgrx.hpp
-	include/mizuiro/color/layout/cylindrical.hpp
-	include/mizuiro/color/layout/depth.hpp
-	include/mizuiro/color/layout/depth_stencil.hpp
-	include/mizuiro/color/layout/gray.hpp
 	include/mizuiro/color/layout/hsv.hpp
 	include/mizuiro/color/layout/hsva.hpp
 	include/mizuiro/color/layout/is_same.hpp
+	include/mizuiro/color/layout/l.hpp
 	include/mizuiro/color/layout/la.hpp
-	include/mizuiro/color/layout/luminance.hpp
-	include/mizuiro/color/layout/red.hpp
+	include/mizuiro/color/layout/r.hpp
 	include/mizuiro/color/layout/rgb.hpp
 	include/mizuiro/color/layout/rgba.hpp
 	include/mizuiro/color/layout/rgbx.hpp
-	include/mizuiro/color/layout/s_additive.hpp
 	include/mizuiro/color/layout/s_bgr.hpp
 	include/mizuiro/color/layout/s_bgra.hpp
 	include/mizuiro/color/layout/s_rgb.hpp
 	include/mizuiro/color/layout/s_rgba.hpp
-	include/mizuiro/color/layout/special.hpp
 	include/mizuiro/color/normalize.hpp
 	include/mizuiro/color/object.hpp
 	include/mizuiro/color/object_decl.hpp
@@ -390,6 +388,15 @@ set(
 	include/mizuiro/color/proxy_decl.hpp
 	include/mizuiro/color/proxy_fwd.hpp
 	include/mizuiro/color/proxy_impl.hpp
+	include/mizuiro/color/space/base.hpp
+	include/mizuiro/color/space/hsv.hpp
+	include/mizuiro/color/space/hsv_fwd.hpp
+	include/mizuiro/color/space/luminance.hpp
+	include/mizuiro/color/space/luminance_fwd.hpp
+	include/mizuiro/color/space/rgb.hpp
+	include/mizuiro/color/space/rgb_fwd.hpp
+	include/mizuiro/color/space/srgb.hpp
+	include/mizuiro/color/space/srgb_fwd.hpp
 	include/mizuiro/color/types/channel_reference.hpp
 	include/mizuiro/color/types/channel_reference_ns/tag.hpp
 	include/mizuiro/color/types/channel_value.hpp

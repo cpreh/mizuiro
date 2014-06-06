@@ -8,7 +8,7 @@
 #include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
-#include <mizuiro/color/layout/gray.hpp>
+#include <mizuiro/color/layout/l.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -27,7 +27,7 @@ MIZUIRO_DETAIL_POP_WARNING
 	typedef
 	mizuiro::color::format::homogenous_static<
 		std::uint8_t,
-		mizuiro::color::layout::gray
+		mizuiro::color::layout::l
 	>
 	format;
 

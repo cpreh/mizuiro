@@ -4,24 +4,18 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_LAYOUT_LUMINANCE_HPP_INCLUDED
-#define MIZUIRO_COLOR_LAYOUT_LUMINANCE_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CHANNEL_SATURATION_FWD_HPP_INCLUDED
+#define MIZUIRO_COLOR_CHANNEL_SATURATION_FWD_HPP_INCLUDED
 
 
 namespace mizuiro
 {
 namespace color
 {
-namespace layout
+namespace channel
 {
 
-template<
-	typename Order
->
-struct luminance
-{
-	typedef Order order;
-};
+struct saturation;
 
 }
 }

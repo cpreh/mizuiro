@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_INIT_TRAMPOLINE_HPP_INCLUDED
-#define MIZUIRO_COLOR_INIT_TRAMPOLINE_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_INIT_DETAIL_TRAMPOLINE_HPP_INCLUDED
+#define MIZUIRO_COLOR_INIT_DETAIL_TRAMPOLINE_HPP_INCLUDED
 
 #include <mizuiro/color/init/detail/channel_percentage.hpp>
 #include <mizuiro/color/init/detail/channel_value.hpp>
@@ -27,6 +27,8 @@ namespace color
 {
 namespace init
 {
+namespace detail
+{
 
 template<
 	typename Channel
@@ -36,9 +38,10 @@ struct trampoline
 	template<
 		typename Value
 	>
-	detail::values<
+	inline
+	mizuiro::color::init::detail::values<
 		boost::fusion::vector1<
-			color::init::detail::channel_value<
+			mizuiro::color::init::detail::channel_value<
 				Value,
 				Channel
 			>
@@ -50,9 +53,9 @@ struct trampoline
 	{
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 		return
-			detail::make_values(
+			mizuiro::color::init::detail::make_values(
 				boost::fusion::make_vector(
-					color::init::detail::channel_value<
+					mizuiro::color::init::detail::channel_value<
 						Value,
 						Channel
 					>(
@@ -67,13 +70,15 @@ MIZUIRO_DETAIL_POP_WARNING
 	template<
 		typename Value
 	>
-	typename boost::enable_if<
+	inline
+	typename
+	boost::enable_if<
 		boost::is_floating_point<
 			Value
 		>,
-		detail::values<
+		mizuiro::color::init::detail::values<
 			boost::fusion::vector1<
-				color::init::detail::channel_percentage<
+				mizuiro::color::init::detail::channel_percentage<
 					Value,
 					Channel
 				>
@@ -86,9 +91,9 @@ MIZUIRO_DETAIL_POP_WARNING
 	{
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 		return
-			detail::make_values(
+			mizuiro::color::init::detail::make_values(
 				boost::fusion::make_vector(
-					color::init::detail::channel_percentage<
+					mizuiro::color::init::detail::channel_percentage<
 						Value,
 						Channel
 					>(
@@ -101,6 +106,7 @@ MIZUIRO_DETAIL_POP_WARNING
 	}
 };
 
+}
 }
 }
 }

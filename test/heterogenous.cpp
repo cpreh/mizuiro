@@ -10,18 +10,18 @@
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/channel/blue.hpp>
-#include <mizuiro/color/channel/depth.hpp>
+#include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/red.hpp>
-#include <mizuiro/color/channel/stencil.hpp>
+#include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/format/heterogenous_static.hpp>
 #include <mizuiro/color/format/include/heterogenous_static.hpp>
+#include <mizuiro/color/init/alpha.hpp>
 #include <mizuiro/color/init/blue.hpp>
-#include <mizuiro/color/init/depth.hpp>
+#include <mizuiro/color/init/luminance.hpp>
 #include <mizuiro/color/init/green.hpp>
 #include <mizuiro/color/init/red.hpp>
-#include <mizuiro/color/init/stencil.hpp>
-#include <mizuiro/color/layout/depth_stencil.hpp>
+#include <mizuiro/color/layout/la.hpp>
 #include <mizuiro/color/layout/rgb.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
@@ -36,7 +36,7 @@
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 BOOST_AUTO_TEST_CASE(
-	heterogenous_depth_stencil
+	heterogenous_luminance_alpha
 )
 {
 MIZUIRO_DETAIL_POP_WARNING
@@ -48,24 +48,24 @@ MIZUIRO_DETAIL_POP_WARNING
 			24u,
 			8u
 		>,
-		mizuiro::color::layout::depth_stencil
+		mizuiro::color::layout::la
 	>
-	depth24_stencil8_format;
+	luminance24_alpha8_format;
 
 	typedef
 	mizuiro::color::object<
-		depth24_stencil8_format
+		luminance24_alpha8_format
 	>
-	depth24_stencil8_color;
+	luminance24_alpha8_color;
 
-	depth24_stencil8_color const test1(
-		(mizuiro::color::init::depth() = static_cast<std::uint32_t>(0x1E1FF))
-		(mizuiro::color::init::stencil() = static_cast<std::uint8_t>(0xF))
+	luminance24_alpha8_color const test1(
+		(mizuiro::color::init::luminance() = static_cast<std::uint32_t>(0x1E1FF))
+		(mizuiro::color::init::alpha() = static_cast<std::uint8_t>(0xF))
 	);
 
 	BOOST_CHECK(
 		test1.get(
-			mizuiro::color::channel::depth()
+			mizuiro::color::channel::luminance()
 		)
 		==
 		static_cast<std::uint32_t>(0x1E1FF)
@@ -73,7 +73,7 @@ MIZUIRO_DETAIL_POP_WARNING
 
 	BOOST_CHECK(
 		test1.get(
-			mizuiro::color::channel::stencil()
+			mizuiro::color::channel::alpha()
 		)
 		==
 		static_cast<std::uint8_t>(0xF)

@@ -9,9 +9,9 @@
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/format/heterogenous_static.hpp>
 #include <mizuiro/color/format/include/heterogenous_static.hpp>
-#include <mizuiro/color/init/depth.hpp>
-#include <mizuiro/color/init/stencil.hpp>
-#include <mizuiro/color/layout/depth_stencil.hpp>
+#include <mizuiro/color/init/alpha.hpp>
+#include <mizuiro/color/init/luminance.hpp>
+#include <mizuiro/color/layout/la.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/vector/vector10_c.hpp>
 #include <cstdint>
@@ -23,22 +23,26 @@
 int
 main()
 {
-	typedef mizuiro::color::format::heterogenous_static<
+	typedef
+	mizuiro::color::format::heterogenous_static<
 		boost::mpl::vector2_c<
 			mizuiro::size_type,
 			24u,
 			8u
 		>,
-		mizuiro::color::layout::depth_stencil
-	> depth24_stencil8_format;
+		mizuiro::color::layout::la
+	>
+	l24_a8_format;
 
-	typedef mizuiro::color::object<
-		depth24_stencil8_format
-	> depth24_stencil8_color;
+	typedef
+	mizuiro::color::object<
+		l24_a8_format
+	>
+	l24_a8_color;
 
-	depth24_stencil8_color const test1(
-		(mizuiro::color::init::depth() = static_cast<std::uint32_t>(0x1FF))
-		(mizuiro::color::init::stencil() = static_cast<std::uint8_t>(0xF))
+	l24_a8_color const test1(
+		(mizuiro::color::init::luminance() = static_cast<std::uint32_t>(0x1FF))
+		(mizuiro::color::init::alpha() = static_cast<std::uint8_t>(0xF))
 	);
 
 	std::cout

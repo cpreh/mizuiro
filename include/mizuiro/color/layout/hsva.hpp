@@ -11,7 +11,7 @@
 #include <mizuiro/color/channel/hue.hpp>
 #include <mizuiro/color/channel/saturation.hpp>
 #include <mizuiro/color/channel/value.hpp>
-#include <mizuiro/color/layout/cylindrical.hpp>
+#include <mizuiro/color/space/hsv.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -25,14 +25,15 @@ namespace layout
 {
 
 typedef
-mizuiro::color::layout::cylindrical<
+mizuiro::color::space::hsv<
 	boost::mpl::vector4<
 		mizuiro::color::channel::hue,
 		mizuiro::color::channel::saturation,
 		mizuiro::color::channel::value,
 		mizuiro::color::channel::alpha
 	>
-> hsva;
+>
+hsva;
 
 }
 }

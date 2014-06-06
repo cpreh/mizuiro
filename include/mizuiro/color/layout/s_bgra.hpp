@@ -11,7 +11,7 @@
 #include <mizuiro/color/channel/blue.hpp>
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/red.hpp>
-#include <mizuiro/color/layout/s_additive.hpp>
+#include <mizuiro/color/space/srgb.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/vector/vector10.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -24,14 +24,16 @@ namespace color
 namespace layout
 {
 
-typedef mizuiro::color::layout::s_additive<
+typedef
+mizuiro::color::space::srgb<
 	boost::mpl::vector4<
 		mizuiro::color::channel::blue,
 		mizuiro::color::channel::green,
 		mizuiro::color::channel::red,
 		mizuiro::color::channel::alpha
 	>
-> s_bgra;
+>
+s_bgra;
 
 }
 }

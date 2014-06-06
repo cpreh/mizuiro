@@ -4,23 +4,18 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_INIT_HUE_HPP_INCLUDED
-#define MIZUIRO_COLOR_INIT_HUE_HPP_INCLUDED
-
-#include <mizuiro/color/channel/hue.hpp>
-#include <mizuiro/color/init/detail/make.hpp>
+#ifndef MIZUIRO_COLOR_CHANNEL_RED_FWD_HPP_INCLUDED
+#define MIZUIRO_COLOR_CHANNEL_RED_FWD_HPP_INCLUDED
 
 
 namespace mizuiro
 {
 namespace color
 {
-namespace init
+namespace channel
 {
 
-MIZUIRO_COLOR_INIT_DETAIL_MAKE(
-	hue
-)
+struct red;
 
 }
 }

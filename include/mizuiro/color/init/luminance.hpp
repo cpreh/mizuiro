@@ -8,7 +8,7 @@
 #define MIZUIRO_COLOR_INIT_LUMINANCE_HPP_INCLUDED
 
 #include <mizuiro/color/channel/luminance.hpp>
-#include <mizuiro/color/init/detail/make_trampoline.hpp>
+#include <mizuiro/color/init/detail/make.hpp>
 
 
 namespace mizuiro
@@ -18,7 +18,7 @@ namespace color
 namespace init
 {
 
-MIZUIRO_COLOR_INIT_DETAIL_MAKE_TRAMPOLINE(
+MIZUIRO_COLOR_INIT_DETAIL_MAKE(
 	luminance
 )
 
