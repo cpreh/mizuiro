@@ -242,6 +242,7 @@ set(
 	include/mizuiro/color/convert_static/is_rgb.hpp
 	include/mizuiro/color/convert_static/is_static.hpp
 	include/mizuiro/color/convert_static/same_to_same.hpp
+	include/mizuiro/color/decay_channel_proxy.hpp
 	include/mizuiro/color/denormalize.hpp
 	include/mizuiro/color/detail/bit_channel_access_normal.hpp
 	include/mizuiro/color/detail/bit_channel_access_raw.hpp
@@ -460,23 +461,26 @@ set(
 	include/mizuiro/image/access/store_size_ns/tag.hpp
 	include/mizuiro/image/access/stride.hpp
 	include/mizuiro/image/access/stride_ns/tag.hpp
+	include/mizuiro/image/algorithm/binary_fold.hpp
 	include/mizuiro/image/algorithm/binary_iteration.hpp
 	include/mizuiro/image/algorithm/bresenham.hpp
 	include/mizuiro/image/algorithm/clone.hpp
+	include/mizuiro/image/algorithm/compare.hpp
 	include/mizuiro/image/algorithm/copy.hpp
 	include/mizuiro/image/algorithm/copy_and_convert.hpp
 	include/mizuiro/image/algorithm/copy_different_channel_order.hpp
 	include/mizuiro/image/algorithm/copy_same_channel_order.hpp
-	include/mizuiro/image/algorithm/detail/binary_iteration.hpp
+	include/mizuiro/image/algorithm/detail/binary_fold.hpp
+	include/mizuiro/image/algorithm/detail/compare_element.hpp
 	include/mizuiro/image/algorithm/detail/copy_and_convert.hpp
 	include/mizuiro/image/algorithm/detail/copy_element.hpp
 	include/mizuiro/image/algorithm/detail/copy_element_overlapping.hpp
 	include/mizuiro/image/algorithm/detail/copy_impl.hpp
+	include/mizuiro/image/algorithm/detail/dummy_state.hpp
 	include/mizuiro/image/algorithm/detail/fill.hpp
+	include/mizuiro/image/algorithm/detail/iteration_to_fold_function.hpp
 	include/mizuiro/image/algorithm/detail/print.hpp
-	include/mizuiro/image/algorithm/detail/transform_binary.hpp
-	include/mizuiro/image/algorithm/detail/transform_ternary.hpp
-	include/mizuiro/image/algorithm/detail/unary_iteration.hpp
+	include/mizuiro/image/algorithm/detail/unary_fold.hpp
 	include/mizuiro/image/algorithm/detail/unwrap_binary_both.hpp
 	include/mizuiro/image/algorithm/detail/unwrap_binary_first.hpp
 	include/mizuiro/image/algorithm/detail/unwrap_binary_second.hpp
@@ -488,6 +492,7 @@ set(
 	include/mizuiro/image/algorithm/may_overlap_fwd.hpp
 	include/mizuiro/image/algorithm/print.hpp
 	include/mizuiro/image/algorithm/transform.hpp
+	include/mizuiro/image/algorithm/unary_fold.hpp
 	include/mizuiro/image/algorithm/unary_iteration.hpp
 	include/mizuiro/image/bound.hpp
 	include/mizuiro/image/bound_decl.hpp

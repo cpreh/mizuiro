@@ -9,6 +9,7 @@
 
 #include <mizuiro/detail/nonassignable.hpp>
 
+
 namespace mizuiro
 {
 namespace image
@@ -26,14 +27,20 @@ class advance_iterator
 		advance_iterator
 	);
 public:
-	typedef Variant result_type;
+	typedef
+	Variant
+	result_type;
 
-	explicit advance_iterator(
+	explicit
+	advance_iterator(
 		DifferenceType const _diff
 	)
 	:
-		diff_(_diff)
-	{}
+		diff_(
+			_diff
+		)
+	{
+	}
 
 	template<
 		typename T
@@ -43,7 +50,8 @@ public:
 		T _value
 	) const
 	{
-		return _value += diff_;
+		return
+			_value += diff_;
 	}
 private:
 	DifferenceType const diff_;

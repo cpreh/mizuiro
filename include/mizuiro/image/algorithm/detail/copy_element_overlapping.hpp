@@ -22,7 +22,9 @@ template<
 >
 struct copy_element_overlapping
 {
-	typedef void result_type;
+	typedef
+	void
+	result_type;
 
 	template<
 		typename Src,

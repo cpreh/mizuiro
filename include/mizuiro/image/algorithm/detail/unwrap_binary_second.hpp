@@ -8,7 +8,7 @@
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_UNWRAP_BINARY_SECOND_HPP_INCLUDED
 
 #include <mizuiro/detail/nonassignable.hpp>
-#include <mizuiro/image/algorithm/detail/binary_iteration.hpp>
+#include <mizuiro/image/algorithm/detail/binary_fold.hpp>
 
 
 namespace mizuiro
@@ -22,6 +22,7 @@ namespace detail
 
 template<
 	typename Function,
+	typename State,
 	typename View1
 >
 class unwrap_binary_second
@@ -32,11 +33,15 @@ class unwrap_binary_second
 public:
 	unwrap_binary_second(
 		Function const &_function,
+		State _state,
 		View1 const &_view1
 	)
 	:
 		function_(
 			_function
+		),
+		state_(
+			_state
 		),
 		view1_(
 			_view1
@@ -44,7 +49,9 @@ public:
 	{
 	}
 
-	typedef void result_type;
+	typedef
+	State
+	result_type;
 
 	template<
 		typename View2
@@ -55,14 +62,17 @@ public:
 	) const
 	{
 		return
-			mizuiro::image::algorithm::detail::binary_iteration(
+			mizuiro::image::algorithm::detail::binary_fold(
 				function_,
+				state_,
 				view1_,
 				_view2
 			);
 	}
 private:
 	Function const &function_;
+
+	State state_;
 
 	View1 const &view1_;
 };

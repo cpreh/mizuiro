@@ -8,13 +8,13 @@
 #define MIZUIRO_COLOR_COMPARE_HPP_INCLUDED
 
 #include <mizuiro/color/is_color.hpp>
+#include <mizuiro/color/formats_are_compatible.hpp>
 #include <mizuiro/color/detail/compare.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/mpl/begin.hpp>
 #include <boost/mpl/end.hpp>
 #include <boost/utility/enable_if.hpp>
-#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -31,7 +31,7 @@ template<
 typename
 boost::enable_if<
 	boost::mpl::and_<
-		std::is_same<
+		mizuiro::color::formats_are_compatible<
 			typename Color1::format,
 			typename Color2::format
 		>,

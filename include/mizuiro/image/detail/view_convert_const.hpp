@@ -9,6 +9,7 @@
 
 #include <mizuiro/image/make_const_view.hpp>
 
+
 namespace mizuiro
 {
 namespace image
@@ -21,7 +22,9 @@ template<
 >
 struct view_convert_const
 {
-	typedef Variant result_type;
+	typedef
+	Variant
+	result_type;
 
 	template<
 		typename View
@@ -33,7 +36,7 @@ struct view_convert_const
 	{
 		return
 			Variant(
-				image::make_const_view(
+				mizuiro::image::make_const_view(
 					_view
 				)
 			);

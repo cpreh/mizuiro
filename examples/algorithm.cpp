@@ -20,6 +20,7 @@
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/view.hpp>
+#include <mizuiro/image/algorithm/compare.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
@@ -29,6 +30,7 @@
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <cstdint>
+#include <functional>
 #include <iostream>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
@@ -197,6 +199,17 @@ int main()
 		img2.view()
 	);
 
+	std::cout
+		<< "\n\nequal: "
+		<< std::boolalpha
+		<< mizuiro::image::algorithm::compare(
+			img1.view(),
+			img1.view(),
+			std::equal_to<
+				channel_type
+			>()
+		)
+		<< '\n';
 #if 0
 	mizuiro::image::algorithm::transform(
 		img2.view(),

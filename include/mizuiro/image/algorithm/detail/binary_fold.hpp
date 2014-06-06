@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_BINARY_ITERATION_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ALGORITHM_DETAIL_BINARY_ITERATION_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_BINARY_FOLD_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ALGORITHM_DETAIL_BINARY_FOLD_HPP_INCLUDED
 
 
 namespace mizuiro
@@ -18,13 +18,16 @@ namespace detail
 {
 
 template<
+	typename State,
 	typename Function,
 	typename View1,
 	typename View2
 >
-void
-binary_iteration(
+inline
+State
+binary_fold(
 	Function const &_function,
+	State _state,
 	View1 const &_view1,
 	View2 const &_view2
 )
@@ -44,10 +47,15 @@ binary_iteration(
 		it1 != it1end;
 		++it1, ++it2
 	)
-		_function(
-			*it1,
-			*it2
-		);
+		_state =
+			_function(
+				_state,
+				*it1,
+				*it2
+			);
+
+	return
+		_state;
 }
 
 }

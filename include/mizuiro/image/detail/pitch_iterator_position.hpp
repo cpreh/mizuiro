@@ -25,7 +25,7 @@ template<
 >
 typename Format::dim const
 pitch_iterator_position(
-	image::pitch_iterator<
+	mizuiro::image::pitch_iterator<
 		Access,
 		Format,
 		Constness
@@ -33,7 +33,7 @@ pitch_iterator_position(
 )
 {
 	return
-		image::detail::relative_position(
+		mizuiro::image::detail::relative_position(
 			_it.size(),
 			_it.offset()
 		);

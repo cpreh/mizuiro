@@ -24,7 +24,9 @@ template<
 >
 struct copy_and_convert
 {
-	typedef void result_type;
+	typedef
+	void
+	result_type;
 
 	template<
 		typename Src,

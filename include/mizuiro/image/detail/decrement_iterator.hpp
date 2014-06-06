@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_DECREMENT_ITERATOR_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_DECREMENT_ITERATOR_HPP_INCLUDED
 
+
 namespace mizuiro
 {
 namespace image
@@ -17,8 +18,11 @@ namespace detail
 template<
 	typename Variant
 >
-struct decrement_iterator {
-	typedef Variant result_type;
+struct decrement_iterator
+{
+	typedef
+	Variant
+	result_type;
 
 	template<
 		typename T
@@ -28,7 +32,8 @@ struct decrement_iterator {
 		T t
 	) const
 	{
-		return --t;
+		return
+			--t;
 	}
 };
 

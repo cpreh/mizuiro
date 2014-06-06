@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_VIEW_SIZE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_VIEW_SIZE_HPP_INCLUDED
 
+
 namespace mizuiro
 {
 namespace image
@@ -19,7 +20,9 @@ template<
 >
 struct view_size
 {
-	typedef Dim result_type;
+	typedef
+	Dim
+	result_type;
 
 	template<
 		typename View

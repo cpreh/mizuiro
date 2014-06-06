@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_COMPARE_ITERATOR_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_COMPARE_ITERATOR_HPP_INCLUDED
 
+
 namespace mizuiro
 {
 namespace image
@@ -14,8 +15,11 @@ namespace image
 namespace detail
 {
 
-struct compare_iterator {
-	typedef bool result_type;
+struct compare_iterator
+{
+	typedef
+	bool
+	result_type;
 
 	template<
 		typename T1,
@@ -35,11 +39,14 @@ struct compare_iterator {
 	>
 	result_type
 	operator()(
-		T const &a,
-		T const &b
+		T const &_a,
+		T const &_b
 	) const
 	{
-		return a == b;
+		return
+			_a
+			==
+			_b;
 	}
 };
 

@@ -26,12 +26,12 @@ template<
 >
 typename Format::dim const
 linear_iterator_position(
-	image::linear_view<
+	mizuiro::image::linear_view<
 		Access,
 		Format,
 		Constness
 	> const &_view,
-	image::linear_iterator<
+	mizuiro::image::linear_iterator<
 		Access,
 		Format,
 		Constness
@@ -39,7 +39,7 @@ linear_iterator_position(
 )
 {
 	return
-		detail::relative_position(
+		mizuiro::image::detail::relative_position(
 			_view.size(),
 			_it
 			-

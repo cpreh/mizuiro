@@ -8,7 +8,7 @@
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_UNWRAP_UNARY_HPP_INCLUDED
 
 #include <mizuiro/detail/nonassignable.hpp>
-#include <mizuiro/image/algorithm/detail/unary_iteration.hpp>
+#include <mizuiro/image/algorithm/detail/unary_fold.hpp>
 
 
 namespace mizuiro
@@ -21,7 +21,8 @@ namespace detail
 {
 
 template<
-	typename Function
+	typename Function,
+	typename State
 >
 class unwrap_unary
 {
@@ -29,19 +30,22 @@ class unwrap_unary
 		unwrap_unary
 	);
 public:
-	explicit
 	unwrap_unary(
-		Function const &_function
+		Function const &_function,
+		State _state
 	)
 	:
 		function_(
 			_function
+		),
+		state_(
+			_state
 		)
 	{
 	}
 
 	typedef
-	void
+	State
 	result_type;
 
 	template<
@@ -53,13 +57,16 @@ public:
 	) const
 	{
 		return
-			mizuiro::image::algorithm::detail::unary_iteration(
+			mizuiro::image::algorithm::detail::unary_fold(
 				function_,
+				state_,
 				_view
 			);
 	}
 private:
 	Function const &function_;
+
+	State state_;
 };
 
 }

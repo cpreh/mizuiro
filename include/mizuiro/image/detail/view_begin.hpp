@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_VIEW_BEGIN_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_VIEW_BEGIN_HPP_INCLUDED
 
+
 namespace mizuiro
 {
 namespace image
@@ -19,7 +20,9 @@ template<
 >
 struct view_begin
 {
-	typedef Iterator result_type;
+	typedef
+	Iterator
+	result_type;
 
 	template<
 		typename View

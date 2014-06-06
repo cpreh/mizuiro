@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_COLOR_DETAIL_COMPARE_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_COMPARE_HPP_INCLUDED
 
+#include <mizuiro/color/decay_channel_proxy.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/deref.hpp>
 #include <boost/mpl/next.hpp>
@@ -86,11 +87,15 @@ struct compare<
 
 		return
 			_compare(
-				_color1.get(
-					item()
+				mizuiro::color::decay_channel_proxy(
+					_color1.get(
+						item()
+					)
 				),
-				_color2.get(
-					item()
+				mizuiro::color::decay_channel_proxy(
+					_color2.get(
+						item()
+					)
 				)
 			)
 			&&

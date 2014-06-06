@@ -11,6 +11,7 @@
 #include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
+
 namespace mizuiro
 {
 namespace image

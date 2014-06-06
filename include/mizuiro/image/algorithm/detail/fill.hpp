@@ -51,7 +51,8 @@ public:
 		Dest const &_dest
 	) const
 	{
-		_dest = fun_();
+		_dest =
+			fun_();
 	}
 private:
 	Fun const &fun_;

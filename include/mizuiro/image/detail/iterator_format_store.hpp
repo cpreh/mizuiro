@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_ITERATOR_FORMAT_STORE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_ITERATOR_FORMAT_STORE_HPP_INCLUDED
 
+
 namespace mizuiro
 {
 namespace image
@@ -19,7 +20,9 @@ template<
 >
 struct iterator_format_store
 {
-	typedef FormatStore result_type;
+	typedef
+	FormatStore
+	result_type;
 
 	template<
 		typename T
@@ -29,7 +32,8 @@ struct iterator_format_store
 		T const &_value
 	) const
 	{
-		return _value.format_store();
+		return
+			_value.format_store();
 	}
 };
 

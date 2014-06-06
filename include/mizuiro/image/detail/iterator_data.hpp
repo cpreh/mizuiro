@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_ITERATOR_DATA_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_ITERATOR_DATA_HPP_INCLUDED
 
+
 namespace mizuiro
 {
 namespace image
@@ -19,7 +20,9 @@ template<
 >
 struct iterator_data
 {
-	typedef Pointer result_type;
+	typedef
+	Pointer
+	result_type;
 
 	template<
 		typename T
@@ -29,7 +32,8 @@ struct iterator_data
 		T const &_value
 	) const
 	{
-		return _value.data();
+		return
+			_value.data();
 	}
 };
 

@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_VIEW_FORMAT_STORE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_VIEW_FORMAT_STORE_HPP_INCLUDED
 
+
 namespace mizuiro
 {
 namespace image
@@ -19,7 +20,9 @@ template<
 >
 struct view_format_store
 {
-	typedef FormatStore result_type;
+	typedef
+	FormatStore
+	result_type;
 
 	template<
 		typename View

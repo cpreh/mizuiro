@@ -7,10 +7,9 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_UNARY_ITERATION_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_UNARY_ITERATION_HPP_INCLUDED
 
-#include <mizuiro/detail/variant_apply_unary.hpp>
-#include <mizuiro/image/view_fwd.hpp>
-#include <mizuiro/image/algorithm/detail/unary_iteration.hpp>
-#include <mizuiro/image/algorithm/detail/unwrap_unary.hpp>
+#include <mizuiro/image/algorithm/unary_fold.hpp>
+#include <mizuiro/image/algorithm/detail/dummy_state.hpp>
+#include <mizuiro/image/algorithm/detail/iteration_to_fold_function.hpp>
 
 
 namespace mizuiro
@@ -24,41 +23,21 @@ template<
 	typename Function,
 	typename View
 >
+inline
 void
 unary_iteration(
 	Function const &_function,
 	View const &_view
 )
 {
-	mizuiro::image::algorithm::detail::unary_iteration(
-		_function,
-		_view
-	);
-}
-
-template<
-	typename Function,
-	typename Access,
-	typename Format,
-	typename Constness
->
-void
-unary_iteration(
-	Function const &_function,
-	mizuiro::image::view<
-		Access,
-		Format,
-		Constness
-	> const &_view
-)
-{
-	mizuiro::detail::variant_apply_unary(
-		mizuiro::image::algorithm::detail::unwrap_unary<
+	mizuiro::image::algorithm::unary_fold(
+		mizuiro::image::algorithm::detail::iteration_to_fold_function<
 			Function
 		>(
 			_function
 		),
-		_view.impl()
+		mizuiro::image::algorithm::detail::dummy_state(),
+		_view
 	);
 }
 
