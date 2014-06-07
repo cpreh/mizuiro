@@ -20,8 +20,8 @@
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <cstdint>
 #include <cmath>
+#include <cstdint>
 #include <iostream>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>

@@ -8,9 +8,9 @@
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_NS_CHANNEL_MAX_HPP_INCLUDED
 
 #include <mizuiro/color/access/channel_max_ns/tag.hpp>
+#include <mizuiro/color/detail/full_channel_max.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/homogenous_ns/tag.hpp>
-#include <mizuiro/color/detail/full_channel_max.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 
 

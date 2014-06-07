@@ -11,10 +11,10 @@
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/pitch_type.hpp>
-#include <mizuiro/image/format/argument.hpp>
-#include <mizuiro/image/format/base_decl.hpp>
 #include <mizuiro/image/detail/iterator_base.hpp>
 #include <mizuiro/image/detail/stacked_dim_array.hpp>
+#include <mizuiro/image/format/argument.hpp>
+#include <mizuiro/image/format/base_decl.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/iterator/iterator_facade.hpp>

@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_COLOR_COMPARE_HPP_INCLUDED
 #define MIZUIRO_COLOR_COMPARE_HPP_INCLUDED
 
-#include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/formats_are_compatible.hpp>
+#include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/detail/compare.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/and.hpp>

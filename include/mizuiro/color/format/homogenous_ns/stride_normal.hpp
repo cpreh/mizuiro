@@ -9,8 +9,8 @@
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/access/normal.hpp>
-#include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/access/stride_ns/tag.hpp>
+#include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/homogenous_ns/tag.hpp>
 
 

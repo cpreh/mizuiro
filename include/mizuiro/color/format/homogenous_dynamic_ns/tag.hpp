@@ -7,10 +7,10 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_NS_TAG_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_NS_TAG_HPP_INCLUDED
 
+#include <mizuiro/color/format/dynamic_ns/tag.hpp>
+#include <mizuiro/color/format/homogenous_ns/tag.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
-#include <mizuiro/color/format/homogenous_ns/tag.hpp>
-#include <mizuiro/color/format/dynamic_ns/tag.hpp>
 
 
 namespace mizuiro

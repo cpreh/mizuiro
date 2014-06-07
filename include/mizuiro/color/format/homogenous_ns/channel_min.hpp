@@ -8,9 +8,9 @@
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_NS_CHANNEL_MIN_HPP_INCLUDED
 
 #include <mizuiro/color/access/channel_min_ns/tag.hpp>
+#include <mizuiro/color/detail/full_channel_min.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/homogenous_ns/tag.hpp>
-#include <mizuiro/color/detail/full_channel_min.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 
 

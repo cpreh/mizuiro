@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_COLOR_ACCESS_EXTRACT_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_ACCESS_EXTRACT_CHANNEL_HPP_INCLUDED
 
+#include <mizuiro/color/access/extract_channel_ns/tag.hpp>
 #include <mizuiro/color/format/make_tag_of.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
-#include <mizuiro/color/access/extract_channel_ns/tag.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 

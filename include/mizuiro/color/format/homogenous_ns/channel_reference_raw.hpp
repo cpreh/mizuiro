@@ -9,8 +9,8 @@
 
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/color/channel_proxy_impl.hpp>
-#include <mizuiro/color/format/homogenous_ns/tag.hpp>
 #include <mizuiro/color/detail/raw_channel_access.hpp>
+#include <mizuiro/color/format/homogenous_ns/tag.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/channel_reference_ns/tag.hpp>
