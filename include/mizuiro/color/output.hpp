@@ -11,7 +11,6 @@
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/detail/output_channel.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
 
@@ -26,16 +25,10 @@ template<
 	typename Traits,
 	typename Color
 >
-typename
-boost::enable_if<
-	mizuiro::color::is_color<
-		Color
-	>,
-	std::basic_ostream<
-		Ch,
-		Traits
-	> &
->::type
+std::basic_ostream<
+	Ch,
+	Traits
+> &
 operator<<(
 	std::basic_ostream<
 		Ch,
@@ -44,11 +37,19 @@ operator<<(
 	Color const &_color
 )
 {
-	_stream << _stream.widen('(');
+	static_assert(
+		mizuiro::color::is_color<
+			Color
+		>::value,
+		"Color must be a color type"
+	);
+
+	_stream
+		<< _stream.widen('(');
 
 	mizuiro::color::for_each_channel(
 		_color,
-		detail::output_channel<
+		mizuiro::color::detail::output_channel<
 			Ch,
 			Traits,
 			Color
@@ -58,9 +59,11 @@ operator<<(
 		)
 	);
 
-	_stream << _stream.widen(')');
+	_stream
+		<< _stream.widen(')');
 
-	return _stream;
+	return
+		_stream;
 }
 
 }

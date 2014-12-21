@@ -11,8 +11,6 @@
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/types/has_channel_static.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/or.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -25,13 +23,11 @@ namespace color
 namespace convert_static
 {
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 template<
 	typename Format
 >
-struct is_rgb
-:
+using is_rgb
+=
 boost::mpl::or_<
 	mizuiro::color::types::has_channel_static<
 		Format,
@@ -45,11 +41,7 @@ boost::mpl::or_<
 		Format,
 		channel::blue
 	>
->
-{
-};
-
-MIZUIRO_DETAIL_POP_WARNING
+>;
 
 }
 }

@@ -8,7 +8,7 @@
 #define MIZUIRO_DETAIL_FORMAT_ARGUMENT_HPP_INCLUDED
 
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -40,8 +40,8 @@ struct format_argument<
 	FormatNeedsStore,
 	FormatStore,
 	typename
-	boost::enable_if<
-		FormatNeedsStore
+	std::enable_if<
+		FormatNeedsStore::value
 	>::type
 >
 {
@@ -66,8 +66,8 @@ struct format_argument<
 	FormatNeedsStore,
 	FormatStore,
 	typename
-	boost::disable_if<
-		FormatNeedsStore
+	std::enable_if<
+		!FormatNeedsStore::value
 	>::type
 >
 {

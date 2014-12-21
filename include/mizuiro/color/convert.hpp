@@ -10,9 +10,6 @@
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/format/argument.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
@@ -25,15 +22,9 @@ template<
 	typename DestFormat,
 	typename Src
 >
-typename
-boost::enable_if<
-	mizuiro::color::is_color<
-		Src
-	>,
-	mizuiro::color::object<
-		DestFormat
-	>
->::type
+mizuiro::color::object<
+	DestFormat
+>
 convert(
 	Src const &_src,
 	typename
@@ -45,6 +36,13 @@ convert(
 		>::get()
 )
 {
+	static_assert(
+		mizuiro::color::is_color<
+			Src
+		>::value,
+		"Src must be a color type"
+	);
+
 	return
 		Converter:: template execute<
 			DestFormat

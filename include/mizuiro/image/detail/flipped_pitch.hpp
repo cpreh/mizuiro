@@ -8,7 +8,7 @@
 #define MIZUIRO_IMAGE_DETAIL_FLIPPED_PITCH_HPP_INCLUDED
 
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -22,7 +22,8 @@ namespace detail
 template<
 	typename Pitch
 >
-typename boost::enable_if_c<
+typename
+std::enable_if<
 	Pitch::static_size >= 2,
 	Pitch
 >::type const
@@ -48,8 +49,9 @@ flipped_pitch(
 template<
 	typename Pitch
 >
-typename boost::disable_if_c<
-	Pitch::static_size >= 2,
+typename
+std::enable_if<
+	Pitch::static_size == 1,
 	Pitch
 >::type const
 flipped_pitch(

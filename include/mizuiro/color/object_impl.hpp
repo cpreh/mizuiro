@@ -16,7 +16,7 @@
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -65,10 +65,10 @@ mizuiro::color::object<
 	Format
 >::object(
 	Other const &_other,
-	typename boost::enable_if<
+	typename std::enable_if<
 		mizuiro::color::is_color<
 			Other
-		>
+		>::value
 	>::type *
 )
 :

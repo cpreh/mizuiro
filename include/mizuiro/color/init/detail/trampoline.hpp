@@ -16,8 +16,7 @@
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/fusion/container/generation/make_vector.hpp>
 #include <boost/fusion/container/vector/vector.hpp>
-#include <boost/type_traits/is_floating_point.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -46,7 +45,7 @@ struct trampoline
 				Channel
 			>
 		>
-	> const
+	>
 	operator=(
 		Value const &_value
 	) const
@@ -71,24 +70,25 @@ MIZUIRO_DETAIL_POP_WARNING
 		typename Value
 	>
 	inline
-	typename
-	boost::enable_if<
-		boost::is_floating_point<
-			Value
-		>,
-		mizuiro::color::init::detail::values<
-			boost::fusion::vector1<
-				mizuiro::color::init::detail::channel_percentage<
-					Value,
-					Channel
-				>
+	mizuiro::color::init::detail::values<
+		boost::fusion::vector1<
+			mizuiro::color::init::detail::channel_percentage<
+				Value,
+				Channel
 			>
-		> const
-	>::type
+		>
+	>
 	operator%=(
 		Value const &_value
 	) const
 	{
+		static_assert(
+			std::is_floating_point<
+				Value
+			>::value,
+			"Arguments must be of floating point type for '%=' initialization"
+		);
+
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 		return
 			mizuiro::color::init::detail::make_values(

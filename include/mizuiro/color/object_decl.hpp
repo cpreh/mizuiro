@@ -24,7 +24,7 @@
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -105,10 +105,10 @@ public:
 	>
 	object(
 		Other const &,
-		typename boost::enable_if<
+		typename std::enable_if<
 			mizuiro::color::is_color<
 				Other
-			>
+			>::value
 		>::type * = nullptr
 	);
 

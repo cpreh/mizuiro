@@ -8,7 +8,6 @@
 #define MIZUIRO_COLOR_DETAIL_FULL_CHANNEL_MIN_HPP_INCLUDED
 
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
 #include <limits>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -25,10 +24,10 @@ template<
 	typename Type
 >
 typename
-boost::enable_if<
+std::enable_if<
 	std::is_integral<
 		Type
-	>,
+	>::value,
 	Type
 >::type
 full_channel_min()
@@ -43,10 +42,10 @@ template<
 	typename Type
 >
 typename
-boost::enable_if<
+std::enable_if<
 	std::is_floating_point<
 		Type
-	>,
+	>::value,
 	Type
 >::type
 full_channel_min()

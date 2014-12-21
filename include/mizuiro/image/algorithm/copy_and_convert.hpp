@@ -13,7 +13,7 @@
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/detail/copy_and_convert.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -29,11 +29,12 @@ template<
 	typename ViewS,
 	typename ViewD
 >
-typename boost::disable_if<
-	mizuiro::image::views_are_compatible<
+typename
+std::enable_if<
+	!mizuiro::image::views_are_compatible<
 		ViewS,
 		ViewD
-	>,
+	>::value,
 	void
 >::type
 copy_and_convert(
@@ -56,11 +57,12 @@ template<
 	typename ViewS,
 	typename ViewD
 >
-typename boost::enable_if<
+typename
+std::enable_if<
 	mizuiro::image::views_are_compatible<
 		ViewS,
 		ViewD
-	>,
+	>::value,
 	void
 >::type
 copy_and_convert(

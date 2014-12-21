@@ -14,6 +14,7 @@
 #include <boost/fusion/sequence/intrinsic/front.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -40,7 +41,9 @@ public:
 		vector_type const &_elements
 	)
 	:
-		elements_(_elements)
+		elements_(
+			_elements
+		)
 	{}
 
 	template<
@@ -76,7 +79,8 @@ public:
 	vector_type const &
 	get() const
 	{
-		return elements_;
+		return
+			elements_;
 	}
 private:
 	vector_type elements_;

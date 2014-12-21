@@ -12,7 +12,6 @@
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
@@ -27,16 +26,10 @@ template<
 	typename Channel,
 	typename Float
 >
-typename
-boost::enable_if<
-	std::is_floating_point<
-		Float
-	>,
-	mizuiro::color::types::channel_value<
-		Format,
-		Channel
-	>
->::type
+mizuiro::color::types::channel_value<
+	Format,
+	Channel
+>
 denormalize(
 	mizuiro::color::format::store<
 		Format
@@ -45,6 +38,13 @@ denormalize(
 	Float const _src
 )
 {
+	static_assert(
+		std::is_floating_point<
+			Float
+		>::value,
+		"Float must be a floating point type"
+	);
+
 	return
 		static_cast<
 			mizuiro::color::types::channel_value<

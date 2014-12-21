@@ -11,8 +11,6 @@
 #include <mizuiro/color/access/channel_max.hpp>
 #include <mizuiro/color/access/channel_min.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/utility/enable_if.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
@@ -27,23 +25,26 @@ template<
 	typename Channel,
 	typename Color
 >
-typename
-boost::enable_if<
-	boost::mpl::and_<
-		mizuiro::color::is_color<
-			Color
-		>,
-		std::is_floating_point<
-			Float
-		>
-	>,
-	Float
->::type
+Float
 normalize(
 	Color const &_color,
 	Channel const &_channel
 )
 {
+	static_assert(
+		mizuiro::color::is_color<
+			Color
+		>::value,
+		"Color must be a color type"
+	);
+
+	static_assert(
+		std::is_floating_point<
+			Float
+		>::value,
+		"Floating must be a floating point type"
+	);
+
 	return
 		(
 			static_cast<

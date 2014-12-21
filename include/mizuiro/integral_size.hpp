@@ -8,8 +8,6 @@
 #define MIZUIRO_INTEGRAL_SIZE_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/integral_c.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -17,8 +15,6 @@
 
 namespace mizuiro
 {
-
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 /**
 \brief An integral constant size of mizuiro::size_type
@@ -30,16 +26,12 @@ TODO: Use std::integral_constant here?
 template<
 	mizuiro::size_type Size
 >
-struct integral_size
-:
+using integral_size
+=
 boost::mpl::integral_c<
 	mizuiro::size_type,
 	Size
->
-{
-};
-
-MIZUIRO_DETAIL_POP_WARNING
+>;
 
 }
 

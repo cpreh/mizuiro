@@ -12,7 +12,6 @@
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/fusion/adapted/mpl.hpp>
 #include <boost/fusion/algorithm/iteration/for_each.hpp>
-#include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -25,18 +24,19 @@ template<
 	typename Color,
 	typename Function
 >
-typename
-boost::enable_if<
-	mizuiro::color::is_color<
-		Color
-	>,
-	void
->::type
+void
 for_each_channel(
 	Color const &_color,
 	Function const &_function
 )
 {
+	static_assert(
+		mizuiro::color::is_color<
+			Color
+		>::value,
+		"Color must be a color type"
+	);
+
 	boost::fusion::for_each(
 		mizuiro::color::access::layout(
 			_color.format_store()

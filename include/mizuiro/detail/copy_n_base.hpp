@@ -8,10 +8,8 @@
 #define MIZUIRO_DETAIL_COPY_N_BASE_HPP_INCLUDED
 
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/type_traits/is_fundamental.hpp>
-#include <boost/utility/enable_if.hpp>
 #include <cstddef>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -26,17 +24,7 @@ template<
 	typename Size,
 	typename Dest
 >
-typename boost::enable_if<
-	boost::mpl::and_<
-		boost::is_fundamental<
-			Source
-		>,
-		boost::is_fundamental<
-			Dest
-		>
-	>,
-	void
->::type
+void
 copy_n_base(
 	Function const &_function,
 	Source const *const _src,
@@ -44,6 +32,17 @@ copy_n_base(
 	Dest *const _dest
 )
 {
+	static_assert(
+		std::is_fundamental<
+			Source
+		>::value
+		&&
+		std::is_fundamental<
+			Dest
+		>::value,
+		"Source and Dest must be fundamental types"
+	);
+
 	_function(
 		_dest,
 		_src,

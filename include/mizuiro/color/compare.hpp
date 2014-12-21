@@ -11,10 +11,8 @@
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/detail/compare.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/and.hpp>
 #include <boost/mpl/begin.hpp>
 #include <boost/mpl/end.hpp>
-#include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -28,28 +26,35 @@ template<
 	typename Color2,
 	typename CompareChannel
 >
-typename
-boost::enable_if<
-	boost::mpl::and_<
-		mizuiro::color::formats_are_compatible<
-			typename Color1::format,
-			typename Color2::format
-		>,
-		mizuiro::color::is_color<
-			Color1
-		>,
-		mizuiro::color::is_color<
-			Color2
-		>
-	>,
-	bool
->::type
+bool
 compare(
 	Color1 const &_color1,
 	Color2 const &_color2,
 	CompareChannel const &_compare
 )
 {
+	static_assert(
+		mizuiro::color::formats_are_compatible<
+			typename Color1::format,
+			typename Color2::format
+		>::value,
+		"Color formats must be compatible to be comparable"
+	);
+
+	static_assert(
+		mizuiro::color::is_color<
+			Color1
+		>::value,
+		"Color1 must be a color type"
+	);
+
+	static_assert(
+		mizuiro::color::is_color<
+			Color2
+		>::value,
+		"Color2 must be a color type"
+	);
+
 	typedef
 	typename
 	Color1::format::layout::order

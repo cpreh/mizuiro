@@ -12,9 +12,7 @@
 #include <mizuiro/color/conversion/detail/copy_and_convert_channel.hpp>
 #include <mizuiro/color/types/has_channel_static.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/mpl/not.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -34,17 +32,16 @@ template<
 	typename Dest
 >
 typename
-boost::enable_if<
-	boost::mpl::and_<
-		mizuiro::color::types::has_channel_static<
-			typename Src::format,
-			Channel
-		>,
-		mizuiro::color::types::has_channel_static<
-			typename Dest::format,
-			Channel
-		>
-	>,
+std::enable_if<
+	mizuiro::color::types::has_channel_static<
+		typename Src::format,
+		Channel
+	>::value
+	&&
+	mizuiro::color::types::has_channel_static<
+		typename Dest::format,
+		Channel
+	>::value,
 	void
 >::type
 copy_or_default_channel(
@@ -88,19 +85,16 @@ template<
 	typename Dest
 >
 typename
-boost::enable_if<
-	boost::mpl::and_<
-		boost::mpl::not_<
-			mizuiro::color::types::has_channel_static<
-				typename Src::format,
-				Channel
-			>
-		>,
-		mizuiro::color::types::has_channel_static<
-			typename Dest::format,
-			Channel
-		>
-	>,
+std::enable_if<
+	!mizuiro::color::types::has_channel_static<
+		typename Src::format,
+		Channel
+	>::value
+	&&
+	mizuiro::color::types::has_channel_static<
+		typename Dest::format,
+		Channel
+	>::value,
 	void
 >::type
 copy_or_default_channel(
@@ -122,13 +116,11 @@ template<
 	typename Dest
 >
 typename
-boost::enable_if<
-	boost::mpl::not_<
-		mizuiro::color::types::has_channel_static<
-			typename Dest::format,
-			Channel
-		>
-	>,
+std::enable_if<
+	!mizuiro::color::types::has_channel_static<
+		typename Dest::format,
+		Channel
+	>::value,
 	void
 >::type
 copy_or_default_channel(

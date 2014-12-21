@@ -47,7 +47,8 @@ struct compare<
 		Compare const &
 	)
 	{
-		return true;
+		return
+			true;
 	}
 };
 

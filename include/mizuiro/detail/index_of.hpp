@@ -14,7 +14,6 @@
 #include <boost/mpl/contains.hpp>
 #include <boost/mpl/distance.hpp>
 #include <boost/mpl/find.hpp>
-#include <boost/utility/enable_if.hpp>
 #include <mizuiro/detail/external_end.hpp>
 
 

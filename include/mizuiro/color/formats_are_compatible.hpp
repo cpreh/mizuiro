@@ -8,8 +8,6 @@
 #define MIZUIRO_COLOR_FORMATS_ARE_COMPATIBLE_HPP_INCLUDED
 
 #include <mizuiro/color/types/channel_value_tpl.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/none_t.hpp>
 #include <boost/mpl/bind.hpp>
@@ -28,14 +26,13 @@ namespace mizuiro
 namespace color
 {
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 template<
 	typename Format1,
 	typename Format2
 >
-struct formats_are_compatible
-:
+using formats_are_compatible
+=
+typename
 boost::mpl::fold<
 	typename Format1::layout::order,
 	boost::true_type,
@@ -74,11 +71,7 @@ boost::mpl::fold<
 			>
 		>
 	>
->
-{
-};
-
-MIZUIRO_DETAIL_POP_WARNING
+>::type;
 
 }
 }

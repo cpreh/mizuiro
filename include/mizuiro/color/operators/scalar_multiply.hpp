@@ -11,9 +11,6 @@
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/operators/detail/scalar_multiply.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
@@ -25,20 +22,22 @@ template<
 	typename Color,
 	typename Scalar
 >
-typename boost::enable_if<
-	color::is_color<
-		Color
-	>,
-	color::object<
-		typename Color::format
-	>
->::type
+mizuiro::color::object<
+	typename Color::format
+>
 operator*(
 	Color const &_color,
 	Scalar const _scalar
 )
 {
-	typedef color::object<
+	static_assert(
+		mizuiro::color::is_color<
+			Color
+		>::value,
+		"Color must be a color type"
+	);
+
+	typedef mizuiro::color::object<
 		typename Color::format
 	> result_type;
 
@@ -46,9 +45,9 @@ operator*(
 		_color
 	);
 
-	color::for_each_channel(
+	mizuiro::color::for_each_channel(
 		_color,
-		color::operators::detail::scalar_multiply<
+		mizuiro::color::operators::detail::scalar_multiply<
 			result_type,
 			Scalar
 		>(
@@ -57,27 +56,31 @@ operator*(
 		)
 	);
 
-	return result;
+	return
+		result;
 }
 
 template<
 	typename Color,
 	typename Scalar
 >
-typename boost::enable_if<
-	color::is_color<
-		Color
-	>,
-	color::object<
-		typename Color::format
-	>
->::type
+mizuiro::color::object<
+	typename Color::format
+>
 operator*(
 	Scalar const _scalar,
 	Color const &_color
 )
 {
-	return _color * _scalar;
+	static_assert(
+		mizuiro::color::is_color<
+			Color
+		>::value,
+		"Color must be a color type"
+	);
+
+	return
+		_color * _scalar;
 }
 
 }

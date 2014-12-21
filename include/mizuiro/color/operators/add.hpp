@@ -11,10 +11,8 @@
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/operators/detail/binary_op.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/type_traits/is_same.hpp>
-#include <boost/utility/enable_if.hpp>
 #include <functional>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -27,30 +25,38 @@ template<
 	typename Color1,
 	typename Color2
 >
-typename boost::enable_if<
-	boost::mpl::and_<
-		boost::is_same<
-			typename Color1::format,
-			typename Color2::format
-		>,
-		color::is_color<
-			Color1
-		>,
-		color::is_color<
-			Color2
-		>
-	>,
-	color::object<
-		typename Color1::format
-	>
->::type
+mizuiro::color::object<
+	typename Color1::format
+>
 operator+(
 	Color1 const &_color1,
 	Color2 const &_color2
 )
 {
+	static_assert(
+		std::is_same<
+			typename Color1::format,
+			typename Color2::format
+		>::value,
+		"Color1 and Color2 must use the same color format"
+	);
+
+	static_assert(
+		mizuiro::color::is_color<
+			Color1
+		>::value,
+		"Color1 must be a color type"
+	);
+
+	static_assert(
+		mizuiro::color::is_color<
+			Color2
+		>::value,
+		"Color2 must be a color type"
+	);
+
 	return
-		color::operators::detail::binary_op<
+		mizuiro::color::operators::detail::binary_op<
 			std::plus
 		>(
 			_color1,

@@ -12,8 +12,7 @@
 #include <mizuiro/color/init/detail/channel_value.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/type_traits/is_same.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -31,18 +30,7 @@ template<
 	typename Value,
 	typename Channel
 >
-typename
-boost::enable_if<
-	boost::is_same<
-		mizuiro::color::types::channel_value<
-			typename
-			Color::format,
-			Channel
-		>,
-		Value
-	>,
-	void
->::type
+void
 set_channel(
 	Color &_color,
 	mizuiro::color::init::detail::channel_value<
@@ -51,6 +39,18 @@ set_channel(
 	> const &_init
 )
 {
+	static_assert(
+		std::is_same<
+			mizuiro::color::types::channel_value<
+				typename
+				Color::format,
+				Channel
+			>,
+			Value
+		>::value,
+		"Channel types must match exactly for '=' initialization"
+	);
+
 	_color.set(
 		_init.channel(),
 		_init.value()

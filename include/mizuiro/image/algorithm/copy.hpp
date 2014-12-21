@@ -10,9 +10,6 @@
 #include <mizuiro/image/views_are_compatible.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/detail/copy_impl.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
@@ -26,19 +23,21 @@ template<
 	typename ViewS,
 	typename ViewD
 >
-typename boost::enable_if<
-	mizuiro::image::views_are_compatible<
-		ViewS,
-		ViewD
-	>,
-	void
->::type
+void
 copy(
 	ViewS const &_src,
 	ViewD const &_dest,
 	mizuiro::image::algorithm::may_overlap const _overlap
 )
 {
+	static_assert(
+		mizuiro::image::views_are_compatible<
+			ViewS,
+			ViewD
+		>::value,
+		"Views must be compatible"
+	);
+
 	mizuiro::image::algorithm::detail::copy_impl(
 		_src,
 		_dest,

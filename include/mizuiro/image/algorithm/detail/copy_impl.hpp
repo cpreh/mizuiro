@@ -12,7 +12,7 @@
 #include <mizuiro/image/algorithm/copy_same_channel_order.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -29,11 +29,12 @@ template<
 	typename ViewS,
 	typename ViewD
 >
-typename boost::disable_if<
-	mizuiro::image::views_have_same_channel_order<
+typename
+std::enable_if<
+	!mizuiro::image::views_have_same_channel_order<
 		ViewS,
 		ViewD
-	>,
+	>::value,
 	void
 >::type
 copy_impl(
@@ -53,11 +54,12 @@ template<
 	typename ViewS,
 	typename ViewD
 >
-typename boost::enable_if<
+typename
+std::enable_if<
 	mizuiro::image::views_have_same_channel_order<
 		ViewS,
 		ViewD
-	>,
+	>::value,
 	void
 >::type
 copy_impl(

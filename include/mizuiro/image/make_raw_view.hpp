@@ -10,9 +10,6 @@
 #include <mizuiro/is_raw_pointer.hpp>
 #include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/detail/raw_view_from_pointer.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
@@ -24,16 +21,10 @@ template<
 	typename Format,
 	typename Pointer
 >
-typename
-boost::enable_if<
-	mizuiro::is_raw_pointer<
-		Pointer
-	>,
-	mizuiro::image::detail::raw_view_from_pointer<
-		Format,
-		Pointer
-	>
->::type const
+mizuiro::image::detail::raw_view_from_pointer<
+	Format,
+	Pointer
+>
 make_raw_view(
 	Pointer const _data,
 	typename
@@ -48,6 +39,13 @@ make_raw_view(
 	>::pitch_type const &_pitch
 )
 {
+	static_assert(
+		mizuiro::is_raw_pointer<
+			Pointer
+		>::value,
+		"Pointer must be a raw pointer type"
+	);
+
 	return
 		mizuiro::image::detail::raw_view_from_pointer<
 			Format,

@@ -12,8 +12,7 @@
 #include <mizuiro/color/convert_static/is_hsv.hpp>
 #include <mizuiro/color/convert_static/is_rgb.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -29,19 +28,18 @@ template<
 	typename Src
 >
 typename
-boost::enable_if<
-	boost::mpl::and_<
-		mizuiro::color::convert_static::is_rgb<
-			Dest
-		>,
-		mizuiro::color::convert_static::is_hsv<
-			typename
-			Src::format
-		>
-	>,
+std::enable_if<
+	mizuiro::color::convert_static::is_rgb<
+		Dest
+	>::value
+	&&
+	mizuiro::color::convert_static::is_hsv<
+		typename
+		Src::format
+	>::value,
 	mizuiro::color::object<
 		Dest
-	> const
+	>
 >::type
 convert(
 	Src const &_source

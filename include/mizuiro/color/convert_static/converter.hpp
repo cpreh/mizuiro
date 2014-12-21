@@ -11,10 +11,6 @@
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/convert_static/is_static.hpp>
 #include <mizuiro/color/format/store.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
@@ -31,22 +27,9 @@ struct converter
 		typename Source
 	>
 	static
-	inline
-	typename
-	boost::enable_if<
-		boost::mpl::and_<
-			mizuiro::color::convert_static::is_static<
-				typename
-				Source::format
-			>,
-			mizuiro::color::convert_static::is_static<
-				DestFormat
-			>
-		>,
-		mizuiro::color::object<
-			DestFormat
-		>
-	>::type const
+	mizuiro::color::object<
+		DestFormat
+	>
 	execute(
 		Source const &_source,
 		mizuiro::color::format::store<
@@ -54,6 +37,21 @@ struct converter
 		> const &
 	)
 	{
+		static_assert(
+			mizuiro::color::convert_static::is_static<
+				typename
+				Source::format
+			>::value,
+			"The source format must be static"
+		);
+
+		static_assert(
+			mizuiro::color::convert_static::is_static<
+				DestFormat
+			>::value,
+			"The destination format must be static"
+		);
+
 		return
 			mizuiro::color::convert_static::convert<
 				DestFormat

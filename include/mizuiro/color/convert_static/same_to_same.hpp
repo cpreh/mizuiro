@@ -11,8 +11,7 @@
 #include <mizuiro/color/conversion/same_to_same.hpp>
 #include <mizuiro/color/layout/is_same.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/type_traits/is_same.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -28,16 +27,16 @@ template<
 	typename Src
 >
 typename
-boost::enable_if<
+std::enable_if<
 	mizuiro::color::layout::is_same<
 		typename
 		Dest::layout,
 		typename
 		Src::format::layout
-	>,
+	>::value,
 	mizuiro::color::object<
 		Dest
-	> const
+	>
 >::type
 convert(
 	Src const &_src
