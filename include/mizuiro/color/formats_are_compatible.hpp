@@ -16,8 +16,7 @@
 #include <boost/mpl/if.hpp>
 #include <boost/mpl/placeholders.hpp>
 #include <boost/mpl/quote.hpp>
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/is_same.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -40,7 +39,7 @@ boost::mpl::fold<
 		boost::mpl::_1,
 		boost::mpl::bind<
 			boost::mpl::quote2<
-				boost::is_same
+				std::is_same
 			>,
 			boost::mpl::bind<
 				boost::mpl::quote2<

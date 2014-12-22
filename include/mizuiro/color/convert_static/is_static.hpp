@@ -9,8 +9,6 @@
 
 #include <mizuiro/color/format/tag_of_fwd.hpp>
 #include <mizuiro/color/format/static_ns/tag.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -23,13 +21,11 @@ namespace color
 namespace convert_static
 {
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 template<
 	typename Format
 >
-struct is_static
-:
+using is_static
+=
 std::is_base_of<
 	mizuiro::color::format::static_ns::tag<
 		Format
@@ -38,11 +34,7 @@ std::is_base_of<
 	mizuiro::color::format::tag_of<
 		Format
 	>::type
->
-{
-};
-
-MIZUIRO_DETAIL_POP_WARNING
+>;
 
 }
 }

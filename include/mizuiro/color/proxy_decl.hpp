@@ -14,16 +14,12 @@
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/pointer.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 
 
 namespace mizuiro
 {
 namespace color
 {
-
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Access,
@@ -127,8 +123,6 @@ public:
 private:
 	pointer data_;
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

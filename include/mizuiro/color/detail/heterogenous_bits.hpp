@@ -8,8 +8,6 @@
 #define MIZUIRO_COLOR_DETAIL_HETEROGENOUS_BITS_HPP_INCLUDED
 
 #include <mizuiro/integral_size.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/accumulate.hpp>
 #include <boost/mpl/placeholders.hpp>
@@ -24,13 +22,11 @@ namespace color
 namespace detail
 {
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 template<
 	typename Bits
 >
-struct heterogenous_bits
-:
+using heterogenous_bits
+=
 boost::mpl::accumulate<
 	Bits,
 	typename mizuiro::integral_size<
@@ -40,11 +36,7 @@ boost::mpl::accumulate<
 		boost::mpl::_1,
 		boost::mpl::_2
 	>
->
-{
-};
-
-MIZUIRO_DETAIL_POP_WARNING
+>;
 
 }
 }

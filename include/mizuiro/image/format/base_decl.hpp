@@ -8,8 +8,6 @@
 #define MIZUIRO_IMAGE_FORMAT_BASE_DECL_HPP_INCLUDED
 
 #include <mizuiro/detail/format_base_decl.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/format/store_decl.hpp>
 #include <mizuiro/image/types/needs_store.hpp>
 
@@ -21,22 +19,16 @@ namespace image
 namespace format
 {
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 template<
 	typename Format
 >
-struct base
-:
+using base
+=
 mizuiro::detail::format_base<
 	Format,
 	mizuiro::image::format::store,
 	mizuiro::image::types::needs_store
->
-{
-};
-
-MIZUIRO_DETAIL_POP_WARNING
+>;
 
 }
 }

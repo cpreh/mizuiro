@@ -8,8 +8,6 @@
 #define MIZUIRO_IMAGE_FORMAT_ARGUMENT_HPP_INCLUDED
 
 #include <mizuiro/detail/format_argument.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/format/store_impl.hpp>
 #include <mizuiro/image/types/needs_store.hpp>
 
@@ -21,13 +19,11 @@ namespace image
 namespace format
 {
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 template<
 	typename ImageFormat
 >
-struct argument
-:
+using argument
+=
 mizuiro::detail::format_argument<
 	ImageFormat,
 	mizuiro::image::types::needs_store<
@@ -36,11 +32,7 @@ mizuiro::detail::format_argument<
 	mizuiro::image::format::store<
 		ImageFormat
 	>
->
-{
-};
-
-MIZUIRO_DETAIL_POP_WARNING
+>;
 
 }
 }

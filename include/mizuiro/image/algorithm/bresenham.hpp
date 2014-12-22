@@ -9,10 +9,10 @@
 
 #include <mizuiro/color/operators.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/type_traits/make_signed.hpp>
 #include <algorithm>
 #include <cmath>
 #include <cstdlib>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -39,7 +39,7 @@ bresenham
 )
 {
 	typedef typename
-	boost::make_signed
+	std::make_signed
 	<
 		typename View::dim::value_type
 	>::type

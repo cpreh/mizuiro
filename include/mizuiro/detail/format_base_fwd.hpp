@@ -8,9 +8,7 @@
 #define MIZUIRO_DETAIL_FORMAT_BASE_FWD_HPP_INCLUDED
 
 #include <mizuiro/detail/empty_format_base_fwd.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/normal_format_base_fwd.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/mpl/if.hpp>
 #include <mizuiro/detail/external_end.hpp>
@@ -21,8 +19,6 @@ namespace mizuiro
 namespace detail
 {
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 template<
 	typename Format,
 	template<
@@ -32,8 +28,8 @@ template<
 		typename
 	> class FormatNeedsStore
 >
-struct format_base
-:
+using format_base
+=
 boost::mpl::if_<
 	FormatNeedsStore<
 		Format
@@ -48,11 +44,7 @@ boost::mpl::if_<
 			Format
 		>
 	>
->
-{
-};
-
-MIZUIRO_DETAIL_POP_WARNING
+>;
 
 }
 }

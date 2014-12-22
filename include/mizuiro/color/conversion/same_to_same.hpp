@@ -20,7 +20,7 @@
 #include <boost/mpl/and.hpp>
 #include <boost/mpl/not.hpp>
 #include <boost/mpl/placeholders.hpp>
-#include <boost/type_traits/is_same.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -63,13 +63,13 @@ same_to_same(
 	mizuiro::color::for_some_channels<
 		boost::mpl::and_<
 			boost::mpl::not_<
-				boost::is_same<
+				std::is_same<
 					mizuiro::color::channel::alpha,
 					boost::mpl::_1
 				>
 			>,
 			boost::mpl::not_<
-				boost::is_same<
+				std::is_same<
 					mizuiro::color::channel::undefined,
 					boost::mpl::_1
 				>
