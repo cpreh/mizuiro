@@ -25,7 +25,8 @@ namespace detail
 template<
 	typename View
 >
-typename View::pitch_type const
+typename
+View::pitch_type
 subview_pitch(
 	View const &_view,
 	typename View::bound_type const &_bound
@@ -55,7 +56,7 @@ subview_pitch(
 				index
 			] > 1
 			?
-				image::detail::pitch_difference(
+				mizuiro::image::detail::pitch_difference(
 					mizuiro::image::move_iterator(
 						_view,
 						edge_pos_end

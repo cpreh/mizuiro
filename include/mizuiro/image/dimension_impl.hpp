@@ -9,9 +9,6 @@
 
 #include <mizuiro/image/dimension_decl.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/preprocessor/arithmetic/inc.hpp>
-#include <boost/preprocessor/repetition/enum_params.hpp>
-#include <boost/preprocessor/repetition/repeat.hpp>
 #include <algorithm>
 #include <functional>
 #include <iterator>
@@ -19,55 +16,6 @@
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
 
-
-#define MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_ASSIGN(\
-	z,\
-	n,\
-	text\
-)\
-data_[n] = text##n;
-
-#define MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_IMPL(\
-	z,\
-	n,\
-	text\
-)\
-template< \
-	mizuiro::size_type Dim,\
-	typename ValueType\
->\
-mizuiro::image::dimension<\
-	Dim,\
-	ValueType\
->::dimension(\
-	BOOST_PP_ENUM_PARAMS(\
-		BOOST_PP_INC(n),\
-		const_reference _param\
-	)\
-)\
-:\
-	data_()\
-{\
-	static_assert( \
-		Dim == BOOST_PP_INC(n), \
-		"invalid argument count to image::dimension"\
-	); \
-\
-	BOOST_PP_REPEAT(\
-		BOOST_PP_INC(n),\
-		MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_ASSIGN,\
-		_param\
-	)\
-}
-
-BOOST_PP_REPEAT(
-	MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_MAX_SIZE,
-	MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_IMPL,
-	void
-)
-
-#undef MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_IMPL
-#undef MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_ASSIGN
 
 template<
 	mizuiro::size_type Dim,
@@ -86,13 +34,124 @@ template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
+template<
+	typename ...Args
+>
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::dimension(
+	Args &&... _args
+)
+:
+	data_{{
+		std::forward<
+			Args
+		>(
+			_args
+		)...
+	}}
+{
+	static_assert(
+		sizeof...(
+			Args
+		)
+		==
+		Dim,
+		"Invalid parameter count"
+	);
+}
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::dimension(
+	dimension const &
+) = default;
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::dimension(
+	dimension &&
+) = default;
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::dimension(
+	dimension const &&_other
+)
+:
+	data_(
+		_other.data_
+	)
+{
+}
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+> &
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::operator=(
+	dimension const &
+) = default;
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+> &
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::operator=(
+	dimension &&
+) = default;
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::~dimension() = default;
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
 bool
 mizuiro::image::dimension<
 	Dim,
 	ValueType
 >::empty() const
 {
-	return false;
+	return
+		false;
 }
 
 template<

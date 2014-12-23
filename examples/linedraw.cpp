@@ -52,8 +52,8 @@ int main()
 	typedef store::view_type view_type;
 
 	store::dim const dim(
-		32,
-		32
+		32u,
+		32u
 	);
 
 	store img(
@@ -78,7 +78,10 @@ int main()
 			(mizuiro::color::init::luminance() = static_cast<channel_type>(99))
 		);
 
-	view_type::dim start(15,15);
+	view_type::dim start(
+		15u,
+		15u
+	);
 
 	for (int angle = 0; angle < 360; angle += 15)
 	{

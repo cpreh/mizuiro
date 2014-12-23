@@ -182,8 +182,8 @@ main()
 
 	uint8_4_store store(
 		uint8_4_store::dim(
-			5,
-			3
+			5u,
+			3u
 		),
 		uint8_4_store::format_store_type(
 			image_uint8_4_format(

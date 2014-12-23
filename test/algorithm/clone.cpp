@@ -60,8 +60,8 @@ MIZUIRO_DETAIL_POP_WARNING
 
 	store_2d_gray8 store(
 		store_2d_gray8::dim(
-			5,
-			5
+			5u,
+			5u
 		)
 	);
 

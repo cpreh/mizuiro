@@ -61,9 +61,9 @@ MIZUIRO_DETAIL_POP_WARNING
 
 	store = store_3d_rgba8(
 		store_3d_rgba8::dim(
-			0,
-			1,
-			2
+			0u,
+			1u,
+			2u
 		)
 	);
 

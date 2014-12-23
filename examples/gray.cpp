@@ -63,8 +63,8 @@ int main()
 
 	store img(
 		store::dim(
-			32,
-			64
+			32u,
+			64u
 		)
 	);
 

@@ -11,17 +11,8 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/image/dimension_fwd.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/preprocessor/arithmetic/inc.hpp>
-#include <boost/preprocessor/repetition/enum_params.hpp>
-#include <boost/preprocessor/repetition/repeat.hpp>
 #include <iosfwd>
 #include <mizuiro/detail/external_end.hpp>
-
-
-// TODO: variadic ctor?
-#ifndef MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_MAX_SIZE
-#define MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_MAX_SIZE 3
-#endif
 
 
 namespace mizuiro
@@ -63,44 +54,56 @@ public:
 	size_type const static_size
 		= Dim;
 
-	typedef typename array_type::iterator iterator;
+	// TODO: Add more typedefs
+	typedef
+	typename
+	array_type::iterator
+	iterator;
 
 	typedef
 	typename
 	array_type::const_iterator
 	const_iterator;
-	// NOTE: The types below are usually not needed, they make "dimension" an instance of the
-	// "Collection" concept from multi_array.
+
 	typedef
 	typename
 	array_type::difference_type
 	difference_type;
-	// NOTE: Ideally, array should have a type ::pointer. It apparently doesn't, however
-	//typedef typename array_type::pointer pointer;
-
-	#define MIZUIRO_IMAGE_DIMENSION_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL(\
-		z,\
-		n,\
-		text\
-	)\
-	dimension(\
-		BOOST_PP_ENUM_PARAMS(\
-			BOOST_PP_INC(n),\
-			const_reference param\
-		)\
-	);
-
-	BOOST_PP_REPEAT(
-		MIZUIRO_IMAGE_DIMENSION_CONSTRUCTOR_MAX_SIZE,
-		MIZUIRO_IMAGE_DIMENSION_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL,
-		void
-	)
-
-	#undef MIZUIRO_IMAGE_DIMENSION_MAKE_VARIADIC_CONSTRUCTOR_DECL_IMPL
 
 	dimension();
 
-	// Compatibility to "Collection" from multi_array, always returns false
+	template<
+		typename... Args
+	>
+	explicit
+	dimension(
+		Args && ...
+	);
+
+	dimension(
+		dimension const &
+	);
+
+	dimension(
+		dimension &&
+	);
+
+	dimension(
+		dimension const &&
+	);
+
+	dimension &
+	operator=(
+		dimension const &
+	);
+
+	dimension &
+	operator=(
+		dimension &&
+	);
+
+	~dimension();
+
 	bool
 	empty() const;
 

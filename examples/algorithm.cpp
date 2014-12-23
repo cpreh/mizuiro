@@ -149,8 +149,8 @@ int main()
 	> store2;
 
 	store1::dim const dim(
-		4,
-		2
+		4u,
+		2u
 	);
 
 	store1 img1(

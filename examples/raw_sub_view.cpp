@@ -121,14 +121,14 @@ int main()
 			view,
 			bound_type(
 				bound_type::dim(
-					1,
-					1,
-					0
+					1u,
+					1u,
+					0u
 				),
 				bound_type::dim(
-					2,
-					3,
-					2
+					2u,
+					3u,
+					2u
 				)
 			)
 		)

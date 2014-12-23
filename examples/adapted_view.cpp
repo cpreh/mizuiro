@@ -389,8 +389,8 @@ main()
 	raw_vector;
 
 	dim2 const size(
-		100,
-		50
+		100u,
+		50u
 	);
 
 	raw_vector data(

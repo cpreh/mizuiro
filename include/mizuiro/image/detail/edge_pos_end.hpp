@@ -18,7 +18,8 @@ namespace detail
 template<
 	typename Bound
 >
-typename Bound::dim const
+typename
+Bound::dim
 edge_pos_end(
 	Bound const &_bound,
 	typename Bound::size_type const _index

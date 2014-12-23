@@ -41,9 +41,9 @@ int main()
 
 	store img(
 		store::dim(
-			3,
-			2,
-			1
+			3u,
+			2u,
+			1u
 		)
 	);
 

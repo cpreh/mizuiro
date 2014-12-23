@@ -53,8 +53,8 @@ MIZUIRO_DETAIL_POP_WARNING
 
 	store_2d field(
 		store_2d::dim(
-			2,
-			2));
+			2u,
+			2u));
 
 	store_2d::view_type const field_view =
 		field.view();
@@ -66,20 +66,20 @@ MIZUIRO_DETAIL_POP_WARNING
 		mizuiro::image::iterator_position(
 			field_view,
 			i++),
-		store_2d::dim(0,0));
+		store_2d::dim(0u,0u));
 
 	BOOST_CHECK(
 		mizuiro::image::iterator_position(
 			field_view,
-			i++) == store_2d::dim(1,0));
+			i++) == store_2d::dim(1u,0u));
 
 	BOOST_CHECK(
 		mizuiro::image::iterator_position(
 			field_view,
-			i++) == store_2d::dim(0,1));
+			i++) == store_2d::dim(0u,1u));
 
 	BOOST_CHECK(
 		mizuiro::image::iterator_position(
 			field_view,
-			i++) == store_2d::dim(1,1));
+			i++) == store_2d::dim(1u,1u));
 }

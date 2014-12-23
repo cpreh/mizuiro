@@ -50,9 +50,9 @@ int main()
 
 	store img(
 		store::dim(
-			100,
-			100,
-			100
+			100u,
+			100u,
+			100u
 		)
 	);
 
@@ -105,14 +105,14 @@ int main()
 			img.view(),
 			bound_type(
 				bound_type::dim(
-					1,
-					1,
-					1
+					1u,
+					1u,
+					1u
 				),
 				bound_type::dim(
-					3,
-					4,
-					3
+					3u,
+					4u,
+					3u
 				)
 			)
 		)
@@ -129,14 +129,14 @@ int main()
 			sub_view,
 			bound_type(
 				bound_type::dim(
-					1,
-					1,
-					1
+					1u,
+					1u,
+					1u
 				),
 				bound_type::dim(
-					2,
-					3,
-					2
+					2u,
+					3u,
+					2u
 				)
 			)
 		)
