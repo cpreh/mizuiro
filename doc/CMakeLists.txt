@@ -27,6 +27,7 @@ set(
 	MIZUIRO_DOC_FILES
 	doc/CMakeLists.txt
 	doc/Doxyfile.in
+	doc/files/color.doxygen
 	doc/files/main.doxygen
 	doc/footer.html
 	doc/header.html

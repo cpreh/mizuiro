@@ -1,0 +1,67 @@
+/**
+\page mizuiro_color
+
+\section color_introduction Color Introduction
+
+A color is an object that consists of color channels. For example, an RGB color
+consists of the channels red, green and blue. This is called a layout.
+
+There are two basic classes in mizuiro that can represent a color:
+mizuiro::color::object which owns data and mizuiro::color::proxy which only
+refers to data. The latter is important in cases where data comes from sources
+of different types (like character arrays).
+
+A color format is a combination of a color layout and additional information
+that tells how a color is stored. For example, R8G8B8 is a homogenous color
+format where each channel (red, green and blue) is represented by an uint8_t.
+
+\section color_formats Color Formats
+
+To use colors in Mizuiro, the first thing to do is to declare a color format.
+Mizuiro comes with a bunch of predefined color formats but in this tutorial a
+simple format, homogenous_static, will be used. To start off, the format's
+headers must be included.
+
+\snippet format.cpp includes_format
+
+The homogenous_static header contains the definition of the homogenous_static
+format, while the include/homogenous_static header contains all customization
+points necessary to use the format.
+
+Next, an rgb format is declared:
+
+\snippet format.cpp format_definition
+
+Here, a homogenous_static format is declared that uses uint8_t for each channel
+and consists of red, green and blue. For the layout, the following include is
+necessary:
+
+\snippet format.cpp includes_layout
+
+\section color_object Color Objects
+
+A color object holds all data necessary to represent a color of a given type.
+
+\snippet format.cpp includes_object
+
+\snippet format.cpp object_definition
+
+To initialize such a color object, special initialization syntax is used that
+is available from the init namespace.
+
+\snippet format.cpp includes_init
+
+There are two forms of initialization:
+<ul>
+<li>Initializing the data directly and</li>
+<li>initializing using a percentage value.</li>
+</ul>
+These can be mixed and matched for each channel.
+
+\snippet format.cpp object_init
+
+Accessing a color is done in a similar way:
+
+\snippet format.cpp includes_access
+\snippet format.cpp object_access
+*/

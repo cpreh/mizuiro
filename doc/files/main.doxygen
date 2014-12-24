@@ -16,10 +16,13 @@ Both consist of a set of types and functions that Mizuiro accesses through
 
 <ul>
 	<li>
-		\link mizuiromain Documentation \endlink
+		\link mizuiromain Documentation\endlink
 	</li>
 	<li>
 		\subpage requirements_download_installation
+	</li>
+	<li>
+		\link mizuiro_color Colors\endlink
 	</li>
 	<li>
 		\subpage changes
