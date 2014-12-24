@@ -1,0 +1,50 @@
+/**
+\mainpage Overview
+
+\section main_introduction Introduction
+
+Mizuiro (水色) is a library that features \link color_definition formalization
+of colors \endlink and \link view_definition n-dimensional views of cuboids\endlink.
+Both consist of a set of types and functions that Mizuiro accesses through
+\link tag_dispatching Tag Dispatching \endlink.
+
+\section main_sitemap Site map
+
+<table id="toc">
+<tr>
+<td>
+
+<ul>
+	<li>
+		\link mizuiromain Documentation \endlink
+	</li>
+	<li>
+		\subpage requirements_download_installation
+	</li>
+	<li>
+		\subpage changes
+		<ul>
+			<li>\ref changes_changes_to_100</li>
+			<li>\ref older_changes</li>
+		</ul>
+	</li>
+</ul>
+
+</td>
+</tr>
+</table>
+
+\section main_contact Contact
+
+You can contact us via our IRC channel
+
+<code>\verbatim #sge-sanguis \endverbatim</code>
+
+at
+
+<code>\verbatim irc.freenode.net \endverbatim</code>
+
+If you've found a bug or want to request something, please head over to the <a
+href="https://github.com/freundlich/mizuiro/issues">github issue tracker</a> and
+create an issue.
+*/

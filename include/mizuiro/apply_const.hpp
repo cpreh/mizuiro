@@ -18,8 +18,7 @@ namespace mizuiro
 \brief Applies const to references or pointers
 
 Applies const to BaseType iff BaseType is a reference or a pointer and
-Constness is mizuiro::const_tag. Use <code>apply_const<BaseType,
-Constness>::type</code> to access the result.
+Constness is mizuiro::const_tag.
 
 \tparam Constness Must be either mizuiro::const_tag or mizuiro::nonconst_tag
 

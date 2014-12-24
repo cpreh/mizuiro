@@ -1,192 +1,53 @@
-cmake_minimum_required(
-	VERSION
-	2.8.12
-)
-
-project(
-	mizuiro
-)
-
-option(
-	ENABLE_FCPPT
-	"Use fcppt utilities"
-	OFF
-)
-
-if(
-	ENABLE_FCPPT
-)
-	find_package(
-		fcppt
-		REQUIRED
-	)
-else()
-	set(
-		INSTALL_INCLUDE_DIR
-		"${CMAKE_INSTALL_PREFIX}/include"
-		CACHE
-		STRING
-		"Custom include installation directory"
-	)
-
-	set(
-		INSTALL_CMAKEMODULES_DIR
-		"${CMAKE_INSTALL_PREFIX}/share/cmake/Modules"
-		CACHE
-		STRING
-		"Custom cmake module installation directory"
-	)
-
-	if(
-		CMAKE_COMPILER_IS_GNUCXX
-	)
-		add_definitions(
-			-std=c++11
-		)
-	endif()
-endif()
-
-option(
-	ENABLE_DOC
-	"Build the documentation"
-	OFF
-)
-
-if(
-	ENABLE_DOC
-)
-	add_subdirectory(
-		doc
-	)
-endif()
-
-option(
-	ENABLE_TEST
-	"Build the tests"
-	ON
-)
-
-if(
-	ENABLE_TEST
-)
-	set(
-		NEEDED_BOOST_LIBS
-		"unit_test_framework"
-	)
-endif()
-
 find_package(
-	Boost 1.40.0 REQUIRED
-	${NEEDED_BOOST_LIBS}
+	Doxygen
+	REQUIRED
 )
 
 set(
-	MIZUIRO_HAVE_FCPPT
-	${ENABLE_FCPPT}
-)
-
-include_directories(
-	include
-)
-
-if(
-	ENABLE_FCPPT
-)
-	include(
-		FcpptCMakeUtils
-	)
-
-	include_directories(
-		${FCPPT_UTILS_INCLUDE_SYSTEM}
-		${Boost_INCLUDE_DIR}
-	)
-else()
-	include_directories(
-		SYSTEM
-		${Boost_INCLUDE_DIR}
-	)
-endif()
-
-if(
-	ENABLE_FCPPT
-)
-	include_directories(
-		${fcppt_INCLUDE_DIRS}
-	)
-endif()
-
-include(
-	CheckCXXSourceCompiles
-)
-
-check_cxx_source_compiles(
-	"int main()
-	{
-	if(__builtin_expect(true, 0))
-	{}
-	}"
-	MIZUIRO_HAVE_BUILTIN_EXPECT
-)
-
-set(
-	MIZUIRO_SOURCE_DIR
-	"${${PROJECT_NAME}_SOURCE_DIR}"
-)
-
-set(
-	MIZUIRO_BINARY_DIR
-	"${${PROJECT_NAME}_BINARY_DIR}"
+	DOC_OUTPUT
+	"${CMAKE_BINARY_DIR}/doc_generated"
 )
 
 configure_file(
-	${MIZUIRO_SOURCE_DIR}/config.hpp.in
-	${MIZUIRO_BINARY_DIR}/include/mizuiro/config.hpp
+	Doxyfile.in
+	"${DOC_OUTPUT}/Doxyfile"
 )
 
-include_directories(
-	${MIZUIRO_BINARY_DIR}/include
-)
-
-install(
-	DIRECTORY
-	include/
+file(
+	COPY
+		footer.html
+		header.html
+		layout.xml
+		stylesheet.css
 	DESTINATION
-	${INSTALL_INCLUDE_DIR}
+		"${DOC_OUTPUT}"
 )
-
-install(
-	FILES
-	${MIZUIRO_BINARY_DIR}/include/mizuiro/config.hpp
-	DESTINATION
-	${INSTALL_INCLUDE_DIR}/mizuiro
-)
-
-option(
-	ENABLE_EXAMPLES
-	"Build the examples"
-	ON
-)
-
-if(
-	ENABLE_EXAMPLES
-)
-	add_subdirectory(
-		examples
-	)
-endif()
-
-if(
-	ENABLE_TEST
-)
-	enable_testing()
-
-	add_subdirectory(
-		test
-	)
-endif()
 
 set(
-	MIZUIRO_FILES
+	MIZUIRO_DOC_FILES
+	doc/CMakeLists.txt
+	doc/Doxyfile.in
+	doc/files/main.doxygen
+	doc/footer.html
+	doc/header.html
+	doc/layout.xml
+	doc/stylesheet.css
+	examples/adapted_view.cpp
+	examples/algorithm.cpp
+	examples/convert.cpp
+	examples/convert_view.cpp
+	examples/dynamic.cpp
+	examples/flipped_view.cpp
+	examples/gray.cpp
+	examples/heterogenous.cpp
+	examples/hsv.cpp
+	examples/image.cpp
+	examples/init.cpp
+	examples/linedraw.cpp
+	examples/operators.cpp
+	examples/raw_sub_view.cpp
+	examples/raw_view.cpp
+	examples/sub_view.cpp
 	include/mizuiro/access/normal.hpp
 	include/mizuiro/access/raw.hpp
 	include/mizuiro/apply_const.hpp
@@ -629,28 +490,65 @@ set(
 	include/mizuiro/size_type.hpp
 )
 
-if(
-	ENABLE_FCPPT
+function(
+	append_source_dir
+	RESULT
+	FILES
 )
-	fcppt_utils_add_source_groups(
-		"${MIZUIRO_FILES}"
+	foreach(
+		CUR_FILE
+		${FILES}
 	)
-
-	fcppt_utils_add_dummy_target(
-		mizuiro
-		"${MIZUIRO_FILES}"
-	)
-
-	fcppt_utils_set_target_compiler_flags(
-		mizuiro_dummy
-	)
+		list(
+			APPEND
+			TEMP_RESULT
+			"${${PROJECT_NAME}_SOURCE_DIR}/${CUR_FILE}"
+		)
+	endforeach()
 
 	set(
-		FCPPT_UTILS_NO_TARGETS
-		TRUE
+		${RESULT}
+		${TEMP_RESULT}
+		PARENT_SCOPE
 	)
+endfunction()
 
-	fcppt_utils_generate_config(
-		TRUE
-	)
-endif()
+append_source_dir(
+	MIZUIRO_DOC_FILES_ABS
+	"${MIZUIRO_DOC_FILES}"
+)
+
+set(
+	HTML_INDEX_OUTPUT
+	${DOC_OUTPUT}/html/index.html
+)
+
+add_custom_command(
+	OUTPUT "${HTML_INDEX_OUTPUT}"
+	COMMAND ${DOXYGEN_EXECUTABLE}
+	DEPENDS
+	${MIZUIRO_DOC_FILES_ABS}
+	WORKING_DIRECTORY "${DOC_OUTPUT}"
+)
+
+add_custom_target(
+	doc
+	ALL
+	SOURCES
+	${HTML_INDEX_OUTPUT}
+)
+
+set(
+	INSTALL_DOC_DIR
+	"${CMAKE_INSTALL_PREFIX}/share/doc/${PROJECT_NAME}"
+	CACHE
+	STRING
+	"Custom doc installation directory"
+)
+
+install(
+	DIRECTORY
+	"${DOC_OUTPUT}/html"
+	DESTINATION
+	"${INSTALL_DOC_DIR}"
+)
