@@ -30,6 +30,7 @@ template<
 	typename OtherChannel
 >
 inline
+constexpr
 bool
 compare_channels_adl(
 	mizuiro::color::access::compare_channels_ns::tag,

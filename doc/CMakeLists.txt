@@ -133,7 +133,6 @@ set(
 	include/mizuiro/color/detail/heterogenous_channel_bits.hpp
 	include/mizuiro/color/detail/initialize_dynamic_indices.hpp
 	include/mizuiro/color/detail/invalid_dynamic_index.hpp
-	include/mizuiro/color/detail/is_last_channel.hpp
 	include/mizuiro/color/detail/output_channel.hpp
 	include/mizuiro/color/detail/promote_channel.hpp
 	include/mizuiro/color/detail/raw_channel_access.hpp
@@ -311,7 +310,6 @@ set(
 	include/mizuiro/detail/ignore_effcpp.hpp
 	include/mizuiro/detail/index_of.hpp
 	include/mizuiro/detail/likely.hpp
-	include/mizuiro/detail/make_filter_view.hpp
 	include/mizuiro/detail/nonassignable.hpp
 	include/mizuiro/detail/normal_format_base_decl.hpp
 	include/mizuiro/detail/normal_format_base_fwd.hpp
@@ -488,6 +486,22 @@ set(
 	include/mizuiro/integral_size.hpp
 	include/mizuiro/is_raw_pointer.hpp
 	include/mizuiro/nonconst_tag.hpp
+	include/mizuiro/range/array_ns/make.hpp
+	include/mizuiro/range/array_ns/tag.hpp
+	include/mizuiro/range/array_ns/tag_of.hpp
+	include/mizuiro/range/detail/array.hpp
+	include/mizuiro/range/detail/for_each.hpp
+	include/mizuiro/range/detail/mpl.hpp
+	include/mizuiro/range/for_each.hpp
+	include/mizuiro/range/include/array.hpp
+	include/mizuiro/range/include/mpl.hpp
+	include/mizuiro/range/make.hpp
+	include/mizuiro/range/make_ns/tag.hpp
+	include/mizuiro/range/make_tag_of.hpp
+	include/mizuiro/range/mpl_ns/make.hpp
+	include/mizuiro/range/mpl_ns/tag.hpp
+	include/mizuiro/range/mpl_ns/tag_of.hpp
+	include/mizuiro/range/tag_of_fwd.hpp
 	include/mizuiro/raw_pointer.hpp
 	include/mizuiro/raw_value.hpp
 	include/mizuiro/size_type.hpp

@@ -9,6 +9,7 @@
 
 #include <mizuiro/detail/nonassignable.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -28,15 +29,21 @@ class logical_and
 		logical_and
 	);
 public:
-	typedef bool result_type;
+	typedef
+	bool
+	result_type;
 
 	logical_and(
 		Fun1 const &_fun1,
 		Fun2 const &_fun2
 	)
 	:
-		fun1_(_fun1),
-		fun2_(_fun2)
+		fun1_(
+			_fun1
+		),
+		fun2_(
+			_fun2
+		)
 	{
 	}
 

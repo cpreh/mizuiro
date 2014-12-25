@@ -9,10 +9,7 @@
 
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/access/layout.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/fusion/adapted/mpl.hpp>
-#include <boost/fusion/algorithm/iteration/for_each.hpp>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/range/for_each.hpp>
 
 
 namespace mizuiro
@@ -37,7 +34,7 @@ for_each_channel(
 		"Color must be a color type"
 	);
 
-	boost::fusion::for_each(
+	mizuiro::range::for_each(
 		mizuiro::color::access::layout(
 			_color.format_store()
 		),

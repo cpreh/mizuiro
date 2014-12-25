@@ -10,6 +10,8 @@
 #include <mizuiro/color/access/layout_ns/tag.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/static_ns/tag.hpp>
+// TODO: Put this somewhere else!
+#include <mizuiro/range/include/mpl.hpp>
 
 
 namespace mizuiro
@@ -24,6 +26,8 @@ namespace layout_ns
 template<
 	typename Format
 >
+inline
+constexpr
 typename
 Format::layout::order const
 layout_adl(

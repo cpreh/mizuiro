@@ -10,6 +10,8 @@
 #include <mizuiro/color/access/layout_ns/tag.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/dynamic_ns/tag.hpp>
+// TODO: Put this somewhere else!
+#include <mizuiro/range/include/array.hpp>
 
 
 namespace mizuiro

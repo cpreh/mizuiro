@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/conversion/detail/logical_and.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -22,7 +23,8 @@ template<
 	typename Fun1,
 	typename Fun2
 >
-detail::logical_and<
+inline
+mizuiro::color::conversion::detail::logical_and<
 	Fun1,
 	Fun2
 > const
@@ -32,7 +34,7 @@ make_logical_and(
 )
 {
 	return
-		detail::logical_and<
+		mizuiro::color::conversion::detail::logical_and<
 			Fun1,
 			Fun2
 		>(

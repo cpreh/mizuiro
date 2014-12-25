@@ -17,9 +17,6 @@
 #include <mizuiro/color/conversion/detail/make_logical_and.hpp>
 #include <mizuiro/color/format/argument.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/mpl/not.hpp>
-#include <boost/mpl/placeholders.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
@@ -60,22 +57,7 @@ same_to_same(
 		_format
 	);
 
-	mizuiro::color::for_some_channels<
-		boost::mpl::and_<
-			boost::mpl::not_<
-				std::is_same<
-					mizuiro::color::channel::alpha,
-					boost::mpl::_1
-				>
-			>,
-			boost::mpl::not_<
-				std::is_same<
-					mizuiro::color::channel::undefined,
-					boost::mpl::_1
-				>
-			>
-		>
-	>(
+	mizuiro::color::for_some_channels(
 		_src,
 		mizuiro::color::conversion::detail::copy_or_min_channel_function<
 			Src,

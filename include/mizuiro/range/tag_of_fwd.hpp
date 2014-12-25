@@ -4,30 +4,22 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_ARRAY_HPP_INCLUDED
-#define MIZUIRO_ARRAY_HPP_INCLUDED
-
-#include <mizuiro/detail/external_begin.hpp>
-#include <array>
-#include <cstddef>
-#include <mizuiro/detail/external_end.hpp>
+#ifndef MIZUIRO_RANGE_TAG_OF_FWD_HPP_INCLUDED
+#define MIZUIRO_RANGE_TAG_OF_FWD_HPP_INCLUDED
 
 
 namespace mizuiro
 {
+namespace range
+{
 
 template<
-	typename T,
-	std::size_t N
+	typename Type,
+	typename Enable = void
 >
-using
-array
-=
-std::array<
-	T,
-	N
->;
+struct tag_of;
 
+}
 }
 
 #endif
