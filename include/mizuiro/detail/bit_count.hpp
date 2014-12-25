@@ -8,6 +8,8 @@
 #define MIZUIRO_DETAIL_BIT_COUNT_HPP_INCLUDED
 
 #include <mizuiro/integral_size.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <limits>
 #include <type_traits>
