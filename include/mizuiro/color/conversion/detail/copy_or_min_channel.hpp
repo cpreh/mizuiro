@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MIN_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MIN_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/color/conversion/detail/channel_to_min_functor.hpp>
+#include <mizuiro/color/conversion/detail/channel_to_min_function.hpp>
 #include <mizuiro/color/conversion/detail/copy_or_default_channel.hpp>
 
 
@@ -20,12 +20,12 @@ namespace conversion
 namespace detail
 {
 
-template
-<
+template<
 	typename Channel,
 	typename Src,
 	typename Dest
 >
+inline
 void
 copy_or_min_channel(
 	Channel const &_channel,
@@ -34,7 +34,7 @@ copy_or_min_channel(
 )
 {
 	mizuiro::color::conversion::detail::copy_or_default_channel(
-		mizuiro::color::conversion::detail::channel_to_min_functor<
+		mizuiro::color::conversion::detail::channel_to_min_function<
 			Dest
 		>(
 			_dest

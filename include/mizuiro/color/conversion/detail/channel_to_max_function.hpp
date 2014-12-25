@@ -4,10 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MIN_CHANNEL_FUNCTOR_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MIN_CHANNEL_FUNCTOR_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MAX_FUNCTION_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MAX_FUNCTION_HPP_INCLUDED
 
-#include <mizuiro/color/conversion/detail/copy_or_min_channel.hpp>
+#include <mizuiro/color/conversion/detail/channel_to_max.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 
 
@@ -21,26 +21,28 @@ namespace detail
 {
 
 template<
-	typename Src,
 	typename Dest
 >
-class copy_or_min_channel_functor
+class channel_to_max_function
 {
 	MIZUIRO_DETAIL_NONASSIGNABLE(
-		copy_or_min_channel_functor
+		channel_to_max_function
 	);
 public:
-	copy_or_min_channel_functor(
-		Src const &_src,
+	explicit
+	channel_to_max_function(
 		Dest &_dest
 	)
 	:
-		src_(_src),
-		dest_(_dest)
+		dest_(
+			_dest
+		)
 	{
 	}
 
-	typedef void result_type;
+	typedef
+	void
+	result_type;
 
 	template<
 		typename Channel
@@ -50,15 +52,12 @@ public:
 		Channel const &_channel
 	) const
 	{
-		conversion::detail::copy_or_min_channel(
-			_channel,
-			src_,
-			dest_
+		mizuiro::color::conversion::detail::channel_to_max(
+			dest_,
+			_channel
 		);
 	}
 private:
-	Src const &src_;
-
 	Dest &dest_;
 };
 

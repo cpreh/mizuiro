@@ -4,10 +4,11 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_DETAIL_FOR_SOME_CHANNELS_FUNCTOR_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_FOR_SOME_CHANNELS_FUNCTOR_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_DETAIL_FOR_SOME_CHANNELS_FUNCTION_HPP_INCLUDED
+#define MIZUIRO_COLOR_DETAIL_FOR_SOME_CHANNELS_FUNCTION_HPP_INCLUDED
 
 #include <mizuiro/detail/nonassignable.hpp>
+
 
 namespace mizuiro
 {
@@ -20,23 +21,29 @@ template<
 	typename Function,
 	typename Filter
 >
-class for_some_channels_functor
+class for_some_channels_function
 {
 	MIZUIRO_DETAIL_NONASSIGNABLE(
-		for_some_channels_functor
+		for_some_channels_function
 	);
 public:
-	for_some_channels_functor(
-		Function const &_functor,
+	for_some_channels_function(
+		Function const &_function,
 		Filter const &_filter
 	)
 	:
-		functor_(_functor),
-		filter_(_filter)
+		function_(
+			_function
+		),
+		filter_(
+			_filter
+		)
 	{
 	}
 
-	typedef void result_type;
+	typedef
+	void
+	result_type;
 
 	template<
 		typename T
@@ -51,12 +58,12 @@ public:
 				_value
 			)
 		)
-			functor_(
+			function_(
 				_value
 			);
 	}
 private:
-	Function const functor_;
+	Function const function_;
 
 	Filter const filter_;
 };

@@ -4,10 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_AND_CONVERT_CHANNEL_FUNCTOR_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_AND_CONVERT_CHANNEL_FUNCTOR_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MIN_CHANNEL_FUNCTION_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MIN_CHANNEL_FUNCTION_HPP_INCLUDED
 
-#include <mizuiro/color/conversion/detail/copy_and_convert_channel.hpp>
+#include <mizuiro/color/conversion/detail/copy_or_min_channel.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 
 
@@ -22,26 +22,31 @@ namespace detail
 
 template<
 	typename Src,
-	typename Dest,
-	typename Float
+	typename Dest
 >
-class copy_and_convert_channel_functor
+class copy_or_min_channel_function
 {
 	MIZUIRO_DETAIL_NONASSIGNABLE(
-		copy_and_convert_channel_functor
+		copy_or_min_channel_function
 	);
 public:
-	copy_and_convert_channel_functor(
+	copy_or_min_channel_function(
 		Src const &_src,
 		Dest &_dest
 	)
 	:
-		src_(_src),
-		dest_(_dest)
+		src_(
+			_src
+		),
+		dest_(
+			_dest
+		)
 	{
 	}
 
-	typedef void result_type;
+	typedef
+	void
+	result_type;
 
 	template<
 		typename Channel
@@ -51,9 +56,7 @@ public:
 		Channel const &_channel
 	) const
 	{
-		conversion::detail::copy_and_convert_channel<
-			Float
-		>(
+		mizuiro::color::conversion::detail::copy_or_min_channel(
 			_channel,
 			src_,
 			dest_

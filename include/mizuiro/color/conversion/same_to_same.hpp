@@ -12,8 +12,8 @@
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/channel/undefined.hpp>
 #include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
-#include <mizuiro/color/conversion/detail/copy_or_min_channel_functor.hpp>
-#include <mizuiro/color/conversion/detail/exclude_channel_functor.hpp>
+#include <mizuiro/color/conversion/detail/copy_or_min_channel_function.hpp>
+#include <mizuiro/color/conversion/detail/exclude_channel_function.hpp>
 #include <mizuiro/color/conversion/detail/make_logical_and.hpp>
 #include <mizuiro/color/format/argument.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -77,7 +77,7 @@ same_to_same(
 		>
 	>(
 		_src,
-		mizuiro::color::conversion::detail::copy_or_min_channel_functor<
+		mizuiro::color::conversion::detail::copy_or_min_channel_function<
 			Src,
 			dest_type
 		>(
@@ -85,14 +85,14 @@ same_to_same(
 			dest
 		),
 		mizuiro::color::conversion::detail::make_logical_and(
-			mizuiro::color::conversion::detail::exclude_channel_functor<
+			mizuiro::color::conversion::detail::exclude_channel_function<
 				typename
 				Src::format,
 				mizuiro::color::channel::alpha
 			>(
 				_src.format_store()
 			),
-			mizuiro::color::conversion::detail::exclude_channel_functor<
+			mizuiro::color::conversion::detail::exclude_channel_function<
 				typename
 				Src::format,
 				mizuiro::color::channel::undefined

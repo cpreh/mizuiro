@@ -8,7 +8,7 @@
 #define MIZUIRO_COLOR_FOR_SOME_CHANNELS_HPP_INCLUDED
 
 #include <mizuiro/color/access/layout.hpp>
-#include <mizuiro/color/detail/for_some_channels_functor.hpp>
+#include <mizuiro/color/detail/for_some_channels_function.hpp>
 #include <mizuiro/detail/make_filter_view.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/fusion/adapted/mpl.hpp>
@@ -42,7 +42,7 @@ for_some_channels(
 				_color.format_store()
 			)
 		),
-		mizuiro::color::detail::for_some_channels_functor<
+		mizuiro::color::detail::for_some_channels_function<
 			Function,
 			DynamicFilter
 		>(

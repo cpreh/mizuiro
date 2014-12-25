@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_EXCLUDE_CHANNEL_FUNCTOR_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERSION_DETAIL_EXCLUDE_CHANNEL_FUNCTOR_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_EXCLUDE_CHANNEL_FUNCTION_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_DETAIL_EXCLUDE_CHANNEL_FUNCTION_HPP_INCLUDED
 
 #include <mizuiro/color/access/compare_channels.hpp>
 #include <mizuiro/color/format/store.hpp>
@@ -25,10 +25,10 @@ template<
 	typename Format,
 	typename StaticChannel
 >
-class exclude_channel_functor
+class exclude_channel_function
 {
 	MIZUIRO_DETAIL_NONASSIGNABLE(
-		exclude_channel_functor
+		exclude_channel_function
 	);
 public:
 	typedef
@@ -38,7 +38,7 @@ public:
 	format_store;
 
 	explicit
-	exclude_channel_functor(
+	exclude_channel_function(
 		format_store const &_format
 	)
 	:

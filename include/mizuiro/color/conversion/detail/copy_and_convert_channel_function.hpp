@@ -4,10 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MAX_FUNCTOR_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MAX_FUNCTOR_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_AND_CONVERT_CHANNEL_FUNCTION_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_AND_CONVERT_CHANNEL_FUNCTION_HPP_INCLUDED
 
-#include <mizuiro/color/conversion/detail/channel_to_max.hpp>
+#include <mizuiro/color/conversion/detail/copy_and_convert_channel.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 
 
@@ -21,26 +21,33 @@ namespace detail
 {
 
 template<
-	typename Dest
+	typename Src,
+	typename Dest,
+	typename Float
 >
-class channel_to_max_functor
+class copy_and_convert_channel_function
 {
 	MIZUIRO_DETAIL_NONASSIGNABLE(
-		channel_to_max_functor
+		copy_and_convert_channel_function
 	);
 public:
-	typedef void result_type;
-
-	explicit
-	channel_to_max_functor(
+	copy_and_convert_channel_function(
+		Src const &_src,
 		Dest &_dest
 	)
 	:
+		src_(
+			_src
+		),
 		dest_(
 			_dest
 		)
 	{
 	}
+
+	typedef
+	void
+	result_type;
 
 	template<
 		typename Channel
@@ -50,12 +57,17 @@ public:
 		Channel const &_channel
 	) const
 	{
-		conversion::detail::channel_to_max(
-			dest_,
-			_channel
+		mizuiro::color::conversion::detail::copy_and_convert_channel<
+			Float
+		>(
+			_channel,
+			src_,
+			dest_
 		);
 	}
 private:
+	Src const &src_;
+
 	Dest &dest_;
 };
 

@@ -233,16 +233,16 @@ set(
 	include/mizuiro/color/channel_proxy_impl.hpp
 	include/mizuiro/color/compare.hpp
 	include/mizuiro/color/conversion/detail/channel_to_max.hpp
-	include/mizuiro/color/conversion/detail/channel_to_max_functor.hpp
+	include/mizuiro/color/conversion/detail/channel_to_max_function.hpp
 	include/mizuiro/color/conversion/detail/channel_to_min.hpp
-	include/mizuiro/color/conversion/detail/channel_to_min_functor.hpp
+	include/mizuiro/color/conversion/detail/channel_to_min_function.hpp
 	include/mizuiro/color/conversion/detail/copy_and_convert_channel.hpp
-	include/mizuiro/color/conversion/detail/copy_and_convert_channel_functor.hpp
+	include/mizuiro/color/conversion/detail/copy_and_convert_channel_function.hpp
 	include/mizuiro/color/conversion/detail/copy_or_default_channel.hpp
 	include/mizuiro/color/conversion/detail/copy_or_max_alpha.hpp
 	include/mizuiro/color/conversion/detail/copy_or_min_channel.hpp
-	include/mizuiro/color/conversion/detail/copy_or_min_channel_functor.hpp
-	include/mizuiro/color/conversion/detail/exclude_channel_functor.hpp
+	include/mizuiro/color/conversion/detail/copy_or_min_channel_function.hpp
+	include/mizuiro/color/conversion/detail/exclude_channel_function.hpp
 	include/mizuiro/color/conversion/detail/logical_and.hpp
 	include/mizuiro/color/conversion/detail/make_logical_and.hpp
 	include/mizuiro/color/conversion/detail/rgb_from_chroma.hpp
@@ -263,7 +263,7 @@ set(
 	include/mizuiro/color/detail/compare.hpp
 	include/mizuiro/color/detail/copy_channel.hpp
 	include/mizuiro/color/detail/dynamic_channel_to_pos.hpp
-	include/mizuiro/color/detail/for_some_channels_functor.hpp
+	include/mizuiro/color/detail/for_some_channels_function.hpp
 	include/mizuiro/color/detail/full_channel_max.hpp
 	include/mizuiro/color/detail/full_channel_min.hpp
 	include/mizuiro/color/detail/heterogenous_bits.hpp
@@ -458,6 +458,7 @@ set(
 	include/mizuiro/detail/optional_impl.hpp
 	include/mizuiro/detail/pop_warning.hpp
 	include/mizuiro/detail/push_warning.hpp
+	include/mizuiro/detail/tuple_for_each.hpp
 	include/mizuiro/detail/uint_least.hpp
 	include/mizuiro/detail/unlikely.hpp
 	include/mizuiro/detail/variant_apply_binary.hpp

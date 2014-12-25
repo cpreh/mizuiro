@@ -8,7 +8,7 @@
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MAX_ALPHA_HPP_INCLUDED
 
 #include <mizuiro/color/channel/alpha.hpp>
-#include <mizuiro/color/conversion/detail/channel_to_max_functor.hpp>
+#include <mizuiro/color/conversion/detail/channel_to_max_function.hpp>
 #include <mizuiro/color/conversion/detail/copy_or_default_channel.hpp>
 
 
@@ -21,11 +21,11 @@ namespace conversion
 namespace detail
 {
 
-template
-<
+template<
 	typename Src,
 	typename Dest
 >
+inline
 void
 copy_or_max_alpha(
 	Src const &_src,
@@ -33,7 +33,7 @@ copy_or_max_alpha(
 )
 {
 	mizuiro::color::conversion::detail::copy_or_default_channel(
-		mizuiro::color::conversion::detail::channel_to_max_functor<
+		mizuiro::color::conversion::detail::channel_to_max_function<
 			Dest
 		>(
 			_dest
