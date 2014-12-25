@@ -14,8 +14,7 @@
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/fusion/container/generation/make_vector.hpp>
-#include <boost/fusion/container/vector/vector.hpp>
+#include <tuple>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
@@ -39,7 +38,7 @@ struct trampoline
 	>
 	inline
 	mizuiro::color::init::detail::values<
-		boost::fusion::vector1<
+		std::tuple<
 			mizuiro::color::init::detail::channel_value<
 				Value,
 				Channel
@@ -53,7 +52,7 @@ struct trampoline
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 		return
 			mizuiro::color::init::detail::make_values(
-				boost::fusion::make_vector(
+				std::make_tuple(
 					mizuiro::color::init::detail::channel_value<
 						Value,
 						Channel
@@ -71,7 +70,7 @@ MIZUIRO_DETAIL_POP_WARNING
 	>
 	inline
 	mizuiro::color::init::detail::values<
-		boost::fusion::vector1<
+		std::tuple<
 			mizuiro::color::init::detail::channel_percentage<
 				Value,
 				Channel
@@ -92,7 +91,7 @@ MIZUIRO_DETAIL_POP_WARNING
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 		return
 			mizuiro::color::init::detail::make_values(
-				boost::fusion::make_vector(
+				std::make_tuple(
 					mizuiro::color::init::detail::channel_percentage<
 						Value,
 						Channel

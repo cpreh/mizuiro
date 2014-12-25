@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/init/detail/values.hpp>
 
+
 namespace mizuiro
 {
 namespace color
@@ -21,7 +22,7 @@ namespace detail
 template<
 	typename Vector
 >
-detail::values<
+mizuiro::color::init::detail::values<
 	Vector
 > const
 make_values(
@@ -29,7 +30,7 @@ make_values(
 )
 {
 	return
-		detail::values<
+		mizuiro::color::init::detail::values<
 			Vector
 		>(
 			_vector

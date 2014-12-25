@@ -10,9 +10,7 @@
 #include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <mizuiro/color/init/detail/visitor.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/fusion/algorithm/iteration/for_each.hpp>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/detail/tuple_for_each.hpp>
 
 
 namespace mizuiro
@@ -28,6 +26,7 @@ template<
 	typename Format,
 	typename Vector
 >
+inline
 void
 assign_object(
 	mizuiro::color::object<
@@ -38,15 +37,13 @@ assign_object(
 	> const &_init
 )
 {
-	boost::fusion::for_each<
-		Vector
-	>(
-		_init.get(),
+	mizuiro::detail::tuple_for_each(
 		mizuiro::color::init::detail::visitor<
 			Format
 		>(
 			_object
-		)
+		),
+		_init.get()
 	);
 }
 
