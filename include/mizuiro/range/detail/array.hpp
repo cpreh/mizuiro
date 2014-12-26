@@ -8,10 +8,10 @@
 #define MIZUIRO_RANGE_DETAIL_ARRAY_HPP_INCLUDED
 
 #include <mizuiro/detail/nonassignable.hpp>
+#include <mizuiro/mpl/bool.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <array>
 #include <cstddef>
-#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -33,8 +33,7 @@ class array
 	);
 public:
 	typedef
-	std::integral_constant<
-		bool,
+	mizuiro::mpl::bool_<
 		Index
 		==
 		std::tuple_size<

@@ -9,9 +9,8 @@
 
 #include <mizuiro/color/format/static_ns/tag.hpp>
 #include <mizuiro/color/types/has_channel_static_ns/tag.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/contains.hpp>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/mpl/bool.hpp>
+#include <mizuiro/mpl/contains.hpp>
 
 
 namespace mizuiro
@@ -27,11 +26,12 @@ template<
 	typename Format,
 	typename Channel
 >
-typename
-boost::mpl::contains<
-	typename Format::layout::order,
-	Channel
->::type
+mizuiro::mpl::bool_<
+	mizuiro::mpl::contains<
+		typename Format::layout::order,
+		Channel
+	>()
+>
 has_channel_static_adl(
 	mizuiro::color::types::has_channel_static_ns::tag,
 	mizuiro::color::format::static_ns::tag<

@@ -8,11 +8,7 @@
 #define MIZUIRO_COLOR_DETAIL_COMPARE_HPP_INCLUDED
 
 #include <mizuiro/color/decay_channel_proxy.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/deref.hpp>
-#include <boost/mpl/next.hpp>
-#include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/detail/nonassignable.hpp>
 
 
 namespace mizuiro
@@ -23,97 +19,62 @@ namespace detail
 {
 
 template<
-	bool Done
+	typename Color1,
+	typename Color2,
+	typename CompareChannel
 >
-struct compare;
-
-template<>
-struct compare<
-	true
->
+class compare
 {
-	template<
-		typename Iterator,
-		typename LastIterator,
-		typename Color1,
-		typename Color2,
-		typename Compare
-	>
-	static
-	bool
-	execute(
-		Color1 const &,
-		Color2 const &,
-		Compare const &
-	)
-	{
-		return
-			true;
-	}
-};
-
-template<>
-struct compare<
-	false
->
-{
-	template<
-		typename Iterator,
-		typename LastIterator,
-		typename Color1,
-		typename Color2,
-		typename Compare
-	>
-	static
-	bool
-	execute(
+	MIZUIRO_DETAIL_NONASSIGNABLE(
+		compare
+	);
+public:
+	compare(
 		Color1 const &_color1,
 		Color2 const &_color2,
-		Compare const &_compare
+		CompareChannel const &_compare_channel
 	)
+	:
+		color1_(
+			_color1
+		),
+		color2_(
+			_color2
+		),
+		compare_channel_(
+			_compare_channel
+		)
 	{
-		typedef
-		typename
-		boost::mpl::deref<
-			Iterator
-		>::type
-		item;
+	}
 
-		typedef
-		typename
-		boost::mpl::next<
-			Iterator
-		>::type
-		iter;
-
+	template<
+		typename Channel
+	>
+	bool
+	operator()(
+		Channel const &_channel
+	) const
+	{
 		return
-			_compare(
+			compare_channel_(
 				mizuiro::color::decay_channel_proxy(
-					_color1.get(
-						item()
+					color1_.get(
+						_channel
 					)
 				),
 				mizuiro::color::decay_channel_proxy(
-					_color2.get(
-						item()
+					color2_.get(
+						_channel
 					)
 				)
-			)
-			&&
-			mizuiro::color::detail::compare<
-				std::is_same<
-					iter,
-					LastIterator
-				>::value
-			>:: template execute<
-				iter,
-				LastIterator
-			>(
-				_color1,
-				_color2,
-				_compare
 			);
 	}
+private:
+	Color1 const &color1_;
+
+	Color2 const &color2_;
+
+	CompareChannel const compare_channel_;
 };
 
 }

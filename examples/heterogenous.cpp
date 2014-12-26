@@ -4,7 +4,6 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/size_type.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/format/heterogenous_static.hpp>
@@ -12,8 +11,8 @@
 #include <mizuiro/color/init/alpha.hpp>
 #include <mizuiro/color/init/luminance.hpp>
 #include <mizuiro/color/layout/la.hpp>
+#include <mizuiro/mpl/size_list.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/vector/vector10_c.hpp>
 #include <cstdint>
 #include <iostream>
 #include <ostream>
@@ -25,8 +24,7 @@ main()
 {
 	typedef
 	mizuiro::color::format::heterogenous_static<
-		boost::mpl::vector2_c<
-			mizuiro::size_type,
+		mizuiro::mpl::size_list<
 			24u,
 			8u
 		>,

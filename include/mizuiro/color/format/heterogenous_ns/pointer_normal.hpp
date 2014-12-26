@@ -30,14 +30,13 @@ template<
 >
 mizuiro::apply_const_result<
 	// TODO: Refactor this because it is the same as channel_value
-	typename
 	mizuiro::detail::uint_least<
 		typename
 		mizuiro::color::detail::heterogenous_bits<
 			typename
 			Format::channel_bits
 		>::type
-	>::type *,
+	> *,
 	Constness
 >
 pointer_adl(

@@ -8,8 +8,8 @@
 #define MIZUIRO_ENUM_SIZE_HPP_INCLUDED
 
 #include <mizuiro/enum_size_fwd.hpp>
-#include <mizuiro/integral_size.hpp>
 #include <mizuiro/size_type.hpp>
+#include <mizuiro/mpl/integral_size.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 
@@ -24,7 +24,7 @@ template<
 >
 struct enum_size
 :
-mizuiro::integral_size<
+mizuiro::mpl::integral_size<
 	static_cast<
 		mizuiro::size_type
 	>(

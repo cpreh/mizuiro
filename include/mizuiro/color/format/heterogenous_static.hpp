@@ -8,9 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_HETEROGENOUS_STATIC_HPP_INCLUDED
 
 #include <mizuiro/color/format/heterogenous_static_fwd.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/size.hpp>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/mpl/size.hpp>
 
 
 namespace mizuiro
@@ -27,13 +25,13 @@ template<
 struct heterogenous_static
 {
 	static_assert(
-		boost::mpl::size<
+		mizuiro::mpl::size<
 			ChannelBits
-		>::value
+		>()
 		==
-		boost::mpl::size<
+		mizuiro::mpl::size<
 			typename Layout::order
-		>::value,
+		>(),
 		"Number of channels doesn't match the layout"
 	);
 

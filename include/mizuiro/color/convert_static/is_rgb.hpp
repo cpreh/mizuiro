@@ -11,9 +11,7 @@
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/types/has_channel_static.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/mpl/bool.hpp>
 
 
 namespace mizuiro
@@ -28,8 +26,7 @@ template<
 >
 using is_rgb
 =
-std::integral_constant<
-	bool,
+mizuiro::mpl::bool_<
 	mizuiro::color::types::has_channel_static<
 		Format,
 		mizuiro::color::channel::red

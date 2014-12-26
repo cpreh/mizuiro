@@ -8,9 +8,7 @@
 #define MIZUIRO_RANGE_DETAIL_MPL_HPP_INCLUDED
 
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/empty.hpp>
-#include <boost/mpl/front.hpp>
-#include <boost/mpl/pop_front.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -21,44 +19,65 @@ namespace range
 namespace detail
 {
 
+// TODO: This is ugly
 template<
-	typename Sequence
+	typename  List,
+	typename Enable = void
 >
-struct mpl
+struct mpl;
+
+template<
+	typename List
+>
+struct mpl<
+	List,
+	typename
+	std::enable_if<
+		List::empty::value
+	>::type
+>
 {
 	typedef
-	boost::mpl::empty<
-		Sequence
-	>
+	typename
+	List::empty
+	empty;
+};
+
+template<
+	typename List
+>
+struct mpl<
+	List,
+	typename
+	std::enable_if<
+		!List::empty::value
+	>::type
+>
+{
+	typedef
+	typename
+	List::empty
 	empty;
 
 	typename
-	boost::mpl::front<
-		Sequence
-	>::type
+	List::head
 	get() const
 	{
 		return
 			typename
-			boost::mpl::front<
-				Sequence
-			>::type();
+			List::head{};
 	}
 
 	mpl<
 		typename
-		boost::mpl::pop_front<
-			Sequence
-		>::type
+		List::tail
 	>
 	next() const
 	{
 		return
 			mpl<
 				typename
-				boost::mpl::pop_front<
-					Sequence
-				>::type
+				List::tail
 			>();
 	}
 };

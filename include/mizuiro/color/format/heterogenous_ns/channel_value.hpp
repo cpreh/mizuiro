@@ -26,14 +26,12 @@ template<
 	typename Format,
 	typename Channel
 >
-typename
 mizuiro::detail::uint_least<
-	typename
 	mizuiro::color::detail::heterogenous_channel_bits<
 		Format,
 		Channel
-	>::type
->::type
+	>
+>
 channel_value_adl(
 	mizuiro::color::types::channel_value_ns::tag,
 	mizuiro::color::format::heterogenous_ns::tag<

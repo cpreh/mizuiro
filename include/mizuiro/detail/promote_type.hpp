@@ -4,31 +4,31 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_DETAIL_PROMOTE_CHANNEL_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_PROMOTE_CHANNEL_HPP_INCLUDED
+#ifndef MIZUIRO_DETAIL_PROMOTE_TYPE_HPP_INCLUDED
+#define MIZUIRO_DETAIL_PROMOTE_TYPE_HPP_INCLUDED
 
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/type_traits/promote.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
 {
-namespace color
-{
 namespace detail
 {
 
 template<
-	typename T
+	typename Type
 >
-using promote_channel
+using
+promote_type
 =
-boost::promote<
-	T
->;
+decltype(
+	+std::declval<
+		Type
+	>()
+);
 
-}
 }
 }
 

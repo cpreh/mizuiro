@@ -4,22 +4,22 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_INTEGRAL_SIZE_HPP_INCLUDED
-#define MIZUIRO_INTEGRAL_SIZE_HPP_INCLUDED
+#ifndef MIZUIRO_MPL_INTEGRAL_SIZE_HPP_INCLUDED
+#define MIZUIRO_MPL_INTEGRAL_SIZE_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/integral_c.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
 {
+namespace mpl
+{
 
 /**
 \brief An integral constant size of mizuiro::size_type
-
-TODO: Use std::integral_constant here?
 
 \tparam Size The constant size
 */
@@ -28,11 +28,12 @@ template<
 >
 using integral_size
 =
-boost::mpl::integral_c<
+std::integral_constant<
 	mizuiro::size_type,
 	Size
 >;
 
+}
 }
 
 #endif

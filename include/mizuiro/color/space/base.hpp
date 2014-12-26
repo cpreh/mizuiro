@@ -9,14 +9,8 @@
 
 #include <mizuiro/color/channel/alpha_fwd.hpp>
 #include <mizuiro/color/channel/undefined_fwd.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/mpl/contains.hpp>
-#include <boost/mpl/fold.hpp>
-#include <boost/mpl/placeholders.hpp>
-#include <boost/mpl/vector.hpp>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/color/layout/detail/has_all_channels.hpp>
+#include <mizuiro/mpl/list.hpp>
 
 
 namespace mizuiro
@@ -26,6 +20,31 @@ namespace color
 namespace space
 {
 
+/**
+\brief A typedef helper class used to define color spaces
+
+TODO: Use better notation here
+PossibleChannels specifies the list of channels that are possible for this
+color space. Every element of Order must either be
+mizuiro::color::channel::alpha, mizuiro::color::channel::undefined or it must
+be an element of PossibleChannels.
+
+<code>typedef Order order</code>
+
+A color space consists of possible channels (e.g. red, green, blue), possibly
+including alpha channels (to include transparency which is not part of the
+traditional color space definition) or undefined channels (which are purely
+used as an efficient data representation mechanism). Alpha channels will never
+contribute 'color' while undefined channels will be ignored.
+
+TODO: Should a color space impose limits on the number of possible channels?
+
+\tparam Order A mizuiro::mpl::list consisting of \link color_channel Color
+Channels\endlink
+
+\tparam PossibleChannels A variadic template list consisting of \link
+color_channel Color Channels\endlink
+*/
 template<
 	typename Order,
 	typename... PossibleChannels
@@ -37,21 +56,14 @@ struct base
 	order;
 
 	static_assert(
-		boost::mpl::fold<
-			Order,
-			boost::mpl::true_,
-			boost::mpl::and_<
-				boost::mpl::_1,
-				boost::mpl::contains<
-					boost::mpl::vector<
-						mizuiro::color::channel::alpha,
-						mizuiro::color::channel::undefined,
-						PossibleChannels...
-					>,
-					boost::mpl::_2
-				>
+		mizuiro::color::layout::detail::has_all_channels<
+			order,
+			mizuiro::mpl::list<
+				mizuiro::color::channel::alpha,
+				mizuiro::color::channel::undefined,
+				PossibleChannels...
 			>
-		>::type::value,
+		>::value,
 		"Invalid channel in color space"
 	);
 

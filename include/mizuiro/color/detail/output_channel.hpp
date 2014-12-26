@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_DETAIL_OUTPUT_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_OUTPUT_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/color/detail/promote_channel.hpp>
+#include <mizuiro/detail/promote_type.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -66,14 +66,13 @@ public:
 	{
 		stream_ <<
 			static_cast<
-				typename
-				mizuiro::color::detail::promote_channel<
+				mizuiro::detail::promote_type<
 					mizuiro::color::types::channel_value<
 						typename
 						Color::format,
 						Channel
 					>
-				>::type
+				>
 			>(
 				color_.get(
 					_channel
