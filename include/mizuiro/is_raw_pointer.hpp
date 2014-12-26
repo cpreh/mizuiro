@@ -9,7 +9,6 @@
 
 #include <mizuiro/raw_value.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/and.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
@@ -28,10 +27,12 @@ template<
 >
 using is_raw_pointer
 =
-boost::mpl::and_<
+std::integral_constant<
+	bool,
 	std::is_pointer<
 		T
-	>,
+	>::value
+	&&
 	std::is_same<
 		raw_value,
 		typename std::remove_const<
@@ -39,7 +40,7 @@ boost::mpl::and_<
 				T
 			>::type
 		>::type
-	>
+	>::value
 >;
 
 }

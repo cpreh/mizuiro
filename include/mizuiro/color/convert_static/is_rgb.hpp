@@ -12,7 +12,7 @@
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/types/has_channel_static.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/or.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -28,19 +28,22 @@ template<
 >
 using is_rgb
 =
-boost::mpl::or_<
+std::integral_constant<
+	bool,
 	mizuiro::color::types::has_channel_static<
 		Format,
-		channel::red
-	>,
+		mizuiro::color::channel::red
+	>::value
+	||
 	mizuiro::color::types::has_channel_static<
 		Format,
-		channel::green
-	>,
+		mizuiro::color::channel::green
+	>::value
+	||
 	mizuiro::color::types::has_channel_static<
 		Format,
-		channel::blue
-	>
+		mizuiro::color::channel::blue
+	>::value
 >;
 
 }
