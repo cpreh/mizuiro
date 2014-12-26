@@ -29,6 +29,7 @@ template<
 	typename ViewS,
 	typename ViewD
 >
+inline
 typename
 std::enable_if<
 	!mizuiro::image::views_are_compatible<
@@ -57,6 +58,7 @@ template<
 	typename ViewS,
 	typename ViewD
 >
+inline
 typename
 std::enable_if<
 	mizuiro::image::views_are_compatible<

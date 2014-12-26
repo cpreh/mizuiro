@@ -23,6 +23,7 @@ template<
 	typename ViewS,
 	typename ViewD
 >
+inline
 void
 copy(
 	ViewS const &_src,

@@ -12,7 +12,7 @@
 #include <mizuiro/color/channel/value.hpp>
 #include <mizuiro/color/types/has_channel_static.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/and.hpp>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -28,19 +28,22 @@ template<
 >
 using is_hsv
 =
-boost::mpl::and_<
+std::integral_constant<
+	bool,
 	mizuiro::color::types::has_channel_static<
 		Format,
 		mizuiro::color::channel::hue
-	>,
+	>::value
+	&&
 	mizuiro::color::types::has_channel_static<
 		Format,
 		mizuiro::color::channel::saturation
-	>,
+	>::value
+	&&
 	mizuiro::color::types::has_channel_static<
 		Format,
 		mizuiro::color::channel::value
-	>
+	>::value
 >;
 
 }
