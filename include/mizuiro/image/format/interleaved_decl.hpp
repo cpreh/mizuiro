@@ -9,6 +9,8 @@
 
 #include <mizuiro/color/format/argument.hpp>
 #include <mizuiro/color/format/base_decl.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/pitch_type.hpp>
 #include <mizuiro/image/format/interleaved_fwd.hpp>
 
@@ -19,6 +21,8 @@ namespace image
 {
 namespace format
 {
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename DimType,
@@ -68,6 +72,8 @@ public:
 	format_store_type const
 	format_store() const;
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 }
 }
