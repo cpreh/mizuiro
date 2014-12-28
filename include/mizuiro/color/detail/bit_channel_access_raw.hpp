@@ -30,22 +30,27 @@ template<
 class bit_channel_access_raw
 {
 private:
-	typedef mizuiro::color::detail::bit_channel_access_normal<
+	typedef
+	mizuiro::color::detail::bit_channel_access_normal<
 		Format,
 		Channel
-	> access_normal;
+	>
+	access_normal;
 
 	typedef
 	mizuiro::color::types::channel_value<
 		Format,
 		Channel
-	> value_type;
+	>
+	value_type;
 
-	typedef typename mizuiro::detail::uint_least<
-		typename mizuiro::color::detail::heterogenous_bits<
+	typedef
+	mizuiro::detail::uint_least<
+		mizuiro::color::detail::heterogenous_bits<
 			typename Format::channel_bits
-		>::type
-	>::type color_uint;
+		>
+	>
+	color_uint;
 public:
 	static
 	value_type
