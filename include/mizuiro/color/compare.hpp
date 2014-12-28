@@ -7,13 +7,11 @@
 #ifndef MIZUIRO_COLOR_COMPARE_HPP_INCLUDED
 #define MIZUIRO_COLOR_COMPARE_HPP_INCLUDED
 
-#include <mizuiro/color/formats_are_compatible.hpp>
 #include <mizuiro/color/is_color.hpp>
+#include <mizuiro/color/access/layout.hpp>
 #include <mizuiro/color/detail/compare.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/begin.hpp>
-#include <boost/mpl/end.hpp>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/color/format/compatible.hpp>
+#include <mizuiro/range/all_of.hpp>
 
 
 namespace mizuiro
@@ -34,7 +32,7 @@ compare(
 )
 {
 	static_assert(
-		mizuiro::color::formats_are_compatible<
+		mizuiro::color::format::compatible<
 			typename Color1::format,
 			typename Color2::format
 		>::value,
@@ -55,28 +53,20 @@ compare(
 		"Color2 must be a color type"
 	);
 
-	typedef
-	typename
-	Color1::format::layout::order
-	channels;
-
-	// TODO: Make a fold operation for this?
 	return
-		mizuiro::color::detail::compare<
-			false
-		>:: template execute<
-			typename
-			boost::mpl::begin<
-				channels
-			>::type,
-			typename
-			boost::mpl::end<
-				channels
-			>::type
-		>(
-			_color1,
-			_color2,
-			_compare
+		mizuiro::range::all_of(
+			mizuiro::color::access::layout(
+				_color1.format_store()
+			),
+			mizuiro::color::detail::compare<
+				Color1,
+				Color2,
+				CompareChannel
+			>(
+				_color1,
+				_color2,
+				_compare
+			)
 		);
 }
 

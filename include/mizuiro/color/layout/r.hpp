@@ -9,9 +9,7 @@
 
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/space/rgb.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/vector/vector10.hpp>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/mpl/list.hpp>
 
 
 namespace mizuiro
@@ -23,7 +21,7 @@ namespace layout
 
 typedef
 mizuiro::color::space::rgb<
-	boost::mpl::vector1<
+	mizuiro::mpl::list<
 		mizuiro::color::channel::red
 	>
 >

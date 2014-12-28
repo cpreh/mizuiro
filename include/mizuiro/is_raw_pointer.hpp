@@ -8,6 +8,7 @@
 #define MIZUIRO_IS_RAW_POINTER_HPP_INCLUDED
 
 #include <mizuiro/raw_value.hpp>
+#include <mizuiro/mpl/bool.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -27,8 +28,7 @@ template<
 >
 using is_raw_pointer
 =
-std::integral_constant<
-	bool,
+mizuiro::mpl::bool_<
 	std::is_pointer<
 		T
 	>::value

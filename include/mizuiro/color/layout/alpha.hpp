@@ -8,9 +8,7 @@
 #define MIZUIRO_COLOR_LAYOUT_ALPHA_HPP_INCLUDED
 
 #include <mizuiro/color/channel/alpha.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/vector/vector10.hpp>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/mpl/list.hpp>
 
 
 namespace mizuiro
@@ -24,7 +22,7 @@ struct alpha
 {
 	// TODO: Which color space is this, if any?
 	typedef
-	boost::mpl::vector1<
+	mizuiro::mpl::list<
 		mizuiro::color::channel::alpha
 	>
 	order;

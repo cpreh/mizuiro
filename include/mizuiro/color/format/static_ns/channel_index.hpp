@@ -11,7 +11,7 @@
 #include <mizuiro/color/access/channel_index_ns/tag.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/static_ns/tag.hpp>
-#include <mizuiro/detail/index_of.hpp>
+#include <mizuiro/mpl/index_of.hpp>
 
 
 namespace mizuiro
@@ -40,10 +40,10 @@ channel_index_adl(
 )
 {
 	return
-		mizuiro::detail::index_of<
+		mizuiro::mpl::index_of<
 			typename Format::layout::order,
 			Channel
-		>::value;
+		>();
 }
 
 }

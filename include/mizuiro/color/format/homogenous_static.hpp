@@ -9,9 +9,7 @@
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/format/homogenous_static_fwd.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/size.hpp>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/mpl/size.hpp>
 
 
 namespace mizuiro
@@ -35,9 +33,9 @@ struct homogenous_static
 
 	static mizuiro::size_type const element_count
 		=
-		boost::mpl::size<
+		mizuiro::mpl::size<
 			typename layout::order
-		>::value;
+		>();
 };
 
 }

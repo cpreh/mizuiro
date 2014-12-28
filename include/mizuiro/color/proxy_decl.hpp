@@ -75,12 +75,17 @@ public:
 	template<
 		typename OtherConstness
 	>
+	explicit
 	proxy(
 		mizuiro::color::proxy<
 			Access,
 			Format,
 			OtherConstness
 		> const &
+	);
+
+	proxy(
+		proxy const &
 	);
 
 	template<
@@ -90,6 +95,16 @@ public:
 	operator=(
 		Other const &
 	) const;
+
+	proxy &
+	operator=(
+		proxy const &
+	) = delete;
+
+	proxy &
+	operator=(
+		proxy &&
+	) = delete;
 
 	template<
 		typename Channel

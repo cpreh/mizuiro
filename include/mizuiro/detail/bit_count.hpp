@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_DETAIL_BIT_COUNT_HPP_INCLUDED
 #define MIZUIRO_DETAIL_BIT_COUNT_HPP_INCLUDED
 
-#include <mizuiro/integral_size.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
+#include <mizuiro/mpl/integral_size.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <limits>
 #include <type_traits>
@@ -28,7 +28,7 @@ template<
 >
 struct bit_count
 :
-mizuiro::integral_size<
+mizuiro::mpl::integral_size<
 	std::numeric_limits<
 		IntType
 	>::digits

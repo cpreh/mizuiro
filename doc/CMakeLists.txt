@@ -134,7 +134,6 @@ set(
 	include/mizuiro/color/detail/initialize_dynamic_indices.hpp
 	include/mizuiro/color/detail/invalid_dynamic_index.hpp
 	include/mizuiro/color/detail/output_channel.hpp
-	include/mizuiro/color/detail/promote_channel.hpp
 	include/mizuiro/color/detail/raw_channel_access.hpp
 	include/mizuiro/color/detail/static_to_dynamic_channel.hpp
 	include/mizuiro/color/detail/unwrap_channel.hpp
@@ -143,6 +142,8 @@ set(
 	include/mizuiro/color/format/argument.hpp
 	include/mizuiro/color/format/base_decl.hpp
 	include/mizuiro/color/format/base_impl.hpp
+	include/mizuiro/color/format/compatible.hpp
+	include/mizuiro/color/format/detail/same_channel_value_type.hpp
 	include/mizuiro/color/format/dynamic_ns/channel_index.hpp
 	include/mizuiro/color/format/dynamic_ns/compare_channels.hpp
 	include/mizuiro/color/format/dynamic_ns/has_channel.hpp
@@ -195,6 +196,7 @@ set(
 	include/mizuiro/color/format/include/static.hpp
 	include/mizuiro/color/format/make_tag_of.hpp
 	include/mizuiro/color/format/raw_ns/pointer.hpp
+	include/mizuiro/color/format/same_channel_value_types.hpp
 	include/mizuiro/color/format/static_ns/channel_index.hpp
 	include/mizuiro/color/format/static_ns/compare_channels.hpp
 	include/mizuiro/color/format/static_ns/has_channel.hpp
@@ -207,7 +209,6 @@ set(
 	include/mizuiro/color/format/store_fwd.hpp
 	include/mizuiro/color/format/store_impl.hpp
 	include/mizuiro/color/format/tag_of_fwd.hpp
-	include/mizuiro/color/formats_are_compatible.hpp
 	include/mizuiro/color/init/alpha.hpp
 	include/mizuiro/color/init/blue.hpp
 	include/mizuiro/color/init/detail/assign_object.hpp
@@ -235,6 +236,8 @@ set(
 	include/mizuiro/color/layout/bgr.hpp
 	include/mizuiro/color/layout/bgra.hpp
 	include/mizuiro/color/layout/bgrx.hpp
+	include/mizuiro/color/layout/detail/has_all_channels.hpp
+	include/mizuiro/color/layout/detail/has_channel.hpp
 	include/mizuiro/color/layout/hsv.hpp
 	include/mizuiro/color/layout/hsva.hpp
 	include/mizuiro/color/layout/is_same.hpp
@@ -248,6 +251,7 @@ set(
 	include/mizuiro/color/layout/s_bgra.hpp
 	include/mizuiro/color/layout/s_rgb.hpp
 	include/mizuiro/color/layout/s_rgba.hpp
+	include/mizuiro/color/layout/same_channels.hpp
 	include/mizuiro/color/normalize.hpp
 	include/mizuiro/color/object.hpp
 	include/mizuiro/color/object_decl.hpp
@@ -278,7 +282,6 @@ set(
 	include/mizuiro/color/types/channel_reference_ns/tag.hpp
 	include/mizuiro/color/types/channel_value.hpp
 	include/mizuiro/color/types/channel_value_ns/tag.hpp
-	include/mizuiro/color/types/channel_value_tpl.hpp
 	include/mizuiro/color/types/has_channel_static.hpp
 	include/mizuiro/color/types/has_channel_static_ns/tag.hpp
 	include/mizuiro/color/types/needs_store.hpp
@@ -290,6 +293,7 @@ set(
 	include/mizuiro/const_raw_pointer.hpp
 	include/mizuiro/const_tag.hpp
 	include/mizuiro/detail/bit_count.hpp
+	include/mizuiro/detail/bit_count_at_least.hpp
 	include/mizuiro/detail/byte_count_from_bits.hpp
 	include/mizuiro/detail/choose_const.hpp
 	include/mizuiro/detail/copy.hpp
@@ -308,7 +312,6 @@ set(
 	include/mizuiro/detail/format_base_fwd.hpp
 	include/mizuiro/detail/format_base_impl.hpp
 	include/mizuiro/detail/ignore_effcpp.hpp
-	include/mizuiro/detail/index_of.hpp
 	include/mizuiro/detail/likely.hpp
 	include/mizuiro/detail/nonassignable.hpp
 	include/mizuiro/detail/normal_format_base_decl.hpp
@@ -318,6 +321,7 @@ set(
 	include/mizuiro/detail/optional_fwd.hpp
 	include/mizuiro/detail/optional_impl.hpp
 	include/mizuiro/detail/pop_warning.hpp
+	include/mizuiro/detail/promote_type.hpp
 	include/mizuiro/detail/push_warning.hpp
 	include/mizuiro/detail/tuple_for_each.hpp
 	include/mizuiro/detail/uint_least.hpp
@@ -483,12 +487,28 @@ set(
 	include/mizuiro/image/view_impl.hpp
 	include/mizuiro/image/views_are_compatible.hpp
 	include/mizuiro/image/views_have_same_channel_order.hpp
-	include/mizuiro/integral_size.hpp
 	include/mizuiro/is_raw_pointer.hpp
+	include/mizuiro/mpl/all_of.hpp
+	include/mizuiro/mpl/at.hpp
+	include/mizuiro/mpl/bool.hpp
+	include/mizuiro/mpl/contains.hpp
+	include/mizuiro/mpl/false.hpp
+	include/mizuiro/mpl/first_of.hpp
+	include/mizuiro/mpl/index_of.hpp
+	include/mizuiro/mpl/integral_size.hpp
+	include/mizuiro/mpl/list.hpp
+	include/mizuiro/mpl/list_fwd.hpp
+	include/mizuiro/mpl/range_to.hpp
+	include/mizuiro/mpl/size.hpp
+	include/mizuiro/mpl/size_list.hpp
+	include/mizuiro/mpl/sum.hpp
+	include/mizuiro/mpl/true.hpp
 	include/mizuiro/nonconst_tag.hpp
+	include/mizuiro/range/all_of.hpp
 	include/mizuiro/range/array_ns/make.hpp
 	include/mizuiro/range/array_ns/tag.hpp
 	include/mizuiro/range/array_ns/tag_of.hpp
+	include/mizuiro/range/detail/all_of.hpp
 	include/mizuiro/range/detail/array.hpp
 	include/mizuiro/range/detail/for_each.hpp
 	include/mizuiro/range/detail/mpl.hpp

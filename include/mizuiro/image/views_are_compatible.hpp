@@ -7,11 +7,9 @@
 #ifndef MIZUIRO_IMAGE_VIEWS_ARE_COMPATIBLE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_VIEWS_ARE_COMPATIBLE_HPP_INCLUDED
 
-#include <mizuiro/color/formats_are_compatible.hpp>
+#include <mizuiro/color/format/compatible.hpp>
+#include <mizuiro/mpl/bool.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/mpl/equal_to.hpp>
-#include <boost/mpl/size.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
@@ -21,30 +19,28 @@ namespace mizuiro
 namespace image
 {
 
+/**
+\brief Tests whether two views are statically compatible
+
+Two views are statically compatible iff they are of the same dimension and
+their color formats are statically compatible.
+*/
 template<
 	typename View1,
 	typename View2
 >
 using views_are_compatible
 =
-boost::mpl::and_<
+mizuiro::mpl::bool_<
 	std::is_same<
 		typename View1::dim,
 		typename View2::dim
-	>,
-	// TODO: Is this correct?
-	boost::mpl::equal_to<
-		boost::mpl::size<
-			typename View1::format::color_format::layout::order
-		>,
-		boost::mpl::size<
-			typename View2::format::color_format::layout::order
-		>
-	>,
-	mizuiro::color::formats_are_compatible<
+	>::value
+	&&
+	mizuiro::color::format::compatible<
 		typename View1::format::color_format,
 		typename View2::format::color_format
-	>
+	>::value
 >;
 
 }

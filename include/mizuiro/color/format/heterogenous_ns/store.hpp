@@ -29,14 +29,13 @@ template<
 // TODO: Make it possible to use something else here which doesn't require .data()
 mizuiro::array<
 	// TODO: Also refactor this to use channel_value
-	typename
 	mizuiro::detail::uint_least<
 		typename
 		mizuiro::color::detail::heterogenous_bits<
 			typename
 			Format::channel_bits
 		>::type
-	>::type,
+	>,
 	1u
 >
 store_adl(

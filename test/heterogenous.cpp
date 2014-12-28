@@ -6,7 +6,6 @@
 
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
-#include <mizuiro/size_type.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/channel/blue.hpp>
@@ -23,10 +22,10 @@
 #include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/layout/la.hpp>
 #include <mizuiro/color/layout/rgb.hpp>
+#include <mizuiro/mpl/size_list.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/vector/vector10_c.hpp>
 #include <boost/test/unit_test.hpp>
 #include <array>
 #include <cstdint>
@@ -43,8 +42,7 @@ MIZUIRO_DETAIL_POP_WARNING
 
 	typedef
 	mizuiro::color::format::heterogenous_static<
-		boost::mpl::vector2_c<
-			mizuiro::size_type,
+		mizuiro::mpl::size_list<
 			24u,
 			8u
 		>,
@@ -89,8 +87,7 @@ BOOST_AUTO_TEST_CASE(
 MIZUIRO_DETAIL_POP_WARNING
 
 	typedef mizuiro::color::format::heterogenous_static<
-		boost::mpl::vector3_c<
-			mizuiro::size_type,
+		mizuiro::mpl::size_list<
 			5u,
 			6u,
 			5u
@@ -142,8 +139,7 @@ BOOST_AUTO_TEST_CASE(
 MIZUIRO_DETAIL_POP_WARNING
 
 	typedef mizuiro::color::format::heterogenous_static<
-		boost::mpl::vector3_c<
-			mizuiro::size_type,
+		mizuiro::mpl::size_list<
 			5u,
 			6u,
 			5u

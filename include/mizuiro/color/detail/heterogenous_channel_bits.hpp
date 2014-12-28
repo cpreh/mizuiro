@@ -7,11 +7,8 @@
 #ifndef MIZUIRO_COLOR_DETAIL_HETEROGENOUS_CHANNEL_BITS_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_HETEROGENOUS_CHANNEL_BITS_HPP_INCLUDED
 
-#include <mizuiro/integral_size.hpp>
-#include <mizuiro/detail/index_of.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/at.hpp>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/mpl/at.hpp>
+#include <mizuiro/mpl/index_of.hpp>
 
 
 namespace mizuiro
@@ -27,15 +24,14 @@ template<
 >
 using heterogenous_channel_bits
 =
-mizuiro::integral_size<
-	boost::mpl::at<
-		typename Format::channel_bits,
-		typename mizuiro::detail::index_of<
-			typename Format::layout::order,
-			Channel
-		>::type
-	>::type::value
->;
+typename
+mizuiro::mpl::at<
+	typename Format::channel_bits,
+	mizuiro::mpl::index_of<
+		typename Format::layout::order,
+		Channel
+	>()
+>::type;
 
 }
 }
