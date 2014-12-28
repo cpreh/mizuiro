@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_MPL_BOOL_HPP_INCLUDED
 #define MIZUIRO_MPL_BOOL_HPP_INCLUDED
 
-#include <fcppt/config/external_begin.hpp>
+#include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
-#include <fcppt/config/external_end.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
