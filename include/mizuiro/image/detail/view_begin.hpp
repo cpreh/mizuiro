@@ -34,7 +34,10 @@ struct view_begin
 	{
 		return
 			Iterator(
-				_view.begin()
+				typename
+				Iterator::impl{
+					_view.begin()
+				}
 			);
 	}
 };

@@ -374,6 +374,9 @@ set(
 	include/mizuiro/image/algorithm/transform.hpp
 	include/mizuiro/image/algorithm/unary_fold.hpp
 	include/mizuiro/image/algorithm/unary_iteration.hpp
+	include/mizuiro/image/basic_iterator_decl.hpp
+	include/mizuiro/image/basic_iterator_fwd.hpp
+	include/mizuiro/image/basic_iterator_impl.hpp
 	include/mizuiro/image/bound.hpp
 	include/mizuiro/image/bound_decl.hpp
 	include/mizuiro/image/bound_fwd.hpp
@@ -389,12 +392,20 @@ set(
 	include/mizuiro/image/detail/flipped_pitch.hpp
 	include/mizuiro/image/detail/flipped_start.hpp
 	include/mizuiro/image/detail/increment_iterator.hpp
-	include/mizuiro/image/detail/iterator_base.hpp
 	include/mizuiro/image/detail/iterator_data.hpp
+	include/mizuiro/image/detail/iterator_decl.hpp
 	include/mizuiro/image/detail/iterator_difference.hpp
 	include/mizuiro/image/detail/iterator_format_store.hpp
+	include/mizuiro/image/detail/iterator_fwd.hpp
+	include/mizuiro/image/detail/iterator_impl.hpp
+	include/mizuiro/image/detail/linear_iterator_decl.hpp
+	include/mizuiro/image/detail/linear_iterator_fwd.hpp
+	include/mizuiro/image/detail/linear_iterator_impl.hpp
 	include/mizuiro/image/detail/linear_iterator_position.hpp
 	include/mizuiro/image/detail/pitch_difference.hpp
+	include/mizuiro/image/detail/pitch_iterator_decl.hpp
+	include/mizuiro/image/detail/pitch_iterator_fwd.hpp
+	include/mizuiro/image/detail/pitch_iterator_impl.hpp
 	include/mizuiro/image/detail/pitch_iterator_position.hpp
 	include/mizuiro/image/detail/raw_view_from_pointer.hpp
 	include/mizuiro/image/detail/relative_position.hpp

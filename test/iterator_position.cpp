@@ -25,11 +25,11 @@ namespace
 {
 
 typedef
-mizuiro::image::format::interleaved
-<
-	mizuiro::image::dimension<2>,
-	mizuiro::color::format::homogenous_static
-	<
+mizuiro::image::format::interleaved<
+	mizuiro::image::dimension<
+		2
+	>,
+	mizuiro::color::format::homogenous_static<
 		std::uint8_t,
 		mizuiro::color::layout::l
 	>
@@ -37,8 +37,7 @@ mizuiro::image::format::interleaved
 format_2d;
 
 typedef
-mizuiro::image::store
-<
+mizuiro::image::store<
 	format_2d
 >
 store_2d;
@@ -47,39 +46,70 @@ store_2d;
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 BOOST_AUTO_TEST_CASE(
-	iterator_position_test)
+	iterator_position_test
+)
 {
 MIZUIRO_DETAIL_POP_WARNING
 
-	store_2d field(
-		store_2d::dim(
+	store_2d field{
+		store_2d::dim{
 			2u,
-			2u));
+			2u
+		}
+	};
 
-	store_2d::view_type const field_view =
-		field.view();
+	store_2d::view_type const field_view{
+		field.view()
+	};
 
-	store_2d::view_type::iterator i =
-		field_view.begin();
+	store_2d::view_type::iterator it{
+		field_view.begin()
+	};
 
 	BOOST_CHECK_EQUAL(
 		mizuiro::image::iterator_position(
 			field_view,
-			i++),
-		store_2d::dim(0u,0u));
+			it++
+		),
+		store_2d::dim(
+			0u,
+			0u
+		)
+	);
 
 	BOOST_CHECK(
 		mizuiro::image::iterator_position(
 			field_view,
-			i++) == store_2d::dim(1u,0u));
+			it++
+		)
+		==
+		store_2d::dim(
+			1u,
+			0u
+		)
+	);
 
 	BOOST_CHECK(
 		mizuiro::image::iterator_position(
 			field_view,
-			i++) == store_2d::dim(0u,1u));
+			it++
+		)
+		==
+		store_2d::dim(
+			0u,
+			1u
+		)
+	);
 
 	BOOST_CHECK(
 		mizuiro::image::iterator_position(
 			field_view,
-			i++) == store_2d::dim(1u,1u));
+			it++
+		)
+		==
+		store_2d::dim(
+			1u,
+			1u
+		)
+	);
 }

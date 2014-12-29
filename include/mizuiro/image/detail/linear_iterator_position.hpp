@@ -24,6 +24,7 @@ template<
 	typename Format,
 	typename Constness
 >
+inline
 typename Format::dim const
 linear_iterator_position(
 	mizuiro::image::linear_view<

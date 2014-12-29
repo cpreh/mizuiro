@@ -27,12 +27,12 @@ template<
 >
 typename Format::dim const
 iterator_position(
-	image::linear_view<
+	mizuiro::image::linear_view<
 		Access,
 		Format,
 		Constness
 	> const &_view,
-	image::linear_iterator<
+	mizuiro::image::linear_iterator<
 		Access,
 		Format,
 		Constness
@@ -40,7 +40,7 @@ iterator_position(
 )
 {
 	return
-		detail::linear_iterator_position(
+		mizuiro::image::detail::linear_iterator_position(
 			_view,
 			_it
 		);
@@ -53,12 +53,12 @@ template<
 >
 typename Format::dim const
 iterator_position(
-	image::pitch_view<
+	mizuiro::image::pitch_view<
 		Access,
 		Format,
 		Constness
 	> const &,
-	image::pitch_iterator<
+	mizuiro::image::pitch_iterator<
 		Access,
 		Format,
 		Constness
@@ -66,7 +66,7 @@ iterator_position(
 )
 {
 	return
-		image::detail::pitch_iterator_position(
+		mizuiro::image::detail::pitch_iterator_position(
 			_it
 		);
 }

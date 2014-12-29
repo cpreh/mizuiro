@@ -4,13 +4,17 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/color/object.hpp>
+#include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
-#include <mizuiro/color/layout/rgba.hpp>
+#include <mizuiro/color/init/red.hpp>
+#include <mizuiro/color/layout/r.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
+#include <mizuiro/image/view.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -22,59 +26,69 @@
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 BOOST_AUTO_TEST_CASE(
-	empty_view
+	view_operations
 )
 {
 MIZUIRO_DETAIL_POP_WARNING
 
-	typedef mizuiro::image::format::interleaved<
+	typedef
+	std::uint8_t
+	channel_type;
+
+	typedef
+	mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
-			3
+			2
 		>,
 		mizuiro::color::format::homogenous_static<
-			std::uint8_t,
-			mizuiro::color::layout::rgba
+			channel_type,
+			mizuiro::color::layout::r
 		>
-	> format_3d_rgba8;
+	>
+	format;
 
-	typedef mizuiro::image::store<
-		format_3d_rgba8
-	> store_3d_rgba8;
+	typedef
+	mizuiro::image::store<
+		format
+	>
+	store_type;
 
-	store_3d_rgba8 store(
-		store_3d_rgba8::dim::null()
-	);
-
-	typedef store_3d_rgba8::view_type view_3d_rgba8;
-
-	{
-		view_3d_rgba8 const view(
-			store.view()
-		);
-
-		BOOST_REQUIRE(
-			view.begin()
-			== view.end()
-		);
-	}
-
-	store = store_3d_rgba8(
-		store_3d_rgba8::dim(
-			0u,
+	store_type store(
+		store_type::dim{
 			1u,
-			2u
-		)
+			1u
+		}
 	);
 
-	{
-		view_3d_rgba8 const view(
-			store.view()
+	typedef
+	mizuiro::image::view<
+		store_type::access,
+		store_type::format,
+		mizuiro::nonconst_tag
+	>
+	view_type;
+
+	view_type view(
+		store.view()
+	);
+
+	view[
+		view_type::dim::null()
+	] =
+		mizuiro::color::object<
+			format::color_format
+		>(
+			mizuiro::color::init::red() =
+				 static_cast<channel_type>(42)
 		);
 
-		BOOST_REQUIRE(
-			view.begin()
-			== view.end()
-		);
-	}
-
+	BOOST_CHECK(
+		store.view()[
+			view_type::dim::null()
+		].get(
+			mizuiro::color::channel::red()
+		)
+		==
+		static_cast<channel_type>(42)
+	);
 }

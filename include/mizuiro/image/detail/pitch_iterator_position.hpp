@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_PITCH_ITERATOR_POSITION_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_PITCH_ITERATOR_POSITION_HPP_INCLUDED
 
-#include <mizuiro/image/pitch_iterator_fwd.hpp>
+#include <mizuiro/image/detail/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/detail/relative_position.hpp>
 
 
@@ -25,7 +25,7 @@ template<
 >
 typename Format::dim const
 pitch_iterator_position(
-	mizuiro::image::pitch_iterator<
+	mizuiro::image::detail::pitch_iterator<
 		Access,
 		Format,
 		Constness

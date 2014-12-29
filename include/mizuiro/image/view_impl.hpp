@@ -169,7 +169,7 @@ mizuiro::image::view<
 :
 	impl_(
 		mizuiro::detail::variant_apply_unary(
-			image::detail::view_convert_const<
+			mizuiro::image::detail::view_convert_const<
 				view_variant
 			>(),
 			_other.impl()
@@ -196,7 +196,7 @@ mizuiro::image::view<
 {
 	return
 		mizuiro::detail::variant_apply_unary(
-			image::detail::view_size<
+			mizuiro::image::detail::view_size<
 				dim
 			>(),
 			impl_
@@ -221,7 +221,7 @@ mizuiro::image::view<
 {
 	return
 		mizuiro::detail::variant_apply_unary(
-			image::detail::view_pitch<
+			mizuiro::image::detail::view_pitch<
 				pitch_type
 			>(),
 			impl_
@@ -246,7 +246,7 @@ mizuiro::image::view<
 {
 	return
 		mizuiro::detail::variant_apply_unary(
-			image::detail::view_begin<
+			mizuiro::image::detail::view_begin<
 				iterator
 			>(),
 			impl_
@@ -271,7 +271,7 @@ mizuiro::image::view<
 {
 	return
 		mizuiro::detail::variant_apply_unary(
-			image::detail::view_end<
+			mizuiro::image::detail::view_end<
 				iterator
 			>(),
 			impl_
@@ -297,7 +297,7 @@ mizuiro::image::view<
 ) const
 {
 	return
-		*image::move_iterator(
+		*mizuiro::image::move_iterator(
 			*this,
 			_index
 		);
@@ -321,7 +321,7 @@ mizuiro::image::view<
 {
 	return
 		mizuiro::detail::variant_apply_unary(
-			image::detail::view_data<
+			mizuiro::image::detail::view_data<
 				pointer
 			>(),
 			impl_
@@ -346,7 +346,7 @@ mizuiro::image::view<
 {
 	return
 		mizuiro::detail::variant_apply_unary(
-			image::detail::view_format_store<
+			mizuiro::image::detail::view_format_store<
 				format_store_type
 			>(),
 			impl_
@@ -369,7 +369,8 @@ mizuiro::image::view<
 	Constness
 >::impl() const
 {
-	return impl_;
+	return
+		impl_;
 }
 
 #endif
