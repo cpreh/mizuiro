@@ -1,4 +1,4 @@
 set(
 	mizuiro_INCLUDE_DIRS
-	"@Boost_INCLUDE_DIRS@;@fcppt_INCLUDE_DIRS@;@mizuiro_INCLUDE_DIR@"
+	"@mizuiro_INCLUDE_DIR@"
 )

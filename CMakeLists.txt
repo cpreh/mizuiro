@@ -64,6 +64,14 @@ if(
 		STRING
 		"Custom include installation directory"
 	)
+
+	set(
+		INSTALL_CMAKECONFIG_DIR_BASE
+		"${INSTALL_LIBRARY_DIR}/cmake"
+		CACHE
+		STRING
+		"Custom cmake config installation directory without suffixes"
+	)
 endif()
 
 function(
@@ -118,13 +126,6 @@ if(
 		doc
 	)
 endif()
-
-install(
-	DIRECTORY
-	include/
-	DESTINATION
-	${INSTALL_INCLUDE_DIR}
-)
 
 option(
 	ENABLE_EXAMPLES
@@ -683,3 +684,54 @@ if(
 		TRUE
 	)
 endif()
+
+install(
+	DIRECTORY
+	include/
+	DESTINATION
+	${INSTALL_INCLUDE_DIR}
+)
+
+set(
+	mizuiro_INCLUDE_DIR
+	${MIZUIRO_SOURCE_DIR}/include
+)
+
+set(
+	CONFIG_IN_FILE
+	${MIZUIRO_SOURCE_DIR}/mizuiro-config.cmake.in
+)
+
+set(
+	CONFIG_DIR
+	${MIZUIRO_BINARY_DIR}/config
+)
+
+configure_file(
+	${CONFIG_IN_FILE}
+	${CONFIG_DIR}/mizuiro-config.cmake
+	@ONLY
+)
+
+set(
+	mizuiro_INCLUDE_DIR
+	${INSTALL_INCLUDE_DIR}
+)
+
+set(
+	INSTALL_CONFIG
+	${CONFIG_DIR}/install-config/mizuiro-config.cmake
+)
+
+configure_file(
+	${CONFIG_IN_FILE}
+	${INSTALL_CONFIG}
+	@ONLY
+)
+
+install(
+	FILES
+		${INSTALL_CONFIG}
+	DESTINATION
+		${INSTALL_CMAKECONFIG_DIR_BASE}/mizuiro
+)
