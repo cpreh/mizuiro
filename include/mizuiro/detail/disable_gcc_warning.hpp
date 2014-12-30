@@ -7,20 +7,21 @@
 #ifndef MIZUIRO_DETAIL_DISABLE_GCC_WARNING_HPP_INCLUDED
 #define MIZUIRO_DETAIL_DISABLE_GCC_WARNING_HPP_INCLUDED
 
-#include <mizuiro/config.hpp>
+#include <mizuiro/detail/compiler.hpp>
 
-#ifdef MIZUIRO_HAVE_FCPPT
-#include <fcppt/preprocessor/disable_gcc_warning.hpp>
-#define MIZUIRO_DETAIL_DISABLE_GCC_WARNING(\
-	warning\
-)\
-FCPPT_PP_DISABLE_GCC_WARNING(\
-	warning\
-)
+
+#if defined(MIZUIRO_DETAIL_GCC_COMPILER)
+#	include <mizuiro/detail/disable_gcc_warning.hpp>
+#	define MIZUIRO_DETAIL_DISABLE_GCC_WARNING(\
+		warning\
+	)\
+	MIZUIRO_DETAIL_PRAGMA(\
+		GCC diagnostic ignored #warning\
+	)
 #else
-#define MIZUIRO_DETAIL_DISABLE_GCC_WARNING(\
-	warning\
-)
+#	define MIZUIRO_DETAIL_DISABLE_GCC_WARNING(\
+		warning\
+	)
 #endif
 
 #endif

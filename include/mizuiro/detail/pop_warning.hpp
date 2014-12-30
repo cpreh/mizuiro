@@ -7,11 +7,12 @@
 #ifndef MIZUIRO_DETAIL_POP_WARNING_HPP_INCLUDED
 #define MIZUIRO_DETAIL_POP_WARNING_HPP_INCLUDED
 
-#include <mizuiro/config.hpp>
+#include <mizuiro/detail/compiler.hpp>
 
-#ifdef MIZUIRO_HAVE_FCPPT
-#include <fcppt/preprocessor/pop_warning.hpp>
-#define MIZUIRO_DETAIL_POP_WARNING FCPPT_PP_POP_WARNING
+
+#if defined(MIZUIRO_DETAIL_GCC_COMPILER)
+#include <mizuiro/detail/pragma.hpp>
+#define MIZUIRO_DETAIL_POP_WARNING MIZUIRO_DETAIL_PRAGMA(GCC diagnostic pop)
 #else
 #define MIZUIRO_DETAIL_POP_WARNING
 #endif

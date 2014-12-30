@@ -296,6 +296,7 @@ set(
 	include/mizuiro/detail/bit_count_at_least.hpp
 	include/mizuiro/detail/byte_count_from_bits.hpp
 	include/mizuiro/detail/choose_const.hpp
+	include/mizuiro/detail/compiler.hpp
 	include/mizuiro/detail/copy.hpp
 	include/mizuiro/detail/copy_n.hpp
 	include/mizuiro/detail/copy_n_base.hpp
@@ -317,7 +318,6 @@ set(
 	include/mizuiro/detail/format_base_fwd.hpp
 	include/mizuiro/detail/format_base_impl.hpp
 	include/mizuiro/detail/ignore_effcpp.hpp
-	include/mizuiro/detail/likely.hpp
 	include/mizuiro/detail/nonassignable.hpp
 	include/mizuiro/detail/normal_format_base_decl.hpp
 	include/mizuiro/detail/normal_format_base_fwd.hpp
@@ -327,6 +327,7 @@ set(
 	include/mizuiro/detail/optional_fwd.hpp
 	include/mizuiro/detail/optional_impl.hpp
 	include/mizuiro/detail/pop_warning.hpp
+	include/mizuiro/detail/pragma.hpp
 	include/mizuiro/detail/promote_type.hpp
 	include/mizuiro/detail/push_warning.hpp
 	include/mizuiro/detail/tuple_for_each.hpp

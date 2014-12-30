@@ -4,17 +4,16 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_DETAIL_PUSH_WARNING_HPP_INCLUDED
-#define MIZUIRO_DETAIL_PUSH_WARNING_HPP_INCLUDED
+#ifndef MIZUIRO_DETAIL_PRAGMA_HPP_INCLUDED
+#define MIZUIRO_DETAIL_PRAGMA_HPP_INCLUDED
 
 #include <mizuiro/detail/compiler.hpp>
 
 
 #if defined(MIZUIRO_DETAIL_GCC_COMPILER)
-#include <mizuiro/detail/pragma.hpp>
-#define MIZUIRO_DETAIL_PUSH_WARNING MIZUIRO_DETAIL_PRAGMA(GCC diagnostic push)
+#define MIZUIRO_DETAIL_PRAGMA(x) _Pragma(#x)
 #else
-#define MIZUIRO_DETAIL_PUSH_WARNING
+#error "Don't know what pragma should be!"
 #endif
 
 #endif

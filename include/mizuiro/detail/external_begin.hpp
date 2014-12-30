@@ -7,11 +7,14 @@
 #ifndef MIZUIRO_DETAIL_EXTERNAL_BEGIN_HPP_INCLUDED
 #define MIZUIRO_DETAIL_EXTERNAL_BEGIN_HPP_INCLUDED
 
-#include <mizuiro/config.hpp>
-#ifdef MIZUIRO_HAVE_FCPPT
-#include <fcppt/config/external_begin.hpp>
-#endif
+// Maybe we need this in the future to disable VC++ warnings
 
 #endif
 
 #undef MIZUIRO_DETAIL_EXTERNAL_BEGIN_HPP_INCLUDED
+
+#if defined(MIZUIRO_DETAIL_IN_EXTERNAL_BEGIN)
+#error "external_begin without external_end"
+#endif
+
+#define MIZUIRO_DETAIL_IN_EXTERNAL_BEGIN
