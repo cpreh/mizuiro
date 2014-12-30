@@ -60,26 +60,6 @@ if(
 	)
 endif()
 
-option(
-	ENABLE_TEST
-	"Build the tests"
-	ON
-)
-
-if(
-	ENABLE_TEST
-)
-	set(
-		NEEDED_BOOST_LIBS
-		"unit_test_framework"
-	)
-endif()
-
-find_package(
-	Boost 1.40.0 REQUIRED
-	${NEEDED_BOOST_LIBS}
-)
-
 set(
 	MIZUIRO_HAVE_FCPPT
 	${ENABLE_FCPPT}
@@ -96,20 +76,6 @@ if(
 		FcpptCMakeUtils
 	)
 
-	include_directories(
-		${FCPPT_UTILS_INCLUDE_SYSTEM}
-		${Boost_INCLUDE_DIR}
-	)
-else()
-	include_directories(
-		SYSTEM
-		${Boost_INCLUDE_DIR}
-	)
-endif()
-
-if(
-	ENABLE_FCPPT
-)
 	include_directories(
 		${fcppt_INCLUDE_DIRS}
 	)
@@ -174,6 +140,19 @@ if(
 		examples
 	)
 endif()
+
+find_package(
+	Boost
+	1.40.0
+	COMPONENTS
+	"unit_test_framework"
+)
+
+option(
+	ENABLE_TEST
+	"Build the tests"
+	${BOOST_FOUND}
+)
 
 if(
 	ENABLE_TEST

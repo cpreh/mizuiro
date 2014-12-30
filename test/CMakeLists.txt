@@ -1,5 +1,5 @@
 function(
-	ADD_MIZUIRO_TEST
+	add_mizuiro_test
 	PATHNAME
 )
 	string(
@@ -51,9 +51,15 @@ function(
 		)
 	endif()
 
+	target_include_directories(
+		${MIZUIRO_TEST_NAME}
+		PRIVATE
+		${Boost_INCLUDE_DIR}
+	)
+
 	target_link_libraries (
 		${MIZUIRO_TEST_NAME}
-		${MIZUIRO_DEFAULT_LINK_TARGET}
+		PRIVATE
 		${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
 	)
 
