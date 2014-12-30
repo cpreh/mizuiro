@@ -114,7 +114,7 @@ public:
 
 	pitch_view(
 		pitch_view const &
-	);
+	) noexcept;
 
 	template<
 		typename OtherConstness

@@ -139,13 +139,8 @@ mizuiro::image::view<
 	Constness
 >::view(
 	view const &_other
-)
-:
-	impl_(
-		_other.impl_
-	)
-{
-}
+) noexcept
+= default;
 
 template<
 	typename Access,
@@ -160,7 +155,7 @@ mizuiro::image::view<
 	Format,
 	Constness
 >::view(
-	image::view<
+	mizuiro::image::view<
 		Access,
 		Format,
 		OtherConstness

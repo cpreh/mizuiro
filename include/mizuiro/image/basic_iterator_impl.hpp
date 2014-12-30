@@ -61,7 +61,7 @@ mizuiro::image::basic_iterator<
 	Impl
 >::basic_iterator(
 	basic_iterator &&
-)
+) noexcept
 = default;
 
 template<

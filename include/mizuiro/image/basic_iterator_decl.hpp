@@ -74,7 +74,7 @@ public:
 
 	basic_iterator(
 		basic_iterator &&
-	);
+	) noexcept;
 
 	basic_iterator &
 	operator=(

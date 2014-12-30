@@ -37,10 +37,19 @@ public:
 		optional const &
 	) noexcept;
 
+	optional(
+		optional &&
+	) noexcept;
+
 	optional &
 	operator=(
 		optional const &
 	);
+
+	optional &
+	operator=(
+		optional &&
+	) noexcept;
 
 	~optional();
 

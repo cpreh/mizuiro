@@ -51,7 +51,7 @@ mizuiro::image::linear_view<
 	Constness
 >::linear_view(
 	linear_view const &_other
-)
+) noexcept
 :
 	format_base(
 		_other.format_store()

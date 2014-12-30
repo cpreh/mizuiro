@@ -10,6 +10,7 @@
 #include <mizuiro/detail/either_decl.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
+#include <utility>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -69,22 +70,31 @@ noexcept
 		_other.is_left_
 	}
 {
-	static_assert(
-		std::is_nothrow_copy_constructible<
-			Left
-		>::value,
-		"Left's copy constructor must not throw"
-	);
-
-	static_assert(
-		std::is_nothrow_copy_constructible<
-			Right
-		>::value,
-		"Right's copy constructor must not throw"
-	);
-
 	this->copy(
 		_other
+	);
+}
+
+template<
+	typename Left,
+	typename Right
+>
+mizuiro::detail::either<
+	Left,
+	Right
+>::either(
+	either &&_other
+)
+noexcept
+:
+	is_left_{
+		_other.is_left_
+	}
+{
+	this->move(
+		std::move(
+			_other
+		)
 	);
 }
 
@@ -103,42 +113,81 @@ mizuiro::detail::either<
 	either const &_other
 )
 {
-	static_assert(
-		std::is_nothrow_copy_constructible<
-			Left
-		>::value,
-		"Left's copy constructor must not throw"
-	);
-
-	static_assert(
-		std::is_nothrow_copy_constructible<
-			Right
-		>::value,
-		"Right's copy constructor must not throw"
-	);
-
 	if(
 		is_left_
 		&&
 		_other.is_left_
 	)
-		left_ = _other.left_;
+		left_ =
+			_other.left_;
 	else if(
 		!is_left_
 		&&
 		!_other.is_left_
 	)
-		right_ = _other.right_;
+		right_ =
+			_other.right_;
 	else
 	{
 		this->destroy();
 
+		is_left_ =
+			_other.is_left_;
+
 		this->copy(
 			_other
 		);
+	}
+
+	return
+		*this;
+}
+
+template<
+	typename Left,
+	typename Right
+>
+mizuiro::detail::either<
+	Left,
+	Right
+> &
+mizuiro::detail::either<
+	Left,
+	Right
+>::operator=(
+	either &&_other
+)
+{
+	if(
+		is_left_
+		&&
+		_other.is_left_
+	)
+		left_ =
+			std::move(
+				_other.left_
+			);
+	else if(
+		!is_left_
+		&&
+		!_other.is_left_
+	)
+		right_ =
+			std::move(
+				_other.right_
+			);
+	else
+	{
+		this->destroy();
 
 		is_left_ =
 			_other.is_left_;
+
+		this->move(
+			std::move(
+				_other
+			)
+		);
 	}
 
 	return
@@ -209,8 +258,23 @@ mizuiro::detail::either<
 	Right
 >::copy(
 	either const &_other
-)
+) noexcept
 {
+	static_assert(
+		std::is_nothrow_copy_constructible<
+			Left
+		>::value,
+		"Left's copy constructor must not throw"
+	);
+
+	static_assert(
+		std::is_nothrow_copy_constructible<
+			Right
+		>::value,
+		"Right's copy constructor must not throw"
+	);
+
+
 	if(
 		is_left_
 	)
@@ -226,6 +290,54 @@ mizuiro::detail::either<
 		)
 		Right(
 			_other.right_
+		);
+}
+
+template<
+	typename Left,
+	typename Right
+>
+void
+mizuiro::detail::either<
+	Left,
+	Right
+>::move(
+	either &&_other
+) noexcept
+{
+	static_assert(
+		std::is_nothrow_move_constructible<
+			Left
+		>::value,
+		"Left's move constructor must not throw"
+	);
+
+	static_assert(
+		std::is_nothrow_move_constructible<
+			Right
+		>::value,
+		"Right's move constructor must not throw"
+	);
+
+	if(
+		is_left_
+	)
+		new (
+			&left_
+		)
+		Left(
+			std::move(
+				_other.left_
+			)
+		);
+	else
+		new (
+			&right_
+		)
+		Right(
+			std::move(
+				_other.right_
+			)
 		);
 }
 

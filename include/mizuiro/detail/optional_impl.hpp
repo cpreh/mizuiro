@@ -57,12 +57,35 @@ template<
 >
 mizuiro::detail::optional<
 	Type
+>::optional(
+	optional &&
+) noexcept
+= default;
+
+template<
+	typename Type
+>
+mizuiro::detail::optional<
+	Type
 > &
 mizuiro::detail::optional<
 	Type
 >::operator=(
 	optional const &
 )
+= default;
+
+template<
+	typename Type
+>
+mizuiro::detail::optional<
+	Type
+> &
+mizuiro::detail::optional<
+	Type
+>::operator=(
+	optional &&
+) noexcept
 = default;
 
 template<

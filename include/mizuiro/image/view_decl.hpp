@@ -142,7 +142,7 @@ public:
 
 	view(
 		view const &
-	);
+	) noexcept;
 
 	template<
 		typename OtherConstness

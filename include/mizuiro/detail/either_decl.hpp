@@ -37,9 +37,19 @@ public:
 	)
 	noexcept;
 
+	either(
+		either &&
+	)
+	noexcept;
+
 	either &
 	operator=(
 		either const &
+	);
+
+	either &
+	operator=(
+		either &&
 	);
 
 	~either();
@@ -56,7 +66,14 @@ private:
 	void
 	copy(
 		either const &
-	);
+	)
+	noexcept;
+
+	void
+	move(
+		either &&
+	)
+	noexcept;
 
 	void
 	destroy();

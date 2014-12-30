@@ -113,7 +113,7 @@ public:
 
 	linear_view(
 		linear_view const &
-	);
+	) noexcept;
 
 	template<
 		typename OtherConstness
