@@ -7,6 +7,16 @@ project(
 	mizuiro
 )
 
+set(
+	MIZUIRO_SOURCE_DIR
+	"${${PROJECT_NAME}_SOURCE_DIR}"
+)
+
+set(
+	MIZUIRO_BINARY_DIR
+	"${${PROJECT_NAME}_BINARY_DIR}"
+)
+
 option(
 	ENABLE_FCPPT
 	"Use fcppt utilities"
@@ -77,28 +87,11 @@ if(
 	)
 endif()
 
-set(
-	MIZUIRO_SOURCE_DIR
-	"${${PROJECT_NAME}_SOURCE_DIR}"
-)
-
-set(
-	MIZUIRO_BINARY_DIR
-	"${${PROJECT_NAME}_BINARY_DIR}"
-)
-
 install(
 	DIRECTORY
 	include/
 	DESTINATION
 	${INSTALL_INCLUDE_DIR}
-)
-
-install(
-	FILES
-	${MIZUIRO_BINARY_DIR}/include/mizuiro/config.hpp
-	DESTINATION
-	${INSTALL_INCLUDE_DIR}/mizuiro
 )
 
 option(
