@@ -17,20 +17,46 @@ set(
 	"${${PROJECT_NAME}_BINARY_DIR}"
 )
 
-option(
-	ENABLE_FCPPT
-	"Use fcppt utilities"
-	OFF
+include(
+	FcpptCMakeUtils
+	OPTIONAL
+	RESULT_VARIABLE
+		FCPPT_UTILS_RESULT
 )
 
 if(
-	ENABLE_FCPPT
+	FCPPT_UTILS_RESULT
+	STREQUAL
+	"NOTFOUND"
 )
-	find_package(
-		fcppt
-		REQUIRED
+	set(
+		FCPPT_UTILS_FOUND
+		FALSE
 	)
 else()
+	set(
+		FCPPT_UTILS_FOUND
+		TRUE
+	)
+endif()
+
+if(
+	FCPPT_UTILS_FOUND
+)
+	message(
+		STATUS
+		"Fcppt utils will be used to build."
+	)
+else()
+	message(
+		STATUS
+		"Fcppt utils not found in CMAKE_MODULE_PATH."
+	)
+endif()
+
+if(
+	NOT FCPPT_UTILS_FOUND
+)
 	set(
 		INSTALL_INCLUDE_DIR
 		"${CMAKE_INSTALL_PREFIX}/include"
@@ -38,23 +64,46 @@ else()
 		STRING
 		"Custom include installation directory"
 	)
+endif()
 
-	set(
-		INSTALL_CMAKEMODULES_DIR
-		"${CMAKE_INSTALL_PREFIX}/share/cmake/Modules"
-		CACHE
-		STRING
-		"Custom cmake module installation directory"
+function(
+	mizuiro_target_flags
+	TARGET_NAME
+)
+	target_include_directories(
+		${TARGET_NAME}
+		PRIVATE
+		${MIZUIRO_SOURCE_DIR}/include
 	)
 
 	if(
-		CMAKE_COMPILER_IS_GNUCXX
+		FCPPT_UTILS_FOUND
 	)
-		add_definitions(
-			-std=c++11
+		fcppt_utils_set_target_compiler_flags(
+			${TARGET_NAME}
 		)
+	else()
+		if(
+			CMAKE_COMPILER_IS_GNUCXX
+			OR
+			"${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang"
+		)
+			set(
+				COMPILE_OPTIONS
+				"-std=c++11"
+			       	"-Wall"
+				"-Wextra"
+			)
+
+			set_target_properties(
+				${TARGET_NAME}
+				PROPERTIES
+				COMPILE_OPTIONS
+				"${COMPILE_OPTIONS}"
+			)
+		endif()
 	endif()
-endif()
+endfunction()
 
 option(
 	ENABLE_DOC
@@ -67,23 +116,6 @@ if(
 )
 	add_subdirectory(
 		doc
-	)
-endif()
-
-set(
-	MIZUIRO_HAVE_FCPPT
-	${ENABLE_FCPPT}
-)
-
-include_directories(
-	include
-)
-
-if(
-	ENABLE_FCPPT
-)
-	include(
-		FcpptCMakeUtils
 	)
 endif()
 
@@ -623,7 +655,7 @@ set(
 )
 
 if(
-	ENABLE_FCPPT
+	FCPPT_UTILS_FOUND
 )
 	fcppt_utils_add_source_groups(
 		"${MIZUIRO_FILES}"
@@ -635,6 +667,10 @@ if(
 	)
 
 	fcppt_utils_set_target_compiler_flags(
+		mizuiro_dummy
+	)
+
+	mizuiro_target_flags(
 		mizuiro_dummy
 	)
 

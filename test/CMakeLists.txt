@@ -43,13 +43,9 @@ function(
 		)
 	endif()
 
-	if(
-		ENABLE_FCPPT
+	mizuiro_target_flags(
+		${MIZUIRO_TEST_NAME}
 	)
-		fcppt_utils_set_target_compiler_flags(
-			${MIZUIRO_TEST_NAME}
-		)
-	endif()
 
 	target_include_directories(
 		${MIZUIRO_TEST_NAME}

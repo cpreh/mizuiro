@@ -16,13 +16,9 @@ function(
 		"${example}.cpp"
 	)
 
-	if(
-		ENABLE_FCPPT
+	mizuiro_target_flags(
+		${EXAMPLE_NAME}
 	)
-		fcppt_utils_set_target_compiler_flags(
-			${EXAMPLE_NAME}
-		)
-	endif()
 endfunction()
 
 build_mizuiro_example(adapted_view)
