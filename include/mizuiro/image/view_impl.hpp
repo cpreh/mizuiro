@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_IMAGE_VIEW_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_VIEW_IMPL_HPP_INCLUDED
 
-#include <mizuiro/detail/variant_apply_unary.hpp>
-#include <mizuiro/detail/variant_impl.hpp>
+#include <mizuiro/detail/either_impl.hpp>
+#include <mizuiro/detail/either_unary.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/iterator_impl.hpp>
 #include <mizuiro/image/linear_view_impl.hpp>
@@ -168,7 +168,7 @@ mizuiro::image::view<
 )
 :
 	impl_(
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::detail::view_convert_const<
 				view_variant
 			>(),
@@ -195,7 +195,7 @@ mizuiro::image::view<
 >::size() const
 {
 	return
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::detail::view_size<
 				dim
 			>(),
@@ -220,7 +220,7 @@ mizuiro::image::view<
 >::pitch() const
 {
 	return
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::detail::view_pitch<
 				pitch_type
 			>(),
@@ -245,7 +245,7 @@ mizuiro::image::view<
 >::begin() const
 {
 	return
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::detail::view_begin<
 				iterator
 			>(),
@@ -270,7 +270,7 @@ mizuiro::image::view<
 >::end() const
 {
 	return
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::detail::view_end<
 				iterator
 			>(),
@@ -320,7 +320,7 @@ mizuiro::image::view<
 >::data() const
 {
 	return
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::detail::view_data<
 				pointer
 			>(),
@@ -345,7 +345,7 @@ mizuiro::image::view<
 >::format_store() const
 {
 	return
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::detail::view_format_store<
 				format_store_type
 			>(),

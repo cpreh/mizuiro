@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_UNARY_FOLD_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_UNARY_FOLD_HPP_INCLUDED
 
-#include <mizuiro/detail/variant_apply_unary.hpp>
+#include <mizuiro/detail/either_unary.hpp>
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/algorithm/detail/unary_fold.hpp>
 #include <mizuiro/image/algorithm/detail/unwrap_unary.hpp>
@@ -61,7 +61,7 @@ unary_fold(
 )
 {
 	return
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::algorithm::detail::unwrap_unary<
 				Function,
 				State

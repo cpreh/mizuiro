@@ -30,6 +30,10 @@ protected:
 		format_store_type const &
 	);
 
+	empty_format_base(
+		empty_format_base const &
+	) noexcept;
+
 	format_store_type const
 	format_store_base() const;
 };

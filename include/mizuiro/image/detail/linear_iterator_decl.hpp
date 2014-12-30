@@ -82,7 +82,6 @@ public:
 	mizuiro::difference_type
 	difference_type;
 
-	explicit
 	linear_iterator(
 		pointer,
 		format_store_type const &

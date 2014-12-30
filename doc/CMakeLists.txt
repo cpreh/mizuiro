@@ -302,6 +302,11 @@ set(
 	include/mizuiro/detail/copy_n_overlap.hpp
 	include/mizuiro/detail/copy_overlap.hpp
 	include/mizuiro/detail/disable_gcc_warning.hpp
+	include/mizuiro/detail/either_binary.hpp
+	include/mizuiro/detail/either_decl.hpp
+	include/mizuiro/detail/either_fwd.hpp
+	include/mizuiro/detail/either_impl.hpp
+	include/mizuiro/detail/either_unary.hpp
 	include/mizuiro/detail/empty_format_base_decl.hpp
 	include/mizuiro/detail/empty_format_base_fwd.hpp
 	include/mizuiro/detail/empty_format_base_impl.hpp
@@ -317,6 +322,7 @@ set(
 	include/mizuiro/detail/normal_format_base_decl.hpp
 	include/mizuiro/detail/normal_format_base_fwd.hpp
 	include/mizuiro/detail/normal_format_base_impl.hpp
+	include/mizuiro/detail/nothing.hpp
 	include/mizuiro/detail/optional_decl.hpp
 	include/mizuiro/detail/optional_fwd.hpp
 	include/mizuiro/detail/optional_impl.hpp
@@ -326,12 +332,6 @@ set(
 	include/mizuiro/detail/tuple_for_each.hpp
 	include/mizuiro/detail/uint_least.hpp
 	include/mizuiro/detail/unlikely.hpp
-	include/mizuiro/detail/variant_apply_binary.hpp
-	include/mizuiro/detail/variant_apply_ternary.hpp
-	include/mizuiro/detail/variant_apply_unary.hpp
-	include/mizuiro/detail/variant_decl.hpp
-	include/mizuiro/detail/variant_fwd.hpp
-	include/mizuiro/detail/variant_impl.hpp
 	include/mizuiro/difference_type.hpp
 	include/mizuiro/enum_size.hpp
 	include/mizuiro/enum_size_fwd.hpp

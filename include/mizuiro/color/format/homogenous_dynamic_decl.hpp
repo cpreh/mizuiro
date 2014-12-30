@@ -58,6 +58,10 @@ public:
 		channel_array const &
 	);
 
+	homogenous_dynamic(
+		homogenous_dynamic const &
+	) noexcept;
+
 	typedef
 	ChannelType
 	channel_type;

@@ -82,7 +82,7 @@ public:
 
 	dimension(
 		dimension const &
-	);
+	) noexcept;
 
 	dimension(
 		dimension &&

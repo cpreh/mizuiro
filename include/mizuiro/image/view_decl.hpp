@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_IMAGE_VIEW_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_VIEW_DECL_HPP_INCLUDED
 
-#include <mizuiro/detail/variant_decl.hpp>
+#include <mizuiro/detail/either_decl.hpp>
 #include <mizuiro/image/iterator_fwd.hpp>
 #include <mizuiro/image/linear_view_decl.hpp>
 #include <mizuiro/image/pitch_view_decl.hpp>
@@ -15,9 +15,6 @@
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/mpl/vector/vector10.hpp>
-#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
@@ -84,11 +81,9 @@ public:
 	pitch_view;
 
 	typedef
-	mizuiro::detail::variant<
-		boost::mpl::vector2<
-			linear_view,
-			pitch_view
-		>
+	mizuiro::detail::either<
+		linear_view,
+		pitch_view
 	>
 	view_variant;
 

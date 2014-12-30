@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_ITERATOR_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_ITERATOR_IMPL_HPP_INCLUDED
 
-#include <mizuiro/detail/variant_apply_binary.hpp>
-#include <mizuiro/detail/variant_apply_unary.hpp>
-#include <mizuiro/detail/variant_impl.hpp>
+#include <mizuiro/detail/either_binary.hpp>
+#include <mizuiro/detail/either_impl.hpp>
+#include <mizuiro/detail/either_unary.hpp>
 #include <mizuiro/image/detail/advance_iterator.hpp>
 #include <mizuiro/image/detail/compare_iterator.hpp>
 #include <mizuiro/image/detail/decrement_iterator.hpp>
@@ -79,7 +79,7 @@ mizuiro::image::detail::iterator<
 >::data() const
 {
 	return
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::detail::iterator_data<
 				pointer
 			>(),
@@ -106,7 +106,7 @@ mizuiro::image::detail::iterator<
 >::format_store() const
 {
 	return
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::detail::iterator_format_store<
 				format_store_type
 			>(),
@@ -129,7 +129,7 @@ mizuiro::image::detail::iterator<
 )
 {
 	internal_ =
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::detail::advance_iterator<
 				internal_type,
 				difference_type
@@ -153,7 +153,7 @@ mizuiro::image::detail::iterator<
 >::increment()
 {
 	internal_ =
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::detail::increment_iterator<
 				internal_type
 			>(),
@@ -174,7 +174,7 @@ mizuiro::image::detail::iterator<
 >::decrement()
 {
 	internal_ =
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::detail::decrement_iterator<
 				internal_type
 			>(),
@@ -202,7 +202,7 @@ mizuiro::image::detail::iterator<
 ) const
 {
 	return
-		mizuiro::detail::variant_apply_binary(
+		mizuiro::detail::either_binary(
 			mizuiro::image::detail::iterator_difference<
 				difference_type
 			>(),
@@ -229,7 +229,7 @@ mizuiro::image::detail::iterator<
 >::dereference() const
 {
 	return
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::detail::dereference_iterator<
 				reference
 			>(),
@@ -252,7 +252,7 @@ mizuiro::image::detail::iterator<
 ) const
 {
 	return
-		mizuiro::detail::variant_apply_binary(
+		mizuiro::detail::either_binary(
 			mizuiro::image::detail::compare_iterator(),
 			internal_,
 			_other.internal_

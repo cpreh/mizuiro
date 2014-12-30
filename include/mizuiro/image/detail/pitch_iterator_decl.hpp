@@ -101,6 +101,11 @@ public:
 		format_store_type const &
 	);
 
+	// TODO
+	pitch_iterator(
+		pitch_iterator const &
+	) noexcept = default;
+
 	dim const &
 	size() const;
 

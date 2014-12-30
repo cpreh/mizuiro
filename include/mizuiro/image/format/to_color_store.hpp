@@ -35,9 +35,9 @@ to_color_store(
 	// formats have state. This code could be simplified if this
 	// will be always the case.
 	return
-		_format.get()
+		_format.get().has_value()
 		?
-			_format.get()->format_store()
+			_format.get().get().format_store()
 		:
 			typename ImageFormat::format_store_type(
 				nullptr

@@ -28,6 +28,16 @@ mizuiro::detail::normal_format_base<
 template<
 	typename Store
 >
+mizuiro::detail::normal_format_base<
+	Store
+>::normal_format_base(
+	normal_format_base const &
+) noexcept
+= default;
+
+template<
+	typename Store
+>
 typename
 mizuiro::detail::normal_format_base<
 	Store

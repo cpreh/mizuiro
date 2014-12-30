@@ -28,6 +28,10 @@ public:
 		Format const *
 	);
 
+	store(
+		store const &
+	) noexcept;
+
 	Format const *
 	get() const;
 private:

@@ -8,7 +8,6 @@
 #define MIZUIRO_IMAGE_MAKE_RAW_VIEW_HPP_INCLUDED
 
 #include <mizuiro/is_raw_pointer.hpp>
-#include <mizuiro/image/view_impl.hpp>
 #include <mizuiro/image/detail/raw_view_from_pointer.hpp>
 
 

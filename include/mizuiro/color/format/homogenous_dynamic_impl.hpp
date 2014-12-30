@@ -39,4 +39,20 @@ mizuiro::color::format::homogenous_dynamic<
 {
 }
 
+template<
+	typename ChannelType,
+	typename AvailableChannels,
+	mizuiro::size_type ChannelCount,
+	mizuiro::size_type NumAvailableChannels
+>
+mizuiro::color::format::homogenous_dynamic<
+	ChannelType,
+	AvailableChannels,
+	ChannelCount,
+	NumAvailableChannels
+>::homogenous_dynamic(
+	homogenous_dynamic const &
+) noexcept
+= default;
+
 #endif

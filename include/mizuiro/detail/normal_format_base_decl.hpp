@@ -28,6 +28,10 @@ protected:
 		format_store_type const &
 	);
 
+	normal_format_base(
+		normal_format_base const &
+	) noexcept;
+
 	format_store_type const
 	format_store_base() const;
 private:

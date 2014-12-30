@@ -28,6 +28,16 @@ mizuiro::color::format::store<
 template<
 	typename Format
 >
+mizuiro::color::format::store<
+	Format
+>::store(
+	store const &
+) noexcept
+= default;
+
+template<
+	typename Format
+>
 Format const *
 mizuiro::color::format::store<
 	Format

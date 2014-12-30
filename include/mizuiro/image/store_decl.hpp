@@ -11,6 +11,7 @@
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
+#include <mizuiro/image/dimension_decl.hpp>
 #include <mizuiro/image/linear_view_fwd.hpp>
 #include <mizuiro/image/store_fwd.hpp>
 #include <mizuiro/image/format/argument.hpp>

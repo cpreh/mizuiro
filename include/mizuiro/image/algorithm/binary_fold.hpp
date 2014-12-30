@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_BINARY_FOLD_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_BINARY_FOLD_HPP_INCLUDED
 
-#include <mizuiro/detail/variant_apply_binary.hpp>
-#include <mizuiro/detail/variant_apply_unary.hpp>
+#include <mizuiro/detail/either_binary.hpp>
+#include <mizuiro/detail/either_unary.hpp>
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/algorithm/detail/binary_fold.hpp>
 #include <mizuiro/image/algorithm/detail/unwrap_binary_both.hpp>
@@ -67,7 +67,7 @@ binary_fold(
 )
 {
 	return
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::algorithm::detail::unwrap_binary_second<
 				Function,
 				State,
@@ -102,7 +102,7 @@ binary_fold(
 )
 {
 	return
-		mizuiro::detail::variant_apply_unary(
+		mizuiro::detail::either_unary(
 			mizuiro::image::algorithm::detail::unwrap_binary_first<
 				Function,
 				State,
@@ -143,7 +143,7 @@ binary_fold(
 )
 {
 	return
-		mizuiro::detail::variant_apply_binary(
+		mizuiro::detail::either_binary(
 			mizuiro::image::algorithm::detail::unwrap_binary_both<
 				Function,
 				State

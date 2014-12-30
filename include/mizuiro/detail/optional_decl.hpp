@@ -7,14 +7,60 @@
 #ifndef MIZUIRO_DETAIL_OPTIONAL_DECL_HPP_INCLUDED
 #define MIZUIRO_DETAIL_OPTIONAL_DECL_HPP_INCLUDED
 
+#include <mizuiro/detail/either_decl.hpp>
+#include <mizuiro/detail/nothing.hpp>
 #include <mizuiro/detail/optional_fwd.hpp>
-#include <mizuiro/config.hpp>
-#ifdef MIZUIRO_HAVE_FCPPT
-#include <fcppt/optional_decl.hpp>
-#else
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/optional/optional.hpp>
-#include <mizuiro/detail/external_end.hpp>
-#endif
+
+
+namespace mizuiro
+{
+namespace detail
+{
+
+template<
+	typename Type
+>
+class optional
+{
+public:
+	explicit
+	optional(
+		mizuiro::detail::nothing
+	);
+
+	explicit
+	optional(
+		Type const &
+	);
+
+	optional(
+		optional const &
+	) noexcept;
+
+	optional &
+	operator=(
+		optional const &
+	);
+
+	~optional();
+
+	bool
+	has_value() const;
+
+	Type const &
+	get() const;
+private:
+	typedef
+	mizuiro::detail::either<
+		Type,
+		mizuiro::detail::nothing
+	>
+	impl;
+
+	impl impl_;
+};
+
+}
+}
 
 #endif

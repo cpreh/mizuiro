@@ -13,7 +13,6 @@
 #include <mizuiro/image/const_view.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
-#include <mizuiro/image/view.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>

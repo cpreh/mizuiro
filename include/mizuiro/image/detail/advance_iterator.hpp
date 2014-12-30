@@ -51,7 +51,11 @@ public:
 	) const
 	{
 		return
-			_value += diff_;
+			result_type{
+				_value
+				+=
+				diff_
+			};
 	}
 private:
 	DifferenceType const diff_;

@@ -9,7 +9,7 @@
 
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/detail/choose_const.hpp>
-#include <mizuiro/image/pitch_view_fwd.hpp>
+#include <mizuiro/image/pitch_view_impl.hpp>
 
 
 namespace mizuiro

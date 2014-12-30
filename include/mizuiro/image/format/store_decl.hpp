@@ -41,6 +41,10 @@ public:
 		ImageFormat const &
 	);
 
+	store(
+		store const &
+	) noexcept;
+
 	optional_format const
 	get() const;
 private:

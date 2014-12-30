@@ -65,6 +65,15 @@ struct native_format
 
 	// Own typedefs
 	typedef Type type;
+
+	native_format()
+	{
+	}
+
+	native_format(
+		native_format const &
+	) noexcept
+	= default;
 };
 
 template<

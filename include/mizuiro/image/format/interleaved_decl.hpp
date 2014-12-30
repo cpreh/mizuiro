@@ -62,12 +62,17 @@ public:
 	>::type
 	pitch;
 
-	explicit interleaved(
+	explicit
+	interleaved(
 		format_store_type const & =
 			mizuiro::color::format::argument<
 				color_format
 			>::get()
 	);
+
+	interleaved(
+		interleaved const &
+	) noexcept;
 
 	format_store_type const
 	format_store() const;

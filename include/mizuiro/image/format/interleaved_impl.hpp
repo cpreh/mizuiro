@@ -32,6 +32,18 @@ template<
 	typename DimType,
 	typename ColorFormat
 >
+mizuiro::image::format::interleaved<
+	DimType,
+	ColorFormat
+>::interleaved(
+	interleaved const &
+) noexcept
+= default;
+
+template<
+	typename DimType,
+	typename ColorFormat
+>
 typename
 mizuiro::image::format::interleaved<
 	DimType,

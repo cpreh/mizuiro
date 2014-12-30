@@ -71,7 +71,8 @@ mizuiro::image::dimension<
 	ValueType
 >::dimension(
 	dimension const &
-) = default;
+) noexcept
+= default;
 
 template<
 	mizuiro::size_type Dim,
@@ -82,7 +83,8 @@ mizuiro::image::dimension<
 	ValueType
 >::dimension(
 	dimension &&
-) = default;
+)
+= default;
 
 template<
 	mizuiro::size_type Dim,
@@ -114,7 +116,8 @@ mizuiro::image::dimension<
 	ValueType
 >::operator=(
 	dimension const &
-) = default;
+)
+= default;
 
 template<
 	mizuiro::size_type Dim,
@@ -129,7 +132,8 @@ mizuiro::image::dimension<
 	ValueType
 >::operator=(
 	dimension &&
-) = default;
+)
+= default;
 
 template<
 	mizuiro::size_type Dim,
@@ -138,7 +142,8 @@ template<
 mizuiro::image::dimension<
 	Dim,
 	ValueType
->::~dimension() = default;
+>::~dimension()
+= default;
 
 template<
 	mizuiro::size_type Dim,
