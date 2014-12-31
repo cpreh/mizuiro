@@ -7,6 +7,10 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_ITERATOR_DIFFERENCE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_ITERATOR_DIFFERENCE_HPP_INCLUDED
 
+#include <mizuiro/detail/external_begin.hpp>
+#include <exception>
+#include <mizuiro/detail/external_end.hpp>
+
 
 namespace mizuiro
 {
@@ -25,6 +29,19 @@ struct iterator_difference
 	result_type;
 
 	template<
+		typename T1,
+		typename T2
+	>
+	result_type
+	operator()(
+		T1 const &,
+		T2 const &
+	) const
+	{
+		std::terminate();
+	}
+
+	template<
 		typename T
 	>
 	result_type
@@ -34,7 +51,9 @@ struct iterator_difference
 	) const
 	{
 		return
-			_b - _a;
+			_b
+			-
+			_a;
 	}
 };
 

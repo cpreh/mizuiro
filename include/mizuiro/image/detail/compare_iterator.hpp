@@ -31,7 +31,8 @@ struct compare_iterator
 		T2 const &
 	) const
 	{
-		return false;
+		return
+			false;
 	}
 
 	template<

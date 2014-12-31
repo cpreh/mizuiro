@@ -29,11 +29,13 @@ struct decrement_iterator
 	>
 	result_type
 	operator()(
-		T t
+		T _it
 	) const
 	{
 		return
-			--t;
+			result_type{
+				--_it
+			};
 	}
 };
 

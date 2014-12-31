@@ -83,12 +83,58 @@ MIZUIRO_DETAIL_POP_WARNING
 		);
 
 	BOOST_CHECK(
-		store.view()[
+		view[
 			view_type::dim::null()
 		].get(
 			mizuiro::color::channel::red()
 		)
 		==
 		static_cast<channel_type>(42)
+	);
+
+	{
+		auto it(
+			view.begin()
+		);
+
+		BOOST_CHECK(
+			(*it).get(
+				mizuiro::color::channel::red()
+			)
+			==
+			static_cast<channel_type>(42)
+		);
+
+		++it;
+
+		BOOST_CHECK(
+			it
+			==
+			view.end()
+		);
+
+		--it;
+
+		BOOST_CHECK(
+			it
+			==
+			view.begin()
+		);
+	}
+
+	BOOST_CHECK(
+		view.begin()
+		+
+		1
+		==
+		view.end()
+	);
+
+	BOOST_CHECK(
+		view.end()
+		-
+		view.begin()
+		==
+		1
 	);
 }

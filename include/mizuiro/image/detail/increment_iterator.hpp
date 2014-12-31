@@ -33,7 +33,9 @@ struct increment_iterator
 	) const
 	{
 		return
-			++_it;
+			result_type{
+				++_it
+			};
 	}
 };
 

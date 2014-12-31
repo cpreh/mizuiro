@@ -157,9 +157,7 @@ mizuiro::image::basic_iterator<
 >::operator->() const
 {
 	return
-		std::addressof(
-			this->operator*()
-		);
+		this->data();
 }
 
 /*

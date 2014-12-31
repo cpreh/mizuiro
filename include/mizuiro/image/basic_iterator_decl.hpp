@@ -36,11 +36,19 @@ public:
 	>
 	value_type;
 
+	/**
+	\brief The reference type of the underlying implementation
+
+	This might be a proxy class which is not an lvalue.
+	*/
 	typedef
 	typename
 	Impl::reference
 	reference;
 
+	/**
+	\brief The pointer used to refer to data in the underlying implementation
+	*/
 	typedef
 	typename
 	Impl::pointer
