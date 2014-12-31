@@ -694,7 +694,7 @@ install(
 
 set(
 	mizuiro_INCLUDE_DIR
-	${MIZUIRO_SOURCE_DIR}/include
+	"$<BUILD_INTERFACE:${MIZUIRO_SOURCE_DIR}/include>"
 )
 
 set(
