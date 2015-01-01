@@ -57,29 +57,6 @@ mizuiro::image::detail::linear_iterator<
 		data_;
 }
 
-// TODO: Is this needed?
-/*
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
-typename
-mizuiro::image::detail::linear_iterator<
-	Access,
-	Format,
-	Constness
->::format_store_type const
-mizuiro::image::detail::linear_iterator<
-	Access,
-	Format,
-	Constness
->::format_store() const
-{
-	return
-		this->format_store_base();
-}*/
-
 template<
 	typename Access,
 	typename Format,

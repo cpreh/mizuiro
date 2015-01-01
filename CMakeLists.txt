@@ -512,7 +512,6 @@ set(
 	include/mizuiro/image/detail/iterator_data.hpp
 	include/mizuiro/image/detail/iterator_decl.hpp
 	include/mizuiro/image/detail/iterator_difference.hpp
-	include/mizuiro/image/detail/iterator_format_store.hpp
 	include/mizuiro/image/detail/iterator_fwd.hpp
 	include/mizuiro/image/detail/iterator_impl.hpp
 	include/mizuiro/image/detail/linear_iterator_decl.hpp

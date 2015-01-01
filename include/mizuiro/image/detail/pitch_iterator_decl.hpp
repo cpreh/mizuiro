@@ -101,10 +101,9 @@ public:
 		format_store_type const &
 	);
 
-	// TODO
 	pitch_iterator(
 		pitch_iterator const &
-	) noexcept = default;
+	) noexcept;
 
 	dim const &
 	size() const;
@@ -114,16 +113,6 @@ public:
 
 	pointer
 	data() const;
-
-/*
-	pointer
-	root_data() const;
-
-	pitch_type const &
-	pitch() const;
-
-	format_store_type const
-	format_store() const;*/
 
 	pitch_iterator &
 	advance(

@@ -41,21 +41,21 @@ mizuiro::image::detail::pitch_iterator<
 	size_(
 		_size
 	),
-	root_data_(
+	root_data_{
 		_data
-	),
+	},
 	pitch_(
 		_pitch
 	),
-	line_advance_(
+	line_advance_{
 		0
-	),
-	position_(
+	},
+	position_{
 		0
-	),
-	offset_(
+	},
+	offset_{
 		0
-	),
+	},
 	stacked_dim_(
 		mizuiro::image::detail::stacked_dim<
 			difference_type
@@ -65,6 +65,20 @@ mizuiro::image::detail::pitch_iterator<
 	)
 {
 }
+
+template<
+	typename Access,
+	typename Format,
+	typename Constness
+>
+mizuiro::image::detail::pitch_iterator<
+	Access,
+	Format,
+	Constness
+>::pitch_iterator(
+	pitch_iterator const &
+) noexcept
+= default;
 
 template<
 	typename Access,

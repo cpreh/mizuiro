@@ -18,7 +18,6 @@
 #include <mizuiro/image/detail/iterator_data.hpp>
 #include <mizuiro/image/detail/iterator_decl.hpp>
 #include <mizuiro/image/detail/iterator_difference.hpp>
-#include <mizuiro/image/detail/iterator_format_store.hpp>
 
 
 template<
@@ -86,33 +85,6 @@ mizuiro::image::detail::iterator<
 			internal_
 		);
 }
-
-/*
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
-typename
-mizuiro::image::detail::iterator<
-	Access,
-	Format,
-	Constness
->::format_store_type const
-mizuiro::image::detail::iterator<
-	Access,
-	Format,
-	Constness
->::format_store() const
-{
-	return
-		mizuiro::detail::either_unary(
-			mizuiro::image::detail::iterator_format_store<
-				format_store_type
-			>(),
-			internal_
-		);
-}*/
 
 template<
 	typename Access,
