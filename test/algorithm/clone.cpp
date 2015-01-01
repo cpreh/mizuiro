@@ -11,7 +11,6 @@
 #include <mizuiro/color/layout/l.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/algorithm/clone.hpp>
-#include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
@@ -62,11 +61,7 @@ MIZUIRO_DETAIL_POP_WARNING
 		store_2d_gray8::dim(
 			5u,
 			5u
-		)
-	);
-
-	mizuiro::image::algorithm::fill_c(
-		store.view(),
+		),
 		homogenous_gray8_color(
 			mizuiro::color::init::luminance() %= 1.0
 		)

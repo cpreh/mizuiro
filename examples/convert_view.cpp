@@ -111,21 +111,28 @@ main()
 	);
 
 	rgba_store store(
-		dim
-	);
-
-	mizuiro::image::algorithm::copy_and_convert<
-		mizuiro::color::convert_static::converter
-	>(
-		mizuiro::image::make_raw_view<
-			rgb_format
-		>(
-			data.data(),
+		dim,
+		[
 			dim,
-			rgba_store::view_type::pitch_type::null()
-		),
-		store.view(),
-		mizuiro::image::algorithm::may_overlap::no
+			&data
+		](
+			rgba_store::view_type const &_dest
+		)
+		{
+			mizuiro::image::algorithm::copy_and_convert<
+				mizuiro::color::convert_static::converter
+			>(
+				mizuiro::image::make_raw_view<
+					rgb_format
+				>(
+					data.data(),
+					dim,
+					rgba_store::view_type::pitch_type::null()
+				),
+				_dest,
+				mizuiro::image::algorithm::may_overlap::no
+			);
+		}
 	);
 
 	mizuiro::image::algorithm::print(

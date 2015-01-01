@@ -4,6 +4,7 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/no_init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
@@ -55,7 +56,8 @@ MIZUIRO_DETAIL_POP_WARNING
 		store_2d::dim{
 			2u,
 			2u
-		}
+		},
+		mizuiro::no_init{}
 	};
 
 	store_2d::view_type const field_view{

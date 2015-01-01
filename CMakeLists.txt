@@ -450,6 +450,8 @@ set(
 	include/mizuiro/detail/uint_least.hpp
 	include/mizuiro/detail/unlikely.hpp
 	include/mizuiro/difference_type.hpp
+	include/mizuiro/empty.hpp
+	include/mizuiro/empty_fwd.hpp
 	include/mizuiro/enum_size.hpp
 	include/mizuiro/enum_size_fwd.hpp
 	include/mizuiro/image/access/dereference.hpp
@@ -501,6 +503,7 @@ set(
 	include/mizuiro/image/const_view.hpp
 	include/mizuiro/image/detail/advance_iterator.hpp
 	include/mizuiro/image/detail/compare_iterator.hpp
+	include/mizuiro/image/detail/const_view.hpp
 	include/mizuiro/image/detail/decrement_iterator.hpp
 	include/mizuiro/image/detail/dereference_iterator.hpp
 	include/mizuiro/image/detail/edge_pos_begin.hpp
@@ -630,6 +633,8 @@ set(
 	include/mizuiro/mpl/size_list.hpp
 	include/mizuiro/mpl/sum.hpp
 	include/mizuiro/mpl/true.hpp
+	include/mizuiro/no_init.hpp
+	include/mizuiro/no_init_fwd.hpp
 	include/mizuiro/nonconst_tag.hpp
 	include/mizuiro/range/all_of.hpp
 	include/mizuiro/range/array_ns/make.hpp

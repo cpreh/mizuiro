@@ -4,6 +4,7 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/no_init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
@@ -57,7 +58,8 @@ MIZUIRO_DETAIL_POP_WARNING
 		store_type::dim{
 			1u,
 			1u
-		}
+		},
+		mizuiro::no_init{}
 	);
 
 	typedef

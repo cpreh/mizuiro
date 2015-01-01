@@ -7,32 +7,14 @@
 #ifndef MIZUIRO_IMAGE_STORE_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_STORE_IMPL_HPP_INCLUDED
 
+#include <mizuiro/empty.hpp>
+#include <mizuiro/no_init.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/linear_view_impl.hpp>
 #include <mizuiro/image/store_decl.hpp>
 #include <mizuiro/image/access/store_size.hpp>
+#include <mizuiro/image/algorithm/fill_c.hpp>
 
-
-template<
-	typename Format,
-	typename Access
->
-mizuiro::image::store<
-	Format,
-	Access
->::store(
-	format_store_type const &_format
-)
-:
-	format_base(
-		_format
-	),
-	size_(
-		dim::null()
-	),
-	data_()
-{
-}
 
 template<
 	typename Format,
@@ -43,6 +25,7 @@ mizuiro::image::store<
 	Access
 >::store(
 	dim const &_size,
+	mizuiro::no_init const &,
 	format_store_type const &_format
 )
 :
@@ -61,6 +44,78 @@ mizuiro::image::store<
 		)
 	)
 {
+}
+
+template<
+	typename Format,
+	typename Access
+>
+mizuiro::image::store<
+	Format,
+	Access
+>::store(
+	mizuiro::empty const &,
+	format_store_type const &_format
+)
+:
+	store(
+		dim::null(),
+		mizuiro::no_init{},
+		_format
+	)
+{
+}
+
+template<
+	typename Format,
+	typename Access
+>
+mizuiro::image::store<
+	Format,
+	Access
+>::store(
+	dim const &_size,
+	value_type const &_init,
+	format_store_type const &_format
+)
+:
+	store(
+		_size,
+		mizuiro::no_init{},
+		_format
+	)
+{
+	mizuiro::image::algorithm::fill_c(
+		this->view(),
+		_init
+	);
+}
+
+template<
+	typename Format,
+	typename Access
+>
+template<
+	typename Function
+>
+mizuiro::image::store<
+	Format,
+	Access
+>::store(
+	dim const &_size,
+	Function const &_function,
+	format_store_type const &_format
+)
+:
+	store(
+		_size,
+		mizuiro::no_init{},
+		_format
+	)
+{
+	_function(
+		this->view()
+	);
 }
 
 template<

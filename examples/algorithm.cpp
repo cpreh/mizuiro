@@ -21,7 +21,6 @@
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/algorithm/compare.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
-#include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/algorithm/transform.hpp>
@@ -152,12 +151,8 @@ int main()
 		2u
 	);
 
-	store1 img1(
-		dim
-	);
-
-	mizuiro::image::algorithm::fill_c(
-		img1.view(),
+	store1 img1{
+		dim,
 		mizuiro::color::object<
 			format1::color_format
 		>(
@@ -166,7 +161,7 @@ int main()
 			(mizuiro::color::init::green() = static_cast<channel_type>(80))
 			(mizuiro::color::init::alpha() = static_cast<channel_type>(255))
 		)
-	);
+	};
 
 	std::cout << "before\n";
 
@@ -177,19 +172,25 @@ int main()
 
 	std::cout << "\n\n";
 
-	store2 img2(
-		dim
-	);
-
-	mizuiro::image::algorithm::copy_and_convert<
-		mizuiro::color::convert_static::converter
-	>(
-		mizuiro::image::make_const_view(
-			img1.view()
-		),
-		img2.view(),
-		mizuiro::image::algorithm::may_overlap::no
-	);
+	store2 img2{
+		dim,
+		[
+			&img1
+		](
+			store2::view_type const &_dest
+		)
+		{
+			mizuiro::image::algorithm::copy_and_convert<
+				mizuiro::color::convert_static::converter
+			>(
+				mizuiro::image::make_const_view(
+					img1.view()
+				),
+				_dest,
+				mizuiro::image::algorithm::may_overlap::no
+			);
+		}
+	};
 
 	std::cout << "after\n";
 

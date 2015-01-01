@@ -20,7 +20,6 @@
 #include <mizuiro/color/init/red.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
-#include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
@@ -180,11 +179,12 @@ main()
 	>
 	uint8_4_store;
 
-	uint8_4_store store(
+	uint8_4_store const store(
 		uint8_4_store::dim(
 			5u,
 			3u
 		),
+		test1,
 		uint8_4_store::format_store_type(
 			image_uint8_4_format(
 				rgba_format_store
@@ -192,18 +192,9 @@ main()
 		)
 	);
 
-	uint8_4_store::view_type const view(
-		store.view()
-	);
-
-	mizuiro::image::algorithm::fill_c(
-		view,
-		test1
-	);
-
 	mizuiro::image::algorithm::print(
 		std::cout,
-		view
+		store.view()
 	);
 
 	std::cout << '\n';

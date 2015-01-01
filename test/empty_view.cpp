@@ -4,6 +4,7 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/empty.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
@@ -41,9 +42,9 @@ MIZUIRO_DETAIL_POP_WARNING
 		format_3d_rgba8
 	> store_3d_rgba8;
 
-	store_3d_rgba8 store(
-		store_3d_rgba8::dim::null()
-	);
+	store_3d_rgba8 store{
+		mizuiro::empty{}
+	};
 
 	typedef store_3d_rgba8::view_type view_3d_rgba8;
 
@@ -57,24 +58,4 @@ MIZUIRO_DETAIL_POP_WARNING
 			== view.end()
 		);
 	}
-
-	store = store_3d_rgba8(
-		store_3d_rgba8::dim(
-			0u,
-			1u,
-			2u
-		)
-	);
-
-	{
-		view_3d_rgba8 const view(
-			store.view()
-		);
-
-		BOOST_REQUIRE(
-			view.begin()
-			== view.end()
-		);
-	}
-
 }

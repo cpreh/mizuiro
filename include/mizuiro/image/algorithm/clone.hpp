@@ -37,19 +37,24 @@ clone(
 	>
 	result_type;
 
-	result_type store(
-		_src.size(),
-		_src.format_store()
-	);
-
-	mizuiro::image::algorithm::copy(
-		_src,
-		store.view(),
-		mizuiro::image::algorithm::may_overlap::no
-	);
-
 	return
-		store;
+		result_type{
+			_src.size(),
+			[
+				&_src
+			](
+				typename
+				result_type::view_type const &_view
+			)
+			{
+				mizuiro::image::algorithm::copy(
+					_src,
+					_view,
+					mizuiro::image::algorithm::may_overlap::no
+				);
+			},
+			_src.format_store()
+		};
 }
 
 }

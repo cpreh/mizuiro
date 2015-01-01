@@ -8,7 +8,9 @@
 #define MIZUIRO_IMAGE_STORE_DECL_HPP_INCLUDED
 
 #include <mizuiro/const_tag.hpp>
+#include <mizuiro/empty_fwd.hpp>
 #include <mizuiro/nonconst_tag.hpp>
+#include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension_decl.hpp>
@@ -18,6 +20,7 @@
 #include <mizuiro/image/format/base_decl.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/store.hpp>
+#include <mizuiro/image/types/value_type.hpp>
 
 
 namespace mizuiro
@@ -79,6 +82,12 @@ public:
 	format::dim dim;
 
 	typedef
+	mizuiro::image::types::value_type<
+		format
+	>
+	value_type;
+
+	typedef
 	mizuiro::image::linear_view<
 		access,
 		format,
@@ -94,15 +103,39 @@ public:
 	>
 	const_view_type;
 
-	explicit store(
+	store(
+		dim const &,
+		mizuiro::no_init const &,
 		format_store_type const & =
 			mizuiro::image::format::argument<
 				format
 			>::get()
 	);
 
-	explicit store(
+	explicit
+	store(
+		mizuiro::empty const &,
+		format_store_type const & =
+			mizuiro::image::format::argument<
+				format
+			>::get()
+	);
+
+	store(
 		dim const &,
+		value_type const &,
+		format_store_type const & =
+			mizuiro::image::format::argument<
+				format
+			>::get()
+	);
+
+	template<
+		typename Function
+	>
+	store(
+		dim const &,
+		Function const &,
 		format_store_type const & =
 			mizuiro::image::format::argument<
 				format

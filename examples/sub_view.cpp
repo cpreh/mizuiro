@@ -14,6 +14,7 @@
 #include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/image/bound.hpp>
+#include <mizuiro/image/const_view.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/pitch_view_impl.hpp>
 #include <mizuiro/image/store.hpp>
@@ -48,57 +49,60 @@ int main()
 		format
 	> store;
 
-	store img(
-		store::dim(
-			100u,
-			100u,
-			100u
-		)
-	);
-
 	typedef store::view_type view_type;
 
 	typedef view_type::bound_type bound_type;
 
-	// TODO: create an algorithm for this!
-	{
-		view_type const view(
-			img.view()
-		);
+	store const img{
+		store::dim(
+			100u,
+			100u,
+			100u
+		),
+		[](
+			view_type const &_view
+		)
+		{
+			typedef view_type::dim dim;
 
-		typedef view_type::dim dim;
+			typedef dim::size_type size_type;
 
-		typedef dim::size_type size_type;
+			dim const size(
+				_view.size()
+			);
 
-		dim const size(
-			img.view().size()
-		);
-
-		for(size_type x = 0; x < size[0]; ++x)
-			for(size_type y = 0; y < size[1]; ++y)
-				for(size_type z = 0; z < size[2]; ++z)
-					view[
-						dim(
-							x,
-							y,
-							z
-						)
-					]
-					= mizuiro::color::object<
-						format::color_format
-					>(
-						(mizuiro::color::init::red() = static_cast<channel_type>(x))
-						(mizuiro::color::init::green() = static_cast<channel_type>(y))
-						(mizuiro::color::init::blue() = static_cast<channel_type>(z))
-						(mizuiro::color::init::alpha() = static_cast<channel_type>(255))
-					);
-	}
+			// TODO: create an algorithm for this!
+			for(size_type x = 0; x < size[0]; ++x)
+				for(size_type y = 0; y < size[1]; ++y)
+					for(size_type z = 0; z < size[2]; ++z)
+						_view[
+							dim(
+								x,
+								y,
+								z
+							)
+						]
+						= mizuiro::color::object<
+							format::color_format
+						>(
+							(mizuiro::color::init::red() = static_cast<channel_type>(x))
+							(mizuiro::color::init::green() = static_cast<channel_type>(y))
+							(mizuiro::color::init::blue() = static_cast<channel_type>(z))
+							(mizuiro::color::init::alpha() = static_cast<channel_type>(255))
+						);
+		}
+	};
 
 	std::cout << '\n';
 
-	typedef mizuiro::image::to_pitch_view<
-		view_type
-	> pitch_view;
+	typedef
+	mizuiro::image::to_pitch_view<
+		typename
+		mizuiro::image::const_view<
+			view_type
+		>
+	>
+	pitch_view;
 
 	pitch_view const sub_view(
 		mizuiro::image::sub_view(
@@ -163,7 +167,9 @@ int main()
 			reverse_iterator it(
 				sub_sub_view.end()
 			);
-			it != reverse_iterator(sub_sub_view.begin());
+			it != reverse_iterator(
+				sub_sub_view.begin()
+			);
 			++it
 		)
 			std::cout << *it << ' ';

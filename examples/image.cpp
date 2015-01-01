@@ -22,9 +22,11 @@
 #include <mizuiro/detail/external_end.hpp>
 
 
-int main()
+int
+main()
 {
-	typedef mizuiro::image::format::interleaved<
+	typedef
+	mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
 			3
 		>,
@@ -32,44 +34,51 @@ int main()
 			std::uint8_t,
 			mizuiro::color::layout::rgba
 		>
-	> format;
+	>
+	format;
 
-	typedef mizuiro::image::store<
+	typedef
+	mizuiro::image::store<
 		format
-	> store;
+	>
+	store;
 
-	store img(
+	typedef
+	store::view_type
+	view_type;
+
+	store const img{
 		store::dim(
 			3u,
 			2u,
 			1u
+		),
+		[](
+			view_type const &_view
 		)
-	);
+		{
+			for(
+				auto color
+				:
+				_view
+			)
+			{
+				color.set(
+					mizuiro::color::channel::red(),
+					static_cast<std::uint8_t>(10)
+				);
+			}
+		}
+	};
 
-	typedef store::view_type view_type;
-
-	view_type const view(
-		img.view()
-	);
-
-	for(
-		auto color
-		:
-		view
-	)
-	{
-		color.set(
-			mizuiro::color::channel::red(),
-			static_cast<std::uint8_t>(10)
-		);
-	}
-
-	typedef mizuiro::image::const_view<
+	typedef
+	mizuiro::image::const_view<
 		view_type
-	>::type const_view_type;
+	>
+	const_view_type;
 
 	const_view_type const_view(
-		view
+		img.view()
 	);
 
 	for(

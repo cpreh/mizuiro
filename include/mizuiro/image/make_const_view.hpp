@@ -18,21 +18,19 @@ namespace image
 template<
 	typename View
 >
-typename
 mizuiro::image::const_view<
 	View
->::type const
+>
 make_const_view(
 	View const &_view
 )
 {
 	return
-		typename
 		mizuiro::image::const_view<
 			View
-		>::type(
+		>{
 			_view
-		);
+		};
 }
 
 }

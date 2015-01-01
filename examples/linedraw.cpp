@@ -55,29 +55,32 @@ int main()
 		32u
 	);
 
-	store img(
-		dim
-	);
+	typedef
+	mizuiro::color::object<
+		format::color_format
+	>
+	color_object;
 
-	view_type view(
+	store img{
+		dim,
+		color_object(
+			(mizuiro::color::init::luminance() = static_cast<channel_type>(0))
+		)
+	};
+
+	view_type const view(
 		img.view()
 	);
 
-	mizuiro::color::object<format::color_format> color0 =
-		mizuiro::color::object<
-			format::color_format
-		>(
-			(mizuiro::color::init::luminance() = static_cast<channel_type>(10))
-		);
+	color_object const color0(
+		(mizuiro::color::init::luminance() = static_cast<channel_type>(10))
+	);
 
-	mizuiro::color::object<format::color_format> color1 =
-		mizuiro::color::object<
-			format::color_format
-		>(
-			(mizuiro::color::init::luminance() = static_cast<channel_type>(99))
-		);
+	color_object const color1(
+		(mizuiro::color::init::luminance() = static_cast<channel_type>(99))
+	);
 
-	view_type::dim start(
+	view_type::dim const start(
 		15u,
 		15u
 	);
@@ -98,6 +101,7 @@ int main()
 		);
 	}
 
+	// TODO: Make this easier
 	for (view_type::dim::value_type y = 0; y < view.size()[1]; ++y)
 	{
 		for (view_type::dim::value_type x = 0; x < view.size()[0]; ++x)

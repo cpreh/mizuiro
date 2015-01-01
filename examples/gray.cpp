@@ -23,7 +23,8 @@
 namespace
 {
 
-typedef mizuiro::image::format::interleaved<
+typedef
+mizuiro::image::format::interleaved<
 	mizuiro::image::dimension<
 		2
 	>,
@@ -31,11 +32,14 @@ typedef mizuiro::image::format::interleaved<
 		std::uint8_t,
 		mizuiro::color::layout::l
 	>
-> format;
+>
+format;
 
 struct set_color
 {
-	typedef void result_type;
+	typedef
+	void
+	result_type;
 
 	template<
 		typename T
@@ -54,27 +58,32 @@ struct set_color
 
 }
 
-int main()
+int
+main()
 {
-	typedef mizuiro::image::store<
+	typedef
+	mizuiro::image::store<
 		format
-	> store;
+	>
+	store;
 
-	store img(
+	typedef
+	store::view_type
+	view_type;
+
+	store const img{
 		store::dim(
 			32u,
 			64u
+		),
+		[](
+			view_type const &_view
 		)
-	);
-
-	typedef store::view_type view_type;
-
-	view_type const view(
-		img.view()
-	);
-
-	mizuiro::image::algorithm::for_each(
-		view,
-		set_color()
-	);
+		{
+			mizuiro::image::algorithm::for_each(
+				_view,
+				set_color()
+			);
+		}
+	};
 }

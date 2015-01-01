@@ -27,11 +27,15 @@
 #include <mizuiro/detail/external_end.hpp>
 
 
-int main()
+int
+main()
 {
-	typedef float channel_type;
+	typedef
+	float
+	channel_type;
 
-	typedef mizuiro::image::format::interleaved<
+	typedef
+	mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
 			2
 		>,
@@ -39,51 +43,55 @@ int main()
 			channel_type,
 			mizuiro::color::layout::rgba
 		>
-	> format;
+	>
+	format;
 
-	typedef mizuiro::image::store<
+	typedef
+	mizuiro::image::store<
 		format
-	> store;
+	>
+	store;
 
-	store img(
+	typedef
+	store::view_type
+	view_type;
+
+	store img{
 		store::dim(
 			4u,
 			6u
+		),
+		[](
+			view_type const &_view
 		)
-	);
+		{
+			typedef view_type::dim dim;
 
-	typedef store::view_type view_type;
+			typedef dim::size_type size_type;
 
-	{
-		view_type const view(
-			img.view()
-		);
+			dim const size(
+				_view.size()
+			);
 
-		typedef view_type::dim dim;
-
-		typedef dim::size_type size_type;
-
-		dim const size(
-			view.size()
-		);
-
-		for(size_type x = 0; x < size[0]; ++x)
-			for(size_type y = 0; y < size[1]; ++y)
-				view[
-					dim(
-						x,
-						y
-					)
-				]
-				= mizuiro::color::object<
-					format::color_format
-				>(
-					(mizuiro::color::init::red() = static_cast<channel_type>(x))
-					(mizuiro::color::init::green() = static_cast<channel_type>(y))
-					(mizuiro::color::init::blue() = static_cast<channel_type>(255))
-					(mizuiro::color::init::alpha() = static_cast<channel_type>(255))
-				);
-	}
+			// TODO: Make this easier!
+			for(size_type x = 0; x < size[0]; ++x)
+				for(size_type y = 0; y < size[1]; ++y)
+					_view[
+						dim(
+							x,
+							y
+						)
+					]
+					= mizuiro::color::object<
+						format::color_format
+					>(
+						(mizuiro::color::init::red() = static_cast<channel_type>(x))
+						(mizuiro::color::init::green() = static_cast<channel_type>(y))
+						(mizuiro::color::init::blue() = static_cast<channel_type>(255))
+						(mizuiro::color::init::alpha() = static_cast<channel_type>(255))
+					);
+		}
+	};
 
 	typedef view_type::bound_type bound_type;
 
