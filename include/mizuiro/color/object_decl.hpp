@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_OBJECT_DECL_HPP_INCLUDED
 
 #include <mizuiro/const_tag.hpp>
+#include <mizuiro/default_init_fwd.hpp>
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/access/normal.hpp>
@@ -91,6 +92,15 @@ public:
 	explicit
 	object(
 		mizuiro::no_init const &,
+		format_store_type const & =
+			mizuiro::color::format::argument<
+				Format
+			>::get()
+	);
+
+	explicit
+	object(
+		mizuiro::default_init const &,
 		format_store_type const & =
 			mizuiro::color::format::argument<
 				Format

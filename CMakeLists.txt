@@ -408,6 +408,8 @@ set(
 	include/mizuiro/color/types/store_ns/tag.hpp
 	include/mizuiro/const_raw_pointer.hpp
 	include/mizuiro/const_tag.hpp
+	include/mizuiro/default_init.hpp
+	include/mizuiro/default_init_fwd.hpp
 	include/mizuiro/detail/bit_count.hpp
 	include/mizuiro/detail/bit_count_at_least.hpp
 	include/mizuiro/detail/byte_count_from_bits.hpp

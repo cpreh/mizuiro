@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_COLOR_OBJECT_IMPL_HPP_INCLUDED
 #define MIZUIRO_COLOR_OBJECT_IMPL_HPP_INCLUDED
 
+#include <mizuiro/default_init_fwd.hpp>
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_decl.hpp>
@@ -43,6 +44,23 @@ mizuiro::color::object<
 }
 
 MIZUIRO_DETAIL_POP_WARNING
+
+template<
+	typename Format
+>
+mizuiro::color::object<
+	Format
+>::object(
+	mizuiro::default_init const &,
+	format_store_type const &_format
+)
+:
+	base(
+		_format
+	),
+	data_() // TODO: Should we rely on the default ctor?
+{
+}
 
 template<
 	typename Format
