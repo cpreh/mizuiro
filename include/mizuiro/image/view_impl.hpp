@@ -138,7 +138,7 @@ mizuiro::image::view<
 	Format,
 	Constness
 >::view(
-	view const &_other
+	view const &
 ) noexcept
 = default;
 
