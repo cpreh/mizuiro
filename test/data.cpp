@@ -5,6 +5,7 @@
 
 
 #include <mizuiro/const_tag.hpp>
+#include <mizuiro/no_init.hpp>
 #include <mizuiro/raw_value.hpp>
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/access/raw.hpp>
@@ -56,7 +57,9 @@ MIZUIRO_DETAIL_POP_WARNING
 	>
 	rgb32_color;
 
-	rgb32_color color;
+	rgb32_color color{
+		mizuiro::no_init{}
+	};
 
 	BOOST_CHECK(
 		std::distance(

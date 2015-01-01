@@ -4,6 +4,7 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/no_init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
@@ -37,7 +38,9 @@ MIZUIRO_DETAIL_POP_WARNING
 	>
 	object;
 
-	object foo;
+	object foo{
+		mizuiro::no_init{}
+	};
 
 	std::uint8_t const test(
 		42u

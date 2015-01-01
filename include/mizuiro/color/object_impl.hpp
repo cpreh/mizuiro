@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_COLOR_OBJECT_IMPL_HPP_INCLUDED
 #define MIZUIRO_COLOR_OBJECT_IMPL_HPP_INCLUDED
 
+#include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
@@ -15,10 +16,14 @@
 #include <mizuiro/color/init/detail/assign_object.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Format
@@ -26,15 +31,18 @@ template<
 mizuiro::color::object<
 	Format
 >::object(
+	mizuiro::no_init const &,
 	format_store_type const &_format
 )
 :
 	base(
 		_format
-	),
-	data_()
+	)
+	// FIXME: Preparing data requires special cases
 {
 }
+
+MIZUIRO_DETAIL_POP_WARNING
 
 template<
 	typename Format
@@ -75,6 +83,7 @@ mizuiro::color::object<
 	base(
 		_other.format_store()
 	),
+	// FIXME: Preparing data requires special cases
 	data_()
 {
 	proxy(
@@ -101,6 +110,7 @@ mizuiro::color::object<
 	base(
 		_format
 	),
+	// FIXME: Preparing data requires special cases
 	data_()
 {
 	mizuiro::color::init::detail::assign_object(

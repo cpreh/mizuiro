@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_SAME_TO_SAME_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_SAME_TO_SAME_HPP_INCLUDED
 
+#include <mizuiro/no_init.hpp>
 #include <mizuiro/color/for_some_channels.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
@@ -54,6 +55,7 @@ same_to_same(
 	dest_type;
 
 	dest_type dest(
+		mizuiro::no_init{},
 		_format
 	);
 
