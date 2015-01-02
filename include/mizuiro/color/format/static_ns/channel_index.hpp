@@ -10,7 +10,9 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/access/channel_index_ns/tag.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
+#include <mizuiro/color/format/static_ns/static_channels.hpp>
 #include <mizuiro/color/format/static_ns/tag.hpp>
+#include <mizuiro/color/types/static_channels.hpp>
 #include <mizuiro/mpl/index_of.hpp>
 
 
@@ -41,7 +43,9 @@ channel_index_adl(
 {
 	return
 		mizuiro::mpl::index_of<
-			typename Format::layout::order,
+			mizuiro::color::types::static_channels<
+				Format
+			>,
 			Channel
 		>();
 }

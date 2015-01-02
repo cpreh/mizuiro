@@ -10,7 +10,7 @@
 #include <mizuiro/color/channel/hue.hpp>
 #include <mizuiro/color/channel/saturation.hpp>
 #include <mizuiro/color/channel/value.hpp>
-#include <mizuiro/color/types/has_channel_static.hpp>
+#include <mizuiro/color/format/has_channel_static.hpp>
 #include <mizuiro/mpl/bool.hpp>
 
 
@@ -27,17 +27,17 @@ template<
 using is_hsv
 =
 mizuiro::mpl::bool_<
-	mizuiro::color::types::has_channel_static<
+	mizuiro::color::format::has_channel_static<
 		Format,
 		mizuiro::color::channel::hue
 	>::value
 	&&
-	mizuiro::color::types::has_channel_static<
+	mizuiro::color::format::has_channel_static<
 		Format,
 		mizuiro::color::channel::saturation
 	>::value
 	&&
-	mizuiro::color::types::has_channel_static<
+	mizuiro::color::format::has_channel_static<
 		Format,
 		mizuiro::color::channel::value
 	>::value

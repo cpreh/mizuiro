@@ -9,9 +9,9 @@
 
 #include <mizuiro/color/access/has_channel_ns/tag.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
-#include <mizuiro/color/format/static_ns/has_channel_static.hpp>
+#include <mizuiro/color/format/static_ns/static_channels.hpp>
 #include <mizuiro/color/format/static_ns/tag.hpp>
-#include <mizuiro/color/types/has_channel_static.hpp>
+#include <mizuiro/color/format/has_channel_static.hpp>
 
 
 namespace mizuiro
@@ -28,6 +28,7 @@ template<
 	typename Channel
 >
 inline
+constexpr
 bool
 has_channel_adl(
 	mizuiro::color::access::has_channel_ns::tag,
@@ -41,7 +42,7 @@ has_channel_adl(
 )
 {
 	return
-		mizuiro::color::types::has_channel_static<
+		mizuiro::color::format::has_channel_static<
 			Format,
 			Channel
 		>::value;

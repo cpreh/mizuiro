@@ -7,6 +7,9 @@
 #ifndef MIZUIRO_MPL_FIRST_OF_HPP_INCLUDED
 #define MIZUIRO_MPL_FIRST_OF_HPP_INCLUDED
 
+#include <mizuiro/mpl/apply.hpp>
+#include <mizuiro/mpl/head.hpp>
+#include <mizuiro/mpl/tail.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -33,10 +36,12 @@ struct first_of<
 	Predicate,
 	typename
 	std::enable_if<
-		Predicate{}(
-			typename
-			List::head{}
-		)
+		mizuiro::mpl::apply<
+			Predicate,
+			mizuiro::mpl::head<
+				List
+			>
+		>()
 	>::type
 >
 {
@@ -55,17 +60,21 @@ struct first_of<
 	Predicate,
 	typename
 	std::enable_if<
-		!Predicate{}(
-			typename
-			List::head{}
-		)
+		!mizuiro::mpl::apply<
+			Predicate,
+			mizuiro::mpl::head<
+				List
+			>
+		>()
 	>::type
 >
 {
 	typedef
 	typename
 	mizuiro::mpl::first_of<
-		typename List::tail,
+		mizuiro::mpl::tail<
+			List
+		>,
 		Predicate
 	>::type
 	type;

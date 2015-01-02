@@ -13,15 +13,16 @@
 template<
 	typename Format
 >
+constexpr
 mizuiro::color::format::store<
 	Format
 >::store(
 	Format const *const _format
 )
 :
-	format_(
+	format_{
 		_format
-	)
+	}
 {
 }
 

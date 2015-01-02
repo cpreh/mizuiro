@@ -10,7 +10,7 @@
 #include <mizuiro/color/channel/blue.hpp>
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/red.hpp>
-#include <mizuiro/color/types/has_channel_static.hpp>
+#include <mizuiro/color/format/has_channel_static.hpp>
 #include <mizuiro/mpl/bool.hpp>
 
 
@@ -27,17 +27,17 @@ template<
 using is_rgb
 =
 mizuiro::mpl::bool_<
-	mizuiro::color::types::has_channel_static<
+	mizuiro::color::format::has_channel_static<
 		Format,
 		mizuiro::color::channel::red
 	>::value
 	||
-	mizuiro::color::types::has_channel_static<
+	mizuiro::color::format::has_channel_static<
 		Format,
 		mizuiro::color::channel::green
 	>::value
 	||
-	mizuiro::color::types::has_channel_static<
+	mizuiro::color::format::has_channel_static<
 		Format,
 		mizuiro::color::channel::blue
 	>::value

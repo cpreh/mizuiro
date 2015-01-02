@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_HSV_TO_RGB_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_HSV_TO_RGB_HPP_INCLUDED
 
+#include <mizuiro/no_init.hpp>
 #include <mizuiro/color/normalize.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/channel/hue.hpp>
@@ -115,16 +116,17 @@ hsv_to_rgb(
 	>
 	dest_type;
 
-	dest_type dest(
-		mizuiro::color::conversion::detail::rgb_from_chroma<
-			dest_type
-		>(
-			chroma,
-			hue_part,
-			largest_part,
-			diff,
-			_format
-		)
+	dest_type dest{
+		mizuiro::no_init{},
+		_format
+	};
+
+	mizuiro::color::conversion::detail::rgb_from_chroma(
+		dest,
+		chroma,
+		hue_part,
+		largest_part,
+		diff
 	);
 
 	mizuiro::color::conversion::detail::copy_or_max_alpha(

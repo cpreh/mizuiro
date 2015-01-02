@@ -30,7 +30,7 @@ copy(
 )
 {
 	return
-		detail::copy_n(
+		mizuiro::detail::copy_n(
 			_begin,
 			std::distance(
 				_begin,

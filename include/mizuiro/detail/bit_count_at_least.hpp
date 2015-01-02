@@ -23,11 +23,10 @@ struct bit_count_at_least
 	template<
 		typename IntType
 	>
+	static
 	constexpr
 	bool
-	operator()(
-		IntType
-	) const
+	apply()
 	{
 		return
 			mizuiro::detail::bit_count<

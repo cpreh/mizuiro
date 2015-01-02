@@ -8,9 +8,10 @@
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_DEFAULT_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/access/has_channel.hpp>
-#include <mizuiro/color/conversion/detail/channel_to_min.hpp>
 #include <mizuiro/color/conversion/detail/copy_and_convert_channel.hpp>
-#include <mizuiro/color/types/has_channel_static.hpp>
+#include <mizuiro/color/format/definitely_has_channel.hpp>
+#include <mizuiro/color/format/definitely_has_not_channel.hpp>
+#include <mizuiro/color/format/might_have_channel.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -31,14 +32,228 @@ template<
 	typename Src,
 	typename Dest
 >
+inline
 typename
 std::enable_if<
-	mizuiro::color::types::has_channel_static<
+	mizuiro::color::format::definitely_has_channel<
 		typename Src::format,
 		Channel
 	>::value
 	&&
-	mizuiro::color::types::has_channel_static<
+	mizuiro::color::format::definitely_has_channel<
+		typename Dest::format,
+		Channel
+	>::value,
+	void
+>::type
+copy_or_default_channel(
+	DefaultAction const &,
+	Channel const &_channel,
+	Src const &_src,
+	Dest &_dest
+)
+{
+	mizuiro::color::conversion::detail::copy_and_convert_channel(
+		_channel,
+		_src,
+		_dest
+	);
+}
+
+template<
+	typename DefaultAction,
+	typename Channel,
+	typename Src,
+	typename Dest
+>
+inline
+typename
+std::enable_if<
+	mizuiro::color::format::definitely_has_not_channel<
+		typename Src::format,
+		Channel
+	>::value
+	&&
+	mizuiro::color::format::definitely_has_channel<
+		typename Dest::format,
+		Channel
+	>::value,
+	void
+>::type
+copy_or_default_channel(
+	DefaultAction const &_default_action,
+	Channel const &_channel,
+	Src const &,
+	Dest &
+)
+{
+	_default_action(
+		_channel
+	);
+}
+
+template<
+	typename DefaultAction,
+	typename Channel,
+	typename Src,
+	typename Dest
+>
+inline
+typename
+std::enable_if<
+	mizuiro::color::format::might_have_channel<
+		typename Src::format,
+		Channel
+	>::value
+	&&
+	mizuiro::color::format::definitely_has_channel<
+		typename Dest::format,
+		Channel
+	>::value,
+	void
+>::type
+copy_or_default_channel(
+	DefaultAction const &_default_action,
+	Channel const &_channel,
+	Src const &_src,
+	Dest &_dest
+)
+{
+	if(
+		mizuiro::color::access::has_channel(
+			_src.format_store(),
+			_channel
+		)
+	)
+		mizuiro::color::conversion::detail::copy_and_convert_channel(
+			_channel,
+			_src,
+			_dest
+		);
+	else
+		_default_action(
+			_channel
+		);
+}
+
+template<
+	typename DefaultAction,
+	typename Channel,
+	typename Src,
+	typename Dest
+>
+inline
+typename
+std::enable_if<
+	mizuiro::color::format::definitely_has_not_channel<
+		typename Dest::format,
+		Channel
+	>::value,
+	void
+>::type
+copy_or_default_channel(
+	DefaultAction const &,
+	Channel const &,
+	Src const &,
+	Dest &
+)
+{
+}
+
+template<
+	typename DefaultAction,
+	typename Channel,
+	typename Src,
+	typename Dest
+>
+inline
+typename
+std::enable_if<
+	mizuiro::color::format::definitely_has_channel<
+		typename Src::format,
+		Channel
+	>::value
+	&&
+	mizuiro::color::format::might_have_channel<
+		typename Dest::format,
+		Channel
+	>::value,
+	void
+>::type
+copy_or_default_channel(
+	DefaultAction const &,
+	Channel const &_channel,
+	Src const &_src,
+	Dest &_dest
+)
+{
+	if(
+		mizuiro::color::access::has_channel(
+			_dest.format_store(),
+			_channel
+		)
+	)
+		mizuiro::color::conversion::detail::copy_and_convert_channel(
+			_channel,
+			_src,
+			_dest
+		);
+}
+
+template<
+	typename DefaultAction,
+	typename Channel,
+	typename Src,
+	typename Dest
+>
+inline
+typename
+std::enable_if<
+	mizuiro::color::format::definitely_has_not_channel<
+		typename Src::format,
+		Channel
+	>::value
+	&&
+	mizuiro::color::format::might_have_channel<
+		typename Dest::format,
+		Channel
+	>::value,
+	void
+>::type
+copy_or_default_channel(
+	DefaultAction const &_default_action,
+	Channel const &_channel,
+	Src const &,
+	Dest &_dest
+)
+{
+	if(
+		mizuiro::color::access::has_channel(
+			_dest.format_store(),
+			_channel
+		)
+	)
+		_default_action(
+			_channel
+		);
+}
+
+
+template<
+	typename DefaultAction,
+	typename Channel,
+	typename Src,
+	typename Dest
+>
+inline
+typename
+std::enable_if<
+	mizuiro::color::format::might_have_channel<
+		typename Src::format,
+		Channel
+	>::value
+	&&
+	mizuiro::color::format::might_have_channel<
 		typename Dest::format,
 		Channel
 	>::value,
@@ -65,9 +280,7 @@ copy_or_default_channel(
 			_channel
 		)
 	)
-		mizuiro::color::conversion::detail::copy_and_convert_channel<
-			float
-		>(
+		mizuiro::color::conversion::detail::copy_and_convert_channel(
 			_channel,
 			_src,
 			_dest
@@ -76,60 +289,6 @@ copy_or_default_channel(
 		_default_action(
 			_channel
 		);
-}
-
-template<
-	typename DefaultAction,
-	typename Channel,
-	typename Src,
-	typename Dest
->
-typename
-std::enable_if<
-	!mizuiro::color::types::has_channel_static<
-		typename Src::format,
-		Channel
-	>::value
-	&&
-	mizuiro::color::types::has_channel_static<
-		typename Dest::format,
-		Channel
-	>::value,
-	void
->::type
-copy_or_default_channel(
-	DefaultAction const &_default_action,
-	Channel const &_channel,
-	Src const &,
-	Dest &
-)
-{
-	_default_action(
-		_channel
-	);
-}
-
-template<
-	typename DefaultAction,
-	typename Channel,
-	typename Src,
-	typename Dest
->
-typename
-std::enable_if<
-	!mizuiro::color::types::has_channel_static<
-		typename Dest::format,
-		Channel
-	>::value,
-	void
->::type
-copy_or_default_channel(
-	DefaultAction const &,
-	Channel const &,
-	Src const &,
-	Dest &
-)
-{
 }
 
 }

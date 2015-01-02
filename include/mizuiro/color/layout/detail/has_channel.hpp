@@ -27,11 +27,10 @@ struct has_channel
 	template<
 		typename Channel
 	>
+	static
 	constexpr
 	bool
-	operator()(
-		Channel
-	) const
+	apply()
 	{
 		return
 			mizuiro::mpl::contains<

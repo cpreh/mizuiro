@@ -249,6 +249,7 @@ mizuiro::color::object<
 template<
 	typename Format
 >
+constexpr
 typename mizuiro::color::object<
 	Format
 >::format_store_type const

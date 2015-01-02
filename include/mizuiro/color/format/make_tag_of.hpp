@@ -20,6 +20,7 @@ namespace format
 template<
 	typename Type
 >
+constexpr
 typename
 mizuiro::color::format::tag_of<
 	Type

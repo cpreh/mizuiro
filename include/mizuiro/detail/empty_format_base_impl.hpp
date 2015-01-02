@@ -13,6 +13,7 @@
 template<
 	typename Store
 >
+constexpr
 mizuiro::detail::empty_format_base<
 	Store
 >::empty_format_base(
@@ -34,6 +35,7 @@ mizuiro::detail::empty_format_base<
 template<
 	typename Store
 >
+constexpr
 typename
 mizuiro::detail::empty_format_base<
 	Store

@@ -24,6 +24,7 @@ template<
 	typename Format,
 	typename Channel
 >
+constexpr
 bool
 has_channel(
 	mizuiro::color::format::store<

@@ -11,6 +11,7 @@
 #include <mizuiro/color/channel/undefined_fwd.hpp>
 #include <mizuiro/color/layout/detail/has_all_channels.hpp>
 #include <mizuiro/mpl/list.hpp>
+#include <mizuiro/mpl/include/list.hpp>
 
 
 namespace mizuiro

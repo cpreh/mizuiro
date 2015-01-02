@@ -21,7 +21,6 @@ namespace detail
 {
 
 template<
-	typename Float,
 	typename Channel,
 	typename Src,
 	typename Dest
@@ -33,16 +32,20 @@ copy_and_convert_channel(
 	Dest &_dest
 )
 {
+	// TODO: Create a better version of this
+	typedef
+	float
+	float_type;
+
 	_dest.set(
 		_channel,
 		mizuiro::color::denormalize<
 			typename Dest::format
-		>
-		(
+		>(
 			_dest.format_store(),
 			_channel,
 			mizuiro::color::normalize<
-				Float
+				float_type
 			>(
 				_src,
 				_channel

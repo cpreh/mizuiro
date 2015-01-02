@@ -8,9 +8,14 @@
 #define MIZUIRO_COLOR_INIT_DETAIL_ASSIGN_OBJECT_HPP_INCLUDED
 
 #include <mizuiro/color/object_fwd.hpp>
+#include <mizuiro/color/init/detail/contains_channel.hpp>
 #include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <mizuiro/color/init/detail/visitor.hpp>
+#include <mizuiro/color/types/static_channels.hpp>
 #include <mizuiro/detail/tuple_for_each.hpp>
+#include <mizuiro/mpl/all_of.hpp>
+#include <mizuiro/mpl/include/list.hpp>
+#include <mizuiro/mpl/include/tuple.hpp>
 
 
 namespace mizuiro
@@ -37,6 +42,18 @@ assign_object(
 	> const &_init
 )
 {
+	static_assert(
+		mizuiro::mpl::all_of<
+			mizuiro::color::types::static_channels<
+				Format
+			>,
+			mizuiro::color::init::detail::contains_channel<
+				Vector
+			>
+		>(),
+		"Forgotten channel in initialization"
+	);
+
 	mizuiro::detail::tuple_for_each(
 		mizuiro::color::init::detail::visitor<
 			Format

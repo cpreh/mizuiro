@@ -7,6 +7,10 @@
 #ifndef MIZUIRO_MPL_ALL_OF_HPP_INCLUDED
 #define MIZUIRO_MPL_ALL_OF_HPP_INCLUDED
 
+#include <mizuiro/mpl/apply.hpp>
+#include <mizuiro/mpl/empty.hpp>
+#include <mizuiro/mpl/head.hpp>
+#include <mizuiro/mpl/tail.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -25,7 +29,9 @@ inline
 constexpr
 typename
 std::enable_if<
-	List::empty::value,
+	mizuiro::mpl::empty<
+		List
+	>::value,
 	bool
 >::type
 all_of()
@@ -42,20 +48,25 @@ inline
 constexpr
 typename
 std::enable_if<
-	!List::empty::value,
+	!mizuiro::mpl::empty<
+		List
+	>::value,
 	bool
 >::type
 all_of()
 {
 	return
-		Predicate{}(
-			typename
-			List::head{}
-		)
+		mizuiro::mpl::apply<
+			Predicate,
+			mizuiro::mpl::head<
+				List
+			>
+		>()
 		&&
 		mizuiro::mpl::all_of<
-			typename
-			List::tail,
+			mizuiro::mpl::tail<
+				List
+			>,
 			Predicate
 		>();
 }

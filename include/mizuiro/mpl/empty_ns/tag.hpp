@@ -4,24 +4,21 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_TYPES_HAS_CHANNEL_STATIC_NS_TAG_HPP_INCLUDED
-#define MIZUIRO_COLOR_TYPES_HAS_CHANNEL_STATIC_NS_TAG_HPP_INCLUDED
+#ifndef MIZUIRO_MPL_EMPTY_NS_TAG_HPP_INCLUDED
+#define MIZUIRO_MPL_EMPTY_NS_TAG_HPP_INCLUDED
 
 
 namespace mizuiro
 {
-namespace color
+namespace mpl
 {
-namespace types
-{
-namespace has_channel_static_ns
+namespace empty_ns
 {
 
 struct tag
 {
 };
 
-}
 }
 }
 }

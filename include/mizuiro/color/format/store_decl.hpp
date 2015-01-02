@@ -23,6 +23,7 @@ template<
 class store
 {
 public:
+	constexpr
 	explicit
 	store(
 		Format const *

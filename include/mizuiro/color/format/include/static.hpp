@@ -10,9 +10,9 @@
 #include <mizuiro/color/format/static_ns/channel_index.hpp>
 #include <mizuiro/color/format/static_ns/compare_channels.hpp>
 #include <mizuiro/color/format/static_ns/has_channel.hpp>
-#include <mizuiro/color/format/static_ns/has_channel_static.hpp>
 #include <mizuiro/color/format/static_ns/layout.hpp>
 #include <mizuiro/color/format/static_ns/needs_store.hpp>
+#include <mizuiro/color/format/static_ns/static_channels.hpp>
 
 
 #endif

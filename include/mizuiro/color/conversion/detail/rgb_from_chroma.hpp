@@ -7,9 +7,10 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_RGB_FROM_CHROMA_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_RGB_FROM_CHROMA_HPP_INCLUDED
 
-#include <mizuiro/color/init/blue.hpp>
-#include <mizuiro/color/init/green.hpp>
-#include <mizuiro/color/init/red.hpp>
+#include <mizuiro/color/channel/blue.hpp>
+#include <mizuiro/color/channel/green.hpp>
+#include <mizuiro/color/channel/red.hpp>
+#include <mizuiro/color/conversion/detail/set_chroma_parts.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <exception>
 #include <mizuiro/detail/external_end.hpp>
@@ -28,80 +29,80 @@ template<
 	typename Dest,
 	typename FloatType
 >
-Dest const
+void
 rgb_from_chroma(
+	Dest &_dest,
 	FloatType const _chroma,
 	FloatType const _hue_part,
 	FloatType const _largest_part,
-	FloatType const _diff,
-	typename Dest::format_store_type const &_format
+	FloatType const _diff
 )
 {
-	if(
-		_hue_part < static_cast<FloatType>(1)
-	)
-		return
-			Dest(
-				(color::init::red() %= _chroma + _diff)
-				(color::init::green() %= _largest_part + _diff)
-				(color::init::blue() %= _diff),
-				_format
-			);
+	mizuiro::color::conversion::detail::set_chroma_parts<
+		Dest,
+		FloatType
+	>  const set_parts{
+		_dest,
+		_chroma
+		+
+		_diff,
+		_largest_part
+		+
+		_diff,
+		_diff
+	};
 
-	if(
-		_hue_part < static_cast<FloatType>(2)
+	switch(
+		static_cast<
+			int
+		>(
+			_hue_part
+		)
 	)
+	{
+	case 0:
 		return
-			Dest(
-				(color::init::red() %= _largest_part + _diff)
-				(color::init::green() %= _chroma + _diff)
-				(color::init::blue() %= _diff),
-				_format
+			set_parts(
+				mizuiro::color::channel::red(),
+				mizuiro::color::channel::green(),
+				mizuiro::color::channel::blue()
 			);
-
-	if(
-		_hue_part < static_cast<FloatType>(3)
-	)
+	case 1:
 		return
-			Dest(
-				(color::init::red() %= _diff)
-				(color::init::green() %= _chroma + _diff)
-				(color::init::blue() %= _largest_part + _diff),
-				_format
+			set_parts(
+				mizuiro::color::channel::green(),
+				mizuiro::color::channel::red(),
+				mizuiro::color::channel::blue()
 			);
-
-	if(
-		_hue_part < static_cast<FloatType>(4)
-	)
+	case 2:
 		return
-			Dest(
-				(color::init::red() %= _diff)
-				(color::init::green() %= _largest_part + _diff)
-				(color::init::blue() %= _chroma + _diff),
-				_format
+			set_parts(
+				mizuiro::color::channel::green(),
+				mizuiro::color::channel::blue(),
+				mizuiro::color::channel::red()
 			);
-
-	if(
-		_hue_part < static_cast<FloatType>(5)
-	)
+	case 3:
 		return
-			Dest(
-				(color::init::red() %= _largest_part + _diff)
-				(color::init::green() %= _diff)
-				(color::init::blue() %= _chroma + _diff),
-				_format
+			set_parts(
+				mizuiro::color::channel::blue(),
+				mizuiro::color::channel::green(),
+				mizuiro::color::channel::red()
 			);
-
-	if(
-		_hue_part < static_cast<FloatType>(6)
-	)
+	case 4:
 		return
-			Dest(
-				(color::init::red() %= _chroma + _diff)
-				(color::init::green() %= _diff)
-				(color::init::blue() %= _largest_part + _diff),
-				_format
+			set_parts(
+				mizuiro::color::channel::blue(),
+				mizuiro::color::channel::red(),
+				mizuiro::color::channel::green()
 			);
+	case 5:
+		return
+			set_parts(
+				mizuiro::color::channel::red(),
+				mizuiro::color::channel::blue(),
+				mizuiro::color::channel::green()
+			);
+	}
 
 	std::terminate();
 }

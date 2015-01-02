@@ -7,6 +7,9 @@
 #ifndef MIZUIRO_RANGE_DETAIL_MPL_HPP_INCLUDED
 #define MIZUIRO_RANGE_DETAIL_MPL_HPP_INCLUDED
 
+#include <mizuiro/mpl/empty.hpp>
+#include <mizuiro/mpl/head.hpp>
+#include <mizuiro/mpl/tail.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -19,7 +22,6 @@ namespace range
 namespace detail
 {
 
-// TODO: This is ugly
 template<
 	typename  List,
 	typename Enable = void
@@ -33,7 +35,9 @@ struct mpl<
 	List,
 	typename
 	std::enable_if<
-		List::empty::value
+		mizuiro::mpl::empty<
+			List
+		>::value
 	>::type
 >
 {
@@ -50,34 +54,41 @@ struct mpl<
 	List,
 	typename
 	std::enable_if<
-		!List::empty::value
+		!mizuiro::mpl::empty<
+			List
+		>::value
 	>::type
 >
 {
 	typedef
-	typename
-	List::empty
+	mizuiro::mpl::empty<
+		List
+	>
 	empty;
 
-	typename
-	List::head
+	mizuiro::mpl::head<
+		List
+	>
 	get() const
 	{
 		return
-			typename
-			List::head{};
+			mizuiro::mpl::head<
+				List
+			>{};
 	}
 
 	mpl<
-		typename
-		List::tail
+		mizuiro::mpl::tail<
+			List
+		>
 	>
 	next() const
 	{
 		return
 			mpl<
-				typename
-				List::tail
+				mizuiro::mpl::tail<
+					List
+				>
 			>();
 	}
 };

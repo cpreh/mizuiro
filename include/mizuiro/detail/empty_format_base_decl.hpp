@@ -25,6 +25,7 @@ protected:
 	Store
 	format_store_type;
 
+	constexpr
 	explicit
 	empty_format_base(
 		format_store_type const &
@@ -34,6 +35,7 @@ protected:
 		empty_format_base const &
 	) noexcept;
 
+	constexpr
 	format_store_type const
 	format_store_base() const;
 };

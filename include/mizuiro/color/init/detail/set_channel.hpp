@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_SET_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_SET_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/color/denormalize.hpp>
+#include <mizuiro/color/set_percentage.hpp>
 #include <mizuiro/color/init/detail/channel_percentage.hpp>
 #include <mizuiro/color/init/detail/channel_value.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
@@ -30,6 +30,7 @@ template<
 	typename Value,
 	typename Channel
 >
+inline
 void
 set_channel(
 	Color &_color,
@@ -62,6 +63,7 @@ template<
 	typename Value,
 	typename Channel
 >
+inline
 void
 set_channel(
 	Color &_color,
@@ -71,16 +73,10 @@ set_channel(
 	> const &_init
 )
 {
-	_color.set(
+	mizuiro::color::set_percentage(
+		_color,
 		_init.channel(),
-		mizuiro::color::denormalize<
-			typename
-			Color::format
-		>(
-			_color.format_store(),
-			_init.channel(),
-			_init.value()
-		)
+		_init.value()
 	);
 }
 

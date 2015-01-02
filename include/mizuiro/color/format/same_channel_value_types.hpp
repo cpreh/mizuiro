@@ -30,6 +30,7 @@ using same_channel_value_types
 =
 mizuiro::mpl::bool_<
 	mizuiro::mpl::all_of<
+		// TODO: Replace this!
 		typename Format1::layout::order,
 		mizuiro::color::format::detail::same_channel_value_type<
 			Format1,

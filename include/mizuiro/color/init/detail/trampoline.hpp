@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_TRAMPOLINE_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_TRAMPOLINE_HPP_INCLUDED
 
+#include <mizuiro/color/channel/undefined_fwd.hpp>
 #include <mizuiro/color/init/detail/channel_percentage.hpp>
 #include <mizuiro/color/init/detail/channel_value.hpp>
 #include <mizuiro/color/init/detail/make_values.hpp>
@@ -33,6 +34,14 @@ template<
 >
 struct trampoline
 {
+	static_assert(
+		!std::is_same<
+			Channel,
+			mizuiro::color::channel::undefined
+		>::value,
+		"Can't initialize undefined channels"
+	);
+
 	template<
 		typename Value
 	>

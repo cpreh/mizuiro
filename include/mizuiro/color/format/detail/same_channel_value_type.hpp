@@ -31,11 +31,10 @@ struct same_channel_value_type
 	template<
 		typename Channel
 	>
+	static
 	constexpr
 	bool
-	operator()(
-		Channel
-	) const
+	apply()
 	{
 		return
 			std::is_same<
