@@ -7,7 +7,6 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HETEROGENOUS_NS_STORE_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HETEROGENOUS_NS_STORE_HPP_INCLUDED
 
-#include <mizuiro/array.hpp>
 #include <mizuiro/color/detail/heterogenous_bits.hpp>
 #include <mizuiro/color/format/heterogenous_ns/tag.hpp>
 #include <mizuiro/color/types/store_ns/tag.hpp>
@@ -26,17 +25,11 @@ namespace store_ns
 template<
 	typename Format
 >
-// TODO: Make it possible to use something else here which doesn't require .data()
-mizuiro::array<
-	// TODO: Also refactor this to use channel_value
-	mizuiro::detail::uint_least<
+mizuiro::detail::uint_least<
+	mizuiro::color::detail::heterogenous_bits<
 		typename
-		mizuiro::color::detail::heterogenous_bits<
-			typename
-			Format::channel_bits
-		>::type
-	>,
-	1u
+		Format::channel_bits
+	>
 >
 store_adl(
 	mizuiro::color::types::store_ns::tag,

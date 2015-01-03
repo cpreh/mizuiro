@@ -4,7 +4,7 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/apply_const_result.hpp>
+#include <mizuiro/apply_const.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/raw_pointer.hpp>
 #include <mizuiro/raw_value.hpp>
@@ -143,7 +143,7 @@ template<
 	typename Type,
 	typename Constness
 >
-mizuiro::apply_const_result<
+mizuiro::apply_const<
 	mizuiro::raw_pointer,
 	Constness
 >

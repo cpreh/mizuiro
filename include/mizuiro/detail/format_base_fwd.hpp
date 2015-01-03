@@ -30,6 +30,7 @@ template<
 >
 using format_base
 =
+typename
 std::conditional<
 	FormatNeedsStore<
 		Format
@@ -44,7 +45,7 @@ std::conditional<
 			Format
 		>
 	>
->;
+>::type;
 
 }
 }

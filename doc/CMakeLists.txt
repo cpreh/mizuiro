@@ -53,7 +53,6 @@ set(
 	include/mizuiro/access/normal.hpp
 	include/mizuiro/access/raw.hpp
 	include/mizuiro/apply_const.hpp
-	include/mizuiro/apply_const_result.hpp
 	include/mizuiro/array.hpp
 	include/mizuiro/color/access/channel_index.hpp
 	include/mizuiro/color/access/channel_index_ns/tag.hpp
@@ -69,6 +68,7 @@ set(
 	include/mizuiro/color/access/has_channel_ns/tag.hpp
 	include/mizuiro/color/access/layout.hpp
 	include/mizuiro/color/access/layout_ns/tag.hpp
+	include/mizuiro/color/access/store_data.hpp
 	include/mizuiro/color/access/stride.hpp
 	include/mizuiro/color/access/stride_ns/tag.hpp
 	include/mizuiro/color/channel/alpha.hpp
@@ -303,6 +303,7 @@ set(
 	include/mizuiro/const_tag.hpp
 	include/mizuiro/default_init.hpp
 	include/mizuiro/default_init_fwd.hpp
+	include/mizuiro/detail/apply_const.hpp
 	include/mizuiro/detail/bit_count.hpp
 	include/mizuiro/detail/bit_count_at_least.hpp
 	include/mizuiro/detail/byte_count_from_bits.hpp

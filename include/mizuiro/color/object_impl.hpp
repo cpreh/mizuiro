@@ -7,11 +7,14 @@
 #ifndef MIZUIRO_COLOR_OBJECT_IMPL_HPP_INCLUDED
 #define MIZUIRO_COLOR_OBJECT_IMPL_HPP_INCLUDED
 
+#include <mizuiro/const_tag.hpp>
 #include <mizuiro/default_init_fwd.hpp>
 #include <mizuiro/no_init_fwd.hpp>
+#include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
+#include <mizuiro/color/access/store_data.hpp>
 #include <mizuiro/color/format/base_impl.hpp>
 #include <mizuiro/color/format/store_impl.hpp>
 #include <mizuiro/color/init/detail/assign_object.hpp>
@@ -104,10 +107,8 @@ mizuiro::color::object<
 	// FIXME: Preparing data requires special cases
 	data_()
 {
-	proxy(
-		data_.data(),
-		this->format_store()
-	) = _other;
+	this->make_proxy() =
+		_other;
 }
 
 template<
@@ -273,7 +274,12 @@ mizuiro::color::object<
 {
 	return
 		proxy(
-			data_.data(),
+			mizuiro::color::access::store_data<
+				Format
+			>(
+				mizuiro::nonconst_tag{},
+				data_
+			),
 			this->format_store()
 		);
 }
@@ -290,7 +296,12 @@ mizuiro::color::object<
 {
 	return
 		const_proxy(
-			data_.data(),
+			mizuiro::color::access::store_data<
+				Format
+			>(
+				mizuiro::const_tag{},
+				data_
+			),
 			this->format_store()
 		);
 }

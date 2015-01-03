@@ -4,44 +4,55 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_FORMAT_HETEROGENOUS_NS_POINTER_NORMAL_HPP_INCLUDED
-#define MIZUIRO_COLOR_FORMAT_HETEROGENOUS_NS_POINTER_NORMAL_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_FORMAT_HETEROGENOUS_NS_STORE_DATA_HPP_INCLUDED
+#define MIZUIRO_COLOR_FORMAT_HETEROGENOUS_NS_STORE_DATA_HPP_INCLUDED
 
 #include <mizuiro/apply_const.hpp>
 #include <mizuiro/access/normal.hpp>
+#include <mizuiro/color/access/store_data_ns/tag.hpp>
+#include <mizuiro/color/format/heterogenous_ns/pointer_normal.hpp>
 #include <mizuiro/color/format/heterogenous_ns/store.hpp>
 #include <mizuiro/color/format/heterogenous_ns/tag.hpp>
+#include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
-#include <mizuiro/color/types/pointer_ns/tag.hpp>
 
 
 namespace mizuiro
 {
 namespace color
 {
-namespace types
+namespace access
 {
-namespace pointer_ns
+namespace store_data_ns
 {
 
 template<
 	typename Format,
 	typename Constness
 >
-mizuiro::apply_const<
-	mizuiro::color::types::store<
-		Format
-	> *,
+inline
+mizuiro::color::types::pointer<
+	mizuiro::access::normal,
+	Format,
 	Constness
 >
-pointer_adl(
-	mizuiro::color::types::pointer_ns::tag,
-	mizuiro::access::normal,
+store_data_adl(
+	mizuiro::color::access::store_data_ns::tag,
 	mizuiro::color::format::heterogenous_ns::tag<
 		Format
 	>,
-	Constness
-);
+	Constness const &,
+	mizuiro::apply_const<
+		mizuiro::color::types::store<
+			Format
+		> &,
+		Constness
+	> _store
+)
+{
+	return
+		&_store;
+}
 
 }
 }

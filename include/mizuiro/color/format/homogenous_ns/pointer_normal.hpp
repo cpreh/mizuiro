@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HOMOGENOUS_NS_POINTER_NORMAL_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_NS_POINTER_NORMAL_HPP_INCLUDED
 
-#include <mizuiro/apply_const_result.hpp>
+#include <mizuiro/apply_const.hpp>
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/format/homogenous_ns/tag.hpp>
 #include <mizuiro/color/types/pointer_ns/tag.hpp>
@@ -26,7 +26,7 @@ template<
 	typename Format,
 	typename Constness
 >
-mizuiro::apply_const_result<
+mizuiro::apply_const<
 	typename
 	Format::channel_type *,
 	Constness

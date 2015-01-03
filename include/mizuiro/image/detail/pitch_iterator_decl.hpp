@@ -37,13 +37,12 @@ class pitch_iterator
 	private
 		mizuiro::image::format::base<
 			Format
-		>::type
+		>
 {
 	typedef
-	typename
 	mizuiro::image::format::base<
 		Format
-	>::type
+	>
 	format_base;
 public:
 	typedef

@@ -4,21 +4,14 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_NONCONST_TAG_HPP_INCLUDED
-#define MIZUIRO_NONCONST_TAG_HPP_INCLUDED
-
-#include <mizuiro/nonconst_tag_fwd.hpp>
+#ifndef MIZUIRO_CONST_TAG_FWD_HPP_INCLUDED
+#define MIZUIRO_CONST_TAG_FWD_HPP_INCLUDED
 
 
 namespace mizuiro
 {
 
-/**
-\brief A tag used telling that a color or image view points to nonconst data
-*/
-struct nonconst_tag
-{
-};
+struct const_tag;
 
 }
 

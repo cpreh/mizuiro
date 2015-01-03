@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_FORMAT_RAW_NS_POINTER_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_RAW_NS_POINTER_HPP_INCLUDED
 
-#include <mizuiro/apply_const_result.hpp>
+#include <mizuiro/apply_const.hpp>
 #include <mizuiro/raw_pointer.hpp>
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/color/types/pointer_ns/tag.hpp>
@@ -26,7 +26,7 @@ template<
 	typename Constness,
 	typename ColorTag
 >
-mizuiro::apply_const_result<
+mizuiro::apply_const<
 	typename
 	mizuiro::raw_pointer,
 	Constness

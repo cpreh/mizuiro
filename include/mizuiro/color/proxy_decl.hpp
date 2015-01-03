@@ -34,12 +34,12 @@ class proxy
 :
 	private mizuiro::color::format::base<
 		Format
-	>::type
+	>
 {
 	typedef
-	typename mizuiro::color::format::base<
+	mizuiro::color::format::base<
 		Format
-	>::type
+	>
 	base;
 public:
 	typedef

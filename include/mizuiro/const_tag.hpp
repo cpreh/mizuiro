@@ -7,6 +7,8 @@
 #ifndef MIZUIRO_CONST_TAG_HPP_INCLUDED
 #define MIZUIRO_CONST_TAG_HPP_INCLUDED
 
+#include <mizuiro/const_tag_fwd.hpp>
+
 
 namespace mizuiro
 {
@@ -15,7 +17,8 @@ namespace mizuiro
 \brief A tag used telling that a color or image view points to const data
 */
 struct const_tag
-{};
+{
+};
 
 }
 

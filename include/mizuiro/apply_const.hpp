@@ -7,8 +7,7 @@
 #ifndef MIZUIRO_APPLY_CONST_HPP_INCLUDED
 #define MIZUIRO_APPLY_CONST_HPP_INCLUDED
 
-#include <mizuiro/const_tag.hpp>
-#include <mizuiro/nonconst_tag.hpp>
+#include <mizuiro/detail/apply_const.hpp>
 
 
 namespace mizuiro
@@ -28,48 +27,14 @@ template<
 	typename BaseType,
 	typename Constness
 >
-struct apply_const;
-
-template<
-	typename BaseType
->
-struct apply_const<
+using
+apply_const
+=
+typename
+mizuiro::detail::apply_const<
 	BaseType,
-	mizuiro::const_tag
->;
-
-template<
-	typename BaseType
->
-struct apply_const<
-	BaseType &,
-	mizuiro::const_tag
->
-{
-	typedef BaseType const &type;
-};
-
-template<
-	typename BaseType
->
-struct apply_const<
-	BaseType *,
-	mizuiro::const_tag
->
-{
-	typedef BaseType const *type;
-};
-
-template<
-	typename BaseType
->
-struct apply_const<
-	BaseType,
-	mizuiro::nonconst_tag
->
-{
-	typedef BaseType type;
-};
+	Constness
+>::type;
 
 }
 

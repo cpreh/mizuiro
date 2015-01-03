@@ -10,8 +10,6 @@
 #include <mizuiro/color/format/store_decl.hpp>
 #include <mizuiro/color/types/needs_store.hpp>
 #include <mizuiro/detail/format_base_decl.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 
 
 namespace mizuiro
@@ -21,22 +19,16 @@ namespace color
 namespace format
 {
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 template<
 	typename Format
 >
-struct base
-:
+using base
+=
 mizuiro::detail::format_base<
 	Format,
 	mizuiro::color::format::store,
 	mizuiro::color::types::needs_store
->
-{
-};
-
-MIZUIRO_DETAIL_POP_WARNING
+>;
 
 }
 }

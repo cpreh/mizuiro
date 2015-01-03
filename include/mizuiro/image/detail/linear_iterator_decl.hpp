@@ -35,14 +35,13 @@ class linear_iterator
 	private
 		mizuiro::image::format::base<
 			Format
-		>::type
+		>
 {
 public:
 	typedef
-	typename
 	mizuiro::image::format::base<
 		Format
-	>::type
+	>
 	format_base;
 
 	typedef

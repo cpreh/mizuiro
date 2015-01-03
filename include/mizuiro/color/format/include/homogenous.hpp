@@ -16,6 +16,7 @@
 #include <mizuiro/color/format/homogenous_ns/extract_channel_raw.hpp>
 #include <mizuiro/color/format/homogenous_ns/pointer_normal.hpp>
 #include <mizuiro/color/format/homogenous_ns/store.hpp>
+#include <mizuiro/color/format/homogenous_ns/store_data.hpp>
 #include <mizuiro/color/format/homogenous_ns/stride_normal.hpp>
 #include <mizuiro/color/format/homogenous_ns/stride_raw.hpp>
 #include <mizuiro/color/format/raw_ns/pointer.hpp>

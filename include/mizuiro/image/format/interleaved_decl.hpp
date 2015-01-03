@@ -33,13 +33,12 @@ class interleaved
 	private
 		mizuiro::color::format::base<
 			ColorFormat
-		>::type
+		>
 {
 	typedef
-	typename
 	mizuiro::color::format::base<
 		ColorFormat
-	>::type
+	>
 	format_base;
 public:
 	typedef

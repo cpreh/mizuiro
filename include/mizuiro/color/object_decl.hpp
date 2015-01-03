@@ -7,10 +7,10 @@
 #ifndef MIZUIRO_COLOR_OBJECT_DECL_HPP_INCLUDED
 #define MIZUIRO_COLOR_OBJECT_DECL_HPP_INCLUDED
 
-#include <mizuiro/const_tag.hpp>
+#include <mizuiro/const_tag_fwd.hpp>
 #include <mizuiro/default_init_fwd.hpp>
 #include <mizuiro/no_init_fwd.hpp>
-#include <mizuiro/nonconst_tag.hpp>
+#include <mizuiro/nonconst_tag_fwd.hpp>
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_fwd.hpp>
@@ -51,12 +51,12 @@ class object
 :
 	private mizuiro::color::format::base<
 		Format
-	>::type
+	>
 {
 	typedef
-	typename mizuiro::color::format::base<
+	mizuiro::color::format::base<
 		Format
-	>::type
+	>
 	base;
 public:
 	typedef

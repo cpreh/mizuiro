@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HOMOGENOUS_NS_CHANNEL_REFERENCE_NORMAL_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_NS_CHANNEL_REFERENCE_NORMAL_HPP_INCLUDED
 
-#include <mizuiro/apply_const_result.hpp>
+#include <mizuiro/apply_const.hpp>
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/format/homogenous_ns/tag.hpp>
 #include <mizuiro/color/types/channel_reference_ns/tag.hpp>
@@ -27,7 +27,7 @@ template<
 	typename Channel,
 	typename Constness
 >
-mizuiro::apply_const_result<
+mizuiro::apply_const<
 	typename
 	Format::channel_type &,
 	Constness
