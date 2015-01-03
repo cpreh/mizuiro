@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_OUTPUT_HPP_INCLUDED
 #define MIZUIRO_COLOR_OUTPUT_HPP_INCLUDED
 
-#include <mizuiro/color/for_each_channel.hpp>
+#include <mizuiro/color/for_each_channel_range.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/detail/output_channel.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -47,7 +47,7 @@ operator<<(
 	_stream
 		<< _stream.widen('(');
 
-	mizuiro::color::for_each_channel(
+	mizuiro::color::for_each_channel_range(
 		_color,
 		mizuiro::color::detail::output_channel<
 			Ch,

@@ -4,11 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_RANGE_FOR_EACH_HPP_INCLUDED
-#define MIZUIRO_RANGE_FOR_EACH_HPP_INCLUDED
+#ifndef MIZUIRO_RANGE_FOR_EACH_RANGE_HPP_INCLUDED
+#define MIZUIRO_RANGE_FOR_EACH_RANGE_HPP_INCLUDED
 
-#include <mizuiro/range/for_each_range.hpp>
-#include <mizuiro/range/detail/range_get.hpp>
+#include <mizuiro/range/detail/for_each.hpp>
 
 
 namespace mizuiro
@@ -22,18 +21,14 @@ template<
 >
 inline
 void
-for_each(
+for_each_range(
 	Range const &_range,
 	Function const &_function
 )
 {
-	mizuiro::range::for_each_range(
+	mizuiro::range::detail::for_each(
 		_range,
-		mizuiro::range::detail::range_get<
-			Function
-		>(
-			_function
-		)
+		_function
 	);
 }
 

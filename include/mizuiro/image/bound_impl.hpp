@@ -47,7 +47,7 @@ mizuiro::image::bound<
 >::pos() const
 {
 	return
-	pos_;
+		pos_;
 }
 
 template<

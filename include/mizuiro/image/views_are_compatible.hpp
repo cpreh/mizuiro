@@ -38,6 +38,7 @@ mizuiro::mpl::bool_<
 	>::value
 	&&
 	mizuiro::color::format::compatible<
+// TODO: Don't use color formats here
 		typename View1::format::color_format,
 		typename View2::format::color_format
 	>::value

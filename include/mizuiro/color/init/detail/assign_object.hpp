@@ -53,7 +53,7 @@ assign_object(
 		>(),
 		"Forgotten channel in initialization"
 	);
-
+	// TODO: Check for duplicates
 	mizuiro::detail::tuple_for_each(
 		mizuiro::color::init::detail::visitor<
 			Format

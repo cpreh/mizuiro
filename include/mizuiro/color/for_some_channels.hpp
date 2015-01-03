@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_FOR_SOME_CHANNELS_HPP_INCLUDED
 #define MIZUIRO_COLOR_FOR_SOME_CHANNELS_HPP_INCLUDED
 
-#include <mizuiro/color/access/layout.hpp>
+#include <mizuiro/color/make_range.hpp>
 #include <mizuiro/color/detail/for_some_channels_function.hpp>
 #include <mizuiro/range/for_each.hpp>
 
@@ -30,8 +30,8 @@ for_some_channels(
 )
 {
 	mizuiro::range::for_each(
-		mizuiro::color::access::layout(
-			_color.format_store()
+		mizuiro::color::make_range(
+			_color
 		),
 		mizuiro::color::detail::for_some_channels_function<
 			Function,

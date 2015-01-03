@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_COLOR_DETAIL_OUTPUT_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_OUTPUT_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/detail/promote_type.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
+#include <mizuiro/detail/promote_type.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
@@ -57,11 +57,11 @@ public:
 	result_type;
 
 	template<
-		typename Channel
+		typename Range
 	>
 	result_type
 	operator()(
-		Channel const &_channel
+		Range const &_range
 	) const
 	{
 		stream_ <<
@@ -70,19 +70,21 @@ public:
 					mizuiro::color::types::channel_value<
 						typename
 						Color::format,
-						Channel
+						typename
+						Range::head_type
 					>
 				>
 			>(
 				color_.get(
-					_channel
+					_range.get()
 				)
 			);
 
-		// TODO: Don't output a comma after the last component.
-		// Use a different algorithm than for_each_channel to do this!
-		stream_ <<
-			stream_.widen(',');
+		if(
+			!Range::tail_type::empty::value
+		)
+			stream_ <<
+				stream_.widen(',');
 	}
 private:
 	stream_type &stream_;

@@ -26,7 +26,6 @@ namespace access
 template<
 	typename Format
 >
-// TODO: Make a typedef for this?
 decltype(
 	layout_adl(
 		std::declval<

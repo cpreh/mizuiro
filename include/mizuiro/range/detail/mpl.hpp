@@ -23,7 +23,7 @@ namespace detail
 {
 
 template<
-	typename  List,
+	typename List,
 	typename Enable = void
 >
 struct mpl;
@@ -42,8 +42,9 @@ struct mpl<
 >
 {
 	typedef
-	typename
-	List::empty
+	mizuiro::mpl::empty<
+		List
+	>
 	empty;
 };
 
@@ -66,30 +67,32 @@ struct mpl<
 	>
 	empty;
 
+	typedef
 	mizuiro::mpl::head<
 		List
 	>
-	get() const
-	{
-		return
-			mizuiro::mpl::head<
-				List
-			>{};
-	}
+	head_type;
 
+	typedef
 	mpl<
 		mizuiro::mpl::tail<
 			List
 		>
 	>
+	tail_type;
+
+	head_type
+	get() const
+	{
+		return
+			head_type{};
+	}
+
+	tail_type
 	next() const
 	{
 		return
-			mpl<
-				mizuiro::mpl::tail<
-					List
-				>
-			>();
+			tail_type();
 	}
 };
 

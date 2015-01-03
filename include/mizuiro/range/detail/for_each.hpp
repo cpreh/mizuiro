@@ -50,7 +50,7 @@ for_each(
 )
 {
 	_function(
-		_range.get()
+		_range
 	);
 
 	mizuiro::range::detail::for_each(

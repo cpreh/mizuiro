@@ -1,0 +1,58 @@
+//          Copyright Carl Philipp Reh 2009 - 2014.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          http://www.boost.org/LICENSE_1_0.txt)
+
+
+#ifndef MIZUIRO_COLOR_MAKE_RANGE_HPP_INCLUDED
+#define MIZUIRO_COLOR_MAKE_RANGE_HPP_INCLUDED
+
+#include <mizuiro/color/is_color.hpp>
+#include <mizuiro/color/access/layout.hpp>
+#include <mizuiro/range/make.hpp>
+#include <mizuiro/detail/external_begin.hpp>
+#include <type_traits>
+#include <mizuiro/detail/external_end.hpp>
+
+
+namespace mizuiro
+{
+namespace color
+{
+
+template<
+	typename Color
+>
+inline
+decltype(
+	mizuiro::range::make(
+		mizuiro::color::access::layout(
+			std::declval<
+				Color
+			>().format_store()
+		)
+	)
+)
+make_range(
+	Color const &_color
+)
+{
+	static_assert(
+		mizuiro::color::is_color<
+			Color
+		>::value,
+		"Color must be a color type"
+	);
+
+	return
+		mizuiro::range::make(
+			mizuiro::color::access::layout(
+				_color.format_store()
+			)
+		);
+}
+
+}
+}
+
+#endif

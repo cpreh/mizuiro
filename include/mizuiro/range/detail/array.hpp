@@ -53,8 +53,19 @@ public:
 	{
 	}
 
+	typedef
 	typename
-	Array::value_type const &
+	Array::value_type
+	head_type;
+
+	typedef
+	array<
+		Array,
+		Index + 1u
+	>
+	tail_type;
+
+	head_type const &
 	get() const
 	{
 		return
@@ -63,17 +74,11 @@ public:
 			];
 	}
 
-	array<
-		Array,
-		Index + 1u
-	>
+	tail_type
 	next() const
 	{
 		return
-			array<
-				Array,
-				Index + 1u
-			>(
+			tail_type(
 				array_
 			);
 	}

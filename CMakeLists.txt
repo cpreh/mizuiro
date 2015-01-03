@@ -185,6 +185,7 @@ set(
 	include/mizuiro/color/access/layout.hpp
 	include/mizuiro/color/access/layout_ns/tag.hpp
 	include/mizuiro/color/access/store_data.hpp
+	include/mizuiro/color/access/store_data_ns/tag.hpp
 	include/mizuiro/color/access/stride.hpp
 	include/mizuiro/color/access/stride_ns/tag.hpp
 	include/mizuiro/color/channel/alpha.hpp
@@ -255,6 +256,7 @@ set(
 	include/mizuiro/color/detail/static_to_dynamic_channel.hpp
 	include/mizuiro/color/detail/unwrap_channel.hpp
 	include/mizuiro/color/for_each_channel.hpp
+	include/mizuiro/color/for_each_channel_range.hpp
 	include/mizuiro/color/for_some_channels.hpp
 	include/mizuiro/color/format/argument.hpp
 	include/mizuiro/color/format/base_decl.hpp
@@ -279,6 +281,7 @@ set(
 	include/mizuiro/color/format/heterogenous_ns/extract_channel.hpp
 	include/mizuiro/color/format/heterogenous_ns/pointer_normal.hpp
 	include/mizuiro/color/format/heterogenous_ns/store.hpp
+	include/mizuiro/color/format/heterogenous_ns/store_data.hpp
 	include/mizuiro/color/format/heterogenous_ns/stride_normal.hpp
 	include/mizuiro/color/format/heterogenous_ns/stride_raw.hpp
 	include/mizuiro/color/format/heterogenous_ns/tag.hpp
@@ -301,6 +304,7 @@ set(
 	include/mizuiro/color/format/homogenous_ns/extract_channel_raw.hpp
 	include/mizuiro/color/format/homogenous_ns/pointer_normal.hpp
 	include/mizuiro/color/format/homogenous_ns/store.hpp
+	include/mizuiro/color/format/homogenous_ns/store_data.hpp
 	include/mizuiro/color/format/homogenous_ns/stride_normal.hpp
 	include/mizuiro/color/format/homogenous_ns/stride_raw.hpp
 	include/mizuiro/color/format/homogenous_ns/tag.hpp
@@ -376,6 +380,7 @@ set(
 	include/mizuiro/color/layout/s_rgb.hpp
 	include/mizuiro/color/layout/s_rgba.hpp
 	include/mizuiro/color/layout/same_channels.hpp
+	include/mizuiro/color/make_range.hpp
 	include/mizuiro/color/normalize.hpp
 	include/mizuiro/color/object.hpp
 	include/mizuiro/color/object_decl.hpp
@@ -417,6 +422,7 @@ set(
 	include/mizuiro/color/types/store_ns/tag.hpp
 	include/mizuiro/const_raw_pointer.hpp
 	include/mizuiro/const_tag.hpp
+	include/mizuiro/const_tag_fwd.hpp
 	include/mizuiro/default_init.hpp
 	include/mizuiro/default_init_fwd.hpp
 	include/mizuiro/detail/apply_const.hpp
@@ -670,6 +676,7 @@ set(
 	include/mizuiro/no_init.hpp
 	include/mizuiro/no_init_fwd.hpp
 	include/mizuiro/nonconst_tag.hpp
+	include/mizuiro/nonconst_tag_fwd.hpp
 	include/mizuiro/range/all_of.hpp
 	include/mizuiro/range/array_ns/make.hpp
 	include/mizuiro/range/array_ns/tag.hpp
@@ -678,7 +685,9 @@ set(
 	include/mizuiro/range/detail/array.hpp
 	include/mizuiro/range/detail/for_each.hpp
 	include/mizuiro/range/detail/mpl.hpp
+	include/mizuiro/range/detail/range_get.hpp
 	include/mizuiro/range/for_each.hpp
+	include/mizuiro/range/for_each_range.hpp
 	include/mizuiro/range/include/array.hpp
 	include/mizuiro/range/include/mpl.hpp
 	include/mizuiro/range/make.hpp
