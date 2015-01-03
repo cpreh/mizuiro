@@ -7,10 +7,7 @@
 #ifndef MIZUIRO_COLOR_FORMAT_DETAIL_HAS_CHANNEL_CONSTEXPR_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_DETAIL_HAS_CHANNEL_CONSTEXPR_HPP_INCLUDED
 
-#include <mizuiro/color/access/has_channel.hpp>
-#include <mizuiro/color/format/store.hpp>
-#include <mizuiro/mpl/false.hpp>
-#include <mizuiro/mpl/true.hpp>
+#include <mizuiro/color/format/detail/check_has_channel_constexpr.hpp>
 
 
 namespace mizuiro
@@ -22,46 +19,6 @@ namespace format
 namespace detail
 {
 
-// TODO: Find a way to abstract this
-template<
-	int
->
-struct int_to_true
-:
-mizuiro::mpl::true_
-{
-};
-
-template<
-	typename Format,
-	typename Channel
->
-int_to_true<
-	(
-		mizuiro::color::access::has_channel(
-			mizuiro::color::format::store<
-				Format
-			>{
-				nullptr
-			},
-			Channel{}
-		),
-		0
-	)
->
-check_constexpr(
-	int
-);
-
-template<
-	typename,
-	typename
->
-mizuiro::mpl::false_
-check_constexpr(
-	...
-);
-
 template<
 	typename Format,
 	typename Channel
@@ -70,7 +27,7 @@ using
 has_channel_constexpr
 =
 decltype(
-	check_constexpr<
+	mizuiro::color::format::detail::check_has_channel_constexpr<
 		Format,
 		Channel
 	>(

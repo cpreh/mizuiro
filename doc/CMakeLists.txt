@@ -148,6 +148,7 @@ set(
 	include/mizuiro/color/format/compatible.hpp
 	include/mizuiro/color/format/definitely_has_channel.hpp
 	include/mizuiro/color/format/definitely_has_not_channel.hpp
+	include/mizuiro/color/format/detail/check_has_channel_constexpr.hpp
 	include/mizuiro/color/format/detail/has_channel_constexpr.hpp
 	include/mizuiro/color/format/detail/same_channel_value_type.hpp
 	include/mizuiro/color/format/dynamic_ns/channel_index.hpp
@@ -336,6 +337,7 @@ set(
 	include/mizuiro/detail/format_base_fwd.hpp
 	include/mizuiro/detail/format_base_impl.hpp
 	include/mizuiro/detail/ignore_effcpp.hpp
+	include/mizuiro/detail/int_to_true.hpp
 	include/mizuiro/detail/nonassignable.hpp
 	include/mizuiro/detail/normal_format_base_decl.hpp
 	include/mizuiro/detail/normal_format_base_fwd.hpp
