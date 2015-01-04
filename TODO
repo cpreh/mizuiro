@@ -1,9 +1,3 @@
-Part 1 (general fixes)
-- Support more color formats (like luminance-alpha)
-  - Treat alpha as a separate entity
 - Allow planar images
   - `color::proxy` has to reply on this, so `color::types::pointer` is wrong.
     It should probably go into image::
-
-Part 2 (opportunity for library extensions)
-- Provide customization for color conversion

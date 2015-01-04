@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_SAME_CHANNEL_VALUE_TYPES_HPP_INCLUDED
 
 #include <mizuiro/color/format/detail/same_channel_value_type.hpp>
+#include <mizuiro/color/types/static_channels.hpp>
 #include <mizuiro/mpl/all_of.hpp>
 #include <mizuiro/mpl/bool.hpp>
 
@@ -30,8 +31,9 @@ using same_channel_value_types
 =
 mizuiro::mpl::bool_<
 	mizuiro::mpl::all_of<
-		// TODO: Replace this!
-		typename Format1::layout::order,
+		mizuiro::color::types::static_channels<
+			Format1
+		>,
 		mizuiro::color::format::detail::same_channel_value_type<
 			Format1,
 			Format2

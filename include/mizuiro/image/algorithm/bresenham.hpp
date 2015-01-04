@@ -23,8 +23,8 @@ namespace image
 namespace algorithm
 {
 
-template
-<
+// TODO: What are the requirements of this algorithm?
+template<
 	typename View,
 	typename Color
 >

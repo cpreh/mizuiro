@@ -18,6 +18,7 @@ namespace image
 namespace algorithm
 {
 
+// TODO: Compare compares channels. Lift this requirement.
 template<
 	typename View1,
 	typename View2,

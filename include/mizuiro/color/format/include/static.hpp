@@ -13,6 +13,7 @@
 #include <mizuiro/color/format/static_ns/layout.hpp>
 #include <mizuiro/color/format/static_ns/needs_store.hpp>
 #include <mizuiro/color/format/static_ns/static_channels.hpp>
+#include <mizuiro/range/include/mpl.hpp>
 
 
 #endif

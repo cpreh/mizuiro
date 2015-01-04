@@ -26,6 +26,7 @@ template<
 	typename ImageFormat
 >
 mizuiro::image::raw_container<
+	// FIXME: This is wrong
 	typename
 	ImageFormat::color_format::channel_type
 >
