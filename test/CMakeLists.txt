@@ -68,6 +68,7 @@ function(
 endfunction()
 
 add_mizuiro_test(algorithm/clone)
+add_mizuiro_test(can_copy)
 add_mizuiro_test(convert/swizzle)
 add_mizuiro_test(data)
 add_mizuiro_test(dynamic)
@@ -77,4 +78,3 @@ add_mizuiro_test(homogenous)
 add_mizuiro_test(iterator_position)
 add_mizuiro_test(range)
 add_mizuiro_test(view)
-add_mizuiro_test(views_are_compatible)

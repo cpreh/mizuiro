@@ -13,9 +13,9 @@
 #include <mizuiro/color/layout/rgb.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
-#include <mizuiro/image/views_are_compatible.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/linear_view_impl.hpp>
+#include <mizuiro/image/algorithm/can_copy.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -82,7 +82,7 @@ typedef mizuiro::image::format::interleaved<
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 BOOST_AUTO_TEST_CASE(
-	views_are_compatible
+	can_copy
 )
 {
 MIZUIRO_DETAIL_POP_WARNING
@@ -95,13 +95,13 @@ MIZUIRO_DETAIL_POP_WARNING
 
 	typedef ::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
-		::format_3d_bgra8,
+		::format_3d_rgba8,
 		::mizuiro::nonconst_tag
 	> view_3d_rgba8;
 
 	// bgra8 and rgba8 should be compatible to each other
 	BOOST_CHECK((
-		::mizuiro::image::views_are_compatible<
+		::mizuiro::image::algorithm::can_copy<
 			view_3d_bgra8,
 			view_3d_rgba8
 		>::value
@@ -113,14 +113,6 @@ MIZUIRO_DETAIL_POP_WARNING
 		::mizuiro::nonconst_tag
 	> view_2d_bgra8;
 
-	// 3d bgra8 and 2d bgra8 should not be compatible
-	BOOST_CHECK((
-		!::mizuiro::image::views_are_compatible<
-			view_2d_bgra8,
-			view_3d_bgra8
-		>::value
-	));
-
 	typedef ::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
 		::format_2d_bgra_f,
@@ -129,7 +121,7 @@ MIZUIRO_DETAIL_POP_WARNING
 
 	// bgra8 and bgra float should not be compatible
 	BOOST_CHECK((
-		!::mizuiro::image::views_are_compatible<
+		!::mizuiro::image::algorithm::can_copy<
 			view_2d_bgra8,
 			view_2d_bgra_f
 		>::value
@@ -143,7 +135,7 @@ MIZUIRO_DETAIL_POP_WARNING
 
 	// bgra8 and rgb8 should not be compatible
 	BOOST_CHECK((
-		!::mizuiro::image::views_are_compatible<
+		!::mizuiro::image::algorithm::can_copy<
 			view_2d_bgra8,
 			view_2d_rgb8
 		>::value

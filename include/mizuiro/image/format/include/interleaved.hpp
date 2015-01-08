@@ -8,6 +8,7 @@
 #define MIZUIRO_IMAGE_FORMAT_INCLUDE_INTERLEAVED_HPP_INCLUDED
 
 #include <mizuiro/image/format/interleaved.hpp>
+#include <mizuiro/image/format/interleaved_ns/can_copy.hpp>
 #include <mizuiro/image/format/interleaved_ns/dereference.hpp>
 #include <mizuiro/image/format/interleaved_ns/needs_store.hpp>
 #include <mizuiro/image/format/interleaved_ns/pointer.hpp>

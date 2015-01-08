@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_COPY_AND_CONVERT_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_COPY_AND_CONVERT_HPP_INCLUDED
 
-#include <mizuiro/image/views_are_compatible.hpp>
 #include <mizuiro/image/algorithm/binary_iteration.hpp>
+#include <mizuiro/image/algorithm/can_copy.hpp>
 #include <mizuiro/image/algorithm/copy.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/detail/copy_and_convert.hpp>
@@ -32,7 +32,7 @@ template<
 inline
 typename
 std::enable_if<
-	!mizuiro::image::views_are_compatible<
+	!mizuiro::image::algorithm::can_copy<
 		ViewS,
 		ViewD
 	>::value,
@@ -61,7 +61,7 @@ template<
 inline
 typename
 std::enable_if<
-	mizuiro::image::views_are_compatible<
+	mizuiro::image::algorithm::can_copy<
 		ViewS,
 		ViewD
 	>::value,
