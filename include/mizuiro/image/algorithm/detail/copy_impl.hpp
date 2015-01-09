@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_COPY_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_COPY_IMPL_HPP_INCLUDED
 
-#include <mizuiro/image/views_have_same_channel_order.hpp>
+#include <mizuiro/image/algorithm/can_copy_in_place.hpp>
 #include <mizuiro/image/algorithm/copy_different_channel_order.hpp>
 #include <mizuiro/image/algorithm/copy_same_channel_order.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
@@ -31,7 +31,7 @@ template<
 >
 typename
 std::enable_if<
-	!mizuiro::image::views_have_same_channel_order<
+	!mizuiro::image::algorithm::can_copy_in_place<
 		ViewS,
 		ViewD
 	>::value,
@@ -56,7 +56,7 @@ template<
 >
 typename
 std::enable_if<
-	mizuiro::image::views_have_same_channel_order<
+	mizuiro::image::algorithm::can_copy_in_place<
 		ViewS,
 		ViewD
 	>::value,

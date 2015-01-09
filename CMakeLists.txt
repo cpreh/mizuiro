@@ -486,6 +486,7 @@ set(
 	include/mizuiro/image/algorithm/binary_iteration.hpp
 	include/mizuiro/image/algorithm/bresenham.hpp
 	include/mizuiro/image/algorithm/can_copy.hpp
+	include/mizuiro/image/algorithm/can_copy_in_place.hpp
 	include/mizuiro/image/algorithm/clone.hpp
 	include/mizuiro/image/algorithm/compare.hpp
 	include/mizuiro/image/algorithm/copy.hpp
@@ -575,6 +576,7 @@ set(
 	include/mizuiro/image/format/interleaved_fwd.hpp
 	include/mizuiro/image/format/interleaved_impl.hpp
 	include/mizuiro/image/format/interleaved_ns/can_copy.hpp
+	include/mizuiro/image/format/interleaved_ns/can_copy_in_place.hpp
 	include/mizuiro/image/format/interleaved_ns/dereference.hpp
 	include/mizuiro/image/format/interleaved_ns/needs_store.hpp
 	include/mizuiro/image/format/interleaved_ns/pointer.hpp
@@ -626,6 +628,8 @@ set(
 	include/mizuiro/image/sub_view.hpp
 	include/mizuiro/image/to_pitch_view.hpp
 	include/mizuiro/image/types/can_copy.hpp
+	include/mizuiro/image/types/can_copy_in_place.hpp
+	include/mizuiro/image/types/can_copy_in_place_ns/tag.hpp
 	include/mizuiro/image/types/can_copy_ns/tag.hpp
 	include/mizuiro/image/types/needs_store.hpp
 	include/mizuiro/image/types/needs_store_ns/tag.hpp
@@ -641,7 +645,6 @@ set(
 	include/mizuiro/image/view_decl.hpp
 	include/mizuiro/image/view_fwd.hpp
 	include/mizuiro/image/view_impl.hpp
-	include/mizuiro/image/views_have_same_channel_order.hpp
 	include/mizuiro/is_raw_pointer.hpp
 	include/mizuiro/mpl/all_of.hpp
 	include/mizuiro/mpl/apply.hpp

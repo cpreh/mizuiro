@@ -33,7 +33,8 @@ struct copy_element
 		Dest const &_dest
 	) const
 	{
-		_dest = _src;
+		_dest =
+			_src;
 	}
 };
 
