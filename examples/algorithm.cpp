@@ -51,24 +51,29 @@ mizuiro::image::format::interleaved<
 	ColorFormat
 >;
 
-// TODO: Use this?
-/*
 template<
 	typename Src,
 	typename Dest
 >
 struct channel_operation
 {
-	typedef void result_type;
+	typedef
+	void
+	result_type;
 
 	channel_operation(
 		Src const &_src,
 		Dest const &_dest
 	)
 	:
-		src_(_src),
-		dest_(_dest)
-	{}
+		src_(
+			_src
+		),
+		dest_(
+			_dest
+		)
+	{
+	}
 
 	template<
 		typename Channel
@@ -92,7 +97,9 @@ private:
 
 struct transform_test
 {
-	typedef void result_type;
+	typedef
+	void
+	result_type;
 
 	template<
 		typename Src,
@@ -104,9 +111,8 @@ struct transform_test
 		Dest const &_dest
 	) const
 	{
-		mizuiro::color::for_each_channel<
-			typename Src::format::layout
-		>(
+		mizuiro::color::for_each_channel(
+			_src,
 			::channel_operation<
 				Src,
 				Dest
@@ -117,7 +123,6 @@ struct transform_test
 		);
 	}
 };
-*/
 
 }
 
@@ -213,13 +218,21 @@ int main()
 			)
 		)
 		<< '\n';
-#if 0
+
+	std::cout << '\n';
+
 	mizuiro::image::algorithm::transform(
 		img2.view(),
 		img1.view(),
 		transform_test()
 	);
-#endif
+
+	std::cout << "after transform\n";
+
+	mizuiro::image::algorithm::print(
+		std::cout,
+		img1.view()
+	);
 
 	std::cout << '\n';
 }
