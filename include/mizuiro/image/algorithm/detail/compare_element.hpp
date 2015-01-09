@@ -7,7 +7,6 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_COMPARE_ELEMENT_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_COMPARE_ELEMENT_HPP_INCLUDED
 
-#include <mizuiro/color/compare.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 
 
@@ -58,10 +57,9 @@ public:
 		return
 			_state
 			&&
-			mizuiro::color::compare(
+			function_(
 				_src1,
-				_src2,
-				function_
+				_src2
 			);
 	}
 private:

@@ -5,6 +5,7 @@
 
 
 #include <mizuiro/color/for_each_channel.hpp>
+#include <mizuiro/color/make_compare_function.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/convert_static/converter.hpp>
@@ -205,9 +206,11 @@ int main()
 		<< mizuiro::image::algorithm::compare(
 			img1.view(),
 			img1.view(),
-			std::equal_to<
-				channel_type
-			>()
+			mizuiro::color::make_compare_function(
+				std::equal_to<
+					channel_type
+				>()
+			)
 		)
 		<< '\n';
 #if 0

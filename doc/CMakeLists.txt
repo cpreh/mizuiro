@@ -96,6 +96,7 @@ set(
 	include/mizuiro/color/channel_proxy_fwd.hpp
 	include/mizuiro/color/channel_proxy_impl.hpp
 	include/mizuiro/color/compare.hpp
+	include/mizuiro/color/compare_function.hpp
 	include/mizuiro/color/conversion/detail/channel_to_max.hpp
 	include/mizuiro/color/conversion/detail/channel_to_max_function.hpp
 	include/mizuiro/color/conversion/detail/channel_to_min.hpp
@@ -265,6 +266,7 @@ set(
 	include/mizuiro/color/layout/s_rgb.hpp
 	include/mizuiro/color/layout/s_rgba.hpp
 	include/mizuiro/color/layout/same_channels.hpp
+	include/mizuiro/color/make_compare_function.hpp
 	include/mizuiro/color/make_range.hpp
 	include/mizuiro/color/normalize.hpp
 	include/mizuiro/color/object.hpp
