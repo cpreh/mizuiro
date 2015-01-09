@@ -10,6 +10,7 @@
 #include <mizuiro/color/channel/alpha_fwd.hpp>
 #include <mizuiro/color/channel/undefined_fwd.hpp>
 #include <mizuiro/color/layout/detail/has_all_channels.hpp>
+#include <mizuiro/mpl/is_set.hpp>
 #include <mizuiro/mpl/list.hpp>
 #include <mizuiro/mpl/include/list.hpp>
 
@@ -79,7 +80,12 @@ struct base
 		"Missing color channel in color space"
 	);
 
-	// TODO: Check for duplicates
+	static_assert(
+		mizuiro::mpl::is_set<
+			order
+		>(),
+		"Duplicate channel in color space"
+	);
 };
 
 }

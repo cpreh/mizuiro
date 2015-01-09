@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_MPL_INCLUDE_TUPLE_HPP_INCLUDED
 #define MIZUIRO_MPL_INCLUDE_TUPLE_HPP_INCLUDED
 
+#include <mizuiro/mpl/tuple_ns/cons.hpp>
 #include <mizuiro/mpl/tuple_ns/empty.hpp>
 #include <mizuiro/mpl/tuple_ns/head.hpp>
 #include <mizuiro/mpl/tuple_ns/tail.hpp>

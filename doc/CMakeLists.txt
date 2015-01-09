@@ -233,6 +233,7 @@ set(
 	include/mizuiro/color/init/detail/make.hpp
 	include/mizuiro/color/init/detail/make_values.hpp
 	include/mizuiro/color/init/detail/set_channel.hpp
+	include/mizuiro/color/init/detail/to_channel_type.hpp
 	include/mizuiro/color/init/detail/trampoline.hpp
 	include/mizuiro/color/init/detail/values.hpp
 	include/mizuiro/color/init/detail/values_fwd.hpp
@@ -541,8 +542,16 @@ set(
 	include/mizuiro/mpl/apply.hpp
 	include/mizuiro/mpl/at.hpp
 	include/mizuiro/mpl/bool.hpp
+	include/mizuiro/mpl/cons.hpp
+	include/mizuiro/mpl/cons_list.hpp
+	include/mizuiro/mpl/cons_list_fwd.hpp
+	include/mizuiro/mpl/cons_ns/tag.hpp
 	include/mizuiro/mpl/contains.hpp
 	include/mizuiro/mpl/contains_if.hpp
+	include/mizuiro/mpl/count.hpp
+	include/mizuiro/mpl/detail/count_is_one.hpp
+	include/mizuiro/mpl/detail/index_of.hpp
+	include/mizuiro/mpl/detail/transform.hpp
 	include/mizuiro/mpl/empty.hpp
 	include/mizuiro/mpl/empty_ns/tag.hpp
 	include/mizuiro/mpl/false.hpp
@@ -553,8 +562,10 @@ set(
 	include/mizuiro/mpl/include/tuple.hpp
 	include/mizuiro/mpl/index_of.hpp
 	include/mizuiro/mpl/integral_size.hpp
+	include/mizuiro/mpl/is_set.hpp
 	include/mizuiro/mpl/list.hpp
 	include/mizuiro/mpl/list_fwd.hpp
+	include/mizuiro/mpl/list_ns/cons.hpp
 	include/mizuiro/mpl/list_ns/empty.hpp
 	include/mizuiro/mpl/list_ns/head.hpp
 	include/mizuiro/mpl/list_ns/tag.hpp
@@ -568,7 +579,9 @@ set(
 	include/mizuiro/mpl/tag_of_fwd.hpp
 	include/mizuiro/mpl/tail.hpp
 	include/mizuiro/mpl/tail_ns/tag.hpp
+	include/mizuiro/mpl/transform.hpp
 	include/mizuiro/mpl/true.hpp
+	include/mizuiro/mpl/tuple_ns/cons.hpp
 	include/mizuiro/mpl/tuple_ns/empty.hpp
 	include/mizuiro/mpl/tuple_ns/head.hpp
 	include/mizuiro/mpl/tuple_ns/tag.hpp

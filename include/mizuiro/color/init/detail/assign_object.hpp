@@ -9,11 +9,14 @@
 
 #include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/init/detail/contains_channel.hpp>
+#include <mizuiro/color/init/detail/to_channel_type.hpp>
 #include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <mizuiro/color/init/detail/visitor.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
 #include <mizuiro/detail/tuple_for_each.hpp>
 #include <mizuiro/mpl/all_of.hpp>
+#include <mizuiro/mpl/is_set.hpp>
+#include <mizuiro/mpl/transform.hpp>
 #include <mizuiro/mpl/include/list.hpp>
 #include <mizuiro/mpl/include/tuple.hpp>
 
@@ -53,7 +56,17 @@ assign_object(
 		>(),
 		"Forgotten channel in initialization"
 	);
-	// TODO: Check for duplicates
+
+	static_assert(
+		mizuiro::mpl::is_set<
+			mizuiro::mpl::transform<
+				Vector,
+				mizuiro::color::init::detail::to_channel_type
+			>
+		>(),
+		"Duplicate channel initialization"
+	);
+
 	mizuiro::detail::tuple_for_each(
 		mizuiro::color::init::detail::visitor<
 			Format

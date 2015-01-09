@@ -4,11 +4,12 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_MPL_SIZE_HPP_INCLUDED
-#define MIZUIRO_MPL_SIZE_HPP_INCLUDED
+#ifndef MIZUIRO_MPL_COUNT_HPP_INCLUDED
+#define MIZUIRO_MPL_COUNT_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/mpl/empty.hpp>
+#include <mizuiro/mpl/head.hpp>
 #include <mizuiro/mpl/tail.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
@@ -21,7 +22,8 @@ namespace mpl
 {
 
 template<
-	typename List
+	typename List,
+	typename Element
 >
 inline
 constexpr
@@ -32,14 +34,15 @@ std::enable_if<
 	>::value,
 	mizuiro::size_type
 >::type
-size()
+count()
 {
 	return
 		0u;
 }
 
 template<
-	typename List
+	typename List,
+	typename Element
 >
 inline
 constexpr
@@ -50,16 +53,28 @@ std::enable_if<
 	>::value,
 	mizuiro::size_type
 >::type
-size()
+count()
 {
 	return
-		mizuiro::mpl::size<
+		mizuiro::mpl::count<
 			mizuiro::mpl::tail<
 				List
-			>
+			>,
+			Element
 		>()
 		+
-		1u;
+		(
+			std::is_same<
+				mizuiro::mpl::head<
+					List
+				>,
+				Element
+			>::value
+			?
+				1u
+			:
+				0u
+		);
 }
 
 }

@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_MPL_LIST_NS_TAG_OF_HPP_INCLUDED
 #define MIZUIRO_MPL_LIST_NS_TAG_OF_HPP_INCLUDED
 
+#include <mizuiro/mpl/cons_list_fwd.hpp>
 #include <mizuiro/mpl/list_fwd.hpp>
 #include <mizuiro/mpl/tag_of_fwd.hpp>
 #include <mizuiro/mpl/list_ns/tag.hpp>
@@ -34,6 +35,29 @@ tag_of<
 		>
 	>
 	type;
+};
+
+template<
+	typename Head,
+	typename Tail
+>
+struct
+tag_of<
+	mizuiro::mpl::cons_list<
+		Head,
+		Tail
+	>
+>
+{
+	typedef
+	mizuiro::mpl::list_ns::tag<
+		mizuiro::mpl::cons_list<
+			Head,
+			Tail
+		>
+	>
+	type;
+
 };
 
 }

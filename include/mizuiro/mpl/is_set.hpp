@@ -4,11 +4,11 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_MPL_INDEX_OF_HPP_INCLUDED
-#define MIZUIRO_MPL_INDEX_OF_HPP_INCLUDED
+#ifndef MIZUIRO_MPL_IS_SET_HPP_INCLUDED
+#define MIZUIRO_MPL_IS_SET_HPP_INCLUDED
 
-#include <mizuiro/size_type.hpp>
-#include <mizuiro/mpl/detail/index_of.hpp>
+#include <mizuiro/mpl/all_of.hpp>
+#include <mizuiro/mpl/detail/count_is_one.hpp>
 
 
 namespace mizuiro
@@ -17,19 +17,20 @@ namespace mpl
 {
 
 template<
-	typename List,
-	typename Element
+	typename List
 >
 inline
 constexpr
-mizuiro::size_type
-index_of()
+bool
+is_set()
 {
 	return
-		mizuiro::mpl::detail::index_of<
+		mizuiro::mpl::all_of<
 			List,
-			Element
-		>::type::value;
+			mizuiro::mpl::detail::count_is_one<
+				List
+			>
+		>();
 }
 
 }

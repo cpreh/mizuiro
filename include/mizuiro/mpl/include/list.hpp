@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_MPL_INCLUDE_LIST_HPP_INCLUDED
 #define MIZUIRO_MPL_INCLUDE_LIST_HPP_INCLUDED
 
+#include <mizuiro/mpl/list_ns/cons.hpp>
 #include <mizuiro/mpl/list_ns/empty.hpp>
 #include <mizuiro/mpl/list_ns/head.hpp>
 #include <mizuiro/mpl/list_ns/tail.hpp>
