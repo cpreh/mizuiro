@@ -5,7 +5,6 @@
 
 
 #include <mizuiro/color/for_each_channel.hpp>
-#include <mizuiro/color/make_compare_function.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/convert_static/converter.hpp>
@@ -17,11 +16,12 @@
 #include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/layout/argb.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
+#include <mizuiro/color/operators/equal.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/store.hpp>
-#include <mizuiro/image/algorithm/compare.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
+#include <mizuiro/image/algorithm/equal.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/algorithm/transform.hpp>
@@ -29,7 +29,6 @@
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <cstdint>
-#include <functional>
 #include <iostream>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
@@ -208,14 +207,9 @@ int main()
 	std::cout
 		<< "\n\nequal: "
 		<< std::boolalpha
-		<< mizuiro::image::algorithm::compare(
+		<< mizuiro::image::algorithm::equal(
 			img1.view(),
-			img1.view(),
-			mizuiro::color::make_compare_function(
-				std::equal_to<
-					channel_type
-				>()
-			)
+			img1.view()
 		)
 		<< '\n';
 

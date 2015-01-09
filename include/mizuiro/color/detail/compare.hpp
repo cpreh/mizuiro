@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_DETAIL_COMPARE_HPP_INCLUDED
 
 #include <mizuiro/color/decay_channel_proxy.hpp>
+#include <mizuiro/color/is_color.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 
 
@@ -29,6 +30,20 @@ class compare
 		compare
 	);
 public:
+	static_assert(
+		mizuiro::color::is_color<
+			Color1
+		>::value,
+		"Color1 must be a color type"
+	);
+
+	static_assert(
+		mizuiro::color::is_color<
+			Color2
+		>::value,
+		"Color2 must be a color type"
+	);
+
 	compare(
 		Color1 const &_color1,
 		Color2 const &_color2,

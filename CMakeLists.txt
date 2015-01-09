@@ -394,6 +394,7 @@ set(
 	include/mizuiro/color/operators/detail/binary_op.hpp
 	include/mizuiro/color/operators/detail/binary_op_channel.hpp
 	include/mizuiro/color/operators/detail/scalar_multiply.hpp
+	include/mizuiro/color/operators/equal.hpp
 	include/mizuiro/color/operators/scalar_multiply.hpp
 	include/mizuiro/color/operators/subtract.hpp
 	include/mizuiro/color/output.hpp
@@ -452,6 +453,7 @@ set(
 	include/mizuiro/detail/empty_format_base_decl.hpp
 	include/mizuiro/detail/empty_format_base_fwd.hpp
 	include/mizuiro/detail/empty_format_base_impl.hpp
+	include/mizuiro/detail/equal.hpp
 	include/mizuiro/detail/external_begin.hpp
 	include/mizuiro/detail/external_end.hpp
 	include/mizuiro/detail/format_argument.hpp
@@ -512,6 +514,7 @@ set(
 	include/mizuiro/image/algorithm/detail/unwrap_binary_first.hpp
 	include/mizuiro/image/algorithm/detail/unwrap_binary_second.hpp
 	include/mizuiro/image/algorithm/detail/unwrap_unary.hpp
+	include/mizuiro/image/algorithm/equal.hpp
 	include/mizuiro/image/algorithm/fill.hpp
 	include/mizuiro/image/algorithm/fill_c.hpp
 	include/mizuiro/image/algorithm/for_each.hpp

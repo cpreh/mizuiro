@@ -9,8 +9,10 @@
 #include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/init/luminance.hpp>
 #include <mizuiro/color/layout/l.hpp>
+#include <mizuiro/color/operators/equal.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/algorithm/clone.hpp>
+#include <mizuiro/image/algorithm/equal.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
@@ -73,5 +75,10 @@ MIZUIRO_DETAIL_POP_WARNING
 		)
 	);
 
-	// TODO: Add equal algorithm!
+	BOOST_CHECK(
+		mizuiro::image::algorithm::equal(
+			store.view(),
+			store2.view()
+		)
+	);
 }
