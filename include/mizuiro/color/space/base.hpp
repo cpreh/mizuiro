@@ -24,12 +24,6 @@ namespace space
 /**
 \brief A typedef helper class used to define color spaces
 
-TODO: Use better notation here
-PossibleChannels specifies the list of channels that are possible for this
-color space. Every element of Order must either be
-mizuiro::color::channel::alpha, mizuiro::color::channel::undefined or it must
-be an element of PossibleChannels.
-
 <code>typedef Order order</code>
 
 A color space consists of possible channels (e.g. red, green, blue), possibly
@@ -38,13 +32,11 @@ traditional color space definition) or undefined channels (which are purely
 used as an efficient data representation mechanism). Alpha channels will never
 contribute 'color' while undefined channels will be ignored.
 
-TODO: Should a color space impose limits on the number of possible channels?
-
 \tparam Order A mizuiro::mpl::list consisting of \link color_channel Color
 Channels\endlink
 
 \tparam PossibleChannels A variadic template list consisting of \link
-color_channel Color Channels\endlink
+color_channel Color Channels\endlink with a length of at least 0 and at most 3.
 */
 template<
 	typename Order,
@@ -65,10 +57,27 @@ struct base
 				PossibleChannels...
 			>
 		>::value,
-		"Invalid channel in color space"
+		"Invalid color channel which is not part of the color space"
 	);
 
-	// TODO: Is it ok when channel are missing (e.g. there is only a red channel in rgb)?
+	static_assert(
+		sizeof...(
+			PossibleChannels
+		)
+		<=
+		3,
+		"A color space shouldn't have more than three channels"
+	);
+
+	static_assert(
+		mizuiro::color::layout::detail::has_all_channels<
+			mizuiro::mpl::list<
+				PossibleChannels...
+			>,
+			order
+		>::value,
+		"Missing color channel in color space"
+	);
 
 	// TODO: Check for duplicates
 };
