@@ -7,12 +7,10 @@
 #ifndef MIZUIRO_COLOR_OPERATORS_SUBTRACT_HPP_INCLUDED
 #define MIZUIRO_COLOR_OPERATORS_SUBTRACT_HPP_INCLUDED
 
-#include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/operators/detail/binary_op.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <functional>
-#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -33,28 +31,6 @@ operator-(
 	Color2 const &_color2
 )
 {
-	static_assert(
-		std::is_same<
-			typename Color1::format,
-			typename Color2::format
-		>::value,
-		"Color1 and Color2 must use the same color format"
-	);
-
-	static_assert(
-		mizuiro::color::is_color<
-			Color1
-		>::value,
-		"Color1 must be a color type"
-	);
-
-	static_assert(
-		mizuiro::color::is_color<
-			Color2
-		>::value,
-		"Color2 must be a color type"
-	);
-
 	return
 		mizuiro::color::operators::detail::binary_op<
 			std::minus

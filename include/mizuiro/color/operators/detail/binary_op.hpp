@@ -8,8 +8,12 @@
 #define MIZUIRO_COLOR_OPERATORS_DETAIL_BINARY_OP_HPP_INCLUDED
 
 #include <mizuiro/color/for_each_channel.hpp>
+#include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/operators/detail/binary_op_channel.hpp>
+#include <mizuiro/detail/external_begin.hpp>
+#include <type_traits>
+#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
@@ -36,6 +40,28 @@ binary_op(
 	Color2 const &_color2
 )
 {
+	static_assert(
+		std::is_same<
+			typename Color1::format,
+			typename Color2::format
+		>::value,
+		"Color1 and Color2 must use the same color format"
+	);
+
+	static_assert(
+		mizuiro::color::is_color<
+			Color1
+		>::value,
+		"Color1 must be a color type"
+	);
+
+	static_assert(
+		mizuiro::color::is_color<
+			Color2
+		>::value,
+		"Color2 must be a color type"
+	);
+
 	typedef
 	mizuiro::color::object<
 		typename Color1::format
@@ -58,7 +84,8 @@ binary_op(
 		)
 	);
 
-	return result;
+	return
+		result;
 }
 
 }
