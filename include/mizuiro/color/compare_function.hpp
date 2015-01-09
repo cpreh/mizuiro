@@ -30,9 +30,9 @@ public:
 		CompareChannel const &_compare_channel
 	)
 	:
-		compare_channel_{
+		compare_channel_(
 			_compare_channel
-		}
+		)
 	{
 	}
 
