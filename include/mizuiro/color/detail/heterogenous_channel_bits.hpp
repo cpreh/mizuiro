@@ -24,14 +24,13 @@ template<
 >
 using heterogenous_channel_bits
 =
-typename
 mizuiro::mpl::at<
 	typename Format::channel_bits,
 	mizuiro::mpl::index_of<
 		typename Format::layout::order,
 		Channel
 	>()
->::type;
+>;
 
 }
 }

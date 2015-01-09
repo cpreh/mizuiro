@@ -7,6 +7,9 @@
 #ifndef MIZUIRO_MPL_CONTAINS_HPP_INCLUDED
 #define MIZUIRO_MPL_CONTAINS_HPP_INCLUDED
 
+#include <mizuiro/mpl/empty.hpp>
+#include <mizuiro/mpl/head.hpp>
+#include <mizuiro/mpl/tail.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -25,7 +28,9 @@ inline
 constexpr
 typename
 std::enable_if<
-	List::empty::value,
+	mizuiro::mpl::empty<
+		List
+	>::value,
 	bool
 >::type
 contains()
@@ -42,21 +47,25 @@ inline
 constexpr
 typename
 std::enable_if<
-	!List::empty::value,
+	!mizuiro::mpl::empty<
+		List
+	>::value,
 	bool
 >::type
 contains()
 {
 	return
 		std::is_same<
-			typename
-			List::head,
+			mizuiro::mpl::head<
+				List
+			>,
 			Element
 		>::value
 		||
 		mizuiro::mpl::contains<
-			typename
-			List::tail,
+			mizuiro::mpl::tail<
+				List
+			>,
 			Element
 		>();
 }

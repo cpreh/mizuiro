@@ -8,6 +8,8 @@
 #define MIZUIRO_MPL_DETAIL_INDEX_OF_HPP_INCLUDED
 
 #include <mizuiro/mpl/integral_size.hpp>
+#include <mizuiro/mpl/head.hpp>
+#include <mizuiro/mpl/tail.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -37,7 +39,9 @@ struct index_of<
 	typename
 	std::enable_if<
 		std::is_same<
-			typename List::head,
+			mizuiro::mpl::head<
+				List
+			>,
 			Element
 		>::value
 	>::type
@@ -60,7 +64,9 @@ struct index_of<
 	typename
 	std::enable_if<
 		!std::is_same<
-			typename List::head,
+			mizuiro::mpl::head<
+				List
+			>,
 			Element
 		>::value
 	>::type
@@ -69,7 +75,9 @@ struct index_of<
 	typedef
 	mizuiro::mpl::integral_size<
 		mizuiro::mpl::detail::index_of<
-			typename List::tail,
+			mizuiro::mpl::tail<
+				List
+			>,
 			Element
 		>::type::value
 		+

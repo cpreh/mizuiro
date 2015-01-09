@@ -4,63 +4,60 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_MPL_RANGE_TO_HPP_INCLUDED
-#define MIZUIRO_MPL_RANGE_TO_HPP_INCLUDED
+#ifndef MIZUIRO_MPL_DETAIL_AT_HPP_INCLUDED
+#define MIZUIRO_MPL_DETAIL_AT_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/mpl/false.hpp>
 #include <mizuiro/mpl/head.hpp>
-#include <mizuiro/mpl/range_to_fwd.hpp>
 #include <mizuiro/mpl/tail.hpp>
-#include <mizuiro/mpl/true.hpp>
 
 
 namespace mizuiro
 {
 namespace mpl
 {
+namespace detail
+{
+
+template<
+	typename List,
+	mizuiro::size_type Index
+>
+struct at;
 
 template<
 	typename List
 >
-struct range_to<
+struct at<
 	List,
 	0u
 >
 {
 	typedef
-	mizuiro::mpl::true_
-	empty;
+	mizuiro::mpl::head<
+		List
+	>
+	type;
 };
 
 template<
 	typename List,
 	mizuiro::size_type Index
 >
-struct range_to
+struct at
 {
 	typedef
-	mizuiro::mpl::false_
-	empty;
-
-	typedef
-	mizuiro::mpl::head<
-		List
-	>
-	head;
-
-	typedef
-	mizuiro::mpl::range_to<
+	typename
+	mizuiro::mpl::detail::at<
 		mizuiro::mpl::tail<
 			List
 		>,
-		Index
-		-
-		1u
-	>
-	tail;
+		Index - 1u
+	>::type
+	type;
 };
 
+}
 }
 }
 

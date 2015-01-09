@@ -8,6 +8,9 @@
 #define MIZUIRO_MPL_SUM_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
+#include <mizuiro/mpl/empty.hpp>
+#include <mizuiro/mpl/head.hpp>
+#include <mizuiro/mpl/tail.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -25,7 +28,9 @@ inline
 constexpr
 typename
 std::enable_if<
-	List::empty::value,
+	mizuiro::mpl::empty<
+		List
+	>::value,
 	mizuiro::size_type
 >::type
 sum()
@@ -41,18 +46,23 @@ inline
 constexpr
 typename
 std::enable_if<
-	!List::empty::value,
+	!mizuiro::mpl::empty<
+		List
+	>::value,
 	mizuiro::size_type
 >::type
 sum()
 {
 	return
 		mizuiro::mpl::sum<
-			typename
-			List::tail
+			mizuiro::mpl::tail<
+				List
+			>
 		>()
 		+
-		List::head::value;
+		mizuiro::mpl::head<
+			List
+		>::value;
 }
 
 }

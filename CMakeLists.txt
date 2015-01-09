@@ -665,6 +665,7 @@ set(
 	include/mizuiro/mpl/contains.hpp
 	include/mizuiro/mpl/contains_if.hpp
 	include/mizuiro/mpl/count.hpp
+	include/mizuiro/mpl/detail/at.hpp
 	include/mizuiro/mpl/detail/count_is_one.hpp
 	include/mizuiro/mpl/detail/index_of.hpp
 	include/mizuiro/mpl/detail/transform.hpp

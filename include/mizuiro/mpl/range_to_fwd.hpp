@@ -4,11 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_MPL_AT_HPP_INCLUDED
-#define MIZUIRO_MPL_AT_HPP_INCLUDED
+#ifndef MIZUIRO_MPL_RANGE_TO_FWD_HPP_INCLUDED
+#define MIZUIRO_MPL_RANGE_TO_FWD_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/mpl/detail/at.hpp>
 
 
 namespace mizuiro
@@ -20,14 +19,7 @@ template<
 	typename List,
 	mizuiro::size_type Index
 >
-using
-at
-=
-typename
-mizuiro::mpl::detail::at<
-	List,
-	Index
->::type;
+struct range_to;
 
 }
 }
