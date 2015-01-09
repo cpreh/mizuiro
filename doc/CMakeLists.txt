@@ -287,10 +287,14 @@ set(
 	include/mizuiro/color/proxy_impl.hpp
 	include/mizuiro/color/set_percentage.hpp
 	include/mizuiro/color/space/base.hpp
+	include/mizuiro/color/space/empty.hpp
+	include/mizuiro/color/space/empty_fwd.hpp
 	include/mizuiro/color/space/hsv.hpp
 	include/mizuiro/color/space/hsv_fwd.hpp
 	include/mizuiro/color/space/luminance.hpp
 	include/mizuiro/color/space/luminance_fwd.hpp
+	include/mizuiro/color/space/r.hpp
+	include/mizuiro/color/space/r_fwd.hpp
 	include/mizuiro/color/space/rgb.hpp
 	include/mizuiro/color/space/rgb_fwd.hpp
 	include/mizuiro/color/space/srgb.hpp

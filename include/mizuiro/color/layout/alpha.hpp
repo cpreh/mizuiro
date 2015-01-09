@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_LAYOUT_ALPHA_HPP_INCLUDED
 
 #include <mizuiro/color/channel/alpha.hpp>
+#include <mizuiro/color/space/empty.hpp>
 #include <mizuiro/mpl/list.hpp>
 
 
@@ -18,15 +19,13 @@ namespace color
 namespace layout
 {
 
-struct alpha
-{
-	// TODO: Which color space is this, if any?
-	typedef
+typedef
+mizuiro::color::space::empty<
 	mizuiro::mpl::list<
 		mizuiro::color::channel::alpha
 	>
-	order;
-};
+>
+alpha;
 
 }
 }
