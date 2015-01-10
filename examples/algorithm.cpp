@@ -17,6 +17,7 @@
 #include <mizuiro/color/layout/argb.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/operators/equal.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/store.hpp>
@@ -84,8 +85,15 @@ struct channel_operation
 	{
 		dest_.set(
 			_channel,
-			src_.get(
-				_channel
+			static_cast<
+				mizuiro::color::types::channel_value<
+					typename Dest::format,
+					Channel
+				>
+			>(
+				src_.get(
+					_channel
+				)
 			)
 		);
 	}

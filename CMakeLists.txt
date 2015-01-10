@@ -101,6 +101,8 @@ function(
 				"-std=c++11"
 			       	"-Wall"
 				"-Wextra"
+				"-Wconversion"
+				"-Wsign-conversion"
 			)
 
 			set_target_properties(
