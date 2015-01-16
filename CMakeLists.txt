@@ -184,6 +184,8 @@ set(
 	include/mizuiro/color/access/extract_channel_ns/tag.hpp
 	include/mizuiro/color/access/has_channel.hpp
 	include/mizuiro/color/access/has_channel_ns/tag.hpp
+	include/mizuiro/color/access/init_store.hpp
+	include/mizuiro/color/access/init_store_ns/tag.hpp
 	include/mizuiro/color/access/layout.hpp
 	include/mizuiro/color/access/layout_ns/tag.hpp
 	include/mizuiro/color/access/store_data.hpp
@@ -274,7 +276,7 @@ set(
 	include/mizuiro/color/format/dynamic_ns/compare_channels.hpp
 	include/mizuiro/color/format/dynamic_ns/has_channel.hpp
 	include/mizuiro/color/format/dynamic_ns/layout.hpp
-	include/mizuiro/color/format/dynamic_ns/needs_store.hpp
+	include/mizuiro/color/format/dynamic_ns/needs_format_store.hpp
 	include/mizuiro/color/format/dynamic_ns/static_channels.hpp
 	include/mizuiro/color/format/dynamic_ns/static_to_dynamic_channel_fwd.hpp
 	include/mizuiro/color/format/dynamic_ns/tag.hpp
@@ -283,9 +285,11 @@ set(
 	include/mizuiro/color/format/heterogenous_ns/channel_reference_raw.hpp
 	include/mizuiro/color/format/heterogenous_ns/channel_value.hpp
 	include/mizuiro/color/format/heterogenous_ns/extract_channel.hpp
+	include/mizuiro/color/format/heterogenous_ns/init_store.hpp
 	include/mizuiro/color/format/heterogenous_ns/pointer_normal.hpp
 	include/mizuiro/color/format/heterogenous_ns/store.hpp
 	include/mizuiro/color/format/heterogenous_ns/store_data.hpp
+	include/mizuiro/color/format/heterogenous_ns/store_needs_init.hpp
 	include/mizuiro/color/format/heterogenous_ns/stride_normal.hpp
 	include/mizuiro/color/format/heterogenous_ns/stride_raw.hpp
 	include/mizuiro/color/format/heterogenous_ns/tag.hpp
@@ -306,9 +310,11 @@ set(
 	include/mizuiro/color/format/homogenous_ns/channel_value.hpp
 	include/mizuiro/color/format/homogenous_ns/extract_channel_normal.hpp
 	include/mizuiro/color/format/homogenous_ns/extract_channel_raw.hpp
+	include/mizuiro/color/format/homogenous_ns/init_store.hpp
 	include/mizuiro/color/format/homogenous_ns/pointer_normal.hpp
 	include/mizuiro/color/format/homogenous_ns/store.hpp
 	include/mizuiro/color/format/homogenous_ns/store_data.hpp
+	include/mizuiro/color/format/homogenous_ns/store_needs_init.hpp
 	include/mizuiro/color/format/homogenous_ns/stride_normal.hpp
 	include/mizuiro/color/format/homogenous_ns/stride_raw.hpp
 	include/mizuiro/color/format/homogenous_ns/tag.hpp
@@ -331,7 +337,7 @@ set(
 	include/mizuiro/color/format/static_ns/compare_channels.hpp
 	include/mizuiro/color/format/static_ns/has_channel.hpp
 	include/mizuiro/color/format/static_ns/layout.hpp
-	include/mizuiro/color/format/static_ns/needs_store.hpp
+	include/mizuiro/color/format/static_ns/needs_format_store.hpp
 	include/mizuiro/color/format/static_ns/static_channels.hpp
 	include/mizuiro/color/format/static_ns/tag.hpp
 	include/mizuiro/color/format/store.hpp
@@ -430,6 +436,8 @@ set(
 	include/mizuiro/color/types/static_channels.hpp
 	include/mizuiro/color/types/static_channels_ns/tag.hpp
 	include/mizuiro/color/types/store.hpp
+	include/mizuiro/color/types/store_needs_init.hpp
+	include/mizuiro/color/types/store_needs_init_ns/tag.hpp
 	include/mizuiro/color/types/store_ns/tag.hpp
 	include/mizuiro/const_raw_pointer.hpp
 	include/mizuiro/const_tag.hpp

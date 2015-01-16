@@ -23,6 +23,7 @@
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
+#include <mizuiro/color/types/store_needs_init.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -89,13 +90,21 @@ public:
 	const_pointer;
 
 	/// constructs an uninitialized color
+	template<
+		typename FormatArg = Format
+	>
 	explicit
 	object(
 		mizuiro::no_init const &,
 		format_store_type const & =
 			mizuiro::color::format::argument<
 				Format
-			>::get()
+			>::get(),
+		typename std::enable_if<
+			!mizuiro::color::types::store_needs_init<
+				FormatArg
+			>::value
+		>::type * = nullptr
 	);
 
 	explicit
@@ -113,7 +122,8 @@ public:
 
 	/// Constructs a color from another color (possibly a view)
 	template<
-		typename Other
+		typename Other,
+		typename FormatArg = Format
 	>
 	object(
 		Other const &,
@@ -121,12 +131,34 @@ public:
 			mizuiro::color::is_color<
 				Other
 			>::value
+			&&
+			!mizuiro::color::types::store_needs_init<
+				FormatArg
+			>::value
+		>::type * = nullptr
+	);
+
+	template<
+		typename Other,
+		typename FormatArg = Format
+	>
+	object(
+		Other const &,
+		typename std::enable_if<
+			mizuiro::color::is_color<
+				Other
+			>::value
+			&&
+			mizuiro::color::types::store_needs_init<
+				FormatArg
+			>::value
 		>::type * = nullptr
 	);
 
 	/// Constructs a color from a special init expression
 	template<
-		typename Vector
+		typename Vector,
+		typename FormatArg = Format
 	>
 	explicit
 	object(
@@ -136,7 +168,32 @@ public:
 		format_store_type const & =
 			mizuiro::color::format::argument<
 				Format
-			>::get()
+			>::get(),
+		typename std::enable_if<
+			!mizuiro::color::types::store_needs_init<
+				FormatArg
+			>::value
+		>::type * = nullptr
+	);
+
+	template<
+		typename Vector,
+		typename FormatArg = Format
+	>
+	explicit
+	object(
+		mizuiro::color::init::detail::values<
+			Vector
+		> const &,
+		format_store_type const & =
+			mizuiro::color::format::argument<
+				Format
+			>::get(),
+		typename std::enable_if<
+			mizuiro::color::types::store_needs_init<
+				FormatArg
+			>::value
+		>::type * = nullptr
 	);
 
 	template<

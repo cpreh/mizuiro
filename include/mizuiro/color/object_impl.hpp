@@ -14,12 +14,14 @@
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
+#include <mizuiro/color/access/init_store.hpp>
 #include <mizuiro/color/access/store_data.hpp>
 #include <mizuiro/color/format/base_impl.hpp>
 #include <mizuiro/color/format/store_impl.hpp>
 #include <mizuiro/color/init/detail/assign_object.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
+#include <mizuiro/color/types/store_needs_init.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -32,17 +34,24 @@ MIZUIRO_DETAIL_IGNORE_EFFCPP
 template<
 	typename Format
 >
+template<
+	typename FormatArg
+>
 mizuiro::color::object<
 	Format
 >::object(
 	mizuiro::no_init const &,
-	format_store_type const &_format
+	format_store_type const &_format,
+	typename std::enable_if<
+		!mizuiro::color::types::store_needs_init<
+			FormatArg
+		>::value
+	>::type *
 )
 :
 	base(
 		_format
 	)
-	// FIXME: Preparing data requires special cases
 {
 }
 
@@ -61,7 +70,11 @@ mizuiro::color::object<
 	base(
 		_format
 	),
-	data_() // TODO: Should we rely on the default ctor?
+	data_(
+		mizuiro::color::access::init_store<
+			Format
+		>()
+	)
 {
 }
 
@@ -80,15 +93,17 @@ mizuiro::color::object<
 	data_(
 		_other.data_
 	)
-
 {
 }
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Format
 >
 template<
-	typename Other
+	typename Other,
+	typename FormatArg
 >
 mizuiro::color::object<
 	Format
@@ -98,24 +113,66 @@ mizuiro::color::object<
 		mizuiro::color::is_color<
 			Other
 		>::value
+		&&
+		!mizuiro::color::types::store_needs_init<
+			FormatArg
+		>::value
+	>::type *
+)
+:
+	base(
+		_other.format_store()
+	)
+{
+	this->make_proxy() =
+		_other;
+}
+
+MIZUIRO_DETAIL_POP_WARNING
+
+template<
+	typename Format
+>
+template<
+	typename Other,
+	typename FormatArg
+>
+mizuiro::color::object<
+	Format
+>::object(
+	Other const &_other,
+	typename std::enable_if<
+		mizuiro::color::is_color<
+			Other
+		>::value
+		&&
+		mizuiro::color::types::store_needs_init<
+			FormatArg
+		>::value
 	>::type *
 )
 :
 	base(
 		_other.format_store()
 	),
-	// FIXME: Preparing data requires special cases
-	data_()
+	data_(
+		mizuiro::color::access::init_store<
+			Format
+		>()
+	)
 {
 	this->make_proxy() =
 		_other;
 }
 
+MIZUIRO_DETAIL_IGNORE_EFFCPP
+
 template<
 	typename Format
 >
 template<
-	typename Vector
+	typename Vector,
+	typename FormatArg
 >
 mizuiro::color::object<
 	Format
@@ -123,14 +180,55 @@ mizuiro::color::object<
 	mizuiro::color::init::detail::values<
 		Vector
 	> const &_init,
-	format_store_type const &_format
+	format_store_type const &_format,
+	typename std::enable_if<
+		!mizuiro::color::types::store_needs_init<
+			FormatArg
+		>::value
+	>::type *
+)
+:
+	base(
+		_format
+	)
+{
+	mizuiro::color::init::detail::assign_object(
+		*this,
+		_init
+	);
+}
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
+
+template<
+	typename Format
+>
+template<
+	typename Vector,
+	typename FormatArg
+>
+mizuiro::color::object<
+	Format
+>::object(
+	mizuiro::color::init::detail::values<
+		Vector
+	> const &_init,
+	format_store_type const &_format,
+	typename std::enable_if<
+		mizuiro::color::types::store_needs_init<
+			FormatArg
+		>::value
+	>::type *
 )
 :
 	base(
 		_format
 	),
-	// FIXME: Preparing data requires special cases
-	data_()
+	data_(
+		mizuiro::color::access::init_store<
+			Format
+		>()
+	)
 {
 	mizuiro::color::init::detail::assign_object(
 		*this,
