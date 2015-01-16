@@ -20,24 +20,29 @@ namespace detail
 template<
 	typename State,
 	typename Function,
-	typename View
+	typename View,
+	typename MakeIterator
 >
 inline
 State
 unary_fold(
 	Function const &_function,
 	State _state,
-	View const &_view
+	View const &_view,
+	MakeIterator const &_make_iterator
 )
 {
 	for(
-		typename View::iterator
-			it(
-				_view.begin()
-			),
-			itend(
-				_view.end()
-			);
+		auto it(
+			_make_iterator.begin(
+				_view
+			)
+		),
+		itend(
+			_make_iterator.end(
+				_view
+			)
+		);
 		it != itend;
 		++it
 	)

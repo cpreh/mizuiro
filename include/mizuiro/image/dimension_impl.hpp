@@ -324,6 +324,70 @@ template<
 	mizuiro::size_type Dim,
 	typename ValueType
 >
+template<
+	typename
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	>::size_type Index
+>
+typename
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::reference
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::at_c()
+{
+	static_assert(
+		Index < Dim,
+		"Index out of range"
+	);
+
+	return
+		(*this)[
+			Index
+		];
+}
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+template<
+	typename
+	mizuiro::image::dimension<
+		Dim,
+		ValueType
+	>::size_type Index
+>
+typename
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::const_reference
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::at_c() const
+{
+	static_assert(
+		Index < Dim,
+		"Index out of range"
+	);
+
+	return
+		(*this)[
+			Index
+		];
+}
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
 typename
 mizuiro::image::dimension<
 	Dim,

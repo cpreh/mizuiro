@@ -4,6 +4,7 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
@@ -18,6 +19,7 @@
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/sub_view.hpp>
 #include <mizuiro/image/to_pitch_view.hpp>
+#include <mizuiro/image/algorithm/fill_indexed.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
@@ -65,31 +67,25 @@ main()
 			view_type const &_view
 		)
 		{
-			typedef view_type::dim dim;
-
-			typedef dim::size_type size_type;
-
-			dim const size(
-				_view.size()
+			mizuiro::image::algorithm::fill_indexed(
+				_view,
+				[](
+					view_type::dim const _index
+				)
+				{
+					return
+						mizuiro::color::object<
+							format::color_format
+						>(
+							(mizuiro::color::init::red()
+								= static_cast<channel_type>(_index.at_c<0>()))
+							(mizuiro::color::init::green()
+								= static_cast<channel_type>(_index.at_c<1>()))
+							(mizuiro::color::init::blue() = static_cast<channel_type>(255))
+							(mizuiro::color::init::alpha() = static_cast<channel_type>(255))
+						);
+				}
 			);
-
-			// TODO: Make this easier!
-			for(size_type x = 0; x < size[0]; ++x)
-				for(size_type y = 0; y < size[1]; ++y)
-					_view[
-						dim(
-							x,
-							y
-						)
-					]
-					= mizuiro::color::object<
-						format::color_format
-					>(
-						(mizuiro::color::init::red() = static_cast<channel_type>(x))
-						(mizuiro::color::init::green() = static_cast<channel_type>(y))
-						(mizuiro::color::init::blue() = static_cast<channel_type>(255))
-						(mizuiro::color::init::alpha() = static_cast<channel_type>(255))
-					);
 		}
 	};
 

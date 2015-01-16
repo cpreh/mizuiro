@@ -4,11 +4,12 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_ALGORITHM_FOR_EACH_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ALGORITHM_FOR_EACH_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_ALGORITHM_FILL_INDEXED_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ALGORITHM_FILL_INDEXED_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/make_iterator_identity.hpp>
+#include <mizuiro/image/algorithm/make_iterator_indexed.hpp>
 #include <mizuiro/image/algorithm/unary_iteration.hpp>
+#include <mizuiro/image/algorithm/detail/fill_indexed.hpp>
 
 
 namespace mizuiro
@@ -19,23 +20,24 @@ namespace algorithm
 {
 
 template<
-	typename View,
+	typename ViewD,
 	typename Fun
 >
-Fun
-for_each(
-	View const &_view,
+void
+fill_indexed(
+	ViewD const &_dest,
 	Fun const &_fun
 )
 {
 	mizuiro::image::algorithm::unary_iteration(
-		_fun,
-		_view,
-		mizuiro::image::algorithm::make_iterator_identity()
+		mizuiro::image::algorithm::detail::fill_indexed<
+			Fun
+		>(
+			_fun
+		),
+		_dest,
+		mizuiro::image::algorithm::make_iterator_indexed()
 	);
-
-	return
-		_fun;
 }
 
 }

@@ -22,7 +22,8 @@ namespace detail
 
 template<
 	typename Function,
-	typename State
+	typename State,
+	typename MakeIterator
 >
 class unwrap_unary
 {
@@ -32,7 +33,8 @@ class unwrap_unary
 public:
 	unwrap_unary(
 		Function const &_function,
-		State _state
+		State _state,
+		MakeIterator const &_make_iterator
 	)
 	:
 		function_(
@@ -40,6 +42,9 @@ public:
 		),
 		state_(
 			_state
+		),
+		make_iterator_(
+			_make_iterator
 		)
 	{
 	}
@@ -60,13 +65,16 @@ public:
 			mizuiro::image::algorithm::detail::unary_fold(
 				function_,
 				state_,
-				_view
+				_view,
+				make_iterator_
 			);
 	}
 private:
 	Function const &function_;
 
 	State state_;
+
+	MakeIterator const &make_iterator_;
 };
 
 }

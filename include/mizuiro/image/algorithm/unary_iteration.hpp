@@ -21,13 +21,15 @@ namespace algorithm
 
 template<
 	typename Function,
-	typename View
+	typename View,
+	typename MakeIterator
 >
 inline
 void
 unary_iteration(
 	Function const &_function,
-	View const &_view
+	View const &_view,
+	MakeIterator const &_make_iterator
 )
 {
 	mizuiro::image::algorithm::unary_fold(
@@ -37,7 +39,8 @@ unary_iteration(
 			_function
 		),
 		mizuiro::image::algorithm::detail::dummy_state(),
-		_view
+		_view,
+		_make_iterator
 	);
 }
 

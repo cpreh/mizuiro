@@ -21,7 +21,8 @@ template<
 	typename State,
 	typename Function,
 	typename View1,
-	typename View2
+	typename View2,
+	typename MakeIterator
 >
 inline
 State
@@ -29,21 +30,27 @@ binary_fold(
 	Function const &_function,
 	State _state,
 	View1 const &_view1,
-	View2 const &_view2
+	View2 const &_view2,
+	MakeIterator const &_make_iterator
 )
 {
-	typename View2::iterator it2(
-		_view2.begin()
+	auto it2(
+		_make_iterator.begin(
+			_view2
+		)
 	);
 
 	for(
-		typename View1::iterator
-			it1(
-				_view1.begin()
-			),
-			it1end(
-				_view1.end()
-			);
+		auto it1(
+			_make_iterator.begin(
+				_view1
+			)
+		),
+		it1end(
+			_make_iterator.end(
+				_view1
+			)
+		);
 		it1 != it1end;
 		++it1, ++it2
 	)

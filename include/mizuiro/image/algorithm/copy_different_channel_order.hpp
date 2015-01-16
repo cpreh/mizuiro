@@ -8,6 +8,7 @@
 #define MIZUIRO_IMAGE_ALGORITHM_COPY_DIFFERENT_CHANNEL_ORDER_HPP_INCLUDED
 
 #include <mizuiro/image/algorithm/binary_iteration.hpp>
+#include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/detail/copy_element.hpp>
 #include <mizuiro/image/algorithm/detail/copy_element_overlapping.hpp>
@@ -32,11 +33,11 @@ copy_different_channel_order(
 	mizuiro::image::algorithm::may_overlap const _overlap
 )
 {
-	if(
+	switch(
 		_overlap
-		==
-		mizuiro::image::algorithm::may_overlap::yes
 	)
+	{
+	case mizuiro::image::algorithm::may_overlap::yes:
 		mizuiro::image::algorithm::binary_iteration(
 			mizuiro::image::algorithm::detail::copy_element_overlapping<
 				mizuiro::image::types::value_type<
@@ -44,14 +45,19 @@ copy_different_channel_order(
 				>
 			>(),
 			_src,
-			_dest
+			_dest,
+			mizuiro::image::algorithm::make_iterator_identity()
 		);
-	else
+		return;
+	case mizuiro::image::algorithm::may_overlap::no:
 		mizuiro::image::algorithm::binary_iteration(
 			mizuiro::image::algorithm::detail::copy_element(),
 			_src,
-			_dest
+			_dest,
+			mizuiro::image::algorithm::make_iterator_identity()
 		);
+		return;
+	};
 }
 
 }

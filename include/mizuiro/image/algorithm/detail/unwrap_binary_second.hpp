@@ -23,7 +23,8 @@ namespace detail
 template<
 	typename Function,
 	typename State,
-	typename View1
+	typename View1,
+	typename MakeIterator
 >
 class unwrap_binary_second
 {
@@ -34,7 +35,8 @@ public:
 	unwrap_binary_second(
 		Function const &_function,
 		State _state,
-		View1 const &_view1
+		View1 const &_view1,
+		MakeIterator const &_make_iterator
 	)
 	:
 		function_(
@@ -45,6 +47,9 @@ public:
 		),
 		view1_(
 			_view1
+		),
+		make_iterator_(
+			_make_iterator
 		)
 	{
 	}
@@ -66,7 +71,8 @@ public:
 				function_,
 				state_,
 				view1_,
-				_view2
+				_view2,
+				make_iterator_
 			);
 	}
 private:
@@ -75,6 +81,8 @@ private:
 	State state_;
 
 	View1 const &view1_;
+
+	MakeIterator const &make_iterator_;
 };
 
 }

@@ -8,6 +8,7 @@
 #define MIZUIRO_IMAGE_ALGORITHM_COMPARE_HPP_INCLUDED
 
 #include <mizuiro/image/algorithm/binary_fold.hpp>
+#include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/detail/compare_element.hpp>
 
 
@@ -39,7 +40,8 @@ compare(
 			),
 			true,
 			_src1,
-			_src2
+			_src2,
+			mizuiro::image::algorithm::make_iterator_identity()
 		);
 }
 

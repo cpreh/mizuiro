@@ -22,14 +22,16 @@ namespace algorithm
 template<
 	typename Function,
 	typename View1,
-	typename View2
+	typename View2,
+	typename MakeIterator
 >
 inline
 void
 binary_iteration(
 	Function const &_function,
 	View1 const &_view1,
-	View2 const &_view2
+	View2 const &_view2,
+	MakeIterator const &_make_iterator
 )
 {
 	mizuiro::image::algorithm::binary_fold(
@@ -40,7 +42,8 @@ binary_iteration(
 		),
 		mizuiro::image::algorithm::detail::dummy_state(),
 		_view1,
-		_view2
+		_view2,
+		_make_iterator
 	);
 }
 

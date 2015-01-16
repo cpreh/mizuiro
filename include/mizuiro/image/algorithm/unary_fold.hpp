@@ -23,21 +23,24 @@ namespace algorithm
 template<
 	typename State,
 	typename Function,
-	typename View
+	typename View,
+	typename MakeIterator
 >
 inline
 State
 unary_fold(
 	Function const &_function,
 	State _state,
-	View const &_view
+	View const &_view,
+	MakeIterator const &_make_iterator
 )
 {
 	return
 		mizuiro::image::algorithm::detail::unary_fold(
 			_function,
 			_state,
-			_view
+			_view,
+			_make_iterator
 		);
 }
 
@@ -46,7 +49,8 @@ template<
 	typename Function,
 	typename Access,
 	typename Format,
-	typename Constness
+	typename Constness,
+	typename MakeIterator
 >
 inline
 State
@@ -57,17 +61,20 @@ unary_fold(
 		Access,
 		Format,
 		Constness
-	> const &_view
+	> const &_view,
+	MakeIterator const &_make_iterator
 )
 {
 	return
 		mizuiro::detail::either_unary(
 			mizuiro::image::algorithm::detail::unwrap_unary<
 				Function,
-				State
+				State,
+				MakeIterator
 			>(
 				_function,
-				_state
+				_state,
+				_make_iterator
 			),
 			_view.impl()
 		);

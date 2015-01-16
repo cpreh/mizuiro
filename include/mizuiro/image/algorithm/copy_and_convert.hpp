@@ -10,6 +10,7 @@
 #include <mizuiro/image/algorithm/binary_iteration.hpp>
 #include <mizuiro/image/algorithm/can_copy.hpp>
 #include <mizuiro/image/algorithm/copy.hpp>
+#include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/detail/copy_and_convert.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -49,7 +50,8 @@ copy_and_convert(
 			Converter
 		>(),
 		_src,
-		_dest
+		_dest,
+		mizuiro::image::algorithm::make_iterator_identity()
 	);
 }
 

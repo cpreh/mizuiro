@@ -518,6 +518,7 @@ set(
 	include/mizuiro/image/algorithm/detail/copy_impl.hpp
 	include/mizuiro/image/algorithm/detail/dummy_state.hpp
 	include/mizuiro/image/algorithm/detail/fill.hpp
+	include/mizuiro/image/algorithm/detail/fill_indexed.hpp
 	include/mizuiro/image/algorithm/detail/iteration_to_fold_function.hpp
 	include/mizuiro/image/algorithm/detail/print.hpp
 	include/mizuiro/image/algorithm/detail/unary_fold.hpp
@@ -528,7 +529,10 @@ set(
 	include/mizuiro/image/algorithm/equal.hpp
 	include/mizuiro/image/algorithm/fill.hpp
 	include/mizuiro/image/algorithm/fill_c.hpp
+	include/mizuiro/image/algorithm/fill_indexed.hpp
 	include/mizuiro/image/algorithm/for_each.hpp
+	include/mizuiro/image/algorithm/make_iterator_identity.hpp
+	include/mizuiro/image/algorithm/make_iterator_indexed.hpp
 	include/mizuiro/image/algorithm/may_overlap.hpp
 	include/mizuiro/image/algorithm/may_overlap_fwd.hpp
 	include/mizuiro/image/algorithm/print.hpp
@@ -546,6 +550,7 @@ set(
 	include/mizuiro/image/detail/advance_iterator.hpp
 	include/mizuiro/image/detail/compare_iterator.hpp
 	include/mizuiro/image/detail/const_view.hpp
+	include/mizuiro/image/detail/decrement_dim.hpp
 	include/mizuiro/image/detail/decrement_iterator.hpp
 	include/mizuiro/image/detail/dereference_iterator.hpp
 	include/mizuiro/image/detail/edge_pos_begin.hpp
@@ -553,7 +558,11 @@ set(
 	include/mizuiro/image/detail/flipped_edge.hpp
 	include/mizuiro/image/detail/flipped_pitch.hpp
 	include/mizuiro/image/detail/flipped_start.hpp
+	include/mizuiro/image/detail/increment_dim.hpp
 	include/mizuiro/image/detail/increment_iterator.hpp
+	include/mizuiro/image/detail/indexed_iterator_decl.hpp
+	include/mizuiro/image/detail/indexed_iterator_fwd.hpp
+	include/mizuiro/image/detail/indexed_iterator_impl.hpp
 	include/mizuiro/image/detail/iterator_data.hpp
 	include/mizuiro/image/detail/iterator_decl.hpp
 	include/mizuiro/image/detail/iterator_difference.hpp
@@ -613,6 +622,12 @@ set(
 	include/mizuiro/image/format/store_impl.hpp
 	include/mizuiro/image/format/tag_of_fwd.hpp
 	include/mizuiro/image/format/to_color_store.hpp
+	include/mizuiro/image/indexed_iterator_decl.hpp
+	include/mizuiro/image/indexed_iterator_fwd.hpp
+	include/mizuiro/image/indexed_iterator_impl.hpp
+	include/mizuiro/image/indexed_ref_decl.hpp
+	include/mizuiro/image/indexed_ref_fwd.hpp
+	include/mizuiro/image/indexed_ref_impl.hpp
 	include/mizuiro/image/is_raw_view.hpp
 	include/mizuiro/image/iterator_decl.hpp
 	include/mizuiro/image/iterator_fwd.hpp

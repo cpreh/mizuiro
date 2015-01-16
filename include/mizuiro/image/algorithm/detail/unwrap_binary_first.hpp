@@ -23,7 +23,8 @@ namespace detail
 template<
 	typename Function,
 	typename State,
-	typename View2
+	typename View2,
+	typename MakeIterator
 >
 class unwrap_binary_first
 {
@@ -34,7 +35,8 @@ public:
 	unwrap_binary_first(
 		Function const &_function,
 		State _state,
-		View2 const &_view2
+		View2 const &_view2,
+		MakeIterator const &_make_iterator
 	)
 	:
 		function_(
@@ -45,6 +47,9 @@ public:
 		),
 		view2_(
 			_view2
+		),
+		make_iterator_(
+			_make_iterator
 		)
 	{
 	}
@@ -66,7 +71,8 @@ public:
 				function_,
 				state_,
 				_view1,
-				view2_
+				view2_,
+				make_iterator_
 			);
 	}
 private:
@@ -75,6 +81,8 @@ private:
 	State state_;
 
 	View2 const &view2_;
+
+	MakeIterator const &make_iterator_;
 };
 
 }

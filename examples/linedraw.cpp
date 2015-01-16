@@ -16,6 +16,7 @@
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/algorithm/bresenham.hpp>
+#include <mizuiro/image/algorithm/for_each.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -101,18 +102,24 @@ int main()
 		);
 	}
 
-	// TODO: Make this easier
-	for (view_type::dim::value_type y = 0; y < view.size()[1]; ++y)
-	{
-		for (view_type::dim::value_type x = 0; x < view.size()[0]; ++x)
+	mizuiro::image::algorithm::for_each(
+		view,
+		[](
+			view_type::reference const &_ref
+		)
 		{
-			int value = view[view_type::dim(x, y)].get(mizuiro::color::channel::luminance());
+			int const value(
+				_ref.get(
+					mizuiro::color::channel::luminance()
+				)
+			);
+
 			if (value)
 				std::cout << value;
 			else
 				std::cout << "  ";
-		}
-		std::cout << std::endl;
-	}
 
+			std::cout << std::endl;
+		}
+	);
 }

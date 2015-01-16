@@ -65,6 +65,11 @@ public:
 
 	typedef
 	typename
+	Impl::format
+	format;
+
+	typedef
+	typename
 	Impl::format_store_type
 	format_store_type;
 

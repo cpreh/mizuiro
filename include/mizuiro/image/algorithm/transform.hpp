@@ -8,6 +8,7 @@
 #define MIZUIRO_IMAGE_ALGORITHM_TRANSFORM_HPP_INCLUDED
 
 #include <mizuiro/image/algorithm/binary_iteration.hpp>
+#include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 
 
 namespace mizuiro
@@ -32,7 +33,8 @@ transform(
 	mizuiro::image::algorithm::binary_iteration(
 		_fun,
 		_source,
-		_dest
+		_dest,
+		mizuiro::image::algorithm::make_iterator_identity()
 	);
 }
 

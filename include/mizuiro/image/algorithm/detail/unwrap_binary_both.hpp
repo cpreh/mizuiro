@@ -22,7 +22,8 @@ namespace detail
 
 template<
 	typename Function,
-	typename State
+	typename State,
+	typename MakeIterator
 >
 class unwrap_binary_both
 {
@@ -32,7 +33,8 @@ class unwrap_binary_both
 public:
 	unwrap_binary_both(
 		Function const &_function,
-		State _state
+		State _state,
+		MakeIterator const &_make_iterator
 	)
 	:
 		function_(
@@ -40,6 +42,9 @@ public:
 		),
 		state_(
 			_state
+		),
+		make_iterator_(
+			_make_iterator
 		)
 	{
 	}
@@ -63,13 +68,16 @@ public:
 				function_,
 				state_,
 				_view1,
-				_view2
+				_view2,
+				make_iterator_
 			);
 	}
 private:
 	Function const &function_;
 
 	State state_;
+
+	MakeIterator const &make_iterator_;
 };
 
 }

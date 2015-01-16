@@ -27,14 +27,17 @@ template<
 	typename Function,
 	typename State,
 	typename View1,
-	typename View2
+	typename View2,
+	typename MakeIterator
 >
+inline
 State
 binary_fold(
 	Function const &_function,
 	State _state,
 	View1 const &_view1,
-	View2 const &_view2
+	View2 const &_view2,
+	MakeIterator const &_make_iterator
 )
 {
 	return
@@ -42,7 +45,8 @@ binary_fold(
 			_function,
 			_state,
 			_view1,
-			_view2
+			_view2,
+			_make_iterator
 		);
 }
 
@@ -52,8 +56,10 @@ template<
 	typename View1,
 	typename Access2,
 	typename Format2,
-	typename Constness2
+	typename Constness2,
+	typename MakeIterator
 >
+inline
 State
 binary_fold(
 	Function const &_function,
@@ -63,7 +69,8 @@ binary_fold(
 		Access2,
 		Format2,
 		Constness2
-	> const &_view2
+	> const &_view2,
+	MakeIterator const &_make_iterator
 )
 {
 	return
@@ -71,11 +78,13 @@ binary_fold(
 			mizuiro::image::algorithm::detail::unwrap_binary_second<
 				Function,
 				State,
-				View1
+				View1,
+				MakeIterator
 			>(
 				_function,
 				_state,
-				_view1
+				_view1,
+				_make_iterator
 			),
 			_view2.impl()
 		);
@@ -87,8 +96,10 @@ template<
 	typename Access1,
 	typename Format1,
 	typename Constness1,
-	typename View2
+	typename View2,
+	typename MakeIterator
 >
+inline
 State
 binary_fold(
 	Function const &_function,
@@ -98,7 +109,8 @@ binary_fold(
 		Format1,
 		Constness1
 	> const &_view1,
-	View2 const &_view2
+	View2 const &_view2,
+	MakeIterator const &_make_iterator
 )
 {
 	return
@@ -106,11 +118,13 @@ binary_fold(
 			mizuiro::image::algorithm::detail::unwrap_binary_first<
 				Function,
 				State,
-				View2
+				View2,
+				MakeIterator
 			>(
 				_function,
 				_state,
-				_view2
+				_view2,
+				_make_iterator
 			),
 			_view1.impl()
 		);
@@ -124,8 +138,10 @@ template<
 	typename Constness1,
 	typename Access2,
 	typename Format2,
-	typename Constness2
+	typename Constness2,
+	typename MakeIterator
 >
+inline
 State
 binary_fold(
 	Function const &_function,
@@ -139,17 +155,20 @@ binary_fold(
 		Access2,
 		Format2,
 		Constness2
-	> const &_view2
+	> const &_view2,
+	MakeIterator const &_make_iterator
 )
 {
 	return
 		mizuiro::detail::either_binary(
 			mizuiro::image::algorithm::detail::unwrap_binary_both<
 				Function,
-				State
+				State,
+				MakeIterator
 			>(
 				_function,
-				_state
+				_state,
+				_make_iterator
 			),
 			_view1.impl(),
 			_view2.impl()

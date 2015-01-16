@@ -35,6 +35,7 @@ mizuiro::image::store<
 	size_(
 		_size
 	),
+	// FIXME: Stores must be initialized for some formats
 	data_(
 		mizuiro::image::access::store_size<
 			access

@@ -16,6 +16,7 @@
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/view.hpp>
+#include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -23,6 +24,41 @@
 #include <cstdint>
 #include <mizuiro/detail/external_end.hpp>
 
+
+namespace
+{
+
+typedef
+std::uint8_t
+channel_type;
+
+typedef
+mizuiro::image::format::interleaved<
+	mizuiro::image::dimension<
+		2
+	>,
+	mizuiro::color::format::homogenous_static<
+		channel_type,
+		mizuiro::color::layout::r
+	>
+>
+format;
+
+typedef
+mizuiro::image::store<
+	format
+>
+store_type;
+
+typedef
+mizuiro::image::view<
+	store_type::access,
+	store_type::format,
+	mizuiro::nonconst_tag
+>
+view_type;
+
+}
 
 MIZUIRO_DETAIL_IGNORE_EFFCPP
 
@@ -32,28 +68,6 @@ BOOST_AUTO_TEST_CASE(
 {
 MIZUIRO_DETAIL_POP_WARNING
 
-	typedef
-	std::uint8_t
-	channel_type;
-
-	typedef
-	mizuiro::image::format::interleaved<
-		mizuiro::image::dimension<
-			2
-		>,
-		mizuiro::color::format::homogenous_static<
-			channel_type,
-			mizuiro::color::layout::r
-		>
-	>
-	format;
-
-	typedef
-	mizuiro::image::store<
-		format
-	>
-	store_type;
-
 	store_type store(
 		store_type::dim{
 			1u,
@@ -61,14 +75,6 @@ MIZUIRO_DETAIL_POP_WARNING
 		},
 		mizuiro::no_init{}
 	);
-
-	typedef
-	mizuiro::image::view<
-		store_type::access,
-		store_type::format,
-		mizuiro::nonconst_tag
-	>
-	view_type;
 
 	view_type view(
 		store.view()
@@ -138,5 +144,47 @@ MIZUIRO_DETAIL_POP_WARNING
 		view.begin()
 		==
 		1
+	);
+}
+
+MIZUIRO_DETAIL_IGNORE_EFFCPP
+
+BOOST_AUTO_TEST_CASE(
+	view_fill
+)
+{
+MIZUIRO_DETAIL_POP_WARNING
+
+	store_type const store(
+		store_type::dim{
+			1u,
+			1u
+		},
+		[](
+			store_type::view_type const &_view
+		)
+		{
+			mizuiro::image::algorithm::fill_c(
+				view_type(
+					_view
+				),
+				mizuiro::color::object<
+					format::color_format
+				>(
+					mizuiro::color::init::red() =
+						 static_cast<channel_type>(42)
+				)
+			);
+		}
+	);
+
+	BOOST_CHECK(
+		store.view()[
+			store_type::dim::null()
+		].get(
+			mizuiro::color::channel::red()
+		)
+		==
+		static_cast<channel_type>(42)
 	);
 }
