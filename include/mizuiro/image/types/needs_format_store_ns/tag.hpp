@@ -4,17 +4,17 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_TYPES_NEEDS_STORE_NS_TAG_HPP_INCLUDED
-#define MIZUIRO_COLOR_TYPES_NEEDS_STORE_NS_TAG_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_TYPES_NEEDS_FORMAT_STORE_NS_TAG_HPP_INCLUDED
+#define MIZUIRO_IMAGE_TYPES_NEEDS_FORMAT_STORE_NS_TAG_HPP_INCLUDED
 
 
 namespace mizuiro
 {
-namespace color
+namespace image
 {
 namespace types
 {
-namespace needs_store_ns
+namespace needs_format_store_ns
 {
 
 struct tag

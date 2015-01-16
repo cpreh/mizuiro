@@ -8,7 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_BASE_DECL_HPP_INCLUDED
 
 #include <mizuiro/color/format/store_decl.hpp>
-#include <mizuiro/color/types/needs_store.hpp>
+#include <mizuiro/color/types/needs_format_store.hpp>
 #include <mizuiro/detail/format_base_decl.hpp>
 
 
@@ -27,7 +27,7 @@ using base
 mizuiro::detail::format_base<
 	Format,
 	mizuiro::color::format::store,
-	mizuiro::color::types::needs_store
+	mizuiro::color::types::needs_format_store
 >;
 
 }

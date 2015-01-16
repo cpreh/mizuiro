@@ -9,7 +9,7 @@
 
 #include <mizuiro/detail/format_argument.hpp>
 #include <mizuiro/image/format/store_impl.hpp>
-#include <mizuiro/image/types/needs_store.hpp>
+#include <mizuiro/image/types/needs_format_store.hpp>
 
 
 namespace mizuiro
@@ -26,7 +26,7 @@ using argument
 =
 mizuiro::detail::format_argument<
 	ImageFormat,
-	mizuiro::image::types::needs_store<
+	mizuiro::image::types::needs_format_store<
 		ImageFormat
 	>,
 	mizuiro::image::format::store<

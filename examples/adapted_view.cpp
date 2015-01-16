@@ -23,7 +23,7 @@
 #include <mizuiro/image/format/tag_of_fwd.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
-#include <mizuiro/image/types/needs_store_ns/tag.hpp>
+#include <mizuiro/image/types/needs_format_store_ns/tag.hpp>
 #include <mizuiro/image/types/pointer_ns/tag.hpp>
 #include <mizuiro/image/types/reference_ns/tag.hpp>
 #include <mizuiro/image/types/value_type_ns/tag.hpp>
@@ -116,15 +116,15 @@ struct tag_of<
 
 namespace types
 {
-namespace needs_store_ns
+namespace needs_format_store_ns
 {
 template<
 	typename Dim,
 	typename Type
 >
 std::false_type
-needs_store_adl(
-	mizuiro::image::types::needs_store_ns::tag,
+needs_format_store_adl(
+	mizuiro::image::types::needs_format_store_ns::tag,
 	mylib::tag<
 		mylib::native_format<
 			Dim,

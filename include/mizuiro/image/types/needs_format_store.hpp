@@ -4,11 +4,11 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_TYPES_NEEDS_STORE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_TYPES_NEEDS_STORE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_TYPES_NEEDS_FORMAT_STORE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_TYPES_NEEDS_FORMAT_STORE_HPP_INCLUDED
 
 #include <mizuiro/image/format/make_tag_of.hpp>
-#include <mizuiro/image/types/needs_store_ns/tag.hpp>
+#include <mizuiro/image/types/needs_format_store_ns/tag.hpp>
 
 
 namespace mizuiro
@@ -22,11 +22,11 @@ template<
 	typename Format
 >
 using
-needs_store
+needs_format_store
 =
 decltype(
-	needs_store_adl(
-		mizuiro::image::types::needs_store_ns::tag(),
+	needs_format_store_adl(
+		mizuiro::image::types::needs_format_store_ns::tag(),
 		mizuiro::image::format::make_tag_of<
 			Format
 		>()

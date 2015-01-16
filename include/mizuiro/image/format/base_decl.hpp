@@ -9,7 +9,7 @@
 
 #include <mizuiro/detail/format_base_decl.hpp>
 #include <mizuiro/image/format/store_decl.hpp>
-#include <mizuiro/image/types/needs_store.hpp>
+#include <mizuiro/image/types/needs_format_store.hpp>
 
 
 namespace mizuiro
@@ -27,7 +27,7 @@ using base
 mizuiro::detail::format_base<
 	Format,
 	mizuiro::image::format::store,
-	mizuiro::image::types::needs_store
+	mizuiro::image::types::needs_format_store
 >;
 
 }

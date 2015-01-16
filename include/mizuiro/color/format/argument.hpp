@@ -8,7 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_ARGUMENT_HPP_INCLUDED
 
 #include <mizuiro/color/format/store_impl.hpp>
-#include <mizuiro/color/types/needs_store.hpp>
+#include <mizuiro/color/types/needs_format_store.hpp>
 #include <mizuiro/detail/format_argument.hpp>
 
 
@@ -26,7 +26,7 @@ using argument
 =
 mizuiro::detail::format_argument<
 	Format,
-	mizuiro::color::types::needs_store<
+	mizuiro::color::types::needs_format_store<
 		Format
 	>,
 	mizuiro::color::format::store<

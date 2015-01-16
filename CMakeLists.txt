@@ -423,8 +423,8 @@ set(
 	include/mizuiro/color/types/channel_reference_ns/tag.hpp
 	include/mizuiro/color/types/channel_value.hpp
 	include/mizuiro/color/types/channel_value_ns/tag.hpp
-	include/mizuiro/color/types/needs_store.hpp
-	include/mizuiro/color/types/needs_store_ns/tag.hpp
+	include/mizuiro/color/types/needs_format_store.hpp
+	include/mizuiro/color/types/needs_format_store_ns/tag.hpp
 	include/mizuiro/color/types/pointer.hpp
 	include/mizuiro/color/types/pointer_ns/tag.hpp
 	include/mizuiro/color/types/static_channels.hpp
@@ -588,7 +588,7 @@ set(
 	include/mizuiro/image/format/interleaved_ns/can_copy.hpp
 	include/mizuiro/image/format/interleaved_ns/can_copy_in_place.hpp
 	include/mizuiro/image/format/interleaved_ns/dereference.hpp
-	include/mizuiro/image/format/interleaved_ns/needs_store.hpp
+	include/mizuiro/image/format/interleaved_ns/needs_format_store.hpp
 	include/mizuiro/image/format/interleaved_ns/pointer.hpp
 	include/mizuiro/image/format/interleaved_ns/reference.hpp
 	include/mizuiro/image/format/interleaved_ns/store_normal.hpp
@@ -641,8 +641,8 @@ set(
 	include/mizuiro/image/types/can_copy_in_place.hpp
 	include/mizuiro/image/types/can_copy_in_place_ns/tag.hpp
 	include/mizuiro/image/types/can_copy_ns/tag.hpp
-	include/mizuiro/image/types/needs_store.hpp
-	include/mizuiro/image/types/needs_store_ns/tag.hpp
+	include/mizuiro/image/types/needs_format_store.hpp
+	include/mizuiro/image/types/needs_format_store_ns/tag.hpp
 	include/mizuiro/image/types/pointer.hpp
 	include/mizuiro/image/types/pointer_ns/tag.hpp
 	include/mizuiro/image/types/reference.hpp
@@ -692,6 +692,7 @@ set(
 	include/mizuiro/mpl/list_ns/tail.hpp
 	include/mizuiro/mpl/make_tag_of.hpp
 	include/mizuiro/mpl/range_to.hpp
+	include/mizuiro/mpl/range_to_fwd.hpp
 	include/mizuiro/mpl/size.hpp
 	include/mizuiro/mpl/size_list.hpp
 	include/mizuiro/mpl/sum.hpp
