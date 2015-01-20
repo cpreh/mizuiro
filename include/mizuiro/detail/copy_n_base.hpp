@@ -24,6 +24,7 @@ template<
 	typename Size,
 	typename Dest
 >
+inline
 void
 copy_n_base(
 	Function const &_function,
@@ -53,9 +54,10 @@ copy_n_base(
 			*
 			static_cast<
 				Size
-			>
-			(
-				sizeof(Source)
+			>(
+				sizeof(
+					Source
+				)
 			)
 		)
 	);

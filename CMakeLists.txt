@@ -290,6 +290,7 @@ set(
 	include/mizuiro/color/format/heterogenous_ns/store.hpp
 	include/mizuiro/color/format/heterogenous_ns/store_data.hpp
 	include/mizuiro/color/format/heterogenous_ns/store_needs_init.hpp
+	include/mizuiro/color/format/heterogenous_ns/store_unit.hpp
 	include/mizuiro/color/format/heterogenous_ns/stride_normal.hpp
 	include/mizuiro/color/format/heterogenous_ns/stride_raw.hpp
 	include/mizuiro/color/format/heterogenous_ns/tag.hpp
@@ -315,6 +316,7 @@ set(
 	include/mizuiro/color/format/homogenous_ns/store.hpp
 	include/mizuiro/color/format/homogenous_ns/store_data.hpp
 	include/mizuiro/color/format/homogenous_ns/store_needs_init.hpp
+	include/mizuiro/color/format/homogenous_ns/store_unit.hpp
 	include/mizuiro/color/format/homogenous_ns/stride_normal.hpp
 	include/mizuiro/color/format/homogenous_ns/stride_raw.hpp
 	include/mizuiro/color/format/homogenous_ns/tag.hpp
@@ -439,6 +441,8 @@ set(
 	include/mizuiro/color/types/store_needs_init.hpp
 	include/mizuiro/color/types/store_needs_init_ns/tag.hpp
 	include/mizuiro/color/types/store_ns/tag.hpp
+	include/mizuiro/color/types/store_unit.hpp
+	include/mizuiro/color/types/store_unit_ns/tag.hpp
 	include/mizuiro/const_raw_pointer.hpp
 	include/mizuiro/const_tag.hpp
 	include/mizuiro/const_tag_fwd.hpp

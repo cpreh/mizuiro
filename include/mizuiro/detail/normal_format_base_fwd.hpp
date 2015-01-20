@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_DETAIL_NORMAL_FORMAT_BASE_FWD_HPP_INCLUDED
 #define MIZUIRO_DETAIL_NORMAL_FORMAT_BASE_FWD_HPP_INCLUDED
 
+
 namespace mizuiro
 {
 namespace detail

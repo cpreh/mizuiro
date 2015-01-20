@@ -16,6 +16,7 @@
 #include <mizuiro/color/format/heterogenous_ns/store.hpp>
 #include <mizuiro/color/format/heterogenous_ns/store_data.hpp>
 #include <mizuiro/color/format/heterogenous_ns/store_needs_init.hpp>
+#include <mizuiro/color/format/heterogenous_ns/store_unit.hpp>
 #include <mizuiro/color/format/heterogenous_ns/stride_normal.hpp>
 #include <mizuiro/color/format/heterogenous_ns/stride_raw.hpp>
 #include <mizuiro/color/format/raw_ns/pointer.hpp>

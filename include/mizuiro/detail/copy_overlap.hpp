@@ -29,7 +29,7 @@ copy_overlap(
 )
 {
 	return
-		detail::copy_n_overlap(
+		mizuiro::detail::copy_n_overlap(
 			_begin,
 			std::distance(
 				_begin,

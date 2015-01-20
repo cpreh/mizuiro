@@ -24,6 +24,7 @@ template<
 	typename Size,
 	typename Dest
 >
+inline
 void
 copy_n_overlap(
 	Source const *const _src,
@@ -31,7 +32,7 @@ copy_n_overlap(
 	Dest *const _dest
 )
 {
-	detail::copy_n_base(
+	mizuiro::detail::copy_n_base(
 		std::memmove,
 		_src,
 		_size,

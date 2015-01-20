@@ -4,20 +4,25 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_DETAIL_EMPTY_FORMAT_BASE_FWD_HPP_INCLUDED
-#define MIZUIRO_DETAIL_EMPTY_FORMAT_BASE_FWD_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_TYPES_STORE_UNIT_NS_TAG_HPP_INCLUDED
+#define MIZUIRO_COLOR_TYPES_STORE_UNIT_NS_TAG_HPP_INCLUDED
 
 
 namespace mizuiro
 {
-namespace detail
+namespace color
+{
+namespace types
+{
+namespace store_unit_ns
 {
 
-template<
-	typename Store
->
-class empty_format_base;
+struct tag
+{
+};
 
+}
+}
 }
 }
 

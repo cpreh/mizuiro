@@ -8,6 +8,7 @@
 #define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_STORE_NORMAL_HPP_INCLUDED
 
 #include <mizuiro/access/normal.hpp>
+#include <mizuiro/color/types/store_unit.hpp>
 #include <mizuiro/image/raw_container_impl.hpp>
 #include <mizuiro/image/format/interleaved_ns/tag.hpp>
 #include <mizuiro/image/types/store_ns/tag.hpp>
@@ -26,9 +27,10 @@ template<
 	typename ImageFormat
 >
 mizuiro::image::raw_container<
-	// FIXME: This is wrong
-	typename
-	ImageFormat::color_format::channel_type
+	mizuiro::color::types::store_unit<
+		typename
+		ImageFormat::color_format
+	>
 >
 store_adl(
 	mizuiro::image::types::store_ns::tag,
