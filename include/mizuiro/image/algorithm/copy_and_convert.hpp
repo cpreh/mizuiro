@@ -7,11 +7,11 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_COPY_AND_CONVERT_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_COPY_AND_CONVERT_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/binary_iteration.hpp>
 #include <mizuiro/image/algorithm/can_copy.hpp>
 #include <mizuiro/image/algorithm/copy.hpp>
-#include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
+#include <mizuiro/image/algorithm/transform.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/algorithm/detail/copy_and_convert.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
@@ -42,16 +42,17 @@ std::enable_if<
 copy_and_convert(
 	ViewS const &_src,
 	ViewD const &_dest,
-	mizuiro::image::algorithm::may_overlap
+	mizuiro::image::algorithm::may_overlap,
+	mizuiro::image::algorithm::uninitialized const _uninitialized
 )
 {
-	mizuiro::image::algorithm::binary_iteration(
-		mizuiro::image::algorithm::detail::copy_and_convert<
-			Converter
-		>(),
+	mizuiro::image::algorithm::transform(
 		_src,
 		_dest,
-		mizuiro::image::algorithm::make_iterator_identity()
+		mizuiro::image::algorithm::detail::copy_and_convert<
+			Converter
+		>{},
+		_uninitialized
 	);
 }
 
@@ -72,13 +73,15 @@ std::enable_if<
 copy_and_convert(
 	ViewS const &_src,
 	ViewD const &_dest,
-	mizuiro::image::algorithm::may_overlap const _overlap
+	mizuiro::image::algorithm::may_overlap const _overlap,
+	mizuiro::image::algorithm::uninitialized const _uninitialized
 )
 {
 	mizuiro::image::algorithm::copy(
 		_src,
 		_dest,
-		_overlap
+		_overlap,
+		_uninitialized
 	);
 }
 

@@ -27,7 +27,6 @@
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
-#include <array>
 #include <cstdint>
 #include <mizuiro/detail/external_end.hpp>
 

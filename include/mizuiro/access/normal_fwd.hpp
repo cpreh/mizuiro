@@ -4,10 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_ACCESS_NORMAL_HPP_INCLUDED
-#define MIZUIRO_ACCESS_NORMAL_HPP_INCLUDED
-
-#include <mizuiro/access/normal_fwd.hpp>
+#ifndef MIZUIRO_ACCESS_NORMAL_FWD_HPP_INCLUDED
+#define MIZUIRO_ACCESS_NORMAL_FWD_HPP_INCLUDED
 
 
 namespace mizuiro
@@ -15,9 +13,7 @@ namespace mizuiro
 namespace access
 {
 
-struct normal
-{
-};
+struct normal;
 
 }
 }

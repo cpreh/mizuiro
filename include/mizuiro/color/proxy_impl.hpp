@@ -104,6 +104,7 @@ mizuiro::color::proxy<
 	Other const &_other
 ) const
 {
+	// FIXME: This is wrong for uninitialized stores and it's also not very efficient
 	mizuiro::color::for_each_channel(
 		*this,
 		mizuiro::color::detail::copy_channel<

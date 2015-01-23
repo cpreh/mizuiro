@@ -18,6 +18,7 @@
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -130,7 +131,8 @@ main()
 					rgba_store::view_type::pitch_type::null()
 				),
 				_dest,
-				mizuiro::image::algorithm::may_overlap::no
+				mizuiro::image::algorithm::may_overlap::no,
+				mizuiro::image::algorithm::uninitialized::yes
 			);
 		}
 	);

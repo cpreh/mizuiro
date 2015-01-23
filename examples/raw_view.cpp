@@ -22,6 +22,7 @@
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -117,7 +118,8 @@ int main()
 			view
 		),
 		view,
-		mizuiro::image::algorithm::may_overlap::yes
+		mizuiro::image::algorithm::may_overlap::yes,
+		mizuiro::image::algorithm::uninitialized::no
 	);
 
 	std::cout

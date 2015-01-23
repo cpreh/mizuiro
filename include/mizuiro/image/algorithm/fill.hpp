@@ -9,7 +9,9 @@
 
 #include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/unary_iteration.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/algorithm/detail/fill.hpp>
+#include <mizuiro/image/algorithm/detail/wrap_prepare.hpp>
 
 
 namespace mizuiro
@@ -23,21 +25,47 @@ template<
 	typename ViewD,
 	typename Fun
 >
+inline
 void
 fill(
 	ViewD const &_dest,
-	Fun const &_fun
+	Fun const &_fun,
+	mizuiro::image::algorithm::uninitialized const _uninitialized
 )
 {
-	mizuiro::image::algorithm::unary_iteration(
-		mizuiro::image::algorithm::detail::fill<
-			Fun
-		>(
-			_fun
-		),
-		_dest,
-		mizuiro::image::algorithm::make_iterator_identity()
+	mizuiro::image::algorithm::detail::fill<
+		Fun
+	> const function(
+		_fun
 	);
+
+	mizuiro::image::algorithm::make_iterator_identity make_iterator;
+
+	switch(
+		_uninitialized
+	)
+	{
+	case mizuiro::image::algorithm::uninitialized::yes:
+		mizuiro::image::algorithm::unary_iteration(
+			mizuiro::image::algorithm::detail::wrap_prepare<
+				typename
+				ViewD::access
+			>(
+				_dest.format_store(),
+				function
+			),
+			_dest,
+			make_iterator
+		);
+		return;
+	case mizuiro::image::algorithm::uninitialized::no:
+		mizuiro::image::algorithm::unary_iteration(
+			function,
+			_dest,
+			make_iterator
+		);
+		return;
+	}
 }
 
 }

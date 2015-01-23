@@ -14,6 +14,7 @@
 #include <mizuiro/image/store_decl.hpp>
 #include <mizuiro/image/access/store_size.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 
 
 template<
@@ -35,7 +36,6 @@ mizuiro::image::store<
 	size_(
 		_size
 	),
-	// FIXME: Stores must be initialized for some formats
 	data_(
 		mizuiro::image::access::store_size<
 			access
@@ -88,7 +88,8 @@ mizuiro::image::store<
 {
 	mizuiro::image::algorithm::fill_c(
 		this->view(),
-		_init
+		_init,
+		mizuiro::image::algorithm::uninitialized::yes
 	);
 }
 

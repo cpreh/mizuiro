@@ -9,6 +9,7 @@
 
 #include <mizuiro/image/algorithm/can_copy.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/algorithm/detail/copy_impl.hpp>
 
 
@@ -28,7 +29,8 @@ void
 copy(
 	ViewS const &_src,
 	ViewD const &_dest,
-	mizuiro::image::algorithm::may_overlap const _overlap
+	mizuiro::image::algorithm::may_overlap const _overlap,
+	mizuiro::image::algorithm::uninitialized const _uninitialized
 )
 {
 	static_assert(
@@ -42,7 +44,8 @@ copy(
 	mizuiro::image::algorithm::detail::copy_impl(
 		_src,
 		_dest,
-		_overlap
+		_overlap,
+		_uninitialized
 	);
 }
 

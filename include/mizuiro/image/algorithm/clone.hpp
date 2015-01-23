@@ -10,6 +10,7 @@
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/algorithm/copy.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 
 
 namespace mizuiro
@@ -50,7 +51,8 @@ clone(
 				mizuiro::image::algorithm::copy(
 					_src,
 					_view,
-					mizuiro::image::algorithm::may_overlap::no
+					mizuiro::image::algorithm::may_overlap::no,
+					mizuiro::image::algorithm::uninitialized::yes
 				);
 			},
 			_src.format_store()

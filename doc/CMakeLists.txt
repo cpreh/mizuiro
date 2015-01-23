@@ -50,8 +50,11 @@ set(
 	examples/raw_sub_view.cpp
 	examples/raw_view.cpp
 	examples/sub_view.cpp
+	include/mizuiro/access/is.hpp
 	include/mizuiro/access/normal.hpp
+	include/mizuiro/access/normal_fwd.hpp
 	include/mizuiro/access/raw.hpp
+	include/mizuiro/access/raw_fwd.hpp
 	include/mizuiro/apply_const.hpp
 	include/mizuiro/array.hpp
 	include/mizuiro/color/access/channel_index.hpp
@@ -379,6 +382,8 @@ set(
 	include/mizuiro/empty_fwd.hpp
 	include/mizuiro/enum_size.hpp
 	include/mizuiro/enum_size_fwd.hpp
+	include/mizuiro/image/access/data.hpp
+	include/mizuiro/image/access/data_ns/tag.hpp
 	include/mizuiro/image/access/dereference.hpp
 	include/mizuiro/image/access/dereference_ns/tag.hpp
 	include/mizuiro/image/access/store_size.hpp
@@ -406,12 +411,14 @@ set(
 	include/mizuiro/image/algorithm/detail/fill.hpp
 	include/mizuiro/image/algorithm/detail/fill_indexed.hpp
 	include/mizuiro/image/algorithm/detail/iteration_to_fold_function.hpp
+	include/mizuiro/image/algorithm/detail/prepare.hpp
 	include/mizuiro/image/algorithm/detail/print.hpp
 	include/mizuiro/image/algorithm/detail/unary_fold.hpp
 	include/mizuiro/image/algorithm/detail/unwrap_binary_both.hpp
 	include/mizuiro/image/algorithm/detail/unwrap_binary_first.hpp
 	include/mizuiro/image/algorithm/detail/unwrap_binary_second.hpp
 	include/mizuiro/image/algorithm/detail/unwrap_unary.hpp
+	include/mizuiro/image/algorithm/detail/wrap_prepare.hpp
 	include/mizuiro/image/algorithm/equal.hpp
 	include/mizuiro/image/algorithm/fill.hpp
 	include/mizuiro/image/algorithm/fill_c.hpp
@@ -425,6 +432,8 @@ set(
 	include/mizuiro/image/algorithm/transform.hpp
 	include/mizuiro/image/algorithm/unary_fold.hpp
 	include/mizuiro/image/algorithm/unary_iteration.hpp
+	include/mizuiro/image/algorithm/uninitialized.hpp
+	include/mizuiro/image/algorithm/uninitialized_fwd.hpp
 	include/mizuiro/image/basic_iterator_decl.hpp
 	include/mizuiro/image/basic_iterator_fwd.hpp
 	include/mizuiro/image/basic_iterator_impl.hpp
@@ -463,6 +472,7 @@ set(
 	include/mizuiro/image/detail/pitch_iterator_fwd.hpp
 	include/mizuiro/image/detail/pitch_iterator_impl.hpp
 	include/mizuiro/image/detail/pitch_iterator_position.hpp
+	include/mizuiro/image/detail/prepare_store_units.hpp
 	include/mizuiro/image/detail/raw_view_from_pointer.hpp
 	include/mizuiro/image/detail/relative_position.hpp
 	include/mizuiro/image/detail/stacked_dim.hpp
@@ -490,8 +500,10 @@ set(
 	include/mizuiro/image/format/interleaved_impl.hpp
 	include/mizuiro/image/format/interleaved_ns/can_copy.hpp
 	include/mizuiro/image/format/interleaved_ns/can_copy_in_place.hpp
+	include/mizuiro/image/format/interleaved_ns/data.hpp
 	include/mizuiro/image/format/interleaved_ns/dereference.hpp
 	include/mizuiro/image/format/interleaved_ns/needs_format_store.hpp
+	include/mizuiro/image/format/interleaved_ns/needs_prepare.hpp
 	include/mizuiro/image/format/interleaved_ns/pointer.hpp
 	include/mizuiro/image/format/interleaved_ns/reference.hpp
 	include/mizuiro/image/format/interleaved_ns/store_normal.hpp
@@ -537,6 +549,7 @@ set(
 	include/mizuiro/image/pitch_view_decl.hpp
 	include/mizuiro/image/pitch_view_fwd.hpp
 	include/mizuiro/image/pitch_view_impl.hpp
+	include/mizuiro/image/prepare_store_units.hpp
 	include/mizuiro/image/raw_container_decl.hpp
 	include/mizuiro/image/raw_container_fwd.hpp
 	include/mizuiro/image/raw_container_impl.hpp
@@ -552,6 +565,8 @@ set(
 	include/mizuiro/image/types/can_copy_ns/tag.hpp
 	include/mizuiro/image/types/needs_format_store.hpp
 	include/mizuiro/image/types/needs_format_store_ns/tag.hpp
+	include/mizuiro/image/types/needs_prepare.hpp
+	include/mizuiro/image/types/needs_prepare_ns/tag.hpp
 	include/mizuiro/image/types/pointer.hpp
 	include/mizuiro/image/types/pointer_ns/tag.hpp
 	include/mizuiro/image/types/reference.hpp

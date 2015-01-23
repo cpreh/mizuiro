@@ -10,9 +10,9 @@
 #include <mizuiro/detail/copy.hpp>
 #include <mizuiro/detail/copy_overlap.hpp>
 #include <mizuiro/image/linear_view_fwd.hpp>
-#include <mizuiro/image/algorithm/binary_iteration.hpp>
-#include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
+#include <mizuiro/image/algorithm/transform.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/algorithm/detail/copy_element.hpp>
 
 
@@ -27,18 +27,20 @@ template<
 	typename ViewS,
 	typename ViewD
 >
+inline
 void
 copy_same_channel_order(
 	ViewS const &_src,
 	ViewD const &_dest,
-	mizuiro::image::algorithm::may_overlap
+	mizuiro::image::algorithm::may_overlap,
+	mizuiro::image::algorithm::uninitialized const _uninitialized
 )
 {
-	mizuiro::image::algorithm::binary_iteration(
-		mizuiro::image::algorithm::detail::copy_element(),
+	mizuiro::image::algorithm::transform(
 		_src,
 		_dest,
-		mizuiro::image::algorithm::make_iterator_identity()
+		mizuiro::image::algorithm::detail::copy_element{},
+		_uninitialized
 	);
 }
 
@@ -50,6 +52,7 @@ template<
 	typename Format2,
 	typename Constness2
 >
+inline
 void
 copy_same_channel_order(
 	mizuiro::image::linear_view<
@@ -62,7 +65,8 @@ copy_same_channel_order(
 		Format2,
 		Constness2
 	> const &_dest,
-	mizuiro::image::algorithm::may_overlap const _overlap
+	mizuiro::image::algorithm::may_overlap const _overlap,
+	mizuiro::image::algorithm::uninitialized
 )
 {
 	switch(

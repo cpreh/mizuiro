@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HETEROGENOUS_NS_STORE_UNIT_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HETEROGENOUS_NS_STORE_UNIT_HPP_INCLUDED
 
+#include <mizuiro/color/format/heterogenous_ns/store.hpp>
 #include <mizuiro/color/format/heterogenous_ns/tag.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/types/store_unit_ns/tag.hpp>
@@ -25,9 +26,7 @@ template<
 	typename Format
 >
 mizuiro::color::types::store<
-	mizuiro::color::format::heterogenous_ns::tag<
-		Format
-	>
+	Format
 >
 store_unit_adl(
 	mizuiro::color::types::store_unit_ns::tag,

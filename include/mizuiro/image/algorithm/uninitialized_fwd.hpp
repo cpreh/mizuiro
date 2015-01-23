@@ -4,21 +4,20 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_ACCESS_NORMAL_HPP_INCLUDED
-#define MIZUIRO_ACCESS_NORMAL_HPP_INCLUDED
-
-#include <mizuiro/access/normal_fwd.hpp>
+#ifndef MIZUIRO_IMAGE_ALGORITHM_UNINITIALIZED_FWD_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ALGORITHM_UNINITIALIZED_FWD_HPP_INCLUDED
 
 
 namespace mizuiro
 {
-namespace access
+namespace image
+{
+namespace algorithm
 {
 
-struct normal
-{
-};
+enum class uninitialized;
 
+}
 }
 }
 

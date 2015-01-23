@@ -8,6 +8,7 @@
 #define MIZUIRO_IMAGE_ALGORITHM_FILL_C_HPP_INCLUDED
 
 #include <mizuiro/image/algorithm/fill.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 
 
 namespace mizuiro
@@ -21,10 +22,12 @@ template<
 	typename ViewD,
 	typename Value
 >
+inline
 void
 fill_c(
 	ViewD const &_dest,
-	Value const &_value
+	Value const &_value,
+	mizuiro::image::algorithm::uninitialized const _uninitialized
 )
 {
 	mizuiro::image::algorithm::fill(
@@ -35,7 +38,8 @@ fill_c(
 		{
 			return
 				_value;
-		}
+		},
+		_uninitialized
 	);
 }
 

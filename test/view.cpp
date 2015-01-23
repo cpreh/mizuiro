@@ -17,6 +17,7 @@
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/view.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -173,7 +174,8 @@ MIZUIRO_DETAIL_POP_WARNING
 				>(
 					mizuiro::color::init::red() =
 						 static_cast<channel_type>(42)
-				)
+				),
+				mizuiro::image::algorithm::uninitialized::yes
 			);
 		}
 	);

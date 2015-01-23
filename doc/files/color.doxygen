@@ -64,4 +64,90 @@ Accessing a color is done in a similar way:
 
 \snippet format.cpp includes_access
 \snippet format.cpp object_access
+
+
+\section color_format_definition Color Format Definition
+
+Common definitions:
+
+normal, raw : Access
+
+const, nonconst : Constness
+
+apply_const : Type -> Constness -> Type
+
+Formats and stores:
+
+Given Channel, the type of channels, a color format has the following properties:
+
+channel_value : Channel -> Type
+
+For each c : Channel and T = channel_value(c):
+  - T is totally ordered using <
+  - channel_min, channel_max : Channel -> channel_value(Channel)
+  - T's value range is [channel_min(c), channel_max(c)]
+
+store is a type with the following properties:
+
+For each c : Channel, define the store's associated value
+s(c) : channel_value(c) (c \in [channel_min(c), channel_max(c)])
+such that:
+  - pointer : (Access, Constness) -> Type
+    A type representing a pointer to the store's memory.
+  - store_data : Constness -> apply_const(store, Constness) -> pointer(normal, Constness)
+    Returns a pointer to the store's memory.
+  - channel_reference : (Access, Constness, Channel) -> Type
+    The type used to represent a reference to a channel.
+  - extract_channel : Access -> Channel -> pointer(Access, Constness) -> channel_reference(Access, Constness, Channel)
+    Provides access to a channel.
+
+Very abstract semantics:
+
+for each c : Channel and v : channel_value(c):
+
+Define set(c, v) = extract_channel(normal, nonconst, store_data(nonconst, s)) <- v and
+get(c) = extract_channel(normal, const, store_data(const, s)) then the following holds:
+
+get(c) = s(c)
+
+For all c' : Channel, c' != c
+Let v' = s(c').
+After set(c, v), it holds that
+s(c) = v and s(c') = v'.
+
+
+In C++:
+
+apply_const (Type, nonconst) = Type
+apply_const (Type, const) = make_const Type
+
+make_const : Type -> Type
+make_const t =
+  u const & if t = u &,
+  u const * if t = u *,
+  t otherwise
+
+to_static_channel : Channel -> StaticChannel
+
+store :: Format -> Type
+channel_reference :: Access -> Format -> Channel -> Constness -> Type
+channel_value :: Format -> Channel -> Type
+needs_format_store :: Format -> Bool
+pointer :: Access -> Format -> Constness -> Type
+static_channels :: Format -> [StaticChannel]
+store_needs_init :: Format -> Bool
+store_data :: Constness -> apply_const<Store<Format>, Constness> -> pointer<Normal, Format, Constness>
+
+channel_max :: FormatStore<Format> -> Channel -> channel_value<Format, Channel>
+channel_min :: FormatStore<Format> -> Channel -> channel_value<Format, Channel>
+compare_channels :: FormatStore<Format> -> StaticChannel -> Channel -> bool
+extract_channel :: FormatStore<Format> -> Channel -> pointer<Access, Format, Constness> -> channel_reference<Access, Constness, Format, Channel>
+layout :: FormatStore<Format> -> [Channel]
+has_channel :: FormatStore<Format> -> Type -> bool
+init_store :: store<Format>
+
+store_unit :: Format -> Type
+stride :: FormatStore<Format> -> size_type
+
+channel_index :: FormatStore<Format> -> Channel -> size_type TODO: Why do we need this?
 */

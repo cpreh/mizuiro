@@ -26,6 +26,7 @@
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/algorithm/transform.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -200,7 +201,8 @@ int main()
 					img1.view()
 				),
 				_dest,
-				mizuiro::image::algorithm::may_overlap::no
+				mizuiro::image::algorithm::may_overlap::no,
+				mizuiro::image::algorithm::uninitialized::yes
 			);
 		}
 	};
@@ -226,7 +228,8 @@ int main()
 	mizuiro::image::algorithm::transform(
 		img2.view(),
 		img1.view(),
-		transform_test()
+		transform_test(),
+		mizuiro::image::algorithm::uninitialized::no
 	);
 
 	std::cout << "after transform\n";

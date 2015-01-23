@@ -11,6 +11,7 @@
 #include <mizuiro/image/algorithm/copy_different_channel_order.hpp>
 #include <mizuiro/image/algorithm/copy_same_channel_order.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -40,13 +41,15 @@ std::enable_if<
 copy_impl(
 	ViewS const &_src,
 	ViewD const &_dest,
-	mizuiro::image::algorithm::may_overlap const _overlap
+	mizuiro::image::algorithm::may_overlap const _overlap,
+	mizuiro::image::algorithm::uninitialized const _uninitialized
 )
 {
 	mizuiro::image::algorithm::copy_different_channel_order(
 		_src,
 		_dest,
-		_overlap
+		_overlap,
+		_uninitialized
 	);
 }
 
@@ -65,13 +68,15 @@ std::enable_if<
 copy_impl(
 	ViewS const &_src,
 	ViewD const &_dest,
-	mizuiro::image::algorithm::may_overlap const _overlap
+	mizuiro::image::algorithm::may_overlap const _overlap,
+	mizuiro::image::algorithm::uninitialized const _uninitialized
 )
 {
 	mizuiro::image::algorithm::copy_same_channel_order(
 		_src,
 		_dest,
-		_overlap
+		_overlap,
+		_uninitialized
 	);
 }
 
