@@ -23,6 +23,7 @@
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/algorithm/copy_and_convert.hpp>
 #include <mizuiro/image/algorithm/equal.hpp>
+#include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/algorithm/transform.hpp>
@@ -229,6 +230,7 @@ int main()
 		img2.view(),
 		img1.view(),
 		transform_test(),
+		mizuiro::image::algorithm::make_iterator_identity{},
 		mizuiro::image::algorithm::uninitialized::no
 	);
 

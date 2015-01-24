@@ -13,6 +13,8 @@
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/algorithm/for_each.hpp>
+#include <mizuiro/image/algorithm/make_iterator_identity.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -82,7 +84,9 @@ main()
 		{
 			mizuiro::image::algorithm::for_each(
 				_view,
-				set_color()
+				set_color(),
+				mizuiro::image::algorithm::make_iterator_identity{},
+				mizuiro::image::algorithm::uninitialized::yes
 			);
 		}
 	};

@@ -21,6 +21,7 @@
 #include <mizuiro/image/to_pitch_view.hpp>
 #include <mizuiro/image/algorithm/fill_indexed.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -84,7 +85,8 @@ main()
 							(mizuiro::color::init::blue() = static_cast<channel_type>(255))
 							(mizuiro::color::init::alpha() = static_cast<channel_type>(255))
 						);
-				}
+				},
+				mizuiro::image::algorithm::uninitialized::yes
 			);
 		}
 	};

@@ -9,6 +9,7 @@
 
 #include <mizuiro/image/algorithm/can_copy.hpp>
 #include <mizuiro/image/algorithm/copy.hpp>
+#include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/transform.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
@@ -52,6 +53,7 @@ copy_and_convert(
 		mizuiro::image::algorithm::detail::copy_and_convert<
 			Converter
 		>{},
+		mizuiro::image::algorithm::make_iterator_identity{},
 		_uninitialized
 	);
 }

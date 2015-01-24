@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_FILL_INDEXED_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_FILL_INDEXED_HPP_INCLUDED
 
+#include <mizuiro/image/algorithm/for_each.hpp>
 #include <mizuiro/image/algorithm/make_iterator_indexed.hpp>
-#include <mizuiro/image/algorithm/unary_iteration.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/algorithm/detail/fill_indexed.hpp>
 
 
@@ -26,17 +27,19 @@ template<
 void
 fill_indexed(
 	ViewD const &_dest,
-	Fun const &_fun
+	Fun const &_fun,
+	mizuiro::image::algorithm::uninitialized const _uninitialized
 )
 {
-	mizuiro::image::algorithm::unary_iteration(
+	mizuiro::image::algorithm::for_each(
+		_dest,
 		mizuiro::image::algorithm::detail::fill_indexed<
 			Fun
 		>(
 			_fun
 		),
-		_dest,
-		mizuiro::image::algorithm::make_iterator_indexed()
+		mizuiro::image::algorithm::make_iterator_indexed{},
+		_uninitialized
 	);
 }
 

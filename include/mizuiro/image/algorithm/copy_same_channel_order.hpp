@@ -10,6 +10,7 @@
 #include <mizuiro/detail/copy.hpp>
 #include <mizuiro/detail/copy_overlap.hpp>
 #include <mizuiro/image/linear_view_fwd.hpp>
+#include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/transform.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
@@ -40,6 +41,7 @@ copy_same_channel_order(
 		_src,
 		_dest,
 		mizuiro::image::algorithm::detail::copy_element{},
+		mizuiro::image::algorithm::make_iterator_identity{},
 		_uninitialized
 	);
 }

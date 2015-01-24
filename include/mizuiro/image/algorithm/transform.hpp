@@ -8,7 +8,6 @@
 #define MIZUIRO_IMAGE_ALGORITHM_TRANSFORM_HPP_INCLUDED
 
 #include <mizuiro/image/algorithm/binary_iteration.hpp>
-#include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/algorithm/detail/wrap_prepare.hpp>
 
@@ -23,7 +22,8 @@ namespace algorithm
 template<
 	typename ViewS,
 	typename ViewD,
-	typename Fun
+	typename Fun,
+	typename MakeIterator
 >
 inline
 void
@@ -31,11 +31,10 @@ transform(
 	ViewS const &_source,
 	ViewD const &_dest,
 	Fun const &_fun,
+	MakeIterator const _make_iterator,
 	mizuiro::image::algorithm::uninitialized const _uninitialized
 )
 {
-	mizuiro::image::algorithm::make_iterator_identity const make_iterator{};
-
 	switch(
 		_uninitialized
 	)
@@ -51,7 +50,7 @@ transform(
 			),
 			_source,
 			_dest,
-			make_iterator
+			_make_iterator
 		);
 		return;
 	case mizuiro::image::algorithm::uninitialized::no:
@@ -59,7 +58,7 @@ transform(
 			_fun,
 			_source,
 			_dest,
-			make_iterator
+			_make_iterator
 		);
 		return;
 	}

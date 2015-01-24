@@ -7,11 +7,10 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_FILL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_FILL_HPP_INCLUDED
 
+#include <mizuiro/image/algorithm/for_each.hpp>
 #include <mizuiro/image/algorithm/make_iterator_identity.hpp>
-#include <mizuiro/image/algorithm/unary_iteration.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/algorithm/detail/fill.hpp>
-#include <mizuiro/image/algorithm/detail/wrap_prepare.hpp>
 
 
 namespace mizuiro
@@ -33,39 +32,16 @@ fill(
 	mizuiro::image::algorithm::uninitialized const _uninitialized
 )
 {
-	mizuiro::image::algorithm::detail::fill<
-		Fun
-	> const function(
-		_fun
-	);
-
-	mizuiro::image::algorithm::make_iterator_identity make_iterator;
-
-	switch(
+	mizuiro::image::algorithm::for_each(
+		_dest,
+		mizuiro::image::algorithm::detail::fill<
+			Fun
+		>(
+			_fun
+		),
+		mizuiro::image::algorithm::make_iterator_identity{},
 		_uninitialized
-	)
-	{
-	case mizuiro::image::algorithm::uninitialized::yes:
-		mizuiro::image::algorithm::unary_iteration(
-			mizuiro::image::algorithm::detail::wrap_prepare<
-				typename
-				ViewD::access
-			>(
-				_dest.format_store(),
-				function
-			),
-			_dest,
-			make_iterator
-		);
-		return;
-	case mizuiro::image::algorithm::uninitialized::no:
-		mizuiro::image::algorithm::unary_iteration(
-			function,
-			_dest,
-			make_iterator
-		);
-		return;
-	}
+	);
 }
 
 }

@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_FOR_EACH_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_FOR_EACH_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/unary_iteration.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
+#include <mizuiro/image/algorithm/detail/wrap_prepare.hpp>
 
 
 namespace mizuiro
@@ -20,22 +21,43 @@ namespace algorithm
 
 template<
 	typename View,
-	typename Fun
+	typename Function,
+	typename MakeIterator
 >
-Fun
+inline
+void
 for_each(
 	View const &_view,
-	Fun const &_fun
+	Function const &_function,
+	MakeIterator const _make_iterator,
+	mizuiro::image::algorithm::uninitialized const _uninitialized
 )
 {
-	mizuiro::image::algorithm::unary_iteration(
-		_fun,
-		_view,
-		mizuiro::image::algorithm::make_iterator_identity()
-	);
-
-	return
-		_fun;
+	switch(
+		_uninitialized
+	)
+	{
+	case mizuiro::image::algorithm::uninitialized::yes:
+		mizuiro::image::algorithm::unary_iteration(
+			mizuiro::image::algorithm::detail::wrap_prepare<
+				typename
+				View::access
+			>(
+				_view.format_store(),
+				_function
+			),
+			_view,
+			_make_iterator
+		);
+		return;
+	case mizuiro::image::algorithm::uninitialized::no:
+		mizuiro::image::algorithm::unary_iteration(
+			_function,
+			_view,
+			_make_iterator
+		);
+		return;
+	}
 }
 
 }
