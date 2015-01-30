@@ -10,6 +10,7 @@
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/channel/undefined.hpp>
 #include <mizuiro/mpl/cons.hpp>
+#include <mizuiro/mpl/include/list.hpp>
 
 
 namespace mizuiro

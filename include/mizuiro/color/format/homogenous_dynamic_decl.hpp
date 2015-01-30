@@ -14,6 +14,7 @@
 #include <mizuiro/color/layout/all_possible_channels.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 #include <mizuiro/mpl/size.hpp>
+#include <mizuiro/mpl/include/list.hpp>
 
 
 namespace mizuiro
