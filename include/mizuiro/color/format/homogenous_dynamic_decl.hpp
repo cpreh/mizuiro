@@ -66,11 +66,11 @@ public:
 	channel_index_array;
 
 	template<
-		typename UsedChannels
+		typename Layout
 	>
 	explicit
 	homogenous_dynamic(
-		UsedChannels const &
+		Layout const &
 	);
 
 	homogenous_dynamic(

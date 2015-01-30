@@ -15,13 +15,13 @@
 #include <mizuiro/color/init/blue.hpp>
 #include <mizuiro/color/init/green.hpp>
 #include <mizuiro/color/init/red.hpp>
+#include <mizuiro/color/layout/rgb.hpp>
 #include <mizuiro/color/space/rgb.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved.hpp>
-#include <mizuiro/mpl/list.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <cstdint>
 #include <iostream>
@@ -40,11 +40,7 @@ main()
 	color_uint8_3_format;
 
 	color_uint8_3_format const rgb_format{
-		mizuiro::mpl::list<
-			mizuiro::color::channel::red,
-			mizuiro::color::channel::green,
-			mizuiro::color::channel::blue
-		>()
+		mizuiro::color::layout::rgb{}
 	};
 
 	typedef

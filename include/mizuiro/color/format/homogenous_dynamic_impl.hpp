@@ -10,28 +10,32 @@
 #include <mizuiro/color/detail/dynamic/initialize_indices.hpp>
 #include <mizuiro/color/detail/dynamic/make_channels.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_decl.hpp>
+#include <mizuiro/detail/external_begin.hpp>
+#include <type_traits>
+#include <mizuiro/detail/external_end.hpp>
 
 
 template<
 	typename ChannelType,
-	typename Channels,
+	typename Space,
 	mizuiro::size_type ChannelCount
 >
 template<
-	typename UsedChannels
+	typename Layout
 >
 mizuiro::color::format::homogenous_dynamic<
 	ChannelType,
-	Channels,
+	Space,
 	ChannelCount
 >::homogenous_dynamic(
-	UsedChannels const &
+	Layout const &
 )
 :
 	channels(
 		mizuiro::color::detail::dynamic::make_channels<
 			all_possible_channels,
-			UsedChannels
+			typename
+			Layout::channels
 		>()
 	),
 	indices(
@@ -42,16 +46,24 @@ mizuiro::color::format::homogenous_dynamic<
 		)
 	)
 {
+	static_assert(
+		std::is_same<
+			Space,
+			typename
+			Layout::space
+		>::value,
+		"Color spaces must match"
+	);
 }
 
 template<
 	typename ChannelType,
-	typename Channels,
+	typename Space,
 	mizuiro::size_type ChannelCount
 >
 mizuiro::color::format::homogenous_dynamic<
 	ChannelType,
-	Channels,
+	Space,
 	ChannelCount
 >::homogenous_dynamic(
 	homogenous_dynamic const &

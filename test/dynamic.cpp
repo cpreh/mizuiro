@@ -16,8 +16,8 @@
 #include <mizuiro/color/init/blue.hpp>
 #include <mizuiro/color/init/green.hpp>
 #include <mizuiro/color/init/red.hpp>
+#include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/space/rgb.hpp>
-#include <mizuiro/mpl/list.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -43,12 +43,7 @@ MIZUIRO_DETAIL_POP_WARNING
 	color_uint8_4_format;
 
 	color_uint8_4_format const rgba_format{
-		mizuiro::mpl::list<
-			mizuiro::color::channel::red,
-			mizuiro::color::channel::green,
-			mizuiro::color::channel::blue,
-			mizuiro::color::channel::alpha
-		>()
+		mizuiro::color::layout::rgba{}
 	};
 
 	typedef
