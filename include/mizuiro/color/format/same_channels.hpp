@@ -4,10 +4,11 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_LAYOUT_SAME_CHANNELS_HPP_INCLUDED
-#define MIZUIRO_COLOR_LAYOUT_SAME_CHANNELS_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_FORMAT_SAME_CHANNELS_HPP_INCLUDED
+#define MIZUIRO_COLOR_FORMAT_SAME_CHANNELS_HPP_INCLUDED
 
 #include <mizuiro/color/layout/detail/has_all_channels.hpp>
+#include <mizuiro/color/types/static_channels.hpp>
 #include <mizuiro/mpl/bool.hpp>
 
 
@@ -15,28 +16,32 @@ namespace mizuiro
 {
 namespace color
 {
-namespace layout
+namespace format
 {
 
 template<
-	typename Layout1,
-	typename Layout2
+	typename Format1,
+	typename Format2
 >
 using same_channels
 =
 mizuiro::mpl::bool_<
 	mizuiro::color::layout::detail::has_all_channels<
-		typename
-		Layout1::order,
-		typename
-		Layout2::order
+		mizuiro::color::types::static_channels<
+			Format1
+		>,
+		mizuiro::color::types::static_channels<
+			Format2
+		>
 	>::value
 	&&
 	mizuiro::color::layout::detail::has_all_channels<
-		typename
-		Layout2::order,
-		typename
-		Layout1::order
+		mizuiro::color::types::static_channels<
+			Format2
+		>,
+		mizuiro::color::types::static_channels<
+			Format1
+		>
 	>::value
 >;
 

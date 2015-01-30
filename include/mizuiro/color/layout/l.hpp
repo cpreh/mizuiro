@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_LAYOUT_L_HPP_INCLUDED
 
 #include <mizuiro/color/channel/luminance.hpp>
+#include <mizuiro/color/layout/make.hpp>
 #include <mizuiro/color/space/luminance.hpp>
 #include <mizuiro/mpl/list.hpp>
 
@@ -20,7 +21,8 @@ namespace layout
 {
 
 typedef
-mizuiro::color::space::luminance<
+mizuiro::color::layout::make<
+	mizuiro::color::space::luminance,
 	mizuiro::mpl::list<
 		mizuiro::color::channel::luminance
 	>

@@ -9,7 +9,7 @@
 
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/conversion/same_to_same.hpp>
-#include <mizuiro/color/layout/is_same.hpp>
+#include <mizuiro/color/format/same_spaces.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -28,11 +28,10 @@ template<
 >
 typename
 std::enable_if<
-	mizuiro::color::layout::is_same<
+	mizuiro::color::format::same_spaces<
+		Dest,
 		typename
-		Dest::layout,
-		typename
-		Src::format::layout
+		Src::format
 	>::value,
 	mizuiro::color::object<
 		Dest

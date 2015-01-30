@@ -9,6 +9,7 @@
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/channel/tag.hpp>
+#include <mizuiro/color/detail/channel_index.hpp>
 #include <mizuiro/color/detail/static_to_dynamic_channel.hpp>
 
 
@@ -25,15 +26,11 @@ template<
 inline
 mizuiro::size_type
 dynamic_channel_to_pos(
-	typename Format::available_channels const _channel
+	mizuiro::color::detail::channel_index const _channel
 )
 {
 	return
-		static_cast<
-			mizuiro::size_type
-		>(
-			_channel
-		);
+		_channel.get();
 }
 
 template<

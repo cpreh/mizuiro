@@ -7,7 +7,6 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_FWD_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_FWD_HPP_INCLUDED
 
-#include <mizuiro/enum_size.hpp>
 #include <mizuiro/size_type.hpp>
 
 
@@ -20,12 +19,8 @@ namespace format
 
 template<
 	typename ChannelType,
-	typename AvailableChannels,
-	mizuiro::size_type ChannelCount,
-	mizuiro::size_type NumAvailableChannels =
-		mizuiro::enum_size<
-			AvailableChannels
-		>::value
+	typename Channels,
+	mizuiro::size_type ChannelCount
 >
 struct homogenous_dynamic;
 

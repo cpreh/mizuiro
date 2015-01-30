@@ -52,7 +52,7 @@ private:
 				Format::channel_bits,
 				mizuiro::mpl::index_of<
 					typename
-					Format::layout::order,
+					Format::layout::channels,
 					Channel
 				>()
 			>

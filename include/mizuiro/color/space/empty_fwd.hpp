@@ -15,9 +15,6 @@ namespace color
 namespace space
 {
 
-template<
-	typename Order
->
 struct empty;
 
 }

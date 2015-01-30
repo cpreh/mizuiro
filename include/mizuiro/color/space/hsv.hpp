@@ -10,10 +10,8 @@
 #include <mizuiro/color/channel/hue_fwd.hpp>
 #include <mizuiro/color/channel/saturation_fwd.hpp>
 #include <mizuiro/color/channel/value_fwd.hpp>
-#include <mizuiro/color/space/base.hpp>
 #include <mizuiro/color/space/hsv_fwd.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
+#include <mizuiro/mpl/list.hpp>
 
 
 namespace mizuiro
@@ -23,23 +21,16 @@ namespace color
 namespace space
 {
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
-template<
-	typename Order
->
 struct hsv
-:
-mizuiro::color::space::base<
-	Order,
-	mizuiro::color::channel::hue,
-	mizuiro::color::channel::saturation,
-	mizuiro::color::channel::value
->
 {
+	typedef
+	mizuiro::mpl::list<
+		mizuiro::color::channel::hue,
+		mizuiro::color::channel::saturation,
+		mizuiro::color::channel::value
+	>
+	required_channels;
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

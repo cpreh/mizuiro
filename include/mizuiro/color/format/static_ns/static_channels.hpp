@@ -24,7 +24,7 @@ template<
 	typename Format
 >
 typename
-Format::layout::order
+Format::channels
 static_channels_adl(
 	mizuiro::color::types::static_channels_ns::tag,
 	mizuiro::color::format::static_ns::tag<

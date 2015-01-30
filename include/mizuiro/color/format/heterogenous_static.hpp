@@ -30,7 +30,8 @@ struct heterogenous_static
 		>()
 		==
 		mizuiro::mpl::size<
-			typename Layout::order
+			typename
+			Layout::channels
 		>(),
 		"Number of channels doesn't match the layout"
 	);
@@ -45,8 +46,13 @@ struct heterogenous_static
 
 	typedef
 	typename
-	Layout::order
-	order;
+	Layout::channels
+	channels;
+
+	typedef
+	typename
+	Layout::space
+	space;
 };
 
 }

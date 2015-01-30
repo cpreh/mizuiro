@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_LAYOUT_R_HPP_INCLUDED
 
 #include <mizuiro/color/channel/red.hpp>
+#include <mizuiro/color/layout/make.hpp>
 #include <mizuiro/color/space/r.hpp>
 #include <mizuiro/mpl/list.hpp>
 
@@ -20,7 +21,8 @@ namespace layout
 {
 
 typedef
-mizuiro::color::space::r<
+mizuiro::color::layout::make<
+	mizuiro::color::space::r,
 	mizuiro::mpl::list<
 		mizuiro::color::channel::red
 	>

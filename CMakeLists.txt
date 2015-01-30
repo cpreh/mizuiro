@@ -252,8 +252,10 @@ set(
 	include/mizuiro/color/denormalize.hpp
 	include/mizuiro/color/detail/bit_channel_access_normal.hpp
 	include/mizuiro/color/detail/bit_channel_access_raw.hpp
+	include/mizuiro/color/detail/channel_index.hpp
 	include/mizuiro/color/detail/compare.hpp
 	include/mizuiro/color/detail/copy_channel.hpp
+	include/mizuiro/color/detail/dynamic_channel_array.hpp
 	include/mizuiro/color/detail/dynamic_channel_to_pos.hpp
 	include/mizuiro/color/detail/for_some_channels_function.hpp
 	include/mizuiro/color/detail/full_channel_max.hpp
@@ -262,6 +264,8 @@ set(
 	include/mizuiro/color/detail/heterogenous_channel_bits.hpp
 	include/mizuiro/color/detail/initialize_dynamic_indices.hpp
 	include/mizuiro/color/detail/invalid_dynamic_index.hpp
+	include/mizuiro/color/detail/make_dynamic_channels.hpp
+	include/mizuiro/color/detail/make_dynamic_channels_impl.hpp
 	include/mizuiro/color/detail/output_channel.hpp
 	include/mizuiro/color/detail/raw_channel_access.hpp
 	include/mizuiro/color/detail/static_to_dynamic_channel.hpp
@@ -284,7 +288,6 @@ set(
 	include/mizuiro/color/format/dynamic_ns/layout.hpp
 	include/mizuiro/color/format/dynamic_ns/needs_format_store.hpp
 	include/mizuiro/color/format/dynamic_ns/static_channels.hpp
-	include/mizuiro/color/format/dynamic_ns/static_to_dynamic_channel_fwd.hpp
 	include/mizuiro/color/format/dynamic_ns/tag.hpp
 	include/mizuiro/color/format/has_channel_static.hpp
 	include/mizuiro/color/format/heterogenous_ns/channel_reference_normal.hpp
@@ -341,6 +344,8 @@ set(
 	include/mizuiro/color/format/might_have_channel.hpp
 	include/mizuiro/color/format/raw_ns/pointer.hpp
 	include/mizuiro/color/format/same_channel_value_types.hpp
+	include/mizuiro/color/format/same_channels.hpp
+	include/mizuiro/color/format/same_spaces.hpp
 	include/mizuiro/color/format/static_ns/channel_index.hpp
 	include/mizuiro/color/format/static_ns/compare_channels.hpp
 	include/mizuiro/color/format/static_ns/has_channel.hpp
@@ -378,6 +383,7 @@ set(
 	include/mizuiro/color/init/saturation.hpp
 	include/mizuiro/color/init/value.hpp
 	include/mizuiro/color/is_color.hpp
+	include/mizuiro/color/layout/all_possible_channels.hpp
 	include/mizuiro/color/layout/alpha.hpp
 	include/mizuiro/color/layout/argb.hpp
 	include/mizuiro/color/layout/bgr.hpp
@@ -387,9 +393,9 @@ set(
 	include/mizuiro/color/layout/detail/has_channel.hpp
 	include/mizuiro/color/layout/hsv.hpp
 	include/mizuiro/color/layout/hsva.hpp
-	include/mizuiro/color/layout/is_same.hpp
 	include/mizuiro/color/layout/l.hpp
 	include/mizuiro/color/layout/la.hpp
+	include/mizuiro/color/layout/make.hpp
 	include/mizuiro/color/layout/r.hpp
 	include/mizuiro/color/layout/rgb.hpp
 	include/mizuiro/color/layout/rgba.hpp
@@ -398,7 +404,6 @@ set(
 	include/mizuiro/color/layout/s_bgra.hpp
 	include/mizuiro/color/layout/s_rgb.hpp
 	include/mizuiro/color/layout/s_rgba.hpp
-	include/mizuiro/color/layout/same_channels.hpp
 	include/mizuiro/color/make_compare_function.hpp
 	include/mizuiro/color/make_range.hpp
 	include/mizuiro/color/normalize.hpp
@@ -420,7 +425,6 @@ set(
 	include/mizuiro/color/proxy_fwd.hpp
 	include/mizuiro/color/proxy_impl.hpp
 	include/mizuiro/color/set_percentage.hpp
-	include/mizuiro/color/space/base.hpp
 	include/mizuiro/color/space/empty.hpp
 	include/mizuiro/color/space/empty_fwd.hpp
 	include/mizuiro/color/space/hsv.hpp
@@ -501,8 +505,6 @@ set(
 	include/mizuiro/difference_type.hpp
 	include/mizuiro/empty.hpp
 	include/mizuiro/empty_fwd.hpp
-	include/mizuiro/enum_size.hpp
-	include/mizuiro/enum_size_fwd.hpp
 	include/mizuiro/image/access/data.hpp
 	include/mizuiro/image/access/data_ns/tag.hpp
 	include/mizuiro/image/access/dereference.hpp

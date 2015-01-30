@@ -12,6 +12,7 @@
 #include <mizuiro/color/channel/saturation.hpp>
 #include <mizuiro/color/channel/value.hpp>
 #include <mizuiro/color/space/hsv.hpp>
+#include <mizuiro/color/layout/make.hpp>
 #include <mizuiro/mpl/list.hpp>
 
 
@@ -23,7 +24,8 @@ namespace layout
 {
 
 typedef
-mizuiro::color::space::hsv<
+mizuiro::color::layout::make<
+	mizuiro::color::space::hsv,
 	mizuiro::mpl::list<
 		mizuiro::color::channel::hue,
 		mizuiro::color::channel::saturation,

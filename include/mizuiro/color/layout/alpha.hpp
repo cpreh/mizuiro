@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_LAYOUT_ALPHA_HPP_INCLUDED
 
 #include <mizuiro/color/channel/alpha.hpp>
+#include <mizuiro/color/layout/make.hpp>
 #include <mizuiro/color/space/empty.hpp>
 #include <mizuiro/mpl/list.hpp>
 
@@ -20,7 +21,8 @@ namespace layout
 {
 
 typedef
-mizuiro::color::space::empty<
+mizuiro::color::layout::make<
+	mizuiro::color::space::empty,
 	mizuiro::mpl::list<
 		mizuiro::color::channel::alpha
 	>

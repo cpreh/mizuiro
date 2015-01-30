@@ -27,7 +27,7 @@ template<
 inline
 constexpr
 typename
-Format::layout::order const
+Format::channels const
 layout_adl(
 	mizuiro::color::access::layout_ns::tag,
 	mizuiro::color::format::static_ns::tag<
@@ -39,7 +39,7 @@ layout_adl(
 )
 {
 	return
-		typename Format::layout::order();
+		typename Format::channels();
 }
 
 }

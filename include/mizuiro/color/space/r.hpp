@@ -8,10 +8,8 @@
 #define MIZUIRO_COLOR_SPACE_R_HPP_INCLUDED
 
 #include <mizuiro/color/channel/red_fwd.hpp>
-#include <mizuiro/color/space/base.hpp>
 #include <mizuiro/color/space/r_fwd.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
+#include <mizuiro/mpl/list.hpp>
 
 
 namespace mizuiro
@@ -21,21 +19,14 @@ namespace color
 namespace space
 {
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
-template<
-	typename Order
->
 struct r
-:
-mizuiro::color::space::base<
-	Order,
-	mizuiro::color::channel::red
->
 {
+	typedef
+	mizuiro::mpl::list<
+		mizuiro::color::channel::red
+	>
+	required_channels;
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

@@ -11,6 +11,7 @@
 #include <mizuiro/color/channel/blue.hpp>
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/red.hpp>
+#include <mizuiro/color/layout/make.hpp>
 #include <mizuiro/color/space/rgb.hpp>
 #include <mizuiro/mpl/list.hpp>
 
@@ -23,7 +24,8 @@ namespace layout
 {
 
 typedef
-mizuiro::color::space::rgb<
+mizuiro::color::layout::make<
+	mizuiro::color::space::rgb,
 	mizuiro::mpl::list<
 		mizuiro::color::channel::alpha,
 		mizuiro::color::channel::red,

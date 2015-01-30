@@ -25,16 +25,28 @@ template<
 >
 struct homogenous_static
 {
-	typedef ChannelType channel_type;
+	typedef
+	ChannelType
+	channel_type;
 
-	typedef Layout layout;
+	typedef
+	Layout
+	layout;
 
-	typedef typename Layout::order order;
+	typedef
+	typename
+	Layout::space
+	space;
+
+	typedef
+	typename
+	Layout::channels
+	channels;
 
 	static mizuiro::size_type const element_count
 		=
 		mizuiro::mpl::size<
-			typename layout::order
+			channels
 		>();
 };
 

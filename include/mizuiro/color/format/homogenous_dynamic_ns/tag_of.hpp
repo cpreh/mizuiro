@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_NS_TAG_OF_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_NS_TAG_OF_HPP_INCLUDED
 
-#include <mizuiro/enum_size.hpp>
+#include <mizuiro/size_type.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_fwd.hpp>
 #include <mizuiro/color/format/tag_of_fwd.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_ns/tag.hpp>
@@ -22,17 +22,15 @@ namespace format
 
 template<
 	typename ChannelType,
-	typename AvailableChannels,
-	mizuiro::size_type ChannelCount,
-	mizuiro::size_type NumAvailableChannels
+	typename Space,
+	mizuiro::size_type ChannelCount
 >
 struct
 tag_of<
 	mizuiro::color::format::homogenous_dynamic<
 		ChannelType,
-		AvailableChannels,
-		ChannelCount,
-		NumAvailableChannels
+		Space,
+		ChannelCount
 	>
 >
 {
@@ -40,9 +38,8 @@ tag_of<
 	mizuiro::color::format::homogenous_dynamic_ns::tag<
 		mizuiro::color::format::homogenous_dynamic<
 			ChannelType,
-			AvailableChannels,
-			ChannelCount,
-			NumAvailableChannels
+			Space,
+			ChannelCount
 		>
 	>
 	type;

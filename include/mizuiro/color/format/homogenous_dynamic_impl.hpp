@@ -8,32 +8,37 @@
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_IMPL_HPP_INCLUDED
 
 #include <mizuiro/color/detail/initialize_dynamic_indices.hpp>
+#include <mizuiro/color/detail/make_dynamic_channels.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_decl.hpp>
 
 
 template<
 	typename ChannelType,
-	typename AvailableChannels,
-	mizuiro::size_type ChannelCount,
-	mizuiro::size_type NumAvailableChannels
+	typename Channels,
+	mizuiro::size_type ChannelCount
+>
+template<
+	typename UsedChannels
 >
 mizuiro::color::format::homogenous_dynamic<
 	ChannelType,
-	AvailableChannels,
-	ChannelCount,
-	NumAvailableChannels
+	Channels,
+	ChannelCount
 >::homogenous_dynamic(
-	channel_array const &_order
+	UsedChannels const &
 )
 :
-	order(
-		_order
+	channels(
+		mizuiro::color::detail::make_dynamic_channels<
+			all_possible_channels,
+			UsedChannels
+		>()
 	),
 	indices(
 		mizuiro::color::detail::initialize_dynamic_indices<
 			channel_index_array
 		>(
-			order
+			channels
 		)
 	)
 {
@@ -41,15 +46,13 @@ mizuiro::color::format::homogenous_dynamic<
 
 template<
 	typename ChannelType,
-	typename AvailableChannels,
-	mizuiro::size_type ChannelCount,
-	mizuiro::size_type NumAvailableChannels
+	typename Channels,
+	mizuiro::size_type ChannelCount
 >
 mizuiro::color::format::homogenous_dynamic<
 	ChannelType,
-	AvailableChannels,
-	ChannelCount,
-	NumAvailableChannels
+	Channels,
+	ChannelCount
 >::homogenous_dynamic(
 	homogenous_dynamic const &
 ) noexcept

@@ -15,6 +15,7 @@
 #include <mizuiro/color/access/stride.hpp>
 #include <mizuiro/color/detail/copy_channel.hpp>
 #include <mizuiro/color/format/base_impl.hpp>
+#include <mizuiro/color/format/compatible.hpp>
 #include <mizuiro/color/format/store_impl.hpp>
 
 
@@ -104,7 +105,15 @@ mizuiro::color::proxy<
 	Other const &_other
 ) const
 {
-	// FIXME: This is wrong for uninitialized stores and it's also not very efficient
+	static_assert(
+		mizuiro::color::format::compatible<
+			Format,
+			typename
+			Other::format
+		>::value,
+		"Formats must be compatible in proxy assignment"
+	);
+
 	mizuiro::color::for_each_channel(
 		*this,
 		mizuiro::color::detail::copy_channel<

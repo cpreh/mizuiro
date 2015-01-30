@@ -25,7 +25,7 @@ template<
 	typename Format
 >
 typename
-Format::layout const &
+Format::channel_array const &
 layout_adl(
 	mizuiro::color::access::layout_ns::tag,
 	mizuiro::color::format::dynamic_ns::tag<
@@ -37,7 +37,7 @@ layout_adl(
 )
 {
 	return
-		_format.get()->order;
+		_format.get()->channels;
 }
 
 }

@@ -7,10 +7,8 @@
 #ifndef MIZUIRO_COLOR_SPACE_EMPTY_HPP_INCLUDED
 #define MIZUIRO_COLOR_SPACE_EMPTY_HPP_INCLUDED
 
-#include <mizuiro/color/space/base.hpp>
 #include <mizuiro/color/space/empty_fwd.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
+#include <mizuiro/mpl/list.hpp>
 
 
 namespace mizuiro
@@ -20,20 +18,12 @@ namespace color
 namespace space
 {
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
-template<
-	typename Order
->
 struct empty
-:
-mizuiro::color::space::base<
-	Order
->
 {
+	typedef
+	mizuiro::mpl::list<>
+	required_channels;
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

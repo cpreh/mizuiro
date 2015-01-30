@@ -48,7 +48,7 @@ initialize_dynamic_indices(
 			>(
 				_layout[
 					index
-				]
+				].get()
 			)
 		] =
 			index;

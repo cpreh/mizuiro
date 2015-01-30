@@ -8,9 +8,7 @@
 #define MIZUIRO_COLOR_SPACE_LUMINANCE_HPP_INCLUDED
 
 #include <mizuiro/color/channel/luminance_fwd.hpp>
-#include <mizuiro/color/space/base.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
+#include <mizuiro/mpl/list.hpp>
 
 
 namespace mizuiro
@@ -20,21 +18,14 @@ namespace color
 namespace space
 {
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
-template<
-	typename Order
->
 struct luminance
-:
-mizuiro::color::space::base<
-	Order,
-	mizuiro::color::channel::luminance
->
 {
+	typedef
+	mizuiro::mpl::list<
+		mizuiro::color::channel::luminance
+	>
+	required_channels;
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

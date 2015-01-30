@@ -8,8 +8,8 @@
 #define MIZUIRO_COLOR_FORMAT_COMPATIBLE_HPP_INCLUDED
 
 #include <mizuiro/color/format/same_channel_value_types.hpp>
-#include <mizuiro/color/layout/is_same.hpp>
-#include <mizuiro/color/layout/same_channels.hpp>
+#include <mizuiro/color/format/same_channels.hpp>
+#include <mizuiro/color/format/same_spaces.hpp>
 #include <mizuiro/mpl/bool.hpp>
 
 
@@ -23,10 +23,10 @@ namespace format
 /**
 \brief Tests whether two color formats are statically compatible
 
-Two static formats are compatible iff
+Two sformats are compatible iff
 <ul>
-<li>they use the same layout, </li>
-<li>their sets of channels are the same and</li>
+<li>they use the same color space, </li>
+<li>their sets of static channels are the same and</li>
 <li>for every channel their channel value types are the same.</li>
 </ul>
 
@@ -40,14 +40,14 @@ template<
 using compatible
 =
 mizuiro::mpl::bool_<
-	mizuiro::color::layout::is_same<
-		typename Format1::layout,
-		typename Format2::layout
+	mizuiro::color::format::same_spaces<
+		Format1,
+		Format2
 	>::value
 	&&
-	mizuiro::color::layout::same_channels<
-		typename Format1::layout,
-		typename Format2::layout
+	mizuiro::color::format::same_channels<
+		Format1,
+		Format2
 	>::value
 	&&
 	mizuiro::color::format::same_channel_value_types<

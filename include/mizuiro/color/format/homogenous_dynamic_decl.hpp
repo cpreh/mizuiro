@@ -9,11 +9,11 @@
 
 #include <mizuiro/array.hpp>
 #include <mizuiro/size_type.hpp>
+#include <mizuiro/color/detail/dynamic_channel_array.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_fwd.hpp>
+#include <mizuiro/color/layout/all_possible_channels.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <cstddef>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/mpl/size.hpp>
 
 
 namespace mizuiro
@@ -25,9 +25,8 @@ namespace format
 
 template<
 	typename ChannelType,
-	typename AvailableChannels,
-	mizuiro::size_type ChannelCount,
-	mizuiro::size_type NumAvailableChannels
+	typename Space,
+	mizuiro::size_type ChannelCount
 >
 struct homogenous_dynamic
 {
@@ -36,45 +35,51 @@ struct homogenous_dynamic
 	);
 public:
 	typedef
-	AvailableChannels
-	available_channels;
+	ChannelType
+	channel_type;
 
 	typedef
-	mizuiro::array<
-		AvailableChannels,
+	Space
+	space;
+
+	typedef
+	mizuiro::color::detail::dynamic_channel_array<
 		ChannelCount
 	>
 	channel_array;
 
 	typedef
+	mizuiro::color::layout::all_possible_channels<
+		typename
+		Space::required_channels
+	>
+	all_possible_channels;
+
+	typedef
 	mizuiro::array<
 		mizuiro::size_type,
-		NumAvailableChannels
+		mizuiro::mpl::size<
+			all_possible_channels
+		>()
 	>
 	channel_index_array;
 
+	template<
+		typename UsedChannels
+	>
 	explicit
 	homogenous_dynamic(
-		channel_array const &
+		UsedChannels const &
 	);
 
 	homogenous_dynamic(
 		homogenous_dynamic const &
 	) noexcept;
 
-	typedef
-	ChannelType
-	channel_type;
+	static mizuiro::size_type const element_count =
+		ChannelCount;
 
-	static
-	mizuiro::size_type const element_count
-		= ChannelCount;
-
-	typedef
-	channel_array
-	layout;
-
-	channel_array const order;
+	channel_array const channels;
 
 	channel_index_array const indices;
 };

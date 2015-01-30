@@ -10,10 +10,8 @@
 #include <mizuiro/color/channel/blue_fwd.hpp>
 #include <mizuiro/color/channel/green_fwd.hpp>
 #include <mizuiro/color/channel/red_fwd.hpp>
-#include <mizuiro/color/space/base.hpp>
 #include <mizuiro/color/space/srgb_fwd.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
+#include <mizuiro/mpl/list.hpp>
 
 
 namespace mizuiro
@@ -23,23 +21,16 @@ namespace color
 namespace space
 {
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
-template<
-	typename Order
->
 struct srgb
-:
-mizuiro::color::space::base<
-	Order,
-	mizuiro::color::channel::red,
-	mizuiro::color::channel::green,
-	mizuiro::color::channel::blue
->
 {
+	typedef
+	mizuiro::mpl::list<
+		mizuiro::color::channel::red,
+		mizuiro::color::channel::green,
+		mizuiro::color::channel::blue
+	>
+	required_channels;
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

@@ -4,28 +4,24 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_SPACE_BASE_HPP_INCLUDED
-#define MIZUIRO_COLOR_SPACE_BASE_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_LAYOUT_MAKE_HPP_INCLUDED
+#define MIZUIRO_COLOR_LAYOUT_MAKE_HPP_INCLUDED
 
-#include <mizuiro/color/channel/alpha_fwd.hpp>
-#include <mizuiro/color/channel/undefined_fwd.hpp>
+#include <mizuiro/color/layout/all_possible_channels.hpp>
 #include <mizuiro/color/layout/detail/has_all_channels.hpp>
 #include <mizuiro/mpl/is_set.hpp>
-#include <mizuiro/mpl/list.hpp>
-#include <mizuiro/mpl/include/list.hpp>
+#include <mizuiro/mpl/size.hpp>
 
 
 namespace mizuiro
 {
 namespace color
 {
-namespace space
+namespace layout
 {
 
 /**
 \brief A typedef helper class used to define color spaces
-
-<code>typedef Order order</code>
 
 A color space consists of possible channels (e.g. red, green, blue), possibly
 including alpha channels (to include transparency which is not part of the
@@ -33,38 +29,41 @@ traditional color space definition) or undefined channels (which are purely
 used as an efficient data representation mechanism). Alpha channels will never
 contribute 'color' while undefined channels will be ignored.
 
-\tparam Order A mizuiro::mpl::list consisting of \link color_channel Color
-Channels\endlink
+\tparam Space A color space
 
-\tparam PossibleChannels A variadic template list consisting of \link
-color_channel Color Channels\endlink with a length of at least 0 and at most 3.
+\tparam Channels A mizuiro::mpl::list consisting of \link color_channel Color
+Channels\endlink
 */
 template<
-	typename Order,
-	typename... PossibleChannels
+	typename Space,
+	typename Channels
 >
-struct base
+struct make
 {
 	typedef
-	Order
-	order;
+	Space
+	space;
+
+	typedef
+	Channels
+	channels;
 
 	static_assert(
 		mizuiro::color::layout::detail::has_all_channels<
-			order,
-			mizuiro::mpl::list<
-				mizuiro::color::channel::alpha,
-				mizuiro::color::channel::undefined,
-				PossibleChannels...
+			channels,
+			mizuiro::color::layout::all_possible_channels<
+				typename
+				Space::required_channels
 			>
 		>::value,
 		"Invalid color channel which is not part of the color space"
 	);
 
 	static_assert(
-		sizeof...(
-			PossibleChannels
-		)
+		mizuiro::mpl::size<
+			typename
+			Space::required_channels
+		>()
 		<=
 		3,
 		"A color space shouldn't have more than three channels"
@@ -72,17 +71,16 @@ struct base
 
 	static_assert(
 		mizuiro::color::layout::detail::has_all_channels<
-			mizuiro::mpl::list<
-				PossibleChannels...
-			>,
-			order
+			typename
+			Space::required_channels,
+			channels
 		>::value,
 		"Missing color channel in color space"
 	);
 
 	static_assert(
 		mizuiro::mpl::is_set<
-			order
+			channels
 		>(),
 		"Duplicate channel in color space"
 	);
