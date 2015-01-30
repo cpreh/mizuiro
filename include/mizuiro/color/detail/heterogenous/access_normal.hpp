@@ -4,15 +4,15 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_DETAIL_BIT_CHANNEL_ACCESS_NORMAL_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_BIT_CHANNEL_ACCESS_NORMAL_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_DETAIL_HETEROGENOUS_ACCESS_NORMAL_HPP_INCLUDED
+#define MIZUIRO_COLOR_DETAIL_HETEROGENOUS_ACCESS_NORMAL_HPP_INCLUDED
 
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/access/normal.hpp>
-#include <mizuiro/color/detail/heterogenous_bits.hpp>
-#include <mizuiro/color/detail/heterogenous_channel_bits.hpp>
+#include <mizuiro/color/detail/heterogenous/bits.hpp>
+#include <mizuiro/color/detail/heterogenous/channel_bits.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/detail/uint_least.hpp>
@@ -29,12 +29,14 @@ namespace color
 {
 namespace detail
 {
+namespace heterogenous
+{
 
 template<
 	typename Format,
 	typename Channel
 >
-class bit_channel_access_normal
+class access_normal
 {
 private:
 	typedef
@@ -61,7 +63,7 @@ private:
 	start_bit;
 
 	typedef
-	mizuiro::color::detail::heterogenous_channel_bits<
+	mizuiro::color::detail::heterogenous::channel_bits<
 		Format,
 		Channel
 	>
@@ -84,7 +86,7 @@ private:
 	pointer;
 
 	typedef
-	mizuiro::color::detail::heterogenous_bits<
+	mizuiro::color::detail::heterogenous::bits<
 		typename
 		Format::channel_bits
 	>
@@ -142,7 +144,7 @@ public:
 				value_type
 			>(
 				(
-					bit_channel_access_normal::part(
+					access_normal::part(
 						real_start_bit::value,
 						bit_count::value
 					)
@@ -169,7 +171,7 @@ public:
 			>(
 				*_data
 				&
-				~bit_channel_access_normal::part(
+				~access_normal::part(
 					real_start_bit::value,
 					bit_count::value
 				)
@@ -195,6 +197,7 @@ public:
 	}
 };
 
+}
 }
 }
 }

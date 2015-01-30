@@ -9,7 +9,7 @@
 
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/color/channel_proxy_impl.hpp>
-#include <mizuiro/color/detail/bit_channel_access_raw.hpp>
+#include <mizuiro/color/detail/heterogenous/access_raw.hpp>
 #include <mizuiro/color/format/heterogenous_ns/tag.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/pointer.hpp>
@@ -40,7 +40,7 @@ mizuiro::color::channel_proxy<
 		Format,
 		Channel
 	>,
-	mizuiro::color::detail::bit_channel_access_raw<
+	mizuiro::color::detail::heterogenous::access_raw<
 		Format,
 		Channel
 	>

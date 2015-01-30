@@ -25,7 +25,8 @@ unwrap_channel(
 	T const &_value
 )
 {
-	return _value;
+	return
+		_value;
 }
 
 template<

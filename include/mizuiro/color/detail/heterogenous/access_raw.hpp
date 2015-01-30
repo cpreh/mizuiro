@@ -4,13 +4,13 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_DETAIL_BIT_CHANNEL_ACCESS_RAW_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_BIT_CHANNEL_ACCESS_RAW_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_DETAIL_HETEROGENOUS_ACCESS_RAW_HPP_INCLUDED
+#define MIZUIRO_COLOR_DETAIL_HETEROGENOUS_ACCESS_RAW_HPP_INCLUDED
 
 #include <mizuiro/const_raw_pointer.hpp>
 #include <mizuiro/raw_pointer.hpp>
-#include <mizuiro/color/detail/bit_channel_access_normal.hpp>
-#include <mizuiro/color/detail/heterogenous_bits.hpp>
+#include <mizuiro/color/detail/heterogenous/access_normal.hpp>
+#include <mizuiro/color/detail/heterogenous/bits.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/copy_n.hpp>
 #include <mizuiro/detail/uint_least.hpp>
@@ -22,16 +22,18 @@ namespace color
 {
 namespace detail
 {
+namespace heterogenous
+{
 
 template<
 	typename Format,
 	typename Channel
 >
-class bit_channel_access_raw
+class access_raw
 {
 private:
 	typedef
-	mizuiro::color::detail::bit_channel_access_normal<
+	mizuiro::color::detail::heterogenous::access_normal<
 		Format,
 		Channel
 	>
@@ -46,7 +48,7 @@ private:
 
 	typedef
 	mizuiro::detail::uint_least<
-		mizuiro::color::detail::heterogenous_bits<
+		mizuiro::color::detail::heterogenous::bits<
 			typename Format::channel_bits
 		>
 	>
@@ -112,6 +114,7 @@ public:
 	}
 };
 
+}
 }
 }
 }

@@ -17,12 +17,14 @@ namespace color
 {
 namespace detail
 {
+namespace heterogenous
+{
 
 template<
 	typename Format,
 	typename Channel
 >
-using heterogenous_channel_bits
+using channel_bits
 =
 mizuiro::mpl::at<
 	typename Format::channel_bits,
@@ -32,6 +34,7 @@ mizuiro::mpl::at<
 	>()
 >;
 
+}
 }
 }
 }

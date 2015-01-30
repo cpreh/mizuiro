@@ -4,8 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_DETAIL_INVALID_DYNAMIC_INDEX_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_INVALID_DYNAMIC_INDEX_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_DETAIL_DYNAMIC_INVALID_INDEX_HPP_INCLUDED
+#define MIZUIRO_COLOR_DETAIL_DYNAMIC_INVALID_INDEX_HPP_INCLUDED
+
+#include <mizuiro/size_type.hpp>
 
 
 namespace mizuiro
@@ -14,22 +16,22 @@ namespace color
 {
 namespace detail
 {
+namespace dynamic
+{
 
-template<
-	typename T
->
 inline
-T
-invalid_dynamic_index()
+mizuiro::size_type
+invalid_index()
 {
 	return
 		static_cast<
-			T
+			mizuiro::size_type
 		>(
 			-1
 		);
 }
 
+}
 }
 }
 }

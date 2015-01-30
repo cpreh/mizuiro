@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HETEROGENOUS_NS_STORE_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HETEROGENOUS_NS_STORE_HPP_INCLUDED
 
-#include <mizuiro/color/detail/heterogenous_bits.hpp>
+#include <mizuiro/color/detail/heterogenous/bits.hpp>
 #include <mizuiro/color/format/heterogenous_ns/tag.hpp>
 #include <mizuiro/color/types/store_ns/tag.hpp>
 #include <mizuiro/detail/uint_least.hpp>
@@ -26,7 +26,7 @@ template<
 	typename Format
 >
 mizuiro::detail::uint_least<
-	mizuiro::color::detail::heterogenous_bits<
+	mizuiro::color::detail::heterogenous::bits<
 		typename
 		Format::channel_bits
 	>

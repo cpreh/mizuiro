@@ -9,7 +9,7 @@
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/access/channel_index_ns/tag.hpp>
-#include <mizuiro/color/detail/dynamic_channel_to_pos.hpp>
+#include <mizuiro/color/detail/dynamic/channel_to_pos.hpp>
 #include <mizuiro/color/format/store.hpp>
 #include <mizuiro/color/format/dynamic_ns/tag.hpp>
 
@@ -42,7 +42,7 @@ channel_index_adl(
 {
 	return
 		_format.get()->indices[
-			mizuiro::color::detail::dynamic_channel_to_pos<
+			mizuiro::color::detail::dynamic::channel_to_pos<
 				Format
 			>(
 				_channel

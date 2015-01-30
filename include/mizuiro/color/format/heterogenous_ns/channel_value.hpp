@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HETEROGENOUS_NS_CHANNEL_VALUE_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HETEROGENOUS_NS_CHANNEL_VALUE_HPP_INCLUDED
 
-#include <mizuiro/color/detail/heterogenous_channel_bits.hpp>
+#include <mizuiro/color/detail/heterogenous/channel_bits.hpp>
 #include <mizuiro/color/format/heterogenous_ns/tag.hpp>
 #include <mizuiro/color/types/channel_value_ns/tag.hpp>
 #include <mizuiro/detail/uint_least.hpp>
@@ -27,7 +27,7 @@ template<
 	typename Channel
 >
 mizuiro::detail::uint_least<
-	mizuiro::color::detail::heterogenous_channel_bits<
+	mizuiro::color::detail::heterogenous::channel_bits<
 		Format,
 		Channel
 	>

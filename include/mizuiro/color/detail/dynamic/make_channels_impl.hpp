@@ -4,13 +4,13 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_DETAIL_MAKE_DYNAMIC_CHANNELS_IMPL_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_MAKE_DYNAMIC_CHANNELS_IMPL_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_DETAIL_DYNAMIC_MAKE_CHANNELS_IMPL_HPP_INCLUDED
+#define MIZUIRO_COLOR_DETAIL_DYNAMIC_MAKE_CHANNELS_IMPL_HPP_INCLUDED
 
 #include <mizuiro/array.hpp>
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/color/detail/channel_index.hpp>
-#include <mizuiro/color/detail/dynamic_channel_array.hpp>
+#include <mizuiro/color/detail/dynamic/channel_array.hpp>
+#include <mizuiro/color/detail/dynamic/channel_index.hpp>
 #include <mizuiro/mpl/at.hpp>
 #include <mizuiro/mpl/index_of.hpp>
 #include <mizuiro/mpl/size.hpp>
@@ -24,6 +24,8 @@ namespace mizuiro
 namespace color
 {
 namespace detail
+{
+namespace dynamic
 {
 
 template<
@@ -40,18 +42,18 @@ std::enable_if<
 	mizuiro::mpl::size<
 		Channels
 	>(),
-	mizuiro::color::detail::dynamic_channel_array<
+	mizuiro::color::detail::dynamic::channel_array<
 		mizuiro::mpl::size<
 			Channels
 		>()
 	>
 >::type
-make_dynamic_channels_impl(
+make_channels_impl(
 	Args const & ..._args
 )
 {
 	return
-		mizuiro::color::detail::dynamic_channel_array<
+		mizuiro::color::detail::dynamic::channel_array<
 			mizuiro::mpl::size<
 				Channels
 			>()
@@ -74,24 +76,24 @@ std::enable_if<
 	mizuiro::mpl::size<
 		Channels
 	>(),
-	mizuiro::color::detail::dynamic_channel_array<
+	mizuiro::color::detail::dynamic::channel_array<
 		mizuiro::mpl::size<
 			Channels
 		>()
 	>
 >::type
-make_dynamic_channels_impl(
+make_channels_impl(
 	Args const & ..._args
 )
 {
 	return
-		mizuiro::color::detail::make_dynamic_channels_impl<
+		mizuiro::color::detail::dynamic::make_channels_impl<
 			PossibleChannels,
 			Channels,
 			Index + 1u
 		>(
 			_args...,
-			mizuiro::color::detail::channel_index{
+			mizuiro::color::detail::dynamic::channel_index{
 				mizuiro::mpl::index_of<
 					PossibleChannels,
 					mizuiro::mpl::at<
@@ -103,6 +105,7 @@ make_dynamic_channels_impl(
 		);
 }
 
+}
 }
 }
 }

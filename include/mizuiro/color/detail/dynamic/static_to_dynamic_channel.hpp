@@ -4,12 +4,12 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_DETAIL_STATIC_TO_DYNAMIC_CHANNEL_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_STATIC_TO_DYNAMIC_CHANNEL_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_DETAIL_DYNAMIC_STATIC_TO_DYNAMIC_CHANNEL_HPP_INCLUDED
+#define MIZUIRO_COLOR_DETAIL_DYNAMIC_STATIC_TO_DYNAMIC_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/channel/tag.hpp>
-#include <mizuiro/color/detail/channel_index.hpp>
+#include <mizuiro/color/detail/dynamic/channel_index.hpp>
 #include <mizuiro/mpl/index_of.hpp>
 
 
@@ -19,6 +19,8 @@ namespace color
 {
 namespace detail
 {
+namespace dynamic
+{
 
 template<
 	typename Format,
@@ -26,7 +28,7 @@ template<
 >
 inline
 typename
-mizuiro::color::detail::channel_index const
+mizuiro::color::detail::dynamic::channel_index const
 static_to_dynamic_channel(
 	mizuiro::color::channel::tag<
 		StaticChannel
@@ -34,7 +36,7 @@ static_to_dynamic_channel(
 )
 {
 	return
-		mizuiro::color::detail::channel_index{
+		mizuiro::color::detail::dynamic::channel_index{
 			mizuiro::mpl::index_of<
 				typename
 				Format::all_possible_channels,
@@ -43,6 +45,7 @@ static_to_dynamic_channel(
 		};
 }
 
+}
 }
 }
 }

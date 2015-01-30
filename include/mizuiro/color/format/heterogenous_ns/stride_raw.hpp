@@ -10,7 +10,7 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/color/access/stride_ns/tag.hpp>
-#include <mizuiro/color/detail/heterogenous_bits.hpp>
+#include <mizuiro/color/detail/heterogenous/bits.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/heterogenous_ns/tag.hpp>
 #include <mizuiro/detail/byte_count_from_bits.hpp>
@@ -43,7 +43,7 @@ stride_adl(
 	return
 		mizuiro::detail::byte_count_from_bits<
 			typename
-			mizuiro::color::detail::heterogenous_bits<
+			mizuiro::color::detail::heterogenous::bits<
 				typename
 				Format::channel_bits
 			>::type

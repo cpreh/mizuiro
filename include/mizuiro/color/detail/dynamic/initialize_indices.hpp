@@ -4,10 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_DETAIL_INITIALIZE_DYNAMIC_INDICES_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_INITIALIZE_DYNAMIC_INDICES_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_DETAIL_DYNAMIC_INITIALIZE_INDICES_HPP_INCLUDED
+#define MIZUIRO_COLOR_DETAIL_DYNAMIC_INITIALIZE_INDICES_HPP_INCLUDED
 
-#include <mizuiro/color/detail/invalid_dynamic_index.hpp>
+#include <mizuiro/color/detail/dynamic/invalid_index.hpp>
 
 
 namespace mizuiro
@@ -16,23 +16,22 @@ namespace color
 {
 namespace detail
 {
+namespace dynamic
+{
 
 template<
 	typename ChannelIndexArray,
 	typename Layout
 >
 ChannelIndexArray const
-initialize_dynamic_indices(
+initialize_indices(
 	Layout const &_layout
 )
 {
 	ChannelIndexArray ret;
 
 	ret.fill(
-		mizuiro::color::detail::invalid_dynamic_index<
-			typename
-			ChannelIndexArray::value_type
-		>()
+		mizuiro::color::detail::dynamic::invalid_index()
 	);
 
 	for(
@@ -57,6 +56,7 @@ initialize_dynamic_indices(
 		ret;
 }
 
+}
 }
 }
 }

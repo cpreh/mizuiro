@@ -9,7 +9,7 @@
 
 #include <mizuiro/array.hpp>
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/color/detail/channel_index.hpp>
+#include <mizuiro/color/detail/dynamic/channel_index.hpp>
 
 
 namespace mizuiro
@@ -18,18 +18,21 @@ namespace color
 {
 namespace detail
 {
+namespace dynamic
+{
 
 template<
 	mizuiro::size_type Size
 >
 using
-dynamic_channel_array
+channel_array
 =
 mizuiro::array<
-	mizuiro::color::detail::channel_index,
+	mizuiro::color::detail::dynamic::channel_index,
 	Size
 >;
 
+}
 }
 }
 }

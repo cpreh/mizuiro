@@ -9,8 +9,8 @@
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/channel/tag.hpp>
-#include <mizuiro/color/detail/channel_index.hpp>
-#include <mizuiro/color/detail/static_to_dynamic_channel.hpp>
+#include <mizuiro/color/detail/dynamic/channel_index.hpp>
+#include <mizuiro/color/detail/dynamic/static_to_dynamic_channel.hpp>
 
 
 namespace mizuiro
@@ -19,14 +19,16 @@ namespace color
 {
 namespace detail
 {
+namespace dynamic
+{
 
 template<
 	typename Format
 >
 inline
 mizuiro::size_type
-dynamic_channel_to_pos(
-	mizuiro::color::detail::channel_index const _channel
+channel_to_pos(
+	mizuiro::color::detail::dynamic::channel_index const _channel
 )
 {
 	return
@@ -39,17 +41,17 @@ template<
 >
 inline
 mizuiro::size_type
-dynamic_channel_to_pos(
+channel_to_pos(
 	mizuiro::color::channel::tag<
 		Channel
 	> const &
 )
 {
 	return
-		mizuiro::color::detail::dynamic_channel_to_pos<
+		mizuiro::color::detail::dynamic::channel_to_pos<
 			Format
 		>(
-			mizuiro::color::detail::static_to_dynamic_channel<
+			mizuiro::color::detail::dynamic::static_to_dynamic_channel<
 				Format
 			>(
 				Channel()
@@ -57,6 +59,7 @@ dynamic_channel_to_pos(
 		);
 }
 
+}
 }
 }
 }

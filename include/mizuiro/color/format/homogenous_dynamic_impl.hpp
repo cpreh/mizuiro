@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_IMPL_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_IMPL_HPP_INCLUDED
 
-#include <mizuiro/color/detail/initialize_dynamic_indices.hpp>
-#include <mizuiro/color/detail/make_dynamic_channels.hpp>
+#include <mizuiro/color/detail/dynamic/initialize_indices.hpp>
+#include <mizuiro/color/detail/dynamic/make_channels.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_decl.hpp>
 
 
@@ -29,13 +29,13 @@ mizuiro::color::format::homogenous_dynamic<
 )
 :
 	channels(
-		mizuiro::color::detail::make_dynamic_channels<
+		mizuiro::color::detail::dynamic::make_channels<
 			all_possible_channels,
 			UsedChannels
 		>()
 	),
 	indices(
-		mizuiro::color::detail::initialize_dynamic_indices<
+		mizuiro::color::detail::dynamic::initialize_indices<
 			channel_index_array
 		>(
 			channels

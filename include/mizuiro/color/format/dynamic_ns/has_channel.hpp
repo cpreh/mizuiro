@@ -9,7 +9,7 @@
 
 #include <mizuiro/color/access/channel_index.hpp>
 #include <mizuiro/color/access/has_channel_ns/tag.hpp>
-#include <mizuiro/color/detail/invalid_dynamic_index.hpp>
+#include <mizuiro/color/detail/dynamic/invalid_index.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/dynamic_ns/channel_index.hpp>
 #include <mizuiro/color/format/dynamic_ns/tag.hpp>
@@ -47,9 +47,7 @@ has_channel_adl(
 			_channel
 		)
 		!=
-		mizuiro::color::detail::invalid_dynamic_index<
-			typename Format::channel_index_array::value_type
-		>()
+		mizuiro::color::detail::dynamic::invalid_index()
 		;
 }
 

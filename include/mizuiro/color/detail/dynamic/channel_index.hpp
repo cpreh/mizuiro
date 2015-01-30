@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_DETAIL_CHANNEL_INDEX_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_CHANNEL_INDEX_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_DETAIL_DYNAMIC_CHANNEL_INDEX_HPP_INCLUDED
+#define MIZUIRO_COLOR_DETAIL_DYNAMIC_CHANNEL_INDEX_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
 
@@ -15,6 +15,8 @@ namespace mizuiro
 namespace color
 {
 namespace detail
+{
+namespace dynamic
 {
 
 class channel_index
@@ -41,6 +43,7 @@ private:
 	mizuiro::size_type index_;
 };
 
+}
 }
 }
 }

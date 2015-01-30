@@ -9,7 +9,7 @@
 
 #include <mizuiro/array.hpp>
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/color/detail/dynamic_channel_array.hpp>
+#include <mizuiro/color/detail/dynamic/channel_array.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_fwd.hpp>
 #include <mizuiro/color/layout/all_possible_channels.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
@@ -43,7 +43,7 @@ public:
 	space;
 
 	typedef
-	mizuiro::color::detail::dynamic_channel_array<
+	mizuiro::color::detail::dynamic::channel_array<
 		ChannelCount
 	>
 	channel_array;

@@ -17,11 +17,13 @@ namespace color
 {
 namespace detail
 {
+namespace heterogenous
+{
 
 template<
 	typename Bits
 >
-using heterogenous_bits
+using bits
 =
 mizuiro::mpl::integral_size<
 	mizuiro::mpl::sum<
@@ -29,6 +31,7 @@ mizuiro::mpl::integral_size<
 	>()
 >;
 
+}
 }
 }
 }

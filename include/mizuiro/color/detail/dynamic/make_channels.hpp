@@ -4,12 +4,12 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_DETAIL_MAKE_DYNAMIC_CHANNELS_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_MAKE_DYNAMIC_CHANNELS_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_DETAIL_DYNAMIC_MAKE_CHANNELS_HPP_INCLUDED
+#define MIZUIRO_COLOR_DETAIL_DYNAMIC_MAKE_CHANNELS_HPP_INCLUDED
 
 #include <mizuiro/array.hpp>
-#include <mizuiro/color/detail/dynamic_channel_array.hpp>
-#include <mizuiro/color/detail/make_dynamic_channels_impl.hpp>
+#include <mizuiro/color/detail/dynamic/channel_array.hpp>
+#include <mizuiro/color/detail/dynamic/make_channels_impl.hpp>
 #include <mizuiro/mpl/size.hpp>
 
 
@@ -19,27 +19,30 @@ namespace color
 {
 namespace detail
 {
+namespace dynamic
+{
 
 template<
 	typename PossibleChannels,
 	typename Channels
 >
 inline
-mizuiro::color::detail::dynamic_channel_array<
+mizuiro::color::detail::dynamic::channel_array<
 	mizuiro::mpl::size<
 		Channels
 	>()
 >
-make_dynamic_channels()
+make_channels()
 {
 	return
-		mizuiro::color::detail::make_dynamic_channels_impl<
+		mizuiro::color::detail::dynamic::make_channels_impl<
 			PossibleChannels,
 			Channels,
 			0
 		>();
 }
 
+}
 }
 }
 }

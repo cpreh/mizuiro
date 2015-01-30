@@ -128,25 +128,25 @@ set(
 	include/mizuiro/color/convert_static/same_to_same.hpp
 	include/mizuiro/color/decay_channel_proxy.hpp
 	include/mizuiro/color/denormalize.hpp
-	include/mizuiro/color/detail/bit_channel_access_normal.hpp
-	include/mizuiro/color/detail/bit_channel_access_raw.hpp
-	include/mizuiro/color/detail/channel_index.hpp
 	include/mizuiro/color/detail/compare.hpp
 	include/mizuiro/color/detail/copy_channel.hpp
-	include/mizuiro/color/detail/dynamic_channel_array.hpp
-	include/mizuiro/color/detail/dynamic_channel_to_pos.hpp
+	include/mizuiro/color/detail/dynamic/channel_array.hpp
+	include/mizuiro/color/detail/dynamic/channel_index.hpp
+	include/mizuiro/color/detail/dynamic/channel_to_pos.hpp
+	include/mizuiro/color/detail/dynamic/initialize_indices.hpp
+	include/mizuiro/color/detail/dynamic/invalid_index.hpp
+	include/mizuiro/color/detail/dynamic/make_channels.hpp
+	include/mizuiro/color/detail/dynamic/make_channels_impl.hpp
+	include/mizuiro/color/detail/dynamic/static_to_dynamic_channel.hpp
 	include/mizuiro/color/detail/for_some_channels_function.hpp
 	include/mizuiro/color/detail/full_channel_max.hpp
 	include/mizuiro/color/detail/full_channel_min.hpp
-	include/mizuiro/color/detail/heterogenous_bits.hpp
-	include/mizuiro/color/detail/heterogenous_channel_bits.hpp
-	include/mizuiro/color/detail/initialize_dynamic_indices.hpp
-	include/mizuiro/color/detail/invalid_dynamic_index.hpp
-	include/mizuiro/color/detail/make_dynamic_channels.hpp
-	include/mizuiro/color/detail/make_dynamic_channels_impl.hpp
+	include/mizuiro/color/detail/heterogenous/access_normal.hpp
+	include/mizuiro/color/detail/heterogenous/access_raw.hpp
+	include/mizuiro/color/detail/heterogenous/bits.hpp
+	include/mizuiro/color/detail/heterogenous/channel_bits.hpp
 	include/mizuiro/color/detail/output_channel.hpp
 	include/mizuiro/color/detail/raw_channel_access.hpp
-	include/mizuiro/color/detail/static_to_dynamic_channel.hpp
 	include/mizuiro/color/detail/unwrap_channel.hpp
 	include/mizuiro/color/for_each_channel.hpp
 	include/mizuiro/color/for_each_channel_range.hpp
