@@ -43,6 +43,19 @@ private:
 	mizuiro::size_type index_;
 };
 
+inline
+bool
+operator==(
+	mizuiro::color::detail::dynamic::channel_index const _left,
+	mizuiro::color::detail::dynamic::channel_index const _right
+)
+{
+	return
+		_left.get()
+		==
+		_right.get();
+}
+
 }
 }
 }

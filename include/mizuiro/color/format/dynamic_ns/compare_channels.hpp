@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_DYNAMIC_NS_COMPARE_CHANNELS_HPP_INCLUDED
 
 #include <mizuiro/color/access/compare_channels_ns/tag.hpp>
+#include <mizuiro/color/detail/dynamic/channel_index.hpp>
 #include <mizuiro/color/detail/dynamic/static_to_dynamic_channel.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/dynamic_ns/tag.hpp>
@@ -36,7 +37,7 @@ compare_channels_adl(
 		Format
 	> const &,
 	StaticChannel const &_channel1,
-	typename Format::available_channels const &_channel2
+	mizuiro::color::detail::dynamic::channel_index const &_channel2
 )
 {
 	return
