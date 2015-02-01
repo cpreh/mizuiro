@@ -515,7 +515,6 @@ set(
 	include/mizuiro/image/access/stride_ns/tag.hpp
 	include/mizuiro/image/algorithm/binary_fold.hpp
 	include/mizuiro/image/algorithm/binary_iteration.hpp
-	include/mizuiro/image/algorithm/bresenham.hpp
 	include/mizuiro/image/algorithm/can_copy.hpp
 	include/mizuiro/image/algorithm/can_copy_in_place.hpp
 	include/mizuiro/image/algorithm/clone.hpp
