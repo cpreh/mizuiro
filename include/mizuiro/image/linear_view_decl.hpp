@@ -31,12 +31,12 @@ template<
 	typename Format,
 	typename Constness
 >
-class linear_view
+class linear_view final
 :
 	private
-	mizuiro::image::format::base<
-		Format
-	>
+		mizuiro::image::format::base<
+			Format
+		>
 {
 	typedef
 	mizuiro::image::format::base<

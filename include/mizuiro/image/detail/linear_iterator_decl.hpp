@@ -30,7 +30,7 @@ template<
 	typename Format,
 	typename Constness
 >
-class linear_iterator
+class linear_iterator final
 :
 	private
 		mizuiro::image::format::base<

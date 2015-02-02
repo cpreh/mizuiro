@@ -48,11 +48,12 @@ mizuiro::color::object is a class that can be used to store a color by value.
 template<
 	typename Format
 >
-class object
+class object final
 :
-	private mizuiro::color::format::base<
-		Format
-	>
+	private
+		mizuiro::color::format::base<
+			Format
+		>
 {
 	typedef
 	mizuiro::color::format::base<

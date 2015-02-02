@@ -27,7 +27,7 @@ template<
 	typename DimType,
 	typename ColorFormat
 >
-class interleaved
+class interleaved final
 :
 	private
 		mizuiro::color::format::base<

@@ -30,11 +30,12 @@ template<
 	typename Format,
 	typename Constness
 >
-class proxy
+class proxy final
 :
-	private mizuiro::color::format::base<
-		Format
-	>
+	private
+		mizuiro::color::format::base<
+			Format
+		>
 {
 	typedef
 	mizuiro::color::format::base<

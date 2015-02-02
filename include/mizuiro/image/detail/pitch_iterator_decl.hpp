@@ -32,7 +32,7 @@ template<
 	typename Format,
 	typename Constness
 >
-class pitch_iterator
+class pitch_iterator final
 :
 	private
 		mizuiro::image::format::base<
