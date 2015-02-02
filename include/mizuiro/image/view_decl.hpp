@@ -10,6 +10,7 @@
 #include <mizuiro/detail/either_decl.hpp>
 #include <mizuiro/image/iterator_fwd.hpp>
 #include <mizuiro/image/linear_view_decl.hpp>
+#include <mizuiro/image/pitch_type.hpp>
 #include <mizuiro/image/pitch_view_decl.hpp>
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
@@ -107,8 +108,10 @@ public:
 	bound_type;
 
 	typedef
-	typename
-	format::pitch
+	mizuiro::image::pitch_type<
+		typename
+		format::dim
+	>
 	pitch_type;
 
 	explicit

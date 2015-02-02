@@ -67,10 +67,9 @@ public:
 	format::dim dim;
 
 	typedef
-	typename
 	mizuiro::image::pitch_type<
 		dim
-	>::type
+	>
 	pitch_type;
 
 	typedef

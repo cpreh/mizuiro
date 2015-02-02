@@ -7,9 +7,7 @@
 #ifndef MIZUIRO_IMAGE_PITCH_TYPE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_PITCH_TYPE_HPP_INCLUDED
 
-#include <mizuiro/difference_type.hpp>
-#include <mizuiro/size_type.hpp>
-#include <mizuiro/image/dimension_fwd.hpp>
+#include <mizuiro/image/detail/pitch_type.hpp>
 
 
 namespace mizuiro
@@ -18,37 +16,15 @@ namespace image
 {
 
 template<
-	typename Type
+	typename DimType
 >
-struct pitch_type;
-
-template<
-	mizuiro::size_type Dim
->
-struct pitch_type<
-	mizuiro::image::dimension<
-		Dim,
-		mizuiro::size_type
-	>
->
-{
-	typedef mizuiro::image::dimension<
-		Dim - 1,
-		mizuiro::difference_type
-	> type;
-};
-
-template<
-	typename Type
->
-struct pitch_type<
-	mizuiro::image::dimension<
-		0,
-		Type
-	>
->
-{
-};
+using
+pitch_type
+=
+typename
+mizuiro::image::detail::pitch_type<
+	DimType
+>::type;
 
 }
 }

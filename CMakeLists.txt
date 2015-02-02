@@ -594,6 +594,7 @@ set(
 	include/mizuiro/image/detail/pitch_iterator_fwd.hpp
 	include/mizuiro/image/detail/pitch_iterator_impl.hpp
 	include/mizuiro/image/detail/pitch_iterator_position.hpp
+	include/mizuiro/image/detail/pitch_type.hpp
 	include/mizuiro/image/detail/prepare_store_units.hpp
 	include/mizuiro/image/detail/raw_view_from_pointer.hpp
 	include/mizuiro/image/detail/relative_position.hpp

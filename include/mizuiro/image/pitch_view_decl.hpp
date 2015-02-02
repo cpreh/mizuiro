@@ -11,6 +11,7 @@
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/bound_fwd.hpp>
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
+#include <mizuiro/image/pitch_type.hpp>
 #include <mizuiro/image/pitch_view_fwd.hpp>
 #include <mizuiro/image/format/argument.hpp>
 #include <mizuiro/image/format/base_decl.hpp>
@@ -97,8 +98,10 @@ public:
 	bound_type;
 
 	typedef
-	typename
-	format::pitch
+	mizuiro::image::pitch_type<
+		typename
+		format::dim
+	>
 	pitch_type;
 
 	pitch_view(

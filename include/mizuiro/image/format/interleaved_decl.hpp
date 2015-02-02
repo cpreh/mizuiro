@@ -11,7 +11,6 @@
 #include <mizuiro/color/format/base_decl.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
-#include <mizuiro/image/pitch_type.hpp>
 #include <mizuiro/image/format/interleaved_fwd.hpp>
 
 
@@ -53,13 +52,6 @@ public:
 	typedef
 	DimType
 	dim;
-
-	typedef
-	typename
-	mizuiro::image::pitch_type<
-		dim
-	>::type
-	pitch;
 
 	explicit
 	interleaved(

@@ -10,6 +10,7 @@
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/bound_fwd.hpp>
+#include <mizuiro/image/pitch_type.hpp>
 #include <mizuiro/image/linear_iterator_fwd.hpp>
 #include <mizuiro/image/linear_view_fwd.hpp>
 #include <mizuiro/image/format/argument.hpp>
@@ -98,8 +99,11 @@ public:
 	bound_type;
 
 	typedef
-	typename
-	format::pitch pitch_type;
+	mizuiro::image::pitch_type<
+		typename
+		format::dim
+	>
+	pitch_type;
 
 	linear_view(
 		dim const &,

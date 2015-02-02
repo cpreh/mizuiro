@@ -57,10 +57,9 @@ struct native_format
 	typedef Dim dim;
 
 	typedef
-	typename
 	mizuiro::image::pitch_type<
 		dim
-	>::type
+	>
 	pitch;
 
 	// Own typedefs
