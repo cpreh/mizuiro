@@ -16,6 +16,7 @@
 #include <mizuiro/image/format/interleaved_ns/needs_prepare.hpp>
 #include <mizuiro/image/format/interleaved_ns/pointer.hpp>
 #include <mizuiro/image/format/interleaved_ns/reference.hpp>
+#include <mizuiro/image/format/interleaved_ns/store_data.hpp>
 #include <mizuiro/image/format/interleaved_ns/store_normal.hpp>
 #include <mizuiro/image/format/interleaved_ns/store_raw.hpp>
 #include <mizuiro/image/format/interleaved_ns/store_size.hpp>

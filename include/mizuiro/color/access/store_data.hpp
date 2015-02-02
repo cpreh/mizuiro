@@ -24,8 +24,8 @@ namespace access
 {
 
 template<
-	typename Format,
-	typename Constness
+	typename Constness,
+	typename Format
 >
 inline
 mizuiro::color::types::pointer<
@@ -37,7 +37,6 @@ store_data(
 	mizuiro::color::format::store<
 		Format
 	> const &_format,
-	Constness const &_constness,
 	mizuiro::apply_const<
 		mizuiro::color::types::store<
 			Format
@@ -53,7 +52,7 @@ store_data(
 				Format
 			>(),
 			_format,
-			_constness,
+			Constness{},
 			_store
 		);
 }

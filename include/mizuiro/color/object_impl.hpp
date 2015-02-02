@@ -373,10 +373,9 @@ mizuiro::color::object<
 	return
 		proxy(
 			mizuiro::color::access::store_data<
-				Format
+				mizuiro::nonconst_tag
 			>(
 				this->format_store(),
-				mizuiro::nonconst_tag{},
 				data_
 			),
 			this->format_store()
@@ -396,10 +395,9 @@ mizuiro::color::object<
 	return
 		const_proxy(
 			mizuiro::color::access::store_data<
-				Format
+				mizuiro::const_tag
 			>(
 				this->format_store(),
-				mizuiro::const_tag{},
 				data_
 			),
 			this->format_store()

@@ -31,10 +31,10 @@ template<
 mizuiro::size_type
 store_size_adl(
 	mizuiro::image::access::store_size_ns::tag,
-	Access,
 	mizuiro::image::format::interleaved_ns::tag<
 		ImageFormat
 	>,
+	Access,
 	mizuiro::image::format::store<
 		ImageFormat
 	> const &_format,

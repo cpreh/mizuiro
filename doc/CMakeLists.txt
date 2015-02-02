@@ -46,6 +46,7 @@ set(
 	examples/image.cpp
 	examples/init.cpp
 	examples/operators.cpp
+	examples/planar.cpp
 	examples/raw_sub_view.cpp
 	examples/raw_view.cpp
 	examples/sub_view.cpp
@@ -387,6 +388,8 @@ set(
 	include/mizuiro/image/access/data_ns/tag.hpp
 	include/mizuiro/image/access/dereference.hpp
 	include/mizuiro/image/access/dereference_ns/tag.hpp
+	include/mizuiro/image/access/store_data.hpp
+	include/mizuiro/image/access/store_data_ns/tag.hpp
 	include/mizuiro/image/access/store_size.hpp
 	include/mizuiro/image/access/store_size_ns/tag.hpp
 	include/mizuiro/image/access/stride.hpp
@@ -507,6 +510,7 @@ set(
 	include/mizuiro/image/format/interleaved_ns/needs_prepare.hpp
 	include/mizuiro/image/format/interleaved_ns/pointer.hpp
 	include/mizuiro/image/format/interleaved_ns/reference.hpp
+	include/mizuiro/image/format/interleaved_ns/store_data.hpp
 	include/mizuiro/image/format/interleaved_ns/store_normal.hpp
 	include/mizuiro/image/format/interleaved_ns/store_raw.hpp
 	include/mizuiro/image/format/interleaved_ns/store_size.hpp
@@ -515,6 +519,10 @@ set(
 	include/mizuiro/image/format/interleaved_ns/tag_of.hpp
 	include/mizuiro/image/format/interleaved_ns/value_type.hpp
 	include/mizuiro/image/format/make_tag_of.hpp
+	include/mizuiro/image/format/planar_decl.hpp
+	include/mizuiro/image/format/planar_fwd.hpp
+	include/mizuiro/image/format/planar_impl.hpp
+	include/mizuiro/image/format/planar_ns/tag.hpp
 	include/mizuiro/image/format/store.hpp
 	include/mizuiro/image/format/store_decl.hpp
 	include/mizuiro/image/format/store_fwd.hpp

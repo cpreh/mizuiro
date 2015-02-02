@@ -7,11 +7,14 @@
 #ifndef MIZUIRO_IMAGE_STORE_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_STORE_IMPL_HPP_INCLUDED
 
+#include <mizuiro/const_tag.hpp>
 #include <mizuiro/empty.hpp>
 #include <mizuiro/no_init.hpp>
+#include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/linear_view_impl.hpp>
 #include <mizuiro/image/store_decl.hpp>
+#include <mizuiro/image/access/store_data.hpp>
 #include <mizuiro/image/access/store_size.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
@@ -135,7 +138,13 @@ mizuiro::image::store<
 >::data()
 {
 	return
-		data_.data();
+		mizuiro::image::access::store_data<
+			access,
+			mizuiro::nonconst_tag
+		>(
+			this->format_store_base(),
+			data_
+		);
 }
 
 template<
@@ -153,7 +162,13 @@ mizuiro::image::store<
 >::data() const
 {
 	return
-		data_.data();
+		mizuiro::image::access::store_data<
+			access,
+			mizuiro::const_tag
+		>(
+			this->format_store_base(),
+			data_
+		);
 }
 
 template<

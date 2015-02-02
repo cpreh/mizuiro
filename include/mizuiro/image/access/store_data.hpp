@@ -4,13 +4,15 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_ACCESS_STORE_SIZE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_ACCESS_STORE_SIZE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_ACCESS_STORE_DATA_HPP_INCLUDED
+#define MIZUIRO_IMAGE_ACCESS_STORE_DATA_HPP_INCLUDED
 
-#include <mizuiro/size_type.hpp>
-#include <mizuiro/image/access/store_size_ns/tag.hpp>
+#include <mizuiro/apply_const.hpp>
+#include <mizuiro/image/access/store_data_ns/tag.hpp>
 #include <mizuiro/image/format/make_tag_of.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
+#include <mizuiro/image/types/pointer.hpp>
+#include <mizuiro/image/types/store.hpp>
 
 
 namespace mizuiro
@@ -22,26 +24,38 @@ namespace access
 
 template<
 	typename Access,
+	typename Constness,
 	typename ImageFormat
 >
-mizuiro::size_type
-store_size(
+inline
+mizuiro::image::types::pointer<
+	Access,
+	ImageFormat,
+	Constness
+>
+store_data(
 	mizuiro::image::format::store<
 		ImageFormat
 	> const &_format,
-	typename
-	ImageFormat::dim const _dim
+	mizuiro::apply_const<
+		mizuiro::image::types::store<
+			Access,
+			ImageFormat
+		> &,
+		Constness
+	> _store
 )
 {
 	return
-		store_size_adl(
-			mizuiro::image::access::store_size_ns::tag(),
+		store_data_adl(
+			mizuiro::image::access::store_data_ns::tag(),
 			mizuiro::image::format::make_tag_of<
 				ImageFormat
 			>(),
 			Access{},
+			Constness{},
 			_format,
-			_dim
+			_store
 		);
 }
 
