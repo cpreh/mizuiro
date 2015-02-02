@@ -86,7 +86,16 @@ main()
 		:
 		const_view
 	)
-		std::cout << color << ' ';
+		std::cout
+			<<
+			static_cast<
+				int
+			>(
+				color.get(
+					mizuiro::color::channel::red()
+				)
+			)
+			<< ' ';
 
 	std::cout << '\n';
 }
