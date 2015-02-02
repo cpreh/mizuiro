@@ -10,6 +10,7 @@
 #include <mizuiro/apply_const.hpp>
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/access/store_data_ns/tag.hpp>
+#include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/heterogenous_ns/pointer_normal.hpp>
 #include <mizuiro/color/format/heterogenous_ns/store.hpp>
 #include <mizuiro/color/format/heterogenous_ns/tag.hpp>
@@ -41,6 +42,9 @@ store_data_adl(
 	mizuiro::color::format::heterogenous_ns::tag<
 		Format
 	>,
+	mizuiro::color::format::store<
+		Format
+	> const &,
 	Constness const &,
 	mizuiro::apply_const<
 		mizuiro::color::types::store<

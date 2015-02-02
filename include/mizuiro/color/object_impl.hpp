@@ -375,6 +375,7 @@ mizuiro::color::object<
 			mizuiro::color::access::store_data<
 				Format
 			>(
+				this->format_store(),
 				mizuiro::nonconst_tag{},
 				data_
 			),
@@ -397,6 +398,7 @@ mizuiro::color::object<
 			mizuiro::color::access::store_data<
 				Format
 			>(
+				this->format_store(),
 				mizuiro::const_tag{},
 				data_
 			),

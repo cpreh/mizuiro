@@ -11,6 +11,7 @@
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/access/store_data_ns/tag.hpp>
 #include <mizuiro/color/format/make_tag_of.hpp>
+#include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
 
@@ -33,6 +34,9 @@ mizuiro::color::types::pointer<
 	Constness
 >
 store_data(
+	mizuiro::color::format::store<
+		Format
+	> const &_format,
 	Constness const &_constness,
 	mizuiro::apply_const<
 		mizuiro::color::types::store<
@@ -48,6 +52,7 @@ store_data(
 			mizuiro::color::format::make_tag_of<
 				Format
 			>(),
+			_format,
 			_constness,
 			_store
 		);
