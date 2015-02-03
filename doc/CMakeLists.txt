@@ -388,10 +388,10 @@ set(
 	include/mizuiro/image/access/data_ns/tag.hpp
 	include/mizuiro/image/access/dereference.hpp
 	include/mizuiro/image/access/dereference_ns/tag.hpp
+	include/mizuiro/image/access/make_store.hpp
+	include/mizuiro/image/access/make_store_ns/tag.hpp
 	include/mizuiro/image/access/store_data.hpp
 	include/mizuiro/image/access/store_data_ns/tag.hpp
-	include/mizuiro/image/access/store_size.hpp
-	include/mizuiro/image/access/store_size_ns/tag.hpp
 	include/mizuiro/image/access/stride.hpp
 	include/mizuiro/image/access/stride_ns/tag.hpp
 	include/mizuiro/image/algorithm/binary_fold.hpp
@@ -497,6 +497,17 @@ set(
 	include/mizuiro/image/format/argument.hpp
 	include/mizuiro/image/format/base_decl.hpp
 	include/mizuiro/image/format/base_impl.hpp
+	include/mizuiro/image/format/color_ns/dereference.hpp
+	include/mizuiro/image/format/color_ns/needs_format_store.hpp
+	include/mizuiro/image/format/color_ns/needs_prepare.hpp
+	include/mizuiro/image/format/color_ns/pointer.hpp
+	include/mizuiro/image/format/color_ns/reference.hpp
+	include/mizuiro/image/format/color_ns/tag.hpp
+	include/mizuiro/image/format/color_ns/value_type.hpp
+	include/mizuiro/image/format/detail/planar_color.hpp
+	include/mizuiro/image/format/detail/planar_color_base_decl.hpp
+	include/mizuiro/image/format/detail/planar_color_base_impl.hpp
+	include/mizuiro/image/format/include/color.hpp
 	include/mizuiro/image/format/include/interleaved.hpp
 	include/mizuiro/image/format/interleaved.hpp
 	include/mizuiro/image/format/interleaved_decl.hpp
@@ -505,19 +516,13 @@ set(
 	include/mizuiro/image/format/interleaved_ns/can_copy.hpp
 	include/mizuiro/image/format/interleaved_ns/can_copy_in_place.hpp
 	include/mizuiro/image/format/interleaved_ns/data.hpp
-	include/mizuiro/image/format/interleaved_ns/dereference.hpp
-	include/mizuiro/image/format/interleaved_ns/needs_format_store.hpp
-	include/mizuiro/image/format/interleaved_ns/needs_prepare.hpp
-	include/mizuiro/image/format/interleaved_ns/pointer.hpp
-	include/mizuiro/image/format/interleaved_ns/reference.hpp
+	include/mizuiro/image/format/interleaved_ns/make_store.hpp
 	include/mizuiro/image/format/interleaved_ns/store_data.hpp
 	include/mizuiro/image/format/interleaved_ns/store_normal.hpp
 	include/mizuiro/image/format/interleaved_ns/store_raw.hpp
-	include/mizuiro/image/format/interleaved_ns/store_size.hpp
 	include/mizuiro/image/format/interleaved_ns/stride.hpp
 	include/mizuiro/image/format/interleaved_ns/tag.hpp
 	include/mizuiro/image/format/interleaved_ns/tag_of.hpp
-	include/mizuiro/image/format/interleaved_ns/value_type.hpp
 	include/mizuiro/image/format/make_tag_of.hpp
 	include/mizuiro/image/format/planar_decl.hpp
 	include/mizuiro/image/format/planar_fwd.hpp

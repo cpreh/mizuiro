@@ -8,21 +8,16 @@
 #define MIZUIRO_IMAGE_FORMAT_INCLUDE_INTERLEAVED_HPP_INCLUDED
 
 #include <mizuiro/image/format/interleaved.hpp>
+#include <mizuiro/image/format/include/color.hpp>
 #include <mizuiro/image/format/interleaved_ns/can_copy.hpp>
 #include <mizuiro/image/format/interleaved_ns/can_copy_in_place.hpp>
 #include <mizuiro/image/format/interleaved_ns/data.hpp>
-#include <mizuiro/image/format/interleaved_ns/dereference.hpp>
-#include <mizuiro/image/format/interleaved_ns/needs_format_store.hpp>
-#include <mizuiro/image/format/interleaved_ns/needs_prepare.hpp>
-#include <mizuiro/image/format/interleaved_ns/pointer.hpp>
-#include <mizuiro/image/format/interleaved_ns/reference.hpp>
+#include <mizuiro/image/format/interleaved_ns/make_store.hpp>
 #include <mizuiro/image/format/interleaved_ns/store_data.hpp>
 #include <mizuiro/image/format/interleaved_ns/store_normal.hpp>
 #include <mizuiro/image/format/interleaved_ns/store_raw.hpp>
-#include <mizuiro/image/format/interleaved_ns/store_size.hpp>
 #include <mizuiro/image/format/interleaved_ns/stride.hpp>
 #include <mizuiro/image/format/interleaved_ns/tag_of.hpp>
-#include <mizuiro/image/format/interleaved_ns/value_type.hpp>
 
 
 #endif

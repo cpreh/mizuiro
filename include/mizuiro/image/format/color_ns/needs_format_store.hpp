@@ -4,11 +4,11 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_NEEDS_FORMAT_STORE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_NEEDS_FORMAT_STORE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_COLOR_NS_NEEDS_FORMAT_STORE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_COLOR_NS_NEEDS_FORMAT_STORE_HPP_INCLUDED
 
 #include <mizuiro/color/types/needs_format_store.hpp>
-#include <mizuiro/image/format/interleaved_ns/tag.hpp>
+#include <mizuiro/image/format/color_ns/tag.hpp>
 #include <mizuiro/image/types/needs_format_store_ns/tag.hpp>
 
 
@@ -30,7 +30,7 @@ mizuiro::color::types::needs_format_store<
 >
 needs_format_store_adl(
 	mizuiro::image::types::needs_format_store_ns::tag,
-	mizuiro::image::format::interleaved_ns::tag<
+	mizuiro::image::format::color_ns::tag<
 		ImageFormat
 	>
 );

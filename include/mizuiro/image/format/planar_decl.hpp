@@ -8,10 +8,10 @@
 #define MIZUIRO_IMAGE_FORMAT_PLANAR_DECL_HPP_INCLUDED
 
 #include <mizuiro/color/format/argument.hpp>
-#include <mizuiro/color/format/base_decl.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/format/planar_fwd.hpp>
+#include <mizuiro/image/format/detail/planar_color_base_decl.hpp>
 
 
 namespace mizuiro
@@ -30,12 +30,12 @@ template<
 class planar final
 :
 	private
-		mizuiro::color::format::base<
+		mizuiro::image::format::detail::planar_color_base<
 			ColorFormat
 		>
 {
 	typedef
-	mizuiro::color::format::base<
+	mizuiro::image::format::detail::planar_color_base<
 		ColorFormat
 	>
 	format_base;

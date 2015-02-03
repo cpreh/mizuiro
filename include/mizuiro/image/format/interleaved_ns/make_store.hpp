@@ -4,15 +4,15 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_STORE_SIZE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_STORE_SIZE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_MAKE_STORE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_MAKE_STORE_HPP_INCLUDED
 
-#include <mizuiro/size_type.hpp>
 #include <mizuiro/image/access/stride.hpp>
-#include <mizuiro/image/access/store_size_ns/tag.hpp>
+#include <mizuiro/image/access/make_store_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/format/interleaved_ns/stride.hpp>
 #include <mizuiro/image/format/interleaved_ns/tag.hpp>
+#include <mizuiro/image/types/store.hpp>
 
 
 namespace mizuiro
@@ -21,16 +21,19 @@ namespace image
 {
 namespace access
 {
-namespace store_size_ns
+namespace make_store_ns
 {
 
 template<
 	typename Access,
 	typename ImageFormat
 >
-mizuiro::size_type
-store_size_adl(
-	mizuiro::image::access::store_size_ns::tag,
+mizuiro::image::types::store<
+	Access,
+	ImageFormat
+>
+make_store_adl(
+	mizuiro::image::access::make_store_ns::tag,
 	mizuiro::image::format::interleaved_ns::tag<
 		ImageFormat
 	>,
@@ -42,12 +45,17 @@ store_size_adl(
 )
 {
 	return
-		_dim.content()
-		*
-		mizuiro::image::access::stride<
-			Access
+		mizuiro::image::types::store<
+			Access,
+			ImageFormat
 		>(
-			_format
+			_dim.content()
+			*
+			mizuiro::image::access::stride<
+				Access
+			>(
+				_format
+			)
 		);
 }
 

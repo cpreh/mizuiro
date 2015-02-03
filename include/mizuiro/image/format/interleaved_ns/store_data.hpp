@@ -10,7 +10,7 @@
 #include <mizuiro/apply_const.hpp>
 #include <mizuiro/image/access/store_data_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
-#include <mizuiro/image/format/interleaved_ns/pointer.hpp>
+#include <mizuiro/image/format/color_ns/pointer.hpp>
 #include <mizuiro/image/format/interleaved_ns/tag.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/store.hpp>

@@ -4,15 +4,15 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_DEREFERENCE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_DEREFERENCE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_COLOR_NS_DEREFERENCE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_COLOR_NS_DEREFERENCE_HPP_INCLUDED
 
 #include <mizuiro/image/access/dereference_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/format/to_color_store.hpp>
-#include <mizuiro/image/format/interleaved_ns/pointer.hpp>
-#include <mizuiro/image/format/interleaved_ns/reference.hpp>
-#include <mizuiro/image/format/interleaved_ns/tag.hpp>
+#include <mizuiro/image/format/color_ns/pointer.hpp>
+#include <mizuiro/image/format/color_ns/reference.hpp>
+#include <mizuiro/image/format/color_ns/tag.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
 
@@ -39,7 +39,7 @@ mizuiro::image::types::reference<
 dereference_adl(
 	mizuiro::image::access::dereference_ns::tag,
 	Access const &,
-	mizuiro::image::format::interleaved_ns::tag<
+	mizuiro::image::format::color_ns::tag<
 		ImageFormat
 	>,
 	Constness,
