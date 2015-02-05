@@ -22,6 +22,7 @@ namespace dynamic
 class channel_index
 {
 public:
+	constexpr
 	explicit
 	channel_index(
 		mizuiro::size_type const _index
@@ -33,6 +34,7 @@ public:
 	{
 	}
 
+	constexpr
 	mizuiro::size_type
 	get() const
 	{

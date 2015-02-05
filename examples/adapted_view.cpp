@@ -5,6 +5,7 @@
 
 
 #include <mizuiro/apply_const.hpp>
+#include <mizuiro/difference_type.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/raw_pointer.hpp>
 #include <mizuiro/raw_value.hpp>
@@ -16,6 +17,7 @@
 #include <mizuiro/image/pitch_type.hpp>
 #include <mizuiro/image/access/dereference.hpp>
 #include <mizuiro/image/access/stride.hpp>
+#include <mizuiro/image/access/advance_pointer_ns/tag.hpp>
 #include <mizuiro/image/access/dereference_ns/tag.hpp>
 #include <mizuiro/image/access/stride_ns/tag.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
@@ -117,6 +119,7 @@ namespace types
 {
 namespace needs_format_store_ns
 {
+
 template<
 	typename Dim,
 	typename Type
@@ -207,6 +210,57 @@ value_type_adl(
 
 namespace access
 {
+namespace advance_pointer_ns
+{
+
+template<
+	typename Dim,
+	typename Type,
+	typename Constness
+>
+mizuiro::image::types::pointer<
+	mizuiro::access::raw,
+	mylib::native_format<
+		Dim,
+		Type
+	>,
+	Constness
+>
+advance_pointer_adl(
+	mizuiro::image::access::advance_pointer_ns::tag,
+	mylib::tag<
+		mylib::native_format<
+			Dim,
+			Type
+		>
+	>,
+	mizuiro::access::raw,
+	Constness,
+	mizuiro::image::format::store<
+		mylib::native_format<
+			Dim,
+			Type
+		>
+	> const &,
+	mizuiro::image::types::pointer<
+		mizuiro::access::raw,
+		mylib::native_format<
+			Dim,
+			Type
+		>,
+		Constness
+	> const _pointer,
+	mizuiro::difference_type const _diff
+)
+{
+	return
+		_pointer
+		+
+		_diff;
+}
+
+}
+
 namespace stride_ns
 {
 

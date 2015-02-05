@@ -39,6 +39,7 @@ stride_adl(
 )
 {
 	return
+		// TODO: Can we provide a default implementation here?
 		Format::element_count
 		*
 		sizeof(

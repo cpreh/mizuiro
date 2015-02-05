@@ -10,7 +10,7 @@
 #include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/access/make_store_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
-#include <mizuiro/image/format/interleaved_ns/stride.hpp>
+#include <mizuiro/image/format/color_ns/stride.hpp>
 #include <mizuiro/image/format/interleaved_ns/tag.hpp>
 #include <mizuiro/image/types/store.hpp>
 

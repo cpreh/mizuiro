@@ -7,11 +7,13 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_INCLUDE_COLOR_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_INCLUDE_COLOR_HPP_INCLUDED
 
+#include <mizuiro/image/format/color_ns/advance_pointer.hpp>
 #include <mizuiro/image/format/color_ns/dereference.hpp>
 #include <mizuiro/image/format/color_ns/needs_format_store.hpp>
 #include <mizuiro/image/format/color_ns/needs_prepare.hpp>
 #include <mizuiro/image/format/color_ns/pointer.hpp>
 #include <mizuiro/image/format/color_ns/reference.hpp>
+#include <mizuiro/image/format/color_ns/stride.hpp>
 #include <mizuiro/image/format/color_ns/value_type.hpp>
 
 

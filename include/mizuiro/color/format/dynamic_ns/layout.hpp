@@ -10,6 +10,8 @@
 #include <mizuiro/color/access/layout_ns/tag.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/dynamic_ns/tag.hpp>
+#include <mizuiro/color/types/layout.hpp>
+#include <mizuiro/color/types/layout_ns/tag.hpp>
 
 
 namespace mizuiro
@@ -24,8 +26,10 @@ namespace layout_ns
 template<
 	typename Format
 >
-typename
-Format::channel_array const &
+inline
+mizuiro::color::types::layout<
+	Format
+> const &
 layout_adl(
 	mizuiro::color::access::layout_ns::tag,
 	mizuiro::color::format::dynamic_ns::tag<
@@ -39,6 +43,27 @@ layout_adl(
 	return
 		_format.get()->channels;
 }
+
+}
+}
+
+// TODO: Move this!
+namespace types
+{
+namespace layout_ns
+{
+
+template<
+	typename Format
+>
+typename
+Format::channel_array
+layout_adl(
+	mizuiro::color::types::layout_ns::tag,
+	mizuiro::color::format::dynamic_ns::tag<
+		Format
+	>
+);
 
 }
 }

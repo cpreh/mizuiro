@@ -20,19 +20,13 @@ namespace format
 template<
 	typename Type
 >
-constexpr
+using
+make_tag_of
+=
 typename
 mizuiro::color::format::tag_of<
 	Type
->::type
-make_tag_of()
-{
-	return
-		typename
-		mizuiro::color::format::tag_of<
-			Type
-		>::type();
-}
+>::type;
 
 }
 }

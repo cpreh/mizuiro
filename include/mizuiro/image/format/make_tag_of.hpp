@@ -20,18 +20,13 @@ namespace format
 template<
 	typename Type
 >
+using
+make_tag_of
+=
 typename
 mizuiro::image::format::tag_of<
 	Type
->::type
-make_tag_of()
-{
-	return
-		typename
-		mizuiro::image::format::tag_of<
-			Type
-		>::type();
-}
+>::type;
 
 }
 }

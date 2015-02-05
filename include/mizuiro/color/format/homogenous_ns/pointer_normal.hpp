@@ -26,6 +26,7 @@ template<
 	typename Format,
 	typename Constness
 >
+// TODO: What about pointer_raw?
 mizuiro::apply_const<
 	typename
 	Format::channel_type *,

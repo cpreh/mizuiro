@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_LINEAR_ITERATOR_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_LINEAR_ITERATOR_IMPL_HPP_INCLUDED
 
+#include <mizuiro/image/access/advance_pointer.hpp>
 #include <mizuiro/image/access/dereference.hpp>
 #include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/detail/linear_iterator_decl.hpp>
@@ -30,9 +31,9 @@ mizuiro::image::detail::linear_iterator<
 	format_base(
 		_format
 	),
-	data_{
+	data_(
 		_data
-	}
+	)
 {
 }
 
@@ -71,16 +72,23 @@ mizuiro::image::detail::linear_iterator<
 	difference_type	const _diff
 )
 {
-	data_ +=
-		_diff
-		*
-		static_cast<
-			difference_type
+	data_ =
+		mizuiro::image::access::advance_pointer<
+			Access,
+			Constness
 		>(
-			mizuiro::image::access::stride<
-				Access
+			this->format_store_base(),
+			data_,
+			_diff
+			*
+			static_cast<
+				difference_type
 			>(
-				this->format_store_base()
+				mizuiro::image::access::stride<
+					Access
+				>(
+					this->format_store_base()
+				)
 			)
 		);
 }
@@ -141,6 +149,7 @@ mizuiro::image::detail::linear_iterator<
 ) const
 {
 	return
+		// TODO: Add a pointer difference trait
 		(
 			_other.data_
 			-

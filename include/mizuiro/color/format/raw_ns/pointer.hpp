@@ -22,6 +22,7 @@ namespace types
 namespace pointer_ns
 {
 
+// TODO: Put this somewhere else
 template<
 	typename Constness,
 	typename ColorTag

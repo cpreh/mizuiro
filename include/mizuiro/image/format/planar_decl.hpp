@@ -7,11 +7,13 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_PLANAR_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_PLANAR_DECL_HPP_INCLUDED
 
+#include <mizuiro/size_type.hpp>
 #include <mizuiro/color/format/argument.hpp>
+#include <mizuiro/color/format/base_decl.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/format/planar_fwd.hpp>
-#include <mizuiro/image/format/detail/planar_color_base_decl.hpp>
+#include <mizuiro/image/format/detail/planar_color.hpp>
 
 
 namespace mizuiro
@@ -30,18 +32,24 @@ template<
 class planar final
 :
 	private
-		mizuiro::image::format::detail::planar_color_base<
-			ColorFormat
+		mizuiro::color::format::base<
+			mizuiro::image::format::detail::planar_color<
+				ColorFormat
+			>
 		>
 {
 	typedef
-	mizuiro::image::format::detail::planar_color_base<
-		ColorFormat
+	mizuiro::color::format::base<
+		mizuiro::image::format::detail::planar_color<
+			ColorFormat
+		>
 	>
 	format_base;
 public:
 	typedef
-	ColorFormat
+	mizuiro::image::format::detail::planar_color<
+		ColorFormat
+	>
 	color_format;
 
 	typedef
@@ -52,6 +60,10 @@ public:
 	typedef
 	DimType
 	dim;
+
+	static
+	mizuiro::size_type const element_count =
+		ColorFormat::element_count;
 
 	explicit
 	planar(

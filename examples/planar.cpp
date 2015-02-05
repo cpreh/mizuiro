@@ -45,9 +45,7 @@ main()
 			3u,
 			2u
 		},
-		mizuiro::color::object<
-			format::color_format
-		>(
+		store::value_type(
 			mizuiro::default_init()
 		)
 	};

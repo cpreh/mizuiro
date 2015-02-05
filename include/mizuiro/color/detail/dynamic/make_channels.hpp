@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_COLOR_DETAIL_DYNAMIC_MAKE_CHANNELS_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_DYNAMIC_MAKE_CHANNELS_HPP_INCLUDED
 
-#include <mizuiro/array.hpp>
 #include <mizuiro/color/detail/dynamic/channel_array.hpp>
 #include <mizuiro/color/detail/dynamic/make_channels_impl.hpp>
+#include <mizuiro/detail/array_init_each.hpp>
 #include <mizuiro/mpl/size.hpp>
 
 
@@ -35,11 +35,16 @@ mizuiro::color::detail::dynamic::channel_array<
 make_channels()
 {
 	return
-		mizuiro::color::detail::dynamic::make_channels_impl<
-			PossibleChannels,
-			Channels,
-			0
-		>();
+		mizuiro::detail::array_init_each<
+			mizuiro::mpl::size<
+				Channels
+			>()
+		>(
+			mizuiro::color::detail::dynamic::make_channels_impl<
+				PossibleChannels,
+				Channels
+			>{}
+		);
 }
 
 }

@@ -9,6 +9,7 @@
 
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
+#include <mizuiro/image/format/detail/planar_color_fwd.hpp>
 
 
 namespace mizuiro
@@ -25,10 +26,13 @@ MIZUIRO_DETAIL_IGNORE_EFFCPP
 template<
 	typename Format
 >
-struct planar_color final
+struct planar_color
 :
 Format
 {
+	typedef
+	Format
+	base;
 };
 
 MIZUIRO_DETAIL_POP_WARNING

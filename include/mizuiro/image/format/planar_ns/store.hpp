@@ -4,13 +4,14 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_STORE_NORMAL_HPP_INCLUDED
-#define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_STORE_NORMAL_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_PLANAR_NS_STORE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_PLANAR_NS_STORE_HPP_INCLUDED
 
-#include <mizuiro/access/normal.hpp>
+#include <mizuiro/array.hpp>
+#include <mizuiro/access/store_unit.hpp>
 #include <mizuiro/color/types/store_unit.hpp>
 #include <mizuiro/image/raw_container_impl.hpp>
-#include <mizuiro/image/format/interleaved_ns/tag.hpp>
+#include <mizuiro/image/format/planar_ns/tag.hpp>
 #include <mizuiro/image/types/store_ns/tag.hpp>
 
 
@@ -24,18 +25,25 @@ namespace store_ns
 {
 
 template<
+	typename Access,
 	typename ImageFormat
 >
-mizuiro::image::raw_container<
-	mizuiro::color::types::store_unit<
-		typename
-		ImageFormat::color_format
-	>
+mizuiro::array<
+	mizuiro::image::raw_container<
+		mizuiro::access::store_unit<
+			Access,
+			mizuiro::color::types::store_unit<
+				typename
+				ImageFormat::color_format
+			>
+		>
+	>,
+	ImageFormat::element_count
 >
 store_adl(
 	mizuiro::image::types::store_ns::tag,
-	mizuiro::access::normal,
-	mizuiro::image::format::interleaved_ns::tag<
+	Access,
+	mizuiro::image::format::planar_ns::tag<
 		ImageFormat
 	>
 );
