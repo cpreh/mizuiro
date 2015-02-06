@@ -160,6 +160,7 @@ set(
 	include/mizuiro/color/format/base_impl.hpp
 	include/mizuiro/color/format/compatible.hpp
 	include/mizuiro/color/format/defaults_ns/advance_pointer.hpp
+	include/mizuiro/color/format/defaults_ns/pointer.hpp
 	include/mizuiro/color/format/defaults_ns/tag.hpp
 	include/mizuiro/color/format/definitely_has_channel.hpp
 	include/mizuiro/color/format/definitely_has_not_channel.hpp
@@ -227,7 +228,6 @@ set(
 	include/mizuiro/color/format/include/static.hpp
 	include/mizuiro/color/format/make_tag_of.hpp
 	include/mizuiro/color/format/might_have_channel.hpp
-	include/mizuiro/color/format/raw_ns/pointer.hpp
 	include/mizuiro/color/format/same_channel_value_types.hpp
 	include/mizuiro/color/format/same_channels.hpp
 	include/mizuiro/color/format/same_spaces.hpp

@@ -22,7 +22,6 @@
 #include <mizuiro/color/format/homogenous_ns/store_unit.hpp>
 #include <mizuiro/color/format/homogenous_ns/stride_normal.hpp>
 #include <mizuiro/color/format/homogenous_ns/stride_raw.hpp>
-#include <mizuiro/color/format/raw_ns/pointer.hpp>
 
 
 #endif

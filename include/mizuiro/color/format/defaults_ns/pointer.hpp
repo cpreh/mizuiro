@@ -4,12 +4,13 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_FORMAT_RAW_NS_POINTER_HPP_INCLUDED
-#define MIZUIRO_COLOR_FORMAT_RAW_NS_POINTER_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_FORMAT_DEFAULTS_NS_POINTER_HPP_INCLUDED
+#define MIZUIRO_COLOR_FORMAT_DEFAULTS_NS_POINTER_HPP_INCLUDED
 
 #include <mizuiro/apply_const.hpp>
 #include <mizuiro/raw_pointer.hpp>
 #include <mizuiro/access/raw.hpp>
+#include <mizuiro/color/format/defaults_ns/tag.hpp>
 #include <mizuiro/color/types/pointer_ns/tag.hpp>
 
 
@@ -22,10 +23,9 @@ namespace types
 namespace pointer_ns
 {
 
-// TODO: Put this somewhere else
 template<
 	typename Constness,
-	typename ColorTag
+	typename Format
 >
 mizuiro::apply_const<
 	typename
@@ -35,7 +35,9 @@ mizuiro::apply_const<
 pointer_adl(
 	mizuiro::color::types::pointer_ns::tag,
 	mizuiro::access::raw,
-	ColorTag,
+	mizuiro::color::format::defaults_ns::tag<
+		Format
+	>,
 	Constness
 );
 
