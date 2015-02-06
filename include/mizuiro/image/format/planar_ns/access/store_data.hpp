@@ -4,17 +4,17 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_FORMAT_PLANAR_NS_STORE_DATA_HPP_INCLUDED
-#define MIZUIRO_IMAGE_FORMAT_PLANAR_NS_STORE_DATA_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_PLANAR_NS_ACCESS_STORE_DATA_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_PLANAR_NS_ACCESS_STORE_DATA_HPP_INCLUDED
 
 #include <mizuiro/apply_const.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/detail/array_init_each_rt.hpp>
 #include <mizuiro/image/access/store_data_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
-#include <mizuiro/image/format/color_ns/pointer.hpp>
-#include <mizuiro/image/format/planar_ns/store.hpp>
+#include <mizuiro/image/format/color_ns/types/pointer.hpp>
 #include <mizuiro/image/format/planar_ns/tag.hpp>
+#include <mizuiro/image/format/planar_ns/types/store.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/store.hpp>
 

@@ -17,11 +17,11 @@
 //#include <mizuiro/image/format/planar_ns/can_copy.hpp>
 //#include <mizuiro/image/format/planar_ns/can_copy_in_place.hpp>
 //#include <mizuiro/image/format/planar_ns/data.hpp>
-#include <mizuiro/image/format/planar_ns/make_store.hpp>
-#include <mizuiro/image/format/planar_ns/store_data.hpp>
-#include <mizuiro/image/format/planar_ns/store.hpp>
 #include <mizuiro/image/format/planar_ns/tag_of.hpp>
-#include <mizuiro/image/format/planar_ns/value_type.hpp>
+#include <mizuiro/image/format/planar_ns/access/make_store.hpp>
+#include <mizuiro/image/format/planar_ns/access/store_data.hpp>
+#include <mizuiro/image/format/planar_ns/types/store.hpp>
+#include <mizuiro/image/format/planar_ns/types/value_type.hpp>
 
 
 #endif

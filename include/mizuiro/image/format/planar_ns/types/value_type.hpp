@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_FORMAT_PLANAR_NS_VALUE_TYPE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_FORMAT_PLANAR_NS_VALUE_TYPE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_PLANAR_NS_TYPES_VALUE_TYPE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_PLANAR_NS_TYPES_VALUE_TYPE_HPP_INCLUDED
 
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/image/format/planar_ns/tag.hpp>

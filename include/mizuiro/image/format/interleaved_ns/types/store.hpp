@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_STORE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_STORE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_TYPES_STORE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_TYPES_STORE_HPP_INCLUDED
 
 #include <mizuiro/access/store_unit.hpp>
 #include <mizuiro/color/types/store_unit.hpp>

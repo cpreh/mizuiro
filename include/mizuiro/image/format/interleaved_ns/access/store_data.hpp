@@ -4,16 +4,16 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_DATA_HPP_INCLUDED
-#define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_DATA_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_ACCESS_STORE_DATA_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_ACCESS_STORE_DATA_HPP_INCLUDED
 
-#include <mizuiro/image/access/data_ns/tag.hpp>
+#include <mizuiro/apply_const.hpp>
+#include <mizuiro/image/access/store_data_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
-#include <mizuiro/image/format/color_ns/pointer.hpp>
-#include <mizuiro/image/format/color_ns/reference.hpp>
 #include <mizuiro/image/format/interleaved_ns/tag.hpp>
+#include <mizuiro/image/format/color_ns/types/pointer.hpp>
 #include <mizuiro/image/types/pointer.hpp>
-#include <mizuiro/image/types/reference.hpp>
+#include <mizuiro/image/types/store.hpp>
 
 
 namespace mizuiro
@@ -22,38 +22,40 @@ namespace image
 {
 namespace access
 {
-namespace data_ns
+namespace store_data_ns
 {
 
 template<
 	typename Access,
-	typename ImageFormat,
-	typename Constness
+	typename Constness,
+	typename ImageFormat
 >
 mizuiro::image::types::pointer<
 	Access,
 	ImageFormat,
 	Constness
 >
-data_adl(
-	mizuiro::image::access::data_ns::tag,
-	Access const &,
+store_data_adl(
+	mizuiro::image::access::store_data_ns::tag,
 	mizuiro::image::format::interleaved_ns::tag<
 		ImageFormat
 	>,
+	Access,
 	Constness,
 	mizuiro::image::format::store<
 		ImageFormat
 	> const &,
-	mizuiro::image::types::reference<
-		Access,
-		ImageFormat,
+	mizuiro::apply_const<
+		mizuiro::image::types::store<
+			Access,
+			ImageFormat
+		> &,
 		Constness
-	> const &_ref
+	> _store
 )
 {
 	return
-		_ref.data();
+		_store.data();
 }
 
 }

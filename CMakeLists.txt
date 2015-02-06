@@ -641,16 +641,16 @@ set(
 	include/mizuiro/image/format/argument.hpp
 	include/mizuiro/image/format/base_decl.hpp
 	include/mizuiro/image/format/base_impl.hpp
-	include/mizuiro/image/format/color_ns/advance_pointer.hpp
-	include/mizuiro/image/format/color_ns/dereference.hpp
-	include/mizuiro/image/format/color_ns/needs_format_store.hpp
-	include/mizuiro/image/format/color_ns/needs_prepare.hpp
-	include/mizuiro/image/format/color_ns/pointer.hpp
-	include/mizuiro/image/format/color_ns/pointer_difference.hpp
-	include/mizuiro/image/format/color_ns/reference.hpp
-	include/mizuiro/image/format/color_ns/stride.hpp
+	include/mizuiro/image/format/color_ns/access/advance_pointer.hpp
+	include/mizuiro/image/format/color_ns/access/dereference.hpp
+	include/mizuiro/image/format/color_ns/access/pointer_difference.hpp
+	include/mizuiro/image/format/color_ns/access/stride.hpp
 	include/mizuiro/image/format/color_ns/tag.hpp
-	include/mizuiro/image/format/color_ns/value_type.hpp
+	include/mizuiro/image/format/color_ns/types/needs_format_store.hpp
+	include/mizuiro/image/format/color_ns/types/needs_prepare.hpp
+	include/mizuiro/image/format/color_ns/types/pointer.hpp
+	include/mizuiro/image/format/color_ns/types/reference.hpp
+	include/mizuiro/image/format/color_ns/types/value_type.hpp
 	include/mizuiro/image/format/detail/planar_color.hpp
 	include/mizuiro/image/format/detail/planar_color_fwd.hpp
 	include/mizuiro/image/format/detail/planar_color_ns/advance_pointer.hpp
@@ -666,26 +666,25 @@ set(
 	include/mizuiro/image/format/interleaved_decl.hpp
 	include/mizuiro/image/format/interleaved_fwd.hpp
 	include/mizuiro/image/format/interleaved_impl.hpp
-	include/mizuiro/image/format/interleaved_ns/can_copy.hpp
-	include/mizuiro/image/format/interleaved_ns/can_copy_in_place.hpp
-	include/mizuiro/image/format/interleaved_ns/data.hpp
-	include/mizuiro/image/format/interleaved_ns/make_store.hpp
-	include/mizuiro/image/format/interleaved_ns/store.hpp
-	include/mizuiro/image/format/interleaved_ns/store_data.hpp
-	include/mizuiro/image/format/interleaved_ns/store_raw.hpp
+	include/mizuiro/image/format/interleaved_ns/access/data.hpp
+	include/mizuiro/image/format/interleaved_ns/access/make_store.hpp
+	include/mizuiro/image/format/interleaved_ns/access/store_data.hpp
 	include/mizuiro/image/format/interleaved_ns/tag.hpp
 	include/mizuiro/image/format/interleaved_ns/tag_of.hpp
+	include/mizuiro/image/format/interleaved_ns/types/can_copy.hpp
+	include/mizuiro/image/format/interleaved_ns/types/can_copy_in_place.hpp
+	include/mizuiro/image/format/interleaved_ns/types/store.hpp
 	include/mizuiro/image/format/make_tag_of.hpp
 	include/mizuiro/image/format/planar.hpp
 	include/mizuiro/image/format/planar_decl.hpp
 	include/mizuiro/image/format/planar_fwd.hpp
 	include/mizuiro/image/format/planar_impl.hpp
-	include/mizuiro/image/format/planar_ns/make_store.hpp
-	include/mizuiro/image/format/planar_ns/store.hpp
-	include/mizuiro/image/format/planar_ns/store_data.hpp
+	include/mizuiro/image/format/planar_ns/access/make_store.hpp
+	include/mizuiro/image/format/planar_ns/access/store_data.hpp
 	include/mizuiro/image/format/planar_ns/tag.hpp
 	include/mizuiro/image/format/planar_ns/tag_of.hpp
-	include/mizuiro/image/format/planar_ns/value_type.hpp
+	include/mizuiro/image/format/planar_ns/types/store.hpp
+	include/mizuiro/image/format/planar_ns/types/value_type.hpp
 	include/mizuiro/image/format/store.hpp
 	include/mizuiro/image/format/store_decl.hpp
 	include/mizuiro/image/format/store_fwd.hpp

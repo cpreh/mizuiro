@@ -4,16 +4,16 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_FORMAT_COLOR_NS_POINTER_DIFFERENCE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_FORMAT_COLOR_NS_POINTER_DIFFERENCE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_COLOR_NS_ACCESS_POINTER_DIFFERENCE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_COLOR_NS_ACCESS_POINTER_DIFFERENCE_HPP_INCLUDED
 
 #include <mizuiro/difference_type.hpp>
 #include <mizuiro/color/access/pointer_difference.hpp>
 #include <mizuiro/image/access/pointer_difference_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/format/to_color_store.hpp>
-#include <mizuiro/image/format/color_ns/pointer.hpp>
 #include <mizuiro/image/format/color_ns/tag.hpp>
+#include <mizuiro/image/format/color_ns/types/pointer.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 
 

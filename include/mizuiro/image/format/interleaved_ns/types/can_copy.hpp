@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_CAN_COPY_HPP_INCLUDED
-#define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_CAN_COPY_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_TYPES_CAN_COPY_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_TYPES_CAN_COPY_HPP_INCLUDED
 
 #include <mizuiro/color/format/compatible.hpp>
 #include <mizuiro/image/format/interleaved_ns/tag.hpp>

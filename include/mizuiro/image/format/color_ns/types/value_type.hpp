@@ -4,12 +4,12 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_FORMAT_COLOR_NS_NEEDS_PREPARE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_FORMAT_COLOR_NS_NEEDS_PREPARE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_COLOR_NS_TYPES_VALUE_TYPE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_COLOR_NS_TYPES_VALUE_TYPE_HPP_INCLUDED
 
-#include <mizuiro/color/types/store_needs_init.hpp>
+#include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/image/format/color_ns/tag.hpp>
-#include <mizuiro/image/types/needs_prepare_ns/tag.hpp>
+#include <mizuiro/image/types/value_type_ns/tag.hpp>
 
 
 namespace mizuiro
@@ -18,18 +18,18 @@ namespace image
 {
 namespace types
 {
-namespace needs_prepare_ns
+namespace value_type_ns
 {
 
 template<
 	typename ImageFormat
 >
-mizuiro::color::types::store_needs_init<
+mizuiro::color::object<
 	typename
 	ImageFormat::color_format
 >
-needs_prepare_adl(
-	mizuiro::image::types::needs_prepare_ns::tag,
+value_type_adl(
+	mizuiro::image::types::value_type_ns::tag,
 	mizuiro::image::format::color_ns::tag<
 		ImageFormat
 	>

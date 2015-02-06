@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_FORMAT_COLOR_NS_STRIDE_HPP_INCLUDED
-#define MIZUIRO_IMAGE_FORMAT_COLOR_NS_STRIDE_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_COLOR_NS_ACCESS_STRIDE_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_COLOR_NS_ACCESS_STRIDE_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/access/stride.hpp>

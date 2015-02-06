@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_FORMAT_COLOR_NS_POINTER_HPP_INCLUDED
-#define MIZUIRO_IMAGE_FORMAT_COLOR_NS_POINTER_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_FORMAT_COLOR_NS_TYPES_POINTER_HPP_INCLUDED
+#define MIZUIRO_IMAGE_FORMAT_COLOR_NS_TYPES_POINTER_HPP_INCLUDED
 
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/image/format/color_ns/tag.hpp>
