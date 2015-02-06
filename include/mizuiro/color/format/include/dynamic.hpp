@@ -7,12 +7,13 @@
 #ifndef MIZUIRO_COLOR_FORMAT_INCLUDE_DYNAMIC_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_INCLUDE_DYNAMIC_HPP_INCLUDED
 
-#include <mizuiro/color/format/dynamic_ns/channel_index.hpp>
-#include <mizuiro/color/format/dynamic_ns/compare_channels.hpp>
-#include <mizuiro/color/format/dynamic_ns/has_channel.hpp>
-#include <mizuiro/color/format/dynamic_ns/layout.hpp>
-#include <mizuiro/color/format/dynamic_ns/needs_format_store.hpp>
-#include <mizuiro/color/format/dynamic_ns/static_channels.hpp>
+#include <mizuiro/color/format/dynamic_ns/access/channel_index.hpp>
+#include <mizuiro/color/format/dynamic_ns/access/compare_channels.hpp>
+#include <mizuiro/color/format/dynamic_ns/access/has_channel.hpp>
+#include <mizuiro/color/format/dynamic_ns/access/layout.hpp>
+#include <mizuiro/color/format/dynamic_ns/types/layout.hpp>
+#include <mizuiro/color/format/dynamic_ns/types/needs_format_store.hpp>
+#include <mizuiro/color/format/dynamic_ns/types/static_channels.hpp>
 #include <mizuiro/range/include/array.hpp>
 
 
