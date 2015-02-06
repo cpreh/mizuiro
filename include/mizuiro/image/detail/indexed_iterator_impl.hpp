@@ -43,6 +43,18 @@ template<
 	typename Dimension,
 	typename Underlying
 >
+mizuiro::image::detail::indexed_iterator<
+	Dimension,
+	Underlying
+>::indexed_iterator(
+	indexed_iterator const &
+) noexcept
+= default;
+
+template<
+	typename Dimension,
+	typename Underlying
+>
 void
 mizuiro::image::detail::indexed_iterator<
 	Dimension,

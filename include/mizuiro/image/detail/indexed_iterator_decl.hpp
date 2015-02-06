@@ -31,6 +31,10 @@ public:
 		Underlying const &
 	);
 
+	indexed_iterator(
+		indexed_iterator const &
+	) noexcept;
+
 	typedef
 	mizuiro::image::indexed_ref<
 		Dimension::static_size,
