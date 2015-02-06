@@ -19,6 +19,7 @@
 #include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/access/advance_pointer_ns/tag.hpp>
 #include <mizuiro/image/access/dereference_ns/tag.hpp>
+#include <mizuiro/image/access/pointer_difference_ns/tag.hpp>
 #include <mizuiro/image/access/stride_ns/tag.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
@@ -257,6 +258,55 @@ advance_pointer_adl(
 		_pointer
 		+
 		_diff;
+}
+}
+
+namespace pointer_difference_ns
+{
+template<
+	typename Dim,
+	typename Type,
+	typename Constness
+>
+mizuiro::difference_type
+pointer_difference_adl(
+	mizuiro::image::access::pointer_difference_ns::tag,
+	mylib::tag<
+		mylib::native_format<
+			Dim,
+			Type
+		>
+	>,
+	mizuiro::access::raw,
+	Constness,
+	mizuiro::image::format::store<
+		mylib::native_format<
+			Dim,
+			Type
+		>
+	> const &,
+	mizuiro::image::types::pointer<
+		mizuiro::access::raw,
+		mylib::native_format<
+			Dim,
+			Type
+		>,
+		Constness
+	> const _pointer1,
+	mizuiro::image::types::pointer<
+		mizuiro::access::raw,
+		mylib::native_format<
+			Dim,
+			Type
+		>,
+		Constness
+	> const _pointer2
+)
+{
+	return
+		_pointer1
+		-
+		_pointer2;
 }
 
 }

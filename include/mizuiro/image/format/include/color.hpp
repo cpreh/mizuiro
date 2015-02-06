@@ -12,6 +12,7 @@
 #include <mizuiro/image/format/color_ns/needs_format_store.hpp>
 #include <mizuiro/image/format/color_ns/needs_prepare.hpp>
 #include <mizuiro/image/format/color_ns/pointer.hpp>
+#include <mizuiro/image/format/color_ns/pointer_difference.hpp>
 #include <mizuiro/image/format/color_ns/reference.hpp>
 #include <mizuiro/image/format/color_ns/stride.hpp>
 #include <mizuiro/image/format/color_ns/value_type.hpp>

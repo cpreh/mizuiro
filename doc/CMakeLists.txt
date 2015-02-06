@@ -76,6 +76,8 @@ set(
 	include/mizuiro/color/access/init_store_ns/tag.hpp
 	include/mizuiro/color/access/layout.hpp
 	include/mizuiro/color/access/layout_ns/tag.hpp
+	include/mizuiro/color/access/pointer_difference.hpp
+	include/mizuiro/color/access/pointer_difference_ns/tag.hpp
 	include/mizuiro/color/access/store_data.hpp
 	include/mizuiro/color/access/store_data_ns/tag.hpp
 	include/mizuiro/color/access/stride.hpp
@@ -160,7 +162,8 @@ set(
 	include/mizuiro/color/format/base_impl.hpp
 	include/mizuiro/color/format/compatible.hpp
 	include/mizuiro/color/format/defaults_ns/advance_pointer.hpp
-	include/mizuiro/color/format/defaults_ns/pointer.hpp
+	include/mizuiro/color/format/defaults_ns/pointer_difference.hpp
+	include/mizuiro/color/format/defaults_ns/pointer_raw.hpp
 	include/mizuiro/color/format/defaults_ns/tag.hpp
 	include/mizuiro/color/format/definitely_has_channel.hpp
 	include/mizuiro/color/format/definitely_has_not_channel.hpp
@@ -406,6 +409,8 @@ set(
 	include/mizuiro/image/access/dereference_ns/tag.hpp
 	include/mizuiro/image/access/make_store.hpp
 	include/mizuiro/image/access/make_store_ns/tag.hpp
+	include/mizuiro/image/access/pointer_difference.hpp
+	include/mizuiro/image/access/pointer_difference_ns/tag.hpp
 	include/mizuiro/image/access/store_data.hpp
 	include/mizuiro/image/access/store_data_ns/tag.hpp
 	include/mizuiro/image/access/stride.hpp
@@ -518,6 +523,7 @@ set(
 	include/mizuiro/image/format/color_ns/needs_format_store.hpp
 	include/mizuiro/image/format/color_ns/needs_prepare.hpp
 	include/mizuiro/image/format/color_ns/pointer.hpp
+	include/mizuiro/image/format/color_ns/pointer_difference.hpp
 	include/mizuiro/image/format/color_ns/reference.hpp
 	include/mizuiro/image/format/color_ns/stride.hpp
 	include/mizuiro/image/format/color_ns/tag.hpp

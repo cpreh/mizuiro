@@ -9,6 +9,7 @@
 
 #include <mizuiro/image/access/advance_pointer.hpp>
 #include <mizuiro/image/access/dereference.hpp>
+#include <mizuiro/image/access/pointer_difference.hpp>
 #include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/detail/linear_iterator_decl.hpp>
 #include <mizuiro/image/format/base_impl.hpp>
@@ -149,10 +150,12 @@ mizuiro::image::detail::linear_iterator<
 ) const
 {
 	return
-		// TODO: Add a pointer difference trait
-		(
-			_other.data_
-			-
+		mizuiro::image::access::pointer_difference<
+			Access,
+			Constness
+		>(
+			this->format_store_base(),
+			_other.data_,
 			data_
 		)
 		/

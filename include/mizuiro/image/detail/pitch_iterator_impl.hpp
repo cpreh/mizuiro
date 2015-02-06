@@ -9,6 +9,7 @@
 
 #include <mizuiro/detail/unlikely.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
+#include <mizuiro/image/access/advance_pointer.hpp>
 #include <mizuiro/image/access/dereference.hpp>
 #include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/detail/pitch_iterator_decl.hpp>
@@ -140,74 +141,16 @@ mizuiro::image::detail::pitch_iterator<
 >::data() const
 {
 	return
-		root_data_
-		+
-		position_;
-}
-/*
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
-typename
-mizuiro::image::detail::pitch_iterator<
-	Access,
-	Format,
-	Constness
->::pointer
-mizuiro::image::detail::pitch_iterator<
-	Access,
-	Format,
-	Constness
->::root_data() const
-{
-	return
-		root_data_;
+		mizuiro::image::access::advance_pointer<
+			Access,
+			Constness
+		>(
+			this->format_store_base(),
+			root_data_,
+			position_
+		);
 }
 
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
-typename
-mizuiro::image::detail::pitch_iterator<
-	Access,
-	Format,
-	Constness
->::pitch_type const &
-mizuiro::image::detail::pitch_iterator<
-	Access,
-	Format,
-	Constness
->::pitch() const
-{
-	return
-		pitch_;
-}
-
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
-typename
-mizuiro::image::detail::pitch_iterator<
-	Access,
-	Format,
-	Constness
->::format_store_type const
-mizuiro::image::detail::pitch_iterator<
-	Access,
-	Format,
-	Constness
->::format_store() const
-{
-	return
-		this->format_store_base();
-}
-*/
 template<
 	typename Access,
 	typename Format,
@@ -256,7 +199,7 @@ mizuiro::image::detail::pitch_iterator<
 			*this;
 	}
 
-	difference_type add =
+	difference_type add{
 		_diff
 		*
 		static_cast<
@@ -267,7 +210,8 @@ mizuiro::image::detail::pitch_iterator<
 			>(
 				this->format_store_base()
 			)
-		);
+		)
+	};
 
 	for(
 		size_type i = 0;

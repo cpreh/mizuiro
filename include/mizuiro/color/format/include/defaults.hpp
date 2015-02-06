@@ -8,7 +8,8 @@
 #define MIZUIRO_COLOR_FORMAT_INCLUDE_DEFAULTS_HPP_INCLUDED
 
 #include <mizuiro/color/format/defaults_ns/advance_pointer.hpp>
-#include <mizuiro/color/format/defaults_ns/pointer.hpp>
+#include <mizuiro/color/format/defaults_ns/pointer_difference.hpp>
+#include <mizuiro/color/format/defaults_ns/pointer_raw.hpp>
 
 
 #endif
