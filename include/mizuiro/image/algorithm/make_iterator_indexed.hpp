@@ -41,12 +41,9 @@ struct make_iterator_indexed
 
 		return
 			result_type(
-				typename
-				result_type::impl(
-					_view.size(),
-					View::dim::null(),
-					_view.begin()
-				)
+				_view.size(),
+				View::dim::null(),
+				_view.begin()
 			);
 	}
 
@@ -71,15 +68,12 @@ struct make_iterator_indexed
 
 		return
 			result_type(
-				typename
-				result_type::impl(
-					_view.size(),
-					mizuiro::image::iterator_position(
-						_view,
-						_view.end()
-					),
+				_view.size(),
+				mizuiro::image::iterator_position(
+					_view,
 					_view.end()
-				)
+				),
+				_view.end()
 			);
 	}
 };

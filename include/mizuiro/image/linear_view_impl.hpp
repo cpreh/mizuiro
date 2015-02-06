@@ -158,11 +158,8 @@ mizuiro::image::linear_view<
 {
 	return
 		iterator(
-			typename
-			iterator::impl{
-				data_,
-				this->format_store()
-			}
+			data_,
+			this->format_store()
 		);
 }
 

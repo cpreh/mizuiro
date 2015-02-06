@@ -7,6 +7,8 @@
 #ifndef MIZUIRO_IMAGE_BASIC_ITERATOR_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_BASIC_ITERATOR_DECL_HPP_INCLUDED
 
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/basic_iterator_fwd.hpp>
 #include <mizuiro/image/types/value_type.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -19,10 +21,15 @@ namespace mizuiro
 namespace image
 {
 
+MIZUIRO_DETAIL_IGNORE_EFFCPP
+
 template<
 	typename Impl
 >
-class basic_iterator
+class basic_iterator final
+:
+	private
+		Impl
 {
 public:
 	typedef
@@ -73,10 +80,8 @@ public:
 	Impl::format_store_type
 	format_store_type;
 
-	explicit
-	basic_iterator(
-		Impl const &
-	);
+	using
+	Impl::Impl;
 
 	pointer
 	data() const;
@@ -134,9 +139,9 @@ public:
 	operator[](
 		difference_type
 	) const;
-private:
-	Impl impl_;
 };
+
+MIZUIRO_DETAIL_POP_WARNING
 
 template<
 	typename Impl

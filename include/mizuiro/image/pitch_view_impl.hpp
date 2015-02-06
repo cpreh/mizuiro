@@ -168,13 +168,10 @@ mizuiro::image::pitch_view<
 {
 	return
 		iterator(
-			typename
-			iterator::impl{
-				this->size(),
-				this->data(),
-				this->pitch(),
-				this->format_store()
-			}
+			this->size(),
+			this->data(),
+			this->pitch(),
+			this->format_store()
 		);
 }
 

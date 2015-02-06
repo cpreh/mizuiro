@@ -35,11 +35,8 @@ struct view_end
 		return
 			Iterator(
 				typename
-				Iterator::impl{
-					typename
-					Iterator::impl::internal_type{
-						_view.end()
-					}
+				Iterator::impl::internal_type{
+					_view.end()
 				}
 			);
 	}

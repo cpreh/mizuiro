@@ -35,11 +35,8 @@ struct view_begin
 		return
 			Iterator(
 				typename
-				Iterator::impl{
-					typename
-					Iterator::impl::internal_type{
-						_view.begin()
-					}
+				Iterator::impl::internal_type{
+					_view.begin()
 				}
 			);
 	}

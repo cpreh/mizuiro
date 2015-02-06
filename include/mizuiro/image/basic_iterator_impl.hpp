@@ -17,21 +17,6 @@
 template<
 	typename Impl
 >
-mizuiro::image::basic_iterator<
-	Impl
->::basic_iterator(
-	Impl const &_impl
-)
-:
-	impl_{
-		_impl
-	}
-{
-}
-
-template<
-	typename Impl
->
 typename
 mizuiro::image::basic_iterator<
 	Impl
@@ -41,7 +26,7 @@ mizuiro::image::basic_iterator<
 >::data() const
 {
 	return
-		impl_.data();
+		Impl::data();
 }
 
 template<
@@ -110,7 +95,7 @@ mizuiro::image::basic_iterator<
 >::operator*() const
 {
 	return
-		impl_.dereference();
+		this->dereference();
 }
 
 template<
@@ -123,7 +108,7 @@ mizuiro::image::basic_iterator<
 	Impl
 >::operator++()
 {
-	impl_.increment();
+	this->increment();
 
 	return
 		*this;
@@ -140,8 +125,8 @@ mizuiro::image::basic_iterator<
 ) const
 {
 	return
-		impl_.equal(
-			_other.impl_
+		this->equal(
+			_other
 		);
 }
 
@@ -160,18 +145,6 @@ mizuiro::image::basic_iterator<
 		this->data();
 }
 
-/*
-template<
-	typename Impl
->
-mizuiro::image::basic_iterator<
-	Impl
->::basic_iterator()
-:
-	impl_{}
-{
-}*/
-
 template<
 	typename Impl
 >
@@ -182,7 +155,7 @@ mizuiro::image::basic_iterator<
 	Impl
 >::operator--()
 {
-	impl_.decrement();
+	this->decrement();
 
 	return
 		*this;
@@ -200,7 +173,7 @@ mizuiro::image::basic_iterator<
 	difference_type const _diff
 )
 {
-	impl_.advance(
+	this->advance(
 		_diff
 	);
 
@@ -222,8 +195,8 @@ mizuiro::image::basic_iterator<
 ) const
 {
 	return
-		_other.impl_.distance_to(
-			impl_
+		_other.distance_to(
+			*this
 		);
 }
 
