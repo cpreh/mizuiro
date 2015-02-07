@@ -54,7 +54,6 @@ public:
 	size_type const static_size
 		= Dim;
 
-	// TODO: Add more typedefs
 	typedef
 	typename
 	array_type::iterator

@@ -23,6 +23,7 @@ endfunction()
 
 build_mizuiro_example(adapted_view)
 build_mizuiro_example(algorithm)
+build_mizuiro_example(canonical)
 build_mizuiro_example(convert)
 build_mizuiro_example(convert_view)
 build_mizuiro_example(dynamic)

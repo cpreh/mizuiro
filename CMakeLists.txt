@@ -639,6 +639,23 @@ set(
 	include/mizuiro/image/format/argument.hpp
 	include/mizuiro/image/format/base_decl.hpp
 	include/mizuiro/image/format/base_impl.hpp
+	include/mizuiro/image/format/canonical.hpp
+	include/mizuiro/image/format/canonical_fwd.hpp
+	include/mizuiro/image/format/canonical_ns/access/advance_pointer.hpp
+	include/mizuiro/image/format/canonical_ns/access/dereference.hpp
+	include/mizuiro/image/format/canonical_ns/access/make_store.hpp
+	include/mizuiro/image/format/canonical_ns/access/pointer_difference.hpp
+	include/mizuiro/image/format/canonical_ns/access/store_data.hpp
+	include/mizuiro/image/format/canonical_ns/access/stride.hpp
+	include/mizuiro/image/format/canonical_ns/tag.hpp
+	include/mizuiro/image/format/canonical_ns/tag_of.hpp
+	include/mizuiro/image/format/canonical_ns/types/can_copy.hpp
+	include/mizuiro/image/format/canonical_ns/types/can_copy_in_place.hpp
+	include/mizuiro/image/format/canonical_ns/types/needs_format_store.hpp
+	include/mizuiro/image/format/canonical_ns/types/pointer.hpp
+	include/mizuiro/image/format/canonical_ns/types/reference.hpp
+	include/mizuiro/image/format/canonical_ns/types/store.hpp
+	include/mizuiro/image/format/canonical_ns/types/value_type.hpp
 	include/mizuiro/image/format/color_ns/access/advance_pointer.hpp
 	include/mizuiro/image/format/color_ns/access/dereference.hpp
 	include/mizuiro/image/format/color_ns/access/pointer_difference.hpp
@@ -657,6 +674,7 @@ set(
 	include/mizuiro/image/format/detail/planar_color_ns/stride.hpp
 	include/mizuiro/image/format/detail/planar_color_ns/tag.hpp
 	include/mizuiro/image/format/detail/planar_color_ns/tag_of.hpp
+	include/mizuiro/image/format/include/canonical.hpp
 	include/mizuiro/image/format/include/color.hpp
 	include/mizuiro/image/format/include/interleaved.hpp
 	include/mizuiro/image/format/include/planar.hpp
