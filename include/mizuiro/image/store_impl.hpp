@@ -142,7 +142,7 @@ mizuiro::image::store<
 			access,
 			mizuiro::nonconst_tag
 		>(
-			this->format_store_base(),
+			this->format_store(),
 			data_
 		);
 }
@@ -166,7 +166,7 @@ mizuiro::image::store<
 			access,
 			mizuiro::const_tag
 		>(
-			this->format_store_base(),
+			this->format_store(),
 			data_
 		);
 }
@@ -189,7 +189,7 @@ mizuiro::image::store<
 		view_type(
 			this->size(),
 			this->data(),
-			this->format_store_base()
+			this->format_store()
 		);
 }
 
@@ -211,7 +211,7 @@ mizuiro::image::store<
 		const_view_type(
 			this->size(),
 			this->data(),
-			this->format_store_base()
+			this->format_store()
 		);
 }
 template<
@@ -230,6 +230,24 @@ mizuiro::image::store<
 {
 	return
 		size_;
+}
+
+template<
+	typename Format,
+	typename Access
+>
+typename
+mizuiro::image::store<
+	Format,
+	Access
+>::format_store_type const
+mizuiro::image::store<
+	Format,
+	Access
+>::format_store() const
+{
+	return
+		this->format_store_base();
 }
 
 #endif

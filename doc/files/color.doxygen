@@ -70,6 +70,8 @@ Accessing a color is done in a similar way:
 
 Common definitions:
 
+true, false : Bool
+
 normal, raw : Access
 
 const, nonconst : Constness
@@ -87,14 +89,14 @@ For each c : Channel and T = channel_value(c):
   - channel_min, channel_max : Channel -> channel_value(Channel)
   - T's value range is [channel_min(c), channel_max(c)]
 
-store is a type with the following properties:
+Store is a type with the following properties:
 
 For each c : Channel, define the store's associated value
 s(c) : channel_value(c) (c \in [channel_min(c), channel_max(c)])
 such that:
   - pointer : (Access, Constness) -> Type
     A type representing a pointer to the store's memory.
-  - store_data : Constness -> apply_const(store, Constness) -> pointer(normal, Constness)
+  - store_data : Store -> Constness -> apply_const(Store, Constness) -> pointer(normal, Constness)
     Returns a pointer to the store's memory.
   - channel_reference : (Access, Constness, Channel) -> Type
     The type used to represent a reference to a channel.
@@ -115,6 +117,22 @@ Let v' = s(c').
 After set(c, v), it holds that
 s(c) = v and s(c') = v'.
 
+Additional store structure:
+
+Difference = Int
+Size = Nat
+
+store_needs_init : Bool
+init_store : Store
+
+If store_needs_init is true, then init_store returns an initialized store. Some
+color formats require this in order to access individual channels without
+causing undefined behavior.
+
+advance_pointer : pointer(Access, Constness) -> Difference -> pointer(access, constness)
+pointer_difference : pointer(Access, Constness) -> pointer(access, constness) -> Difference
+store_unit : Type
+stride : Size
 
 In C++:
 
@@ -127,27 +145,16 @@ make_const t =
   u const * if t = u *,
   t otherwise
 
-to_static_channel : Channel -> StaticChannel
-
 store :: Format -> Type
-channel_reference :: Access -> Format -> Channel -> Constness -> Type
-channel_value :: Format -> Channel -> Type
 needs_format_store :: Format -> Bool
 pointer :: Access -> Format -> Constness -> Type
 static_channels :: Format -> [StaticChannel]
-store_needs_init :: Format -> Bool
-store_data :: Constness -> apply_const<Store<Format>, Constness> -> pointer<Normal, Format, Constness>
+layout :: Format -> Type
 
-channel_max :: FormatStore<Format> -> Channel -> channel_value<Format, Channel>
-channel_min :: FormatStore<Format> -> Channel -> channel_value<Format, Channel>
 compare_channels :: FormatStore<Format> -> StaticChannel -> Channel -> bool
-extract_channel :: FormatStore<Format> -> Channel -> pointer<Access, Format, Constness> -> channel_reference<Access, Constness, Format, Channel>
-layout :: FormatStore<Format> -> [Channel]
+layout :: FormatStore<Format> -> layout<Format>
 has_channel :: FormatStore<Format> -> Type -> bool
-init_store :: store<Format>
 
-store_unit :: Format -> Type
-stride :: FormatStore<Format> -> size_type
 
 channel_index :: FormatStore<Format> -> Channel -> size_type TODO: Why do we need this?
 */

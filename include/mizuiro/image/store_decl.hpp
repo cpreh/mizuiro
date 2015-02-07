@@ -155,6 +155,9 @@ public:
 
 	dim const &
 	size() const;
+
+	format_store_type const
+	format_store() const;
 private:
 	dim size_;
 
