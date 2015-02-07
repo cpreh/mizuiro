@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/format/defaults_ns/access/advance_pointer.hpp>
 #include <mizuiro/color/format/defaults_ns/access/pointer_difference.hpp>
+#include <mizuiro/color/format/defaults_ns/access/stride_raw.hpp>
 #include <mizuiro/color/format/defaults_ns/types/pointer_raw.hpp>
 
 

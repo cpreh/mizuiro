@@ -284,6 +284,7 @@ set(
 	include/mizuiro/color/format/compatible.hpp
 	include/mizuiro/color/format/defaults_ns/access/advance_pointer.hpp
 	include/mizuiro/color/format/defaults_ns/access/pointer_difference.hpp
+	include/mizuiro/color/format/defaults_ns/access/stride_raw.hpp
 	include/mizuiro/color/format/defaults_ns/tag.hpp
 	include/mizuiro/color/format/defaults_ns/types/pointer_raw.hpp
 	include/mizuiro/color/format/definitely_has_channel.hpp
@@ -304,7 +305,6 @@ set(
 	include/mizuiro/color/format/heterogenous_ns/access/init_store.hpp
 	include/mizuiro/color/format/heterogenous_ns/access/store_data.hpp
 	include/mizuiro/color/format/heterogenous_ns/access/stride_normal.hpp
-	include/mizuiro/color/format/heterogenous_ns/access/stride_raw.hpp
 	include/mizuiro/color/format/heterogenous_ns/tag.hpp
 	include/mizuiro/color/format/heterogenous_ns/types/channel_reference_normal.hpp
 	include/mizuiro/color/format/heterogenous_ns/types/channel_reference_raw.hpp
@@ -330,7 +330,6 @@ set(
 	include/mizuiro/color/format/homogenous_ns/access/init_store.hpp
 	include/mizuiro/color/format/homogenous_ns/access/store_data.hpp
 	include/mizuiro/color/format/homogenous_ns/access/stride_normal.hpp
-	include/mizuiro/color/format/homogenous_ns/access/stride_raw.hpp
 	include/mizuiro/color/format/homogenous_ns/tag.hpp
 	include/mizuiro/color/format/homogenous_ns/types/channel_reference_normal.hpp
 	include/mizuiro/color/format/homogenous_ns/types/channel_reference_raw.hpp
@@ -479,7 +478,6 @@ set(
 	include/mizuiro/detail/array_init_each_rt_function.hpp
 	include/mizuiro/detail/bit_count.hpp
 	include/mizuiro/detail/bit_count_at_least.hpp
-	include/mizuiro/detail/byte_count_from_bits.hpp
 	include/mizuiro/detail/choose_const.hpp
 	include/mizuiro/detail/compiler.hpp
 	include/mizuiro/detail/copy.hpp
