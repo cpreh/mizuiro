@@ -8,10 +8,10 @@
 #define MIZUIRO_COLOR_FORMAT_STATIC_NS_ACCESS_HAS_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/access/has_channel_ns/tag.hpp>
+#include <mizuiro/color/format/has_channel_static.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/static_ns/tag.hpp>
 #include <mizuiro/color/format/static_ns/types/static_channels.hpp>
-#include <mizuiro/color/format/has_channel_static.hpp>
 
 
 namespace mizuiro

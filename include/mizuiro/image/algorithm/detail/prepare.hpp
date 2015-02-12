@@ -8,8 +8,8 @@
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_PREPARE_HPP_INCLUDED
 
 #include <mizuiro/detail/nonassignable.hpp>
-#include <mizuiro/image/format/store.hpp>
 #include <mizuiro/image/prepare_store_units.hpp>
+#include <mizuiro/image/format/store.hpp>
 
 
 namespace mizuiro

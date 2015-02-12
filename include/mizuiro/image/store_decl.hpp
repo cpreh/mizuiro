@@ -9,8 +9,8 @@
 
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/empty_fwd.hpp>
-#include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/no_init_fwd.hpp>
+#include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension_decl.hpp>

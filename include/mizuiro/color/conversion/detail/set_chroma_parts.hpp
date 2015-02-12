@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_SET_CHROMA_PARTS_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_SET_CHROMA_PARTS_HPP_INCLUDED
 
-#include <mizuiro/detail/nonassignable.hpp>
 #include <mizuiro/color/set_percentage.hpp>
+#include <mizuiro/detail/nonassignable.hpp>
 
 
 namespace mizuiro

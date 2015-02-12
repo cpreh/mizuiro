@@ -5,12 +5,12 @@
 
 
 #include <mizuiro/color/object.hpp>
-#include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
-#include <mizuiro/color/init/alpha.hpp>
-#include <mizuiro/color/init/luminance.hpp>
+#include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/format/heterogenous_static.hpp>
 #include <mizuiro/color/format/include/heterogenous_static.hpp>
+#include <mizuiro/color/init/alpha.hpp>
+#include <mizuiro/color/init/luminance.hpp>
 #include <mizuiro/color/layout/la.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>

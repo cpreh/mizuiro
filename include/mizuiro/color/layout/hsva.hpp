@@ -11,8 +11,8 @@
 #include <mizuiro/color/channel/hue.hpp>
 #include <mizuiro/color/channel/saturation.hpp>
 #include <mizuiro/color/channel/value.hpp>
-#include <mizuiro/color/space/hsv.hpp>
 #include <mizuiro/color/layout/make.hpp>
+#include <mizuiro/color/space/hsv.hpp>
 #include <mizuiro/mpl/list.hpp>
 
 

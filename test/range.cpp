@@ -5,13 +5,13 @@
 
 
 #include <mizuiro/array.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/mpl/list.hpp>
 #include <mizuiro/mpl/include/list.hpp>
 #include <mizuiro/range/make.hpp>
 #include <mizuiro/range/include/array.hpp>
 #include <mizuiro/range/include/mpl.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
 #include <mizuiro/detail/external_end.hpp>

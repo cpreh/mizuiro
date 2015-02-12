@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_COLOR_FORMAT_DETAIL_CHECK_HAS_CHANNEL_CONSTEXPR_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_DETAIL_CHECK_HAS_CHANNEL_CONSTEXPR_HPP_INCLUDED
 
-#include <mizuiro/detail/int_to_true.hpp>
 #include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/format/store.hpp>
+#include <mizuiro/detail/int_to_true.hpp>
 #include <mizuiro/mpl/false.hpp>
 
 

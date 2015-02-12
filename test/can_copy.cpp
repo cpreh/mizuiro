@@ -8,9 +8,9 @@
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
-#include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/bgra.hpp>
 #include <mizuiro/color/layout/rgb.hpp>
+#include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension.hpp>

@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_MPL_DETAIL_INDEX_OF_HPP_INCLUDED
 #define MIZUIRO_MPL_DETAIL_INDEX_OF_HPP_INCLUDED
 
-#include <mizuiro/mpl/integral_size.hpp>
 #include <mizuiro/mpl/head.hpp>
+#include <mizuiro/mpl/integral_size.hpp>
 #include <mizuiro/mpl/tail.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>

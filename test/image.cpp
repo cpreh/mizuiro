@@ -18,8 +18,8 @@
 #include <mizuiro/image/format/include/interleaved.hpp>
 #include <mizuiro/image/types/value_type.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <cstdint>
 #include <boost/test/unit_test.hpp>
+#include <cstdint>
 #include <mizuiro/detail/external_end.hpp>
 
 

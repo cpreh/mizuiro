@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_MPL_LIST_NS_TAIL_HPP_INCLUDED
 #define MIZUIRO_MPL_LIST_NS_TAIL_HPP_INCLUDED
 
-#include <mizuiro/mpl/tail_ns/tag.hpp>
 #include <mizuiro/mpl/list_ns/tag.hpp>
+#include <mizuiro/mpl/tail_ns/tag.hpp>
 
 
 namespace mizuiro

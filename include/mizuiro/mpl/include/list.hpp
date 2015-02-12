@@ -10,8 +10,8 @@
 #include <mizuiro/mpl/list_ns/cons.hpp>
 #include <mizuiro/mpl/list_ns/empty.hpp>
 #include <mizuiro/mpl/list_ns/head.hpp>
-#include <mizuiro/mpl/list_ns/tail.hpp>
 #include <mizuiro/mpl/list_ns/tag_of.hpp>
+#include <mizuiro/mpl/list_ns/tail.hpp>
 
 
 #endif

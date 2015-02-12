@@ -10,8 +10,8 @@
 #include <mizuiro/mpl/tuple_ns/cons.hpp>
 #include <mizuiro/mpl/tuple_ns/empty.hpp>
 #include <mizuiro/mpl/tuple_ns/head.hpp>
-#include <mizuiro/mpl/tuple_ns/tail.hpp>
 #include <mizuiro/mpl/tuple_ns/tag_of.hpp>
+#include <mizuiro/mpl/tuple_ns/tail.hpp>
 
 
 #endif

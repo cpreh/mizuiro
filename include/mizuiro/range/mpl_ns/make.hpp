@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_RANGE_MPL_NS_MAKE_HPP_INCLUDED
 #define MIZUIRO_RANGE_MPL_NS_MAKE_HPP_INCLUDED
 
-#include <mizuiro/range/mpl_ns/tag.hpp>
 #include <mizuiro/range/detail/mpl.hpp>
 #include <mizuiro/range/make_ns/tag.hpp>
+#include <mizuiro/range/mpl_ns/tag.hpp>
 
 
 namespace mizuiro

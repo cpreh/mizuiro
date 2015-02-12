@@ -10,8 +10,8 @@
 #include <mizuiro/color/channel/blue_fwd.hpp>
 #include <mizuiro/color/channel/green_fwd.hpp>
 #include <mizuiro/color/channel/red_fwd.hpp>
-#include <mizuiro/mpl/list.hpp>
 #include <mizuiro/color/space/rgb_fwd.hpp>
+#include <mizuiro/mpl/list.hpp>
 
 
 namespace mizuiro

@@ -15,8 +15,8 @@
 #include <mizuiro/color/detail/heterogenous/channel_bits.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/pointer.hpp>
-#include <mizuiro/detail/uint_least.hpp>
 #include <mizuiro/detail/promote_type.hpp>
+#include <mizuiro/detail/uint_least.hpp>
 #include <mizuiro/mpl/index_of.hpp>
 #include <mizuiro/mpl/integral_size.hpp>
 #include <mizuiro/mpl/range_to.hpp>
