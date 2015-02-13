@@ -8,9 +8,9 @@
 #define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_TYPES_STORE_HPP_INCLUDED
 
 #include <mizuiro/access/store_unit.hpp>
-#include <mizuiro/color/types/store_unit.hpp>
 #include <mizuiro/image/raw_container_impl.hpp>
 #include <mizuiro/image/format/interleaved_ns/tag.hpp>
+#include <mizuiro/image/types/store_unit.hpp>
 #include <mizuiro/image/types/store_ns/tag.hpp>
 
 
@@ -30,9 +30,8 @@ template<
 mizuiro::image::raw_container<
 	mizuiro::access::store_unit<
 		Access,
-		mizuiro::color::types::store_unit<
-			typename
-			ImageFormat::color_format
+		mizuiro::image::types::store_unit<
+			ImageFormat
 		>
 	>
 >

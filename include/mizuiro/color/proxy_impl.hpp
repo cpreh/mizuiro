@@ -8,13 +8,10 @@
 #define MIZUIRO_COLOR_PROXY_IMPL_HPP_INCLUDED
 
 #include <mizuiro/const_tag.hpp>
-#include <mizuiro/difference_type.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/color/for_each_channel.hpp>
 #include <mizuiro/color/proxy_decl.hpp>
-#include <mizuiro/color/access/advance_pointer.hpp>
 #include <mizuiro/color/access/extract_channel.hpp>
-#include <mizuiro/color/access/stride.hpp>
 #include <mizuiro/color/detail/copy_channel.hpp>
 #include <mizuiro/color/format/base_impl.hpp>
 #include <mizuiro/color/format/compatible.hpp>
@@ -219,42 +216,6 @@ mizuiro::color::proxy<
 {
 	return
 		data_;
-}
-
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
-typename
-mizuiro::color::proxy<
-	Access,
-	Format,
-	Constness
->::pointer
-mizuiro::color::proxy<
-	Access,
-	Format,
-	Constness
->::data_end() const
-{
-	return
-		mizuiro::color::access::advance_pointer<
-			Access,
-			Constness
-		>(
-			this->format_store(),
-			this->data(),
-			static_cast<
-				mizuiro::difference_type
-			>(
-				mizuiro::color::access::stride<
-					Access
-				>(
-					this->format_store()
-				)
-			)
-		);
 }
 
 template<

@@ -29,7 +29,7 @@
 #include <mizuiro/image/algorithm/transform.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
-#include <mizuiro/image/format/include/interleaved.hpp>
+#include <mizuiro/image/format/include/interleaved_homogenous.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <cstdint>
 #include <iostream>

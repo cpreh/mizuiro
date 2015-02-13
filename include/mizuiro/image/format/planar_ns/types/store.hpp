@@ -9,9 +9,9 @@
 
 #include <mizuiro/array.hpp>
 #include <mizuiro/access/store_unit.hpp>
-#include <mizuiro/color/types/store_unit.hpp>
 #include <mizuiro/image/raw_container_impl.hpp>
 #include <mizuiro/image/format/planar_ns/tag.hpp>
+#include <mizuiro/image/types/store_unit.hpp>
 #include <mizuiro/image/types/store_ns/tag.hpp>
 
 
@@ -32,9 +32,8 @@ mizuiro::array<
 	mizuiro::image::raw_container<
 		mizuiro::access::store_unit<
 			Access,
-			mizuiro::color::types::store_unit<
-				typename
-				ImageFormat::color_format
+			mizuiro::image::types::store_unit<
+				ImageFormat
 			>
 		>
 	>,

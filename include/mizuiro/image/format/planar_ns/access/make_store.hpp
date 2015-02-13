@@ -11,7 +11,6 @@
 #include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/access/make_store_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
-#include <mizuiro/image/format/color_ns/access/stride.hpp>
 #include <mizuiro/image/format/planar_ns/tag.hpp>
 #include <mizuiro/image/types/store.hpp>
 

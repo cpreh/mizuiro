@@ -10,7 +10,6 @@
 #include <mizuiro/color/format/homogenous_dynamic.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_ns/tag.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_ns/tag_of.hpp>
-#include <mizuiro/color/format/include/defaults.hpp>
 #include <mizuiro/color/format/include/dynamic.hpp>
 #include <mizuiro/color/format/include/homogenous.hpp>
 

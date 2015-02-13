@@ -10,7 +10,6 @@
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/homogenous_static_ns/tag.hpp>
 #include <mizuiro/color/format/homogenous_static_ns/tag_of.hpp>
-#include <mizuiro/color/format/include/defaults.hpp>
 #include <mizuiro/color/format/include/homogenous.hpp>
 #include <mizuiro/color/format/include/static.hpp>
 

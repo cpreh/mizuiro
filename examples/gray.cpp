@@ -16,7 +16,7 @@
 #include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
-#include <mizuiro/image/format/include/interleaved.hpp>
+#include <mizuiro/image/format/include/interleaved_homogenous.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <cstdint>
 #include <mizuiro/detail/external_end.hpp>

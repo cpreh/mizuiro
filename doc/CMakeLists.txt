@@ -54,13 +54,13 @@ set(
 	include/mizuiro/access/is.hpp
 	include/mizuiro/access/normal.hpp
 	include/mizuiro/access/normal_fwd.hpp
+	include/mizuiro/access/pointer.hpp
 	include/mizuiro/access/raw.hpp
 	include/mizuiro/access/raw_fwd.hpp
 	include/mizuiro/access/store_unit.hpp
+	include/mizuiro/access/stride.hpp
 	include/mizuiro/apply_const.hpp
 	include/mizuiro/array.hpp
-	include/mizuiro/color/access/advance_pointer.hpp
-	include/mizuiro/color/access/advance_pointer_ns/tag.hpp
 	include/mizuiro/color/access/channel_index.hpp
 	include/mizuiro/color/access/channel_index_ns/tag.hpp
 	include/mizuiro/color/access/channel_max.hpp
@@ -77,12 +77,8 @@ set(
 	include/mizuiro/color/access/init_store_ns/tag.hpp
 	include/mizuiro/color/access/layout.hpp
 	include/mizuiro/color/access/layout_ns/tag.hpp
-	include/mizuiro/color/access/pointer_difference.hpp
-	include/mizuiro/color/access/pointer_difference_ns/tag.hpp
 	include/mizuiro/color/access/store_data.hpp
 	include/mizuiro/color/access/store_data_ns/tag.hpp
-	include/mizuiro/color/access/stride.hpp
-	include/mizuiro/color/access/stride_ns/tag.hpp
 	include/mizuiro/color/channel/alpha.hpp
 	include/mizuiro/color/channel/alpha_fwd.hpp
 	include/mizuiro/color/channel/blue.hpp
@@ -162,11 +158,6 @@ set(
 	include/mizuiro/color/format/base_decl.hpp
 	include/mizuiro/color/format/base_impl.hpp
 	include/mizuiro/color/format/compatible.hpp
-	include/mizuiro/color/format/defaults_ns/access/advance_pointer.hpp
-	include/mizuiro/color/format/defaults_ns/access/pointer_difference.hpp
-	include/mizuiro/color/format/defaults_ns/access/stride_raw.hpp
-	include/mizuiro/color/format/defaults_ns/tag.hpp
-	include/mizuiro/color/format/defaults_ns/types/pointer_raw.hpp
 	include/mizuiro/color/format/definitely_has_channel.hpp
 	include/mizuiro/color/format/definitely_has_not_channel.hpp
 	include/mizuiro/color/format/detail/check_has_channel_constexpr.hpp
@@ -184,15 +175,13 @@ set(
 	include/mizuiro/color/format/heterogenous_ns/access/extract_channel.hpp
 	include/mizuiro/color/format/heterogenous_ns/access/init_store.hpp
 	include/mizuiro/color/format/heterogenous_ns/access/store_data.hpp
-	include/mizuiro/color/format/heterogenous_ns/access/stride_normal.hpp
 	include/mizuiro/color/format/heterogenous_ns/tag.hpp
 	include/mizuiro/color/format/heterogenous_ns/types/channel_reference_normal.hpp
 	include/mizuiro/color/format/heterogenous_ns/types/channel_reference_raw.hpp
 	include/mizuiro/color/format/heterogenous_ns/types/channel_value.hpp
-	include/mizuiro/color/format/heterogenous_ns/types/pointer_normal.hpp
+	include/mizuiro/color/format/heterogenous_ns/types/pointer.hpp
 	include/mizuiro/color/format/heterogenous_ns/types/store.hpp
 	include/mizuiro/color/format/heterogenous_ns/types/store_needs_init.hpp
-	include/mizuiro/color/format/heterogenous_ns/types/store_unit.hpp
 	include/mizuiro/color/format/heterogenous_static.hpp
 	include/mizuiro/color/format/heterogenous_static_fwd.hpp
 	include/mizuiro/color/format/heterogenous_static_ns/tag.hpp
@@ -209,20 +198,17 @@ set(
 	include/mizuiro/color/format/homogenous_ns/access/extract_channel_raw.hpp
 	include/mizuiro/color/format/homogenous_ns/access/init_store.hpp
 	include/mizuiro/color/format/homogenous_ns/access/store_data.hpp
-	include/mizuiro/color/format/homogenous_ns/access/stride_normal.hpp
 	include/mizuiro/color/format/homogenous_ns/tag.hpp
 	include/mizuiro/color/format/homogenous_ns/types/channel_reference_normal.hpp
 	include/mizuiro/color/format/homogenous_ns/types/channel_reference_raw.hpp
 	include/mizuiro/color/format/homogenous_ns/types/channel_value.hpp
-	include/mizuiro/color/format/homogenous_ns/types/pointer_normal.hpp
+	include/mizuiro/color/format/homogenous_ns/types/pointer.hpp
 	include/mizuiro/color/format/homogenous_ns/types/store.hpp
 	include/mizuiro/color/format/homogenous_ns/types/store_needs_init.hpp
-	include/mizuiro/color/format/homogenous_ns/types/store_unit.hpp
 	include/mizuiro/color/format/homogenous_static.hpp
 	include/mizuiro/color/format/homogenous_static_fwd.hpp
 	include/mizuiro/color/format/homogenous_static_ns/tag.hpp
 	include/mizuiro/color/format/homogenous_static_ns/tag_of.hpp
-	include/mizuiro/color/format/include/defaults.hpp
 	include/mizuiro/color/format/include/dynamic.hpp
 	include/mizuiro/color/format/include/heterogenous.hpp
 	include/mizuiro/color/format/include/heterogenous_static.hpp
@@ -343,8 +329,6 @@ set(
 	include/mizuiro/color/types/store_needs_init.hpp
 	include/mizuiro/color/types/store_needs_init_ns/tag.hpp
 	include/mizuiro/color/types/store_ns/tag.hpp
-	include/mizuiro/color/types/store_unit.hpp
-	include/mizuiro/color/types/store_unit_ns/tag.hpp
 	include/mizuiro/const_raw_pointer.hpp
 	include/mizuiro/const_tag.hpp
 	include/mizuiro/const_tag_fwd.hpp
@@ -536,10 +520,7 @@ set(
 	include/mizuiro/image/format/canonical_ns/types/reference.hpp
 	include/mizuiro/image/format/canonical_ns/types/store.hpp
 	include/mizuiro/image/format/canonical_ns/types/value_type.hpp
-	include/mizuiro/image/format/color_ns/access/advance_pointer.hpp
 	include/mizuiro/image/format/color_ns/access/dereference.hpp
-	include/mizuiro/image/format/color_ns/access/pointer_difference.hpp
-	include/mizuiro/image/format/color_ns/access/stride.hpp
 	include/mizuiro/image/format/color_ns/tag.hpp
 	include/mizuiro/image/format/color_ns/types/needs_format_store.hpp
 	include/mizuiro/image/format/color_ns/types/needs_prepare.hpp
@@ -548,23 +529,35 @@ set(
 	include/mizuiro/image/format/color_ns/types/value_type.hpp
 	include/mizuiro/image/format/detail/planar_color.hpp
 	include/mizuiro/image/format/detail/planar_color_fwd.hpp
-	include/mizuiro/image/format/detail/planar_color_ns/advance_pointer.hpp
-	include/mizuiro/image/format/detail/planar_color_ns/extract_channel_normal.hpp
-	include/mizuiro/image/format/detail/planar_color_ns/pointer.hpp
-	include/mizuiro/image/format/detail/planar_color_ns/stride.hpp
+	include/mizuiro/image/format/detail/planar_color_ns/access/extract_channel_normal.hpp
 	include/mizuiro/image/format/detail/planar_color_ns/tag.hpp
 	include/mizuiro/image/format/detail/planar_color_ns/tag_of.hpp
+	include/mizuiro/image/format/detail/planar_color_ns/types/pointer.hpp
 	include/mizuiro/image/format/include/canonical.hpp
 	include/mizuiro/image/format/include/color.hpp
 	include/mizuiro/image/format/include/interleaved.hpp
+	include/mizuiro/image/format/include/interleaved_heterogenous.hpp
+	include/mizuiro/image/format/include/interleaved_homogenous.hpp
 	include/mizuiro/image/format/include/planar.hpp
 	include/mizuiro/image/format/interleaved.hpp
 	include/mizuiro/image/format/interleaved_decl.hpp
 	include/mizuiro/image/format/interleaved_fwd.hpp
+	include/mizuiro/image/format/interleaved_heterogenous_ns/access/stride.hpp
+	include/mizuiro/image/format/interleaved_heterogenous_ns/color_tag_of.hpp
+	include/mizuiro/image/format/interleaved_heterogenous_ns/tag.hpp
+	include/mizuiro/image/format/interleaved_heterogenous_ns/types/store_unit.hpp
+	include/mizuiro/image/format/interleaved_homogenous_ns/access/stride.hpp
+	include/mizuiro/image/format/interleaved_homogenous_ns/color_tag_of.hpp
+	include/mizuiro/image/format/interleaved_homogenous_ns/tag.hpp
+	include/mizuiro/image/format/interleaved_homogenous_ns/types/store_unit.hpp
 	include/mizuiro/image/format/interleaved_impl.hpp
+	include/mizuiro/image/format/interleaved_ns/access/advance_pointer.hpp
 	include/mizuiro/image/format/interleaved_ns/access/data.hpp
 	include/mizuiro/image/format/interleaved_ns/access/make_store.hpp
+	include/mizuiro/image/format/interleaved_ns/access/pointer_difference.hpp
 	include/mizuiro/image/format/interleaved_ns/access/store_data.hpp
+	include/mizuiro/image/format/interleaved_ns/color_tag_of_ns/tag.hpp
+	include/mizuiro/image/format/interleaved_ns/make_color_tag_of.hpp
 	include/mizuiro/image/format/interleaved_ns/tag.hpp
 	include/mizuiro/image/format/interleaved_ns/tag_of.hpp
 	include/mizuiro/image/format/interleaved_ns/types/can_copy.hpp
@@ -575,11 +568,14 @@ set(
 	include/mizuiro/image/format/planar_decl.hpp
 	include/mizuiro/image/format/planar_fwd.hpp
 	include/mizuiro/image/format/planar_impl.hpp
+	include/mizuiro/image/format/planar_ns/access/advance_pointer.hpp
 	include/mizuiro/image/format/planar_ns/access/make_store.hpp
 	include/mizuiro/image/format/planar_ns/access/store_data.hpp
+	include/mizuiro/image/format/planar_ns/access/stride.hpp
 	include/mizuiro/image/format/planar_ns/tag.hpp
 	include/mizuiro/image/format/planar_ns/tag_of.hpp
 	include/mizuiro/image/format/planar_ns/types/store.hpp
+	include/mizuiro/image/format/planar_ns/types/store_unit.hpp
 	include/mizuiro/image/format/planar_ns/types/value_type.hpp
 	include/mizuiro/image/format/store.hpp
 	include/mizuiro/image/format/store_decl.hpp
@@ -640,6 +636,8 @@ set(
 	include/mizuiro/image/types/reference_ns/tag.hpp
 	include/mizuiro/image/types/store.hpp
 	include/mizuiro/image/types/store_ns/tag.hpp
+	include/mizuiro/image/types/store_unit.hpp
+	include/mizuiro/image/types/store_unit_ns/tag.hpp
 	include/mizuiro/image/types/value_type.hpp
 	include/mizuiro/image/types/value_type_ns/tag.hpp
 	include/mizuiro/image/view.hpp

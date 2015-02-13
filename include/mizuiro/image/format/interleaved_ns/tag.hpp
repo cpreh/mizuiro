@@ -10,6 +10,7 @@
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/format/color_ns/tag.hpp>
+#include <mizuiro/image/format/interleaved_ns/make_color_tag_of.hpp>
 
 
 namespace mizuiro
@@ -28,6 +29,9 @@ template<
 >
 struct tag
 :
+mizuiro::image::format::interleaved_ns::make_color_tag_of<
+	Format
+>,
 mizuiro::image::format::color_ns::tag<
 	Format
 >

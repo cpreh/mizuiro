@@ -24,7 +24,7 @@
 #include <mizuiro/image/sub_view.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
-#include <mizuiro/image/format/include/interleaved.hpp>
+#include <mizuiro/image/format/include/interleaved_homogenous.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <iostream>
 #include <ostream>

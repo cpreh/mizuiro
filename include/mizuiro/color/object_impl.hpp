@@ -320,34 +320,6 @@ mizuiro::color::object<
 template<
 	typename Format
 >
-typename mizuiro::color::object<
-	Format
->::pointer
-mizuiro::color::object<
-	Format
->::data_end()
-{
-	return
-		this->make_proxy().data_end();
-}
-
-template<
-	typename Format
->
-typename mizuiro::color::object<
-	Format
->::const_pointer
-mizuiro::color::object<
-	Format
->::data_end() const
-{
-	return
-		this->make_const_proxy().data_end();
-}
-
-template<
-	typename Format
->
 constexpr
 typename mizuiro::color::object<
 	Format

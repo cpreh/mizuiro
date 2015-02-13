@@ -10,14 +10,12 @@
 #include <mizuiro/color/format/heterogenous_ns/access/extract_channel.hpp>
 #include <mizuiro/color/format/heterogenous_ns/access/init_store.hpp>
 #include <mizuiro/color/format/heterogenous_ns/access/store_data.hpp>
-#include <mizuiro/color/format/heterogenous_ns/access/stride_normal.hpp>
 #include <mizuiro/color/format/heterogenous_ns/types/channel_reference_normal.hpp>
 #include <mizuiro/color/format/heterogenous_ns/types/channel_reference_raw.hpp>
 #include <mizuiro/color/format/heterogenous_ns/types/channel_value.hpp>
-#include <mizuiro/color/format/heterogenous_ns/types/pointer_normal.hpp>
+#include <mizuiro/color/format/heterogenous_ns/types/pointer.hpp>
 #include <mizuiro/color/format/heterogenous_ns/types/store.hpp>
 #include <mizuiro/color/format/heterogenous_ns/types/store_needs_init.hpp>
-#include <mizuiro/color/format/heterogenous_ns/types/store_unit.hpp>
 
 
 #endif

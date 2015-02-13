@@ -7,7 +7,6 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HETEROGENOUS_STATIC_NS_TAG_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HETEROGENOUS_STATIC_NS_TAG_HPP_INCLUDED
 
-#include <mizuiro/color/format/defaults_ns/tag.hpp>
 #include <mizuiro/color/format/heterogenous_ns/tag.hpp>
 #include <mizuiro/color/format/static_ns/tag.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
@@ -30,9 +29,6 @@ template<
 >
 struct tag
 :
-	mizuiro::color::format::defaults_ns::tag<
-		Type
-	>,
 	mizuiro::color::format::heterogenous_ns::tag<
 		Type
 	>,

@@ -15,7 +15,7 @@
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/access/advance_pointer.hpp>
 #include <mizuiro/image/access/pointer_difference.hpp>
-#include <mizuiro/image/format/include/interleaved.hpp>
+#include <mizuiro/image/format/include/interleaved_homogenous.hpp>
 #include <mizuiro/image/types/value_type.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/test/unit_test.hpp>

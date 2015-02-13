@@ -129,11 +129,6 @@ If store_needs_init is true, then init_store returns an initialized store. Some
 color formats require this in order to access individual channels without
 causing undefined behavior.
 
-advance_pointer : pointer(Access, Constness) -> Difference -> pointer(access, constness)
-pointer_difference : pointer(Access, Constness) -> pointer(access, constness) -> Difference
-store_unit : Type
-stride : Size
-
 In C++:
 
 apply_const (Type, nonconst) = Type
@@ -145,16 +140,11 @@ make_const t =
   u const * if t = u *,
   t otherwise
 
-store :: Format -> Type
 needs_format_store :: Format -> Bool
-pointer :: Access -> Format -> Constness -> Type
 static_channels :: Format -> [StaticChannel]
 layout :: Format -> Type
-
 compare_channels :: FormatStore<Format> -> StaticChannel -> Channel -> bool
 layout :: FormatStore<Format> -> layout<Format>
 has_channel :: FormatStore<Format> -> Type -> bool
-
-
 channel_index :: FormatStore<Format> -> Channel -> size_type TODO: Why do we need this?
 */

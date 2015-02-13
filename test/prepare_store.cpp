@@ -17,7 +17,7 @@
 #include <mizuiro/image/algorithm/fill_c.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
-#include <mizuiro/image/format/include/interleaved.hpp>
+#include <mizuiro/image/format/include/interleaved_heterogenous.hpp>
 #include <mizuiro/mpl/size_list.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
