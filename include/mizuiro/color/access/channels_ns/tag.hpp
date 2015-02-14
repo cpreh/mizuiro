@@ -4,26 +4,24 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CHANNEL_TAG_HPP_INCLUDED
-#define MIZUIRO_COLOR_CHANNEL_TAG_HPP_INCLUDED
-
-#include <mizuiro/color/channel/tag_fwd.hpp>
+#ifndef MIZUIRO_COLOR_ACCESS_CHANNELS_NS_TAG_HPP_INCLUDED
+#define MIZUIRO_COLOR_ACCESS_CHANNELS_NS_TAG_HPP_INCLUDED
 
 
 namespace mizuiro
 {
 namespace color
 {
-namespace channel
+namespace access
+{
+namespace channels_ns
 {
 
-template<
-	typename Channel
->
 struct tag
 {
 };
 
+}
 }
 }
 }

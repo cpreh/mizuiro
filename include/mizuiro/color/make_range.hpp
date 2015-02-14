@@ -8,7 +8,7 @@
 #define MIZUIRO_COLOR_MAKE_RANGE_HPP_INCLUDED
 
 #include <mizuiro/color/is_color.hpp>
-#include <mizuiro/color/access/layout.hpp>
+#include <mizuiro/color/access/channels.hpp>
 #include <mizuiro/color/types/layout.hpp>
 #include <mizuiro/range/make.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -48,7 +48,7 @@ make_range(
 
 	return
 		mizuiro::range::make(
-			mizuiro::color::access::layout(
+			mizuiro::color::access::channels(
 				_color.format_store()
 			)
 		);

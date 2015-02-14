@@ -119,15 +119,26 @@ s(c) = v and s(c') = v'.
 
 Additional store structure:
 
-Difference = Int
-Size = Nat
-
 store_needs_init : Bool
 init_store : Store
 
 If store_needs_init is true, then init_store returns an initialized store. Some
 color formats require this in order to access individual channels without
 causing undefined behavior.
+
+Dynamic channel arrangments and channel iteration:
+
+For every c : Channel, there is a d(c) : DynamicChannel.
+
+needs_format_store : Bool
+
+has_channel : Channel -> Bool
+static_channels : [Channel]
+channels : [DynamicChannel]
+compare_channels : Channel -> DynamicChannel -> Bool
+
+
+
 
 In C++:
 
@@ -140,11 +151,4 @@ make_const t =
   u const * if t = u *,
   t otherwise
 
-needs_format_store :: Format -> Bool
-static_channels :: Format -> [StaticChannel]
-layout :: Format -> Type
-compare_channels :: FormatStore<Format> -> StaticChannel -> Channel -> bool
-layout :: FormatStore<Format> -> layout<Format>
-has_channel :: FormatStore<Format> -> Type -> bool
-channel_index :: FormatStore<Format> -> Channel -> size_type TODO: Why do we need this?
 */

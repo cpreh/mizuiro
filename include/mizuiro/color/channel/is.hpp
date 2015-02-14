@@ -4,10 +4,13 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CHANNEL_TAG_HPP_INCLUDED
-#define MIZUIRO_COLOR_CHANNEL_TAG_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CHANNEL_IS_HPP_INCLUDED
+#define MIZUIRO_COLOR_CHANNEL_IS_HPP_INCLUDED
 
 #include <mizuiro/color/channel/tag_fwd.hpp>
+#include <mizuiro/detail/external_begin.hpp>
+#include <type_traits>
+#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
@@ -18,11 +21,16 @@ namespace channel
 {
 
 template<
-	typename Channel
+	typename T
 >
-struct tag
-{
-};
+using is
+=
+std::is_base_of<
+	mizuiro::color::channel::tag<
+		T
+	>,
+	T
+>;
 
 }
 }

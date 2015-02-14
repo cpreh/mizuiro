@@ -4,13 +4,13 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_FORMAT_STATIC_NS_ACCESS_LAYOUT_HPP_INCLUDED
-#define MIZUIRO_COLOR_FORMAT_STATIC_NS_ACCESS_LAYOUT_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_FORMAT_DYNAMIC_NS_ACCESS_CHANNELS_HPP_INCLUDED
+#define MIZUIRO_COLOR_FORMAT_DYNAMIC_NS_ACCESS_CHANNELS_HPP_INCLUDED
 
-#include <mizuiro/color/access/layout_ns/tag.hpp>
+#include <mizuiro/color/access/channels_ns/tag.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
-#include <mizuiro/color/format/static_ns/tag.hpp>
-#include <mizuiro/color/format/static_ns/types/layout.hpp>
+#include <mizuiro/color/format/dynamic_ns/tag.hpp>
+#include <mizuiro/color/format/dynamic_ns/types/layout.hpp>
 #include <mizuiro/color/types/layout.hpp>
 
 
@@ -20,31 +20,28 @@ namespace color
 {
 namespace access
 {
-namespace layout_ns
+namespace channels_ns
 {
 
 template<
 	typename Format
 >
 inline
-constexpr
 mizuiro::color::types::layout<
 	Format
->
-layout_adl(
-	mizuiro::color::access::layout_ns::tag,
-	mizuiro::color::format::static_ns::tag<
+> const &
+channels_adl(
+	mizuiro::color::access::channels_ns::tag,
+	mizuiro::color::format::dynamic_ns::tag<
 		Format
 	>,
 	mizuiro::color::format::store<
 		Format
-	> const &
+	> const &_format
 )
 {
 	return
-		mizuiro::color::types::layout<
-			Format
-		>{};
+		_format.get()->channels;
 }
 
 }

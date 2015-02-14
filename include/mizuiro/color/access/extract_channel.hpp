@@ -12,6 +12,8 @@
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/pointer.hpp>
+#include <mizuiro/detail/assert_access.hpp>
+#include <mizuiro/detail/assert_constness.hpp>
 
 
 namespace mizuiro
@@ -45,6 +47,14 @@ extract_channel(
 	> const _data
 )
 {
+	MIZUIRO_DETAIL_ASSERT_ACCESS(
+		Access
+	);
+
+	MIZUIRO_DETAIL_ASSERT_CONSTNESS(
+		Constness
+	);
+
 	return
 		extract_channel_adl(
 			mizuiro::color::access::extract_channel_ns::tag(),

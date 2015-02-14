@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_ACCESS_CHANNEL_MAX_HPP_INCLUDED
 
 #include <mizuiro/color/access/channel_max_ns/tag.hpp>
+#include <mizuiro/color/detail/assert_channel.hpp>
 #include <mizuiro/color/format/make_tag_of.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
@@ -35,6 +36,10 @@ channel_max(
 	Channel const &_channel
 )
 {
+	MIZUIRO_COLOR_DETAIL_ASSERT_CHANNEL(
+		Channel
+	);
+
 	return
 		channel_max_adl(
 			mizuiro::color::access::channel_max_ns::tag(),

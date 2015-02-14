@@ -8,7 +8,7 @@
 #define MIZUIRO_COLOR_COMPARE_HPP_INCLUDED
 
 #include <mizuiro/color/is_color.hpp>
-#include <mizuiro/color/access/layout.hpp>
+#include <mizuiro/color/access/channels.hpp>
 #include <mizuiro/color/detail/compare.hpp>
 #include <mizuiro/color/format/compatible.hpp>
 #include <mizuiro/range/all_of.hpp>
@@ -55,7 +55,7 @@ compare(
 
 	return
 		mizuiro::range::all_of(
-			mizuiro::color::access::layout(
+			mizuiro::color::access::channels(
 				_color1.format_store()
 			),
 			mizuiro::color::detail::compare<

@@ -8,8 +8,10 @@
 #define MIZUIRO_COLOR_ACCESS_COMPARE_CHANNELS_HPP_INCLUDED
 
 #include <mizuiro/color/access/compare_channels_ns/tag.hpp>
+#include <mizuiro/color/detail/assert_channel.hpp>
 #include <mizuiro/color/format/make_tag_of.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
+#include <mizuiro/color/format/detail/assert_channel.hpp>
 
 
 namespace mizuiro
@@ -21,7 +23,7 @@ namespace access
 
 template<
 	typename Format,
-	typename StaticChannel,
+	typename Channel,
 	typename OtherChannel
 >
 inline
@@ -30,10 +32,19 @@ compare_channels(
 	mizuiro::color::format::store<
 		Format
 	> const &_format,
-	StaticChannel const &_channel1,
+	Channel const &_channel1,
 	OtherChannel const &_channel2
 )
 {
+	MIZUIRO_COLOR_DETAIL_ASSERT_CHANNEL(
+		Channel
+	);
+
+	MIZUIRO_COLOR_FORMAT_DETAIL_ASSERT_CHANNEL(
+		Format,
+		OtherChannel
+	);
+
 	return
 		compare_channels_adl(
 			mizuiro::color::access::compare_channels_ns::tag(),

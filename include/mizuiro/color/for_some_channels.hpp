@@ -22,6 +22,7 @@ template<
 	typename Function,
 	typename DynamicFilter
 >
+inline
 void
 for_some_channels(
 	Color const  &_color,

@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_ACCESS_HAS_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/access/has_channel_ns/tag.hpp>
+#include <mizuiro/color/channel/is.hpp>
 #include <mizuiro/color/format/make_tag_of.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 
@@ -25,6 +26,7 @@ template<
 	typename Channel
 >
 constexpr
+inline
 bool
 has_channel(
 	mizuiro::color::format::store<
@@ -33,6 +35,13 @@ has_channel(
 	Channel const &_channel
 )
 {
+	static_assert(
+		mizuiro::color::channel::is<
+			Channel
+		>::value,
+		"Channel must be a channel"
+	);
+
 	return
 		has_channel_adl(
 			mizuiro::color::access::has_channel_ns::tag(),
