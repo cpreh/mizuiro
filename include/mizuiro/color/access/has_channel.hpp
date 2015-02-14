@@ -8,9 +8,9 @@
 #define MIZUIRO_COLOR_ACCESS_HAS_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/access/has_channel_ns/tag.hpp>
-#include <mizuiro/color/channel/is.hpp>
 #include <mizuiro/color/format/make_tag_of.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
+#include <mizuiro/color/format/detail/assert_channel.hpp>
 
 
 namespace mizuiro
@@ -35,11 +35,9 @@ has_channel(
 	Channel const &_channel
 )
 {
-	static_assert(
-		mizuiro::color::channel::is<
-			Channel
-		>::value,
-		"Channel must be a channel"
+	MIZUIRO_COLOR_FORMAT_DETAIL_ASSERT_CHANNEL(
+		Format,
+		Channel
 	);
 
 	return
