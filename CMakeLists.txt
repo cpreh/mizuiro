@@ -295,6 +295,7 @@ set(
 	include/mizuiro/color/format/dynamic_ns/tag.hpp
 	include/mizuiro/color/format/dynamic_ns/types/layout.hpp
 	include/mizuiro/color/format/dynamic_ns/types/needs_format_store.hpp
+	include/mizuiro/color/format/dynamic_ns/types/space.hpp
 	include/mizuiro/color/format/dynamic_ns/types/static_channels.hpp
 	include/mizuiro/color/format/dynamic_ns/types/valid_channel_type.hpp
 	include/mizuiro/color/format/has_channel_static.hpp
@@ -354,6 +355,7 @@ set(
 	include/mizuiro/color/format/static_ns/tag.hpp
 	include/mizuiro/color/format/static_ns/types/layout.hpp
 	include/mizuiro/color/format/static_ns/types/needs_format_store.hpp
+	include/mizuiro/color/format/static_ns/types/space.hpp
 	include/mizuiro/color/format/static_ns/types/static_channels.hpp
 	include/mizuiro/color/format/static_ns/types/valid_channel_type.hpp
 	include/mizuiro/color/format/store.hpp
@@ -453,6 +455,8 @@ set(
 	include/mizuiro/color/types/needs_format_store_ns/tag.hpp
 	include/mizuiro/color/types/pointer.hpp
 	include/mizuiro/color/types/pointer_ns/tag.hpp
+	include/mizuiro/color/types/space.hpp
+	include/mizuiro/color/types/space_ns/tag.hpp
 	include/mizuiro/color/types/static_channels.hpp
 	include/mizuiro/color/types/static_channels_ns/tag.hpp
 	include/mizuiro/color/types/store.hpp

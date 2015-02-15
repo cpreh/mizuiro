@@ -84,6 +84,8 @@ Given Channel, the type of channels, a color format has the following properties
 
 valid_channel_type : Type -> Bool
 
+space : Type ???
+
 channel_value : Channel -> Type
 
 For each c : Channel and T = channel_value(c):

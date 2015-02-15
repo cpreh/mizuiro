@@ -35,11 +35,6 @@ struct homogenous_static
 
 	typedef
 	typename
-	Layout::space
-	space;
-
-	typedef
-	typename
 	Layout::channels
 	channels;
 

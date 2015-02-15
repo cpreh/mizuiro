@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_COLOR_FORMAT_SAME_SPACES_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_SAME_SPACES_HPP_INCLUDED
 
+#include <mizuiro/color/types/space.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -26,8 +27,12 @@ template<
 using same_spaces
 =
 std::is_same<
-	typename A::space,
-	typename B::space
+	mizuiro::color::types::space<
+		A
+	>,
+	mizuiro::color::types::space<
+		B
+	>
 >;
 
 }

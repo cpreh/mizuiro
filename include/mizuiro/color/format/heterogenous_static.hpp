@@ -48,11 +48,6 @@ struct heterogenous_static
 	typename
 	Layout::channels
 	channels;
-
-	typedef
-	typename
-	Layout::space
-	space;
 };
 
 }
