@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_DETAIL_DYNAMIC_CHANNEL_INDEX_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
+#include <mizuiro/color/detail/dynamic/channel_index_fwd.hpp>
 
 
 namespace mizuiro

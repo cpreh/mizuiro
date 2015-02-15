@@ -14,6 +14,7 @@
 #include <mizuiro/color/format/static_ns/types/layout.hpp>
 #include <mizuiro/color/format/static_ns/types/needs_format_store.hpp>
 #include <mizuiro/color/format/static_ns/types/static_channels.hpp>
+#include <mizuiro/color/format/static_ns/types/valid_channel_type.hpp>
 #include <mizuiro/range/include/mpl.hpp>
 
 

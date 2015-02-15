@@ -253,10 +253,12 @@ set(
 	include/mizuiro/color/convert_static/same_to_same.hpp
 	include/mizuiro/color/decay_channel_proxy.hpp
 	include/mizuiro/color/denormalize.hpp
+	include/mizuiro/color/detail/assert_channel.hpp
 	include/mizuiro/color/detail/compare.hpp
 	include/mizuiro/color/detail/copy_channel.hpp
 	include/mizuiro/color/detail/dynamic/channel_array.hpp
 	include/mizuiro/color/detail/dynamic/channel_index.hpp
+	include/mizuiro/color/detail/dynamic/channel_index_fwd.hpp
 	include/mizuiro/color/detail/dynamic/channel_to_pos.hpp
 	include/mizuiro/color/detail/dynamic/initialize_indices.hpp
 	include/mizuiro/color/detail/dynamic/invalid_index.hpp
@@ -282,6 +284,7 @@ set(
 	include/mizuiro/color/format/compatible.hpp
 	include/mizuiro/color/format/definitely_has_channel.hpp
 	include/mizuiro/color/format/definitely_has_not_channel.hpp
+	include/mizuiro/color/format/detail/assert_channel.hpp
 	include/mizuiro/color/format/detail/check_has_channel_constexpr.hpp
 	include/mizuiro/color/format/detail/has_channel_constexpr.hpp
 	include/mizuiro/color/format/detail/same_channel_value_type.hpp
@@ -293,6 +296,7 @@ set(
 	include/mizuiro/color/format/dynamic_ns/types/layout.hpp
 	include/mizuiro/color/format/dynamic_ns/types/needs_format_store.hpp
 	include/mizuiro/color/format/dynamic_ns/types/static_channels.hpp
+	include/mizuiro/color/format/dynamic_ns/types/valid_channel_type.hpp
 	include/mizuiro/color/format/has_channel_static.hpp
 	include/mizuiro/color/format/heterogenous_ns/access/extract_channel.hpp
 	include/mizuiro/color/format/heterogenous_ns/access/init_store.hpp
@@ -351,6 +355,7 @@ set(
 	include/mizuiro/color/format/static_ns/types/layout.hpp
 	include/mizuiro/color/format/static_ns/types/needs_format_store.hpp
 	include/mizuiro/color/format/static_ns/types/static_channels.hpp
+	include/mizuiro/color/format/static_ns/types/valid_channel_type.hpp
 	include/mizuiro/color/format/store.hpp
 	include/mizuiro/color/format/store_decl.hpp
 	include/mizuiro/color/format/store_fwd.hpp
@@ -451,6 +456,8 @@ set(
 	include/mizuiro/color/types/store_needs_init.hpp
 	include/mizuiro/color/types/store_needs_init_ns/tag.hpp
 	include/mizuiro/color/types/store_ns/tag.hpp
+	include/mizuiro/color/types/valid_channel_type.hpp
+	include/mizuiro/color/types/valid_channel_type_ns/tag.hpp
 	include/mizuiro/const_raw_pointer.hpp
 	include/mizuiro/const_tag.hpp
 	include/mizuiro/const_tag_fwd.hpp
