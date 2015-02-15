@@ -324,6 +324,9 @@ set(
 	include/mizuiro/color/types/channel_reference_ns/tag.hpp
 	include/mizuiro/color/types/channel_value.hpp
 	include/mizuiro/color/types/channel_value_ns/tag.hpp
+	include/mizuiro/color/types/detail/channel_reference.hpp
+	include/mizuiro/color/types/detail/channel_value.hpp
+	include/mizuiro/color/types/detail/pointer.hpp
 	include/mizuiro/color/types/layout.hpp
 	include/mizuiro/color/types/layout_ns/tag.hpp
 	include/mizuiro/color/types/needs_format_store.hpp

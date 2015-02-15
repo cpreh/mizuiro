@@ -7,11 +7,7 @@
 #ifndef MIZUIRO_COLOR_TYPES_CHANNEL_REFERENCE_HPP_INCLUDED
 #define MIZUIRO_COLOR_TYPES_CHANNEL_REFERENCE_HPP_INCLUDED
 
-#include <mizuiro/color/format/make_tag_of.hpp>
-#include <mizuiro/color/types/channel_reference_ns/tag.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/color/types/detail/channel_reference.hpp>
 
 
 namespace mizuiro
@@ -29,25 +25,13 @@ template<
 >
 using channel_reference
 =
-decltype(
-	channel_reference_adl(
-		std::declval<
-			mizuiro::color::types::channel_reference_ns::tag
-		>(),
-		std::declval<
-			Access
-		>(),
-		mizuiro::color::format::make_tag_of<
-			Format
-		>(),
-		std::declval<
-			Channel
-		>(),
-		std::declval<
-			Constness
-		>()
-	)
-);
+typename
+mizuiro::color::types::detail::channel_reference<
+	Access,
+	Format,
+	Channel,
+	Constness
+>::type;
 
 }
 }
