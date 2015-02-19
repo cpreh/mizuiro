@@ -11,7 +11,9 @@
 #include <mizuiro/color/format/make_tag_of.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/tag_of_fwd.hpp>
-#include <mizuiro/color/types/layout.hpp>
+#include <mizuiro/detail/external_begin.hpp>
+#include <type_traits>
+#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
@@ -24,9 +26,23 @@ namespace access
 template<
 	typename Format
 >
-mizuiro::color::types::layout<
-	Format
->
+decltype(
+	channels_adl(
+		std::declval<
+			mizuiro::color::access::channels_ns::tag
+		>(),
+		std::declval<
+			mizuiro::color::format::make_tag_of<
+				Format
+			>
+		>(),
+		std::declval<
+			mizuiro::color::format::store<
+				Format
+			>
+		>()
+	)
+)
 channels(
 	mizuiro::color::format::store<
 		Format

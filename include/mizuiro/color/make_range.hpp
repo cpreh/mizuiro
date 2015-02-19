@@ -9,7 +9,6 @@
 
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/access/channels.hpp>
-#include <mizuiro/color/types/layout.hpp>
 #include <mizuiro/range/make.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
@@ -27,12 +26,11 @@ template<
 inline
 decltype(
 	mizuiro::range::make(
-		std::declval<
-			mizuiro::color::types::layout<
-				typename
-				Color::format
-			>
-		>()
+		mizuiro::color::access::channels(
+			std::declval<
+				Color
+			>().format_store()
+		)
 	)
 )
 make_range(
