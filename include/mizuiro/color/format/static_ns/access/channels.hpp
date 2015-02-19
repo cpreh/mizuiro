@@ -10,8 +10,6 @@
 #include <mizuiro/color/access/channels_ns/tag.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/static_ns/tag.hpp>
-#include <mizuiro/color/format/static_ns/types/layout.hpp>
-#include <mizuiro/color/types/layout.hpp>
 
 
 namespace mizuiro
@@ -28,9 +26,8 @@ template<
 >
 inline
 constexpr
-mizuiro::color::types::layout<
-	Format
->
+typename
+Format::channels
 channels_adl(
 	mizuiro::color::access::channels_ns::tag,
 	mizuiro::color::format::static_ns::tag<
@@ -42,9 +39,8 @@ channels_adl(
 )
 {
 	return
-		mizuiro::color::types::layout<
-			Format
-		>{};
+		typename
+		Format::channels{};
 }
 
 }

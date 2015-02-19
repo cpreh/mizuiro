@@ -11,7 +11,6 @@
 #include <mizuiro/color/format/static_ns/access/channels.hpp>
 #include <mizuiro/color/format/static_ns/access/compare_channels.hpp>
 #include <mizuiro/color/format/static_ns/access/has_channel.hpp>
-#include <mizuiro/color/format/static_ns/types/layout.hpp>
 #include <mizuiro/color/format/static_ns/types/needs_format_store.hpp>
 #include <mizuiro/color/format/static_ns/types/space.hpp>
 #include <mizuiro/color/format/static_ns/types/static_channels.hpp>
