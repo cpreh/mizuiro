@@ -68,15 +68,52 @@ Accessing a color is done in a similar way:
 
 \section color_format_definition Color Format Definition
 
-Common definitions:
+Syntax:
 
-true, false : Bool
+A judgment is of the form \f$a : A\f$ and means that \f$a\f$ has type \f$A\f$.
+
+\f$Type\f$ is called the universe of types.
+
+If \f$A : Type\f$ and \f$B : Type\f$, then \f$A \rightarrow B : Type\f$. If \f$A_1 : Type, \ldots, A_n : Type\f$,
+then \f$\prod_{A_i}^n : Type\f$.
+
+\f$true, false : Bool\f$
+
+Variables \f$X_1, X_2, \ldots\f$.
+
+\f$ \Gamma \triangleright a : T\f$ is called a conditional judgment.
+
+\f$\Gamma\f$ is a partial function from variables to types. \f$[]\f$ denotes the constant undefined function.
+
+\f$\Gamma[\prod_{X_i : T_i}^n](X) = \begin{cases} T_i & if X = X_i \\ \Gamma(X) & otherwise\end{cases}\f$
+
+Derivation rules:
+
+If \f$a : A\f$, then \f$[] \triangleright a : A\f$.
+
+From \f$\Gamma \triangleright a : A\f$ we can conclude \f$a : A\f$ if there are
+no free variables in \f$a\f$ (TODO: Define this properly?).
+
+\f$\Gamma \triangleright X : \Gamma(X)\f$
+
+\f$\Gamma \triangleright \prod_{X_i : T_i}^n \Rightarrow e : T\f$
+if \f$\Gamma[\prod_{X_i : T_i}^n] \triangleright e : T\f$
+
+If \f$f : \prod_{A_i}^n \rightarrow T\f$ and
+\f$\Gamma \triangleright a_i : A_i\f$ for \f$i = 1, \ldots, n\f$ then
+\f$\Gamma \triangleright f(\prod_{a_i}^n) : T\f$
+
+\f$\Gamma \triangleright g : (f(X) \Rightarrow T)\f$ if \f$f : Type \rightarrow Bool\f$
+and for every \f$T' : Type\f$ with \f$f(T') = true\f$ it follows that
+\f$\Gamma[(X : T')] \triangleright g : T\f$.
+
+Common definitions:
 
 normal, raw : Access
 
 const, nonconst : Constness
 
-apply_const : Type -> Constness -> Type
+apply_const : (Type, Constness) -> Type
 
 Formats and stores:
 
@@ -84,7 +121,8 @@ Given Channel, the type of channels, a color format has the following properties
 
 valid_channel_type : Type -> Bool
 
-space : Type ???
+valid_channel_type(Channel) = true. It can be true for other, unspecified
+types, as well.
 
 channel_value : Channel -> Type
 
@@ -100,19 +138,19 @@ s(c) : channel_value(c) (c \in [channel_min(c), channel_max(c)])
 such that:
   - pointer : (Access, Constness) -> Type
     A type representing a pointer to the store's memory.
-  - store_data : Store -> Constness -> apply_const(Store, Constness) -> pointer(normal, Constness)
+  - store_data : (cn : Constness) => apply_const(Store, cn) -> pointer(normal, cn)
     Returns a pointer to the store's memory.
-  - channel_reference : (Access, Constness, Channel) -> Type
+  - channel_reference : valid_channel_type(C) => (Access, Constness, C) -> Type
     The type used to represent a reference to a channel.
-  - extract_channel : Access -> Channel -> pointer(Access, Constness) -> channel_reference(Access, Constness, Channel)
+  - extract_channel : valid_channel_type(C) => (a : Access, cn : Constness) => C -> pointer(a, cn) -> channel_reference(a, cn, C)
     Provides access to a channel.
 
 Very abstract semantics:
 
-for each c : Channel and v : channel_value(c):
+For each c : Channel and v : channel_value(c):
 
-Define set(c, v) = extract_channel(normal, nonconst, store_data(nonconst, s)) <- v and
-get(c) = extract_channel(normal, const, store_data(const, s)) then the following holds:
+Define set(c, v) = extract_channel[normal, nonconst](c, store_data(nonconst)(s)) <- v and
+get(c) = extract_channel(normal, const, store_data(const)(s)) then the following holds:
 
 get(c) = s(c)
 
@@ -126,6 +164,8 @@ Additional store structure:
 store_needs_init : Bool
 init_store : Store
 
+space : Type ???
+
 If store_needs_init is true, then init_store returns an initialized store. Some
 color formats require this in order to access individual channels without
 causing undefined behavior.
@@ -136,13 +176,12 @@ For every c : Channel, there is a d(c) : DynamicChannel.
 
 needs_format_store : Bool
 
-has_channel : Channel -> Bool
+has_channel : valid_channel_type(C) => C -> Bool
 static_channels : [Channel]
 channels : [DynamicChannel]
-compare_channels : Channel -> DynamicChannel -> Bool
 
-
-
+compare_channels : valid_channel_type(C) => Channel -> C -> Bool
+For each c1, c2 : Channel, compare_channels(c1, c2) = true iff c1 = c2.
 
 In C++:
 
