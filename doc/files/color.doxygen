@@ -109,48 +109,48 @@ and for every \f$T' : Type\f$ with \f$f(T') = true\f$ it follows that
 
 Common definitions:
 
-normal, raw : Access
+\f$normal, raw : Access\f$
 
-const, nonconst : Constness
+\f$const, nonconst : Constness\f$
 
-apply_const : (Type, Constness) -> Type
+\f$apply\_const : (Type, Constness) -> Type\f$
 
 Formats and stores:
 
-Given Channel, the type of channels, a color format has the following properties:
+Given \f$Channel\f$, the type of channels, a color format has the following properties:
 
-valid_channel_type : Type -> Bool
+\f$valid\_channel\_type : Type -> Bool\f$
 
-valid_channel_type(Channel) = true. It can be true for other, unspecified
+\f$valid\_channel\_type(Channel) = true\f$. It can be true for other, unspecified
 types, as well.
 
-channel_value : Channel -> Type
+\f$channel\_value : Channel -> Type\f$
 
-For each c : Channel and T = channel_value(c):
-  - T is totally ordered using <
-  - channel_min, channel_max : Channel -> channel_value(Channel)
-  - T's value range is [channel_min(c), channel_max(c)]
+For each \f$c : Channel\f$ and \f$T = channel_value(c)\f$:
+  - \f$T\f$ is totally ordered using \f$<\f$
+  - \f$channel\_min, channel\_max : Channel -> channel\_value(Channel)\f$
+  - \f$T\f$'s value range is \f$[channel\_min(c), channel\_max(c)]\f$
 
-Store is a type with the following properties:
+\f$Store\f$ is a type with the following properties:
 
-For each c : Channel, define the store's associated value
-s(c) : channel_value(c) (c \in [channel_min(c), channel_max(c)])
+For each \f$c : Channel\f$, define the store's associated value
+\f$s(c) : channel\_value(c) \in [channel\_min(c), channel\_max(c)]\f$
 such that:
-  - pointer : (Access, Constness) -> Type
+  - \f$pointer : (Access, Constness) -> Type\f$
     A type representing a pointer to the store's memory.
-  - store_data : (cn : Constness) => apply_const(Store, cn) -> pointer(normal, cn)
+  - \f$store\_data : (cn : Constness) \Rightarrow apply\_const(Store, cn) \rightarrow pointer(normal, cn)\f$
     Returns a pointer to the store's memory.
-  - channel_reference : valid_channel_type(C) => (Access, Constness, C) -> Type
+  - \f$channel\_reference : valid\_channel\_type(C) \Rightarrow (Access, Constness, C) \rightarrow Type\f$
     The type used to represent a reference to a channel.
-  - extract_channel : valid_channel_type(C) => (a : Access, cn : Constness) => C -> pointer(a, cn) -> channel_reference(a, cn, C)
+  - \f$extract\_channel : valid\_channel\_type(C) \Rightarrow (a : Access, cn : Constness) \Rightarrow (C, pointer(a, cn)) \rightarrow channel\_reference(a, cn, C)\f$
     Provides access to a channel.
 
 Very abstract semantics:
 
-For each c : Channel and v : channel_value(c):
+For each \f$c : Channel\f$ and \f$v : channel_value(c)\f$:
 
-Define set(c, v) = extract_channel[normal, nonconst](c, store_data(nonconst)(s)) <- v and
-get(c) = extract_channel(normal, const, store_data(const)(s)) then the following holds:
+Define \f[set(c, v) = extract\_channel(normal, nonconst)(c, store\_data(nonconst)(s)) \leftarrow v\f] and
+\f[get(c) = extract\_channel(normal, const)(store\_data(const)(s))\f] then the following holds:
 
 get(c) = s(c)
 
