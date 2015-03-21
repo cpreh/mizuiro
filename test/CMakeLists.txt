@@ -51,9 +51,10 @@ function(
 		${MIZUIRO_TEST_NAME}
 		PRIVATE
 		${Boost_INCLUDE_DIR}
+		include
 	)
 
-	target_link_libraries (
+	target_link_libraries(
 		${MIZUIRO_TEST_NAME}
 		PRIVATE
 		${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}

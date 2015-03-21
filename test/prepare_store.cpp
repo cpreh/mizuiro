@@ -12,6 +12,8 @@
 #include <mizuiro/color/init/alpha.hpp>
 #include <mizuiro/color/init/luminance.hpp>
 #include <mizuiro/color/layout/la.hpp>
+#include <mizuiro/detail/ignore_effcpp.hpp>
+#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
@@ -19,10 +21,10 @@
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_heterogenous.hpp>
 #include <mizuiro/mpl/size_list.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <mizuiro/test/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
 #include <cstdint>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/test/external_end.hpp>
 
 
 MIZUIRO_DETAIL_IGNORE_EFFCPP

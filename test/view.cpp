@@ -20,10 +20,10 @@
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <mizuiro/test/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
 #include <cstdint>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/test/external_end.hpp>
 
 
 namespace
