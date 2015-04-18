@@ -13,7 +13,7 @@ function(
 
 	set(
 		MIZUIRO_TEST_NAME
-		test_${TESTNAME}
+		mizuiro_test_${TESTNAME}
 	)
 
 	add_executable(
