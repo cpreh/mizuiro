@@ -21,6 +21,7 @@ namespace detail
 {
 
 template<
+	typename Converter,
 	typename Channel,
 	typename Src,
 	typename Dest
@@ -28,12 +29,14 @@ template<
 inline
 void
 copy_or_min_channel(
+	Converter const &_converter,
 	Channel const &_channel,
 	Src const &_src,
 	Dest &_dest
 )
 {
 	mizuiro::color::conversion::detail::copy_or_default_channel(
+		_converter,
 		mizuiro::color::conversion::detail::channel_to_min_function<
 			Dest
 		>(

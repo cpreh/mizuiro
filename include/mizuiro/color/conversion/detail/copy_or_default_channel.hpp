@@ -8,7 +8,6 @@
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_DEFAULT_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/access/has_channel.hpp>
-#include <mizuiro/color/conversion/detail/copy_and_convert_channel.hpp>
 #include <mizuiro/color/format/definitely_has_channel.hpp>
 #include <mizuiro/color/format/definitely_has_not_channel.hpp>
 #include <mizuiro/color/format/might_have_channel.hpp>
@@ -27,6 +26,7 @@ namespace detail
 {
 
 template<
+	typename Converter,
 	typename DefaultAction,
 	typename Channel,
 	typename Src,
@@ -47,13 +47,14 @@ std::enable_if<
 	void
 >::type
 copy_or_default_channel(
+	Converter const &_converter,
 	DefaultAction const &,
 	Channel const &_channel,
 	Src const &_src,
 	Dest &_dest
 )
 {
-	mizuiro::color::conversion::detail::copy_and_convert_channel(
+	_converter(
 		_channel,
 		_src,
 		_dest
@@ -61,6 +62,7 @@ copy_or_default_channel(
 }
 
 template<
+	typename Converter,
 	typename DefaultAction,
 	typename Channel,
 	typename Src,
@@ -81,6 +83,7 @@ std::enable_if<
 	void
 >::type
 copy_or_default_channel(
+	Converter const &,
 	DefaultAction const &_default_action,
 	Channel const &_channel,
 	Src const &,
@@ -93,6 +96,7 @@ copy_or_default_channel(
 }
 
 template<
+	typename Converter,
 	typename DefaultAction,
 	typename Channel,
 	typename Src,
@@ -113,6 +117,7 @@ std::enable_if<
 	void
 >::type
 copy_or_default_channel(
+	Converter const &_converter,
 	DefaultAction const &_default_action,
 	Channel const &_channel,
 	Src const &_src,
@@ -125,7 +130,7 @@ copy_or_default_channel(
 			_channel
 		)
 	)
-		mizuiro::color::conversion::detail::copy_and_convert_channel(
+		_converter(
 			_channel,
 			_src,
 			_dest
@@ -137,6 +142,7 @@ copy_or_default_channel(
 }
 
 template<
+	typename Converter,
 	typename DefaultAction,
 	typename Channel,
 	typename Src,
@@ -152,6 +158,7 @@ std::enable_if<
 	void
 >::type
 copy_or_default_channel(
+	Converter const &,
 	DefaultAction const &,
 	Channel const &,
 	Src const &,
@@ -161,6 +168,7 @@ copy_or_default_channel(
 }
 
 template<
+	typename Converter,
 	typename DefaultAction,
 	typename Channel,
 	typename Src,
@@ -181,6 +189,7 @@ std::enable_if<
 	void
 >::type
 copy_or_default_channel(
+	Converter const &_converter,
 	DefaultAction const &,
 	Channel const &_channel,
 	Src const &_src,
@@ -193,7 +202,7 @@ copy_or_default_channel(
 			_channel
 		)
 	)
-		mizuiro::color::conversion::detail::copy_and_convert_channel(
+		_converter(
 			_channel,
 			_src,
 			_dest
@@ -201,6 +210,7 @@ copy_or_default_channel(
 }
 
 template<
+	typename Converter,
 	typename DefaultAction,
 	typename Channel,
 	typename Src,
@@ -221,6 +231,7 @@ std::enable_if<
 	void
 >::type
 copy_or_default_channel(
+	Converter const &,
 	DefaultAction const &_default_action,
 	Channel const &_channel,
 	Src const &,
@@ -240,6 +251,7 @@ copy_or_default_channel(
 
 
 template<
+	typename Converter,
 	typename DefaultAction,
 	typename Channel,
 	typename Src,
@@ -260,6 +272,7 @@ std::enable_if<
 	void
 >::type
 copy_or_default_channel(
+	Converter const &_converter,
 	DefaultAction const &_default_action,
 	Channel const &_channel,
 	Src const &_src,
@@ -280,7 +293,7 @@ copy_or_default_channel(
 			_channel
 		)
 	)
-		mizuiro::color::conversion::detail::copy_and_convert_channel(
+		_converter(
 			_channel,
 			_src,
 			_dest

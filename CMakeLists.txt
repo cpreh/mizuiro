@@ -230,8 +230,10 @@ set(
 	include/mizuiro/color/conversion/detail/channel_to_max_function.hpp
 	include/mizuiro/color/conversion/detail/channel_to_min.hpp
 	include/mizuiro/color/conversion/detail/channel_to_min_function.hpp
-	include/mizuiro/color/conversion/detail/copy_and_convert_channel.hpp
-	include/mizuiro/color/conversion/detail/copy_and_convert_channel_function.hpp
+	include/mizuiro/color/conversion/detail/convert_channel.hpp
+	include/mizuiro/color/conversion/detail/convert_channel_function.hpp
+	include/mizuiro/color/conversion/detail/convert_channel_gamma_function.hpp
+	include/mizuiro/color/conversion/detail/convert_each.hpp
 	include/mizuiro/color/conversion/detail/copy_or_default_channel.hpp
 	include/mizuiro/color/conversion/detail/copy_or_max_alpha.hpp
 	include/mizuiro/color/conversion/detail/copy_or_min_channel.hpp
@@ -241,8 +243,12 @@ set(
 	include/mizuiro/color/conversion/detail/make_logical_and.hpp
 	include/mizuiro/color/conversion/detail/rgb_from_chroma.hpp
 	include/mizuiro/color/conversion/detail/set_chroma_parts.hpp
+	include/mizuiro/color/conversion/detail/srgb_gamma.hpp
 	include/mizuiro/color/conversion/hsv_to_rgb.hpp
+	include/mizuiro/color/conversion/rgb_to_srgb.hpp
 	include/mizuiro/color/conversion/same_to_same.hpp
+	include/mizuiro/color/conversion/same_to_same_gamma.hpp
+	include/mizuiro/color/conversion/srgb_to_rgb.hpp
 	include/mizuiro/color/convert.hpp
 	include/mizuiro/color/convert_static.hpp
 	include/mizuiro/color/convert_static/converter.hpp
@@ -250,7 +256,9 @@ set(
 	include/mizuiro/color/convert_static/is_hsv.hpp
 	include/mizuiro/color/convert_static/is_rgb.hpp
 	include/mizuiro/color/convert_static/is_static.hpp
+	include/mizuiro/color/convert_static/rgb_to_srgb.hpp
 	include/mizuiro/color/convert_static/same_to_same.hpp
+	include/mizuiro/color/convert_static/srgb_to_rgb.hpp
 	include/mizuiro/color/decay_channel_proxy.hpp
 	include/mizuiro/color/denormalize.hpp
 	include/mizuiro/color/detail/assert_channel.hpp

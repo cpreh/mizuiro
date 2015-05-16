@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/conversion/detail/channel_to_max_function.hpp>
+#include <mizuiro/color/conversion/detail/convert_channel_function.hpp>
 #include <mizuiro/color/conversion/detail/copy_or_default_channel.hpp>
 
 
@@ -33,6 +34,7 @@ copy_or_max_alpha(
 )
 {
 	mizuiro::color::conversion::detail::copy_or_default_channel(
+		mizuiro::color::conversion::detail::convert_channel_function(),
 		mizuiro::color::conversion::detail::channel_to_max_function<
 			Dest
 		>(

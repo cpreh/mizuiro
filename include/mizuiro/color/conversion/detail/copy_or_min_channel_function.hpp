@@ -21,6 +21,7 @@ namespace detail
 {
 
 template<
+	typename Converter,
 	typename Src,
 	typename Dest
 >
@@ -31,10 +32,14 @@ class copy_or_min_channel_function
 	);
 public:
 	copy_or_min_channel_function(
+		Converter const &_converter,
 		Src const &_src,
 		Dest &_dest
 	)
 	:
+		converter_(
+			_converter
+		),
 		src_(
 			_src
 		),
@@ -57,12 +62,15 @@ public:
 	) const
 	{
 		mizuiro::color::conversion::detail::copy_or_min_channel(
+			converter_,
 			_channel,
 			src_,
 			dest_
 		);
 	}
 private:
+	Converter const &converter_;
+
 	Src const &src_;
 
 	Dest &dest_;

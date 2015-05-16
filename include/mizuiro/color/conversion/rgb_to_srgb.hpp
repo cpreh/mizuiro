@@ -4,12 +4,12 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERSION_SAME_TO_SAME_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERSION_SAME_TO_SAME_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_RGB_TO_SRGB_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_RGB_TO_SRGB_HPP_INCLUDED
 
 #include <mizuiro/color/object_impl.hpp>
-#include <mizuiro/color/conversion/detail/convert_channel_function.hpp>
-#include <mizuiro/color/conversion/detail/convert_each.hpp>
+#include <mizuiro/color/conversion/same_to_same_gamma.hpp>
+#include <mizuiro/color/conversion/detail/srgb_gamma.hpp>
 #include <mizuiro/color/format/argument.hpp>
 
 
@@ -28,8 +28,8 @@ inline
 mizuiro::color::object<
 	Dest
 > const
-same_to_same(
-	Src const &_src,
+rgb_to_srgb(
+	Src const &_source,
 	typename
 	mizuiro::color::object<
 		Dest
@@ -40,11 +40,14 @@ same_to_same(
 )
 {
 	return
-		mizuiro::color::conversion::detail::convert_each<
+		mizuiro::color::conversion::same_to_same_gamma<
 			Dest
 		>(
-			_src,
-			mizuiro::color::conversion::detail::convert_channel_function(),
+			_source,
+			mizuiro::color::conversion::detail::srgb_gamma<
+				// TODO: Choose a more appropriate type
+				float
+			>(),
 			_format
 		);
 }

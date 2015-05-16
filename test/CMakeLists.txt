@@ -70,6 +70,7 @@ endfunction()
 
 add_mizuiro_test(algorithm/clone)
 add_mizuiro_test(can_copy)
+add_mizuiro_test(convert/rgb_srgb)
 add_mizuiro_test(convert/swizzle)
 add_mizuiro_test(dynamic)
 add_mizuiro_test(empty_view)

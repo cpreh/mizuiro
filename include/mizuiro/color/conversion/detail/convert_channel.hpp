@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_AND_CONVERT_CHANNEL_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_AND_CONVERT_CHANNEL_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_CONVERT_CHANNEL_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_DETAIL_CONVERT_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/denormalize.hpp>
 #include <mizuiro/color/normalize.hpp>
@@ -25,8 +25,9 @@ template<
 	typename Src,
 	typename Dest
 >
+inline
 void
-copy_and_convert_channel(
+convert_channel(
 	Channel const &_channel,
 	Src const &_src,
 	Dest &_dest

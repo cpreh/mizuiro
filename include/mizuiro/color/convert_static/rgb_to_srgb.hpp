@@ -4,12 +4,14 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERT_STATIC_SAME_TO_SAME_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERT_STATIC_SAME_TO_SAME_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERT_STATIC_RGB_TO_SRGB_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERT_STATIC_RGB_TO_SRGB_HPP_INCLUDED
 
 #include <mizuiro/color/object_impl.hpp>
-#include <mizuiro/color/conversion/same_to_same.hpp>
-#include <mizuiro/color/format/same_spaces.hpp>
+#include <mizuiro/color/conversion/rgb_to_srgb.hpp>
+#include <mizuiro/color/space/rgb_fwd.hpp>
+#include <mizuiro/color/space/srgb_fwd.hpp>
+#include <mizuiro/color/types/space.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -29,11 +31,21 @@ template<
 inline
 typename
 std::enable_if<
-	mizuiro::color::format::same_spaces<
-		Dest,
-		typename
-		Src::format
-	>::value,
+	std::is_same<
+		mizuiro::color::types::space<
+			Dest
+		>,
+		mizuiro::color::space::srgb
+	>::value
+	&&
+	std::is_same<
+		mizuiro::color::types::space<
+			typename
+			Src::format
+		>,
+		mizuiro::color::space::rgb
+	>::value
+	,
 	mizuiro::color::object<
 		Dest
 	>
@@ -43,7 +55,7 @@ convert(
 )
 {
 	return
-		mizuiro::color::conversion::same_to_same<
+		mizuiro::color::conversion::rgb_to_srgb<
 			Dest
 		>(
 			_src

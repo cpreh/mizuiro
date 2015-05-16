@@ -4,13 +4,12 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_CONVERSION_SAME_TO_SAME_HPP_INCLUDED
-#define MIZUIRO_COLOR_CONVERSION_SAME_TO_SAME_HPP_INCLUDED
+#ifndef MIZUIRO_COLOR_CONVERSION_SAME_TO_SAME_GAMMA_HPP_INCLUDED
+#define MIZUIRO_COLOR_CONVERSION_SAME_TO_SAME_GAMMA_HPP_INCLUDED
 
 #include <mizuiro/color/object_impl.hpp>
-#include <mizuiro/color/conversion/detail/convert_channel_function.hpp>
+#include <mizuiro/color/conversion/detail/convert_channel_gamma_function.hpp>
 #include <mizuiro/color/conversion/detail/convert_each.hpp>
-#include <mizuiro/color/format/argument.hpp>
 
 
 namespace mizuiro
@@ -22,21 +21,20 @@ namespace conversion
 
 template<
 	typename Dest,
-	typename Src
+	typename Src,
+	typename Gamma
 >
 inline
 mizuiro::color::object<
 	Dest
 > const
-same_to_same(
+same_to_same_gamma(
 	Src const &_src,
+	Gamma const _gamma,
 	typename
 	mizuiro::color::object<
 		Dest
 	>::format_store_type const &_format
-		= mizuiro::color::format::argument<
-			Dest
-		>::get()
 )
 {
 	return
@@ -44,7 +42,11 @@ same_to_same(
 			Dest
 		>(
 			_src,
-			mizuiro::color::conversion::detail::convert_channel_function(),
+			mizuiro::color::conversion::detail::convert_channel_gamma_function<
+				Gamma
+			>(
+				_gamma
+			),
 			_format
 		);
 }
