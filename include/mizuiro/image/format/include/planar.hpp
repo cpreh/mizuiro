@@ -12,9 +12,6 @@
 #include <mizuiro/image/format/detail/planar_color_ns/access/extract_channel_normal.hpp>
 #include <mizuiro/image/format/detail/planar_color_ns/types/pointer.hpp>
 #include <mizuiro/image/format/include/color.hpp>
-//#include <mizuiro/image/format/planar_ns/can_copy.hpp>
-//#include <mizuiro/image/format/planar_ns/can_copy_in_place.hpp>
-//#include <mizuiro/image/format/planar_ns/data.hpp>
 #include <mizuiro/image/format/planar_ns/tag_of.hpp>
 #include <mizuiro/image/format/planar_ns/access/advance_pointer.hpp>
 #include <mizuiro/image/format/planar_ns/access/make_store.hpp>

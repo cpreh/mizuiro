@@ -11,6 +11,6 @@
 #pragma GCC diagnostic pop
 #endif
 
-#include <mizuiro/detail/external_end.hpp>
+
 
 #endif

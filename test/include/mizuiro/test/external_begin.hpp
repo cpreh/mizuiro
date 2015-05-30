@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_TEST_EXTERNAL_BEGIN_HPP_INCLUDED
 #define MIZUIRO_TEST_EXTERNAL_BEGIN_HPP_INCLUDED
 
-#include <mizuiro/detail/external_begin.hpp>
+
 
 #if defined(__GNUC__)
 #pragma GCC diagnostic push

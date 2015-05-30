@@ -13,8 +13,10 @@
 #include <mizuiro/range/include/array.hpp>
 #include <mizuiro/range/include/mpl.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <boost/test/unit_test.hpp>
 #include <mizuiro/test/external_end.hpp>
+#include <mizuiro/detail/external_begin.hpp>
+#include <boost/test/unit_test.hpp>
+#include <mizuiro/detail/external_end.hpp>
 
 
 namespace
