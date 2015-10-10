@@ -27,7 +27,7 @@ template<
 inline
 mizuiro::color::object<
 	Dest
-> const
+>
 srgb_to_rgb(
 	Src const &_source,
 	typename

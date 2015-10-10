@@ -27,7 +27,7 @@ template<
 inline
 mizuiro::color::object<
 	Dest
-> const
+>
 same_to_same_gamma(
 	Src const &_src,
 	Gamma const _gamma,
