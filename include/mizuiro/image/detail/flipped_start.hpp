@@ -18,7 +18,7 @@ namespace detail
 template<
 	typename Dim
 >
-Dim const
+Dim
 flipped_start(
 	typename Dim::value_type const _last_dim
 )

@@ -45,7 +45,7 @@ public:
 		store const &
 	) noexcept;
 
-	optional_format const
+	optional_format
 	get() const;
 private:
 	optional_format format_;

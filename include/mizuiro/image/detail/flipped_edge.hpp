@@ -18,7 +18,7 @@ namespace detail
 template<
 	typename Dim
 >
-Dim const
+Dim
 flipped_edge(
 	Dim const &_view_dim
 )

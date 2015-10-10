@@ -67,7 +67,7 @@ template<
 typename
 mizuiro::image::format::store<
 	Format
->::optional_format const
+>::optional_format
 mizuiro::image::format::store<
 	Format
 >::get() const

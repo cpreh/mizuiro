@@ -27,7 +27,7 @@ inline
 mizuiro::color::conversion::detail::logical_and<
 	Fun1,
 	Fun2
-> const
+>
 make_logical_and(
 	Fun1 const &_fun1,
 	Fun2 const &_fun2

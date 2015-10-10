@@ -228,7 +228,7 @@ mizuiro::color::proxy<
 	Access,
 	Format,
 	Constness
->::format_store_type const
+>::format_store_type
 mizuiro::color::proxy<
 	Access,
 	Format,

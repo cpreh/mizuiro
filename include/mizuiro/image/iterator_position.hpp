@@ -27,7 +27,7 @@ template<
 >
 inline
 typename
-Format::dim const
+Format::dim
 iterator_position(
 	mizuiro::image::linear_view<
 		Access,
@@ -55,7 +55,7 @@ template<
 >
 inline
 typename
-Format::dim const
+Format::dim
 iterator_position(
 	mizuiro::image::pitch_view<
 		Access,

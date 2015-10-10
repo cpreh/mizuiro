@@ -36,7 +36,7 @@ protected:
 	) noexcept;
 
 	constexpr
-	format_store_type const
+	format_store_type
 	format_store_base() const;
 };
 

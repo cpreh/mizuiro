@@ -158,7 +158,7 @@ public:
 	);
 
 	static
-	dimension const
+	dimension
 	null();
 private:
 	array_type data_;

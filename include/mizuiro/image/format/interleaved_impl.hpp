@@ -48,7 +48,7 @@ typename
 mizuiro::image::format::interleaved<
 	DimType,
 	ColorFormat
->::format_store_type const
+>::format_store_type
 mizuiro::image::format::interleaved<
 	DimType,
 	ColorFormat

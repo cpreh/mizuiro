@@ -24,7 +24,7 @@ template<
 mizuiro::color::format::store<
 	typename
 	ImageFormat::color_format
-> const
+>
 to_color_store(
 	mizuiro::image::format::store<
 		ImageFormat

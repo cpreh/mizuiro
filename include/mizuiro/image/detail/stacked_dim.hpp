@@ -27,7 +27,7 @@ mizuiro::image::detail::stacked_dim_array<
 		Dim::static_size,
 		RetValue
 	>
-> const
+>
 stacked_dim(
 	Dim const &_dim
 )

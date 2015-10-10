@@ -34,7 +34,7 @@ template<
 >
 mizuiro::color::object<
 	Dest
-> const
+>
 hsv_to_rgb(
 	Src const &_source,
 	typename

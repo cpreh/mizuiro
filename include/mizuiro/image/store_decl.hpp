@@ -147,16 +147,16 @@ public:
 	const_pointer
 	data() const;
 
-	view_type const
+	view_type
 	view();
 
-	const_view_type const
+	const_view_type
 	view() const;
 
 	dim const &
 	size() const;
 
-	format_store_type const
+	format_store_type
 	format_store() const;
 private:
 	dim size_;

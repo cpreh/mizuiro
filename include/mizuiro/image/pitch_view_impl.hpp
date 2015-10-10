@@ -159,7 +159,7 @@ mizuiro::image::pitch_view<
 	Access,
 	Format,
 	Constness
->::iterator const
+>::iterator
 mizuiro::image::pitch_view<
 	Access,
 	Format,
@@ -185,7 +185,7 @@ mizuiro::image::pitch_view<
 	Access,
 	Format,
 	Constness
->::iterator const
+>::iterator
 mizuiro::image::pitch_view<
 	Access,
 	Format,
@@ -259,7 +259,7 @@ mizuiro::image::pitch_view<
 	Access,
 	Format,
 	Constness
->::format_store_type const
+>::format_store_type
 mizuiro::image::pitch_view<
 	Access,
 	Format,

@@ -42,7 +42,6 @@ typename
 mizuiro::detail::normal_format_base<
 	Store
 >::format_store_type
-const
 mizuiro::detail::normal_format_base<
 	Store
 >::format_store_base() const

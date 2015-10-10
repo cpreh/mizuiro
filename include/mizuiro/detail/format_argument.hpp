@@ -46,7 +46,7 @@ struct format_argument<
 >
 {
 	static
-	FormatStore const
+	FormatStore
 	get()
 	{
 		static_assert(
@@ -72,7 +72,7 @@ struct format_argument<
 >
 {
 	static
-	FormatStore const
+	FormatStore
 	get()
 	{
 		return

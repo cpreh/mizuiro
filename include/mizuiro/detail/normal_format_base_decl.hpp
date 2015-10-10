@@ -32,7 +32,7 @@ protected:
 		normal_format_base const &
 	) noexcept;
 
-	format_store_type const
+	format_store_type
 	format_store_base() const;
 private:
 	format_store_type format_;

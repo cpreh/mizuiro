@@ -182,7 +182,7 @@ typename mizuiro::image::view<
 	Access,
 	Format,
 	Constness
->::dim const
+>::dim
 mizuiro::image::view<
 	Access,
 	Format,
@@ -207,7 +207,7 @@ typename mizuiro::image::view<
 	Access,
 	Format,
 	Constness
->::pitch_type const
+>::pitch_type
 mizuiro::image::view<
 	Access,
 	Format,
@@ -232,7 +232,7 @@ typename mizuiro::image::view<
 	Access,
 	Format,
 	Constness
->::iterator const
+>::iterator
 mizuiro::image::view<
 	Access,
 	Format,
@@ -257,7 +257,7 @@ typename mizuiro::image::view<
 	Access,
 	Format,
 	Constness
->::iterator const
+>::iterator
 mizuiro::image::view<
 	Access,
 	Format,
@@ -332,7 +332,7 @@ typename mizuiro::image::view<
 	Access,
 	Format,
 	Constness
->::format_store_type const
+>::format_store_type
 mizuiro::image::view<
 	Access,
 	Format,

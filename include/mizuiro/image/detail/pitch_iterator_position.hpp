@@ -23,7 +23,9 @@ template<
 	typename Format,
 	typename Constness
 >
-typename Format::dim const
+inline
+typename
+Format::dim
 pitch_iterator_position(
 	mizuiro::image::detail::pitch_iterator<
 		Access,

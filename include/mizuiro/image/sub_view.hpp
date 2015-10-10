@@ -24,7 +24,7 @@ template<
 >
 mizuiro::image::to_pitch_view<
 	View
-> const
+>
 sub_view(
 	View const &_view,
 	typename View::bound_type const &_bound

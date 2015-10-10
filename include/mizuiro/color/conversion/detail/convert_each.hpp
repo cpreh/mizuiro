@@ -35,7 +35,7 @@ template<
 inline
 mizuiro::color::object<
 	Dest
-> const
+>
 convert_each(
 	Src const &_src,
 	Converter const &_converter,

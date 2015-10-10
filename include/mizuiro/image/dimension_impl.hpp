@@ -448,7 +448,7 @@ template<
 mizuiro::image::dimension<
 	Dim,
 	ValueType
-> const
+>
 mizuiro::image::dimension<
 	Dim,
 	ValueType

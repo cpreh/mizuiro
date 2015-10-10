@@ -27,7 +27,7 @@ template<
 mizuiro::image::dimension<
 	Dim,
 	DimValue
-> const
+>
 relative_position(
 	mizuiro::image::dimension<
 		Dim,

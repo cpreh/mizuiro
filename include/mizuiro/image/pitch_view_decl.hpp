@@ -136,10 +136,10 @@ public:
 	pitch_type const &
 	pitch() const;
 
-	iterator const
+	iterator
 	begin() const;
 
-	iterator const
+	iterator
 	end() const;
 
 	reference
@@ -150,7 +150,7 @@ public:
 	pointer
 	data() const;
 
-	format_store_type const
+	format_store_type
 	format_store() const;
 private:
 	dim size_;

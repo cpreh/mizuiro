@@ -26,7 +26,7 @@ typename
 std::enable_if<
 	Pitch::static_size >= 2,
 	Pitch
->::type const
+>::type
 flipped_pitch(
 	Pitch const &_old_pitch,
 	typename Pitch::value_type _last_value
@@ -49,11 +49,12 @@ flipped_pitch(
 template<
 	typename Pitch
 >
+inline
 typename
 std::enable_if<
 	Pitch::static_size == 1,
 	Pitch
->::type const
+>::type
 flipped_pitch(
 	Pitch const &,
 	typename Pitch::value_type _last_value

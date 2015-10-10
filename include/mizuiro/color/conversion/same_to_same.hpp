@@ -27,7 +27,7 @@ template<
 inline
 mizuiro::color::object<
 	Dest
-> const
+>
 same_to_same(
 	Src const &_src,
 	typename

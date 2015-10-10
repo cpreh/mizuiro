@@ -128,7 +128,7 @@ mizuiro::image::linear_view<
 	Access,
 	Format,
 	Constness
->::pitch_type const
+>::pitch_type
 mizuiro::image::linear_view<
 	Access,
 	Format,
@@ -149,7 +149,7 @@ mizuiro::image::linear_view<
 	Access,
 	Format,
 	Constness
->::iterator const
+>::iterator
 mizuiro::image::linear_view<
 	Access,
 	Format,
@@ -173,7 +173,7 @@ mizuiro::image::linear_view<
 	Access,
 	Format,
 	Constness
->::iterator const
+>::iterator
 mizuiro::image::linear_view<
 	Access,
 	Format,
@@ -247,7 +247,7 @@ mizuiro::image::linear_view<
 	Access,
 	Format,
 	Constness
->::format_store_type const
+>::format_store_type
 mizuiro::image::linear_view<
 	Access,
 	Format,

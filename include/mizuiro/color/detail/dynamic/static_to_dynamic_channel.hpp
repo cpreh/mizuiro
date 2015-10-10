@@ -28,7 +28,7 @@ template<
 >
 inline
 typename
-mizuiro::color::detail::dynamic::channel_index const
+mizuiro::color::detail::dynamic::channel_index
 static_to_dynamic_channel(
 	mizuiro::color::channel::tag<
 		StaticChannel

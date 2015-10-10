@@ -179,7 +179,7 @@ typename
 mizuiro::image::store<
 	Format,
 	Access
->::view_type const
+>::view_type
 mizuiro::image::store<
 	Format,
 	Access
@@ -201,7 +201,7 @@ typename
 mizuiro::image::store<
 	Format,
 	Access
->::const_view_type const
+>::const_view_type
 mizuiro::image::store<
 	Format,
 	Access
@@ -240,7 +240,7 @@ typename
 mizuiro::image::store<
 	Format,
 	Access
->::format_store_type const
+>::format_store_type
 mizuiro::image::store<
 	Format,
 	Access

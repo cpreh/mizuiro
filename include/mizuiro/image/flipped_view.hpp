@@ -33,7 +33,7 @@ std::enable_if<
 	View::dim::static_size >= 2,
 	mizuiro::image::to_pitch_view<
 		View
-	> const
+	>
 >::type
 flipped_view(
 	View const &_view

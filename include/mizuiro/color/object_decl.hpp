@@ -231,7 +231,7 @@ public:
 	data() const;
 
 	constexpr
-	format_store_type const
+	format_store_type
 	format_store() const;
 private:
 	typedef
@@ -250,10 +250,10 @@ private:
 	>
 	const_proxy;
 
-	proxy const
+	proxy
 	make_proxy();
 
-	const_proxy const
+	const_proxy
 	make_const_proxy() const;
 
 	typedef

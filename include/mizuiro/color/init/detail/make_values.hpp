@@ -22,9 +22,10 @@ namespace detail
 template<
 	typename Vector
 >
+inline
 mizuiro::color::init::detail::values<
 	Vector
-> const
+>
 make_values(
 	Vector const &_vector
 )

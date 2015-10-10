@@ -34,7 +34,7 @@ template<
 >
 mizuiro::color::object<
 	typename Color1::format
-> const
+>
 binary_op(
 	Color1 const &_color1,
 	Color2 const &_color2

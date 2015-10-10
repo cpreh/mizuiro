@@ -323,7 +323,7 @@ template<
 constexpr
 typename mizuiro::color::object<
 	Format
->::format_store_type const
+>::format_store_type
 mizuiro::color::object<
 	Format
 >::format_store() const
@@ -337,7 +337,7 @@ template<
 >
 typename mizuiro::color::object<
 	Format
->::proxy const
+>::proxy
 mizuiro::color::object<
 	Format
 >::make_proxy()
@@ -359,7 +359,7 @@ template<
 >
 typename mizuiro::color::object<
 	Format
->::const_proxy const
+>::const_proxy
 mizuiro::color::object<
 	Format
 >::make_const_proxy() const

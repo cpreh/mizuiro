@@ -23,7 +23,7 @@ template<
 	typename ChannelIndexArray,
 	typename Layout
 >
-ChannelIndexArray const
+ChannelIndexArray
 initialize_indices(
 	Layout const &_layout
 )
