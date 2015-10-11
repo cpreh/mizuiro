@@ -37,6 +37,7 @@ public:
 	{
 	}
 
+	explicit
 	values(
 		tuple_type const &_elements
 	)
@@ -63,7 +64,7 @@ public:
 				>()
 			)
 		)
-	> const
+	>
 	operator()(
 		values<
 			std::tuple<
@@ -72,10 +73,20 @@ public:
 		> const &_newinit
 	) const
 	{
-		return
+		auto result(
 			std::tuple_cat(
 				elements_,
 				_newinit.get()
+			)
+		);
+
+		return
+			values<
+				decltype(
+					result
+				)
+			>(
+				result
 			);
 	}
 
