@@ -98,8 +98,8 @@ function(
 		)
 			set(
 				COMPILE_OPTIONS
-				"-std=c++11"
-			       	"-Wall"
+				"-std=c++14"
+				"-Wall"
 				"-Wextra"
 				"-Wconversion"
 				"-Weffc++"
