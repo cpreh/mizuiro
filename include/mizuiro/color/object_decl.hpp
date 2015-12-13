@@ -126,6 +126,7 @@ public:
 		typename Other,
 		typename FormatArg = Format
 	>
+	explicit
 	object(
 		Other const &,
 		typename std::enable_if<
@@ -143,6 +144,7 @@ public:
 		typename Other,
 		typename FormatArg = Format
 	>
+	explicit
 	object(
 		Other const &,
 		typename std::enable_if<
