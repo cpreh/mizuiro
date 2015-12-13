@@ -7,10 +7,12 @@
 #ifndef MIZUIRO_COLOR_OPERATORS_SCALAR_MULTIPLY_HPP_INCLUDED
 #define MIZUIRO_COLOR_OPERATORS_SCALAR_MULTIPLY_HPP_INCLUDED
 
+#include <mizuiro/decltype.hpp>
 #include <mizuiro/color/for_each_channel.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_impl.hpp>
-#include <mizuiro/color/operators/detail/scalar_multiply.hpp>
+#include <mizuiro/color/format/get.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
 
 
 namespace mizuiro
@@ -23,7 +25,9 @@ template<
 	typename Scalar
 >
 mizuiro::color::object<
-	typename Color::format
+	mizuiro::color::format::get<
+		Color
+	>
 >
 operator*(
 	Color const &_color,
@@ -37,9 +41,13 @@ operator*(
 		"Color must be a color type"
 	);
 
-	typedef mizuiro::color::object<
-		typename Color::format
-	> result_type;
+	typedef
+	mizuiro::color::object<
+		mizuiro::color::format::get<
+			Color
+		>
+	>
+	result_type;
 
 	result_type result(
 		_color
@@ -47,13 +55,38 @@ operator*(
 
 	mizuiro::color::for_each_channel(
 		_color,
-		mizuiro::color::operators::detail::scalar_multiply<
-			result_type,
-			Scalar
-		>(
-			result,
+		[
+			&result,
+			&_color,
 			_scalar
+		](
+			auto const &_channel_inner
 		)
+		{
+			result.set(
+				_channel_inner,
+				static_cast<
+					mizuiro::color::types::channel_value<
+						mizuiro::color::format::get<
+							Color
+						>,
+						MIZUIRO_DECLTYPE(
+							_channel_inner
+						)
+					>
+				>(
+					static_cast<
+						Scalar
+					>(
+						_color.get(
+							_channel_inner
+						)
+					)
+					*
+					_scalar
+				)
+			);
+		}
 	);
 
 	return
@@ -65,7 +98,9 @@ template<
 	typename Scalar
 >
 mizuiro::color::object<
-	typename Color::format
+	mizuiro::color::format::get<
+		Color
+	>
 >
 operator*(
 	Scalar const _scalar,

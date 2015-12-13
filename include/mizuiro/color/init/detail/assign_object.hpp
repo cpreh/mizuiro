@@ -9,9 +9,9 @@
 
 #include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/init/detail/contains_channel.hpp>
+#include <mizuiro/color/init/detail/set_channel.hpp>
 #include <mizuiro/color/init/detail/to_channel_type.hpp>
 #include <mizuiro/color/init/detail/values_fwd.hpp>
-#include <mizuiro/color/init/detail/visitor.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
 #include <mizuiro/detail/tuple_for_each.hpp>
 #include <mizuiro/mpl/all_of.hpp>
@@ -68,11 +68,17 @@ assign_object(
 	);
 
 	mizuiro::detail::tuple_for_each(
-		mizuiro::color::init::detail::visitor<
-			Format
-		>(
-			_object
-		),
+		[
+			&_object
+		](
+			auto const &_value
+		)
+		{
+			mizuiro::color::init::detail::set_channel(
+				_object,
+				_value
+			);
+		},
 		_init.get()
 	);
 }

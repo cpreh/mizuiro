@@ -12,7 +12,6 @@
 #include <mizuiro/image/algorithm/transform.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/algorithm/detail/copy_element.hpp>
-#include <mizuiro/image/algorithm/detail/copy_element_overlapping.hpp>
 #include <mizuiro/image/types/value_type.hpp>
 
 
@@ -45,11 +44,21 @@ copy_different_channel_order(
 		mizuiro::image::algorithm::transform(
 			_src,
 			_dest,
-			mizuiro::image::algorithm::detail::copy_element_overlapping<
+			[](
+				auto const &_src_inner,
+				auto const &_dest_inner
+			)
+			{
 				mizuiro::image::types::value_type<
-					typename ViewS::format
-				>
-			>(),
+					typename
+					ViewS::format
+				> const temp(
+					_src_inner
+				);
+
+				_dest_inner =
+					temp;
+			},
 			make_iterator,
 			_uninitialized
 		);

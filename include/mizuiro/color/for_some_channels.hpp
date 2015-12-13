@@ -8,7 +8,6 @@
 #define MIZUIRO_COLOR_FOR_SOME_CHANNELS_HPP_INCLUDED
 
 #include <mizuiro/color/make_range.hpp>
-#include <mizuiro/color/detail/for_some_channels_function.hpp>
 #include <mizuiro/range/for_each.hpp>
 
 
@@ -34,13 +33,22 @@ for_some_channels(
 		mizuiro::color::make_range(
 			_color
 		),
-		mizuiro::color::detail::for_some_channels_function<
-			Function,
-			DynamicFilter
-		>(
-			_function,
-			_filter
+		[
+			&_function,
+			&_filter
+		](
+			auto const &_value
 		)
+		{
+			if(
+				_filter(
+					_value
+				)
+			)
+				_function(
+					_value
+				);
+		}
 	);
 }
 

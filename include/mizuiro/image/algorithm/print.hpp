@@ -9,7 +9,6 @@
 
 #include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/unary_iteration.hpp>
-#include <mizuiro/image/algorithm/detail/print.hpp>
 
 
 namespace mizuiro
@@ -30,11 +29,16 @@ print(
 )
 {
 	mizuiro::image::algorithm::unary_iteration(
-		mizuiro::image::algorithm::detail::print<
-			Sink
-		>(
+		[
+			&_sink
+		](
+			auto const &_src_inner
+		)
+		{
 			_sink
-		),
+				<< _src_inner
+				<< _sink.widen(' ');
+		},
 		_src,
 		mizuiro::image::algorithm::make_iterator_identity()
 	);

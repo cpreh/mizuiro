@@ -22,8 +22,9 @@ template<
 	typename Right2,
 	typename Op
 >
-typename
-Op::result_type
+decltype(
+	auto
+)
 either_binary(
 	Op const &_op,
 	mizuiro::detail::either<

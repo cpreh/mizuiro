@@ -12,16 +12,10 @@
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/iterator_impl.hpp>
 #include <mizuiro/image/linear_view_impl.hpp>
+#include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/move_iterator.hpp>
 #include <mizuiro/image/pitch_view_impl.hpp>
 #include <mizuiro/image/view_decl.hpp>
-#include <mizuiro/image/detail/view_begin.hpp>
-#include <mizuiro/image/detail/view_convert_const.hpp>
-#include <mizuiro/image/detail/view_data.hpp>
-#include <mizuiro/image/detail/view_end.hpp>
-#include <mizuiro/image/detail/view_format_store.hpp>
-#include <mizuiro/image/detail/view_pitch.hpp>
-#include <mizuiro/image/detail/view_size.hpp>
 
 
 template<
@@ -164,9 +158,17 @@ mizuiro::image::view<
 :
 	impl_(
 		mizuiro::detail::either_unary(
-			mizuiro::image::detail::view_convert_const<
-				view_variant
-			>(),
+			[](
+				auto const &_view
+			)
+			{
+				return
+					view_variant(
+						mizuiro::image::make_const_view(
+							_view
+						)
+					);
+			},
 			_other.impl()
 		)
 	)
@@ -191,9 +193,13 @@ mizuiro::image::view<
 {
 	return
 		mizuiro::detail::either_unary(
-			mizuiro::image::detail::view_size<
-				dim
-			>(),
+			[](
+				auto const &_view
+			)
+			{
+				return
+					_view.size();
+			},
 			impl_
 		);
 }
@@ -216,9 +222,13 @@ mizuiro::image::view<
 {
 	return
 		mizuiro::detail::either_unary(
-			mizuiro::image::detail::view_pitch<
-				pitch_type
-			>(),
+			[](
+				auto const &_view
+			)
+			{
+				return
+					_view.pitch();
+			},
 			impl_
 		);
 }
@@ -241,9 +251,18 @@ mizuiro::image::view<
 {
 	return
 		mizuiro::detail::either_unary(
-			mizuiro::image::detail::view_begin<
-				iterator
-			>(),
+			[](
+				auto const &_view
+			)
+			{
+				return
+					iterator(
+						typename
+						iterator::impl::internal_type{
+							_view.begin()
+						}
+					);
+			},
 			impl_
 		);
 }
@@ -266,9 +285,18 @@ mizuiro::image::view<
 {
 	return
 		mizuiro::detail::either_unary(
-			mizuiro::image::detail::view_end<
-				iterator
-			>(),
+			[](
+				auto const &_view
+			)
+			{
+				return
+					iterator(
+						typename
+						iterator::impl::internal_type{
+							_view.end()
+						}
+					);
+			},
 			impl_
 		);
 }
@@ -316,9 +344,13 @@ mizuiro::image::view<
 {
 	return
 		mizuiro::detail::either_unary(
-			mizuiro::image::detail::view_data<
-				pointer
-			>(),
+			[](
+				auto const &_view
+			)
+			{
+				return
+					_view.data();
+			},
 			impl_
 		);
 }
@@ -341,9 +373,13 @@ mizuiro::image::view<
 {
 	return
 		mizuiro::detail::either_unary(
-			mizuiro::image::detail::view_format_store<
-				format_store_type
-			>(),
+			[](
+				auto const &_view
+			)
+			{
+				return
+					_view.format_store();
+			},
 			impl_
 		);
 }

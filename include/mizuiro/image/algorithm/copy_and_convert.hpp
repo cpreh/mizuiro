@@ -7,13 +7,15 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_COPY_AND_CONVERT_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_COPY_AND_CONVERT_HPP_INCLUDED
 
+#include <mizuiro/decltype.hpp>
+#include <mizuiro/color/convert.hpp>
+#include <mizuiro/color/format/get.hpp>
 #include <mizuiro/image/algorithm/can_copy.hpp>
 #include <mizuiro/image/algorithm/copy.hpp>
 #include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/transform.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
-#include <mizuiro/image/algorithm/detail/copy_and_convert.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -50,9 +52,24 @@ copy_and_convert(
 	mizuiro::image::algorithm::transform(
 		_src,
 		_dest,
-		mizuiro::image::algorithm::detail::copy_and_convert<
-			Converter
-		>{},
+		[](
+			auto const &_src_inner,
+			auto const &_dest_inner
+		)
+		{
+			_dest_inner =
+				mizuiro::color::convert<
+					Converter,
+					mizuiro::color::format::get<
+						MIZUIRO_DECLTYPE(
+							_dest_inner
+						)
+					>
+				>(
+					_src_inner,
+					_dest_inner.format_store()
+				);
+		},
 		mizuiro::image::algorithm::make_iterator_identity{},
 		_uninitialized
 	);

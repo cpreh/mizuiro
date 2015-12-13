@@ -10,7 +10,6 @@
 #include <mizuiro/detail/either_unary.hpp>
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/algorithm/detail/unary_fold.hpp>
-#include <mizuiro/image/algorithm/detail/unwrap_unary.hpp>
 
 
 namespace mizuiro
@@ -67,15 +66,22 @@ unary_fold(
 {
 	return
 		mizuiro::detail::either_unary(
-			mizuiro::image::algorithm::detail::unwrap_unary<
-				Function,
-				State,
-				MakeIterator
-			>(
-				_function,
+			[
+				&_function,
 				_state,
-				_make_iterator
-			),
+				&_make_iterator
+			](
+				auto const &_view_inner
+			)
+			{
+				return
+					mizuiro::image::algorithm::detail::unary_fold(
+						_function,
+						_state,
+						_view_inner,
+						_make_iterator
+					);
+			},
 			_view.impl()
 		);
 }

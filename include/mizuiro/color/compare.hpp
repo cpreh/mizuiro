@@ -7,10 +7,11 @@
 #ifndef MIZUIRO_COLOR_COMPARE_HPP_INCLUDED
 #define MIZUIRO_COLOR_COMPARE_HPP_INCLUDED
 
+#include <mizuiro/color/decay_channel_proxy.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/access/channels.hpp>
-#include <mizuiro/color/detail/compare.hpp>
 #include <mizuiro/color/format/compatible.hpp>
+#include <mizuiro/color/format/get.hpp>
 #include <mizuiro/range/all_of.hpp>
 
 
@@ -33,8 +34,12 @@ compare(
 {
 	static_assert(
 		mizuiro::color::format::compatible<
-			typename Color1::format,
-			typename Color2::format
+			mizuiro::color::format::get<
+				Color1
+			>,
+			mizuiro::color::format::get<
+				Color2
+			>
 		>::value,
 		"Color formats must be compatible to be comparable"
 	);
@@ -58,15 +63,29 @@ compare(
 			mizuiro::color::access::channels(
 				_color1.format_store()
 			),
-			mizuiro::color::detail::compare<
-				Color1,
-				Color2,
-				CompareChannel
-			>(
-				_color1,
-				_color2,
-				_compare
+			[
+				&_color1,
+				&_color2,
+				&_compare
+			](
+				auto const &_channel_inner
 			)
+			-> bool
+			{
+				return
+					_compare(
+						mizuiro::color::decay_channel_proxy(
+							_color1.get(
+								_channel_inner
+							)
+						),
+						mizuiro::color::decay_channel_proxy(
+							_color2.get(
+								_channel_inner
+							)
+						)
+					);
+			}
 		);
 }
 

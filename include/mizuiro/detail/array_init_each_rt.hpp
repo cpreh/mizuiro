@@ -8,9 +8,9 @@
 #define MIZUIRO_DETAIL_ARRAY_INIT_EACH_RT_HPP_INCLUDED
 
 #include <mizuiro/array.hpp>
+#include <mizuiro/decltype.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/detail/array_init_each.hpp>
-#include <mizuiro/detail/array_init_each_rt_function.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -42,11 +42,19 @@ array_init_each_rt(
 		mizuiro::detail::array_init_each<
 			Size
 		>(
-			mizuiro::detail::array_init_each_rt_function<
-				Function
-			>(
-				_function
+			[
+				&_function
+			](
+				auto const _index
 			)
+			{
+				return
+					_function(
+						MIZUIRO_DECLTYPE(
+							_index
+						)::value
+					);
+			}
 		);
 }
 

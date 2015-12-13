@@ -11,9 +11,6 @@
 #include <mizuiro/detail/either_unary.hpp>
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/algorithm/detail/binary_fold.hpp>
-#include <mizuiro/image/algorithm/detail/unwrap_binary_both.hpp>
-#include <mizuiro/image/algorithm/detail/unwrap_binary_first.hpp>
-#include <mizuiro/image/algorithm/detail/unwrap_binary_second.hpp>
 
 
 namespace mizuiro
@@ -75,17 +72,24 @@ binary_fold(
 {
 	return
 		mizuiro::detail::either_unary(
-			mizuiro::image::algorithm::detail::unwrap_binary_second<
-				Function,
-				State,
-				View1,
-				MakeIterator
-			>(
-				_function,
+			[
+				&_function,
 				_state,
-				_view1,
-				_make_iterator
-			),
+				&_view1,
+				&_make_iterator
+			](
+				auto const &_view2_inner
+			)
+			{
+				return
+					mizuiro::image::algorithm::detail::binary_fold(
+						_function,
+						_state,
+						_view1,
+						_view2_inner,
+						_make_iterator
+					);
+			},
 			_view2.impl()
 		);
 }
@@ -115,17 +119,24 @@ binary_fold(
 {
 	return
 		mizuiro::detail::either_unary(
-			mizuiro::image::algorithm::detail::unwrap_binary_first<
-				Function,
-				State,
-				View2,
-				MakeIterator
-			>(
-				_function,
+			[
+				&_function,
 				_state,
-				_view2,
-				_make_iterator
-			),
+				&_view2,
+				&_make_iterator
+			](
+				auto const &_view1_inner
+			)
+			{
+				return
+					mizuiro::image::algorithm::detail::binary_fold(
+						_function,
+						_state,
+						_view1_inner,
+						_view2,
+						_make_iterator
+					);
+			},
 			_view1.impl()
 		);
 }
@@ -161,15 +172,24 @@ binary_fold(
 {
 	return
 		mizuiro::detail::either_binary(
-			mizuiro::image::algorithm::detail::unwrap_binary_both<
-				Function,
-				State,
-				MakeIterator
-			>(
-				_function,
+			[
+				&_function,
 				_state,
 				_make_iterator
-			),
+			](
+				auto const &_view1_inner,
+				auto const &_view2_inner
+			)
+			{
+				return
+					mizuiro::image::algorithm::detail::binary_fold(
+						_function,
+						_state,
+						_view1_inner,
+						_view2_inner,
+						_make_iterator
+					);
+			},
 			_view1.impl(),
 			_view2.impl()
 		);

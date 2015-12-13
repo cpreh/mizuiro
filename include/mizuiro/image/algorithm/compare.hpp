@@ -9,7 +9,6 @@
 
 #include <mizuiro/image/algorithm/binary_fold.hpp>
 #include <mizuiro/image/algorithm/make_iterator_identity.hpp>
-#include <mizuiro/image/algorithm/detail/compare_element.hpp>
 
 
 namespace mizuiro
@@ -33,11 +32,23 @@ compare(
 {
 	return
 		mizuiro::image::algorithm::binary_fold(
-			mizuiro::image::algorithm::detail::compare_element<
-				Compare
-			>(
-				_compare
-			),
+			[
+				&_compare
+			](
+				bool const _state,
+				auto const &_src1_inner,
+				auto const &_src2_inner
+			)
+			-> bool
+			{
+				return
+					_state
+					&&
+					_compare(
+						_src1_inner,
+						_src2_inner
+					);
+			},
 			true,
 			_src1,
 			_src2,

@@ -10,7 +10,6 @@
 #include <mizuiro/image/algorithm/for_each.hpp>
 #include <mizuiro/image/algorithm/make_iterator_indexed.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
-#include <mizuiro/image/algorithm/detail/fill_indexed.hpp>
 
 
 namespace mizuiro
@@ -33,11 +32,17 @@ fill_indexed(
 {
 	mizuiro::image::algorithm::for_each(
 		_dest,
-		mizuiro::image::algorithm::detail::fill_indexed<
-			Fun
-		>(
+		[
 			_fun
-		),
+		](
+			auto const &_dest_inner
+		)
+		{
+			_dest_inner.get() =
+				_fun(
+					_dest_inner.index()
+				);
+		},
 		mizuiro::image::algorithm::make_iterator_indexed{},
 		_uninitialized
 	);

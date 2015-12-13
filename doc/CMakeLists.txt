@@ -105,21 +105,15 @@ set(
 	include/mizuiro/color/channel_proxy_fwd.hpp
 	include/mizuiro/color/channel_proxy_impl.hpp
 	include/mizuiro/color/compare.hpp
-	include/mizuiro/color/compare_function.hpp
 	include/mizuiro/color/conversion/detail/channel_to_max.hpp
-	include/mizuiro/color/conversion/detail/channel_to_max_function.hpp
 	include/mizuiro/color/conversion/detail/channel_to_min.hpp
-	include/mizuiro/color/conversion/detail/channel_to_min_function.hpp
 	include/mizuiro/color/conversion/detail/convert_channel.hpp
 	include/mizuiro/color/conversion/detail/convert_channel_function.hpp
-	include/mizuiro/color/conversion/detail/convert_channel_gamma_function.hpp
 	include/mizuiro/color/conversion/detail/convert_each.hpp
 	include/mizuiro/color/conversion/detail/copy_or_default_channel.hpp
 	include/mizuiro/color/conversion/detail/copy_or_max_alpha.hpp
 	include/mizuiro/color/conversion/detail/copy_or_min_channel.hpp
-	include/mizuiro/color/conversion/detail/copy_or_min_channel_function.hpp
 	include/mizuiro/color/conversion/detail/exclude_channel_function.hpp
-	include/mizuiro/color/conversion/detail/logical_and.hpp
 	include/mizuiro/color/conversion/detail/make_logical_and.hpp
 	include/mizuiro/color/conversion/detail/rgb_from_chroma.hpp
 	include/mizuiro/color/conversion/detail/set_chroma_parts.hpp
@@ -142,8 +136,6 @@ set(
 	include/mizuiro/color/decay_channel_proxy.hpp
 	include/mizuiro/color/denormalize.hpp
 	include/mizuiro/color/detail/assert_channel.hpp
-	include/mizuiro/color/detail/compare.hpp
-	include/mizuiro/color/detail/copy_channel.hpp
 	include/mizuiro/color/detail/dynamic/channel_array.hpp
 	include/mizuiro/color/detail/dynamic/channel_index.hpp
 	include/mizuiro/color/detail/dynamic/channel_index_fwd.hpp
@@ -153,14 +145,12 @@ set(
 	include/mizuiro/color/detail/dynamic/make_channels.hpp
 	include/mizuiro/color/detail/dynamic/make_channels_impl.hpp
 	include/mizuiro/color/detail/dynamic/static_to_dynamic_channel.hpp
-	include/mizuiro/color/detail/for_some_channels_function.hpp
 	include/mizuiro/color/detail/full_channel_max.hpp
 	include/mizuiro/color/detail/full_channel_min.hpp
 	include/mizuiro/color/detail/heterogenous/access_normal.hpp
 	include/mizuiro/color/detail/heterogenous/access_raw.hpp
 	include/mizuiro/color/detail/heterogenous/bits.hpp
 	include/mizuiro/color/detail/heterogenous/channel_bits.hpp
-	include/mizuiro/color/detail/output_channel.hpp
 	include/mizuiro/color/detail/raw_channel_access.hpp
 	include/mizuiro/color/detail/unwrap_channel.hpp
 	include/mizuiro/color/for_each_channel.hpp
@@ -185,6 +175,7 @@ set(
 	include/mizuiro/color/format/dynamic_ns/types/space.hpp
 	include/mizuiro/color/format/dynamic_ns/types/static_channels.hpp
 	include/mizuiro/color/format/dynamic_ns/types/valid_channel_type.hpp
+	include/mizuiro/color/format/get.hpp
 	include/mizuiro/color/format/has_channel_static.hpp
 	include/mizuiro/color/format/heterogenous_ns/access/extract_channel.hpp
 	include/mizuiro/color/format/heterogenous_ns/access/init_store.hpp
@@ -265,7 +256,6 @@ set(
 	include/mizuiro/color/init/detail/trampoline.hpp
 	include/mizuiro/color/init/detail/values.hpp
 	include/mizuiro/color/init/detail/values_fwd.hpp
-	include/mizuiro/color/init/detail/visitor.hpp
 	include/mizuiro/color/init/green.hpp
 	include/mizuiro/color/init/hue.hpp
 	include/mizuiro/color/init/luminance.hpp
@@ -305,8 +295,6 @@ set(
 	include/mizuiro/color/operators.hpp
 	include/mizuiro/color/operators/add.hpp
 	include/mizuiro/color/operators/detail/binary_op.hpp
-	include/mizuiro/color/operators/detail/binary_op_channel.hpp
-	include/mizuiro/color/operators/detail/scalar_multiply.hpp
 	include/mizuiro/color/operators/equal.hpp
 	include/mizuiro/color/operators/scalar_multiply.hpp
 	include/mizuiro/color/operators/subtract.hpp
@@ -352,6 +340,7 @@ set(
 	include/mizuiro/const_raw_pointer.hpp
 	include/mizuiro/const_tag.hpp
 	include/mizuiro/const_tag_fwd.hpp
+	include/mizuiro/decltype.hpp
 	include/mizuiro/default_init.hpp
 	include/mizuiro/default_init_fwd.hpp
 	include/mizuiro/detail/apply_const.hpp
@@ -359,7 +348,6 @@ set(
 	include/mizuiro/detail/array_init_each.hpp
 	include/mizuiro/detail/array_init_each_impl.hpp
 	include/mizuiro/detail/array_init_each_rt.hpp
-	include/mizuiro/detail/array_init_each_rt_function.hpp
 	include/mizuiro/detail/assert_access.hpp
 	include/mizuiro/detail/assert_constness.hpp
 	include/mizuiro/detail/bit_count.hpp
@@ -371,6 +359,7 @@ set(
 	include/mizuiro/detail/copy_n_base.hpp
 	include/mizuiro/detail/copy_n_overlap.hpp
 	include/mizuiro/detail/copy_overlap.hpp
+	include/mizuiro/detail/decltype_use.hpp
 	include/mizuiro/detail/disable_gcc_warning.hpp
 	include/mizuiro/detail/either_binary.hpp
 	include/mizuiro/detail/either_decl.hpp
@@ -433,22 +422,12 @@ set(
 	include/mizuiro/image/algorithm/copy_different_channel_order.hpp
 	include/mizuiro/image/algorithm/copy_same_channel_order.hpp
 	include/mizuiro/image/algorithm/detail/binary_fold.hpp
-	include/mizuiro/image/algorithm/detail/compare_element.hpp
-	include/mizuiro/image/algorithm/detail/copy_and_convert.hpp
 	include/mizuiro/image/algorithm/detail/copy_element.hpp
-	include/mizuiro/image/algorithm/detail/copy_element_overlapping.hpp
 	include/mizuiro/image/algorithm/detail/copy_impl.hpp
 	include/mizuiro/image/algorithm/detail/dummy_state.hpp
-	include/mizuiro/image/algorithm/detail/fill.hpp
-	include/mizuiro/image/algorithm/detail/fill_indexed.hpp
 	include/mizuiro/image/algorithm/detail/iteration_to_fold_function.hpp
 	include/mizuiro/image/algorithm/detail/prepare.hpp
-	include/mizuiro/image/algorithm/detail/print.hpp
 	include/mizuiro/image/algorithm/detail/unary_fold.hpp
-	include/mizuiro/image/algorithm/detail/unwrap_binary_both.hpp
-	include/mizuiro/image/algorithm/detail/unwrap_binary_first.hpp
-	include/mizuiro/image/algorithm/detail/unwrap_binary_second.hpp
-	include/mizuiro/image/algorithm/detail/unwrap_unary.hpp
 	include/mizuiro/image/algorithm/detail/wrap_prepare.hpp
 	include/mizuiro/image/algorithm/equal.hpp
 	include/mizuiro/image/algorithm/fill.hpp
@@ -473,23 +452,18 @@ set(
 	include/mizuiro/image/bound_fwd.hpp
 	include/mizuiro/image/bound_impl.hpp
 	include/mizuiro/image/const_view.hpp
-	include/mizuiro/image/detail/advance_iterator.hpp
 	include/mizuiro/image/detail/compare_iterator.hpp
 	include/mizuiro/image/detail/const_view.hpp
 	include/mizuiro/image/detail/decrement_dim.hpp
-	include/mizuiro/image/detail/decrement_iterator.hpp
-	include/mizuiro/image/detail/dereference_iterator.hpp
 	include/mizuiro/image/detail/edge_pos_begin.hpp
 	include/mizuiro/image/detail/edge_pos_end.hpp
 	include/mizuiro/image/detail/flipped_edge.hpp
 	include/mizuiro/image/detail/flipped_pitch.hpp
 	include/mizuiro/image/detail/flipped_start.hpp
 	include/mizuiro/image/detail/increment_dim.hpp
-	include/mizuiro/image/detail/increment_iterator.hpp
 	include/mizuiro/image/detail/indexed_iterator_decl.hpp
 	include/mizuiro/image/detail/indexed_iterator_fwd.hpp
 	include/mizuiro/image/detail/indexed_iterator_impl.hpp
-	include/mizuiro/image/detail/iterator_data.hpp
 	include/mizuiro/image/detail/iterator_decl.hpp
 	include/mizuiro/image/detail/iterator_difference.hpp
 	include/mizuiro/image/detail/iterator_fwd.hpp
@@ -510,13 +484,6 @@ set(
 	include/mizuiro/image/detail/stacked_dim.hpp
 	include/mizuiro/image/detail/stacked_dim_array.hpp
 	include/mizuiro/image/detail/subview_pitch.hpp
-	include/mizuiro/image/detail/view_begin.hpp
-	include/mizuiro/image/detail/view_convert_const.hpp
-	include/mizuiro/image/detail/view_data.hpp
-	include/mizuiro/image/detail/view_end.hpp
-	include/mizuiro/image/detail/view_format_store.hpp
-	include/mizuiro/image/detail/view_pitch.hpp
-	include/mizuiro/image/detail/view_size.hpp
 	include/mizuiro/image/dimension.hpp
 	include/mizuiro/image/dimension_decl.hpp
 	include/mizuiro/image/dimension_fwd.hpp

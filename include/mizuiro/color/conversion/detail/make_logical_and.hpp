@@ -7,7 +7,6 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_MAKE_LOGICAL_AND_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_MAKE_LOGICAL_AND_HPP_INCLUDED
 
-#include <mizuiro/color/conversion/detail/logical_and.hpp>
 
 
 namespace mizuiro
@@ -24,23 +23,31 @@ template<
 	typename Fun2
 >
 inline
-mizuiro::color::conversion::detail::logical_and<
-	Fun1,
-	Fun2
->
+auto
 make_logical_and(
 	Fun1 const &_fun1,
 	Fun2 const &_fun2
 )
 {
 	return
-		mizuiro::color::conversion::detail::logical_and<
-			Fun1,
-			Fun2
-		>(
+		[
 			_fun1,
 			_fun2
-		);
+		](
+			auto const &_value
+		)
+		->
+		bool
+		{
+			return
+				_fun1(
+					_value
+				)
+				&&
+				_fun2(
+					_value
+				);
+		};
 }
 
 }

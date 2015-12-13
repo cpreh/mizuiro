@@ -10,7 +10,6 @@
 #include <mizuiro/image/algorithm/for_each.hpp>
 #include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
-#include <mizuiro/image/algorithm/detail/fill.hpp>
 
 
 namespace mizuiro
@@ -34,11 +33,15 @@ fill(
 {
 	mizuiro::image::algorithm::for_each(
 		_dest,
-		mizuiro::image::algorithm::detail::fill<
-			Fun
-		>(
-			_fun
-		),
+		[
+			&_fun
+		](
+			auto const &_dest_inner
+		)
+		{
+			_dest_inner =
+				_fun();
+		},
 		mizuiro::image::algorithm::make_iterator_identity{},
 		_uninitialized
 	);

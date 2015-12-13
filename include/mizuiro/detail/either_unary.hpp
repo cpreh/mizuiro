@@ -20,8 +20,9 @@ template<
 	typename Right,
 	typename Op
 >
-typename
-Op::result_type
+decltype(
+	auto
+)
 either_unary(
 	Op const &_op,
 	mizuiro::detail::either<

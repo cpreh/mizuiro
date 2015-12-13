@@ -7,10 +7,12 @@
 #ifndef MIZUIRO_COLOR_OPERATORS_DETAIL_BINARY_OP_HPP_INCLUDED
 #define MIZUIRO_COLOR_OPERATORS_DETAIL_BINARY_OP_HPP_INCLUDED
 
+#include <mizuiro/decltype.hpp>
 #include <mizuiro/color/for_each_channel.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_impl.hpp>
-#include <mizuiro/color/operators/detail/binary_op_channel.hpp>
+#include <mizuiro/color/format/get.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -74,14 +76,44 @@ binary_op(
 
 	mizuiro::color::for_each_channel(
 		_color1,
-		mizuiro::color::operators::detail::binary_op_channel<
-			Operation,
-			result_type,
-			Color2
-		>(
-			result,
-			_color2
+		[
+			&result,
+			&_color1,
+			&_color2
+		](
+			auto const &_channel_inner
 		)
+		{
+			typedef
+			mizuiro::color::types::channel_value<
+				mizuiro::color::format::get<
+					Color1
+				>,
+				MIZUIRO_DECLTYPE(
+					_channel_inner
+				)
+			>
+			channel_value;
+
+			result.set(
+				_channel_inner,
+				static_cast<
+					channel_value
+				>(
+					Operation<
+						channel_value
+					>()
+					(
+						_color1.get(
+							_channel_inner
+						),
+						_color2.get(
+							_channel_inner
+						)
+					)
+				)
+			);
+		}
 	);
 
 	return

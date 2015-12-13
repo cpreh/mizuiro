@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MIN_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_COPY_OR_MIN_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/color/conversion/detail/channel_to_min_function.hpp>
+#include <mizuiro/color/conversion/detail/channel_to_min.hpp>
 #include <mizuiro/color/conversion/detail/copy_or_default_channel.hpp>
 
 
@@ -37,11 +37,17 @@ copy_or_min_channel(
 {
 	mizuiro::color::conversion::detail::copy_or_default_channel(
 		_converter,
-		mizuiro::color::conversion::detail::channel_to_min_function<
-			Dest
-		>(
-			_dest
-		),
+		[
+			&_dest
+		](
+			auto const &_channel_inner
+		)
+		{
+			mizuiro::color::conversion::detail::channel_to_min(
+				_dest,
+				_channel_inner
+			);
+		},
 		_channel,
 		_src,
 		_dest

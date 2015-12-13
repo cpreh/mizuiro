@@ -10,12 +10,7 @@
 #include <mizuiro/detail/either_binary.hpp>
 #include <mizuiro/detail/either_impl.hpp>
 #include <mizuiro/detail/either_unary.hpp>
-#include <mizuiro/image/detail/advance_iterator.hpp>
 #include <mizuiro/image/detail/compare_iterator.hpp>
-#include <mizuiro/image/detail/decrement_iterator.hpp>
-#include <mizuiro/image/detail/dereference_iterator.hpp>
-#include <mizuiro/image/detail/increment_iterator.hpp>
-#include <mizuiro/image/detail/iterator_data.hpp>
 #include <mizuiro/image/detail/iterator_decl.hpp>
 #include <mizuiro/image/detail/iterator_difference.hpp>
 
@@ -79,9 +74,13 @@ mizuiro::image::detail::iterator<
 {
 	return
 		mizuiro::detail::either_unary(
-			mizuiro::image::detail::iterator_data<
-				pointer
-			>(),
+			[](
+				auto const &_value
+			)
+			{
+				return
+					_value.data();
+			},
 			internal_
 		);
 }
@@ -102,12 +101,19 @@ mizuiro::image::detail::iterator<
 {
 	internal_ =
 		mizuiro::detail::either_unary(
-			mizuiro::image::detail::advance_iterator<
-				internal_type,
-				difference_type
-			>(
+			[
 				_diff
-			),
+			](
+				auto _value
+			)
+			{
+				return
+					internal_type{
+						_value
+						+=
+						_diff
+					};
+			},
 			internal_
 		);
 }
@@ -126,9 +132,15 @@ mizuiro::image::detail::iterator<
 {
 	internal_ =
 		mizuiro::detail::either_unary(
-			mizuiro::image::detail::increment_iterator<
-				internal_type
-			>(),
+			[](
+				auto _it
+			)
+			{
+				return
+					internal_type{
+						++_it
+					};
+			},
 			internal_
 		);
 }
@@ -147,9 +159,15 @@ mizuiro::image::detail::iterator<
 {
 	internal_ =
 		mizuiro::detail::either_unary(
-			mizuiro::image::detail::decrement_iterator<
-				internal_type
-			>(),
+			[](
+				auto _it
+			)
+			{
+				return
+					internal_type{
+						--_it
+					};
+			},
 			internal_
 		);
 }
@@ -202,9 +220,13 @@ mizuiro::image::detail::iterator<
 {
 	return
 		mizuiro::detail::either_unary(
-			mizuiro::image::detail::dereference_iterator<
-				reference
-			>(),
+			[](
+				auto const &_it
+			)
+			{
+				return
+					*_it;
+			},
 			internal_
 		);
 }

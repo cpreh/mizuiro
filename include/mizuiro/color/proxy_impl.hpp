@@ -12,7 +12,6 @@
 #include <mizuiro/color/for_each_channel.hpp>
 #include <mizuiro/color/proxy_decl.hpp>
 #include <mizuiro/color/access/extract_channel.hpp>
-#include <mizuiro/color/detail/copy_channel.hpp>
 #include <mizuiro/color/format/base_impl.hpp>
 #include <mizuiro/color/format/compatible.hpp>
 #include <mizuiro/color/format/store_impl.hpp>
@@ -115,17 +114,20 @@ mizuiro::color::proxy<
 
 	mizuiro::color::for_each_channel(
 		*this,
-		mizuiro::color::detail::copy_channel<
-			mizuiro::color::proxy<
-				Access,
-				Format,
-				Constness
-			>,
-			Other
-		>(
-			*this,
-			_other
+		[
+			this,
+			&_other
+		](
+			auto const &_channel_inner
 		)
+		{
+			this->set(
+				_channel_inner,
+				_other.get(
+					_channel_inner
+				)
+			);
+		}
 	);
 
 	return
