@@ -55,9 +55,10 @@ MIZUIRO_DETAIL_POP_WARNING
 			store.view()
 		);
 
-		BOOST_REQUIRE(
+		BOOST_CHECK(
 			view.begin()
-			== view.end()
+			==
+			view.end()
 		);
 	}
 }

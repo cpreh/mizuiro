@@ -81,36 +81,33 @@ MIZUIRO_DETAIL_POP_WARNING
 		)
 	);
 
-	BOOST_CHECK(
+	BOOST_CHECK_EQUAL(
 		mizuiro::image::iterator_position(
 			field_view,
 			it++
-		)
-		==
+		),
 		store_2d::dim(
 			1u,
 			0u
 		)
 	);
 
-	BOOST_CHECK(
+	BOOST_CHECK_EQUAL(
 		mizuiro::image::iterator_position(
 			field_view,
 			it++
-		)
-		==
+		),
 		store_2d::dim(
 			0u,
 			1u
 		)
 	);
 
-	BOOST_CHECK(
+	BOOST_CHECK_EQUAL(
 		mizuiro::image::iterator_position(
 			field_view,
 			it++
-		)
-		==
+		),
 		store_2d::dim(
 			1u,
 			1u

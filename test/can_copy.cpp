@@ -89,6 +89,7 @@ BOOST_AUTO_TEST_CASE(
 {
 MIZUIRO_DETAIL_POP_WARNING
 
+	// TODO: static test!
 	typedef ::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
 		::format_3d_bgra8,

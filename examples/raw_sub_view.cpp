@@ -96,6 +96,7 @@ int main()
 			view.size()
 		);
 
+		// TODO: Simplify this
 		for(size_type x = 0; x < size[0]; ++x)
 			for(size_type y = 0; y < size[1]; ++y)
 				for(size_type z = 0; z < size[2]; ++z)
@@ -112,7 +113,7 @@ int main()
 						(mizuiro::color::init::red() = static_cast<channel_type>(x))
 						(mizuiro::color::init::green() = static_cast<channel_type>(y))
 						(mizuiro::color::init::blue() = static_cast<channel_type>(z))
-						(mizuiro::color::init::alpha() = static_cast<channel_type>(255))
+						(mizuiro::color::init::alpha() = channel_type{255})
 					);
 	}
 

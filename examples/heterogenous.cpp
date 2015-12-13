@@ -39,8 +39,8 @@ main()
 	l24_a8_color;
 
 	l24_a8_color const test1(
-		(mizuiro::color::init::luminance() = static_cast<std::uint32_t>(0x1FF))
-		(mizuiro::color::init::alpha() = static_cast<std::uint8_t>(0xF))
+		(mizuiro::color::init::luminance() = std::uint32_t{0x1FF})
+		(mizuiro::color::init::alpha() = std::uint8_t{0xF})
 	);
 
 	std::cout

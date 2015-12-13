@@ -90,17 +90,16 @@ MIZUIRO_DETAIL_POP_WARNING
 			format::color_format
 		>(
 			mizuiro::color::init::red() =
-				 static_cast<channel_type>(42)
+				 channel_type{42}
 		);
 
-	BOOST_CHECK(
+	BOOST_CHECK_EQUAL(
 		view[
 			view_type::dim::null()
 		].get(
 			mizuiro::color::channel::red()
-		)
-		==
-		static_cast<channel_type>(42)
+		),
+		channel_type{42}
 	);
 
 	{
@@ -108,12 +107,11 @@ MIZUIRO_DETAIL_POP_WARNING
 			view.begin()
 		);
 
-		BOOST_CHECK(
+		BOOST_CHECK_EQUAL(
 			(*it).get(
 				mizuiro::color::channel::red()
-			)
-			==
-			static_cast<channel_type>(42)
+			),
+			channel_type{42}
 		);
 
 		++it;
@@ -175,20 +173,19 @@ MIZUIRO_DETAIL_POP_WARNING
 					format::color_format
 				>(
 					mizuiro::color::init::red() =
-						 static_cast<channel_type>(42)
+						channel_type{42}
 				),
 				mizuiro::image::algorithm::uninitialized::yes
 			);
 		}
 	);
 
-	BOOST_CHECK(
+	BOOST_CHECK_EQUAL(
 		store.view()[
 			store_type::dim::null()
 		].get(
 			mizuiro::color::channel::red()
-		)
-		==
-		static_cast<channel_type>(42)
+		),
+		channel_type{42}
 	);
 }

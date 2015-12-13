@@ -55,16 +55,16 @@ main()
 
 //![object_init]
 	r8g8b8_color color(
-		(mizuiro::color::init::red() = static_cast<channel>(42))
+		(mizuiro::color::init::red() = channel{42})
 		(mizuiro::color::init::green() %= 0.5)
-		(mizuiro::color::init::blue() = static_cast<channel>(100))
+		(mizuiro::color::init::blue() = channel{100})
 	);
 //![object_init]
 
 //![object_access]
 	color.set(
 		mizuiro::color::channel::red(),
-		static_cast<channel>(10)
+		channel{10}
 	);
 
 	std::cout

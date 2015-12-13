@@ -60,10 +60,10 @@ MIZUIRO_DETAIL_POP_WARNING
 	bgra_color;
 
 	rgba_color const rgba(
-		(mizuiro::color::init::red() = static_cast<channel_type>(23))
-		(mizuiro::color::init::blue() = static_cast<channel_type>(42))
-		(mizuiro::color::init::green() = static_cast<channel_type>(100))
-		(mizuiro::color::init::alpha() = static_cast<channel_type>(150))
+		(mizuiro::color::init::red() = channel_type{23})
+		(mizuiro::color::init::blue() = channel_type{42})
+		(mizuiro::color::init::green() = channel_type{100})
+		(mizuiro::color::init::alpha() = channel_type{150})
 	);
 
 	bgra_color const bgra(
@@ -75,31 +75,31 @@ MIZUIRO_DETAIL_POP_WARNING
 		)
 	);
 
-	BOOST_CHECK(
+	BOOST_CHECK_EQUAL(
 		bgra.get(
 			mizuiro::color::channel::red()
-		)
-		== static_cast<channel_type>(23)
+		),
+		channel_type{23}
 	);
 
-	BOOST_CHECK(
+	BOOST_CHECK_EQUAL(
 		bgra.get(
 			mizuiro::color::channel::green()
-		)
-		== static_cast<channel_type>(100)
+		),
+		channel_type{100}
 	);
 
-	BOOST_CHECK(
+	BOOST_CHECK_EQUAL(
 		bgra.get(
 			mizuiro::color::channel::blue()
-		)
-		== static_cast<channel_type>(42)
+		),
+		channel_type{42}
 	);
 
-	BOOST_CHECK(
+	BOOST_CHECK_EQUAL(
 		bgra.get(
 			mizuiro::color::channel::alpha()
-		)
-		== static_cast<channel_type>(150)
+		),
+		channel_type{150}
 	);
 }

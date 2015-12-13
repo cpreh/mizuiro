@@ -78,7 +78,7 @@ int main()
 							(mizuiro::color::init::red() = static_cast<channel_type>(_index.at_c<0>()))
 							(mizuiro::color::init::green() = static_cast<channel_type>(_index.at_c<1>()))
 							(mizuiro::color::init::blue() = static_cast<channel_type>(_index.at_c<2>()))
-							(mizuiro::color::init::alpha() = static_cast<channel_type>(255))
+							(mizuiro::color::init::alpha() = channel_type{255})
 						);
 				},
 				mizuiro::image::algorithm::uninitialized::yes

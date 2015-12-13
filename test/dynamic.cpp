@@ -66,47 +66,43 @@ MIZUIRO_DETAIL_POP_WARNING
 
 	color_uint8_4 const test1(
 		(
-			mizuiro::color::init::red() = static_cast<std::uint8_t>(4)
+			mizuiro::color::init::red() = std::uint8_t{4}
 		)(
-			mizuiro::color::init::green() = static_cast<std::uint8_t>(10)
+			mizuiro::color::init::green() = std::uint8_t{10}
 		)(
-			mizuiro::color::init::blue() = static_cast<std::uint8_t>(20)
+			mizuiro::color::init::blue() = std::uint8_t{20}
 		)(
-			mizuiro::color::init::alpha() = static_cast<std::uint8_t>(45)
+			mizuiro::color::init::alpha() = std::uint8_t{45}
 		)
 		,
 		rgba_format_store
 	);
 
-	BOOST_CHECK(
+	BOOST_CHECK_EQUAL(
 		test1.get(
 			mizuiro::color::channel::red()
-		)
-		==
-		static_cast<std::uint8_t>(4)
+		),
+		std::uint8_t{4}
 	);
 
-	BOOST_CHECK(
+	BOOST_CHECK_EQUAL(
 		test1.get(
 			mizuiro::color::channel::green()
-		)
-		==
-		static_cast<std::uint8_t>(10)
+		),
+		std::uint8_t{10}
 	);
 
-	BOOST_CHECK(
+	BOOST_CHECK_EQUAL(
 		test1.get(
 			mizuiro::color::channel::blue()
-		)
-		==
-		static_cast<std::uint8_t>(20)
+		),
+		std::uint8_t{20}
 	);
 
-	BOOST_CHECK(
+	BOOST_CHECK_EQUAL(
 		test1.get(
 			mizuiro::color::channel::alpha()
-		)
-		==
-		static_cast<std::uint8_t>(45)
+		),
+		std::uint8_t{45}
 	);
 }

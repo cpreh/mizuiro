@@ -68,7 +68,7 @@ int main()
 	raw_array raw_data = {{ 0 }};
 
 	{
-		float const test = 0.5f;
+		float const test{0.5f};
 
 		unsigned char const *raw(
 			reinterpret_cast<

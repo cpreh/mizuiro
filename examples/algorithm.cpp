@@ -4,10 +4,12 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/decltype.hpp>
 #include <mizuiro/color/for_each_channel.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/convert_static/converter.hpp>
+#include <mizuiro/color/format/get.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/init/alpha.hpp>
@@ -53,113 +55,44 @@ mizuiro::image::format::interleaved<
 	ColorFormat
 >;
 
-template<
-	typename Src,
-	typename Dest
->
-struct channel_operation
-{
-	typedef
-	void
-	result_type;
-
-	channel_operation(
-		Src const &_src,
-		Dest const &_dest
-	)
-	:
-		src_(
-			_src
-		),
-		dest_(
-			_dest
-		)
-	{
-	}
-
-	template<
-		typename Channel
-	>
-	result_type
-	operator()(
-		Channel const &_channel
-	) const
-	{
-		dest_.set(
-			_channel,
-			static_cast<
-				mizuiro::color::types::channel_value<
-					typename Dest::format,
-					Channel
-				>
-			>(
-				src_.get(
-					_channel
-				)
-			)
-		);
-	}
-private:
-	Src const &src_;
-	Dest const &dest_;
-};
-
-struct transform_test
-{
-	typedef
-	void
-	result_type;
-
-	template<
-		typename Src,
-		typename Dest
-	>
-	result_type
-	operator()(
-		Src const &_src,
-		Dest const &_dest
-	) const
-	{
-		mizuiro::color::for_each_channel(
-			_src,
-			::channel_operation<
-				Src,
-				Dest
-			>(
-				_src,
-				_dest
-			)
-		);
-	}
-};
-
 }
 
-int main()
+int
+main()
 {
-	typedef std::uint8_t channel_type;
+	typedef
+	std::uint8_t
+	channel_type;
 
-	typedef d2_format<
+	typedef
+	d2_format<
 		mizuiro::color::format::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::rgba
 		>
-	> format1;
+	>
+	format1;
 
-	typedef d2_format<
+	typedef
+	d2_format<
 		mizuiro::color::format::homogenous_static<
 			float,
 			mizuiro::color::layout::argb
 		>
-	> format2;
+	>
+	format2;
 
-	typedef mizuiro::image::store<
+	typedef
+	mizuiro::image::store<
 		format1
-	> store1;
+	>
+	store1;
 
-	typedef mizuiro::image::store<
+	typedef
+	mizuiro::image::store<
 		format2
-	> store2;
+	>
+	store2;
 
 	store1::dim const dim(
 		4u,
@@ -171,10 +104,10 @@ int main()
 		mizuiro::color::object<
 			format1::color_format
 		>(
-			(mizuiro::color::init::red() = static_cast<channel_type>(42))
-			(mizuiro::color::init::blue() = static_cast<channel_type>(150))
-			(mizuiro::color::init::green() = static_cast<channel_type>(80))
-			(mizuiro::color::init::alpha() = static_cast<channel_type>(255))
+			(mizuiro::color::init::red() = channel_type{42})
+			(mizuiro::color::init::blue() = channel_type{150})
+			(mizuiro::color::init::green() = channel_type{80})
+			(mizuiro::color::init::alpha() = channel_type{255})
 		)
 	};
 
@@ -229,7 +162,42 @@ int main()
 	mizuiro::image::algorithm::transform(
 		img2.view(),
 		img1.view(),
-		transform_test(),
+		[](
+			auto const &_src,
+			auto const &_dest
+		)
+		{
+			mizuiro::color::for_each_channel(
+				_src,
+				[
+					&_src,
+					&_dest
+				](
+					auto const &_channel
+				)
+				{
+					_dest.set(
+						_channel,
+						static_cast<
+							mizuiro::color::types::channel_value<
+								mizuiro::color::format::get<
+									MIZUIRO_DECLTYPE(
+										_dest
+									)
+								>,
+								MIZUIRO_DECLTYPE(
+									_channel
+								)
+							>
+						>(
+							_src.get(
+								_channel
+							)
+						)
+					);
+				}
+			);
+		},
 		mizuiro::image::algorithm::make_iterator_identity{},
 		mizuiro::image::algorithm::uninitialized::no
 	);

@@ -51,7 +51,6 @@ main()
 		string_matrix.data()
 	);
 
-	// TODO: Print this as a 2d matrix
 	mizuiro::image::algorithm::print(
 		std::cout,
 		view

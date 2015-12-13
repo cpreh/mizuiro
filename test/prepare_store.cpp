@@ -80,31 +80,29 @@ MIZUIRO_DETAIL_POP_WARNING
 			mizuiro::image::algorithm::fill_c(
 				_view,
 				luminance24_alpha8_color(
-					(mizuiro::color::init::luminance() = static_cast<std::uint32_t>(0x1E1FF))
-					(mizuiro::color::init::alpha() = static_cast<std::uint8_t>(0xF))
+					(mizuiro::color::init::luminance() = std::uint32_t{0x1E1FF})
+					(mizuiro::color::init::alpha() = std::uint8_t{0xF})
 				),
 				mizuiro::image::algorithm::uninitialized::yes
 			);
 		}
 	);
 
-	BOOST_CHECK(
+	BOOST_CHECK_EQUAL(
 		store.view()[
 			store_type::dim::null()
 		].get(
 			mizuiro::color::channel::luminance()
-		)
-		==
-		static_cast<std::uint32_t>(0x1E1FF)
+		),
+		std::uint32_t{0x1E1FF}
 	);
 
-	BOOST_CHECK(
+	BOOST_CHECK_EQUAL(
 		store.view()[
 			store_type::dim::null()
 		].get(
 			mizuiro::color::channel::alpha()
-		)
-		==
-		static_cast<std::uint8_t>(0xF)
+		),
+		std::uint8_t{0xF}
 	);
 }

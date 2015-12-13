@@ -22,47 +22,22 @@
 #include <mizuiro/detail/external_end.hpp>
 
 
-namespace
-{
-
-typedef
-mizuiro::image::format::interleaved<
-	mizuiro::image::dimension<
-		2
-	>,
-	mizuiro::color::format::homogenous_static<
-		std::uint8_t,
-		mizuiro::color::layout::l
-	>
->
-format;
-
-struct set_color
-{
-	typedef
-	void
-	result_type;
-
-	template<
-		typename T
-	>
-	result_type
-	operator()(
-		T const &_color
-	) const
-	{
-		_color.set(
-			mizuiro::color::channel::luminance(),
-			42
-		);
-	}
-};
-
-}
-
 int
 main()
 {
+
+	typedef
+	mizuiro::image::format::interleaved<
+		mizuiro::image::dimension<
+			2
+		>,
+		mizuiro::color::format::homogenous_static<
+			std::uint8_t,
+			mizuiro::color::layout::l
+		>
+	>
+	format;
+
 	typedef
 	mizuiro::image::store<
 		format
@@ -84,7 +59,15 @@ main()
 		{
 			mizuiro::image::algorithm::for_each(
 				_view,
-				set_color(),
+				[](
+					auto const &_color
+				)
+				{
+					_color.set(
+						mizuiro::color::channel::luminance(),
+						42
+					);
+				},
 				mizuiro::image::algorithm::make_iterator_identity{},
 				mizuiro::image::algorithm::uninitialized::yes
 			);

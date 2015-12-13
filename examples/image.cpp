@@ -65,7 +65,7 @@ main()
 			{
 				color.set(
 					mizuiro::color::channel::red(),
-					static_cast<std::uint8_t>(10)
+					std::uint8_t{10}
 				);
 			}
 		}

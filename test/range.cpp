@@ -30,6 +30,7 @@ test_length(
 	Range1 const &_range1
 )
 {
+	// TODO: static test!
 	static_assert(
 		!Range1::empty::value,
 		""

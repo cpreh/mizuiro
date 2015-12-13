@@ -12,6 +12,7 @@
 #include <mizuiro/color/detail/output_channel.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <ostream>
+#include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -25,10 +26,16 @@ template<
 	typename Traits,
 	typename Color
 >
-std::basic_ostream<
-	Ch,
-	Traits
-> &
+typename
+std::enable_if<
+	mizuiro::color::is_color<
+		Color
+	>::value,
+	std::basic_ostream<
+		Ch,
+		Traits
+	> &
+>::type
 operator<<(
 	std::basic_ostream<
 		Ch,
@@ -37,13 +44,6 @@ operator<<(
 	Color const &_color
 )
 {
-	static_assert(
-		mizuiro::color::is_color<
-			Color
-		>::value,
-		"Color must be a color type"
-	);
-
 	_stream
 		<< _stream.widen('(');
 
