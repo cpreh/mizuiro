@@ -11,8 +11,6 @@
 #include <mizuiro/color/layout/bgra.hpp>
 #include <mizuiro/color/layout/rgb.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/linear_view_impl.hpp>
 #include <mizuiro/image/algorithm/can_copy.hpp>
@@ -21,7 +19,6 @@
 #include <mizuiro/test/external_begin.hpp>
 #include <mizuiro/test/external_end.hpp>
 #include <mizuiro/detail/external_begin.hpp>
-#include <boost/test/unit_test.hpp>
 #include <cstdint>
 #include <mizuiro/detail/external_end.hpp>
 
@@ -81,15 +78,9 @@ typedef mizuiro::image::format::interleaved<
 
 }
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
-BOOST_AUTO_TEST_CASE(
-	can_copy
-)
+int
+main()
 {
-MIZUIRO_DETAIL_POP_WARNING
-
-	// TODO: static test!
 	typedef ::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
 		::format_3d_bgra8,
@@ -103,12 +94,13 @@ MIZUIRO_DETAIL_POP_WARNING
 	> view_3d_rgba8;
 
 	// bgra8 and rgba8 should be compatible to each other
-	BOOST_CHECK((
+	static_assert(
 		::mizuiro::image::algorithm::can_copy<
 			view_3d_bgra8,
 			view_3d_rgba8
-		>::value
-	));
+		>::value,
+		""
+	);
 
 	typedef ::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
@@ -123,12 +115,13 @@ MIZUIRO_DETAIL_POP_WARNING
 	> view_2d_bgra_f;
 
 	// bgra8 and bgra float should not be compatible
-	BOOST_CHECK((
+	static_assert(
 		!::mizuiro::image::algorithm::can_copy<
 			view_2d_bgra8,
 			view_2d_bgra_f
-		>::value
-	));
+		>::value,
+		""
+	);
 
 	typedef ::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
@@ -137,10 +130,11 @@ MIZUIRO_DETAIL_POP_WARNING
 	> view_2d_rgb8;
 
 	// bgra8 and rgb8 should not be compatible
-	BOOST_CHECK((
+	static_assert(
 		!::mizuiro::image::algorithm::can_copy<
 			view_2d_bgra8,
 			view_2d_rgb8
-		>::value
-	));
+		>::value,
+		""
+	);
 }

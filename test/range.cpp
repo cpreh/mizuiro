@@ -5,18 +5,11 @@
 
 
 #include <mizuiro/array.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/mpl/list.hpp>
 #include <mizuiro/mpl/include/list.hpp>
 #include <mizuiro/range/make.hpp>
 #include <mizuiro/range/include/array.hpp>
 #include <mizuiro/range/include/mpl.hpp>
-#include <mizuiro/test/external_begin.hpp>
-#include <mizuiro/test/external_end.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <boost/test/unit_test.hpp>
-#include <mizuiro/detail/external_end.hpp>
 
 
 namespace
@@ -30,7 +23,6 @@ test_length(
 	Range1 const &_range1
 )
 {
-	// TODO: static test!
 	static_assert(
 		!Range1::empty::value,
 		""
@@ -88,49 +80,39 @@ test_length(
 
 }
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
-BOOST_AUTO_TEST_CASE(
-	range_mpl
-)
+int
+main()
 {
-MIZUIRO_DETAIL_POP_WARNING
+	{
+		auto const range_list(
+			mizuiro::range::make(
+				mizuiro::mpl::list<
+					int,
+					float
+				>{}
+			)
+		);
 
-	auto const range(
-		mizuiro::range::make(
-			mizuiro::mpl::list<
-				int,
-				float
-			>{}
-		)
-	);
+		test_length(
+			range_list
+		);
+	}
 
-	test_length(
-		range
-	);
-}
+	{
+		auto const range_array(
+			mizuiro::range::make(
+				mizuiro::array<
+					int,
+					2u
+				>{{
+					0,
+					0
+				}}
+			)
+		);
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
-BOOST_AUTO_TEST_CASE(
-	range_array
-)
-{
-MIZUIRO_DETAIL_POP_WARNING
-
-	auto const range(
-		mizuiro::range::make(
-			mizuiro::array<
-				int,
-				2u
-			>{{
-				0,
-				0
-			}}
-		)
-	);
-
-	test_length(
-		range
-	);
+		test_length(
+			range_array
+		);
+	}
 }
