@@ -22,7 +22,9 @@
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/pitch_view_impl.hpp>
 #include <mizuiro/image/sub_view.hpp>
+#include <mizuiro/image/algorithm/fill_indexed.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
+#include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -89,33 +91,24 @@ int main()
 		)
 	);
 
-	{
-		typedef dim::size_type size_type;
-
-		dim const size(
-			view.size()
-		);
-
-		// TODO: Simplify this
-		for(size_type x = 0; x < size[0]; ++x)
-			for(size_type y = 0; y < size[1]; ++y)
-				for(size_type z = 0; z < size[2]; ++z)
-					view[
-						dim(
-							x,
-							y,
-							z
-						)
-					]
-					= mizuiro::color::object<
-						format::color_format
-					>(
-						(mizuiro::color::init::red() = static_cast<channel_type>(x))
-						(mizuiro::color::init::green() = static_cast<channel_type>(y))
-						(mizuiro::color::init::blue() = static_cast<channel_type>(z))
-						(mizuiro::color::init::alpha() = channel_type{255})
-					);
-	}
+	mizuiro::image::algorithm::fill_indexed(
+		view,
+		[](
+			view_type::dim const _index
+		)
+		{
+			return
+				mizuiro::color::object<
+					format::color_format
+				>(
+					(mizuiro::color::init::red() = static_cast<channel_type>(_index.at_c<0>()))
+					(mizuiro::color::init::green() = static_cast<channel_type>(_index.at_c<1>()))
+					(mizuiro::color::init::blue() = static_cast<channel_type>(_index.at_c<2>()))
+					(mizuiro::color::init::alpha() = channel_type{255})
+				);
+		},
+		mizuiro::image::algorithm::uninitialized::yes
+	);
 
 	view_type const sub_view(
 		mizuiro::image::sub_view(

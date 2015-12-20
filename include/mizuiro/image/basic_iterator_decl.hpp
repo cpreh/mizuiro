@@ -28,7 +28,7 @@ template<
 >
 class basic_iterator final
 :
-	private
+	public
 		Impl
 {
 public:
