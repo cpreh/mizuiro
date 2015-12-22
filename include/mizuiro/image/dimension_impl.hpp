@@ -9,9 +9,9 @@
 
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/image/dimension_decl.hpp>
 #include <mizuiro/detail/ignore_effcpp.hpp>
 #include <mizuiro/detail/pop_warning.hpp>
+#include <mizuiro/image/dimension_decl.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <iterator>
 #include <mizuiro/detail/external_end.hpp>
