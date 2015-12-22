@@ -15,6 +15,7 @@
 #include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/image/dimension.hpp>
+#include <mizuiro/image/dimension_null.hpp>
 #include <mizuiro/image/is_raw_view.hpp>
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
@@ -32,7 +33,8 @@
 #include <mizuiro/detail/external_end.hpp>
 
 
-int main()
+int
+main()
 {
 	typedef mizuiro::image::dimension<
 		2
@@ -107,7 +109,9 @@ int main()
 				width,
 				height
 			),
-			view_type::pitch_type::null()
+			mizuiro::image::dimension_null<
+				view_type::pitch_type
+			>()
 		)
 	);
 

@@ -1,0 +1,68 @@
+/**
+\page mizuiro_type_class
+
+\section type_class_introduction Type classes
+
+A type class consists of a set of type functions and a set of value functions.
+Type functions are used to determine which types the value functions operate
+on. For example, a type function could answer the question which pointer type
+to use for a const or a nonconst object and a value function could return a
+pointer to the internal state of an object, using the type function to
+determine the type of the result.
+
+To allow more concrete syntax, we use simple type-theoretic notation:
+
+A judgment is of the form \f$a : A\f$ and means that \f$a\f$ has type \f$A\f$.
+We use \f$Type\f$ to denote all C++ types and write \f$A : Type\f$. Function
+types are denoted as \f$A \to B : Type\f$. Functions that return types are of
+the form \f$A \to Type\f$. A type is a dependent type if it depens on a value.
+We write \f$a : A \Rightarrow B(a) : Type\f$ where \f$B\f$ is a context that
+uses \f$a\f$.
+
+Example:
+\f{eqnarray*}{
+const : & Constness \\
+nonconst : & Constness \\
+store : & Constness \to Type \\
+pointer : & Constness \to Type \\
+store\_data : & cn : Constness \Rightarrow store(cn) \to pointer(cn) \\
+\f}
+
+\section type_class_implementation Implementing type classes
+
+Type classes are designed to be extensible. They make use of tags in
+combination with argument-dependent lookup. This way, it is possible to derive
+from tags in order to reimplement parts of a type class.
+
+Every type class is parameterized on a single type <code>I</code> called its
+implementation. First of all, an implemtentation is associated with a tag,
+called <code>T\<I\></code>. As mentioned earlier, it can derive from zero or
+more tags, <code>T_1\<I\>, ..., T_n\<I\></code>. The tag <code>T\<I\></code> is
+implemented by template specialization and is usually called
+<code>make_tag_of</code>, for example:
+\code
+template<typename C>
+struct T
+:
+	T_1<C>, ..., T_n<C>
+{};
+
+template<>
+struct make_tag_of<I> {
+	typedef T<I> type;
+};
+\endcode
+Every type function \f$A \to Type\f$ is defined as:
+\code
+decltype
+f_adl(
+	declval<f_ns::tag>(),
+	make_tag_of<I>(),
+	declval<A>()
+)
+\endcode
+<code>f_ns::tag</code> is a type residing in the special namespace
+<code>f_ns</code> which is used to make the call to <code>f_adl</code> an ADL
+call. The second parameter is the tag the type class is using and the third
+parameter is the actual parameter of the type function.
+*/

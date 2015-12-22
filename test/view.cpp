@@ -84,7 +84,10 @@ MIZUIRO_DETAIL_POP_WARNING
 	);
 
 	view[
-		view_type::dim::null()
+		view_type::dim{
+			0u,
+			0u
+		}
 	] =
 		mizuiro::color::object<
 			format::color_format
@@ -95,7 +98,10 @@ MIZUIRO_DETAIL_POP_WARNING
 
 	BOOST_CHECK_EQUAL(
 		view[
-			view_type::dim::null()
+			view_type::dim(
+				0u,
+				0u
+			)
 		].get(
 			mizuiro::color::channel::red()
 		),
@@ -182,7 +188,10 @@ MIZUIRO_DETAIL_POP_WARNING
 
 	BOOST_CHECK_EQUAL(
 		store.view()[
-			store_type::dim::null()
+			store_type::dim(
+				0u,
+				0u
+			)
 		].get(
 			mizuiro::color::channel::red()
 		),

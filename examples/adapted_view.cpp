@@ -13,6 +13,7 @@
 #include <mizuiro/access/raw.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
 #include <mizuiro/image/dimension.hpp>
+#include <mizuiro/image/dimension_content.hpp>
 #include <mizuiro/image/linear_view.hpp>
 #include <mizuiro/image/pitch_type.hpp>
 #include <mizuiro/image/access/dereference.hpp>
@@ -510,7 +511,9 @@ main()
 			value_type
 		)
 		*
-		size.content()
+		mizuiro::image::dimension_content(
+			size
+		)
 	);
 
 	native_view const view(

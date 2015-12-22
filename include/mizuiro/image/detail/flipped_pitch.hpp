@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_FLIPPED_PITCH_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_FLIPPED_PITCH_HPP_INCLUDED
 
+#include <mizuiro/no_init.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -32,7 +33,9 @@ flipped_pitch(
 	typename Pitch::value_type _last_value
 )
 {
-	Pitch ret;
+	Pitch ret{
+		mizuiro::no_init{}
+	};
 
 	for(
 		typename Pitch::size_type index = 0;

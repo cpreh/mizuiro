@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_PITCH_VIEW_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_PITCH_VIEW_IMPL_HPP_INCLUDED
 
+#include <mizuiro/image/dimension_content.hpp>
 #include <mizuiro/image/move_iterator.hpp>
 #include <mizuiro/image/pitch_iterator_impl.hpp>
 #include <mizuiro/image/pitch_view_decl.hpp>
@@ -198,7 +199,9 @@ mizuiro::image::pitch_view<
 		static_cast<
 			typename iterator::difference_type
 		>(
-			this->size().content()
+			mizuiro::image::dimension_content(
+				this->size()
+			)
 		);
 }
 

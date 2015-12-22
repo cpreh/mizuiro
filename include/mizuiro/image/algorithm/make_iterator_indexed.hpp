@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_MAKE_ITERATOR_INDEXED_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_MAKE_ITERATOR_INDEXED_HPP_INCLUDED
 
+#include <mizuiro/image/dimension_null.hpp>
 #include <mizuiro/image/indexed_iterator_impl.hpp>
 #include <mizuiro/image/iterator_position.hpp>
 
@@ -42,7 +43,10 @@ struct make_iterator_indexed
 		return
 			result_type(
 				_view.size(),
-				View::dim::null(),
+				mizuiro::image::dimension_null<
+					typename
+					View::dim
+				>(),
 				_view.begin()
 			);
 	}

@@ -90,7 +90,10 @@ MIZUIRO_DETAIL_POP_WARNING
 
 	BOOST_CHECK_EQUAL(
 		store.view()[
-			store_type::dim::null()
+			store_type::dim(
+				0u,
+				0u
+			)
 		].get(
 			mizuiro::color::channel::luminance()
 		),
@@ -99,7 +102,10 @@ MIZUIRO_DETAIL_POP_WARNING
 
 	BOOST_CHECK_EQUAL(
 		store.view()[
-			store_type::dim::null()
+			store_type::dim(
+				0u,
+				0u
+			)
 		].get(
 			mizuiro::color::channel::alpha()
 		),

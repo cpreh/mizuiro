@@ -12,6 +12,7 @@
 #include <mizuiro/color/layout/rgb.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/image/dimension.hpp>
+#include <mizuiro/image/dimension_null.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/view.hpp>
@@ -128,7 +129,9 @@ main()
 				>(
 					data.data(),
 					dim,
-					rgba_store::view_type::pitch_type::null()
+					mizuiro::image::dimension_null<
+						rgba_store::view_type::pitch_type
+					>()
 				),
 				_dest,
 				mizuiro::image::algorithm::may_overlap::no,

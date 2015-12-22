@@ -7,6 +7,8 @@
 #ifndef MIZUIRO_IMAGE_LINEAR_VIEW_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_LINEAR_VIEW_IMPL_HPP_INCLUDED
 
+#include <mizuiro/image/dimension_content.hpp>
+#include <mizuiro/image/dimension_null.hpp>
 #include <mizuiro/image/linear_iterator_impl.hpp>
 #include <mizuiro/image/linear_view_decl.hpp>
 #include <mizuiro/image/move_iterator.hpp>
@@ -136,7 +138,9 @@ mizuiro::image::linear_view<
 >::pitch() const
 {
 	return
-		pitch_type::null();
+		mizuiro::image::dimension_null<
+			pitch_type
+		>();
 }
 
 template<
@@ -184,9 +188,12 @@ mizuiro::image::linear_view<
 		this->begin()
 		+
 		static_cast<
-			typename iterator::difference_type
+			typename
+			iterator::difference_type
 		>(
-			this->size().content()
+			mizuiro::image::dimension_content(
+				this->size()
+			)
 		);
 }
 

@@ -7,6 +7,8 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_EDGE_POS_BEGIN_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_EDGE_POS_BEGIN_HPP_INCLUDED
 
+#include <mizuiro/no_init.hpp>
+
 
 namespace mizuiro
 {
@@ -27,7 +29,9 @@ edge_pos_begin(
 {
 	typedef typename Bound::dim dim;
 
-	dim ret;
+	dim ret{
+		mizuiro::no_init{}
+	};
 
 	for(
 		typename dim::size_type i = 0;

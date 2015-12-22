@@ -8,6 +8,7 @@
 #define MIZUIRO_IMAGE_FORMAT_PLANAR_NS_ACCESS_MAKE_STORE_HPP_INCLUDED
 
 #include <mizuiro/detail/array_init.hpp>
+#include <mizuiro/image/dimension_content.hpp>
 #include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/access/make_store_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
@@ -58,7 +59,9 @@ make_store_adl(
 						Access,
 						ImageFormat
 					>::value_type(
-						_dim.content()
+						mizuiro::image::dimension_content(
+							_dim
+						)
 						*
 						mizuiro::image::access::stride<
 							Access

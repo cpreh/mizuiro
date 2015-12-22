@@ -19,6 +19,7 @@
 #include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/image/dimension.hpp>
+#include <mizuiro/image/dimension_null.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/pitch_view_impl.hpp>
 #include <mizuiro/image/sub_view.hpp>
@@ -33,7 +34,8 @@
 #include <mizuiro/detail/external_end.hpp>
 
 
-int main()
+int
+main()
 {
 	typedef float channel_type;
 
@@ -87,7 +89,9 @@ int main()
 				height,
 				depth
 			),
-			view_type::pitch_type::null()
+			mizuiro::image::dimension_null<
+				view_type::pitch_type
+			>()
 		)
 	);
 

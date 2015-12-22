@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_IMAGE_DETAIL_FLIPPED_START_HPP_INCLUDED
-#define MIZUIRO_IMAGE_DETAIL_FLIPPED_START_HPP_INCLUDED
+#ifndef MIZUIRO_IMAGE_DIMENSION_NULL_HPP_INCLUDED
+#define MIZUIRO_IMAGE_DIMENSION_NULL_HPP_INCLUDED
 
 #include <mizuiro/no_init.hpp>
 
@@ -14,34 +14,28 @@ namespace mizuiro
 {
 namespace image
 {
-namespace detail
-{
 
 template<
 	typename Dim
 >
 Dim
-flipped_start(
-	typename Dim::value_type const _last_dim
-)
+dimension_null()
 {
 	Dim ret{
 		mizuiro::no_init{}
 	};
 
 	for(
-		typename Dim::size_type index = 0;
-		index < Dim::static_size - 1;
-		++index
+		auto &elem
+		:
+		ret
 	)
-		ret[index] = 0;
+		elem = 0;
 
-	ret.back() = _last_dim;
-
-	return ret;
+	return
+		ret;
 }
 
-}
 }
 }
 

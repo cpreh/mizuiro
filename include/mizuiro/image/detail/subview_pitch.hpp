@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_SUBVIEW_PITCH_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_SUBVIEW_PITCH_HPP_INCLUDED
 
+#include <mizuiro/no_init.hpp>
 #include <mizuiro/image/bound_impl.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/move_iterator.hpp>
@@ -34,7 +35,9 @@ subview_pitch(
 {
 	typedef typename View::pitch_type pitch_type;
 
-	pitch_type ret;
+	pitch_type ret{
+		mizuiro::no_init{}
+	};
 
 	for(
 		typename pitch_type::size_type index = 0;

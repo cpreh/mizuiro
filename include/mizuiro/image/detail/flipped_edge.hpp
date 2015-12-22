@@ -7,6 +7,8 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_FLIPPED_EDGE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_FLIPPED_EDGE_HPP_INCLUDED
 
+#include <mizuiro/no_init.hpp>
+
 
 namespace mizuiro
 {
@@ -23,7 +25,9 @@ flipped_edge(
 	Dim const &_view_dim
 )
 {
-	Dim ret;
+	Dim ret{
+		mizuiro::no_init{}
+	};
 
 	for(
 		typename Dim::size_type index = 0;

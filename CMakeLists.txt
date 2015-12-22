@@ -605,9 +605,13 @@ set(
 	include/mizuiro/image/detail/stacked_dim_array.hpp
 	include/mizuiro/image/detail/subview_pitch.hpp
 	include/mizuiro/image/dimension.hpp
+	include/mizuiro/image/dimension_comparison.hpp
+	include/mizuiro/image/dimension_content.hpp
 	include/mizuiro/image/dimension_decl.hpp
 	include/mizuiro/image/dimension_fwd.hpp
 	include/mizuiro/image/dimension_impl.hpp
+	include/mizuiro/image/dimension_null.hpp
+	include/mizuiro/image/dimension_output.hpp
 	include/mizuiro/image/flipped_view.hpp
 	include/mizuiro/image/format/argument.hpp
 	include/mizuiro/image/format/base_decl.hpp

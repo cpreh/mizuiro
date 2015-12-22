@@ -22,6 +22,9 @@ Both consist of a set of types and functions that Mizuiro accesses through
 		\subpage requirements_download_installation
 	</li>
 	<li>
+		\link mizuiro_type_class Type Classes\endlink
+	</li>
+	<li>
 		\link mizuiro_color Colors\endlink
 	</li>
 	<li>

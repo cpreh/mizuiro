@@ -8,11 +8,9 @@
 #define MIZUIRO_IMAGE_DIMENSION_DECL_HPP_INCLUDED
 
 #include <mizuiro/array.hpp>
+#include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/image/dimension_fwd.hpp>
-#include <mizuiro/detail/external_begin.hpp>
-#include <iosfwd>
-#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
@@ -69,7 +67,15 @@ public:
 	array_type::difference_type
 	difference_type;
 
-	dimension();
+	explicit
+	dimension(
+		mizuiro::no_init const &
+	);
+
+	explicit
+	dimension(
+		mizuiro::no_init &&
+	);
 
 	template<
 		typename... Args
@@ -103,9 +109,6 @@ public:
 
 	~dimension();
 
-	bool
-	empty() const;
-
 	iterator
 	begin();
 
@@ -117,12 +120,6 @@ public:
 
 	const_iterator
 	end() const;
-
-	size_type
-	size() const;
-
-	size_type
-	content() const;
 
 	reference
 	operator[](
@@ -151,106 +148,9 @@ public:
 
 	const_reference
 	back() const;
-
-	void
-	swap(
-		dimension &
-	);
-
-	static
-	dimension
-	null();
 private:
 	array_type data_;
 };
-
-template<
-	mizuiro::size_type Dim,
-	typename ValueType
->
-void
-swap(
-	mizuiro::image::dimension<
-		Dim,
-		ValueType
-	> &,
-	mizuiro::image::dimension<
-		Dim,
-		ValueType
-	> &
-);
-
-template<
-	mizuiro::size_type Dim,
-	typename ValueType
->
-mizuiro::image::dimension<
-	Dim,
-	ValueType
-> const
-operator+(
-	mizuiro::image::dimension<
-		Dim,
-		ValueType
-	> const &,
-	mizuiro::image::dimension<
-		Dim,
-		ValueType
-	> const &
-);
-
-template<
-	mizuiro::size_type Dim,
-	typename ValueType
->
-bool
-operator==(
-	mizuiro::image::dimension<
-		Dim,
-		ValueType
-	> const &,
-	mizuiro::image::dimension<
-		Dim,
-		ValueType
-	> const &
-);
-
-template<
-	mizuiro::size_type Dim,
-	typename ValueType
->
-bool
-operator!=(
-	mizuiro::image::dimension<
-		Dim,
-		ValueType
-	> const &,
-	mizuiro::image::dimension<
-		Dim,
-		ValueType
-	> const &
-);
-
-template<
-	mizuiro::size_type Dim,
-	typename ValueType,
-	typename Ch,
-	typename Traits
->
-std::basic_ostream<
-	Ch,
-	Traits
-> &
-operator<<(
-	std::basic_ostream<
-		Ch,
-		Traits
-	> &,
-	mizuiro::image::dimension<
-		Dim,
-		ValueType
-	> const &
-);
 
 }
 }

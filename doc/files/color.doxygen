@@ -70,65 +70,28 @@ Accessing a color is done in a similar way:
 
 Syntax:
 
-A judgment is of the form \f$a : A\f$ and means that \f$a\f$ has type \f$A\f$.
-
-\f$Type\f$ is called the universe of types.
-
-If \f$A : Type\f$ and \f$B : Type\f$, then \f$A \rightarrow B : Type\f$. If \f$A_1 : Type, \ldots, A_n : Type\f$,
-then \f$\prod_{A_i}^n : Type\f$.
-
-\f$true, false : Bool\f$
-
-Variables \f$X_1, X_2, \ldots\f$.
-
-\f$ \Gamma \triangleright a : T\f$ is called a conditional judgment.
-
-\f$\Gamma\f$ is a partial function from variables to types. \f$[]\f$ denotes the constant undefined function.
-
-\f$\Gamma[\prod_{X_i : T_i}^n](X) = \begin{cases} T_i & if X = X_i \\ \Gamma(X) & otherwise\end{cases}\f$
-
-Derivation rules:
-
-If \f$a : A\f$, then \f$[] \triangleright a : A\f$.
-
-From \f$\Gamma \triangleright a : A\f$ we can conclude \f$a : A\f$ if there are
-no free variables in \f$a\f$ (TODO: Define this properly?).
-
-\f$\Gamma \triangleright X : \Gamma(X)\f$
-
-\f$\Gamma \triangleright \prod_{X_i : T_i}^n \Rightarrow e : T\f$
-if \f$\Gamma[\prod_{X_i : T_i}^n] \triangleright e : T\f$
-
-If \f$f : \prod_{A_i}^n \rightarrow T\f$ and
-\f$\Gamma \triangleright a_i : A_i\f$ for \f$i = 1, \ldots, n\f$ then
-\f$\Gamma \triangleright f(\prod_{a_i}^n) : T\f$
-
-\f$\Gamma \triangleright g : (f(X) \Rightarrow T)\f$ if \f$f : Type \rightarrow Bool\f$
-and for every \f$T' : Type\f$ with \f$f(T') = true\f$ it follows that
-\f$\Gamma[(X : T')] \triangleright g : T\f$.
-
 Common definitions:
 
 \f$normal, raw : Access\f$
 
 \f$const, nonconst : Constness\f$
 
-\f$apply\_const : (Type, Constness) -> Type\f$
+\f$apply\_const : (Type, Constness) \to Type\f$
 
 Formats and stores:
 
 Given \f$Channel\f$, the type of channels, a color format has the following properties:
 
-\f$valid\_channel\_type : Type -> Bool\f$
+\f$valid\_channel\_type : Type \to Bool\f$
 
 \f$valid\_channel\_type(Channel) = true\f$. It can be true for other, unspecified
 types, as well.
 
-\f$channel\_value : Channel -> Type\f$
+\f$channel\_value : Channel \to Type\f$
 
 For each \f$c : Channel\f$ and \f$T = channel_value(c)\f$:
   - \f$T\f$ is totally ordered using \f$<\f$
-  - \f$channel\_min, channel\_max : Channel -> channel\_value(Channel)\f$
+  - \f$channel\_min, channel\_max : Channel \to channel\_value(Channel)\f$
   - \f$T\f$'s value range is \f$[channel\_min(c), channel\_max(c)]\f$
 
 \f$Store\f$ is a type with the following properties:
@@ -136,7 +99,7 @@ For each \f$c : Channel\f$ and \f$T = channel_value(c)\f$:
 For each \f$c : Channel\f$, define the store's associated value
 \f$s(c) : channel\_value(c) \in [channel\_min(c), channel\_max(c)]\f$
 such that:
-  - \f$pointer : (Access, Constness) -> Type\f$
+  - \f$pointer : (Access, Constness) \to Type\f$
     A type representing a pointer to the store's memory.
   - \f$store\_data : (cn : Constness) \Rightarrow apply\_const(Store, cn) \rightarrow pointer(normal, cn)\f$
     Returns a pointer to the store's memory.
@@ -176,11 +139,11 @@ For every c : Channel, there is a d(c) : DynamicChannel.
 
 needs_format_store : Bool
 
-has_channel : valid_channel_type(C) => C -> Bool
+has_channel : valid_channel_type(C) => C \to Bool
 static_channels : [Channel]
 channels : [DynamicChannel]
 
-compare_channels : valid_channel_type(C) => Channel -> C -> Bool
+compare_channels : valid_channel_type(C) => Channel \to C \to Bool
 For each c1, c2 : Channel, compare_channels(c1, c2) = true iff c1 = c2.
 
 In C++:
@@ -188,7 +151,7 @@ In C++:
 apply_const (Type, nonconst) = Type
 apply_const (Type, const) = make_const Type
 
-make_const : Type -> Type
+make_const : Type \to Type
 make_const t =
   u const & if t = u &,
   u const * if t = u *,

@@ -12,6 +12,7 @@
 #include <mizuiro/no_init.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
+#include <mizuiro/image/dimension_null.hpp>
 #include <mizuiro/image/linear_view_impl.hpp>
 #include <mizuiro/image/store_decl.hpp>
 #include <mizuiro/image/access/make_store.hpp>
@@ -63,7 +64,9 @@ mizuiro::image::store<
 )
 :
 	store(
-		dim::null(),
+		mizuiro::image::dimension_null<
+			dim
+		>(),
 		mizuiro::no_init{},
 		_format
 	)

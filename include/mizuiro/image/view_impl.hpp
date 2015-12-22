@@ -9,7 +9,9 @@
 
 #include <mizuiro/detail/either_impl.hpp>
 #include <mizuiro/detail/either_unary.hpp>
+#include <mizuiro/image/dimension_comparison.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
+#include <mizuiro/image/dimension_null.hpp>
 #include <mizuiro/image/iterator_impl.hpp>
 #include <mizuiro/image/linear_view_impl.hpp>
 #include <mizuiro/image/make_const_view.hpp>
@@ -75,7 +77,9 @@ mizuiro::image::view<
 	impl_(
 		_pitch
 		==
-		pitch_type::null()
+		mizuiro::image::dimension_null<
+			pitch_type
+		>()
 		?
 			view_variant(
 				linear_view(

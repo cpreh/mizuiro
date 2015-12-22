@@ -170,10 +170,6 @@ mizuiro::image::detail::pitch_iterator<
 )
 {
 	assert(
-		size_.content()
-	);
-
-	assert(
 		offset_ >= 0
 	);
 

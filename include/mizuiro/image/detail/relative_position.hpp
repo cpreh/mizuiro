@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_RELATIVE_POSITION_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_RELATIVE_POSITION_HPP_INCLUDED
 
+#include <mizuiro/no_init.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/detail/stacked_dim.hpp>
 #include <mizuiro/image/detail/stacked_dim_array.hpp>
@@ -61,7 +62,9 @@ relative_position(
 	dim::size_type
 	size_type;
 
-	dim ret;
+	dim ret{
+		mizuiro::no_init{}
+	};
 
 	for(
 		size_type i = 0;
