@@ -75,6 +75,7 @@ function(
 
 		target_include_directories(
 			${MIZUIRO_TEST_NAME}
+			SYSTEM
 			PRIVATE
 			${Boost_INCLUDE_DIR}
 		)
