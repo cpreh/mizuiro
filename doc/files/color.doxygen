@@ -3,42 +3,53 @@
 
 \section color_introduction Color Introduction
 
-A color is an object that consists of color channels. For example, an RGB color
-consists of the channels red, green and blue. This is called a layout.
+In physics, a color is produced by light, where the light's wave length
+dictates its hue. Brightness on the other hand is a base unit that measures how
+much light there is. In the human eye (and in computers) the hue is split into
+three values: red, green and blue, while brightness is measured orthogonally.
+In computers, however, the brightness is combined into red, green and blue:
+Large values for each produce a bright white and small values produce a dark
+black. This model is called RGB and because of its property of adding values to
+get white, it is called an additive model. There are many different color
+models, e.g. CYM (cyan, yellow, magenta) which produces black by adding colors
+and therefore is called a subtractive model. Mathematically, the operation of
+adding, together with a scalar operation to manipulate brightness, form a
+vector space, which we simply call color space.
 
-There are two basic classes in mizuiro that can represent a color:
-mizuiro::color::object which owns data and mizuiro::color::proxy which only
-refers to data. The latter is important in cases where data comes from sources
-of different types (like character arrays).
+In mizuiro, we start off with a color space, for example <code>RGB</code>. A
+color layout is a color space combined with an ordering of colors, for example
+<code>(B,G,R)</code>. Finally, a color format is a combination of a color
+layout and color format specific information that tells how a color is stored.
+For example, <code>R8G8B8</code> is a homogenous color format where each
+channel (red, green and blue) is represented by an <code>uint8_t</code>.
 
-A color format is a combination of a color layout and additional information
-that tells how a color is stored. For example, R8G8B8 is a homogenous color
-format where each channel (red, green and blue) is represented by an uint8_t.
+There are two basic classes in mizuiro that can represent a color: \link
+mizuiro::color::object \endlink which owns data and \link mizuiro::color::proxy
+\endlink which only refers to data. The latter is important in cases where data
+comes from sources of different types (like character arrays). Each of them
+require a color format as a template parameter.
 
-\section color_formats Color Formats
+\section color_example Color Example
 
-To use colors in Mizuiro, the first thing to do is to declare a color format.
-Mizuiro comes with a bunch of predefined color formats but in this tutorial a
-simple format, homogenous_static, will be used. To start off, the format's
-headers must be included.
+To use colors in Mizuiro, we first need to declare a color format. In this
+example, we will focus on \link mizuiro::color::format::homogenous_static
+\endlink. To start off, the format's headers must be included.
 
 \snippet format.cpp includes_format
 
-The homogenous_static header contains the definition of the homogenous_static
-format, while the include/homogenous_static header contains all customization
-points necessary to use the format.
+The <code>homogenous_static</code> header contains the definition of the
+homogenous static format, while the <code>include/homogenous_static</code>
+header contains the implementation of its type class.
 
 Next, an rgb format is declared:
 
 \snippet format.cpp format_definition
 
-Here, a homogenous_static format is declared that uses uint8_t for each channel
-and consists of red, green and blue. For the layout, the following include is
-necessary:
+Here, a homogenous static format is declared that uses <codE>uint8_t</code> for
+each channel and consists of red, green and blue. For the layout, the following
+include is necessary:
 
 \snippet format.cpp includes_layout
-
-\section color_object Color Objects
 
 A color object holds all data necessary to represent a color of a given type.
 
@@ -68,93 +79,192 @@ Accessing a color is done in a similar way:
 
 \section color_format_definition Color Format Definition
 
-Syntax:
+For a general introduction on how Mizuiro's definitions work, see \link
+mizuiro_type_class type classes\endlink.
 
-Common definitions:
+The so called <em>access</em> of a color determines how its channels are read
+and written: \f$normal, raw : Access\f$. <em>Normal</em> access denotes direct
+access to C++ objects, while using <em>raw</em> access means to use raw memory
+(e.g. <code>unsigned char</code> arrays) directly.
 
-\f$normal, raw : Access\f$
+Next, the constness of an access is given by \f$const, nonconst : Constness\f$.
+Types (especially references and pointers) can be made const or nonconst:
+\f$\mathrm{apply\_const} : (Type, Constness) \to Type\f$.
 
-\f$const, nonconst : Constness\f$
+Let \f$Channel\f$ be the type of channels, e.g. \f$red, blue, green : Channel\f$.
+A color format has the following properties:
 
-\f$apply\_const : (Type, Constness) \to Type\f$
+<table>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>
+\f$\mathrm{valid\_channel\_type} : Type \to Bool\f$
+</td>
+<td>
+Determines if the format can use a given type as a channel type. It always
+holds that \f$\mathrm{valid\_channel\_type}(Channel) = true\f$.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{channel\_value} : \mathrm{valid\_channel\_type(C)} \Rightarrow C \to Type\f$
+</td>
+<td>
+The type used to store a channel.
+</td>
+<tr>
+<td>
+\f$\mathrm{channel\_min} : \mathrm{valid\_channel\_type}(C) \Rightarrow C \to \mathrm{channel\_value}(C)\f$
+</td>
+<td>
+The minimum value of a channel.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{channel\_max} : \mathrm{valid\_channel\_type}(C) \Rightarrow C \to \mathrm{channel\_value}(C)\f$
+</td>
+<td>
+The maximum value of a channel.
+</td>
+</tr>
+</table>
+Let \f$\mathrm{valid\_channel\_type}(C)\f$ and \f$T = \mathrm{channel\_value}(C)\f$:
+<ul>
+<li> \f$T\f$ is totally ordered using \f$<\f$</li>
+<li> \f$T\f$'s value range is \f$[ \mathrm{channel\_min}(c), \mathrm{channel\_max}(c) ]\f$</li>
+</ul>
 
-Formats and stores:
+\f$Store\f$ is a type that holds channel values. These can be accessed using
+the following functions:
 
-Given \f$Channel\f$, the type of channels, a color format has the following properties:
+<table>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>
+\f$\mathrm{pointer} : (Access, Constness) \to Type\f$
+</td>
+<td>
+A type representing a pointer to the store's memory.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{store\_data} : (cn : Constness) \Rightarrow \mathrm{apply\_const}(Store, cn) \to \mathrm{pointer}(normal, cn)\f$
+</td>
+<td>
+Returns a pointer to the store's memory.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{channel\_reference} : \mathrm{valid\_channel\_type}(C) \Rightarrow (Access, Constness, C) \to Type\f$
+</td>
+<td>
+The type used to represent a reference to a channel.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{extract\_channel} : \mathrm{valid\_channel\_type}(C) \Rightarrow (a : Access, cn : Constness) \Rightarrow (C, \mathrm{pointer}(a, cn)) \to \mathrm{channel\_reference}(a, cn, C)\f$
+</td>
+<td>
+Accesses a channel using a pointer.
+</td>
+</tr>
+</table>
 
-\f$valid\_channel\_type : Type \to Bool\f$
+Let \f$\mathrm{valid\_channel\_type}(C)\f$, \f$a : Access\f$ and \f$v : \mathrm{channel\_value(C)}\f$.
+<ul>
+<li>For a const reference \f$r : \mathrm{channel\_reference}(a,const,C)\f$, the
+following expression is valid: \f$v \leftarrow r\f$</li>
+<li>For a nonconst reference \f$r :
+\mathrm{channel\_reference}(a,nonconst,C)\f$ the following expressions are
+valid: \f$v \leftarrow r\f$ and \f$r \leftarrow v\f$</li>
+</ul>
 
-\f$valid\_channel\_type(Channel) = true\f$. It can be true for other, unspecified
-types, as well.
+Let \f$s : Store\f$, \f$\mathrm{valid\_channel\_type}(C)\f$ and \f$v :
+\mathrm{channel\_value}(C)\f$. Setting and getting data from the store is
+defined as:
+\f[\mathrm{set}(c, v) = \mathrm{extract\_channel}(normal, nonconst)(c, \mathrm{store\_data}(nonconst)(s)) \leftarrow v\f]
+\f[\mathrm{get}(c) = \mathrm{extract\_channel}(normal, const)(\mathrm{store\_data}(const)(s))\f]
 
-\f$channel\_value : Channel \to Type\f$
-
-For each \f$c : Channel\f$ and \f$T = channel_value(c)\f$:
-  - \f$T\f$ is totally ordered using \f$<\f$
-  - \f$channel\_min, channel\_max : Channel \to channel\_value(Channel)\f$
-  - \f$T\f$'s value range is \f$[channel\_min(c), channel\_max(c)]\f$
-
-\f$Store\f$ is a type with the following properties:
-
-For each \f$c : Channel\f$, define the store's associated value
-\f$s(c) : channel\_value(c) \in [channel\_min(c), channel\_max(c)]\f$
-such that:
-  - \f$pointer : (Access, Constness) \to Type\f$
-    A type representing a pointer to the store's memory.
-  - \f$store\_data : (cn : Constness) \Rightarrow apply\_const(Store, cn) \rightarrow pointer(normal, cn)\f$
-    Returns a pointer to the store's memory.
-  - \f$channel\_reference : valid\_channel\_type(C) \Rightarrow (Access, Constness, C) \rightarrow Type\f$
-    The type used to represent a reference to a channel.
-  - \f$extract\_channel : valid\_channel\_type(C) \Rightarrow (a : Access, cn : Constness) \Rightarrow (C, pointer(a, cn)) \rightarrow channel\_reference(a, cn, C)\f$
-    Provides access to a channel.
-
-Very abstract semantics:
-
-For each \f$c : Channel\f$ and \f$v : channel_value(c)\f$:
-
-Define \f[set(c, v) = extract\_channel(normal, nonconst)(c, store\_data(nonconst)(s)) \leftarrow v\f] and
-\f[get(c) = extract\_channel(normal, const)(store\_data(const)(s))\f] then the following holds:
-
-get(c) = s(c)
-
-For all c' : Channel, c' != c
-Let v' = s(c').
-After set(c, v), it holds that
-s(c) = v and s(c') = v'.
-
-Additional store structure:
-
-store_needs_init : Bool
-init_store : Store
-
-space : Type ???
-
-If store_needs_init is true, then init_store returns an initialized store. Some
-color formats require this in order to access individual channels without
-causing undefined behavior.
-
-Dynamic channel arrangments and channel iteration:
-
-For every c : Channel, there is a d(c) : DynamicChannel.
-
-needs_format_store : Bool
-
-has_channel : valid_channel_type(C) => C \to Bool
-static_channels : [Channel]
-channels : [DynamicChannel]
-
-compare_channels : valid_channel_type(C) => Channel \to C \to Bool
-For each c1, c2 : Channel, compare_channels(c1, c2) = true iff c1 = c2.
-
-In C++:
-
-apply_const (Type, nonconst) = Type
-apply_const (Type, const) = make_const Type
-
-make_const : Type \to Type
-make_const t =
-  u const & if t = u &,
-  u const * if t = u *,
-  t otherwise
-
+Additionally, a store has the following functions, which deal with store
+initialization, conversion and iteration:
+<table>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>
+\f$\mathrm{store\_needs\_init} : Bool\f$
+</td>
+<td>
+Some color formats need an initialized store.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{init\_store} : \mathrm{store\_needs\_init} \Rightarrow Store\f$
+</td>
+<td>
+Returns an initialized store.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{space} : Type\f$
+</td>
+<td>
+Returns the color space used by the format. This is, for example, used for color conversion.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{needs\_format\_store} : Bool\f$
+</td>
+<td>
+Tells if a format is stateless or not.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{has\_channel} : \mathrm{valid\_channel\_type(C)} \Rightarrow C \to Bool\f$
+</td>
+<td>
+Tells if a type can be used as a channel.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{compare\_channels} : \mathrm{valid\_channel\_type}(C) \Rightarrow (Channel, C) \to Bool\f$
+</td>
+<td>
+Compares a custom channel type to a \f$Channel\f$.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{static\_channels} : [Channel]\f$
+</td>
+<td>
+The channels of type \f$Channel\f$ used by this format.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{channels} : \mathrm{valid\_channel\_type(C)} \Rightarrow [C]\f$
+</td>
+<td>
+The channels used by this format.
+</td>
+</tr>
+</table>
 */

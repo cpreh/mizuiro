@@ -3,10 +3,10 @@
 
 \section main_introduction Introduction
 
-Mizuiro (水色) is a library that features \link color_definition formalization
-of colors \endlink and \link view_definition n-dimensional views of cuboids\endlink.
-Both consist of a set of types and functions that Mizuiro accesses through
-\link tag_dispatching Tag Dispatching \endlink.
+Mizuiro (水色) is a library that features \link color_format_definition
+formalization of colors \endlink and \link view_definition n-dimensional views
+of cuboids\endlink.  Both consist of a set of types and functions that Mizuiro
+accesses through \link mizuiro_type_class Tag Dispatching \endlink.
 
 \section main_sitemap Site map
 
@@ -15,9 +15,6 @@ Both consist of a set of types and functions that Mizuiro accesses through
 <td>
 
 <ul>
-	<li>
-		\link mizuiromain Documentation\endlink
-	</li>
 	<li>
 		\subpage requirements_download_installation
 	</li>
