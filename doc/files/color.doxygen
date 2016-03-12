@@ -239,7 +239,7 @@ Tells if a format is stateless or not.
 \f$\mathrm{has\_channel} : \mathrm{valid\_channel\_type(C)} \Rightarrow C \to Bool\f$
 </td>
 <td>
-Tells if a type can be used as a channel.
+Tells if a format has a channel.
 </td>
 </tr>
 <tr>
@@ -247,7 +247,7 @@ Tells if a type can be used as a channel.
 \f$\mathrm{compare\_channels} : \mathrm{valid\_channel\_type}(C) \Rightarrow (Channel, C) \to Bool\f$
 </td>
 <td>
-Compares a custom channel type to a \f$Channel\f$.
+Compares some channel to a \f$Channel\f$.
 </td>
 </tr>
 <tr>
