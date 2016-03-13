@@ -1,0 +1,102 @@
+/**
+\page mizuiro_image
+
+\section image_introduction Image Introduction
+
+\section image_format_definition Image Format Definition
+
+<table>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>
+\f$\mathrm{store} : Type\f$
+</td>
+<td>
+The type used to store an image.
+</td>
+</tr>
+<tr>
+<td>
+\f$D : \mathbb{N}\f$
+</td>
+<td>
+The dimension of the image.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{make\_store} : \mathbb{N}^D \to store\f$
+</td>
+<td>
+Creates a store from an image size.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{pointer} : (Access, Constness) \to Type\f$
+</td>
+<td>
+A type representing a pointer to the store's memory.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{store\_data} : (cn : Constness) \Rightarrow \mathrm{apply\_const}(Store, cn) \to \mathrm{pointer}(normal, cn)\f$
+</td>
+<td>
+Returns a pointer to the store's memory.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{reference} : (Access, Constness) \to Type\f$
+</td>
+<td>
+The type used to represent a reference to a channel.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{value\_type} : Type\f$
+</td>
+<td>
+The type used to store an element.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{dereference} : (a : Access, cn : Constness) \Rightarrow \mathrm{pointer}(a,cn) \to \mathrm{reference}(a,cn)\f$
+</td>
+<td>
+Dereferences a pointer.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{advance\_pointer} : (a : Access, cn : Constness) \Rightarrow (\mathrm{pointer}(a,cn),\mathbb{Z}) \to \mathrm{pointer}(a,cn)\f$
+</td>
+<td>
+Advances a pointer by a number of elements.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{pointer\_difference} : (a : Access, cn : Constness) \Rightarrow (\mathrm{pointer}(a,cn),\mathrm{pointer}(a,cn)) \to \mathbb{Z}\f$
+</td>
+<td>
+Returns the difference between two pointers.
+</td>
+</tr>
+<tr>
+<td>
+\f$\mathrm{stride} : \mathbb{N}\f$
+</td>
+<td>
+TODO
+</td>
+</tr>
+</table>
+*/

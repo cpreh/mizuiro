@@ -28,6 +28,7 @@ set(
 	doc/CMakeLists.txt
 	doc/Doxyfile.in
 	doc/files/color.doxygen
+	doc/files/image.doxygen
 	doc/files/main.doxygen
 	doc/files/type_class.doxygen
 	doc/footer.html
