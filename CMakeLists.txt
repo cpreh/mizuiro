@@ -865,9 +865,7 @@ if(
 		TRUE
 	)
 
-	fcppt_utils_generate_config(
-		TRUE
-	)
+	fcppt_utils_generate_config()
 endif()
 
 install(
