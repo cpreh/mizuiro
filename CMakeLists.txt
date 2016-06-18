@@ -1,6 +1,6 @@
 cmake_minimum_required(
 	VERSION
-	2.8.12
+	3.0.0
 )
 
 project(
@@ -860,12 +860,8 @@ if(
 		mizuiro_dummy
 	)
 
-	set(
-		FCPPT_UTILS_NO_TARGETS
-		TRUE
-	)
-
-	fcppt_utils_generate_config()
+# FIXME
+#	fcppt_utils_generate_config()
 endif()
 
 install(
