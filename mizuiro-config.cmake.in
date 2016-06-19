@@ -1,4 +1,0 @@
-set(
-	mizuiro_INCLUDE_DIRS
-	"@mizuiro_INCLUDE_DIR@"
-)

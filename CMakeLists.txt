@@ -74,6 +74,11 @@ if(
 	)
 endif()
 
+set(
+	INSTALL_CMAKECONFIG_DIR
+	${INSTALL_CMAKECONFIG_DIR_BASE}/mizuiro
+)
+
 function(
 	mizuiro_target_flags
 	TARGET_NAME
@@ -852,17 +857,46 @@ if(
 		"${MIZUIRO_FILES}"
 	)
 
-	fcppt_utils_set_target_compiler_flags(
-		mizuiro_dummy
-	)
-
 	mizuiro_target_flags(
 		mizuiro_dummy
 	)
-
-# FIXME
-#	fcppt_utils_generate_config()
 endif()
+
+add_library(
+	mizuiro_interface
+	INTERFACE
+)
+
+target_include_directories(
+	mizuiro_interface
+	INTERFACE
+	"$<BUILD_INTERFACE:${MIZUIRO_SOURCE_DIR}/include>"
+	"$<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>"
+)
+
+set(
+	MIZUIRO_EXPORT_NAME
+	mizuiroExport
+)
+
+set(
+	MIZUIRO_BUILD_CONFIG
+	${MIZUIRO_BINARY_DIR}/config
+)
+
+set(
+	MIZUIRO_TARGETS_FILE_NAME
+	mizuiroTargets.cmake
+)
+
+install(
+	TARGETS
+	mizuiro_interface
+	DESTINATION
+	${INSTALL_LIBRARY_DIR}
+	EXPORT
+	${MIZUIRO_EXPORT_NAME}
+)
 
 install(
 	DIRECTORY
@@ -871,46 +905,36 @@ install(
 	${INSTALL_INCLUDE_DIR}
 )
 
-set(
-	mizuiro_INCLUDE_DIR
-	"$<BUILD_INTERFACE:${MIZUIRO_SOURCE_DIR}/include>"
+export(
+	EXPORT
+	${MIZUIRO_EXPORT_NAME}
+	FILE
+	${MIZUIRO_BUILD_CONFIG}/${MIZUIRO_TARGETS_FILE_NAME}
+)
+
+install(
+	EXPORT
+	${MIZUIRO_EXPORT_NAME}
+	FILE
+	${MIZUIRO_TARGETS_FILE_NAME}
+	DESTINATION
+	${INSTALL_CMAKECONFIG_DIR}
 )
 
 set(
-	CONFIG_IN_FILE
-	${MIZUIRO_SOURCE_DIR}/mizuiro-config.cmake.in
-)
-
-set(
-	CONFIG_DIR
-	${MIZUIRO_BINARY_DIR}/config
+	CONFIG_OUT_FILE
+	${MIZUIRO_BUILD_CONFIG}/mizuiro-config.cmake
 )
 
 configure_file(
-	${CONFIG_IN_FILE}
-	${CONFIG_DIR}/mizuiro-config.cmake
-	@ONLY
-)
-
-set(
-	mizuiro_INCLUDE_DIR
-	${INSTALL_INCLUDE_DIR}
-)
-
-set(
-	INSTALL_CONFIG
-	${CONFIG_DIR}/install-config/mizuiro-config.cmake
-)
-
-configure_file(
-	${CONFIG_IN_FILE}
-	${INSTALL_CONFIG}
-	@ONLY
+	${MIZUIRO_SOURCE_DIR}/mizuiro-config.cmake
+	${CONFIG_OUT_FILE}
+	COPYONLY
 )
 
 install(
 	FILES
-		${INSTALL_CONFIG}
+	${CONFIG_OUT_FILE}
 	DESTINATION
-		${INSTALL_CMAKECONFIG_DIR_BASE}/mizuiro
+	${INSTALL_CMAKECONFIG_DIR}
 )
