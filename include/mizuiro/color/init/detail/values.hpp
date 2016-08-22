@@ -73,20 +73,31 @@ public:
 		> const &_newinit
 	) const
 	{
-		auto result(
-			std::tuple_cat(
-				elements_,
-				_newinit.get()
-			)
-		);
-
 		return
 			values<
 				decltype(
-					result
+					std::tuple_cat(
+						std::declval<
+							tuple_type
+						>(),
+						std::declval<
+							std::tuple<
+								NewInit
+							>
+						>()
+					)
 				)
 			>(
-				result
+				std::tuple_cat(
+					tuple_type{
+						elements_
+					},
+					std::tuple<
+						NewInit
+					>{
+						_newinit.get()
+					}
+				)
 			);
 	}
 
