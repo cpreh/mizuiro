@@ -60,7 +60,9 @@ dereference_adl(
 			Constness
 		>(
 			_data,
-			mizuiro::image::format::to_color_store(
+			mizuiro::image::format::to_color_store<
+				ImageFormat
+			>(
 				_format
 			)
 		);

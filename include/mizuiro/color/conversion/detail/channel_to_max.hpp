@@ -23,6 +23,7 @@ template<
 	typename Channel,
 	typename Color
 >
+inline
 void
 channel_to_max(
 	Color &_color,
@@ -31,7 +32,10 @@ channel_to_max(
 {
 	_color.set(
 		_channel,
-		mizuiro::color::access::channel_max(
+		mizuiro::color::access::channel_max<
+			typename
+			Color::format
+		>(
 			_color.format_store(),
 			_channel
 		)

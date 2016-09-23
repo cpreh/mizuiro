@@ -49,13 +49,15 @@ prepare_store_units(
 	std::uninitialized_fill_n(
 		mizuiro::image::access::data<
 			Access,
-			mizuiro::nonconst_tag
+			mizuiro::nonconst_tag,
+			ImageFormat
 		>(
 			_format,
 			_dest
 		),
 		mizuiro::image::access::stride<
-			Access
+			Access,
+			ImageFormat
 		>(
 			_format
 		),

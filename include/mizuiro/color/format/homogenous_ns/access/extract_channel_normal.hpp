@@ -30,6 +30,7 @@ template<
 	typename Channel,
 	typename Constness
 >
+inline
 mizuiro::color::types::channel_reference<
 	mizuiro::access::normal,
 	Format,
@@ -56,7 +57,9 @@ extract_channel_adl(
 {
 	return
 		_data[
-			mizuiro::color::access::channel_index(
+			mizuiro::color::access::channel_index<
+				Format
+			>(
 				_format,
 				_channel
 			)

@@ -25,6 +25,7 @@ template<
 	typename Format,
 	typename Channel
 >
+inline
 mizuiro::size_type
 channel_index(
 	mizuiro::color::format::store<

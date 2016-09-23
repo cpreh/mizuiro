@@ -9,7 +9,6 @@
 
 #include <mizuiro/detail/format_base_impl.hpp>
 #include <mizuiro/image/format/base_decl.hpp>
-#include <mizuiro/image/format/store_impl.hpp>
 
 
 #endif

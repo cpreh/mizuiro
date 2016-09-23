@@ -64,7 +64,8 @@ make_store_adl(
 						)
 						*
 						mizuiro::image::access::stride<
-							Access
+							Access,
+							ImageFormat
 						>(
 							_format
 						)

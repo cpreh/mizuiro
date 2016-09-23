@@ -4,11 +4,11 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_DETAIL_FORMAT_BASE_FWD_HPP_INCLUDED
-#define MIZUIRO_DETAIL_FORMAT_BASE_FWD_HPP_INCLUDED
+#ifndef MIZUIRO_DETAIL_FORMAT_STORE_FWD_HPP_INCLUDED
+#define MIZUIRO_DETAIL_FORMAT_STORE_FWD_HPP_INCLUDED
 
-#include <mizuiro/detail/empty_format_base_fwd.hpp>
-#include <mizuiro/detail/normal_format_base_fwd.hpp>
+#include <mizuiro/detail/empty_format_store_fwd.hpp>
+#include <mizuiro/detail/normal_format_store_fwd.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -24,20 +24,20 @@ template<
 	template<
 		typename
 	> class FormatNeedsStore,
-	typename Copy = void
+	typename Copy
 >
-using format_base
+using format_store
 =
 typename
 std::conditional<
 	FormatNeedsStore<
 		Format
 	>::value,
-	mizuiro::detail::normal_format_base<
+	mizuiro::detail::normal_format_store<
 		Format,
 		Copy
 	>,
-	mizuiro::detail::empty_format_base<
+	mizuiro::detail::empty_format_store<
 		Format
 	>
 >::type;

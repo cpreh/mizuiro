@@ -4,8 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_DETAIL_NOTHING_HPP_INCLUDED
-#define MIZUIRO_DETAIL_NOTHING_HPP_INCLUDED
+#ifndef MIZUIRO_DETAIL_NORMAL_FORMAT_STORE_FWD_HPP_INCLUDED
+#define MIZUIRO_DETAIL_NORMAL_FORMAT_STORE_FWD_HPP_INCLUDED
 
 
 namespace mizuiro
@@ -13,9 +13,11 @@ namespace mizuiro
 namespace detail
 {
 
-struct nothing
-{
-};
+template<
+	typename Format,
+	typename Copy
+>
+class normal_format_store;
 
 }
 }

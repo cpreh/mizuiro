@@ -61,7 +61,9 @@ public:
 	) const
 	{
 		return
-			!mizuiro::color::access::compare_channels(
+			!mizuiro::color::access::compare_channels<
+				Format
+			>(
 				format_,
 				StaticChannel(),
 				_channel

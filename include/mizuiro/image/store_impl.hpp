@@ -42,7 +42,8 @@ mizuiro::image::store<
 	),
 	data_(
 		mizuiro::image::access::make_store<
-			access
+			access,
+			Format
 		>(
 			_format,
 			size_
@@ -143,7 +144,8 @@ mizuiro::image::store<
 	return
 		mizuiro::image::access::store_data<
 			access,
-			mizuiro::nonconst_tag
+			mizuiro::nonconst_tag,
+			Format
 		>(
 			this->format_store(),
 			data_
@@ -167,7 +169,8 @@ mizuiro::image::store<
 	return
 		mizuiro::image::access::store_data<
 			access,
-			mizuiro::const_tag
+			mizuiro::const_tag,
+			Format
 		>(
 			this->format_store(),
 			data_

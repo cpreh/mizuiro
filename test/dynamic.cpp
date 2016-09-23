@@ -25,6 +25,7 @@
 #include <mizuiro/detail/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
 #include <cstdint>
+#include <functional>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -61,7 +62,9 @@ MIZUIRO_DETAIL_POP_WARNING
 	color_format_store;
 
 	color_format_store const rgba_format_store(
-		&rgba_format
+		std::cref(
+			rgba_format
+		)
 	);
 
 	color_uint8_4 const test1(

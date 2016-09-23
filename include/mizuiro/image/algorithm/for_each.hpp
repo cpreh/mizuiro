@@ -41,7 +41,9 @@ for_each(
 		mizuiro::image::algorithm::unary_iteration(
 			mizuiro::image::algorithm::detail::wrap_prepare<
 				typename
-				View::access
+				View::access,
+				typename
+				View::format
 			>(
 				_view.format_store(),
 				_function

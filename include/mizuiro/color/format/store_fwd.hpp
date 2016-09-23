@@ -7,6 +7,9 @@
 #ifndef MIZUIRO_COLOR_FORMAT_STORE_FWD_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_STORE_FWD_HPP_INCLUDED
 
+#include <mizuiro/color/format/detail/make.hpp>
+#include <mizuiro/detail/format_store_fwd.hpp>
+
 
 namespace mizuiro
 {
@@ -18,7 +21,13 @@ namespace format
 template<
 	typename Format
 >
-class store;
+using
+store
+=
+mizuiro::color::format::detail::make<
+	Format,
+	mizuiro::detail::format_store
+>;
 
 }
 }

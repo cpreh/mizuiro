@@ -61,7 +61,8 @@ public:
 	) const
 	{
 		mizuiro::image::prepare_store_units<
-			Access
+			Access,
+			ImageFormat
 		>(
 			format_store_,
 			_dest
@@ -83,7 +84,8 @@ public:
 	) const
 	{
 		mizuiro::image::prepare_store_units<
-			Access
+			Access,
+			ImageFormat
 		>(
 			format_store_,
 			_dest

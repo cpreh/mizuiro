@@ -41,7 +41,7 @@ channel_index_adl(
 )
 {
 	return
-		_format.get()->indices[
+		_format.get().indices[
 			mizuiro::color::detail::dynamic::channel_to_pos<
 				Format
 			>(

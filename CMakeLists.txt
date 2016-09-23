@@ -494,6 +494,9 @@ set(
 	include/mizuiro/detail/empty_format_base_decl.hpp
 	include/mizuiro/detail/empty_format_base_fwd.hpp
 	include/mizuiro/detail/empty_format_base_impl.hpp
+	include/mizuiro/detail/empty_format_store_decl.hpp
+	include/mizuiro/detail/empty_format_store_fwd.hpp
+	include/mizuiro/detail/empty_format_store_impl.hpp
 	include/mizuiro/detail/equal.hpp
 	include/mizuiro/detail/external_begin.hpp
 	include/mizuiro/detail/external_end.hpp
@@ -501,16 +504,19 @@ set(
 	include/mizuiro/detail/format_base_decl.hpp
 	include/mizuiro/detail/format_base_fwd.hpp
 	include/mizuiro/detail/format_base_impl.hpp
+	include/mizuiro/detail/format_store_decl.hpp
+	include/mizuiro/detail/format_store_fwd.hpp
+	include/mizuiro/detail/format_store_impl.hpp
 	include/mizuiro/detail/ignore_effcpp.hpp
 	include/mizuiro/detail/int_to_true.hpp
+	include/mizuiro/detail/map_format_store.hpp
 	include/mizuiro/detail/nonassignable.hpp
 	include/mizuiro/detail/normal_format_base_decl.hpp
 	include/mizuiro/detail/normal_format_base_fwd.hpp
 	include/mizuiro/detail/normal_format_base_impl.hpp
-	include/mizuiro/detail/nothing.hpp
-	include/mizuiro/detail/optional_decl.hpp
-	include/mizuiro/detail/optional_fwd.hpp
-	include/mizuiro/detail/optional_impl.hpp
+	include/mizuiro/detail/normal_format_store_decl.hpp
+	include/mizuiro/detail/normal_format_store_fwd.hpp
+	include/mizuiro/detail/normal_format_store_impl.hpp
 	include/mizuiro/detail/pop_warning.hpp
 	include/mizuiro/detail/pragma.hpp
 	include/mizuiro/detail/promote_type.hpp

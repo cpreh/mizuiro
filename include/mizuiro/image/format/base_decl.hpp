@@ -8,8 +8,7 @@
 #define MIZUIRO_IMAGE_FORMAT_BASE_DECL_HPP_INCLUDED
 
 #include <mizuiro/detail/format_base_decl.hpp>
-#include <mizuiro/image/format/store_decl.hpp>
-#include <mizuiro/image/types/needs_format_store.hpp>
+#include <mizuiro/image/format/detail/make.hpp>
 
 
 namespace mizuiro
@@ -24,10 +23,9 @@ template<
 >
 using base
 =
-mizuiro::detail::format_base<
+mizuiro::image::format::detail::make<
 	Format,
-	mizuiro::image::format::store,
-	mizuiro::image::types::needs_format_store
+	mizuiro::detail::format_base
 >;
 
 }

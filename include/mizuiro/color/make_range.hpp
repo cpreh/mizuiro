@@ -26,7 +26,10 @@ template<
 inline
 decltype(
 	mizuiro::range::make(
-		mizuiro::color::access::channels(
+		mizuiro::color::access::channels<
+			typename
+			Color::format
+		>(
 			std::declval<
 				Color
 			>().format_store()
@@ -46,7 +49,10 @@ make_range(
 
 	return
 		mizuiro::range::make(
-			mizuiro::color::access::channels(
+			mizuiro::color::access::channels<
+				typename
+				Color::format
+			>(
 				_color.format_store()
 			)
 		);

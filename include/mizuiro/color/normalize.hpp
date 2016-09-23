@@ -60,7 +60,10 @@ normalize(
 				Float
 			>
 			(
-				mizuiro::color::access::channel_min(
+				mizuiro::color::access::channel_min<
+					typename
+					Color::format
+				>(
 					_color.format_store(),
 					_channel
 				)
@@ -72,7 +75,10 @@ normalize(
 				Float
 			>
 			(
-				mizuiro::color::access::channel_max(
+				mizuiro::color::access::channel_max<
+					typename
+					Color::format
+				>(
 					_color.format_store(),
 					_channel
 				)
@@ -82,7 +88,10 @@ normalize(
 				Float
 			>
 			(
-				mizuiro::color::access::channel_min(
+				mizuiro::color::access::channel_min<
+					typename
+					Color::format
+				>(
 					_color.format_store(),
 					_channel
 				)

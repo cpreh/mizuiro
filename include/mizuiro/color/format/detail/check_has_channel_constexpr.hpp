@@ -28,12 +28,12 @@ template<
 >
 mizuiro::detail::int_to_true<
 	(
-		mizuiro::color::access::has_channel(
+		mizuiro::color::access::has_channel<
+			Format
+		>(
 			mizuiro::color::format::store<
 				Format
-			>{
-				nullptr
-			},
+			>{},
 			Channel{}
 		),
 		0

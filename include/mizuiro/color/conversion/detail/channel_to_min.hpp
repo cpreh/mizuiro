@@ -23,6 +23,7 @@ template<
 	typename Channel,
 	typename Color
 >
+inline
 void
 channel_to_min(
 	Color &_color,
@@ -31,7 +32,10 @@ channel_to_min(
 {
 	_color.set(
 		_channel,
-		mizuiro::color::access::channel_min(
+		mizuiro::color::access::channel_min<
+			typename
+			Color::format
+		>(
 			_color.format_store(),
 			_channel
 		)

@@ -76,7 +76,8 @@ mizuiro::image::detail::linear_iterator<
 	data_ =
 		mizuiro::image::access::advance_pointer<
 			Access,
-			Constness
+			Constness,
+			Format
 		>(
 			this->format_store_base(),
 			data_,
@@ -86,7 +87,8 @@ mizuiro::image::detail::linear_iterator<
 				difference_type
 			>(
 				mizuiro::image::access::stride<
-					Access
+					Access,
+					Format
 				>(
 					this->format_store_base()
 				)
@@ -152,7 +154,8 @@ mizuiro::image::detail::linear_iterator<
 	return
 		mizuiro::image::access::pointer_difference<
 			Access,
-			Constness
+			Constness,
+			Format
 		>(
 			this->format_store_base(),
 			_other.data_,
@@ -163,7 +166,8 @@ mizuiro::image::detail::linear_iterator<
 			difference_type
 		>(
 			mizuiro::image::access::stride<
-				Access
+				Access,
+				Format
 			>(
 				this->format_store_base()
 			)
@@ -190,7 +194,8 @@ mizuiro::image::detail::linear_iterator<
 	return
 		mizuiro::image::access::dereference<
 			Access,
-			Constness
+			Constness,
+			Format
 		>(
 			this->format_store_base(),
 			data_

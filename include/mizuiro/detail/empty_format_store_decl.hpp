@@ -4,8 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_DETAIL_NORMAL_FORMAT_BASE_FWD_HPP_INCLUDED
-#define MIZUIRO_DETAIL_NORMAL_FORMAT_BASE_FWD_HPP_INCLUDED
+#ifndef MIZUIRO_DETAIL_EMPTY_FORMAT_STORE_DECL_HPP_INCLUDED
+#define MIZUIRO_DETAIL_EMPTY_FORMAT_STORE_DECL_HPP_INCLUDED
+
+#include <mizuiro/detail/empty_format_store_fwd.hpp>
 
 
 namespace mizuiro
@@ -14,10 +16,11 @@ namespace detail
 {
 
 template<
-	typename Store,
-	typename Copy
+	typename Store
 >
-class normal_format_base;
+class empty_format_store
+{
+};
 
 }
 }

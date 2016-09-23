@@ -55,7 +55,9 @@ denormalize(
 			static_cast<
 				Float
 			>(
-				mizuiro::color::access::channel_min(
+				mizuiro::color::access::channel_min<
+					Format
+				>(
 					_format_store,
 					_channel
 				)
@@ -67,7 +69,9 @@ denormalize(
 				static_cast<
 					Float
 				>(
-					mizuiro::color::access::channel_max(
+					mizuiro::color::access::channel_max<
+						Format
+					>(
 						_format_store,
 						_channel
 					)
@@ -76,7 +80,9 @@ denormalize(
 				static_cast<
 					Float
 				>(
-					mizuiro::color::access::channel_min(
+					mizuiro::color::access::channel_min<
+						Format
+					>(
 						_format_store,
 						_channel
 					)

@@ -65,12 +65,14 @@ test_format(
 	BOOST_CHECK((
 		mizuiro::image::access::pointer_difference<
 			access,
-			mizuiro::const_tag
+			mizuiro::const_tag,
+			ImageFormat
 		>(
 			store.format_store(),
 			mizuiro::image::access::advance_pointer<
 				access,
-				mizuiro::const_tag
+				mizuiro::const_tag,
+				ImageFormat
 			>(
 				store.format_store(),
 				store.data(),

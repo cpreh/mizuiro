@@ -143,7 +143,8 @@ mizuiro::image::detail::pitch_iterator<
 	return
 		mizuiro::image::access::advance_pointer<
 			Access,
-			Constness
+			Constness,
+			Format
 		>(
 			this->format_store_base(),
 			root_data_,
@@ -202,7 +203,8 @@ mizuiro::image::detail::pitch_iterator<
 			difference_type
 		>(
 			mizuiro::image::access::stride<
-				Access
+				Access,
+				Format
 			>(
 				this->format_store_base()
 			)
@@ -284,7 +286,8 @@ mizuiro::image::detail::pitch_iterator<
 				difference_type
 			>(
 				mizuiro::image::access::stride<
-					Access
+					Access,
+					Format
 				>(
 					this->format_store_base()
 				)
@@ -356,7 +359,8 @@ mizuiro::image::detail::pitch_iterator<
 	return
 		mizuiro::image::access::dereference<
 			Access,
-			Constness
+			Constness,
+			Format
 		>(
 			this->format_store_base(),
 			this->data()

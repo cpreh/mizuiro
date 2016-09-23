@@ -8,44 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_STORE_IMPL_HPP_INCLUDED
 
 #include <mizuiro/color/format/store_decl.hpp>
+#include <mizuiro/detail/format_store_impl.hpp>
 
-
-template<
-	typename Format
->
-constexpr
-mizuiro::color::format::store<
-	Format
->::store(
-	Format const *const _format
-)
-:
-	format_{
-		_format
-	}
-{
-}
-
-template<
-	typename Format
->
-mizuiro::color::format::store<
-	Format
->::store(
-	store const &
-) noexcept
-= default;
-
-template<
-	typename Format
->
-Format const *
-mizuiro::color::format::store<
-	Format
->::get() const
-{
-	return
-		format_;
-}
 
 #endif

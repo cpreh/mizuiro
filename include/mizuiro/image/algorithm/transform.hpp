@@ -43,7 +43,9 @@ transform(
 		mizuiro::image::algorithm::binary_iteration(
 			mizuiro::image::algorithm::detail::wrap_prepare<
 				typename
-				ViewD::access
+				ViewD::access,
+				typename
+				ViewD::format
 			>(
 				_dest.format_store(),
 				_fun

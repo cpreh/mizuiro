@@ -24,6 +24,7 @@
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <cstdint>
+#include <functional>
 #include <iostream>
 #include <ostream>
 #include <mizuiro/detail/external_end.hpp>
@@ -56,7 +57,9 @@ main()
 	color_format_store;
 
 	color_format_store const rgb_format_store(
-		&rgb_format
+		std::cref(
+			rgb_format
+		)
 	);
 
 	color_uint8_3 const test1(
@@ -99,9 +102,9 @@ main()
 		),
 		test1,
 		uint8_3_store::format_store_type(
-			image_uint8_3_format(
+			image_uint8_3_format{
 				rgb_format_store
-			)
+			}
 		)
 	);
 

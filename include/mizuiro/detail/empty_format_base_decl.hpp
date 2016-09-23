@@ -8,6 +8,7 @@
 #define MIZUIRO_DETAIL_EMPTY_FORMAT_BASE_DECL_HPP_INCLUDED
 
 #include <mizuiro/detail/empty_format_base_fwd.hpp>
+#include <mizuiro/detail/empty_format_store_fwd.hpp>
 
 
 namespace mizuiro
@@ -22,7 +23,9 @@ class empty_format_base
 {
 protected:
 	typedef
-	Store
+	mizuiro::detail::empty_format_store<
+		Store
+	>
 	format_store_type;
 
 	constexpr

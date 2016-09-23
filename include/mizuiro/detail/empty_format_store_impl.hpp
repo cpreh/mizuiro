@@ -4,11 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_FORMAT_BASE_IMPL_HPP_INCLUDED
-#define MIZUIRO_COLOR_FORMAT_BASE_IMPL_HPP_INCLUDED
+#ifndef MIZUIRO_DETAIL_EMPTY_FORMAT_STORE_IMPL_HPP_INCLUDED
+#define MIZUIRO_DETAIL_EMPTY_FORMAT_STORE_IMPL_HPP_INCLUDED
 
-#include <mizuiro/color/format/base_decl.hpp>
-#include <mizuiro/detail/format_base_impl.hpp>
+#include <mizuiro/detail/empty_format_store_decl.hpp>
 
 
 #endif

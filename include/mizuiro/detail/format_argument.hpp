@@ -7,9 +7,8 @@
 #ifndef MIZUIRO_DETAIL_FORMAT_ARGUMENT_HPP_INCLUDED
 #define MIZUIRO_DETAIL_FORMAT_ARGUMENT_HPP_INCLUDED
 
-#include <mizuiro/detail/external_begin.hpp>
-#include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/detail/format_argument_impl.hpp>
+#include <mizuiro/detail/format_store_impl.hpp>
 
 
 namespace mizuiro
@@ -19,66 +18,32 @@ namespace detail
 
 template<
 	typename Format,
-	typename FormatNeedsStore,
-	typename FormatStore,
-	typename Enable = void
+	template<
+		typename
+	> class FormatNeedsStore,
+	typename Copy
 >
-struct format_argument;
-
-// This is a hack for VC++
-// It instantiates default arguments even if they
-// are never used.
-// The static assert has to be put into the function
-// because VC++ doesn't look that far.
-template<
-	typename Format,
-	typename FormatNeedsStore,
-	typename FormatStore
->
-struct format_argument<
-	Format,
-	FormatNeedsStore,
-	FormatStore,
-	typename
-	std::enable_if<
-		FormatNeedsStore::value
-	>::type
->
+struct format_argument
 {
-	static
-	FormatStore
-	get()
-	{
-		static_assert(
-			sizeof(Format) == 0,
-			"This color format requires a store!"
-		);
-	}
-};
+	typedef
+	mizuiro::detail::format_store<
+		Format,
+		FormatNeedsStore,
+		Copy
+	>
+	result_type;
 
-template<
-	typename Format,
-	typename FormatNeedsStore,
-	typename FormatStore
->
-struct format_argument<
-	Format,
-	FormatNeedsStore,
-	FormatStore,
-	typename
-	std::enable_if<
-		!FormatNeedsStore::value
-	>::type
->
-{
 	static
-	FormatStore
+	result_type
 	get()
 	{
 		return
-			FormatStore(
-				nullptr
-			);
+			mizuiro::detail::format_argument_impl<
+				result_type,
+				FormatNeedsStore<
+					Format
+				>::value
+			>();
 	}
 };
 

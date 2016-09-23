@@ -60,7 +60,10 @@ compare(
 
 	return
 		mizuiro::range::all_of(
-			mizuiro::color::access::channels(
+			mizuiro::color::access::channels<
+				typename
+				Color1::format
+			>(
 				_color1.format_store()
 			),
 			[

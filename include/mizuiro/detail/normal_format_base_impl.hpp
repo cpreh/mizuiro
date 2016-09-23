@@ -7,14 +7,17 @@
 #ifndef MIZUIRO_DETAIL_NORMAL_FORMAT_BASE_IMPL_HPP_INCLUDED
 #define MIZUIRO_DETAIL_NORMAL_FORMAT_BASE_IMPL_HPP_INCLUDED
 
+#include <mizuiro/detail/format_store_impl.hpp>
 #include <mizuiro/detail/normal_format_base_decl.hpp>
 
 
 template<
-	typename Store
+	typename Format,
+	typename Copy
 >
 mizuiro::detail::normal_format_base<
-	Store
+	Format,
+	Copy
 >::normal_format_base(
 	format_store_type const &_format
 )
@@ -26,24 +29,29 @@ mizuiro::detail::normal_format_base<
 }
 
 template<
-	typename Store
+	typename Format,
+	typename Copy
 >
 mizuiro::detail::normal_format_base<
-	Store
+	Format,
+	Copy
 >::normal_format_base(
 	normal_format_base const &
 ) noexcept
 = default;
 
 template<
-	typename Store
+	typename Format,
+	typename Copy
 >
 typename
 mizuiro::detail::normal_format_base<
-	Store
+	Format,
+	Copy
 >::format_store_type
 mizuiro::detail::normal_format_base<
-	Store
+	Format,
+	Copy
 >::format_store_base() const
 {
 	return

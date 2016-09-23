@@ -7,6 +7,9 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_STORE_FWD_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_STORE_FWD_HPP_INCLUDED
 
+#include <mizuiro/detail/format_store_fwd.hpp>
+#include <mizuiro/image/format/detail/make.hpp>
+
 
 namespace mizuiro
 {
@@ -16,9 +19,15 @@ namespace format
 {
 
 template<
-	typename ImageFormat
+	typename Format
 >
-class store;
+using
+store
+=
+mizuiro::image::format::detail::make<
+	Format,
+	mizuiro::detail::format_store
+>;
 
 }
 }

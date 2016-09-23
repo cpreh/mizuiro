@@ -157,7 +157,8 @@ mizuiro::color::proxy<
 {
 	mizuiro::color::access::extract_channel<
 		Access,
-		mizuiro::nonconst_tag
+		mizuiro::nonconst_tag,
+		Format
 	>(
 		this->format_store(),
 		_channel,
@@ -191,7 +192,8 @@ mizuiro::color::proxy<
 	return
 		mizuiro::color::access::extract_channel<
 			Access,
-			mizuiro::const_tag
+			mizuiro::const_tag,
+			Format
 		>(
 			this->format_store(),
 			_channel,

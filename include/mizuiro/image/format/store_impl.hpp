@@ -7,73 +7,8 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_STORE_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_STORE_IMPL_HPP_INCLUDED
 
-#include <mizuiro/detail/nothing.hpp>
+#include <mizuiro/detail/format_store_impl.hpp>
 #include <mizuiro/image/format/store_decl.hpp>
 
-
-template<
-	typename Format
->
-mizuiro::image::format::store<
-	Format
->::store(
-	Format const *const _format
-)
-:
-	format_(
-		_format
-		?
-			optional_format{
-				*_format
-			}
-		:
-			optional_format{
-				mizuiro::detail::nothing{}
-			}
-	)
-{
-}
-
-template<
-	typename Format
->
-mizuiro::image::format::store<
-	Format
->::store(
-	Format const &_format
-)
-:
-	format_(
-		optional_format(
-			_format
-		)
-	)
-{
-}
-
-template<
-	typename Format
->
-mizuiro::image::format::store<
-	Format
->::store(
-	store const &
-) noexcept
-= default;
-
-template<
-	typename Format
->
-typename
-mizuiro::image::format::store<
-	Format
->::optional_format
-mizuiro::image::format::store<
-	Format
->::get() const
-{
-	return
-		format_;
-}
 
 #endif

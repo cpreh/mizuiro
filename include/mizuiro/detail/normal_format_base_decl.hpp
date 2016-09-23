@@ -8,6 +8,7 @@
 #define MIZUIRO_DETAIL_NORMAL_FORMAT_BASE_DECL_HPP_INCLUDED
 
 #include <mizuiro/detail/normal_format_base_fwd.hpp>
+#include <mizuiro/detail/normal_format_store_decl.hpp>
 
 
 namespace mizuiro
@@ -16,12 +17,18 @@ namespace detail
 {
 
 template<
-	typename Store
+	typename Format,
+	typename Copy
 >
 class normal_format_base
 {
 protected:
-	typedef Store format_store_type;
+	typedef
+	mizuiro::detail::normal_format_store<
+		Format,
+		Copy
+	>
+	format_store_type;
 
 	explicit
 	normal_format_base(

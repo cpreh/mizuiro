@@ -39,7 +39,8 @@ prepare_store_units(
 	);
 
 	mizuiro::image::detail::prepare_store_units<
-		Access
+		Access,
+		ImageFormat
 	>(
 		_format,
 		_dest

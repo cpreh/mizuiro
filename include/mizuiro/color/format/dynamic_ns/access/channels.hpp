@@ -38,7 +38,7 @@ channels_adl(
 )
 {
 	return
-		_format.get()->channels;
+		_format.get().channels;
 }
 
 }

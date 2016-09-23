@@ -125,7 +125,10 @@ copy_or_default_channel(
 )
 {
 	if(
-		mizuiro::color::access::has_channel(
+		mizuiro::color::access::has_channel<
+			typename
+			Src::format
+		>(
 			_src.format_store(),
 			_channel
 		)
@@ -197,7 +200,10 @@ copy_or_default_channel(
 )
 {
 	if(
-		mizuiro::color::access::has_channel(
+		mizuiro::color::access::has_channel<
+			typename
+			Dest::format
+		>(
 			_dest.format_store(),
 			_channel
 		)
@@ -239,7 +245,10 @@ copy_or_default_channel(
 )
 {
 	if(
-		mizuiro::color::access::has_channel(
+		mizuiro::color::access::has_channel<
+			typename
+			Dest::format
+		>(
 			_dest.format_store(),
 			_channel
 		)
@@ -280,7 +289,10 @@ copy_or_default_channel(
 )
 {
 	if(
-		!mizuiro::color::access::has_channel(
+		!mizuiro::color::access::has_channel<
+			typename
+			Dest::format
+		>(
 			_dest.format_store(),
 			_channel
 		)
@@ -288,7 +300,10 @@ copy_or_default_channel(
 		return;
 
 	if(
-		mizuiro::color::access::has_channel(
+		mizuiro::color::access::has_channel<
+			typename
+			Src::format
+		>(
 			_src.format_store(),
 			_channel
 		)

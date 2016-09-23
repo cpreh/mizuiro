@@ -56,7 +56,9 @@ extract_channel_adl(
 {
 	return
 		*_data[
-			mizuiro::color::access::channel_index(
+			mizuiro::color::access::channel_index<
+				Format
+			>(
 				_format,
 				_channel
 			)

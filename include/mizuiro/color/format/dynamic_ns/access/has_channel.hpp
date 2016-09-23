@@ -42,7 +42,9 @@ has_channel_adl(
 )
 {
 	return
-		mizuiro::color::access::channel_index(
+		mizuiro::color::access::channel_index<
+			Format
+		>(
 			_format,
 			_channel
 		)
