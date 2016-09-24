@@ -1,7 +1,3 @@
-include_directories(
-	"${CMAKE_SOURCE_DIR}/include"
-)
-
 function(
 	BUILD_MIZUIRO_EXAMPLE
 	example
