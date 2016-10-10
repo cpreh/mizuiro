@@ -19,79 +19,98 @@ function(
 		${ARGN}
 	)
 
-	string(
-		REGEX
-		REPLACE
-		"\\/"
-		"_"
-		TESTNAME
-		${PATHNAME}
-	)
-
-	set(
-		MIZUIRO_TEST_NAME
-		mizuiro_test_${TESTNAME}
-	)
-
-	add_executable(
-		${MIZUIRO_TEST_NAME}
-		${PATHNAME}.cpp
-	)
-
-	mizuiro_target_flags(
-		${MIZUIRO_TEST_NAME}
-	)
-
-	target_include_directories(
-		${MIZUIRO_TEST_NAME}
-		PRIVATE
-		include
-	)
-
 	if(
-		NOT ${_NO_CODE}
+		FCPPT_UTILS_FOUND
 	)
-		target_compile_definitions(
-			${MIZUIRO_TEST_NAME}
-			PRIVATE
-			BOOST_TEST_MODULE=${TESTNAME}
-		)
-
 		if(
-			Boost_USE_STATIC_LIBS
+			_NO_CODE
 		)
-			target_compile_definitions(
-				${MIZUIRO_TEST_NAME}
-				PRIVATE
-				BOOST_TEST_NO_LIB
-			)
-		else()
-			target_compile_definitions(
-				${MIZUIRO_TEST_NAME}
-				PRIVATE
-				BOOST_TEST_DYN_LINK
+			set(
+				NO_CODE
+				NO_CODE
 			)
 		endif()
 
+		fcppt_utils_add_test(
+			${FCPPT_UTILS_PROJECT_SOURCE_DIR}/test
+			${PATHNAME}
+			${NO_CODE}
+		)
+	else()
+		string(
+			REGEX
+			REPLACE
+			"\\/"
+			"_"
+			TESTNAME
+			${PATHNAME}
+		)
+
+		set(
+			MIZUIRO_TEST_NAME
+			mizuiro_test_${TESTNAME}
+		)
+
+		add_executable(
+			${MIZUIRO_TEST_NAME}
+			${PATHNAME}.cpp
+		)
+
+		mizuiro_target_flags(
+			${MIZUIRO_TEST_NAME}
+		)
+
 		target_include_directories(
 			${MIZUIRO_TEST_NAME}
-			SYSTEM
 			PRIVATE
-			${Boost_INCLUDE_DIR}
+			include
 		)
 
-		target_link_libraries(
-			${MIZUIRO_TEST_NAME}
-			PRIVATE
-			${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+		if(
+			NOT ${_NO_CODE}
 		)
+			target_compile_definitions(
+				${MIZUIRO_TEST_NAME}
+				PRIVATE
+				BOOST_TEST_MODULE=${TESTNAME}
+			)
 
-		add_test(
-			NAME
-			${MIZUIRO_TEST_NAME}
-			COMMAND
-			${MIZUIRO_TEST_NAME}
-		)
+			if(
+				Boost_USE_STATIC_LIBS
+			)
+				target_compile_definitions(
+					${MIZUIRO_TEST_NAME}
+					PRIVATE
+					BOOST_TEST_NO_LIB
+				)
+			else()
+				target_compile_definitions(
+					${MIZUIRO_TEST_NAME}
+					PRIVATE
+					BOOST_TEST_DYN_LINK
+				)
+			endif()
+
+			target_include_directories(
+				${MIZUIRO_TEST_NAME}
+				SYSTEM
+				PRIVATE
+				${Boost_INCLUDE_DIR}
+			)
+
+			target_link_libraries(
+				${MIZUIRO_TEST_NAME}
+				PRIVATE
+				${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+			)
+
+			add_test(
+				NAME
+				${MIZUIRO_TEST_NAME}
+				COMMAND
+				${MIZUIRO_TEST_NAME}
+			)
+		endif()
 	endif()
 endfunction()
 

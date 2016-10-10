@@ -7,6 +7,13 @@ project(
 	mizuiro
 )
 
+set_property(
+	GLOBAL
+	PROPERTY
+	USE_FOLDERS
+	ON
+)
+
 set(
 	MIZUIRO_SOURCE_DIR
 	"${${PROJECT_NAME}_SOURCE_DIR}"
@@ -861,6 +868,13 @@ if(
 	fcppt_utils_add_dummy_target(
 		mizuiro
 		"${MIZUIRO_FILES}"
+	)
+
+	set_target_properties(
+		mizuiro_dummy
+		PROPERTIES
+		FOLDER
+		mizuiro
 	)
 
 	mizuiro_target_flags(

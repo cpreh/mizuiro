@@ -1,37 +1,46 @@
 function(
-	BUILD_MIZUIRO_EXAMPLE
+	add_mizuiro_example
 	example
 )
-	set(
-		EXAMPLE_NAME
-		"mizuiro_example_${example}"
+	if(
+		FCPPT_UTILS_FOUND
 	)
+		fcppt_utils_add_example(
+			${FCPPT_UTILS_PROJECT_SOURCE_DIR}/examples
+			${example}
+		)
+	else()
+		set(
+			EXAMPLE_NAME
+			"mizuiro_example_${example}"
+		)
 
-	add_executable(
-		${EXAMPLE_NAME}
-		"${example}.cpp"
-	)
+		add_executable(
+			${EXAMPLE_NAME}
+			"${example}.cpp"
+		)
 
-	mizuiro_target_flags(
-		${EXAMPLE_NAME}
-	)
+		mizuiro_target_flags(
+			${EXAMPLE_NAME}
+		)
+	endif()
 endfunction()
 
-build_mizuiro_example(adapted_view)
-build_mizuiro_example(algorithm)
-build_mizuiro_example(canonical)
-build_mizuiro_example(convert)
-build_mizuiro_example(convert_view)
-build_mizuiro_example(dynamic)
-build_mizuiro_example(flipped_view)
-build_mizuiro_example(format)
-build_mizuiro_example(heterogenous)
-build_mizuiro_example(hsv)
-build_mizuiro_example(gray)
-build_mizuiro_example(image)
-build_mizuiro_example(init)
-build_mizuiro_example(operators)
-build_mizuiro_example(planar)
-build_mizuiro_example(sub_view)
-build_mizuiro_example(raw_view)
-build_mizuiro_example(raw_sub_view)
+add_mizuiro_example(adapted_view)
+add_mizuiro_example(algorithm)
+add_mizuiro_example(canonical)
+add_mizuiro_example(convert)
+add_mizuiro_example(convert_view)
+add_mizuiro_example(dynamic)
+add_mizuiro_example(flipped_view)
+add_mizuiro_example(format)
+add_mizuiro_example(heterogenous)
+add_mizuiro_example(hsv)
+add_mizuiro_example(gray)
+add_mizuiro_example(image)
+add_mizuiro_example(init)
+add_mizuiro_example(operators)
+add_mizuiro_example(planar)
+add_mizuiro_example(sub_view)
+add_mizuiro_example(raw_view)
+add_mizuiro_example(raw_sub_view)
