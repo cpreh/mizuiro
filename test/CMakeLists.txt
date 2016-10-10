@@ -35,6 +35,9 @@ function(
 			${FCPPT_UTILS_PROJECT_SOURCE_DIR}/test
 			${PATHNAME}
 			${NO_CODE}
+			INCLUDE_DIRS
+				${MIZUIRO_SOURCE_DIR}/include
+				${CMAKE_CURRENT_SOURCE_DIR}/include
 		)
 	else()
 		string(
