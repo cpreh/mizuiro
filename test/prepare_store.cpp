@@ -22,11 +22,9 @@
 #include <mizuiro/image/format/include/interleaved_heterogenous.hpp>
 #include <mizuiro/mpl/size_list.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <mizuiro/test/external_end.hpp>
-#include <mizuiro/detail/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
 #include <cstdint>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/test/external_end.hpp>
 
 
 MIZUIRO_DETAIL_IGNORE_EFFCPP

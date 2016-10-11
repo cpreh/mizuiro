@@ -18,11 +18,9 @@
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
 #include <mizuiro/image/types/value_type.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <mizuiro/test/external_end.hpp>
-#include <mizuiro/detail/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
 #include <cstdint>
-#include <mizuiro/detail/external_end.hpp>
+#include <mizuiro/test/external_end.hpp>
 
 
 namespace
