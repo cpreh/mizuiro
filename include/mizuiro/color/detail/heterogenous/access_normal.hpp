@@ -121,39 +121,6 @@ private:
 	>::type
 	promoted_color;
 
-	static
-	constexpr
-	promoted_color
-	ones_mask(
-		mizuiro::size_type const _bits
-	)
-	{
-		constexpr promoted_color const one{
-			1u
-		};
-
-		return
-			_bits
-			==
-			static_cast<
-				mizuiro::size_type
-			>(
-				std::numeric_limits<
-					promoted_color
-				>::digits
-			)
-			?
-				~one
-			:
-				(
-					one
-					<<
-					_bits
-				)
-				-
-				one;
-	}
-
 	template<
 		mizuiro::size_type Begin,
 		mizuiro::size_type Count
