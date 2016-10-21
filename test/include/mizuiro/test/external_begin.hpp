@@ -17,8 +17,13 @@
 #pragma GCC diagnostic ignored "-Wold-style-cast"
 #pragma GCC diagnostic ignored "-Woverloaded-virtual"
 #pragma GCC diagnostic ignored "-Wsign-conversion"
-#pragma GCC diagnostic ignored "-Wsuggest-override"
+#pragma GCC diagnostic ignored "-Wundef"
 #pragma GCC diagnostic ignored "-Wunused-variable"
+#if defined(__clang__) || defined(__APPLE_CC__)
+#pragma GCC diagnostic ignored "-Wdocumentation"
+#else
+#pragma GCC diagnostic ignored "-Wsuggest-override"
+#endif
 #endif
 
 #else

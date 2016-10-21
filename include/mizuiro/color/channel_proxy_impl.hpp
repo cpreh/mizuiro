@@ -52,7 +52,8 @@ mizuiro::color::channel_proxy<
 		_ref
 	);
 
-	return *this;
+	return
+		*this;
 }
 
 template<
@@ -93,7 +94,8 @@ operator typename mizuiro::color::channel_proxy<
 	ChannelAccess
 >::value_type() const
 {
-	return this->get();
+	return
+		this->get();
 }
 
 #endif

@@ -283,6 +283,7 @@ set(
 	include/mizuiro/color/detail/heterogenous/access_raw.hpp
 	include/mizuiro/color/detail/heterogenous/bits.hpp
 	include/mizuiro/color/detail/heterogenous/channel_bits.hpp
+	include/mizuiro/color/detail/left_shift.hpp
 	include/mizuiro/color/detail/raw_channel_access.hpp
 	include/mizuiro/color/detail/unwrap_channel.hpp
 	include/mizuiro/color/for_each_channel.hpp
@@ -297,6 +298,7 @@ set(
 	include/mizuiro/color/format/detail/assert_channel.hpp
 	include/mizuiro/color/format/detail/check_has_channel_constexpr.hpp
 	include/mizuiro/color/format/detail/has_channel_constexpr.hpp
+	include/mizuiro/color/format/detail/make.hpp
 	include/mizuiro/color/format/detail/same_channel_value_type.hpp
 	include/mizuiro/color/format/dynamic_ns/access/channel_index.hpp
 	include/mizuiro/color/format/dynamic_ns/access/channels.hpp
@@ -491,6 +493,7 @@ set(
 	include/mizuiro/detail/copy_n_base.hpp
 	include/mizuiro/detail/copy_n_overlap.hpp
 	include/mizuiro/detail/copy_overlap.hpp
+	include/mizuiro/detail/copy_store.hpp
 	include/mizuiro/detail/decltype_use.hpp
 	include/mizuiro/detail/disable_gcc_warning.hpp
 	include/mizuiro/detail/either_binary.hpp
@@ -508,6 +511,7 @@ set(
 	include/mizuiro/detail/external_begin.hpp
 	include/mizuiro/detail/external_end.hpp
 	include/mizuiro/detail/format_argument.hpp
+	include/mizuiro/detail/format_argument_impl.hpp
 	include/mizuiro/detail/format_base_decl.hpp
 	include/mizuiro/detail/format_base_fwd.hpp
 	include/mizuiro/detail/format_base_impl.hpp
@@ -529,6 +533,7 @@ set(
 	include/mizuiro/detail/promote_type.hpp
 	include/mizuiro/detail/push_warning.hpp
 	include/mizuiro/detail/rebind_tag.hpp
+	include/mizuiro/detail/ref_store.hpp
 	include/mizuiro/detail/tuple_for_each.hpp
 	include/mizuiro/detail/uint_least.hpp
 	include/mizuiro/detail/unlikely.hpp
@@ -658,6 +663,7 @@ set(
 	include/mizuiro/image/format/color_ns/types/pointer.hpp
 	include/mizuiro/image/format/color_ns/types/reference.hpp
 	include/mizuiro/image/format/color_ns/types/value_type.hpp
+	include/mizuiro/image/format/detail/make.hpp
 	include/mizuiro/image/format/detail/planar_color.hpp
 	include/mizuiro/image/format/detail/planar_color_fwd.hpp
 	include/mizuiro/image/format/detail/planar_color_ns/access/extract_channel_normal.hpp

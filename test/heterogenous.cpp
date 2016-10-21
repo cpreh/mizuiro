@@ -61,6 +61,11 @@ MIZUIRO_DETAIL_POP_WARNING
 	);
 
 	BOOST_CHECK_EQUAL(
+		*test1.data(),
+		std::uint32_t{0x1E1FF0F}
+	);
+
+	BOOST_CHECK_EQUAL(
 		test1.get(
 			mizuiro::color::channel::luminance()
 		),

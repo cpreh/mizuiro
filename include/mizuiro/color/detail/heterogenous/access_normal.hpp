@@ -11,6 +11,7 @@
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/access/normal.hpp>
+#include <mizuiro/color/detail/left_shift.hpp>
 #include <mizuiro/color/detail/heterogenous/bits.hpp>
 #include <mizuiro/color/detail/heterogenous/channel_bits.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
@@ -21,6 +22,9 @@
 #include <mizuiro/mpl/integral_size.hpp>
 #include <mizuiro/mpl/range_to.hpp>
 #include <mizuiro/mpl/sum.hpp>
+#include <mizuiro/detail/external_begin.hpp>
+#include <type_traits>
+#include <mizuiro/detail/external_end.hpp>
 
 
 namespace mizuiro
@@ -109,27 +113,71 @@ private:
 	color_uint;
 
 	typedef
-	mizuiro::detail::promote_type<
-		color_uint
-	>
+	typename
+	std::make_unsigned<
+		mizuiro::detail::promote_type<
+			color_uint
+		>
+	>::type
 	promoted_color;
 
 	static
-	color_uint
-	part(
-		mizuiro::size_type const _begin,
-		mizuiro::size_type const _count
+	constexpr
+	promoted_color
+	ones_mask(
+		mizuiro::size_type const _bits
 	)
 	{
-		promoted_color const one(
+		constexpr promoted_color const one{
 			1u
-		);
+		};
 
+		return
+			_bits
+			==
+			static_cast<
+				mizuiro::size_type
+			>(
+				std::numeric_limits<
+					promoted_color
+				>::digits
+			)
+			?
+				~one
+			:
+				(
+					one
+					<<
+					_bits
+				)
+				-
+				one;
+	}
+
+	template<
+		mizuiro::size_type Begin,
+		mizuiro::size_type Count
+	>
+	static
+	constexpr
+	color_uint
+	bit_mask()
+	{
 		return
 			static_cast<
 				color_uint
 			>(
-				((one << _begin) - one) ^ ((one << (_begin + _count)) - one)
+				mizuiro::color::detail::left_shift<
+					promoted_color,
+					Begin
+				>()
+				^
+				mizuiro::color::detail::left_shift<
+					promoted_color,
+					Begin
+					+
+					Count
+				>()
 			);
 	}
 public:
@@ -144,10 +192,10 @@ public:
 				value_type
 			>(
 				(
-					access_normal::part(
+					access_normal::bit_mask<
 						real_start_bit::value,
 						bit_count::value
-					)
+					>()
 					&
 					*_data
 				)
@@ -171,10 +219,10 @@ public:
 			>(
 				*_data
 				&
-				~access_normal::part(
+				~access_normal::bit_mask<
 					real_start_bit::value,
 					bit_count::value
-				)
+				>()
 			);
 
 		*_data
