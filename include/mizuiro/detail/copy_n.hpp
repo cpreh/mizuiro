@@ -31,9 +31,23 @@ copy_n(
 	Size const _size,
 	Dest *const _dest
 )
+noexcept
 {
 	mizuiro::detail::copy_n_base(
-		std::memcpy,
+		[](
+			void *const _vdest,
+			void const *const _vsource,
+			std::size_t const _ssize
+		)
+		noexcept
+		{
+			return
+				std::memcpy(
+					_vdest,
+					_vsource,
+					_ssize
+				);
+		},
 		_src,
 		_size,
 		_dest

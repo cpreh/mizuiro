@@ -31,9 +31,23 @@ copy_n_overlap(
 	Size const _size,
 	Dest *const _dest
 )
+noexcept
 {
 	mizuiro::detail::copy_n_base(
-		std::memmove,
+		[](
+			void *const _vdest,
+			void const *const _vsource,
+			std::size_t const _ssize
+		)
+		noexcept
+		{
+			return
+				std::memmove(
+					_vdest,
+					_vsource,
+					_ssize
+				);
+		},
 		_src,
 		_size,
 		_dest

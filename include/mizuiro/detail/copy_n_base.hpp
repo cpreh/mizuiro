@@ -32,6 +32,7 @@ copy_n_base(
 	Size const _size,
 	Dest *const _dest
 )
+noexcept
 {
 	static_assert(
 		std::is_fundamental<
@@ -45,8 +46,16 @@ copy_n_base(
 	);
 
 	_function(
-		_dest,
-		_src,
+		static_cast<
+			void *
+		>(
+			_dest
+		),
+		static_cast<
+			void const *
+		>(
+			_src
+		),
 		static_cast<
 			std::size_t
 		>(
