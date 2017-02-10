@@ -10,10 +10,10 @@
 #define MIZUIRO_DETAIL_NONASSIGNABLE(\
 	classname_\
 )\
-private:\
-	classname_ & \
-	operator=(\
-		classname_ const &\
-	)
+classname_ & \
+operator=(\
+	classname_ const &\
+) \
+= delete
 
 #endif
