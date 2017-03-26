@@ -61,31 +61,6 @@ else()
 	)
 endif()
 
-if(
-	NOT FCPPT_UTILS_FOUND
-)
-	set(
-		INSTALL_INCLUDE_DIR
-		"${CMAKE_INSTALL_PREFIX}/include"
-		CACHE
-		STRING
-		"Custom include installation directory"
-	)
-
-	set(
-		INSTALL_CMAKECONFIG_DIR_BASE
-		"${INSTALL_LIBRARY_DIR}/cmake"
-		CACHE
-		STRING
-		"Custom cmake config installation directory without suffixes"
-	)
-endif()
-
-set(
-	INSTALL_CMAKECONFIG_DIR
-	${INSTALL_CMAKECONFIG_DIR_BASE}/mizuiro
-)
-
 function(
 	mizuiro_target_flags
 	TARGET_NAME
@@ -888,6 +863,10 @@ if(
 	)
 endif()
 
+include(
+	GNUInstallDirs
+)
+
 add_library(
 	mizuiro_interface
 	INTERFACE
@@ -897,7 +876,7 @@ target_include_directories(
 	mizuiro_interface
 	INTERFACE
 	"$<BUILD_INTERFACE:${MIZUIRO_SOURCE_DIR}/include>"
-	"$<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>"
+	"$<INSTALL_INTERFACE:${CMAKE_INSTALL_FULL_INCLUDEDIR}>"
 )
 
 set(
@@ -919,7 +898,7 @@ install(
 	TARGETS
 	mizuiro_interface
 	DESTINATION
-	${INSTALL_LIBRARY_DIR}
+	${CMAKE_INSTALL_LIBDIR}
 	EXPORT
 	${MIZUIRO_EXPORT_NAME}
 )
@@ -928,7 +907,7 @@ install(
 	DIRECTORY
 	include/
 	DESTINATION
-	${INSTALL_INCLUDE_DIR}
+	${CMAKE_INSTALL_INCLUDEDIR}
 )
 
 export(
@@ -936,6 +915,11 @@ export(
 	${MIZUIRO_EXPORT_NAME}
 	FILE
 	${MIZUIRO_BUILD_CONFIG}/${MIZUIRO_TARGETS_FILE_NAME}
+)
+
+set(
+	INSTALL_CMAKECONFIG_DIR
+	${CMAKE_INSTALL_LIBDIR}/cmake/mizuiro
 )
 
 install(
