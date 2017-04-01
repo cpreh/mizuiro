@@ -24,40 +24,21 @@ set(
 	"${${PROJECT_NAME}_BINARY_DIR}"
 )
 
-include(
-	FcpptCMakeUtils
-	OPTIONAL
-	RESULT_VARIABLE
-		FCPPT_UTILS_RESULT
+find_package(
+	fcppt
+)
+
+option(
+	ENABLE_FCPPT
+	"Use FcpptCMakeUtils for building"
+	${fcppt_FOUND}
 )
 
 if(
-	FCPPT_UTILS_RESULT
-	STREQUAL
-	"NOTFOUND"
+	ENABLE_FCPPT
 )
-	set(
-		FCPPT_UTILS_FOUND
-		FALSE
-	)
-else()
-	set(
-		FCPPT_UTILS_FOUND
-		TRUE
-	)
-endif()
-
-if(
-	FCPPT_UTILS_FOUND
-)
-	message(
-		STATUS
-		"Fcppt utils will be used to build."
-	)
-else()
-	message(
-		STATUS
-		"Fcppt utils not found in CMAKE_MODULE_PATH."
+	include(
+		FcpptCMakeUtils
 	)
 endif()
 
@@ -72,7 +53,7 @@ function(
 	)
 
 	if(
-		FCPPT_UTILS_FOUND
+		ENABLE_FCPPT
 	)
 		fcppt_utils_set_target_compiler_flags(
 			${TARGET_NAME}
@@ -840,7 +821,7 @@ set(
 )
 
 if(
-	FCPPT_UTILS_FOUND
+	ENABLE_FCPPT
 )
 	fcppt_utils_add_source_groups(
 		"${MIZUIRO_FILES}"
