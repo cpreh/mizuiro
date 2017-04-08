@@ -20,7 +20,7 @@ function(
 	)
 
 	if(
-		FCPPT_UTILS_FOUND
+		ENABLE_FCPPT
 	)
 		if(
 			_NO_CODE

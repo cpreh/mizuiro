@@ -3,7 +3,7 @@ function(
 	example
 )
 	if(
-		FCPPT_UTILS_FOUND
+		ENABLE_FCPPT
 	)
 		fcppt_utils_add_example(
 			${FCPPT_UTILS_PROJECT_SOURCE_DIR}/examples
