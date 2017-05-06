@@ -77,6 +77,16 @@ public:
 		mizuiro::no_init &&
 	);
 
+	explicit
+	dimension(
+		array_type &&
+	);
+
+	explicit
+	dimension(
+		array_type const &
+	);
+
 	template<
 		typename... Args
 	>

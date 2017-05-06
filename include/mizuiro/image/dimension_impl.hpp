@@ -14,6 +14,7 @@
 #include <mizuiro/image/dimension_decl.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <iterator>
+#include <utility>
 #include <mizuiro/detail/external_end.hpp>
 
 
@@ -46,6 +47,42 @@ mizuiro::image::dimension<
 }
 
 MIZUIRO_DETAIL_POP_WARNING
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::dimension(
+	array_type &&_data
+)
+:
+	data_(
+		std::move(
+			_data
+		)
+	)
+{
+}
+
+template<
+	mizuiro::size_type Dim,
+	typename ValueType
+>
+mizuiro::image::dimension<
+	Dim,
+	ValueType
+>::dimension(
+	array_type const &_data
+)
+:
+	data_(
+		_data
+	)
+{
+}
 
 template<
 	mizuiro::size_type Dim,
