@@ -10,8 +10,6 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/format/argument.hpp>
 #include <mizuiro/color/format/base_decl.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/format/planar_fwd.hpp>
 #include <mizuiro/image/format/detail/planar_color.hpp>
 
@@ -22,8 +20,6 @@ namespace image
 {
 namespace format
 {
-
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename DimType,
@@ -80,8 +76,6 @@ public:
 	format_store_type
 	format_store() const;
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

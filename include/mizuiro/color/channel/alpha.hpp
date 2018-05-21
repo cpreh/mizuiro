@@ -9,8 +9,6 @@
 
 #include <mizuiro/color/channel/alpha_fwd.hpp>
 #include <mizuiro/color/channel/tag.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 
 
 namespace mizuiro
@@ -20,8 +18,6 @@ namespace color
 namespace channel
 {
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 struct alpha
 :
 mizuiro::color::channel::tag<
@@ -29,8 +25,6 @@ mizuiro::color::channel::tag<
 >
 {
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

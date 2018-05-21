@@ -12,8 +12,6 @@
 #include <mizuiro/color/init/detail/channel_value.hpp>
 #include <mizuiro/color/init/detail/make_values.hpp>
 #include <mizuiro/color/init/detail/values.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <tuple>
 #include <type_traits>
@@ -58,7 +56,6 @@ struct trampoline
 		Value const &_value
 	) const
 	{
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 		return
 			mizuiro::color::init::detail::make_values(
 				std::make_tuple(
@@ -71,7 +68,6 @@ MIZUIRO_DETAIL_IGNORE_EFFCPP
 					)
 				)
 			);
-MIZUIRO_DETAIL_POP_WARNING
 	}
 
 	template<
@@ -97,7 +93,6 @@ MIZUIRO_DETAIL_POP_WARNING
 			"Arguments must be of floating point type for '%=' initialization"
 		);
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 		return
 			mizuiro::color::init::detail::make_values(
 				std::make_tuple(
@@ -110,7 +105,6 @@ MIZUIRO_DETAIL_IGNORE_EFFCPP
 					)
 				)
 			);
-MIZUIRO_DETAIL_POP_WARNING
 	}
 };
 

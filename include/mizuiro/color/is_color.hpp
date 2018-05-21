@@ -9,8 +9,6 @@
 
 #include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/proxy_fwd.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -20,8 +18,6 @@ namespace mizuiro
 {
 namespace color
 {
-
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename T
@@ -61,8 +57,6 @@ struct is_color<
 std::true_type
 {
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

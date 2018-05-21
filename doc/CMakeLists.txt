@@ -388,7 +388,6 @@ set(
 	include/mizuiro/detail/format_store_decl.hpp
 	include/mizuiro/detail/format_store_fwd.hpp
 	include/mizuiro/detail/format_store_impl.hpp
-	include/mizuiro/detail/ignore_effcpp.hpp
 	include/mizuiro/detail/int_to_true.hpp
 	include/mizuiro/detail/map_format_store.hpp
 	include/mizuiro/detail/nonassignable.hpp
@@ -398,10 +397,8 @@ set(
 	include/mizuiro/detail/normal_format_store_decl.hpp
 	include/mizuiro/detail/normal_format_store_fwd.hpp
 	include/mizuiro/detail/normal_format_store_impl.hpp
-	include/mizuiro/detail/pop_warning.hpp
 	include/mizuiro/detail/pragma.hpp
 	include/mizuiro/detail/promote_type.hpp
-	include/mizuiro/detail/push_warning.hpp
 	include/mizuiro/detail/rebind_tag.hpp
 	include/mizuiro/detail/ref_store.hpp
 	include/mizuiro/detail/tuple_for_each.hpp

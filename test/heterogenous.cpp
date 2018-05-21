@@ -22,8 +22,6 @@
 #include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/layout/la.hpp>
 #include <mizuiro/color/layout/rgb.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/mpl/size_list.hpp>
 #include <mizuiro/test/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
@@ -31,14 +29,10 @@
 #include <mizuiro/test/external_end.hpp>
 
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 BOOST_AUTO_TEST_CASE(
 	heterogenous_luminance_alpha
 )
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef
 	mizuiro::color::format::heterogenous_static<
 		mizuiro::mpl::size_list<
@@ -80,14 +74,10 @@ MIZUIRO_DETAIL_POP_WARNING
 	);
 }
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 BOOST_AUTO_TEST_CASE(
 	heterogenous_rgb
 )
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef mizuiro::color::format::heterogenous_static<
 		mizuiro::mpl::size_list<
 			5u,
@@ -129,14 +119,10 @@ MIZUIRO_DETAIL_POP_WARNING
 	);
 }
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 BOOST_AUTO_TEST_CASE(
 	heterogenous_raw
 )
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef mizuiro::color::format::heterogenous_static<
 		mizuiro::mpl::size_list<
 			5u,

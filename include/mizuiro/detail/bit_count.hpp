@@ -7,8 +7,6 @@
 #ifndef MIZUIRO_DETAIL_BIT_COUNT_HPP_INCLUDED
 #define MIZUIRO_DETAIL_BIT_COUNT_HPP_INCLUDED
 
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/mpl/integral_size.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <limits>
@@ -20,8 +18,6 @@ namespace mizuiro
 {
 namespace detail
 {
-
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename IntType
@@ -41,8 +37,6 @@ mizuiro::mpl::integral_size<
 		"IntType must be unsigned"
 	);
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

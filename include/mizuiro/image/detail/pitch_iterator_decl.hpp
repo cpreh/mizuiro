@@ -8,8 +8,6 @@
 #define MIZUIRO_IMAGE_DETAIL_PITCH_ITERATOR_DECL_HPP_INCLUDED
 
 #include <mizuiro/difference_type.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/pitch_type.hpp>
 #include <mizuiro/image/detail/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/detail/stacked_dim_array.hpp>
@@ -24,8 +22,6 @@ namespace image
 {
 namespace detail
 {
-
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Access,
@@ -156,8 +152,6 @@ private:
 
 	stacked_dim_array stacked_dim_;
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

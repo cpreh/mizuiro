@@ -12,8 +12,6 @@
 #include <mizuiro/color/init/alpha.hpp>
 #include <mizuiro/color/init/luminance.hpp>
 #include <mizuiro/color/layout/la.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>
@@ -27,14 +25,10 @@
 #include <mizuiro/test/external_end.hpp>
 
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 BOOST_AUTO_TEST_CASE(
 	prepare_store
 )
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef
 	mizuiro::color::format::heterogenous_static<
 		mizuiro::mpl::size_list<

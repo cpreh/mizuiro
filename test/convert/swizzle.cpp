@@ -19,22 +19,16 @@
 #include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/layout/bgra.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/test/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
 #include <cstdint>
 #include <mizuiro/test/external_end.hpp>
 
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 BOOST_AUTO_TEST_CASE(
 	convert_shuffle
 )
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef
 	std::uint8_t
 	channel_type;

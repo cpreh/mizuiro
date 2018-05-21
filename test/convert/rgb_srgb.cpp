@@ -20,22 +20,16 @@
 #include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/s_rgba.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/test/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
 #include <cmath>
 #include <mizuiro/test/external_end.hpp>
 
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 BOOST_AUTO_TEST_CASE(
 	convert_rgb_srgb
 )
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef
 	float
 	channel_type;

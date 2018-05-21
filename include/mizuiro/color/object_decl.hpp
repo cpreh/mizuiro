@@ -24,8 +24,6 @@
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/types/store_needs_init.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <type_traits>
 #include <mizuiro/detail/external_end.hpp>
@@ -35,8 +33,6 @@ namespace mizuiro
 {
 namespace color
 {
-
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 /**
 \brief A color object stores a color by value
@@ -266,8 +262,6 @@ private:
 
 	store data_;
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

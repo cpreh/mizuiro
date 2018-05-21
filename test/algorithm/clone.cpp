@@ -10,8 +10,6 @@
 #include <mizuiro/color/init/luminance.hpp>
 #include <mizuiro/color/layout/l.hpp>
 #include <mizuiro/color/operators/equal.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/algorithm/clone.hpp>
 #include <mizuiro/image/algorithm/equal.hpp>
@@ -23,14 +21,10 @@
 #include <mizuiro/test/external_end.hpp>
 
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 BOOST_AUTO_TEST_CASE(
 	algorithm_clone
 )
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef
 	mizuiro::color::format::homogenous_static<
 		std::uint8_t,

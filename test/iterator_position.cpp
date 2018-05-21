@@ -9,8 +9,6 @@
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/l.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/iterator_position.hpp>
 #include <mizuiro/image/store.hpp>
@@ -44,14 +42,10 @@ mizuiro::image::store<
 store_2d;
 }
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 BOOST_AUTO_TEST_CASE(
 	iterator_position_test
 )
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	store_2d field{
 		store_2d::dim{
 			2u,

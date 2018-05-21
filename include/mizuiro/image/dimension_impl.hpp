@@ -9,16 +9,12 @@
 
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension_decl.hpp>
 #include <mizuiro/detail/external_begin.hpp>
 #include <iterator>
 #include <utility>
 #include <mizuiro/detail/external_end.hpp>
 
-
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	mizuiro::size_type Dim,
@@ -45,8 +41,6 @@ mizuiro::image::dimension<
 )
 {
 }
-
-MIZUIRO_DETAIL_POP_WARNING
 
 template<
 	mizuiro::size_type Dim,

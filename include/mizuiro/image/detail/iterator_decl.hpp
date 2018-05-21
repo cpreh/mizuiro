@@ -9,8 +9,6 @@
 
 #include <mizuiro/difference_type.hpp>
 #include <mizuiro/detail/either_decl.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/linear_iterator_decl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
 #include <mizuiro/image/detail/iterator_fwd.hpp>
@@ -27,8 +25,6 @@ namespace image
 {
 namespace detail
 {
-
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Access,
@@ -145,8 +141,6 @@ public:
 private:
 	internal_type internal_;
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

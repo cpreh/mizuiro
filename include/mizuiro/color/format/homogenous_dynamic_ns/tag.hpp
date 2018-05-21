@@ -9,8 +9,6 @@
 
 #include <mizuiro/color/format/dynamic_ns/tag.hpp>
 #include <mizuiro/color/format/homogenous_ns/tag.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 
 
 namespace mizuiro
@@ -21,8 +19,6 @@ namespace format
 {
 namespace homogenous_dynamic_ns
 {
-
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Type
@@ -37,8 +33,6 @@ struct tag
 	>
 {
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

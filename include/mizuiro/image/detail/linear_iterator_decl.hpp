@@ -8,8 +8,6 @@
 #define MIZUIRO_IMAGE_DETAIL_LINEAR_ITERATOR_DECL_HPP_INCLUDED
 
 #include <mizuiro/difference_type.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/detail/linear_iterator_fwd.hpp>
 #include <mizuiro/image/format/base_decl.hpp>
 #include <mizuiro/image/types/pointer.hpp>
@@ -22,8 +20,6 @@ namespace image
 {
 namespace detail
 {
-
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Access,
@@ -115,8 +111,6 @@ public:
 private:
 	pointer data_;
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

@@ -8,8 +8,6 @@
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
@@ -20,14 +18,10 @@
 #include <mizuiro/test/external_end.hpp>
 
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 BOOST_AUTO_TEST_CASE(
 	empty_view
 )
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
 			3

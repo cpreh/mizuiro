@@ -10,21 +10,16 @@
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/l.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/test/external_begin.hpp>
 #include <boost/test/unit_test.hpp>
 #include <cstdint>
 #include <mizuiro/test/external_end.hpp>
 
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 BOOST_AUTO_TEST_CASE(
 	homogenous_static
 )
 {
-MIZUIRO_DETAIL_POP_WARNING
 	typedef
 	mizuiro::color::format::homogenous_static<
 		std::uint8_t,

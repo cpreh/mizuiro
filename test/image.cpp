@@ -9,8 +9,6 @@
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/access/advance_pointer.hpp>
@@ -85,14 +83,10 @@ test_format(
 
 }
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 BOOST_AUTO_TEST_CASE(
 	interleaved
 )
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	typedef
 	mizuiro::image::dimension<
 		2

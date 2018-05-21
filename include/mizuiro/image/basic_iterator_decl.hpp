@@ -7,8 +7,6 @@
 #ifndef MIZUIRO_IMAGE_BASIC_ITERATOR_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_BASIC_ITERATOR_DECL_HPP_INCLUDED
 
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/basic_iterator_fwd.hpp>
 #include <mizuiro/image/types/value_type.hpp>
 #include <mizuiro/detail/external_begin.hpp>
@@ -20,8 +18,6 @@ namespace mizuiro
 {
 namespace image
 {
-
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Impl
@@ -140,8 +136,6 @@ public:
 		difference_type
 	) const;
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 template<
 	typename Impl

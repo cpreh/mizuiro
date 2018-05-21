@@ -9,8 +9,6 @@
 
 #include <mizuiro/rebind_tag.hpp>
 #include <mizuiro/color/format/make_tag_of.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 
 
 namespace mizuiro
@@ -23,8 +21,6 @@ namespace detail
 {
 namespace planar_color_ns
 {
-
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Format
@@ -40,8 +36,6 @@ mizuiro::rebind_tag<
 >
 {
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

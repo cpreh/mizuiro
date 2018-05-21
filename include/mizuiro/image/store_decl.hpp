@@ -11,8 +11,6 @@
 #include <mizuiro/empty_fwd.hpp>
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/nonconst_tag.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension_decl.hpp>
 #include <mizuiro/image/linear_view_fwd.hpp>
 #include <mizuiro/image/store_fwd.hpp>
@@ -27,8 +25,6 @@ namespace mizuiro
 {
 namespace image
 {
-
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Format,
@@ -170,8 +166,6 @@ private:
 
 	container data_;
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

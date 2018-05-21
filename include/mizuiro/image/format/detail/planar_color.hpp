@@ -7,8 +7,6 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_DETAIL_PLANAR_COLOR_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_DETAIL_PLANAR_COLOR_HPP_INCLUDED
 
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/format/detail/planar_color_fwd.hpp>
 
 
@@ -21,8 +19,6 @@ namespace format
 namespace detail
 {
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 template<
 	typename Format
 >
@@ -34,8 +30,6 @@ Format
 	Format
 	base;
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }

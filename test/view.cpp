@@ -11,8 +11,6 @@
 #include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/layout/r.hpp>
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/view.hpp>
@@ -61,14 +59,10 @@ view_type;
 
 }
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 BOOST_AUTO_TEST_CASE(
 	view_operations
 )
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	store_type store(
 		store_type::dim{
 			1u,
@@ -152,14 +146,10 @@ MIZUIRO_DETAIL_POP_WARNING
 	);
 }
 
-MIZUIRO_DETAIL_IGNORE_EFFCPP
-
 BOOST_AUTO_TEST_CASE(
 	view_fill
 )
 {
-MIZUIRO_DETAIL_POP_WARNING
-
 	store_type const store(
 		store_type::dim{
 			1u,

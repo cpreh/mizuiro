@@ -7,8 +7,6 @@
 #ifndef MIZUIRO_IMAGE_PITCH_VIEW_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_PITCH_VIEW_DECL_HPP_INCLUDED
 
-#include <mizuiro/detail/ignore_effcpp.hpp>
-#include <mizuiro/detail/pop_warning.hpp>
 #include <mizuiro/image/bound_fwd.hpp>
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/pitch_type.hpp>
@@ -23,8 +21,6 @@ namespace mizuiro
 {
 namespace image
 {
-
-MIZUIRO_DETAIL_IGNORE_EFFCPP
 
 template<
 	typename Access,
@@ -159,8 +155,6 @@ private:
 
 	pitch_type pitch_;
 };
-
-MIZUIRO_DETAIL_POP_WARNING
 
 }
 }
