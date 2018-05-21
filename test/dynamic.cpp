@@ -19,14 +19,15 @@
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/space/rgb.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <boost/test/unit_test.hpp>
+#include <catch.hpp>
 #include <cstdint>
 #include <functional>
 #include <mizuiro/test/external_end.hpp>
 
 
-BOOST_AUTO_TEST_CASE(
-	dynamic_heterogenous
+TEST_CASE(
+	"dynamic heterogenous",
+	"[mizuiro]"
 )
 {
 	typedef
@@ -73,31 +74,35 @@ BOOST_AUTO_TEST_CASE(
 		rgba_format_store
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		test1.get(
 			mizuiro::color::channel::red()
-		),
+		)
+		==
 		std::uint8_t{4}
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		test1.get(
 			mizuiro::color::channel::green()
-		),
+		)
+		==
 		std::uint8_t{10}
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		test1.get(
 			mizuiro::color::channel::blue()
-		),
+		)
+		==
 		std::uint8_t{20}
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		test1.get(
 			mizuiro::color::channel::alpha()
-		),
+		)
+		==
 		std::uint8_t{45}
 	);
 }

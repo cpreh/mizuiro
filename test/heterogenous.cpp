@@ -24,13 +24,14 @@
 #include <mizuiro/color/layout/rgb.hpp>
 #include <mizuiro/mpl/size_list.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <boost/test/unit_test.hpp>
+#include <catch.hpp>
 #include <cstdint>
 #include <mizuiro/test/external_end.hpp>
 
 
-BOOST_AUTO_TEST_CASE(
-	heterogenous_luminance_alpha
+TEST_CASE(
+	"heterogenous luminance_alpha",
+	"[mizuiro]"
 )
 {
 	typedef
@@ -54,28 +55,32 @@ BOOST_AUTO_TEST_CASE(
 		(mizuiro::color::init::alpha() = std::uint8_t{0xF})
 	);
 
-	BOOST_CHECK_EQUAL(
-		*test1.data(),
+	CHECK(
+		*test1.data()
+		==
 		std::uint32_t{0x1E1FF0F}
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		test1.get(
 			mizuiro::color::channel::luminance()
-		),
+		)
+		==
 		std::uint32_t{0x1E1FF}
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		test1.get(
 			mizuiro::color::channel::alpha()
-		),
+		)
+		==
 		std::uint8_t{0xF}
 	);
 }
 
-BOOST_AUTO_TEST_CASE(
-	heterogenous_rgb
+TEST_CASE(
+	"heterogenous rgb",
+	"[mizuiro]"
 )
 {
 	typedef mizuiro::color::format::heterogenous_static<
@@ -97,30 +102,34 @@ BOOST_AUTO_TEST_CASE(
 		(mizuiro::color::init::blue() = std::uint8_t{0x15})
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		test1.get(
 			mizuiro::color::channel::red()
-		),
+		)
+		==
 		std::uint8_t{0x18}
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		test1.get(
 			mizuiro::color::channel::green()
-		),
+		)
+		==
 		std::uint8_t{0x35}
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		test1.get(
 			mizuiro::color::channel::blue()
-		),
+		)
+		==
 		std::uint8_t{0x15}
 	);
 }
 
-BOOST_AUTO_TEST_CASE(
-	heterogenous_raw
+TEST_CASE(
+	"heterogenous raw",
+	"[mizuiro]"
 )
 {
 	typedef mizuiro::color::format::heterogenous_static<
@@ -145,24 +154,27 @@ BOOST_AUTO_TEST_CASE(
 		(mizuiro::color::init::blue() = std::uint8_t{0x15})
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		color.get(
 			mizuiro::color::channel::red()
-		),
+		)
+		==
 		std::uint8_t{0x18}
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		color.get(
 			mizuiro::color::channel::green()
-		),
+		)
+		==
 		std::uint8_t{0x35}
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		color.get(
 			mizuiro::color::channel::blue()
-		),
+		)
+		==
 		std::uint8_t{0x15}
 	);
 }

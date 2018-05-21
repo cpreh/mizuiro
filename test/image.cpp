@@ -16,7 +16,7 @@
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
 #include <mizuiro/image/types/value_type.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <boost/test/unit_test.hpp>
+#include <catch.hpp>
 #include <cstdint>
 #include <mizuiro/test/external_end.hpp>
 
@@ -58,7 +58,7 @@ test_format(
 	store_type::access
 	access;
 
-	BOOST_CHECK((
+	CHECK(
 		mizuiro::image::access::pointer_difference<
 			access,
 			mizuiro::const_tag,
@@ -78,13 +78,14 @@ test_format(
 		)
 		==
 		3
-	));
+	);
 }
 
 }
 
-BOOST_AUTO_TEST_CASE(
-	interleaved
+TEST_CASE(
+	"image interleaved",
+	"[mizuiro]"
 )
 {
 	typedef

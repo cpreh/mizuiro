@@ -20,13 +20,14 @@
 #include <mizuiro/image/format/include/interleaved_heterogenous.hpp>
 #include <mizuiro/mpl/size_list.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <boost/test/unit_test.hpp>
+#include <catch.hpp>
 #include <cstdint>
 #include <mizuiro/test/external_end.hpp>
 
 
-BOOST_AUTO_TEST_CASE(
-	prepare_store
+TEST_CASE(
+	"prepare store",
+	"[mizuiro]"
 )
 {
 	typedef
@@ -80,7 +81,7 @@ BOOST_AUTO_TEST_CASE(
 		}
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		store.view()[
 			store_type::dim(
 				0u,
@@ -88,11 +89,12 @@ BOOST_AUTO_TEST_CASE(
 			)
 		].get(
 			mizuiro::color::channel::luminance()
-		),
+		)
+		==
 		std::uint32_t{0x1E1FF}
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		store.view()[
 			store_type::dim(
 				0u,
@@ -100,7 +102,8 @@ BOOST_AUTO_TEST_CASE(
 			)
 		].get(
 			mizuiro::color::channel::alpha()
-		),
+		)
+		==
 		std::uint8_t{0xF}
 	);
 }

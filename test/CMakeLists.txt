@@ -2,6 +2,38 @@ include(
 	CMakeParseArguments
 )
 
+option(
+	MIZUIRO_CATCH_LINK_STATIC
+	"Link to catch statically"
+	OFF
+)
+
+if(
+	MIZUIRO_CATCH_LINK_STATIC
+)
+	set(
+		MIZUIRO_CATCH_LIB_TYPE
+		"STATIC"
+	)
+else()
+	set(
+		MIZUIRO_CATCH_LIB_TYPE
+		"SHARED"
+	)
+endif()
+
+add_library(
+	mizuiro_catch_main
+	${MIZUIRO_CATCH_LIB_TYPE}
+	catch_main.cpp
+)
+
+target_link_libraries(
+	mizuiro_catch_main
+	PRIVATE
+	Catch2::Catch
+)
+
 function(
 	add_mizuiro_test
 	PATHNAME
@@ -51,39 +83,11 @@ function(
 	if(
 		NOT ${_NO_CODE}
 	)
-		target_compile_definitions(
-			${MIZUIRO_TEST_NAME}
-			PRIVATE
-			BOOST_TEST_MODULE=${TESTNAME}
-		)
-
-		if(
-			Boost_USE_STATIC_LIBS
-		)
-			target_compile_definitions(
-				${MIZUIRO_TEST_NAME}
-				PRIVATE
-				BOOST_TEST_NO_LIB
-			)
-		else()
-			target_compile_definitions(
-				${MIZUIRO_TEST_NAME}
-				PRIVATE
-				BOOST_TEST_DYN_LINK
-			)
-		endif()
-
-		target_include_directories(
-			${MIZUIRO_TEST_NAME}
-			SYSTEM
-			PRIVATE
-			${Boost_INCLUDE_DIR}
-		)
-
 		target_link_libraries(
 			${MIZUIRO_TEST_NAME}
 			PRIVATE
-			${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+			mizuiro_catch_main
+			Catch2::Catch
 		)
 
 		add_test(
@@ -109,7 +113,7 @@ add_mizuiro_test(
 )
 
 add_mizuiro_test(
-	convert/swizzle
+	convert/shuffle
 )
 
 add_mizuiro_test(

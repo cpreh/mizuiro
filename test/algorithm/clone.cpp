@@ -16,13 +16,14 @@
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <boost/test/unit_test.hpp>
+#include <catch.hpp>
 #include <cstdint>
 #include <mizuiro/test/external_end.hpp>
 
 
-BOOST_AUTO_TEST_CASE(
-	algorithm_clone
+TEST_CASE(
+	"algorithm::clone",
+	"[mizuiro]"
 )
 {
 	typedef
@@ -69,7 +70,7 @@ BOOST_AUTO_TEST_CASE(
 		)
 	);
 
-	BOOST_CHECK(
+	CHECK(
 		mizuiro::image::algorithm::equal(
 			store.view(),
 			store2.view()

@@ -20,13 +20,14 @@
 #include <mizuiro/color/layout/bgra.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <boost/test/unit_test.hpp>
+#include <catch.hpp>
 #include <cstdint>
 #include <mizuiro/test/external_end.hpp>
 
 
-BOOST_AUTO_TEST_CASE(
-	convert_shuffle
+TEST_CASE(
+	"convert shuffle",
+	"[mizuiro]"
 )
 {
 	typedef
@@ -67,31 +68,35 @@ BOOST_AUTO_TEST_CASE(
 		)
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		bgra.get(
 			mizuiro::color::channel::red()
-		),
+		)
+		==
 		channel_type{23}
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		bgra.get(
 			mizuiro::color::channel::green()
-		),
+		)
+		==
 		channel_type{100}
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		bgra.get(
 			mizuiro::color::channel::blue()
-		),
+		)
+		==
 		channel_type{42}
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		bgra.get(
 			mizuiro::color::channel::alpha()
-		),
+		)
+		==
 		channel_type{150}
 	);
 }

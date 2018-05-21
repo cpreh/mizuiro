@@ -11,13 +11,14 @@
 #include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/l.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <boost/test/unit_test.hpp>
+#include <catch.hpp>
 #include <cstdint>
 #include <mizuiro/test/external_end.hpp>
 
 
-BOOST_AUTO_TEST_CASE(
-	homogenous_static
+TEST_CASE(
+	"homogenous static",
+	"[mizuirp]"
 )
 {
 	typedef
@@ -46,10 +47,11 @@ BOOST_AUTO_TEST_CASE(
 		test
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		foo.get(
 			mizuiro::color::channel::luminance()
-		),
+		)
+		==
 		test
 	);
 }

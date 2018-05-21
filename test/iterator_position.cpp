@@ -15,7 +15,7 @@
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <boost/test/unit_test.hpp>
+#include <catch.hpp>
 #include <cstdint>
 #include <mizuiro/test/external_end.hpp>
 
@@ -42,8 +42,9 @@ mizuiro::image::store<
 store_2d;
 }
 
-BOOST_AUTO_TEST_CASE(
-	iterator_position_test
+TEST_CASE(
+	"iterator position",
+	"[mizuiro]"
 )
 {
 	store_2d field{
@@ -62,44 +63,48 @@ BOOST_AUTO_TEST_CASE(
 		field_view.begin()
 	};
 
-	BOOST_CHECK_EQUAL(
+	REQUIRE(
 		mizuiro::image::iterator_position(
 			field_view,
 			it++
-		),
+		)
+		==
 		store_2d::dim(
 			0u,
 			0u
 		)
 	);
 
-	BOOST_CHECK_EQUAL(
+	REQUIRE(
 		mizuiro::image::iterator_position(
 			field_view,
 			it++
-		),
+		)
+		==
 		store_2d::dim(
 			1u,
 			0u
 		)
 	);
 
-	BOOST_CHECK_EQUAL(
+	REQUIRE(
 		mizuiro::image::iterator_position(
 			field_view,
 			it++
-		),
+		)
+		==
 		store_2d::dim(
 			0u,
 			1u
 		)
 	);
 
-	BOOST_CHECK_EQUAL(
+	REQUIRE(
 		mizuiro::image::iterator_position(
 			field_view,
 			it++
-		),
+		)
+		==
 		store_2d::dim(
 			1u,
 			1u

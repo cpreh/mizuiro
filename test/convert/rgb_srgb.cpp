@@ -21,13 +21,14 @@
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/s_rgba.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <boost/test/unit_test.hpp>
+#include <catch.hpp>
 #include <cmath>
 #include <mizuiro/test/external_end.hpp>
 
 
-BOOST_AUTO_TEST_CASE(
-	convert_rgb_srgb
+TEST_CASE(
+	"convert rgb_srgb",
+	"[mizuiro]"
 )
 {
 	typedef
@@ -77,7 +78,7 @@ BOOST_AUTO_TEST_CASE(
 		)
 	);
 
-	BOOST_CHECK(
+	CHECK(
 		mizuiro::color::compare(
 			rgba,
 			rgba2,

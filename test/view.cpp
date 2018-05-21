@@ -19,7 +19,7 @@
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <boost/test/unit_test.hpp>
+#include <catch.hpp>
 #include <cstdint>
 #include <mizuiro/test/external_end.hpp>
 
@@ -59,8 +59,9 @@ view_type;
 
 }
 
-BOOST_AUTO_TEST_CASE(
-	view_operations
+TEST_CASE(
+	"view operations",
+	"[mizuiro]"
 )
 {
 	store_type store(
@@ -88,7 +89,7 @@ BOOST_AUTO_TEST_CASE(
 				 channel_type{42}
 		);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		view[
 			view_type::dim(
 				0u,
@@ -96,7 +97,8 @@ BOOST_AUTO_TEST_CASE(
 			)
 		].get(
 			mizuiro::color::channel::red()
-		),
+		)
+		==
 		channel_type{42}
 	);
 
@@ -105,16 +107,17 @@ BOOST_AUTO_TEST_CASE(
 			view.begin()
 		);
 
-		BOOST_CHECK_EQUAL(
+		CHECK(
 			(*it).get(
 				mizuiro::color::channel::red()
-			),
+			)
+			==
 			channel_type{42}
 		);
 
 		++it;
 
-		BOOST_CHECK(
+		CHECK(
 			it
 			==
 			view.end()
@@ -122,14 +125,14 @@ BOOST_AUTO_TEST_CASE(
 
 		--it;
 
-		BOOST_CHECK(
+		CHECK(
 			it
 			==
 			view.begin()
 		);
 	}
 
-	BOOST_CHECK(
+	CHECK(
 		view.begin()
 		+
 		1
@@ -137,7 +140,7 @@ BOOST_AUTO_TEST_CASE(
 		view.end()
 	);
 
-	BOOST_CHECK(
+	CHECK(
 		view.end()
 		-
 		view.begin()
@@ -146,8 +149,9 @@ BOOST_AUTO_TEST_CASE(
 	);
 }
 
-BOOST_AUTO_TEST_CASE(
-	view_fill
+TEST_CASE(
+	"view fill",
+	"[mizuiro]"
 )
 {
 	store_type const store(
@@ -174,7 +178,7 @@ BOOST_AUTO_TEST_CASE(
 		}
 	);
 
-	BOOST_CHECK_EQUAL(
+	CHECK(
 		store.view()[
 			store_type::dim(
 				0u,
@@ -182,7 +186,8 @@ BOOST_AUTO_TEST_CASE(
 			)
 		].get(
 			mizuiro::color::channel::red()
-		),
+		)
+		==
 		channel_type{42}
 	);
 }

@@ -114,16 +114,13 @@ if(
 endif()
 
 find_package(
-	Boost
-	1.40.0
-	COMPONENTS
-	"unit_test_framework"
+	Catch2
 )
 
 option(
 	ENABLE_TEST
 	"Build the tests"
-	${BOOST_FOUND}
+	${Catch2_FOUND}
 )
 
 if(
