@@ -28,6 +28,13 @@ add_library(
 	catch_main.cpp
 )
 
+set_target_properties(
+	mizuiro_catch_main
+	PROPERTIES
+	FOLDER
+	mizuiro
+)
+
 target_link_libraries(
 	mizuiro_catch_main
 	PRIVATE
@@ -69,6 +76,16 @@ function(
 		${MIZUIRO_TEST_NAME}
 		${PATHNAME}.cpp
 	)
+
+	if(
+		ENABLE_FCPPT
+	)
+		fcppt_utils_set_target_folder(
+			${MIZUIRO_TEST_NAME}
+			tests
+			${PATHNAME}
+		)
+	endif()
 
 	mizuiro_target_flags(
 		${MIZUIRO_TEST_NAME}
