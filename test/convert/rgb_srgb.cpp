@@ -21,7 +21,7 @@
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/s_rgba.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <catch.hpp>
+#include <catch2/catch.hpp>
 #include <cmath>
 #include <mizuiro/test/external_end.hpp>
 

@@ -19,7 +19,7 @@
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/space/rgb.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <catch.hpp>
+#include <catch2/catch.hpp>
 #include <cstdint>
 #include <functional>
 #include <mizuiro/test/external_end.hpp>

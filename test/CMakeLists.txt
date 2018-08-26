@@ -38,7 +38,7 @@ set_target_properties(
 target_link_libraries(
 	mizuiro_catch_main
 	PRIVATE
-	Catch2::Catch
+	Catch2::Catch2
 )
 
 function(
@@ -104,7 +104,7 @@ function(
 			${MIZUIRO_TEST_NAME}
 			PRIVATE
 			mizuiro_catch_main
-			Catch2::Catch
+			Catch2::Catch2
 		)
 
 		add_test(

@@ -20,7 +20,7 @@
 #include <mizuiro/image/format/include/interleaved_heterogenous.hpp>
 #include <mizuiro/mpl/size_list.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <catch.hpp>
+#include <catch2/catch.hpp>
 #include <cstdint>
 #include <mizuiro/test/external_end.hpp>
 

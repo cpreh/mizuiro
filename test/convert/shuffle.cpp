@@ -20,7 +20,7 @@
 #include <mizuiro/color/layout/bgra.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <catch.hpp>
+#include <catch2/catch.hpp>
 #include <cstdint>
 #include <mizuiro/test/external_end.hpp>
 

@@ -16,7 +16,7 @@
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
 #include <mizuiro/image/types/value_type.hpp>
 #include <mizuiro/test/external_begin.hpp>
-#include <catch.hpp>
+#include <catch2/catch.hpp>
 #include <cstdint>
 #include <mizuiro/test/external_end.hpp>
 
