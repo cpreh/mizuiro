@@ -77,15 +77,11 @@ function(
 		${PATHNAME}.cpp
 	)
 
-	if(
-		ENABLE_FCPPT
+	fcppt_utils_set_target_folder(
+		${MIZUIRO_TEST_NAME}
+		tests
+		${PATHNAME}
 	)
-		fcppt_utils_set_target_folder(
-			${MIZUIRO_TEST_NAME}
-			tests
-			${PATHNAME}
-		)
-	endif()
 
 	mizuiro_target_flags(
 		${MIZUIRO_TEST_NAME}

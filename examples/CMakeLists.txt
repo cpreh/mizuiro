@@ -2,30 +2,12 @@ function(
 	add_mizuiro_example
 	example
 )
-	if(
-		ENABLE_FCPPT
+	fcppt_utils_add_example(
+		${FCPPT_UTILS_PROJECT_SOURCE_DIR}/examples
+		${example}
+		INCLUDE_DIRS
+			${MIZUIRO_SOURCE_DIR}/include
 	)
-		fcppt_utils_add_example(
-			${FCPPT_UTILS_PROJECT_SOURCE_DIR}/examples
-			${example}
-			INCLUDE_DIRS
-				${MIZUIRO_SOURCE_DIR}/include
-		)
-	else()
-		set(
-			EXAMPLE_NAME
-			"mizuiro_example_${example}"
-		)
-
-		add_executable(
-			${EXAMPLE_NAME}
-			"${example}.cpp"
-		)
-
-		mizuiro_target_flags(
-			${EXAMPLE_NAME}
-		)
-	endif()
 endfunction()
 
 add_mizuiro_example(adapted_view)

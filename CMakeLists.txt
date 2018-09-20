@@ -26,21 +26,12 @@ set(
 
 find_package(
 	fcppt
+	REQUIRED
 )
 
-option(
-	ENABLE_FCPPT
-	"Use FcpptCMakeUtils for building"
-	${fcppt_FOUND}
+include(
+	FcpptCMakeUtils
 )
-
-if(
-	ENABLE_FCPPT
-)
-	include(
-		FcpptCMakeUtils
-	)
-endif()
 
 function(
 	mizuiro_target_flags
@@ -52,37 +43,9 @@ function(
 		${MIZUIRO_SOURCE_DIR}/include
 	)
 
-	if(
-		ENABLE_FCPPT
+	fcppt_utils_set_target_compiler_flags(
+		${TARGET_NAME}
 	)
-		fcppt_utils_set_target_compiler_flags(
-			${TARGET_NAME}
-		)
-	else()
-		if(
-			CMAKE_COMPILER_IS_GNUCXX
-			OR
-			"${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang"
-		)
-			set(
-				COMPILE_OPTIONS
-				"-std=c++14"
-				"-Wall"
-				"-Wextra"
-				"-Wconversion"
-				"-Wsign-conversion"
-				"-Wshadow"
-				"-Wunused"
-			)
-
-			set_target_properties(
-				${TARGET_NAME}
-				PROPERTIES
-				COMPILE_OPTIONS
-				"${COMPILE_OPTIONS}"
-			)
-		endif()
-	endif()
 endfunction()
 
 option(
@@ -813,29 +776,25 @@ set(
 	include/mizuiro/size_type.hpp
 )
 
-if(
-	ENABLE_FCPPT
+fcppt_utils_add_source_groups(
+	"${MIZUIRO_FILES}"
 )
-	fcppt_utils_add_source_groups(
-		"${MIZUIRO_FILES}"
-	)
 
-	fcppt_utils_add_dummy_target(
-		mizuiro
-		"${MIZUIRO_FILES}"
-	)
+fcppt_utils_add_dummy_target(
+	mizuiro
+	"${MIZUIRO_FILES}"
+)
 
-	set_target_properties(
-		mizuiro_dummy
-		PROPERTIES
-		FOLDER
-		mizuiro
-	)
+set_target_properties(
+	mizuiro_dummy
+	PROPERTIES
+	FOLDER
+	mizuiro
+)
 
-	mizuiro_target_flags(
-		mizuiro_dummy
-	)
-endif()
+mizuiro_target_flags(
+	mizuiro_dummy
+)
 
 include(
 	GNUInstallDirs
