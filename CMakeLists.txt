@@ -704,6 +704,19 @@ set_target_properties(
 	mizuiro
 )
 
+target_link_libraries(
+	mizuiro_dummy
+	PRIVATE
+	fcppt_core_interface
+)
+
+target_include_directories(
+	mizuiro_dummy
+	PRIVATE
+	${Brigand_INCLUDE_DIRS}
+	${MIZUIRO_SOURCE_DIR}/include
+)
+
 fcppt_utils_set_target_compiler_flags(
 	mizuiro_dummy
 )
