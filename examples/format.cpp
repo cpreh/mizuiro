@@ -22,11 +22,11 @@
 //![includes_layout]
 #include <mizuiro/color/layout/rgb.hpp>
 //![includes_layout]
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <cstdint>
 #include <iostream>
 #include <ostream>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 int

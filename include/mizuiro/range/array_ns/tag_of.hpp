@@ -10,9 +10,9 @@
 #include <mizuiro/array.hpp>
 #include <mizuiro/range/tag_of_fwd.hpp>
 #include <mizuiro/range/array_ns/tag.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <cstddef>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

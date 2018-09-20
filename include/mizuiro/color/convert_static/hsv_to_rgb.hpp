@@ -11,9 +11,9 @@
 #include <mizuiro/color/conversion/hsv_to_rgb.hpp>
 #include <mizuiro/color/convert_static/is_hsv.hpp>
 #include <mizuiro/color/convert_static/is_rgb.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

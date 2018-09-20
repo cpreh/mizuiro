@@ -413,8 +413,6 @@ set(
 	include/mizuiro/detail/empty_format_store_fwd.hpp
 	include/mizuiro/detail/empty_format_store_impl.hpp
 	include/mizuiro/detail/equal.hpp
-	include/mizuiro/detail/external_begin.hpp
-	include/mizuiro/detail/external_end.hpp
 	include/mizuiro/detail/format_argument.hpp
 	include/mizuiro/detail/format_argument_impl.hpp
 	include/mizuiro/detail/format_base_decl.hpp

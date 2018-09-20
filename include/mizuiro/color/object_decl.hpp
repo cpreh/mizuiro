@@ -24,9 +24,9 @@
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/types/store_needs_init.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

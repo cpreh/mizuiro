@@ -10,10 +10,10 @@
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/image/dimension_decl.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <iterator>
 #include <utility>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 template<

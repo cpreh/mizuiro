@@ -31,14 +31,14 @@
 #include <mizuiro/image/types/pointer_ns/tag.hpp>
 #include <mizuiro/image/types/reference_ns/tag.hpp>
 #include <mizuiro/image/types/value_type_ns/tag.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <cstring>
 #include <iostream>
 #include <iterator>
 #include <ostream>
 #include <type_traits>
 #include <vector>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mylib

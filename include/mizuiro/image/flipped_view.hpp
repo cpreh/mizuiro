@@ -15,9 +15,9 @@
 #include <mizuiro/image/detail/flipped_pitch.hpp>
 #include <mizuiro/image/detail/flipped_start.hpp>
 #include <mizuiro/image/detail/pitch_difference.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

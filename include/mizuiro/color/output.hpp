@@ -13,10 +13,10 @@
 #include <mizuiro/color/format/get.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/promote_type.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <ostream>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

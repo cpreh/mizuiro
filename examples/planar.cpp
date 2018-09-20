@@ -14,9 +14,9 @@
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/format/planar.hpp>
 #include <mizuiro/image/format/include/planar.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <iostream>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 int

@@ -16,9 +16,9 @@
 #include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/conversion/detail/rgb_from_chroma.hpp>
 #include <mizuiro/color/format/argument.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <cmath>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

@@ -7,10 +7,10 @@
 #ifndef MIZUIRO_COLOR_DETAIL_FULL_CHANNEL_MAX_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_FULL_CHANNEL_MAX_HPP_INCLUDED
 
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <limits>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

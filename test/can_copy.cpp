@@ -16,9 +16,9 @@
 #include <mizuiro/image/algorithm/can_copy.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <cstdint>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace

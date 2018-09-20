@@ -12,11 +12,11 @@
 #include <mizuiro/color/init/luminance.hpp>
 #include <mizuiro/color/layout/la.hpp>
 #include <mizuiro/mpl/size_list.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <cstdint>
 #include <iostream>
 #include <ostream>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 int

@@ -13,10 +13,10 @@
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/types/needs_prepare.hpp>
 #include <mizuiro/image/types/pointer.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <memory>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

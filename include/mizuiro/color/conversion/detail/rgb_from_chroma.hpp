@@ -11,9 +11,9 @@
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/conversion/detail/set_chroma_parts.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <exception>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

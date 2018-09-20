@@ -8,10 +8,10 @@
 #define MIZUIRO_DETAIL_COPY_N_HPP_INCLUDED
 
 #include <mizuiro/detail/copy_n_base.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <cstddef>
 #include <cstring>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

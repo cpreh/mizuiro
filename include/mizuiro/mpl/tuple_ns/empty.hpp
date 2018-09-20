@@ -10,9 +10,9 @@
 #include <mizuiro/mpl/bool.hpp>
 #include <mizuiro/mpl/empty_ns/tag.hpp>
 #include <mizuiro/mpl/tuple_ns/tag.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <tuple>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

@@ -8,10 +8,10 @@
 #define MIZUIRO_COLOR_INIT_DETAIL_VALUES_HPP_INCLUDED
 
 #include <mizuiro/color/init/detail/values_fwd.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <tuple>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

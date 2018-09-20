@@ -10,9 +10,9 @@
 #include <mizuiro/color/detail/dynamic/initialize_indices.hpp>
 #include <mizuiro/color/detail/dynamic/make_channels.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_decl.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 template<

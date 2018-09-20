@@ -22,12 +22,12 @@
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <cstdint>
 #include <functional>
 #include <iostream>
 #include <ostream>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 int

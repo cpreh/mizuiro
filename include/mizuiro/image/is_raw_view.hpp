@@ -8,9 +8,9 @@
 #define MIZUIRO_IMAGE_IS_RAW_VIEW_HPP_INCLUDED
 
 #include <mizuiro/access/raw.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

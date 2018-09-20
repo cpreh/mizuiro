@@ -10,9 +10,9 @@
 #include <mizuiro/detail/copy_store.hpp>
 #include <mizuiro/detail/normal_format_store_fwd.hpp>
 #include <mizuiro/detail/ref_store.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <functional>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

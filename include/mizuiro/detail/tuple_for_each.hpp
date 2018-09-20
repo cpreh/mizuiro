@@ -7,11 +7,11 @@
 #ifndef MIZUIRO_DETAIL_TUPLE_FOR_EACH_HPP_INCLUDED
 #define MIZUIRO_DETAIL_TUPLE_FOR_EACH_HPP_INCLUDED
 
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <cstddef>
 #include <tuple>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

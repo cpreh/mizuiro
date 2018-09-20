@@ -11,9 +11,9 @@
 #include <mizuiro/color/format/make_tag_of.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/tag_of_fwd.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

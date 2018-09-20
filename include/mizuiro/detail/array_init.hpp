@@ -10,9 +10,9 @@
 #include <mizuiro/array.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/detail/array_init_each_rt.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

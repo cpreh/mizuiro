@@ -9,9 +9,9 @@
 
 #include <mizuiro/image/basic_iterator_fwd.hpp>
 #include <mizuiro/image/types/value_type.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <iterator>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

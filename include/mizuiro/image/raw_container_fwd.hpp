@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_IMAGE_RAW_CONTAINER_FWD_HPP_INCLUDED
 #define MIZUIRO_IMAGE_RAW_CONTAINER_FWD_HPP_INCLUDED
 
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <memory>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

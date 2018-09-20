@@ -11,10 +11,10 @@
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/format/canonical.hpp>
 #include <mizuiro/image/format/include/canonical.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <iostream>
 #include <string>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 int

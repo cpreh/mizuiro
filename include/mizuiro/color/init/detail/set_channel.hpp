@@ -11,9 +11,9 @@
 #include <mizuiro/color/init/detail/channel_percentage.hpp>
 #include <mizuiro/color/init/detail/channel_value.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

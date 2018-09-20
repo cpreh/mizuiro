@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_DIFFERENCE_TYPE_HPP_INCLUDED
 #define MIZUIRO_DIFFERENCE_TYPE_HPP_INCLUDED
 
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <cstddef>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

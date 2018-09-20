@@ -12,9 +12,9 @@
 #include <mizuiro/image/algorithm/copy_same_channel_order.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

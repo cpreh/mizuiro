@@ -9,9 +9,9 @@
 
 #include <mizuiro/range/make_tag_of.hpp>
 #include <mizuiro/range/make_ns/tag.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

@@ -11,9 +11,9 @@
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/conversion/detail/convert_each.hpp>
 #include <mizuiro/color/format/get.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <cmath>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

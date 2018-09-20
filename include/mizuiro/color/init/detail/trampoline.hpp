@@ -12,10 +12,10 @@
 #include <mizuiro/color/init/detail/channel_value.hpp>
 #include <mizuiro/color/init/detail/make_values.hpp>
 #include <mizuiro/color/init/detail/values.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <tuple>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

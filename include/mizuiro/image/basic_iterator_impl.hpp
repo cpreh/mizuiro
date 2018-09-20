@@ -8,10 +8,10 @@
 #define MIZUIRO_IMAGE_BASIC_ITERATOR_IMPL_HPP_INCLUDED
 
 #include <mizuiro/image/basic_iterator_decl.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <memory>
 #include <utility>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 template<

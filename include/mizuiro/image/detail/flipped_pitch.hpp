@@ -8,9 +8,9 @@
 #define MIZUIRO_IMAGE_DETAIL_FLIPPED_PITCH_HPP_INCLUDED
 
 #include <mizuiro/no_init.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

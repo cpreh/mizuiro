@@ -12,9 +12,9 @@
 #include <mizuiro/color/types/channel_reference_ns/tag.hpp>
 #include <mizuiro/detail/assert_access.hpp>
 #include <mizuiro/detail/assert_constness.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <type_traits>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro

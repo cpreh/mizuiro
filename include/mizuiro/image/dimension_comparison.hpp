@@ -9,9 +9,9 @@
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
-#include <mizuiro/detail/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <algorithm>
-#include <mizuiro/detail/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
