@@ -5,8 +5,8 @@ function(
 	fcppt_utils_add_example(
 		${FCPPT_UTILS_PROJECT_SOURCE_DIR}/examples
 		${example}
-		INCLUDE_DIRS
-			${MIZUIRO_SOURCE_DIR}/include
+		LINK_LIBS
+			mizuiro_interface
 	)
 endfunction()
 

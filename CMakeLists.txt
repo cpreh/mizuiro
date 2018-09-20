@@ -38,21 +38,6 @@ include(
 	FcpptCMakeUtils
 )
 
-function(
-	mizuiro_target_flags
-	TARGET_NAME
-)
-	target_include_directories(
-		${TARGET_NAME}
-		PRIVATE
-		${MIZUIRO_SOURCE_DIR}/include
-	)
-
-	fcppt_utils_set_target_compiler_flags(
-		${TARGET_NAME}
-	)
-endfunction()
-
 option(
 	ENABLE_DOC
 	"Build the documentation"
@@ -797,7 +782,7 @@ set_target_properties(
 	mizuiro
 )
 
-mizuiro_target_flags(
+fcppt_utils_set_target_compiler_flags(
 	mizuiro_dummy
 )
 
@@ -808,6 +793,12 @@ include(
 add_library(
 	mizuiro_interface
 	INTERFACE
+)
+
+target_link_libraries(
+	mizuiro_interface
+	INTERFACE
+	fcppt_core_interface
 )
 
 target_include_directories(

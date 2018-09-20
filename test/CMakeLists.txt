@@ -77,14 +77,20 @@ function(
 		${PATHNAME}.cpp
 	)
 
+	fcppt_utils_set_target_compiler_flags(
+		${MIZUIRO_TEST_NAME}
+	)
+
 	fcppt_utils_set_target_folder(
 		${MIZUIRO_TEST_NAME}
 		tests
 		${PATHNAME}
 	)
 
-	mizuiro_target_flags(
+	target_link_libraries(
 		${MIZUIRO_TEST_NAME}
+		PRIVATE
+		mizuiro_interface
 	)
 
 	target_include_directories(
