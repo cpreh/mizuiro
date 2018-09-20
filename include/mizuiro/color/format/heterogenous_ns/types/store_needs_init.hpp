@@ -9,7 +9,9 @@
 
 #include <mizuiro/color/format/heterogenous_ns/tag.hpp>
 #include <mizuiro/color/types/store_needs_init_ns/tag.hpp>
-#include <mizuiro/mpl/true.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <type_traits>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -24,7 +26,7 @@ namespace store_needs_init_ns
 template<
 	typename Format
 >
-mizuiro::mpl::true_
+std::true_type
 store_needs_init_adl(
 	mizuiro::color::types::store_needs_init_ns::tag,
 	mizuiro::color::format::heterogenous_ns::tag<

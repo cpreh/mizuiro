@@ -8,6 +8,7 @@
 #define MIZUIRO_COLOR_DETAIL_HETEROGENOUS_ACCESS_NORMAL_HPP_INCLUDED
 
 #include <mizuiro/const_tag.hpp>
+#include <mizuiro/integral_size.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/access/normal.hpp>
@@ -17,12 +18,11 @@
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/detail/promote_type.hpp>
+#include <mizuiro/detail/range_to.hpp>
+#include <mizuiro/detail/sum.hpp>
 #include <mizuiro/detail/uint_least.hpp>
-#include <mizuiro/mpl/index_of.hpp>
-#include <mizuiro/mpl/integral_size.hpp>
-#include <mizuiro/mpl/range_to.hpp>
-#include <mizuiro/mpl/sum.hpp>
 #include <fcppt/config/external_begin.hpp>
+#include <brigand/algorithms/index_of.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
@@ -51,18 +51,18 @@ private:
 	value_type;
 
 	typedef
-	mizuiro::mpl::integral_size<
-		mizuiro::mpl::sum<
-			mizuiro::mpl::range_to<
+	mizuiro::integral_size<
+		mizuiro::detail::sum<
+			mizuiro::detail::range_to<
 				typename
 				Format::channel_bits,
-				mizuiro::mpl::index_of<
+				brigand::index_of<
 					typename
 					Format::layout::channels,
 					Channel
-				>()
+				>::value
 			>
-		>()
+		>::value
 	>
 	start_bit;
 
@@ -97,7 +97,7 @@ private:
 	total_bits;
 
 	typedef
-	mizuiro::mpl::integral_size<
+	mizuiro::integral_size<
 		total_bits::value
 		-
 		bit_count::value

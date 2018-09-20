@@ -9,7 +9,9 @@
 
 #include <mizuiro/color/channel/red_fwd.hpp>
 #include <mizuiro/color/space/r_fwd.hpp>
-#include <mizuiro/mpl/list.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/sequences/set.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -22,7 +24,7 @@ namespace space
 struct r
 {
 	typedef
-	mizuiro::mpl::list<
+	brigand::set<
 		mizuiro::color::channel::red
 	>
 	required_channels;

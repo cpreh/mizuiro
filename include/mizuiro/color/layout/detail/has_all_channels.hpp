@@ -8,8 +8,12 @@
 #define MIZUIRO_COLOR_LAYOUT_DETAIL_HAS_ALL_CHANNELS_HPP_INCLUDED
 
 #include <mizuiro/color/layout/detail/has_channel.hpp>
-#include <mizuiro/mpl/all_of.hpp>
-#include <mizuiro/mpl/bool.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/algorithms/all.hpp>
+#include <brigand/functions/lambda/apply.hpp>
+#include <brigand/functions/lambda/bind.hpp>
+#include <brigand/types/args.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -27,13 +31,15 @@ template<
 >
 using has_all_channels
 =
-mizuiro::mpl::bool_<
-	mizuiro::mpl::all_of<
-		Order1,
-		mizuiro::color::layout::detail::has_channel<
+brigand::all<
+	Order1,
+	brigand::bind<
+		mizuiro::color::layout::detail::has_channel,
+		brigand::pin<
 			Order2
-		>
-	>()
+		>,
+		brigand::_1
+	>
 >;
 
 }

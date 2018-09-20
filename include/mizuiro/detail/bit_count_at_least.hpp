@@ -8,6 +8,9 @@
 #define MIZUIRO_DETAIL_BIT_COUNT_AT_LEAST_HPP_INCLUDED
 
 #include <mizuiro/detail/bit_count.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/types/bool.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -16,26 +19,19 @@ namespace detail
 {
 
 template<
-	typename Bits
+	typename Bits,
+	typename IntType
 >
-struct bit_count_at_least
-{
-	template<
-		typename IntType
-	>
-	static
-	constexpr
-	bool
-	apply()
-	{
-		return
-			mizuiro::detail::bit_count<
-				IntType
-			>::value
-			>=
-			Bits::value;
-	}
-};
+using
+bit_count_at_least
+=
+brigand::bool_<
+	mizuiro::detail::bit_count<
+		IntType
+	>::value
+	>=
+	Bits::value
+>;
 
 }
 }

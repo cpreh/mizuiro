@@ -8,9 +8,10 @@
 #define MIZUIRO_COLOR_DETAIL_DYNAMIC_MAKE_CHANNELS_IMPL_HPP_INCLUDED
 
 #include <mizuiro/color/detail/dynamic/channel_index.hpp>
-#include <mizuiro/mpl/at.hpp>
-#include <mizuiro/mpl/index_of.hpp>
-#include <mizuiro/mpl/size.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/algorithms/index_of.hpp>
+#include <brigand/sequences/at.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -39,13 +40,13 @@ struct make_channels_impl
 	{
 		return
 			mizuiro::color::detail::dynamic::channel_index{
-				mizuiro::mpl::index_of<
+				brigand::index_of<
 					PossibleChannels,
-					mizuiro::mpl::at<
+					brigand::at_c<
 						Channels,
 						Index::value
 					>
-				>()
+				>::value
 			};
 	}
 };

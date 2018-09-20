@@ -11,7 +11,9 @@
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/format/has_channel_static.hpp>
-#include <mizuiro/mpl/bool.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/types/bool.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -26,7 +28,7 @@ template<
 >
 using is_rgb
 =
-mizuiro::mpl::bool_<
+brigand::bool_<
 	mizuiro::color::format::has_channel_static<
 		Format,
 		mizuiro::color::channel::red

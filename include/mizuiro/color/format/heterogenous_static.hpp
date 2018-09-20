@@ -8,7 +8,9 @@
 #define MIZUIRO_COLOR_FORMAT_HETEROGENOUS_STATIC_HPP_INCLUDED
 
 #include <mizuiro/color/format/heterogenous_static_fwd.hpp>
-#include <mizuiro/mpl/size.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/sequences/size.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -25,14 +27,14 @@ template<
 struct heterogenous_static
 {
 	static_assert(
-		mizuiro::mpl::size<
+		brigand::size<
 			ChannelBits
-		>()
+		>::value
 		==
-		mizuiro::mpl::size<
+		brigand::size<
 			typename
 			Layout::channels
-		>(),
+		>::value,
 		"Number of channels doesn't match the layout"
 	);
 

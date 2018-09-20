@@ -8,8 +8,11 @@
 #define MIZUIRO_COLOR_FOR_EACH_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/is_color.hpp>
+#include <mizuiro/color/get_channel.hpp>
 #include <mizuiro/color/make_range.hpp>
-#include <mizuiro/range/for_each.hpp>
+#include <fcppt/algorithm/loop.hpp>
+#include <fcppt/algorithm/loop_break_brigand.hpp>
+// TODO: Where should be put this? ^
 
 
 namespace mizuiro
@@ -35,11 +38,23 @@ for_each_channel(
 		"Color must be a color type"
 	);
 
-	mizuiro::range::for_each(
+	fcppt::algorithm::loop(
 		mizuiro::color::make_range(
 			_color
 		),
-		_function
+		[
+			&_function
+		](
+			auto const _channel
+		)
+		{
+			return
+				_function(
+					mizuiro::color::get_channel(
+						_channel
+					)
+				);
+		}
 	);
 }
 

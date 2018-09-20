@@ -9,7 +9,9 @@
 
 #include <mizuiro/image/format/canonical_ns/tag.hpp>
 #include <mizuiro/image/types/can_copy_in_place_ns/tag.hpp>
-#include <mizuiro/mpl/false.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <type_traits>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -25,7 +27,7 @@ template<
 	typename ImageFormat1,
 	typename ImageFormat2
 >
-mizuiro::mpl::false_
+std::false_type
 can_copy_in_place_adl(
 	mizuiro::image::types::can_copy_in_place_ns::tag,
 	mizuiro::image::format::canonical_ns::tag<

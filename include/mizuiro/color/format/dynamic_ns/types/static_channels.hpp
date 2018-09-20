@@ -9,7 +9,9 @@
 
 #include <mizuiro/color/format/dynamic_ns/tag.hpp>
 #include <mizuiro/color/types/static_channels_ns/tag.hpp>
-#include <mizuiro/mpl/list.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/sequences/list.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -24,7 +26,7 @@ namespace static_channels_ns
 template<
 	typename Format
 >
-mizuiro::mpl::list<>
+brigand::list<>
 static_channels_adl(
 	mizuiro::color::types::static_channels_ns::tag,
 	mizuiro::color::format::dynamic_ns::tag<

@@ -7,12 +7,14 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_PLANAR_NS_TYPES_STORE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_PLANAR_NS_TYPES_STORE_HPP_INCLUDED
 
-#include <mizuiro/array.hpp>
 #include <mizuiro/access/store_unit.hpp>
 #include <mizuiro/image/raw_container_impl.hpp>
 #include <mizuiro/image/format/planar_ns/tag.hpp>
 #include <mizuiro/image/types/store_unit.hpp>
 #include <mizuiro/image/types/store_ns/tag.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <array>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -28,7 +30,7 @@ template<
 	typename Access,
 	typename ImageFormat
 >
-mizuiro::array<
+std::array<
 	mizuiro::image::raw_container<
 		mizuiro::access::store_unit<
 			Access,

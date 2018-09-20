@@ -8,8 +8,8 @@
 #define MIZUIRO_IS_RAW_POINTER_HPP_INCLUDED
 
 #include <mizuiro/raw_value.hpp>
-#include <mizuiro/mpl/bool.hpp>
 #include <fcppt/config/external_begin.hpp>
+#include <brigand/types/bool.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
@@ -28,18 +28,18 @@ template<
 >
 using is_raw_pointer
 =
-mizuiro::mpl::bool_<
+brigand::bool_<
 	std::is_pointer<
 		T
 	>::value
 	&&
 	std::is_same<
 		raw_value,
-		typename std::remove_const<
-			typename std::remove_pointer<
+		std::remove_const_t<
+			std::remove_pointer_t<
 				T
-			>::type
-		>::type
+			>
+		>
 	>::value
 >;
 

@@ -7,7 +7,9 @@
 #ifndef MIZUIRO_DETAIL_INT_TO_TRUE_HPP_INCLUDED
 #define MIZUIRO_DETAIL_INT_TO_TRUE_HPP_INCLUDED
 
-#include <mizuiro/mpl/true.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <type_traits>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -20,7 +22,7 @@ template<
 >
 struct int_to_true
 :
-mizuiro::mpl::true_
+std::true_type
 {
 };
 

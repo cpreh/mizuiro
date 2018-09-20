@@ -11,7 +11,9 @@
 #include <mizuiro/color/channel/saturation_fwd.hpp>
 #include <mizuiro/color/channel/value_fwd.hpp>
 #include <mizuiro/color/space/hsv_fwd.hpp>
-#include <mizuiro/mpl/list.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/sequences/set.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -24,7 +26,7 @@ namespace space
 struct hsv
 {
 	typedef
-	mizuiro::mpl::list<
+	brigand::set<
 		mizuiro::color::channel::hue,
 		mizuiro::color::channel::saturation,
 		mizuiro::color::channel::value

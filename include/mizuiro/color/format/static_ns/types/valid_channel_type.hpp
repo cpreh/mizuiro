@@ -9,7 +9,9 @@
 
 #include <mizuiro/color/format/static_ns/tag.hpp>
 #include <mizuiro/color/types/valid_channel_type_ns/tag.hpp>
-#include <mizuiro/mpl/false.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <type_traits>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -20,11 +22,12 @@ namespace types
 {
 namespace valid_channel_type_ns
 {
+
 template<
 	typename Format,
 	typename Type
 >
-mizuiro::mpl::false_
+std::false_type
 valid_channel_type_adl(
 	mizuiro::color::types::valid_channel_type_ns::tag,
 	mizuiro::color::format::static_ns::tag<
@@ -35,7 +38,6 @@ valid_channel_type_adl(
 
 }
 }
-
 }
 }
 

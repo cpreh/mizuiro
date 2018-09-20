@@ -8,8 +8,13 @@
 #define MIZUIRO_DETAIL_UINT_LEAST_HPP_INCLUDED
 
 #include <mizuiro/detail/bit_count_at_least.hpp>
-#include <mizuiro/mpl/first_of.hpp>
-#include <mizuiro/mpl/list.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/algorithms/find.hpp>
+#include <brigand/functions/lambda/bind.hpp>
+#include <brigand/sequences/front.hpp>
+#include <brigand/sequences/list.hpp>
+#include <brigand/types/args.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -22,19 +27,22 @@ template<
 >
 using uint_least
 =
-typename
-mizuiro::mpl::first_of<
-	mizuiro::mpl::list<
-		unsigned char,
-		unsigned short,
-		unsigned int,
-		unsigned long,
-		unsigned long long
-	>,
-	mizuiro::detail::bit_count_at_least<
-		Bits
+brigand::front<
+	brigand::find<
+		brigand::list<
+			unsigned char,
+			unsigned short,
+			unsigned int,
+			unsigned long,
+			unsigned long long
+		>,
+		brigand::bind<
+			mizuiro::detail::bit_count_at_least,
+			Bits,
+			brigand::_1
+		>
 	>
->::type;
+>;
 
 }
 }

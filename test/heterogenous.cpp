@@ -6,6 +6,7 @@
 
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
+#include <mizuiro/size_list.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
@@ -22,7 +23,6 @@
 #include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/layout/la.hpp>
 #include <mizuiro/color/layout/rgb.hpp>
-#include <mizuiro/mpl/size_list.hpp>
 #include <mizuiro/test/external_begin.hpp>
 #include <catch2/catch.hpp>
 #include <cstdint>
@@ -36,7 +36,7 @@ TEST_CASE(
 {
 	typedef
 	mizuiro::color::format::heterogenous_static<
-		mizuiro::mpl::size_list<
+		mizuiro::size_list<
 			24u,
 			8u
 		>,
@@ -84,7 +84,7 @@ TEST_CASE(
 )
 {
 	typedef mizuiro::color::format::heterogenous_static<
-		mizuiro::mpl::size_list<
+		mizuiro::size_list<
 			5u,
 			6u,
 			5u
@@ -133,7 +133,7 @@ TEST_CASE(
 )
 {
 	typedef mizuiro::color::format::heterogenous_static<
-		mizuiro::mpl::size_list<
+		mizuiro::size_list<
 			5u,
 			6u,
 			5u

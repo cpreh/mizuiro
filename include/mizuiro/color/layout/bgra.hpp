@@ -13,7 +13,9 @@
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/layout/make.hpp>
 #include <mizuiro/color/space/rgb.hpp>
-#include <mizuiro/mpl/list.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/sequences/list.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -26,7 +28,7 @@ namespace layout
 typedef
 mizuiro::color::layout::make<
 	mizuiro::color::space::rgb,
-	mizuiro::mpl::list<
+	brigand::list<
 		mizuiro::color::channel::blue,
 		mizuiro::color::channel::green,
 		mizuiro::color::channel::red,

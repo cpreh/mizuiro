@@ -10,7 +10,9 @@
 #include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/format/store.hpp>
 #include <mizuiro/detail/int_to_true.hpp>
-#include <mizuiro/mpl/false.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <type_traits>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -47,7 +49,7 @@ template<
 	typename,
 	typename
 >
-mizuiro::mpl::false_
+std::false_type
 check_has_channel_constexpr(
 	...
 );

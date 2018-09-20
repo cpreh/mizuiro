@@ -24,31 +24,22 @@ namespace detail
 
 template<
 	typename Format1,
-	typename Format2
+	typename Format2,
+	typename Channel
 >
-struct same_channel_value_type
-{
-	template<
-		typename Channel
+using
+same_channel_value_type
+=
+std::is_same<
+	mizuiro::color::types::channel_value<
+		Format1,
+		Channel
+	>,
+	mizuiro::color::types::channel_value<
+		Format2,
+		Channel
 	>
-	static
-	constexpr
-	bool
-	apply()
-	{
-		return
-			std::is_same<
-				mizuiro::color::types::channel_value<
-					Format1,
-					Channel
-				>,
-				mizuiro::color::types::channel_value<
-					Format2,
-					Channel
-				>
-			>::value;
-	}
-};
+>;
 
 }
 }

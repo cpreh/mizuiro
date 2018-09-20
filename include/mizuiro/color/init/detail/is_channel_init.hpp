@@ -22,26 +22,17 @@ namespace detail
 {
 
 template<
-	typename Channel
+	typename Channel,
+	typename Type
 >
-struct is_channel_init
-{
-	template<
-		typename Type
-	>
-	static
-	constexpr
-	bool
-	apply()
-	{
-		return
-			std::is_same<
-				typename
-				Type::channel_type,
-				Channel
-			>::value;
-	}
-};
+using
+is_channel_init
+=
+std::is_same<
+	typename
+	Type::channel_type,
+	Channel
+>;
 
 }
 }

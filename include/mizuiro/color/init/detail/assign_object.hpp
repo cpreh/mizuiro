@@ -13,12 +13,15 @@
 #include <mizuiro/color/init/detail/to_channel_type.hpp>
 #include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
+#include <mizuiro/detail/is_set.hpp>
 #include <mizuiro/detail/tuple_for_each.hpp>
-#include <mizuiro/mpl/all_of.hpp>
-#include <mizuiro/mpl/is_set.hpp>
-#include <mizuiro/mpl/transform.hpp>
-#include <mizuiro/mpl/include/list.hpp>
-#include <mizuiro/mpl/include/tuple.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/algorithms/all.hpp>
+#include <brigand/algorithms/transform.hpp>
+#include <brigand/functions/lambda/apply.hpp>
+#include <brigand/functions/lambda/bind.hpp>
+#include <brigand/types/args.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -46,24 +49,31 @@ assign_object(
 )
 {
 	static_assert(
-		mizuiro::mpl::all_of<
+		brigand::all<
 			mizuiro::color::types::static_channels<
 				Format
 			>,
-			mizuiro::color::init::detail::contains_channel<
-				Vector
+			brigand::bind<
+				mizuiro::color::init::detail::contains_channel,
+				brigand::pin<
+					Vector
+				>,
+				brigand::_1
 			>
-		>(),
+		>::value,
 		"Forgotten channel in initialization"
 	);
 
 	static_assert(
-		mizuiro::mpl::is_set<
-			mizuiro::mpl::transform<
+		mizuiro::detail::is_set<
+			brigand::transform<
 				Vector,
-				mizuiro::color::init::detail::to_channel_type
+				brigand::bind<
+					mizuiro::color::init::detail::to_channel_type,
+					brigand::_1
+				>
 			>
-		>(),
+		>::value,
 		"Duplicate channel initialization"
 	);
 

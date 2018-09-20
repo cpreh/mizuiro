@@ -8,7 +8,9 @@
 #define MIZUIRO_COLOR_SPACE_EMPTY_HPP_INCLUDED
 
 #include <mizuiro/color/space/empty_fwd.hpp>
-#include <mizuiro/mpl/list.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/sequences/set.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -21,7 +23,7 @@ namespace space
 struct empty
 {
 	typedef
-	mizuiro::mpl::list<>
+	brigand::set<>
 	required_channels;
 };
 

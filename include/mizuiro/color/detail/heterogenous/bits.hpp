@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_COLOR_DETAIL_HETEROGENOUS_BITS_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_HETEROGENOUS_BITS_HPP_INCLUDED
 
-#include <mizuiro/mpl/integral_size.hpp>
-#include <mizuiro/mpl/sum.hpp>
+#include <mizuiro/integral_size.hpp>
+#include <mizuiro/detail/sum.hpp>
 
 
 namespace mizuiro
@@ -25,10 +25,10 @@ template<
 >
 using bits
 =
-mizuiro::mpl::integral_size<
-	mizuiro::mpl::sum<
+mizuiro::integral_size<
+	mizuiro::detail::sum<
 		Bits
-	>()
+	>::value
 >;
 
 }

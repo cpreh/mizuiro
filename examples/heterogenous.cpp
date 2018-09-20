@@ -4,6 +4,7 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/size_list.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/format/heterogenous_static.hpp>
@@ -11,7 +12,6 @@
 #include <mizuiro/color/init/alpha.hpp>
 #include <mizuiro/color/init/luminance.hpp>
 #include <mizuiro/color/layout/la.hpp>
-#include <mizuiro/mpl/size_list.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <cstdint>
 #include <iostream>
@@ -24,7 +24,7 @@ main()
 {
 	typedef
 	mizuiro::color::format::heterogenous_static<
-		mizuiro::mpl::size_list<
+		mizuiro::size_list<
 			24u,
 			8u
 		>,

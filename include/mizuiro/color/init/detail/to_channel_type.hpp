@@ -17,22 +17,14 @@ namespace init
 namespace detail
 {
 
-struct to_channel_type
-{
-	template<
-		typename Type
-	>
-	static
-	constexpr
-	typename
-	Type::channel_type
-	apply()
-	{
-		return
-			typename
-			Type::channel_type{};
-	}
-};
+template<
+	typename Type
+>
+using
+to_channel_type
+=
+typename
+Type::channel_type;
 
 }
 }

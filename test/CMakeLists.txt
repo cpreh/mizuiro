@@ -164,9 +164,5 @@ add_mizuiro_test(
 )
 
 add_mizuiro_test(
-	range
-)
-
-add_mizuiro_test(
 	view
 )

@@ -7,10 +7,12 @@
 #ifndef MIZUIRO_IMAGE_DIMENSION_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DIMENSION_DECL_HPP_INCLUDED
 
-#include <mizuiro/array.hpp>
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/image/dimension_fwd.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <array>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -42,7 +44,7 @@ public:
 	const_reference;
 
 	typedef
-	mizuiro::array<
+	std::array<
 		value_type,
 		Dim
 	>

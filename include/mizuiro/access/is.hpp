@@ -9,8 +9,9 @@
 
 #include <mizuiro/access/normal_fwd.hpp>
 #include <mizuiro/access/raw_fwd.hpp>
-#include <mizuiro/mpl/false.hpp>
-#include <mizuiro/mpl/true.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <type_traits>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -23,7 +24,7 @@ template<
 >
 struct is
 :
-mizuiro::mpl::false_
+std::false_type
 {
 };
 
@@ -32,7 +33,7 @@ struct is<
 	mizuiro::access::normal
 >
 :
-mizuiro::mpl::true_
+std::true_type
 {
 };
 
@@ -41,7 +42,7 @@ struct is<
 	mizuiro::access::raw
 >
 :
-mizuiro::mpl::true_
+std::true_type
 {
 };
 

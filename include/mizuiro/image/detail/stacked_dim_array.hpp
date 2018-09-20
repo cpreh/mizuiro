@@ -7,8 +7,10 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_STACKED_DIM_ARRAY_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_STACKED_DIM_ARRAY_HPP_INCLUDED
 
-#include <mizuiro/array.hpp>
 #include <mizuiro/image/dimension_decl.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <array>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -24,7 +26,7 @@ template<
 >
 using stacked_dim_array
 =
-mizuiro::array<
+std::array<
 	ValueType,
 	Dim::static_size - 1
 >;

@@ -9,7 +9,9 @@
 
 #include <mizuiro/color/format/has_channel_static.hpp>
 #include <mizuiro/color/format/detail/has_channel_constexpr.hpp>
-#include <mizuiro/mpl/bool.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/types/bool.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -26,7 +28,7 @@ template<
 using
 definitely_has_not_channel
 =
-mizuiro::mpl::bool_<
+brigand::bool_<
 	!mizuiro::color::format::has_channel_static<
 		Format,
 		Channel

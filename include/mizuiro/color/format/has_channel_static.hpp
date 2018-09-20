@@ -8,8 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_HAS_CHANNEL_STATIC_HPP_INCLUDED
 
 #include <mizuiro/color/types/static_channels.hpp>
-#include <mizuiro/mpl/bool.hpp>
-#include <mizuiro/mpl/contains.hpp>
+#include <fcppt/brigand/found_t.hpp>
 
 
 namespace mizuiro
@@ -26,13 +25,11 @@ template<
 using
 has_channel_static
 =
-mizuiro::mpl::bool_<
-	mizuiro::mpl::contains<
-		mizuiro::color::types::static_channels<
-			Format
-		>,
-		Channel
-	>()
+fcppt::brigand::found_t<
+	mizuiro::color::types::static_channels<
+		Format
+	>,
+	Channel
 >;
 
 }

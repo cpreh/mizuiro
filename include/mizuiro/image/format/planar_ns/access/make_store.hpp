@@ -7,13 +7,17 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_PLANAR_NS_ACCESS_MAKE_STORE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_PLANAR_NS_ACCESS_MAKE_STORE_HPP_INCLUDED
 
-#include <mizuiro/detail/array_init.hpp>
+#include <mizuiro/size_type.hpp>
 #include <mizuiro/image/dimension_content.hpp>
 #include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/access/make_store_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/format/planar_ns/tag.hpp>
 #include <mizuiro/image/types/store.hpp>
+#include <fcppt/container/array/init.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <array>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -46,13 +50,22 @@ make_store_adl(
 )
 {
 	return
-		mizuiro::detail::array_init<
-			ImageFormat::element_count
+		fcppt::container::array::init<
+			std::array<
+				typename
+				mizuiro::image::types::store<
+					Access,
+					ImageFormat
+				>::value_type,
+				ImageFormat::element_count
+			>
 		>(
 			[
 				&_dim,
 				&_format
-			]{
+			](
+				mizuiro::size_type
+			){
 				return
 					typename
 					mizuiro::image::types::store<

@@ -9,8 +9,10 @@
 
 #include <mizuiro/color/detail/dynamic/channel_array.hpp>
 #include <mizuiro/color/detail/dynamic/make_channels_impl.hpp>
-#include <mizuiro/detail/array_init_each.hpp>
-#include <mizuiro/mpl/size.hpp>
+#include <fcppt/container/array/init.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/sequences/size.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -28,17 +30,19 @@ template<
 >
 inline
 mizuiro::color::detail::dynamic::channel_array<
-	mizuiro::mpl::size<
+	brigand::size<
 		Channels
-	>()
+	>::value
 >
 make_channels()
 {
 	return
-		mizuiro::detail::array_init_each<
-			mizuiro::mpl::size<
-				Channels
-			>()
+		fcppt::container::array::init<
+			mizuiro::color::detail::dynamic::channel_array<
+				brigand::size<
+					Channels
+				>::value
+			>
 		>(
 			mizuiro::color::detail::dynamic::make_channels_impl<
 				PossibleChannels,

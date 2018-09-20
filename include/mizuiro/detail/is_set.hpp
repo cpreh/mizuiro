@@ -4,27 +4,37 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_MPL_BOOL_HPP_INCLUDED
-#define MIZUIRO_MPL_BOOL_HPP_INCLUDED
+#ifndef MIZUIRO_DETAIL_IS_SET_HPP_INCLUDED
+#define MIZUIRO_DETAIL_IS_SET_HPP_INCLUDED
 
 #include <fcppt/config/external_begin.hpp>
-#include <type_traits>
+#include <brigand/sequences/set.hpp>
+#include <brigand/sequences/size.hpp>
+#include <brigand/types/bool.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
 {
-namespace mpl
+namespace detail
 {
 
 template<
-	bool Value
+	typename List
 >
-using bool_
+using
+is_set
 =
-std::integral_constant<
-	bool,
-	Value
+brigand::bool_<
+	brigand::size<
+		brigand::as_set<
+			List
+		>
+	>::value
+	==
+	brigand::size<
+		List
+	>::value
 >;
 
 }

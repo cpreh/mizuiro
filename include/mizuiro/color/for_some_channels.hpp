@@ -7,8 +7,9 @@
 #ifndef MIZUIRO_COLOR_FOR_SOME_CHANNELS_HPP_INCLUDED
 #define MIZUIRO_COLOR_FOR_SOME_CHANNELS_HPP_INCLUDED
 
+#include <mizuiro/color/get_channel.hpp>
 #include <mizuiro/color/make_range.hpp>
-#include <mizuiro/range/for_each.hpp>
+#include <fcppt/algorithm/loop.hpp>
 
 
 namespace mizuiro
@@ -29,7 +30,7 @@ for_some_channels(
 	DynamicFilter const &_filter
 )
 {
-	mizuiro::range::for_each(
+	fcppt::algorithm::loop(
 		mizuiro::color::make_range(
 			_color
 		),
@@ -37,16 +38,20 @@ for_some_channels(
 			&_function,
 			&_filter
 		](
-			auto const &_value
+			auto const _channel
 		)
 		{
 			if(
 				_filter(
-					_value
+					mizuiro::color::get_channel(
+						_channel
+					)
 				)
 			)
 				_function(
-					_value
+					mizuiro::color::get_channel(
+						_channel
+					)
 				);
 		}
 	);

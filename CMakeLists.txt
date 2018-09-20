@@ -97,7 +97,6 @@ set(
 	include/mizuiro/access/store_unit.hpp
 	include/mizuiro/access/stride.hpp
 	include/mizuiro/apply_const.hpp
-	include/mizuiro/array.hpp
 	include/mizuiro/color/access/channel_index.hpp
 	include/mizuiro/color/access/channel_index_ns/tag.hpp
 	include/mizuiro/color/access/channel_max.hpp
@@ -192,7 +191,6 @@ set(
 	include/mizuiro/color/detail/raw_channel_access.hpp
 	include/mizuiro/color/detail/unwrap_channel.hpp
 	include/mizuiro/color/for_each_channel.hpp
-	include/mizuiro/color/for_each_channel_range.hpp
 	include/mizuiro/color/for_some_channels.hpp
 	include/mizuiro/color/format/argument.hpp
 	include/mizuiro/color/format/base_decl.hpp
@@ -383,10 +381,6 @@ set(
 	include/mizuiro/default_init.hpp
 	include/mizuiro/default_init_fwd.hpp
 	include/mizuiro/detail/apply_const.hpp
-	include/mizuiro/detail/array_init.hpp
-	include/mizuiro/detail/array_init_each.hpp
-	include/mizuiro/detail/array_init_each_impl.hpp
-	include/mizuiro/detail/array_init_each_rt.hpp
 	include/mizuiro/detail/assert_access.hpp
 	include/mizuiro/detail/assert_constness.hpp
 	include/mizuiro/detail/bit_count.hpp
@@ -683,84 +677,14 @@ set(
 	include/mizuiro/image/view_impl.hpp
 	include/mizuiro/is_constness_tag.hpp
 	include/mizuiro/is_raw_pointer.hpp
-	include/mizuiro/mpl/all_of.hpp
-	include/mizuiro/mpl/apply.hpp
-	include/mizuiro/mpl/at.hpp
-	include/mizuiro/mpl/bool.hpp
-	include/mizuiro/mpl/cons.hpp
-	include/mizuiro/mpl/cons_list.hpp
-	include/mizuiro/mpl/cons_list_fwd.hpp
-	include/mizuiro/mpl/cons_ns/tag.hpp
-	include/mizuiro/mpl/contains.hpp
-	include/mizuiro/mpl/contains_if.hpp
-	include/mizuiro/mpl/count.hpp
-	include/mizuiro/mpl/detail/at.hpp
-	include/mizuiro/mpl/detail/count_is_one.hpp
-	include/mizuiro/mpl/detail/index_of.hpp
-	include/mizuiro/mpl/detail/transform.hpp
-	include/mizuiro/mpl/empty.hpp
-	include/mizuiro/mpl/empty_ns/tag.hpp
-	include/mizuiro/mpl/false.hpp
-	include/mizuiro/mpl/first_of.hpp
-	include/mizuiro/mpl/head.hpp
-	include/mizuiro/mpl/head_ns/tag.hpp
-	include/mizuiro/mpl/include/list.hpp
-	include/mizuiro/mpl/include/tuple.hpp
-	include/mizuiro/mpl/index_of.hpp
-	include/mizuiro/mpl/integral_size.hpp
-	include/mizuiro/mpl/is_set.hpp
-	include/mizuiro/mpl/list.hpp
-	include/mizuiro/mpl/list_fwd.hpp
-	include/mizuiro/mpl/list_ns/cons.hpp
-	include/mizuiro/mpl/list_ns/empty.hpp
-	include/mizuiro/mpl/list_ns/head.hpp
-	include/mizuiro/mpl/list_ns/tag.hpp
-	include/mizuiro/mpl/list_ns/tag_of.hpp
-	include/mizuiro/mpl/list_ns/tail.hpp
-	include/mizuiro/mpl/make_tag_of.hpp
-	include/mizuiro/mpl/range_to.hpp
-	include/mizuiro/mpl/range_to_fwd.hpp
-	include/mizuiro/mpl/size.hpp
-	include/mizuiro/mpl/size_list.hpp
-	include/mizuiro/mpl/sum.hpp
-	include/mizuiro/mpl/tag_of_fwd.hpp
-	include/mizuiro/mpl/tail.hpp
-	include/mizuiro/mpl/tail_ns/tag.hpp
-	include/mizuiro/mpl/transform.hpp
-	include/mizuiro/mpl/true.hpp
-	include/mizuiro/mpl/tuple_ns/cons.hpp
-	include/mizuiro/mpl/tuple_ns/empty.hpp
-	include/mizuiro/mpl/tuple_ns/head.hpp
-	include/mizuiro/mpl/tuple_ns/tag.hpp
-	include/mizuiro/mpl/tuple_ns/tag_of.hpp
-	include/mizuiro/mpl/tuple_ns/tail.hpp
 	include/mizuiro/no_init.hpp
 	include/mizuiro/no_init_fwd.hpp
 	include/mizuiro/nonconst_tag.hpp
 	include/mizuiro/nonconst_tag_fwd.hpp
-	include/mizuiro/range/all_of.hpp
-	include/mizuiro/range/array_ns/make.hpp
-	include/mizuiro/range/array_ns/tag.hpp
-	include/mizuiro/range/array_ns/tag_of.hpp
-	include/mizuiro/range/detail/all_of.hpp
-	include/mizuiro/range/detail/array.hpp
-	include/mizuiro/range/detail/for_each.hpp
-	include/mizuiro/range/detail/mpl.hpp
-	include/mizuiro/range/detail/range_get.hpp
-	include/mizuiro/range/for_each.hpp
-	include/mizuiro/range/for_each_range.hpp
-	include/mizuiro/range/include/array.hpp
-	include/mizuiro/range/include/mpl.hpp
-	include/mizuiro/range/make.hpp
-	include/mizuiro/range/make_ns/tag.hpp
-	include/mizuiro/range/make_tag_of.hpp
-	include/mizuiro/range/mpl_ns/make.hpp
-	include/mizuiro/range/mpl_ns/tag.hpp
-	include/mizuiro/range/mpl_ns/tag_of.hpp
-	include/mizuiro/range/tag_of_fwd.hpp
 	include/mizuiro/raw_pointer.hpp
 	include/mizuiro/raw_value.hpp
 	include/mizuiro/rebind_tag.hpp
+	include/mizuiro/size_list.hpp
 	include/mizuiro/size_type.hpp
 )
 
@@ -802,6 +726,7 @@ target_link_libraries(
 target_include_directories(
 	mizuiro_interface
 	INTERFACE
+	${Brigand_INCLUDE_DIRS}
 	"$<BUILD_INTERFACE:${MIZUIRO_SOURCE_DIR}/include>"
 	"$<INSTALL_INTERFACE:${CMAKE_INSTALL_FULL_INCLUDEDIR}>"
 )

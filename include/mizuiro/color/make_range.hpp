@@ -9,7 +9,6 @@
 
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/access/channels.hpp>
-#include <mizuiro/range/make.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
@@ -25,15 +24,13 @@ template<
 >
 inline
 decltype(
-	mizuiro::range::make(
-		mizuiro::color::access::channels<
-			typename
-			Color::format
-		>(
-			std::declval<
-				Color
-			>().format_store()
-		)
+	mizuiro::color::access::channels<
+		typename
+		Color::format
+	>(
+		std::declval<
+			Color
+		>().format_store()
 	)
 )
 make_range(
@@ -48,13 +45,11 @@ make_range(
 	);
 
 	return
-		mizuiro::range::make(
-			mizuiro::color::access::channels<
-				typename
-				Color::format
-			>(
-				_color.format_store()
-			)
+		mizuiro::color::access::channels<
+			typename
+			Color::format
+		>(
+			_color.format_store()
 		);
 }
 

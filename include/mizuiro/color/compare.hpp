@@ -8,11 +8,14 @@
 #define MIZUIRO_COLOR_COMPARE_HPP_INCLUDED
 
 #include <mizuiro/color/decay_channel_proxy.hpp>
+#include <mizuiro/color/get_channel.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/access/channels.hpp>
 #include <mizuiro/color/format/compatible.hpp>
 #include <mizuiro/color/format/get.hpp>
-#include <mizuiro/range/all_of.hpp>
+#include <fcppt/algorithm/all_of.hpp>
+#include <fcppt/algorithm/loop_break_brigand.hpp>
+// TODO: Where do we put this? ^
 
 
 namespace mizuiro
@@ -59,7 +62,7 @@ compare(
 	);
 
 	return
-		mizuiro::range::all_of(
+		fcppt::algorithm::all_of(
 			mizuiro::color::access::channels<
 				typename
 				Color1::format
@@ -71,7 +74,7 @@ compare(
 				&_color2,
 				&_compare
 			](
-				auto const &_channel_inner
+				auto const _channel
 			)
 			-> bool
 			{
@@ -79,12 +82,16 @@ compare(
 					_compare(
 						mizuiro::color::decay_channel_proxy(
 							_color1.get(
-								_channel_inner
+								mizuiro::color::get_channel(
+									_channel
+								)
 							)
 						),
 						mizuiro::color::decay_channel_proxy(
 							_color2.get(
-								_channel_inner
+								mizuiro::color::get_channel(
+									_channel
+								)
 							)
 						)
 					);

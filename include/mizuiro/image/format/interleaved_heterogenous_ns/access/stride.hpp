@@ -7,13 +7,13 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_HETEROGENOUS_NS_ACCESS_STRIDE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_HETEROGENOUS_NS_ACCESS_STRIDE_HPP_INCLUDED
 
+#include <mizuiro/integral_size.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/access/stride.hpp>
 #include <mizuiro/image/access/stride_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/format/interleaved_heterogenous_ns/tag.hpp>
 #include <mizuiro/image/types/store_unit.hpp>
-#include <mizuiro/mpl/integral_size.hpp>
 
 
 namespace mizuiro
@@ -44,10 +44,10 @@ stride_adl(
 {
 	return
 		mizuiro::access::stride<
-			mizuiro::mpl::integral_size<
+			mizuiro::integral_size<
 				1u
 			>,
-			mizuiro::mpl::integral_size<
+			mizuiro::integral_size<
 				sizeof(
 					mizuiro::image::types::store_unit<
 						Format

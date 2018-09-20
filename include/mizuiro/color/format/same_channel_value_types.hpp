@@ -9,8 +9,12 @@
 
 #include <mizuiro/color/format/detail/same_channel_value_type.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
-#include <mizuiro/mpl/all_of.hpp>
-#include <mizuiro/mpl/bool.hpp>
+#include <fcppt/brigand/all_of.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/functions/lambda/apply.hpp>
+#include <brigand/functions/lambda/bind.hpp>
+#include <brigand/types/args.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -29,16 +33,20 @@ template<
 >
 using same_channel_value_types
 =
-mizuiro::mpl::bool_<
-	mizuiro::mpl::all_of<
-		mizuiro::color::types::static_channels<
+fcppt::brigand::all_of<
+	mizuiro::color::types::static_channels<
+		Format1
+	>,
+	brigand::bind<
+		mizuiro::color::format::detail::same_channel_value_type,
+		brigand::pin<
 			Format1
 		>,
-		mizuiro::color::format::detail::same_channel_value_type<
-			Format1,
+		brigand::pin<
 			Format2
-		>
-	>()
+		>,
+		brigand::_1
+	>
 >;
 
 }

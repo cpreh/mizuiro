@@ -10,7 +10,9 @@
 #include <mizuiro/color/format/same_channel_value_types.hpp>
 #include <mizuiro/color/format/same_channels.hpp>
 #include <mizuiro/color/format/same_spaces.hpp>
-#include <mizuiro/mpl/bool.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/types/bool.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -39,7 +41,7 @@ template<
 >
 using compatible
 =
-mizuiro::mpl::bool_<
+brigand::bool_<
 	mizuiro::color::format::same_spaces<
 		Format1,
 		Format2

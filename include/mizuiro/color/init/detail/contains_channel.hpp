@@ -8,7 +8,11 @@
 #define MIZUIRO_COLOR_INIT_DETAIL_CONTAINS_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/init/detail/is_channel_init.hpp>
-#include <mizuiro/mpl/contains_if.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/algorithms/find.hpp>
+#include <brigand/functions/lambda/bind.hpp>
+#include <brigand/types/args.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -21,27 +25,20 @@ namespace detail
 {
 
 template<
-	typename Types
+	typename Types,
+	typename Channel
 >
-struct contains_channel
-{
-	template<
-		typename Channel
+using
+contains_channel
+=
+brigand::found<
+	Types,
+	brigand::bind<
+		mizuiro::color::init::detail::is_channel_init,
+		Channel,
+		brigand::_1
 	>
-	static
-	constexpr
-	bool
-	apply()
-	{
-		return
-			mizuiro::mpl::contains_if<
-				Types,
-				mizuiro::color::init::detail::is_channel_init<
-					Channel
-				>
-			>();
-	}
-};
+>;
 
 }
 }

@@ -9,7 +9,9 @@
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/format/homogenous_static_fwd.hpp>
-#include <mizuiro/mpl/size.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/sequences/size.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -38,11 +40,11 @@ struct homogenous_static
 	Layout::channels
 	channels;
 
-	static mizuiro::size_type const element_count
+	static constexpr mizuiro::size_type const element_count
 		=
-		mizuiro::mpl::size<
+		brigand::size<
 			channels
-		>();
+		>::value;
 };
 
 }

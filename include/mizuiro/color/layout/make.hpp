@@ -9,8 +9,10 @@
 
 #include <mizuiro/color/layout/all_possible_channels.hpp>
 #include <mizuiro/color/layout/detail/has_all_channels.hpp>
-#include <mizuiro/mpl/is_set.hpp>
-#include <mizuiro/mpl/size.hpp>
+#include <mizuiro/detail/is_set.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/sequences/size.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -31,7 +33,7 @@ contribute 'color' while undefined channels will be ignored.
 
 \tparam Space A color space
 
-\tparam Channels A mizuiro::mpl::list consisting of \link color_channel Color
+\tparam Channels A brigand::list consisting of \link color_channel Color
 Channels\endlink
 */
 template<
@@ -60,10 +62,10 @@ struct make
 	);
 
 	static_assert(
-		mizuiro::mpl::size<
+		brigand::size<
 			typename
 			Space::required_channels
-		>()
+		>::value
 		<=
 		3,
 		"A color space shouldn't have more than three channels"
@@ -79,9 +81,9 @@ struct make
 	);
 
 	static_assert(
-		mizuiro::mpl::is_set<
+		mizuiro::detail::is_set<
 			channels
-		>(),
+		>::value,
 		"Duplicate channel in color space"
 	);
 };

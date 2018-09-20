@@ -9,7 +9,6 @@
 
 #include <mizuiro/apply_const.hpp>
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/detail/array_init_each_rt.hpp>
 #include <mizuiro/image/access/store_data_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/format/color_ns/types/pointer.hpp>
@@ -17,6 +16,10 @@
 #include <mizuiro/image/format/planar_ns/types/store.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/store.hpp>
+#include <fcppt/container/array/init.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <array>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -58,8 +61,16 @@ store_data_adl(
 )
 {
 	return
-		mizuiro::detail::array_init_each_rt<
-			ImageFormat::element_count
+		fcppt::container::array::init<
+			std::array<
+				typename
+				mizuiro::image::types::pointer<
+					Access,
+					ImageFormat,
+					Constness
+				>::value_type,
+				ImageFormat::element_count
+			>
 		>(
 			[
 				&_store

@@ -10,7 +10,9 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/channel/tag.hpp>
 #include <mizuiro/color/detail/dynamic/channel_index.hpp>
-#include <mizuiro/mpl/index_of.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/algorithms/index_of.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -37,11 +39,11 @@ static_to_dynamic_channel(
 {
 	return
 		mizuiro::color::detail::dynamic::channel_index{
-			mizuiro::mpl::index_of<
+			brigand::index_of<
 				typename
 				Format::all_possible_channels,
 				StaticChannel
-			>()
+			>::value
 		};
 }
 

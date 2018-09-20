@@ -9,12 +9,15 @@
 
 #include <mizuiro/difference_type.hpp>
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/detail/array_init_each_rt.hpp>
+#include <fcppt/container/array/init.hpp>
 #include <mizuiro/image/access/advance_pointer.hpp>
 #include <mizuiro/image/access/advance_pointer_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/format/planar_ns/tag.hpp>
 #include <mizuiro/image/types/pointer.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <array>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -55,8 +58,16 @@ advance_pointer_adl(
 )
 {
 	return
-		mizuiro::detail::array_init_each_rt<
-			Format::element_count
+		fcppt::container::array::init<
+			std::array<
+				typename
+				mizuiro::image::types::pointer<
+					Access,
+					Format,
+					Constness
+				>::value_type,
+				Format::element_count
+			>
 		>(
 			[
 				&_data,

@@ -7,10 +7,12 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_DETAIL_PLANAR_COLOR_NS_TYPES_POINTER_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_DETAIL_PLANAR_COLOR_NS_TYPES_POINTER_HPP_INCLUDED
 
-#include <mizuiro/array.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/pointer_ns/tag.hpp>
 #include <mizuiro/image/format/detail/planar_color_ns/tag.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <array>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -27,7 +29,7 @@ template<
 	typename Format,
 	typename Constness
 >
-mizuiro::array<
+std::array<
 	mizuiro::color::types::pointer<
 		Access,
 		typename

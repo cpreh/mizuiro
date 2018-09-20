@@ -9,8 +9,9 @@
 
 #include <mizuiro/const_tag_fwd.hpp>
 #include <mizuiro/nonconst_tag_fwd.hpp>
-#include <mizuiro/mpl/false.hpp>
-#include <mizuiro/mpl/true.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <type_traits>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -21,7 +22,7 @@ template<
 >
 struct is_constness_tag
 :
-mizuiro::mpl::false_
+std::false_type
 {
 };
 
@@ -30,7 +31,7 @@ struct is_constness_tag<
 	mizuiro::const_tag
 >
 :
-mizuiro::mpl::true_
+std::true_type
 {
 };
 
@@ -39,7 +40,7 @@ struct is_constness_tag<
 	mizuiro::nonconst_tag
 >
 :
-mizuiro::mpl::true_
+std::true_type
 {
 };
 

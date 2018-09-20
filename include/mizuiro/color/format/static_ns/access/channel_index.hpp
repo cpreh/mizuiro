@@ -13,7 +13,9 @@
 #include <mizuiro/color/format/static_ns/tag.hpp>
 #include <mizuiro/color/format/static_ns/types/static_channels.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
-#include <mizuiro/mpl/index_of.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/algorithms/index_of.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -42,12 +44,12 @@ channel_index_adl(
 )
 {
 	return
-		mizuiro::mpl::index_of<
+		brigand::index_of<
 			mizuiro::color::types::static_channels<
 				Format
 			>,
 			Channel
-		>();
+		>::value;
 }
 
 }

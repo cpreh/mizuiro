@@ -7,8 +7,7 @@
 #ifndef MIZUIRO_COLOR_OUTPUT_HPP_INCLUDED
 #define MIZUIRO_COLOR_OUTPUT_HPP_INCLUDED
 
-#include <mizuiro/decltype.hpp>
-#include <mizuiro/color/for_each_channel_range.hpp>
+#include <mizuiro/color/for_each_channel.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/format/get.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
@@ -50,40 +49,38 @@ operator<<(
 	_stream
 		<< _stream.widen('(');
 
-	mizuiro::color::for_each_channel_range(
+	mizuiro::color::for_each_channel(
 		_color,
 		[
 			&_color,
 			&_stream
 		](
-			auto const &_range_inner
+			auto const _channel
 		)
 		{
-			_stream <<
+			_stream
+				<<
 				static_cast<
 					mizuiro::detail::promote_type<
 						mizuiro::color::types::channel_value<
 							mizuiro::color::format::get<
 								Color
 							>,
-							MIZUIRO_DECLTYPE(
-								_range_inner.get()
-							)
+							std::remove_const_t<
+								decltype(
+									_channel
+								)
+							>
 						>
 					>
 				>(
 					_color.get(
-						_range_inner.get()
+						_channel
 					)
-				);
-
-			if(
-				!MIZUIRO_DECLTYPE(
-					_range_inner.next()
-				)::empty::value
-			)
-				_stream <<
-					_stream.widen(',');
+				)
+				<<
+				// FIXME
+				_stream.widen(',');
 		}
 	);
 

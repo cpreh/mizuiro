@@ -4,38 +4,39 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_COLOR_DETAIL_DYNAMIC_CHANNEL_ARRAY_HPP_INCLUDED
-#define MIZUIRO_COLOR_DETAIL_DYNAMIC_CHANNEL_ARRAY_HPP_INCLUDED
+#ifndef MIZUIRO_DETAIL_SUM_HPP_INCLUDED
+#define MIZUIRO_DETAIL_SUM_HPP_INCLUDED
 
-#include <mizuiro/size_type.hpp>
-#include <mizuiro/color/detail/dynamic/channel_index.hpp>
+#include <mizuiro/integral_size.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <array>
+#include <brigand/algorithms/fold.hpp>
+#include <brigand/functions/arithmetic/plus.hpp>
+#include <brigand/types/args.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
 {
-namespace color
-{
 namespace detail
-{
-namespace dynamic
 {
 
 template<
-	mizuiro::size_type Size
+	typename List
 >
 using
-channel_array
+sum
 =
-std::array<
-	mizuiro::color::detail::dynamic::channel_index,
-	Size
+brigand::fold<
+	List,
+	mizuiro::integral_size<
+		0u
+	>,
+	brigand::plus<
+		brigand::_1,
+		brigand::_2
+	>
 >;
 
-}
-}
 }
 }
 

@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_DETAIL_BIT_COUNT_HPP_INCLUDED
 #define MIZUIRO_DETAIL_BIT_COUNT_HPP_INCLUDED
 
-#include <mizuiro/mpl/integral_size.hpp>
+#include <mizuiro/integral_size.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <limits>
 #include <type_traits>
@@ -24,7 +24,7 @@ template<
 >
 struct bit_count
 :
-mizuiro::mpl::integral_size<
+mizuiro::integral_size<
 	std::numeric_limits<
 		IntType
 	>::digits

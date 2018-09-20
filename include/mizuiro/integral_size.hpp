@@ -4,11 +4,10 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_MPL_EMPTY_HPP_INCLUDED
-#define MIZUIRO_MPL_EMPTY_HPP_INCLUDED
+#ifndef MIZUIRO_INTEGRAL_SIZE_HPP_INCLUDED
+#define MIZUIRO_INTEGRAL_SIZE_HPP_INCLUDED
 
-#include <mizuiro/mpl/make_tag_of.hpp>
-#include <mizuiro/mpl/empty_ns/tag.hpp>
+#include <mizuiro/size_type.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
@@ -16,26 +15,18 @@
 
 namespace mizuiro
 {
-namespace mpl
-{
 
 template<
-	typename Type
+	mizuiro::size_type Size
 >
-using empty
+using
+integral_size
 =
-decltype(
-	empty_adl(
-		std::declval<
-			mizuiro::mpl::empty_ns::tag
-		>(),
-		mizuiro::mpl::make_tag_of<
-			Type
-		>()
-	)
-);
+std::integral_constant<
+	mizuiro::size_type,
+	Size
+>;
 
-}
 }
 
 #endif

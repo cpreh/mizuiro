@@ -9,7 +9,9 @@
 
 #include <mizuiro/image/format/canonical_ns/tag.hpp>
 #include <mizuiro/image/types/needs_format_store_ns/tag.hpp>
-#include <mizuiro/mpl/false.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <type_traits>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -24,7 +26,7 @@ namespace needs_format_store_ns
 template<
 	typename ImageFormat
 >
-mizuiro::mpl::false_
+std::false_type
 needs_format_store_adl(
 	mizuiro::image::types::needs_format_store_ns::tag,
 	mizuiro::image::format::canonical_ns::tag<

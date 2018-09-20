@@ -4,31 +4,43 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_RANGE_MAKE_TAG_OF_HPP_INCLUDED
-#define MIZUIRO_RANGE_MAKE_TAG_OF_HPP_INCLUDED
+#ifndef MIZUIRO_GET_CHANNEL_HPP_INCLUDED
+#define MIZUIRO_GET_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/range/tag_of_fwd.hpp>
+#include <fcppt/tag_fwd.hpp>
 
 
 namespace mizuiro
 {
-namespace range
+namespace color
 {
 
 template<
 	typename Type
 >
-typename
-mizuiro::range::tag_of<
-	Type
->::type
-make_tag_of()
+inline
+Type
+get_channel(
+	Type const &_value
+)
 {
 	return
-		typename
-		mizuiro::range::tag_of<
-			Type
-		>::type();
+		_value;
+}
+
+template<
+	typename Type
+>
+inline
+Type
+get_channel(
+	fcppt::tag<
+		Type
+	> const &
+)
+{
+	return
+		Type{};
 }
 
 }

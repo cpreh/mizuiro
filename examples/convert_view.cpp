@@ -4,7 +4,6 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/array.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/convert_static/converter.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
@@ -23,6 +22,7 @@
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
 #include <fcppt/config/external_begin.hpp>
+#include <array>
 #include <cstdint>
 #include <iostream>
 #include <ostream>
@@ -80,7 +80,8 @@ main()
 			4
 		);
 
-	typedef mizuiro::array<
+	typedef
+	std::array<
 		unsigned char,
 		width
 		* height

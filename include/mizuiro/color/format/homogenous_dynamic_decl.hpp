@@ -7,14 +7,15 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_DECL_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_DECL_HPP_INCLUDED
 
-#include <mizuiro/array.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/detail/dynamic/channel_array.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_fwd.hpp>
 #include <mizuiro/color/layout/all_possible_channels.hpp>
 #include <mizuiro/detail/nonassignable.hpp>
-#include <mizuiro/mpl/size.hpp>
-#include <mizuiro/mpl/include/list.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/sequences/size.hpp>
+#include <array>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -57,11 +58,11 @@ public:
 	all_possible_channels;
 
 	typedef
-	mizuiro::array<
+	std::array<
 		mizuiro::size_type,
-		mizuiro::mpl::size<
+		brigand::size<
 			all_possible_channels
-		>()
+		>::value
 	>
 	channel_index_array;
 

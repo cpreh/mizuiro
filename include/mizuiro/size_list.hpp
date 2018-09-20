@@ -4,36 +4,31 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#ifndef MIZUIRO_MPL_INTEGRAL_SIZE_HPP_INCLUDED
-#define MIZUIRO_MPL_INTEGRAL_SIZE_HPP_INCLUDED
+#ifndef MIZUIRO_SIZE_LIST_HPP_INCLUDED
+#define MIZUIRO_SIZE_LIST_HPP_INCLUDED
 
+#include <mizuiro/integral_size.hpp>
 #include <mizuiro/size_type.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <type_traits>
+#include <brigand/sequences/list.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
 {
-namespace mpl
-{
 
-/**
-\brief An integral constant size of mizuiro::size_type
-
-\tparam Size The constant size
-*/
 template<
-	mizuiro::size_type Size
+	mizuiro::size_type... Sizes
 >
-using integral_size
+using
+size_list
 =
-std::integral_constant<
-	mizuiro::size_type,
-	Size
+brigand::list<
+	mizuiro::integral_size<
+		Sizes
+	>...
 >;
 
-}
 }
 
 #endif

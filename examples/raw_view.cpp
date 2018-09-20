@@ -4,7 +4,6 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/array.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/access/raw.hpp>
@@ -28,6 +27,7 @@
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <algorithm>
+#include <array>
 #include <iostream>
 #include <ostream>
 #include <fcppt/config/external_end.hpp>
@@ -62,7 +62,8 @@ main()
 			format::color_format::element_count
 		);
 
-	typedef mizuiro::array<
+	typedef
+	std::array<
 		mizuiro::raw_value,
 		width * height * channel_bytes * element_count
 	> raw_array;

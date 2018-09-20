@@ -11,7 +11,9 @@
 #include <mizuiro/color/channel/green_fwd.hpp>
 #include <mizuiro/color/channel/red_fwd.hpp>
 #include <mizuiro/color/space/rgb_fwd.hpp>
-#include <mizuiro/mpl/list.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/sequences/set.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -24,7 +26,7 @@ namespace space
 struct rgb
 {
 	typedef
-	mizuiro::mpl::list<
+	brigand::set<
 		mizuiro::color::channel::red,
 		mizuiro::color::channel::green,
 		mizuiro::color::channel::blue

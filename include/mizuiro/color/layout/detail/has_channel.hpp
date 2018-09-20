@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_COLOR_LAYOUT_DETAIL_HAS_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_LAYOUT_DETAIL_HAS_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/mpl/contains.hpp>
+#include <fcppt/brigand/found_t.hpp>
 
 
 namespace mizuiro
@@ -20,25 +20,16 @@ namespace detail
 {
 
 template<
-	typename Order
+	typename Order,
+	typename Channel
 >
-struct has_channel
-{
-	template<
-		typename Channel
-	>
-	static
-	constexpr
-	bool
-	apply()
-	{
-		return
-			mizuiro::mpl::contains<
-				Order,
-				Channel
-			>();
-	}
-};
+using
+has_channel
+=
+fcppt::brigand::found_t<
+	Order,
+	Channel
+>;
 
 }
 }

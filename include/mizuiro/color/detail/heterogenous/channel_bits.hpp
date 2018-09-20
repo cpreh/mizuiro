@@ -7,8 +7,10 @@
 #ifndef MIZUIRO_COLOR_DETAIL_HETEROGENOUS_CHANNEL_BITS_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_HETEROGENOUS_CHANNEL_BITS_HPP_INCLUDED
 
-#include <mizuiro/mpl/at.hpp>
-#include <mizuiro/mpl/index_of.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/algorithms/index_of.hpp>
+#include <brigand/sequences/at.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -26,12 +28,13 @@ template<
 >
 using channel_bits
 =
-mizuiro::mpl::at<
-	typename Format::channel_bits,
-	mizuiro::mpl::index_of<
+brigand::at<
+	typename
+	Format::channel_bits,
+	brigand::index_of<
 		typename Format::layout::channels,
 		Channel
-	>()
+	>
 >;
 
 }

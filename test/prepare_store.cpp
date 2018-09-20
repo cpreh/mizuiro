@@ -4,6 +4,7 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <mizuiro/size_list.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/channel/luminance.hpp>
@@ -18,7 +19,6 @@
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_heterogenous.hpp>
-#include <mizuiro/mpl/size_list.hpp>
 #include <mizuiro/test/external_begin.hpp>
 #include <catch2/catch.hpp>
 #include <cstdint>
@@ -32,7 +32,7 @@ TEST_CASE(
 {
 	typedef
 	mizuiro::color::format::heterogenous_static<
-		mizuiro::mpl::size_list<
+		mizuiro::size_list<
 			24u,
 			8u
 		>,

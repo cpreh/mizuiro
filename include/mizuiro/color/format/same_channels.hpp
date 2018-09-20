@@ -9,7 +9,9 @@
 
 #include <mizuiro/color/layout/detail/has_all_channels.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
-#include <mizuiro/mpl/bool.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <brigand/types/bool.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -25,7 +27,7 @@ template<
 >
 using same_channels
 =
-mizuiro::mpl::bool_<
+brigand::bool_<
 	mizuiro::color::layout::detail::has_all_channels<
 		mizuiro::color::types::static_channels<
 			Format1

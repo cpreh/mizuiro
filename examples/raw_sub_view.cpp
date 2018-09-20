@@ -4,7 +4,6 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <mizuiro/array.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/access/raw.hpp>
@@ -29,6 +28,7 @@
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
 #include <fcppt/config/external_begin.hpp>
+#include <array>
 #include <iostream>
 #include <ostream>
 #include <fcppt/config/external_end.hpp>
@@ -62,7 +62,7 @@ main()
 			4
 		);
 
-	mizuiro::array<
+	std::array<
 		unsigned char,
 		width
 		* height
