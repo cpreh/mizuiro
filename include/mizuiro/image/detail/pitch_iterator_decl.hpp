@@ -95,10 +95,6 @@ public:
 		format_store_type const &
 	);
 
-	pitch_iterator(
-		pitch_iterator const &
-	) noexcept;
-
 	dim const &
 	size() const;
 

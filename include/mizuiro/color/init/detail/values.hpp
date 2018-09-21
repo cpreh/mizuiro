@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_VALUES_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_VALUES_HPP_INCLUDED
 
+#include <fcppt/nonassignable.hpp>
 #include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <tuple>
@@ -28,6 +29,9 @@ template<
 >
 class values
 {
+	FCPPT_NONASSIGNABLE(
+		values
+	);
 public:
 	typedef Tuple tuple_type;
 

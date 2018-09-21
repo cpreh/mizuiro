@@ -72,20 +72,6 @@ template<
 	typename Format,
 	typename Constness
 >
-mizuiro::image::detail::pitch_iterator<
-	Access,
-	Format,
-	Constness
->::pitch_iterator(
-	pitch_iterator const &
-) noexcept
-= default;
-
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
 typename
 mizuiro::image::detail::pitch_iterator<
 	Access,

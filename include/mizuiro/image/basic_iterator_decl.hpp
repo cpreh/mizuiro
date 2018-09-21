@@ -82,26 +82,6 @@ public:
 	pointer
 	data() const;
 
-	basic_iterator(
-		basic_iterator const &
-	);
-
-	basic_iterator(
-		basic_iterator &&
-	) noexcept;
-
-	basic_iterator &
-	operator=(
-		basic_iterator const &
-	);
-
-	basic_iterator &
-	operator=(
-		basic_iterator &&
-	);
-
-	~basic_iterator();
-
 	reference
 	operator*() const;
 

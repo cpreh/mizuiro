@@ -29,7 +29,7 @@ template<
 class prepare
 {
 	FCPPT_NONASSIGNABLE(
-		Function
+		prepare
 	);
 public:
 	prepare(
