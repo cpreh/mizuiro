@@ -14,7 +14,8 @@
 #include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
 #include <mizuiro/detail/is_set.hpp>
-#include <mizuiro/detail/tuple_for_each.hpp>
+#include <fcppt/algorithm/loop.hpp>
+#include <fcppt/algorithm/loop_break_tuple.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <brigand/algorithms/all.hpp>
 #include <brigand/algorithms/transform.hpp>
@@ -77,7 +78,8 @@ assign_object(
 		"Duplicate channel initialization"
 	);
 
-	mizuiro::detail::tuple_for_each(
+	fcppt::algorithm::loop(
+		_init.get(),
 		[
 			&_object
 		](
@@ -88,8 +90,7 @@ assign_object(
 				_object,
 				_value
 			);
-		},
-		_init.get()
+		}
 	);
 }
 

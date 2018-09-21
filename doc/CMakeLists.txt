@@ -388,7 +388,6 @@ set(
 	include/mizuiro/detail/rebind_tag.hpp
 	include/mizuiro/detail/ref_store.hpp
 	include/mizuiro/detail/sum.hpp
-	include/mizuiro/detail/tuple_for_each.hpp
 	include/mizuiro/detail/uint_least.hpp
 	include/mizuiro/detail/unlikely.hpp
 	include/mizuiro/difference_type.hpp
