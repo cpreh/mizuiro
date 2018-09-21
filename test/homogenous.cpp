@@ -10,10 +10,10 @@
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/l.hpp>
-#include <mizuiro/test/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <catch2/catch.hpp>
 #include <cstdint>
-#include <mizuiro/test/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 TEST_CASE(

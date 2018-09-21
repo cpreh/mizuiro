@@ -12,10 +12,10 @@
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
-#include <mizuiro/test/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <catch2/catch.hpp>
 #include <cstdint>
-#include <mizuiro/test/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 TEST_CASE(

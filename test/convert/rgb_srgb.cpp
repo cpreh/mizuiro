@@ -20,10 +20,10 @@
 #include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/layout/s_rgba.hpp>
-#include <mizuiro/test/external_begin.hpp>
+#include <fcppt/config/external_begin.hpp>
 #include <catch2/catch.hpp>
 #include <cmath>
-#include <mizuiro/test/external_end.hpp>
+#include <fcppt/config/external_end.hpp>
 
 
 TEST_CASE(

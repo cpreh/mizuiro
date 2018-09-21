@@ -79,6 +79,8 @@ option(
 if(
 	ENABLE_TEST
 )
+	fcppt_utils_setup_tests()
+
 	enable_testing()
 
 	add_subdirectory(
