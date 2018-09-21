@@ -11,6 +11,7 @@
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/format/homogenous_dynamic.hpp>
 #include <mizuiro/color/format/store.hpp>
+#include <mizuiro/color/format/detail/has_channel_constexpr.hpp>
 #include <mizuiro/color/format/include/homogenous_dynamic.hpp>
 #include <mizuiro/color/init/alpha.hpp>
 #include <mizuiro/color/init/blue.hpp>
@@ -37,6 +38,14 @@ TEST_CASE(
 		4
 	>
 	color_uint8_4_format;
+
+	static_assert(
+		!mizuiro::color::format::detail::has_channel_constexpr<
+			color_uint8_4_format,
+			mizuiro::color::channel::red
+		>::value,
+		"has_channel should not be constexpr"
+	);
 
 	color_uint8_4_format const rgba_format{
 		mizuiro::color::layout::rgba{}
