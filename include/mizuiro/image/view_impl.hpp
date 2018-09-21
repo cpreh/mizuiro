@@ -136,7 +136,7 @@ mizuiro::image::view<
 	Constness
 >::view(
 	view const &
-) noexcept
+)
 = default;
 
 template<
