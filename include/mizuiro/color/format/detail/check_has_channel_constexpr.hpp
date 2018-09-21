@@ -9,6 +9,8 @@
 
 #include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/format/store.hpp>
+#include <mizuiro/detail/int_to_true.hpp>
+#include <fcppt/config/compiler.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <brigand/types/integral_constant.hpp>
 #include <type_traits>
@@ -24,6 +26,8 @@ namespace format
 namespace detail
 {
 
+// TODO: Get a proper solution for this
+#if defined(FCPPT_CONFIG_MSVC_COMPILER)
 template<
 	typename Format,
 	typename Channel
@@ -43,6 +47,28 @@ check_has_channel_constexpr(
 			)
 		>::value
 );
+#else
+template<
+	typename Format,
+	typename Channel
+>
+mizuiro::detail::int_to_true<
+	(
+		mizuiro::color::access::has_channel<
+			Format
+		>(
+			mizuiro::color::format::store<
+				Format
+			>{},
+			Channel{}
+		),
+		0
+	)
+>
+check_has_channel_constexpr(
+	int
+);
+#endif
 
 template<
 	typename,
