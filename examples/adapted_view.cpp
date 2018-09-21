@@ -11,7 +11,6 @@
 #include <mizuiro/raw_value.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/access/raw.hpp>
-#include <mizuiro/detail/nonassignable.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/dimension_content.hpp>
 #include <mizuiro/image/linear_view.hpp>
@@ -31,6 +30,7 @@
 #include <mizuiro/image/types/pointer_ns/tag.hpp>
 #include <mizuiro/image/types/reference_ns/tag.hpp>
 #include <mizuiro/image/types/value_type_ns/tag.hpp>
+#include <fcppt/nonassignable.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <cstring>
 #include <iostream>
@@ -410,7 +410,7 @@ template<
 >
 class proxy
 {
-	MIZUIRO_DETAIL_NONASSIGNABLE(
+	FCPPT_NONASSIGNABLE(
 		proxy
 	);
 public:

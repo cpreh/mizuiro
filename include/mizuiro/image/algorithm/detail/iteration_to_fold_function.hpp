@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_ITERATION_TO_FOLD_FUNCTION_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_ITERATION_TO_FOLD_FUNCTION_HPP_INCLUDED
 
-#include <mizuiro/detail/nonassignable.hpp>
 #include <mizuiro/image/algorithm/detail/dummy_state.hpp>
+#include <fcppt/nonassignable.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <utility>
 #include <fcppt/config/external_end.hpp>
@@ -28,7 +28,7 @@ template<
 >
 class iteration_to_fold_function
 {
-	MIZUIRO_DETAIL_NONASSIGNABLE(
+	FCPPT_NONASSIGNABLE(
 		iteration_to_fold_function
 	);
 public:

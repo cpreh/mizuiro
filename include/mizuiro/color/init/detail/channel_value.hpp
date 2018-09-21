@@ -8,7 +8,7 @@
 #define MIZUIRO_COLOR_INIT_DETAIL_CHANNEL_VALUE_HPP_INCLUDED
 
 #include <mizuiro/color/init/detail/channel_value_fwd.hpp>
-#include <mizuiro/detail/nonassignable.hpp>
+#include <fcppt/nonassignable.hpp>
 
 
 namespace mizuiro
@@ -26,7 +26,7 @@ template<
 >
 class channel_value
 {
-	MIZUIRO_DETAIL_NONASSIGNABLE(
+	FCPPT_NONASSIGNABLE(
 		channel_value
 	);
 public:

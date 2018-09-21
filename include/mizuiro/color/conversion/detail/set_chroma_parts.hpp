@@ -8,7 +8,7 @@
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_SET_CHROMA_PARTS_HPP_INCLUDED
 
 #include <mizuiro/color/set_percentage.hpp>
-#include <mizuiro/detail/nonassignable.hpp>
+#include <fcppt/nonassignable.hpp>
 
 
 namespace mizuiro
@@ -26,7 +26,7 @@ template<
 >
 class set_chroma_parts
 {
-	MIZUIRO_DETAIL_NONASSIGNABLE(
+	FCPPT_NONASSIGNABLE(
 		set_chroma_parts
 	);
 public:

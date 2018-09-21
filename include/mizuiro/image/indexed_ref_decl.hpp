@@ -8,9 +8,9 @@
 #define MIZUIRO_IMAGE_INDEXED_REF_DECL_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/detail/nonassignable.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/indexed_ref_fwd.hpp>
+#include <fcppt/nonassignable.hpp>
 
 
 namespace mizuiro
@@ -24,7 +24,7 @@ template<
 >
 class indexed_ref
 {
-	MIZUIRO_DETAIL_NONASSIGNABLE(
+	FCPPT_NONASSIGNABLE(
 		indexed_ref
 	);
 public:

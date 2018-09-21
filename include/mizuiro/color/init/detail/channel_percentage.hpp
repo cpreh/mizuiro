@@ -8,7 +8,7 @@
 #define MIZUIRO_COLOR_INIT_DETAIL_CHANNEL_PERCENTAGE_HPP_INCLUDED
 
 #include <mizuiro/color/init/detail/channel_percentage_fwd.hpp>
-#include <mizuiro/detail/nonassignable.hpp>
+#include <fcppt/nonassignable.hpp>
 
 
 namespace mizuiro
@@ -26,7 +26,7 @@ template<
 >
 class channel_percentage
 {
-	MIZUIRO_DETAIL_NONASSIGNABLE(
+	FCPPT_NONASSIGNABLE(
 		channel_percentage
 	);
 public:

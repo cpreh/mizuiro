@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_PREPARE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_PREPARE_HPP_INCLUDED
 
-#include <mizuiro/detail/nonassignable.hpp>
 #include <mizuiro/image/prepare_store_units.hpp>
 #include <mizuiro/image/format/store.hpp>
+#include <fcppt/nonassignable.hpp>
 
 
 namespace mizuiro
@@ -28,7 +28,7 @@ template<
 >
 class prepare
 {
-	MIZUIRO_DETAIL_NONASSIGNABLE(
+	FCPPT_NONASSIGNABLE(
 		Function
 	);
 public:

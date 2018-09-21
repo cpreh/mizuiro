@@ -382,7 +382,6 @@ set(
 	include/mizuiro/detail/int_to_true.hpp
 	include/mizuiro/detail/is_set.hpp
 	include/mizuiro/detail/map_format_store.hpp
-	include/mizuiro/detail/nonassignable.hpp
 	include/mizuiro/detail/normal_format_base_decl.hpp
 	include/mizuiro/detail/normal_format_base_fwd.hpp
 	include/mizuiro/detail/normal_format_base_impl.hpp

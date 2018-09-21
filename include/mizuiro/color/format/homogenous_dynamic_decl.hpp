@@ -11,7 +11,7 @@
 #include <mizuiro/color/detail/dynamic/channel_array.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_fwd.hpp>
 #include <mizuiro/color/layout/all_possible_channels.hpp>
-#include <mizuiro/detail/nonassignable.hpp>
+#include <fcppt/nonassignable.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <brigand/sequences/size.hpp>
 #include <array>
@@ -32,7 +32,7 @@ template<
 >
 struct homogenous_dynamic
 {
-	MIZUIRO_DETAIL_NONASSIGNABLE(
+	FCPPT_NONASSIGNABLE(
 		homogenous_dynamic
 	);
 public:
