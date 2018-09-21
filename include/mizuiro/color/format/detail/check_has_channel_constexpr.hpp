@@ -9,8 +9,8 @@
 
 #include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/format/store.hpp>
-#include <mizuiro/detail/int_to_true.hpp>
 #include <fcppt/config/external_begin.hpp>
+#include <brigand/types/integral_constant.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
@@ -28,21 +28,20 @@ template<
 	typename Format,
 	typename Channel
 >
-mizuiro::detail::int_to_true<
-	(
-		mizuiro::color::access::has_channel<
-			Format
-		>(
-			mizuiro::color::format::store<
-				Format
-			>{},
-			Channel{}
-		),
-		0
-	)
->
+std::true_type
 check_has_channel_constexpr(
-	int
+	int,
+	bool =
+		brigand::bool_<
+			mizuiro::color::access::has_channel<
+				Format
+			>(
+				mizuiro::color::format::store<
+					Format
+				>{},
+				Channel{}
+			)
+		>::value
 );
 
 template<
