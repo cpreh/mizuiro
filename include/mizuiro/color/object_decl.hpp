@@ -24,6 +24,9 @@
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/types/store_needs_init.hpp>
+#include <fcppt/preprocessor/disable_vc_warning.hpp>
+#include <fcppt/preprocessor/pop_warning.hpp>
+#include <fcppt/preprocessor/push_warning.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
@@ -86,6 +89,9 @@ public:
 	>
 	const_pointer;
 
+	FCPPT_PP_PUSH_WARNING
+	FCPPT_PP_DISABLE_VC_WARNING(4686)
+
 	/// constructs an uninitialized color
 	template<
 		typename FormatArg = Format
@@ -116,6 +122,8 @@ public:
 	object(
 		object const &
 	);
+
+	FCPPT_PP_POP_WARNING
 
 	/// Constructs a color from another color (possibly a view)
 	template<
@@ -153,6 +161,9 @@ public:
 			>::value
 		>::type * = nullptr
 	);
+
+	FCPPT_PP_PUSH_WARNING
+	FCPPT_PP_DISABLE_VC_WARNING(4686)
 
 	/// Constructs a color from a special init expression
 	template<
@@ -194,6 +205,8 @@ public:
 			>::value
 		>::type * = nullptr
 	);
+
+	FCPPT_PP_POP_WARNING
 
 	template<
 		typename Channel

@@ -15,6 +15,9 @@
 #include <mizuiro/image/format/base_decl.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
+#include <fcppt/preprocessor/disable_vc_warning.hpp>
+#include <fcppt/preprocessor/pop_warning.hpp>
+#include <fcppt/preprocessor/push_warning.hpp>
 
 
 namespace mizuiro
@@ -101,6 +104,9 @@ public:
 	>
 	pitch_type;
 
+	FCPPT_PP_PUSH_WARNING
+	FCPPT_PP_DISABLE_VC_WARNING(4686)
+
 	linear_view(
 		dim const &,
 		pointer data,
@@ -109,6 +115,8 @@ public:
 				format
 			>::get()
 	);
+
+	FCPPT_PP_POP_WARNING
 
 	linear_view(
 		linear_view const &

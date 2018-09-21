@@ -19,6 +19,9 @@
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/store.hpp>
 #include <mizuiro/image/types/value_type.hpp>
+#include <fcppt/preprocessor/disable_vc_warning.hpp>
+#include <fcppt/preprocessor/pop_warning.hpp>
+#include <fcppt/preprocessor/push_warning.hpp>
 
 
 namespace mizuiro
@@ -98,6 +101,9 @@ public:
 	>
 	const_view_type;
 
+	FCPPT_PP_PUSH_WARNING
+	FCPPT_PP_DISABLE_VC_WARNING(4686)
+
 	store(
 		dim const &,
 		mizuiro::no_init const &,
@@ -136,6 +142,8 @@ public:
 				format
 			>::get()
 	);
+
+	FCPPT_PP_POP_WARNING
 
 	pointer
 	data();

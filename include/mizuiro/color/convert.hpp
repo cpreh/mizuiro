@@ -10,12 +10,18 @@
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/format/argument.hpp>
+#include <fcppt/preprocessor/disable_vc_warning.hpp>
+#include <fcppt/preprocessor/pop_warning.hpp>
+#include <fcppt/preprocessor/push_warning.hpp>
 
 
 namespace mizuiro
 {
 namespace color
 {
+
+FCPPT_PP_PUSH_WARNING
+FCPPT_PP_DISABLE_VC_WARNING(4686)
 
 template<
 	typename Converter,
@@ -51,6 +57,8 @@ convert(
 			_dest_format
 		);
 }
+
+FCPPT_PP_POP_WARNING
 
 }
 }
