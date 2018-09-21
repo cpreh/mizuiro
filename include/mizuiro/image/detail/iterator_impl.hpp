@@ -7,12 +7,10 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_ITERATOR_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_ITERATOR_IMPL_HPP_INCLUDED
 
-#include <mizuiro/detail/either_binary.hpp>
-#include <mizuiro/detail/either_impl.hpp>
-#include <mizuiro/detail/either_unary.hpp>
 #include <mizuiro/image/detail/compare_iterator.hpp>
 #include <mizuiro/image/detail/iterator_decl.hpp>
 #include <mizuiro/image/detail/iterator_difference.hpp>
+#include <fcppt/variant/apply.hpp>
 
 
 template<
@@ -73,7 +71,7 @@ mizuiro::image::detail::iterator<
 >::data() const
 {
 	return
-		mizuiro::detail::either_unary(
+		fcppt::variant::apply(
 			[](
 				auto const &_value
 			)
@@ -100,7 +98,7 @@ mizuiro::image::detail::iterator<
 )
 {
 	internal_ =
-		mizuiro::detail::either_unary(
+		fcppt::variant::apply(
 			[
 				_diff
 			](
@@ -131,7 +129,7 @@ mizuiro::image::detail::iterator<
 >::increment()
 {
 	internal_ =
-		mizuiro::detail::either_unary(
+		fcppt::variant::apply(
 			[](
 				auto _it
 			)
@@ -158,7 +156,7 @@ mizuiro::image::detail::iterator<
 >::decrement()
 {
 	internal_ =
-		mizuiro::detail::either_unary(
+		fcppt::variant::apply(
 			[](
 				auto _it
 			)
@@ -192,7 +190,7 @@ mizuiro::image::detail::iterator<
 ) const
 {
 	return
-		mizuiro::detail::either_binary(
+		fcppt::variant::apply(
 			mizuiro::image::detail::iterator_difference<
 				difference_type
 			>(),
@@ -219,7 +217,7 @@ mizuiro::image::detail::iterator<
 >::dereference() const
 {
 	return
-		mizuiro::detail::either_unary(
+		fcppt::variant::apply(
 			[](
 				auto const &_it
 			)
@@ -246,7 +244,7 @@ mizuiro::image::detail::iterator<
 ) const
 {
 	return
-		mizuiro::detail::either_binary(
+		fcppt::variant::apply(
 			mizuiro::image::detail::compare_iterator(),
 			internal_,
 			_other.internal_

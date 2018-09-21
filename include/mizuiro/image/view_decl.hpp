@@ -7,7 +7,6 @@
 #ifndef MIZUIRO_IMAGE_VIEW_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_VIEW_DECL_HPP_INCLUDED
 
-#include <mizuiro/detail/either_decl.hpp>
 #include <mizuiro/image/iterator_fwd.hpp>
 #include <mizuiro/image/linear_view_decl.hpp>
 #include <mizuiro/image/pitch_type.hpp>
@@ -16,6 +15,7 @@
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
+#include <fcppt/variant/variadic.hpp>
 
 
 namespace mizuiro
@@ -82,7 +82,7 @@ public:
 	pitch_view;
 
 	typedef
-	mizuiro::detail::either<
+	fcppt::variant::variadic<
 		linear_view,
 		pitch_view
 	>

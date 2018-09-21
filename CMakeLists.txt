@@ -394,11 +394,6 @@ set(
 	include/mizuiro/detail/copy_overlap.hpp
 	include/mizuiro/detail/copy_store.hpp
 	include/mizuiro/detail/decltype_use.hpp
-	include/mizuiro/detail/either_binary.hpp
-	include/mizuiro/detail/either_decl.hpp
-	include/mizuiro/detail/either_fwd.hpp
-	include/mizuiro/detail/either_impl.hpp
-	include/mizuiro/detail/either_unary.hpp
 	include/mizuiro/detail/empty_format_base_decl.hpp
 	include/mizuiro/detail/empty_format_base_fwd.hpp
 	include/mizuiro/detail/empty_format_base_impl.hpp

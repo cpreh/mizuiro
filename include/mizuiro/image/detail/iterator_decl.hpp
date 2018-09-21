@@ -8,12 +8,12 @@
 #define MIZUIRO_IMAGE_DETAIL_ITERATOR_DECL_HPP_INCLUDED
 
 #include <mizuiro/difference_type.hpp>
-#include <mizuiro/detail/either_decl.hpp>
 #include <mizuiro/image/linear_iterator_decl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
 #include <mizuiro/image/detail/iterator_fwd.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
+#include <fcppt/variant/variadic.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
@@ -78,7 +78,7 @@ public:
 	format_store_type;
 
 	typedef
-	mizuiro::detail::either<
+	fcppt::variant::variadic<
 		pitch_iterator,
 		linear_iterator
 	>

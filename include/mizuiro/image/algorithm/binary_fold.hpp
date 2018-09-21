@@ -7,10 +7,9 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_BINARY_FOLD_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_BINARY_FOLD_HPP_INCLUDED
 
-#include <mizuiro/detail/either_binary.hpp>
-#include <mizuiro/detail/either_unary.hpp>
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/algorithm/detail/binary_fold.hpp>
+#include <fcppt/variant/apply.hpp>
 
 
 namespace mizuiro
@@ -71,7 +70,7 @@ binary_fold(
 )
 {
 	return
-		mizuiro::detail::either_unary(
+		fcppt::variant::apply(
 			[
 				&_function,
 				_state,
@@ -118,7 +117,7 @@ binary_fold(
 )
 {
 	return
-		mizuiro::detail::either_unary(
+		fcppt::variant::apply(
 			[
 				&_function,
 				_state,
@@ -171,7 +170,7 @@ binary_fold(
 )
 {
 	return
-		mizuiro::detail::either_binary(
+		fcppt::variant::apply(
 			[
 				&_function,
 				_state,

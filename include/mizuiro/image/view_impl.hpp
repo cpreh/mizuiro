@@ -7,8 +7,6 @@
 #ifndef MIZUIRO_IMAGE_VIEW_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_VIEW_IMPL_HPP_INCLUDED
 
-#include <mizuiro/detail/either_impl.hpp>
-#include <mizuiro/detail/either_unary.hpp>
 #include <mizuiro/image/dimension_comparison.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/dimension_null.hpp>
@@ -18,6 +16,7 @@
 #include <mizuiro/image/move_iterator.hpp>
 #include <mizuiro/image/pitch_view_impl.hpp>
 #include <mizuiro/image/view_decl.hpp>
+#include <fcppt/variant/apply.hpp>
 
 
 template<
@@ -161,7 +160,7 @@ mizuiro::image::view<
 )
 :
 	impl_(
-		mizuiro::detail::either_unary(
+		fcppt::variant::apply(
 			[](
 				auto const &_view
 			)
@@ -196,7 +195,7 @@ mizuiro::image::view<
 >::size() const
 {
 	return
-		mizuiro::detail::either_unary(
+		fcppt::variant::apply(
 			[](
 				auto const &_view
 			)
@@ -225,7 +224,7 @@ mizuiro::image::view<
 >::pitch() const
 {
 	return
-		mizuiro::detail::either_unary(
+		fcppt::variant::apply(
 			[](
 				auto const &_view
 			)
@@ -254,7 +253,7 @@ mizuiro::image::view<
 >::begin() const
 {
 	return
-		mizuiro::detail::either_unary(
+		fcppt::variant::apply(
 			[](
 				auto const &_view
 			)
@@ -288,7 +287,7 @@ mizuiro::image::view<
 >::end() const
 {
 	return
-		mizuiro::detail::either_unary(
+		fcppt::variant::apply(
 			[](
 				auto const &_view
 			)
@@ -347,7 +346,7 @@ mizuiro::image::view<
 >::data() const
 {
 	return
-		mizuiro::detail::either_unary(
+		fcppt::variant::apply(
 			[](
 				auto const &_view
 			)
@@ -376,7 +375,7 @@ mizuiro::image::view<
 >::format_store() const
 {
 	return
-		mizuiro::detail::either_unary(
+		fcppt::variant::apply(
 			[](
 				auto const &_view
 			)
