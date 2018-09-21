@@ -96,7 +96,7 @@ public:
 	pointer
 	operator->() const;
 
-	//basic_iterator();
+	basic_iterator() = delete;
 
 	basic_iterator &
 	operator--();
