@@ -277,6 +277,7 @@ set(
 	include/mizuiro/color/format/store_fwd.hpp
 	include/mizuiro/color/format/store_impl.hpp
 	include/mizuiro/color/format/tag_of_fwd.hpp
+	include/mizuiro/color/get_channel.hpp
 	include/mizuiro/color/init/alpha.hpp
 	include/mizuiro/color/init/blue.hpp
 	include/mizuiro/color/init/detail/assign_object.hpp
@@ -386,7 +387,6 @@ set(
 	include/mizuiro/detail/bit_count.hpp
 	include/mizuiro/detail/bit_count_at_least.hpp
 	include/mizuiro/detail/choose_const.hpp
-	include/mizuiro/detail/compiler.hpp
 	include/mizuiro/detail/copy.hpp
 	include/mizuiro/detail/copy_n.hpp
 	include/mizuiro/detail/copy_n_base.hpp
@@ -394,7 +394,6 @@ set(
 	include/mizuiro/detail/copy_overlap.hpp
 	include/mizuiro/detail/copy_store.hpp
 	include/mizuiro/detail/decltype_use.hpp
-	include/mizuiro/detail/disable_gcc_warning.hpp
 	include/mizuiro/detail/either_binary.hpp
 	include/mizuiro/detail/either_decl.hpp
 	include/mizuiro/detail/either_fwd.hpp
@@ -416,6 +415,7 @@ set(
 	include/mizuiro/detail/format_store_fwd.hpp
 	include/mizuiro/detail/format_store_impl.hpp
 	include/mizuiro/detail/int_to_true.hpp
+	include/mizuiro/detail/is_set.hpp
 	include/mizuiro/detail/map_format_store.hpp
 	include/mizuiro/detail/nonassignable.hpp
 	include/mizuiro/detail/normal_format_base_decl.hpp
@@ -424,10 +424,11 @@ set(
 	include/mizuiro/detail/normal_format_store_decl.hpp
 	include/mizuiro/detail/normal_format_store_fwd.hpp
 	include/mizuiro/detail/normal_format_store_impl.hpp
-	include/mizuiro/detail/pragma.hpp
 	include/mizuiro/detail/promote_type.hpp
+	include/mizuiro/detail/range_to.hpp
 	include/mizuiro/detail/rebind_tag.hpp
 	include/mizuiro/detail/ref_store.hpp
+	include/mizuiro/detail/sum.hpp
 	include/mizuiro/detail/tuple_for_each.hpp
 	include/mizuiro/detail/uint_least.hpp
 	include/mizuiro/detail/unlikely.hpp
@@ -675,6 +676,7 @@ set(
 	include/mizuiro/image/view_decl.hpp
 	include/mizuiro/image/view_fwd.hpp
 	include/mizuiro/image/view_impl.hpp
+	include/mizuiro/integral_size.hpp
 	include/mizuiro/is_constness_tag.hpp
 	include/mizuiro/is_raw_pointer.hpp
 	include/mizuiro/no_init.hpp
