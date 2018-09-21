@@ -8,6 +8,7 @@
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
+#include <mizuiro/color/format/detail/has_channel_constexpr.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
 #include <mizuiro/color/layout/l.hpp>
 #include <fcppt/config/external_begin.hpp>
@@ -27,6 +28,14 @@ TEST_CASE(
 		mizuiro::color::layout::l
 	>
 	format;
+
+	static_assert(
+		mizuiro::color::format::detail::has_channel_constexpr<
+			format,
+			mizuiro::color::channel::luminance
+		>::value,
+		"has_channel should be constexpr"
+	);
 
 	typedef
 	mizuiro::color::object<
