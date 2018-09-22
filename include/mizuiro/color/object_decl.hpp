@@ -103,11 +103,11 @@ public:
 			mizuiro::color::format::argument<
 				Format
 			>::get(),
-		typename std::enable_if<
+		std::enable_if_t<
 			!mizuiro::color::types::store_needs_init<
 				FormatArg
 			>::value
-		>::type * = nullptr
+		> * = nullptr
 	);
 
 	explicit
@@ -119,11 +119,11 @@ public:
 			>::get()
 	);
 
+	FCPPT_PP_POP_WARNING
+
 	object(
 		object const &
 	);
-
-	FCPPT_PP_POP_WARNING
 
 	/// Constructs a color from another color (possibly a view)
 	template<
@@ -133,7 +133,7 @@ public:
 	explicit
 	object(
 		Other const &,
-		typename std::enable_if<
+		std::enable_if_t<
 			mizuiro::color::is_color<
 				Other
 			>::value
@@ -141,7 +141,7 @@ public:
 			!mizuiro::color::types::store_needs_init<
 				FormatArg
 			>::value
-		>::type * = nullptr
+		> * = nullptr
 	);
 
 	template<
@@ -151,7 +151,7 @@ public:
 	explicit
 	object(
 		Other const &,
-		typename std::enable_if<
+		std::enable_if_t<
 			mizuiro::color::is_color<
 				Other
 			>::value
@@ -159,7 +159,7 @@ public:
 			mizuiro::color::types::store_needs_init<
 				FormatArg
 			>::value
-		>::type * = nullptr
+		> * = nullptr
 	);
 
 	FCPPT_PP_PUSH_WARNING
@@ -179,11 +179,11 @@ public:
 			mizuiro::color::format::argument<
 				Format
 			>::get(),
-		typename std::enable_if<
+		std::enable_if_t<
 			!mizuiro::color::types::store_needs_init<
 				FormatArg
 			>::value
-		>::type * = nullptr
+		> * = nullptr
 	);
 
 	template<
@@ -199,11 +199,11 @@ public:
 			mizuiro::color::format::argument<
 				Format
 			>::get(),
-		typename std::enable_if<
+		std::enable_if_t<
 			mizuiro::color::types::store_needs_init<
 				FormatArg
 			>::value
-		>::type * = nullptr
+		> * = nullptr
 	);
 
 	FCPPT_PP_POP_WARNING

@@ -38,11 +38,11 @@ mizuiro::color::object<
 >::object(
 	mizuiro::no_init const &,
 	format_store_type const &_format,
-	typename std::enable_if<
+	std::enable_if_t<
 		!mizuiro::color::types::store_needs_init<
 			FormatArg
 		>::value
-	>::type *
+	> *
 )
 :
 	base(
@@ -101,7 +101,7 @@ mizuiro::color::object<
 	Format
 >::object(
 	Other const &_other,
-	typename std::enable_if<
+	std::enable_if_t<
 		mizuiro::color::is_color<
 			Other
 		>::value
@@ -109,7 +109,7 @@ mizuiro::color::object<
 		!mizuiro::color::types::store_needs_init<
 			FormatArg
 		>::value
-	>::type *
+	> *
 )
 :
 	base(
@@ -131,7 +131,7 @@ mizuiro::color::object<
 	Format
 >::object(
 	Other const &_other,
-	typename std::enable_if<
+	std::enable_if_t<
 		mizuiro::color::is_color<
 			Other
 		>::value
@@ -139,7 +139,7 @@ mizuiro::color::object<
 		mizuiro::color::types::store_needs_init<
 			FormatArg
 		>::value
-	>::type *
+	> *
 )
 :
 	base(
@@ -169,11 +169,11 @@ mizuiro::color::object<
 		Vector
 	> const &_init,
 	format_store_type const &_format,
-	typename std::enable_if<
+	std::enable_if_t<
 		!mizuiro::color::types::store_needs_init<
 			FormatArg
 		>::value
-	>::type *
+	> *
 )
 :
 	base(
@@ -200,11 +200,11 @@ mizuiro::color::object<
 		Vector
 	> const &_init,
 	format_store_type const &_format,
-	typename std::enable_if<
+	std::enable_if_t<
 		mizuiro::color::types::store_needs_init<
 			FormatArg
 		>::value
-	>::type *
+	> *
 )
 :
 	base(

@@ -28,8 +28,7 @@ template<
 >
 using format_store
 =
-typename
-std::conditional<
+std::conditional_t<
 	FormatNeedsStore<
 		Format
 	>::value,
@@ -40,7 +39,7 @@ std::conditional<
 	mizuiro::detail::empty_format_store<
 		Format
 	>
->::type;
+>;
 
 }
 }
