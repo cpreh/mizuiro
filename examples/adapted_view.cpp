@@ -30,7 +30,6 @@
 #include <mizuiro/image/types/pointer_ns/tag.hpp>
 #include <mizuiro/image/types/reference_ns/tag.hpp>
 #include <mizuiro/image/types/value_type_ns/tag.hpp>
-#include <fcppt/nonassignable.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <cstring>
 #include <iostream>
@@ -410,9 +409,6 @@ template<
 >
 class proxy
 {
-	FCPPT_NONASSIGNABLE(
-		proxy
-	);
 public:
 	typedef
 	mizuiro::raw_pointer
@@ -466,7 +462,7 @@ public:
 			*this;
 	}
 private:
-	pointer const data_;
+	pointer data_;
 };
 
 }

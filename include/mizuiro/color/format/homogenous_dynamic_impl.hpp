@@ -56,18 +56,4 @@ mizuiro::color::format::homogenous_dynamic<
 	);
 }
 
-template<
-	typename ChannelType,
-	typename Space,
-	mizuiro::size_type ChannelCount
->
-mizuiro::color::format::homogenous_dynamic<
-	ChannelType,
-	Space,
-	ChannelCount
->::homogenous_dynamic(
-	homogenous_dynamic const &
-) noexcept
-= default;
-
 #endif

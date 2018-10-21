@@ -118,10 +118,6 @@ public:
 
 	FCPPT_PP_POP_WARNING
 
-	linear_view(
-		linear_view const &
-	) noexcept;
-
 	template<
 		typename OtherConstness
 	>

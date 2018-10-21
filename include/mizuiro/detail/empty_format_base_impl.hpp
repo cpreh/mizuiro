@@ -26,16 +26,6 @@ mizuiro::detail::empty_format_base<
 template<
 	typename Store
 >
-mizuiro::detail::empty_format_base<
-	Store
->::empty_format_base(
-	empty_format_base const &
-) noexcept
-= default;
-
-template<
-	typename Store
->
 constexpr
 typename
 mizuiro::detail::empty_format_base<

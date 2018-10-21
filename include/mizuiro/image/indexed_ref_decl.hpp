@@ -10,7 +10,9 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/indexed_ref_fwd.hpp>
-#include <fcppt/nonassignable.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <type_traits>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -24,9 +26,6 @@ template<
 >
 class indexed_ref
 {
-	FCPPT_NONASSIGNABLE(
-		indexed_ref
-	);
 public:
 	typedef
 	mizuiro::image::dimension<
@@ -45,9 +44,13 @@ public:
 	dim const &
 	index() const;
 private:
-	dim const index_;
+	dim index_;
 
-	Reference reference_;
+	fcppt::reference<
+		std::remove_reference_t<
+			Reference
+		>
+	> reference_;
 };
 
 }

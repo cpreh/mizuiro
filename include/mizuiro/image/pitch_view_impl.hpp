@@ -50,34 +50,6 @@ template<
 	typename Format,
 	typename Constness
 >
-mizuiro::image::pitch_view<
-	Access,
-	Format,
-	Constness
->::pitch_view(
-	pitch_view const &_other
-) noexcept
-:
-	format_base(
-		_other.format_store()
-	),
-	size_(
-		_other.size()
-	),
-	data_(
-		_other.data()
-	),
-	pitch_(
-		_other.pitch()
-	)
-{
-}
-
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
 template<
 	typename OtherConstness
 >

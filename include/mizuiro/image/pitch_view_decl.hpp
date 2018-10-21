@@ -118,10 +118,6 @@ public:
 
 	FCPPT_PP_POP_WARNING
 
-	pitch_view(
-		pitch_view const &
-	) noexcept;
-
 	template<
 		typename OtherConstness
 	>

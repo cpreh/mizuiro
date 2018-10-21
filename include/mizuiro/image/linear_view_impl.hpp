@@ -47,31 +47,6 @@ template<
 	typename Format,
 	typename Constness
 >
-mizuiro::image::linear_view<
-	Access,
-	Format,
-	Constness
->::linear_view(
-	linear_view const &_other
-) noexcept
-:
-	format_base(
-		_other.format_store()
-	),
-	size_(
-		_other.size()
-	),
-	data_(
-		_other.data()
-	)
-{
-}
-
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
 template<
 	typename OtherConstness
 >

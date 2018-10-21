@@ -8,7 +8,7 @@
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_SET_CHROMA_PARTS_HPP_INCLUDED
 
 #include <mizuiro/color/set_percentage.hpp>
-#include <fcppt/nonassignable.hpp>
+#include <fcppt/reference_impl.hpp>
 
 
 namespace mizuiro
@@ -26,9 +26,6 @@ template<
 >
 class set_chroma_parts
 {
-	FCPPT_NONASSIGNABLE(
-		set_chroma_parts
-	);
 public:
 	set_chroma_parts(
 		Dest &_dest,
@@ -65,31 +62,33 @@ public:
 	) const
 	{
 		mizuiro::color::set_percentage(
-			dest_,
+			dest_.get(),
 			_channel1,
 			chroma_diff_
 		);
 
 		mizuiro::color::set_percentage(
-			dest_,
+			dest_.get(),
 			_channel2,
 			largest_diff_
 		);
 
 		mizuiro::color::set_percentage(
-			dest_,
+			dest_.get(),
 			_channel3,
 			diff_
 		);
 	}
 private:
-	Dest &dest_;
+	fcppt::reference<
+		Dest
+	> dest_;
 
-	Float const chroma_diff_;
+	Float chroma_diff_;
 
-	Float const largest_diff_;
+	Float largest_diff_;
 
-	Float const diff_;
+	Float diff_;
 };
 
 }

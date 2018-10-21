@@ -43,7 +43,7 @@ mizuiro::image::indexed_ref<
 >::get() const
 {
 	return
-		reference_;
+		reference_.get();
 }
 
 template<

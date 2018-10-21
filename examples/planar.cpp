@@ -51,7 +51,7 @@ main()
 	};
 
 	for(
-		auto const &color
+		auto const color
 		:
 		img.view()
 	)

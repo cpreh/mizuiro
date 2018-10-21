@@ -82,7 +82,7 @@ main()
 	);
 
 	for(
-		auto const &color
+		auto const color
 		:
 		const_view
 	)

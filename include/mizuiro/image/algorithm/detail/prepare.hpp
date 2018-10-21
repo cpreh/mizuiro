@@ -9,7 +9,7 @@
 
 #include <mizuiro/image/prepare_store_units.hpp>
 #include <mizuiro/image/format/store.hpp>
-#include <fcppt/nonassignable.hpp>
+#include <fcppt/reference_impl.hpp>
 
 
 namespace mizuiro
@@ -28,9 +28,6 @@ template<
 >
 class prepare
 {
-	FCPPT_NONASSIGNABLE(
-		prepare
-	);
 public:
 	prepare(
 		mizuiro::image::format::store<
@@ -64,7 +61,7 @@ public:
 			Access,
 			ImageFormat
 		>(
-			format_store_,
+			format_store_.get(),
 			_dest
 		);
 
@@ -87,7 +84,7 @@ public:
 			Access,
 			ImageFormat
 		>(
-			format_store_,
+			format_store_.get(),
 			_dest
 		);
 
@@ -97,9 +94,11 @@ public:
 		);
 	}
 private:
-	mizuiro::image::format::store<
-		ImageFormat
-	> const &format_store_;
+	fcppt::reference<
+		mizuiro::image::format::store<
+			ImageFormat
+		> const
+	> format_store_;
 
 	Function const &function_;
 };

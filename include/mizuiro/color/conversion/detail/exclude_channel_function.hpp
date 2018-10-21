@@ -9,7 +9,6 @@
 
 #include <mizuiro/color/access/compare_channels.hpp>
 #include <mizuiro/color/format/store.hpp>
-#include <fcppt/nonassignable.hpp>
 
 
 namespace mizuiro
@@ -27,9 +26,6 @@ template<
 >
 class exclude_channel_function
 {
-	FCPPT_NONASSIGNABLE(
-		exclude_channel_function
-	);
 public:
 	typedef
 	mizuiro::color::format::store<
@@ -70,7 +66,7 @@ public:
 			);
 	}
 private:
-	format_store const format_;
+	format_store format_;
 };
 
 }

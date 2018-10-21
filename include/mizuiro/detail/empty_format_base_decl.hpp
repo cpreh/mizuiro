@@ -34,10 +34,6 @@ protected:
 		format_store_type const &
 	);
 
-	empty_format_base(
-		empty_format_base const &
-	) noexcept;
-
 	constexpr
 	format_store_type
 	format_store_base() const;
