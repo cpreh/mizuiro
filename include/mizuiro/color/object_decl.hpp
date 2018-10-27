@@ -208,6 +208,11 @@ public:
 
 	FCPPT_PP_POP_WARNING
 
+	object &
+	operator=(
+		object const &
+	);
+
 	template<
 		typename Channel
 	>

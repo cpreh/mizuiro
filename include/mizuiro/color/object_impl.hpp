@@ -225,6 +225,19 @@ mizuiro::color::object<
 template<
 	typename Format
 >
+mizuiro::color::object<
+	Format
+> &
+mizuiro::color::object<
+	Format
+>::operator=(
+	object const &
+)
+= default;
+
+template<
+	typename Format
+>
 template<
 	typename Channel
 >
