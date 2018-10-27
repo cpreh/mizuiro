@@ -57,10 +57,6 @@ public:
 			>::get()
 	);
 
-	interleaved(
-		interleaved const &
-	) noexcept;
-
 	format_store_type
 	format_store() const;
 };

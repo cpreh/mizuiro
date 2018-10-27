@@ -32,18 +32,6 @@ template<
 	typename Format,
 	typename Copy
 >
-mizuiro::detail::normal_format_base<
-	Format,
-	Copy
->::normal_format_base(
-	normal_format_base const &
-) noexcept
-= default;
-
-template<
-	typename Format,
-	typename Copy
->
 typename
 mizuiro::detail::normal_format_base<
 	Format,

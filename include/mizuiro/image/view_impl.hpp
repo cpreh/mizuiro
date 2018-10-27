@@ -130,20 +130,6 @@ template<
 	typename Format,
 	typename Constness
 >
-mizuiro::image::view<
-	Access,
-	Format,
-	Constness
->::view(
-	view const &
-)
-= default;
-
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
 template<
 	typename OtherConstness
 >

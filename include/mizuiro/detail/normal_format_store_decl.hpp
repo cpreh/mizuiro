@@ -41,10 +41,6 @@ public:
 		ref
 	);
 
-	normal_format_store(
-		normal_format_store const &
-	) noexcept;
-
 	Format const &
 	get() const;
 private:
@@ -65,10 +61,6 @@ public:
 	normal_format_store(
 		Format const &
 	);
-
-	normal_format_store(
-		normal_format_store const &
-	) noexcept;
 
 	Format const &
 	get() const;

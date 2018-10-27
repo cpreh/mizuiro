@@ -143,10 +143,6 @@ public:
 			>::get()
 	);
 
-	view(
-		view const &
-	);
-
 	template<
 		typename OtherConstness
 	>

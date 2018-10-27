@@ -34,18 +34,6 @@ template<
 	typename Format
 >
 inline
-mizuiro::detail::normal_format_store<
-	Format,
-	mizuiro::detail::ref_store
->::normal_format_store(
-	normal_format_store const &
-) noexcept
-= default;
-
-template<
-	typename Format
->
-inline
 Format const &
 mizuiro::detail::normal_format_store<
 	Format,
@@ -73,18 +61,6 @@ mizuiro::detail::normal_format_store<
 	}
 {
 }
-
-template<
-	typename Format
->
-inline
-mizuiro::detail::normal_format_store<
-	Format,
-	mizuiro::detail::copy_store
->::normal_format_store(
-	normal_format_store const &
-) noexcept
-= default;
 
 template<
 	typename Format
