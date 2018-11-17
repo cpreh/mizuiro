@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_VIEW_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_VIEW_IMPL_HPP_INCLUDED
 
+#include <fcppt/variant/apply.hpp>
 #include <mizuiro/image/dimension_comparison.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/dimension_null.hpp>
@@ -16,7 +17,6 @@
 #include <mizuiro/image/move_iterator.hpp>
 #include <mizuiro/image/pitch_view_impl.hpp>
 #include <mizuiro/image/view_decl.hpp>
-#include <fcppt/variant/apply.hpp>
 
 
 template<

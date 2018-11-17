@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_COLOR_FORMAT_SAME_CHANNEL_VALUE_TYPES_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_SAME_CHANNEL_VALUE_TYPES_HPP_INCLUDED
 
+#include <fcppt/brigand/all_of.hpp>
 #include <mizuiro/color/format/detail/same_channel_value_type.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
-#include <fcppt/brigand/all_of.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <brigand/functions/lambda/apply.hpp>
 #include <brigand/functions/lambda/bind.hpp>

@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HAS_CHANNEL_STATIC_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HAS_CHANNEL_STATIC_HPP_INCLUDED
 
-#include <mizuiro/color/types/static_channels.hpp>
 #include <fcppt/brigand/found_t.hpp>
+#include <mizuiro/color/types/static_channels.hpp>
 
 
 namespace mizuiro

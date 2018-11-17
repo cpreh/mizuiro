@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_PREPARE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_PREPARE_HPP_INCLUDED
 
+#include <fcppt/reference_impl.hpp>
 #include <mizuiro/image/prepare_store_units.hpp>
 #include <mizuiro/image/format/store.hpp>
-#include <fcppt/reference_impl.hpp>
 
 
 namespace mizuiro

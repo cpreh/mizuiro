@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_PLANAR_NS_ACCESS_ADVANCE_POINTER_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_PLANAR_NS_ACCESS_ADVANCE_POINTER_HPP_INCLUDED
 
+#include <fcppt/container/array/init.hpp>
 #include <mizuiro/difference_type.hpp>
 #include <mizuiro/size_type.hpp>
-#include <fcppt/container/array/init.hpp>
 #include <mizuiro/image/access/advance_pointer.hpp>
 #include <mizuiro/image/access/advance_pointer_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>

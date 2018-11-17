@@ -7,6 +7,7 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_PLANAR_NS_ACCESS_MAKE_STORE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_PLANAR_NS_ACCESS_MAKE_STORE_HPP_INCLUDED
 
+#include <fcppt/container/array/init.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/image/dimension_content.hpp>
 #include <mizuiro/image/access/stride.hpp>
@@ -14,7 +15,6 @@
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/format/planar_ns/tag.hpp>
 #include <mizuiro/image/types/store.hpp>
-#include <fcppt/container/array/init.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <array>
 #include <fcppt/config/external_end.hpp>

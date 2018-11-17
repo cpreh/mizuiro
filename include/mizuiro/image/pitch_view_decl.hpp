@@ -7,6 +7,9 @@
 #ifndef MIZUIRO_IMAGE_PITCH_VIEW_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_PITCH_VIEW_DECL_HPP_INCLUDED
 
+#include <fcppt/preprocessor/disable_vc_warning.hpp>
+#include <fcppt/preprocessor/pop_warning.hpp>
+#include <fcppt/preprocessor/push_warning.hpp>
 #include <mizuiro/image/bound_fwd.hpp>
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/pitch_type.hpp>
@@ -15,9 +18,6 @@
 #include <mizuiro/image/format/base_decl.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
-#include <fcppt/preprocessor/disable_vc_warning.hpp>
-#include <fcppt/preprocessor/pop_warning.hpp>
-#include <fcppt/preprocessor/push_warning.hpp>
 
 
 namespace mizuiro

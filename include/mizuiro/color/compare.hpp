@@ -7,14 +7,16 @@
 #ifndef MIZUIRO_COLOR_COMPARE_HPP_INCLUDED
 #define MIZUIRO_COLOR_COMPARE_HPP_INCLUDED
 
+#include <fcppt/algorithm/all_of.hpp>
+#include <fcppt/algorithm/loop_break_brigand.hpp>
 #include <mizuiro/color/decay_channel_proxy.hpp>
 #include <mizuiro/color/get_channel.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/access/channels.hpp>
 #include <mizuiro/color/format/compatible.hpp>
 #include <mizuiro/color/format/get.hpp>
-#include <fcppt/algorithm/all_of.hpp>
-#include <fcppt/algorithm/loop_break_brigand.hpp>
+
+
 // TODO: Where do we put this? ^
 
 

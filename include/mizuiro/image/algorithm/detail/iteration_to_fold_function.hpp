@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_DETAIL_ITERATION_TO_FOLD_FUNCTION_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_ITERATION_TO_FOLD_FUNCTION_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/detail/dummy_state.hpp>
 #include <fcppt/reference_impl.hpp>
+#include <mizuiro/image/algorithm/detail/dummy_state.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <utility>
 #include <fcppt/config/external_end.hpp>

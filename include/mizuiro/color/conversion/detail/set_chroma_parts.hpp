@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_SET_CHROMA_PARTS_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_SET_CHROMA_PARTS_HPP_INCLUDED
 
-#include <mizuiro/color/set_percentage.hpp>
 #include <fcppt/reference_impl.hpp>
+#include <mizuiro/color/set_percentage.hpp>
 
 
 namespace mizuiro

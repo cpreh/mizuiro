@@ -7,10 +7,10 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_ITERATOR_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_ITERATOR_IMPL_HPP_INCLUDED
 
+#include <fcppt/variant/apply.hpp>
 #include <mizuiro/image/detail/compare_iterator.hpp>
 #include <mizuiro/image/detail/iterator_decl.hpp>
 #include <mizuiro/image/detail/iterator_difference.hpp>
-#include <fcppt/variant/apply.hpp>
 
 
 template<

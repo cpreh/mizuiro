@@ -7,12 +7,12 @@
 #ifndef MIZUIRO_COLOR_CONVERT_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_HPP_INCLUDED
 
-#include <mizuiro/color/is_color.hpp>
-#include <mizuiro/color/object_impl.hpp>
-#include <mizuiro/color/format/argument.hpp>
 #include <fcppt/preprocessor/disable_vc_warning.hpp>
 #include <fcppt/preprocessor/pop_warning.hpp>
 #include <fcppt/preprocessor/push_warning.hpp>
+#include <mizuiro/color/is_color.hpp>
+#include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/format/argument.hpp>
 
 
 namespace mizuiro

@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_UNARY_FOLD_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_UNARY_FOLD_HPP_INCLUDED
 
+#include <fcppt/variant/apply.hpp>
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/algorithm/detail/unary_fold.hpp>
-#include <fcppt/variant/apply.hpp>
 
 
 namespace mizuiro
