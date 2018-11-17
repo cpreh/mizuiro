@@ -10,6 +10,7 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/indexed_ref_fwd.hpp>
+#include <fcppt/reference_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
