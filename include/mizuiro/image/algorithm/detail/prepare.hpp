@@ -65,7 +65,7 @@ public:
 			_dest
 		);
 
-		function_(
+		function_.get()(
 			_dest
 		);
 	}
@@ -88,7 +88,7 @@ public:
 			_dest
 		);
 
-		function_(
+		function_.get()(
 			_src,
 			_dest
 		);
@@ -100,7 +100,9 @@ private:
 		> const
 	> format_store_;
 
-	Function const &function_;
+	fcppt::reference<
+		Function const
+	> function_;
 };
 
 }
