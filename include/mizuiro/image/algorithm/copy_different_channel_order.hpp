@@ -72,7 +72,7 @@ copy_different_channel_order(
 			_uninitialized
 		);
 		return;
-	};
+	}
 }
 
 }
