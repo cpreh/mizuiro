@@ -9,9 +9,9 @@
 
 #include <mizuiro/color/layout/all_possible_channels.hpp>
 #include <mizuiro/color/layout/detail/has_all_channels.hpp>
-#include <mizuiro/detail/is_set.hpp>
+#include <fcppt/metal/set/to_list.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/sequences/size.hpp>
+#include <metal/list/size.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -33,7 +33,7 @@ contribute 'color' while undefined channels will be ignored.
 
 \tparam Space A color space
 
-\tparam Channels A brigand::list consisting of \link color_channel Color
+\tparam Channels A metal::list consisting of \link color_channel Color
 Channels\endlink
 */
 template<
@@ -53,18 +53,22 @@ struct make
 	static_assert(
 		mizuiro::color::layout::detail::has_all_channels<
 			channels,
-			mizuiro::color::layout::all_possible_channels<
-				typename
-				Space::required_channels
+			fcppt::metal::set::to_list<
+				mizuiro::color::layout::all_possible_channels<
+					typename
+					Space::required_channels
+				>
 			>
 		>::value,
 		"Invalid color channel which is not part of the color space"
 	);
 
 	static_assert(
-		brigand::size<
-			typename
-			Space::required_channels
+		metal::size<
+			fcppt::metal::set::to_list<
+				typename
+				Space::required_channels
+			>
 		>::value
 		<=
 		3,
@@ -73,18 +77,13 @@ struct make
 
 	static_assert(
 		mizuiro::color::layout::detail::has_all_channels<
-			typename
-			Space::required_channels,
+			fcppt::metal::set::to_list<
+				typename
+				Space::required_channels
+			>,
 			channels
 		>::value,
 		"Missing color channel in color space"
-	);
-
-	static_assert(
-		mizuiro::detail::is_set<
-			channels
-		>::value,
-		"Duplicate channel in color space"
 	);
 };
 

@@ -11,7 +11,7 @@
 #include <mizuiro/color/detail/dynamic/channel_array.hpp>
 #include <mizuiro/color/detail/dynamic/make_channels_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/sequences/size.hpp>
+#include <metal/list/size.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -30,7 +30,7 @@ template<
 >
 inline
 mizuiro::color::detail::dynamic::channel_array<
-	brigand::size<
+	metal::size<
 		Channels
 	>::value
 >
@@ -39,7 +39,7 @@ make_channels()
 	return
 		fcppt::container::array::init<
 			mizuiro::color::detail::dynamic::channel_array<
-				brigand::size<
+				metal::size<
 					Channels
 				>::value
 			>

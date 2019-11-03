@@ -11,9 +11,7 @@
 #include <mizuiro/color/channel/green_fwd.hpp>
 #include <mizuiro/color/channel/red_fwd.hpp>
 #include <mizuiro/color/space/srgb_fwd.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <brigand/sequences/set.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/metal/set/make.hpp>
 
 
 namespace mizuiro
@@ -26,7 +24,7 @@ namespace space
 struct srgb
 {
 	typedef
-	brigand::set<
+	fcppt::metal::set::make<
 		mizuiro::color::channel::red,
 		mizuiro::color::channel::green,
 		mizuiro::color::channel::blue

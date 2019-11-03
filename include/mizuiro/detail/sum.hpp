@@ -7,11 +7,14 @@
 #ifndef MIZUIRO_DETAIL_SUM_HPP_INCLUDED
 #define MIZUIRO_DETAIL_SUM_HPP_INCLUDED
 
-#include <mizuiro/integral_size.hpp>
+#include <mizuiro/size_type.hpp>
+#include <fcppt/metal/from_number.hpp>
+#include <fcppt/metal/to_number_list.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/algorithms/fold.hpp>
-#include <brigand/functions/arithmetic/plus.hpp>
-#include <brigand/types/args.hpp>
+#include <metal/lambda/lambda.hpp>
+#include <metal/list/accumulate.hpp>
+#include <metal/number/add.hpp>
+#include <metal/number/number.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -26,14 +29,18 @@ template<
 using
 sum
 =
-brigand::fold<
-	List,
-	mizuiro::integral_size<
-		0u
-	>,
-	brigand::plus<
-		brigand::_1,
-		brigand::_2
+fcppt::metal::from_number<
+	mizuiro::size_type,
+	metal::accumulate<
+		metal::lambda<
+			metal::add
+		>,
+		metal::number<
+			0u
+		>,
+		fcppt::metal::to_number_list<
+			List
+		>
 	>
 >;
 

@@ -10,7 +10,7 @@
 #include <mizuiro/integral_size.hpp>
 #include <mizuiro/size_type.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/sequences/list.hpp>
+#include <metal/list/list.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -23,7 +23,7 @@ template<
 using
 size_list
 =
-brigand::list<
+metal::list<
 	mizuiro::integral_size<
 		Sizes
 	>...

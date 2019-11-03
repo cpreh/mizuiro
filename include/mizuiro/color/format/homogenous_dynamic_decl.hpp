@@ -12,7 +12,7 @@
 #include <mizuiro/color/format/homogenous_dynamic_fwd.hpp>
 #include <mizuiro/color/layout/all_possible_channels.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/sequences/size.hpp>
+#include <metal/list/size.hpp>
 #include <array>
 #include <fcppt/config/external_end.hpp>
 
@@ -56,7 +56,7 @@ public:
 	typedef
 	std::array<
 		mizuiro::size_type,
-		brigand::size<
+		metal::size<
 			all_possible_channels
 		>::value
 	>

@@ -9,9 +9,11 @@
 
 #include <mizuiro/color/init/detail/is_channel_init.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/algorithms/find.hpp>
-#include <brigand/functions/lambda/bind.hpp>
-#include <brigand/types/args.hpp>
+#include <metal/lambda/always.hpp>
+#include <metal/lambda/arg.hpp>
+#include <metal/lambda/bind.hpp>
+#include <metal/lambda/trait.hpp>
+#include <metal/list/any_of.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -31,12 +33,16 @@ template<
 using
 contains_channel
 =
-brigand::found<
+metal::any_of<
 	Types,
-	brigand::bind<
-		mizuiro::color::init::detail::is_channel_init,
-		Channel,
-		brigand::_1
+	metal::bind<
+		metal::trait<
+			mizuiro::color::init::detail::is_channel_init
+		>,
+		metal::always<
+			Channel
+		>,
+		metal::_1
 	>
 >;
 

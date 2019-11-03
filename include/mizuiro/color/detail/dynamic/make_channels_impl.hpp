@@ -9,8 +9,9 @@
 
 #include <mizuiro/color/detail/dynamic/channel_index.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/algorithms/index_of.hpp>
-#include <brigand/sequences/at.hpp>
+#include <metal/list/at.hpp>
+#include <metal/list/find.hpp>
+#include <metal/number/number.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -40,11 +41,13 @@ struct make_channels_impl
 	{
 		return
 			mizuiro::color::detail::dynamic::channel_index{
-				brigand::index_of<
+				metal::find<
 					PossibleChannels,
-					brigand::at_c<
+					metal::at<
 						Channels,
-						Index::value
+						metal::number<
+							Index::value
+						>
 					>
 				>::value
 			};

@@ -9,7 +9,7 @@
 
 #include <mizuiro/detail/bit_count.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/types/bool.hpp>
+#include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -25,7 +25,8 @@ template<
 using
 bit_count_at_least
 =
-brigand::bool_<
+std::integral_constant<
+	bool,
 	mizuiro::detail::bit_count<
 		IntType
 	>::value

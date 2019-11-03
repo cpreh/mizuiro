@@ -9,10 +9,11 @@
 
 #include <mizuiro/color/layout/detail/has_channel.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/algorithms/all.hpp>
-#include <brigand/functions/lambda/apply.hpp>
-#include <brigand/functions/lambda/bind.hpp>
-#include <brigand/types/args.hpp>
+#include <metal/lambda/always.hpp>
+#include <metal/lambda/arg.hpp>
+#include <metal/lambda/bind.hpp>
+#include <metal/lambda/trait.hpp>
+#include <metal/list/all_of.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -31,14 +32,16 @@ template<
 >
 using has_all_channels
 =
-brigand::all<
+metal::all_of<
 	Order1,
-	brigand::bind<
-		mizuiro::color::layout::detail::has_channel,
-		brigand::pin<
+	metal::bind<
+		metal::trait<
+			mizuiro::color::layout::detail::has_channel
+		>,
+		metal::always<
 			Order2
 		>,
-		brigand::_1
+		metal::_1
 	>
 >;
 

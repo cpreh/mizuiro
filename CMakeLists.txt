@@ -30,7 +30,7 @@ find_package(
 )
 
 find_package(
-	Brigand
+	Metal
 	REQUIRED
 )
 
@@ -412,7 +412,6 @@ set(
 	include/mizuiro/detail/format_store_fwd.hpp
 	include/mizuiro/detail/format_store_impl.hpp
 	include/mizuiro/detail/int_to_true.hpp
-	include/mizuiro/detail/is_set.hpp
 	include/mizuiro/detail/map_format_store.hpp
 	include/mizuiro/detail/normal_format_base_decl.hpp
 	include/mizuiro/detail/normal_format_base_fwd.hpp
@@ -710,7 +709,7 @@ target_link_libraries(
 target_include_directories(
 	mizuiro_dummy
 	PRIVATE
-	${Brigand_INCLUDE_DIRS}
+	Metal
 	${MIZUIRO_SOURCE_DIR}/include
 )
 
@@ -731,12 +730,12 @@ target_link_libraries(
 	mizuiro_interface
 	INTERFACE
 	fcppt_core_interface
+	Metal
 )
 
 target_include_directories(
 	mizuiro_interface
 	INTERFACE
-	${Brigand_INCLUDE_DIRS}
 	"$<BUILD_INTERFACE:${MIZUIRO_SOURCE_DIR}/include>"
 	"$<INSTALL_INTERFACE:${CMAKE_INSTALL_FULL_INCLUDEDIR}>"
 )

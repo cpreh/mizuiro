@@ -8,7 +8,7 @@
 #define MIZUIRO_COLOR_COMPARE_HPP_INCLUDED
 
 #include <fcppt/algorithm/all_of.hpp>
-#include <fcppt/algorithm/loop_break_brigand.hpp>
+#include <fcppt/algorithm/loop_break_metal.hpp>
 #include <mizuiro/color/decay_channel_proxy.hpp>
 #include <mizuiro/color/get_channel.hpp>
 #include <mizuiro/color/is_color.hpp>

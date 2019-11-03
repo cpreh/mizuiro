@@ -8,8 +8,8 @@
 #define MIZUIRO_COLOR_DETAIL_HETEROGENOUS_CHANNEL_BITS_HPP_INCLUDED
 
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/algorithms/index_of.hpp>
-#include <brigand/sequences/at.hpp>
+#include <metal/list/at.hpp>
+#include <metal/list/find.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -28,10 +28,10 @@ template<
 >
 using channel_bits
 =
-brigand::at<
+metal::at<
 	typename
 	Format::channel_bits,
-	brigand::index_of<
+	metal::find<
 		typename Format::layout::channels,
 		Channel
 	>

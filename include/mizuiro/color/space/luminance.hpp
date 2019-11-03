@@ -8,9 +8,7 @@
 #define MIZUIRO_COLOR_SPACE_LUMINANCE_HPP_INCLUDED
 
 #include <mizuiro/color/channel/luminance_fwd.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <brigand/sequences/set.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/metal/set/make.hpp>
 
 
 namespace mizuiro
@@ -23,7 +21,7 @@ namespace space
 struct luminance
 {
 	typedef
-	brigand::set<
+	fcppt::metal::set::make<
 		mizuiro::color::channel::luminance
 	>
 	required_channels;

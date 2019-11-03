@@ -12,7 +12,6 @@
 #include <mizuiro/color/format/store.hpp>
 #include <mizuiro/detail/int_to_true.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/types/integral_constant.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
@@ -36,7 +35,8 @@ std::true_type
 check_has_channel_constexpr(
 	int,
 	bool =
-		brigand::bool_<
+		std::integral_constant<
+			bool,
 			mizuiro::color::access::has_channel<
 				Format
 			>(

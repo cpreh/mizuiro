@@ -12,7 +12,7 @@
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/format/has_channel_static.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/types/bool.hpp>
+#include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -28,21 +28,19 @@ template<
 >
 using is_rgb
 =
-brigand::bool_<
+std::disjunction<
 	mizuiro::color::format::has_channel_static<
 		Format,
 		mizuiro::color::channel::red
-	>::value
-	||
+	>,
 	mizuiro::color::format::has_channel_static<
 		Format,
 		mizuiro::color::channel::green
-	>::value
-	||
+	>,
 	mizuiro::color::format::has_channel_static<
 		Format,
 		mizuiro::color::channel::blue
-	>::value
+	>
 >;
 
 }

@@ -12,7 +12,7 @@
 #include <mizuiro/color/channel/value.hpp>
 #include <mizuiro/color/format/has_channel_static.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/types/bool.hpp>
+#include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -28,21 +28,19 @@ template<
 >
 using is_hsv
 =
-brigand::bool_<
+std::conjunction<
 	mizuiro::color::format::has_channel_static<
 		Format,
 		mizuiro::color::channel::hue
-	>::value
-	&&
+	>,
 	mizuiro::color::format::has_channel_static<
 		Format,
 		mizuiro::color::channel::saturation
-	>::value
-	&&
+	>,
 	mizuiro::color::format::has_channel_static<
 		Format,
 		mizuiro::color::channel::value
-	>::value
+	>
 >;
 
 }

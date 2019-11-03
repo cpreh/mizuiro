@@ -7,13 +7,14 @@
 #ifndef MIZUIRO_COLOR_FORMAT_SAME_CHANNEL_VALUE_TYPES_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_SAME_CHANNEL_VALUE_TYPES_HPP_INCLUDED
 
-#include <fcppt/brigand/all_of.hpp>
 #include <mizuiro/color/format/detail/same_channel_value_type.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/functions/lambda/apply.hpp>
-#include <brigand/functions/lambda/bind.hpp>
-#include <brigand/types/args.hpp>
+#include <metal/lambda/always.hpp>
+#include <metal/lambda/arg.hpp>
+#include <metal/lambda/bind.hpp>
+#include <metal/lambda/trait.hpp>
+#include <metal/list/all_of.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -33,19 +34,21 @@ template<
 >
 using same_channel_value_types
 =
-fcppt::brigand::all_of<
+metal::all_of<
 	mizuiro::color::types::static_channels<
 		Format1
 	>,
-	brigand::bind<
-		mizuiro::color::format::detail::same_channel_value_type,
-		brigand::pin<
+	metal::bind<
+		metal::trait<
+			mizuiro::color::format::detail::same_channel_value_type
+		>,
+		metal::always<
 			Format1
 		>,
-		brigand::pin<
+		metal::always<
 			Format2
 		>,
-		brigand::_1
+		metal::_1
 	>
 >;
 

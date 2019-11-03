@@ -9,19 +9,21 @@
 
 #include <fcppt/algorithm/loop.hpp>
 #include <fcppt/algorithm/loop_break_tuple.hpp>
+#include <fcppt/metal/is_set.hpp>
 #include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/init/detail/contains_channel.hpp>
 #include <mizuiro/color/init/detail/set_channel.hpp>
 #include <mizuiro/color/init/detail/to_channel_type.hpp>
 #include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
-#include <mizuiro/detail/is_set.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/algorithms/all.hpp>
-#include <brigand/algorithms/transform.hpp>
-#include <brigand/functions/lambda/apply.hpp>
-#include <brigand/functions/lambda/bind.hpp>
-#include <brigand/types/args.hpp>
+#include <metal/lambda/always.hpp>
+#include <metal/lambda/arg.hpp>
+#include <metal/lambda/bind.hpp>
+#include <metal/lambda/trait.hpp>
+#include <metal/list/all_of.hpp>
+#include <metal/list/list.hpp>
+#include <metal/list/transform.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -49,30 +51,37 @@ assign_object(
 	> const &_init
 )
 {
+	typedef
+	metal::as_list<
+		Vector
+	>
+	color_types;
+
 	static_assert(
-		brigand::all<
+		metal::all_of<
 			mizuiro::color::types::static_channels<
 				Format
 			>,
-			brigand::bind<
-				mizuiro::color::init::detail::contains_channel,
-				brigand::pin<
-					Vector
+			metal::bind<
+				metal::trait<
+					mizuiro::color::init::detail::contains_channel
 				>,
-				brigand::_1
+				metal::always<
+					color_types
+				>,
+				metal::_1
 			>
 		>::value,
 		"Forgotten channel in initialization"
 	);
 
 	static_assert(
-		mizuiro::detail::is_set<
-			brigand::transform<
-				Vector,
-				brigand::bind<
-					mizuiro::color::init::detail::to_channel_type,
-					brigand::_1
-				>
+		fcppt::metal::is_set<
+			metal::transform<
+				metal::lambda<
+					mizuiro::color::init::detail::to_channel_type
+				>,
+				color_types
 			>
 		>::value,
 		"Duplicate channel initialization"

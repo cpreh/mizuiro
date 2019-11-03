@@ -11,7 +11,7 @@
 #include <mizuiro/color/format/same_channels.hpp>
 #include <mizuiro/color/format/same_spaces.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/types/bool.hpp>
+#include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -41,21 +41,19 @@ template<
 >
 using compatible
 =
-brigand::bool_<
+std::conjunction<
 	mizuiro::color::format::same_spaces<
 		Format1,
 		Format2
-	>::value
-	&&
+	>,
 	mizuiro::color::format::same_channels<
 		Format1,
 		Format2
-	>::value
-	&&
+	>,
 	mizuiro::color::format::same_channel_value_types<
 		Format1,
 		Format2
-	>::value
+	>
 >;
 
 }

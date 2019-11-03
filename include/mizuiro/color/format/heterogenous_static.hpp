@@ -9,7 +9,7 @@
 
 #include <mizuiro/color/format/heterogenous_static_fwd.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/sequences/size.hpp>
+#include <metal/list/size.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -27,11 +27,11 @@ template<
 struct heterogenous_static
 {
 	static_assert(
-		brigand::size<
+		metal::size<
 			ChannelBits
 		>::value
 		==
-		brigand::size<
+		metal::size<
 			typename
 			Layout::channels
 		>::value,

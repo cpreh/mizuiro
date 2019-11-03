@@ -9,7 +9,6 @@
 
 #include <mizuiro/raw_value.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/types/bool.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
@@ -28,11 +27,10 @@ template<
 >
 using is_raw_pointer
 =
-brigand::bool_<
+std::conjunction<
 	std::is_pointer<
 		T
-	>::value
-	&&
+	>,
 	std::is_same<
 		raw_value,
 		std::remove_const_t<
@@ -40,7 +38,7 @@ brigand::bool_<
 				T
 			>
 		>
-	>::value
+	>
 >;
 
 }

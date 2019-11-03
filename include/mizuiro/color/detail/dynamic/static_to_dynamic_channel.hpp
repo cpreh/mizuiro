@@ -11,7 +11,7 @@
 #include <mizuiro/color/channel/tag.hpp>
 #include <mizuiro/color/detail/dynamic/channel_index.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/algorithms/index_of.hpp>
+#include <metal/list/find.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -39,7 +39,7 @@ static_to_dynamic_channel(
 {
 	return
 		mizuiro::color::detail::dynamic::channel_index{
-			brigand::index_of<
+			metal::find<
 				typename
 				Format::all_possible_channels,
 				StaticChannel

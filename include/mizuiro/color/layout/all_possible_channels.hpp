@@ -9,10 +9,8 @@
 
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/channel/undefined.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <brigand/sequences/append.hpp>
-#include <brigand/sequences/list.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/metal/set/make.hpp>
+#include <fcppt/metal/set/union.hpp>
 
 
 namespace mizuiro
@@ -28,8 +26,8 @@ template<
 using
 all_possible_channels
 =
-brigand::append<
-	brigand::list<
+fcppt::metal::set::union_<
+	fcppt::metal::set::make<
 		mizuiro::color::channel::alpha,
 		mizuiro::color::channel::undefined
 	>,

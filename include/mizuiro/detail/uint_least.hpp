@@ -9,11 +9,13 @@
 
 #include <mizuiro/detail/bit_count_at_least.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/algorithms/find.hpp>
-#include <brigand/functions/lambda/bind.hpp>
-#include <brigand/sequences/front.hpp>
-#include <brigand/sequences/list.hpp>
-#include <brigand/types/args.hpp>
+#include <metal/lambda/always.hpp>
+#include <metal/lambda/arg.hpp>
+#include <metal/lambda/bind.hpp>
+#include <metal/lambda/trait.hpp>
+#include <metal/list/copy_if.hpp>
+#include <metal/list/front.hpp>
+#include <metal/list/list.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -27,19 +29,23 @@ template<
 >
 using uint_least
 =
-brigand::front<
-	brigand::find<
-		brigand::list<
+metal::front<
+	metal::copy_if<
+		metal::list<
 			unsigned char,
 			unsigned short,
 			unsigned int,
 			unsigned long,
 			unsigned long long
 		>,
-		brigand::bind<
-			mizuiro::detail::bit_count_at_least,
-			Bits,
-			brigand::_1
+		metal::bind<
+			metal::trait<
+				mizuiro::detail::bit_count_at_least
+			>,
+			metal::always<
+				Bits
+			>,
+			metal::_1
 		>
 	>
 >;

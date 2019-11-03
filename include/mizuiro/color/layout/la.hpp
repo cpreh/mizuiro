@@ -12,7 +12,7 @@
 #include <mizuiro/color/layout/make.hpp>
 #include <mizuiro/color/space/luminance.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/sequences/list.hpp>
+#include <metal/list/list.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -26,7 +26,7 @@ namespace layout
 typedef
 mizuiro::color::layout::make<
 	mizuiro::color::space::luminance,
-	brigand::list<
+	metal::list<
 		mizuiro::color::channel::luminance,
 		mizuiro::color::channel::alpha
 	>

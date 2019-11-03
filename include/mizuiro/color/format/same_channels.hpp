@@ -10,7 +10,7 @@
 #include <mizuiro/color/layout/detail/has_all_channels.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/types/bool.hpp>
+#include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -27,7 +27,7 @@ template<
 >
 using same_channels
 =
-brigand::bool_<
+std::conjunction<
 	mizuiro::color::layout::detail::has_all_channels<
 		mizuiro::color::types::static_channels<
 			Format1
@@ -35,8 +35,7 @@ brigand::bool_<
 		mizuiro::color::types::static_channels<
 			Format2
 		>
-	>::value
-	&&
+	>,
 	mizuiro::color::layout::detail::has_all_channels<
 		mizuiro::color::types::static_channels<
 			Format2
@@ -44,7 +43,7 @@ brigand::bool_<
 		mizuiro::color::types::static_channels<
 			Format1
 		>
-	>::value
+	>
 >;
 
 }

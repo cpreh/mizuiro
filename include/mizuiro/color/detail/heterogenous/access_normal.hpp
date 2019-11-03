@@ -22,7 +22,7 @@
 #include <mizuiro/detail/sum.hpp>
 #include <mizuiro/detail/uint_least.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <brigand/algorithms/index_of.hpp>
+#include <metal/list/find.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
@@ -56,7 +56,7 @@ private:
 			mizuiro::detail::range_to<
 				typename
 				Format::channel_bits,
-				brigand::index_of<
+				metal::find<
 					typename
 					Format::layout::channels,
 					Channel
