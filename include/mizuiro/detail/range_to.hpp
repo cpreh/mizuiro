@@ -7,10 +7,11 @@
 #ifndef MIZUIRO_DETAIL_RANGE_TO_HPP_INCLUDED
 #define MIZUIRO_DETAIL_RANGE_TO_HPP_INCLUDED
 
+#include <mizuiro/integral_size.hpp>
 #include <mizuiro/size_type.hpp>
+#include <fcppt/metal/to_number.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <metal/list/take.hpp>
-#include <metal/number/number.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -28,8 +29,10 @@ range_to
 =
 metal::take<
 	List,
-	metal::number<
-		Size
+	fcppt::metal::to_number<
+		mizuiro::integral_size<
+			Size
+		>
 	>
 >;
 
