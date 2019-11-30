@@ -8,9 +8,10 @@
 #define MIZUIRO_COLOR_DETAIL_DYNAMIC_MAKE_CHANNELS_IMPL_HPP_INCLUDED
 
 #include <mizuiro/color/detail/dynamic/channel_index.hpp>
+#include <fcppt/metal/index_of.hpp>
+#include <fcppt/metal/set/to_list.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <metal/list/at.hpp>
-#include <metal/list/find.hpp>
 #include <metal/number/number.hpp>
 #include <fcppt/config/external_end.hpp>
 
@@ -41,8 +42,10 @@ struct make_channels_impl
 	{
 		return
 			mizuiro::color::detail::dynamic::channel_index{
-				metal::find<
-					PossibleChannels,
+				fcppt::metal::index_of<
+					fcppt::metal::set::to_list<
+						PossibleChannels
+					>,
 					metal::at<
 						Channels,
 						metal::number<

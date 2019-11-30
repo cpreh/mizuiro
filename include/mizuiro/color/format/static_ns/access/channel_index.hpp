@@ -13,9 +13,7 @@
 #include <mizuiro/color/format/static_ns/tag.hpp>
 #include <mizuiro/color/format/static_ns/types/static_channels.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal/list/find.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/metal/index_of.hpp>
 
 
 namespace mizuiro
@@ -44,7 +42,7 @@ channel_index_adl(
 )
 {
 	return
-		metal::find<
+		fcppt::metal::index_of<
 			mizuiro::color::types::static_channels<
 				Format
 			>,

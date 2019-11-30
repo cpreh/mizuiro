@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_COLOR_DETAIL_HETEROGENOUS_CHANNEL_BITS_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_HETEROGENOUS_CHANNEL_BITS_HPP_INCLUDED
 
+#include <fcppt/metal/index_of.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <metal/list/at.hpp>
-#include <metal/list/find.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -31,7 +31,7 @@ using channel_bits
 metal::at<
 	typename
 	Format::channel_bits,
-	metal::find<
+	fcppt::metal::index_of<
 		typename Format::layout::channels,
 		Channel
 	>
