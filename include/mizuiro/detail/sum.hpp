@@ -7,14 +7,11 @@
 #ifndef MIZUIRO_DETAIL_SUM_HPP_INCLUDED
 #define MIZUIRO_DETAIL_SUM_HPP_INCLUDED
 
-#include <mizuiro/size_type.hpp>
 #include <fcppt/metal/from_number.hpp>
 #include <fcppt/metal/to_number_list.hpp>
+#include <mizuiro/size_type.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <metal/lambda/lambda.hpp>
-#include <metal/list/accumulate.hpp>
-#include <metal/number/add.hpp>
-#include <metal/number/number.hpp>
+#include <metal.hpp>
 #include <fcppt/config/external_end.hpp>
 
 

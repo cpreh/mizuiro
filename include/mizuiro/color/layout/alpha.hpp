@@ -11,7 +11,7 @@
 #include <mizuiro/color/layout/make.hpp>
 #include <mizuiro/color/space/empty.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <metal/list/list.hpp>
+#include <metal.hpp>
 #include <fcppt/config/external_end.hpp>
 
 

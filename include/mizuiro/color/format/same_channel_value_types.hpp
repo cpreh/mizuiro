@@ -10,11 +10,7 @@
 #include <mizuiro/color/format/detail/same_channel_value_type.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <metal/lambda/always.hpp>
-#include <metal/lambda/arg.hpp>
-#include <metal/lambda/bind.hpp>
-#include <metal/lambda/trait.hpp>
-#include <metal/list/all_of.hpp>
+#include <metal.hpp>
 #include <fcppt/config/external_end.hpp>
 
 

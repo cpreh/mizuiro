@@ -9,7 +9,7 @@
 
 #include <mizuiro/color/format/heterogenous_static_fwd.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <metal/list/size.hpp>
+#include <metal.hpp>
 #include <fcppt/config/external_end.hpp>
 
 

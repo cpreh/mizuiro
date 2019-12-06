@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_COLOR_SPACE_EMPTY_HPP_INCLUDED
 #define MIZUIRO_COLOR_SPACE_EMPTY_HPP_INCLUDED
 
-#include <mizuiro/color/space/empty_fwd.hpp>
 #include <fcppt/metal/set/make.hpp>
+#include <mizuiro/color/space/empty_fwd.hpp>
 
 
 namespace mizuiro

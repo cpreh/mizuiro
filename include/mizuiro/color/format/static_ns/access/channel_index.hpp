@@ -7,13 +7,13 @@
 #ifndef MIZUIRO_COLOR_FORMAT_STATIC_NS_ACCESS_CHANNEL_INDEX_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_STATIC_NS_ACCESS_CHANNEL_INDEX_HPP_INCLUDED
 
+#include <fcppt/metal/index_of.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/access/channel_index_ns/tag.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/static_ns/tag.hpp>
 #include <mizuiro/color/format/static_ns/types/static_channels.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
-#include <fcppt/metal/index_of.hpp>
 
 
 namespace mizuiro

@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_COLOR_SPACE_LUMINANCE_HPP_INCLUDED
 #define MIZUIRO_COLOR_SPACE_LUMINANCE_HPP_INCLUDED
 
-#include <mizuiro/color/channel/luminance_fwd.hpp>
 #include <fcppt/metal/set/make.hpp>
+#include <mizuiro/color/channel/luminance_fwd.hpp>
 
 
 namespace mizuiro

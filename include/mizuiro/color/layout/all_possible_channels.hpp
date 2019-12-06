@@ -7,10 +7,10 @@
 #ifndef MIZUIRO_COLOR_LAYOUT_ALL_POSSIBLE_CHANNELS_HPP_INCLUDED
 #define MIZUIRO_COLOR_LAYOUT_ALL_POSSIBLE_CHANNELS_HPP_INCLUDED
 
-#include <mizuiro/color/channel/alpha.hpp>
-#include <mizuiro/color/channel/undefined.hpp>
 #include <fcppt/metal/set/make.hpp>
 #include <fcppt/metal/set/union.hpp>
+#include <mizuiro/color/channel/alpha.hpp>
+#include <mizuiro/color/channel/undefined.hpp>
 
 
 namespace mizuiro

@@ -11,7 +11,7 @@
 #include <mizuiro/color/detail/dynamic/channel_array.hpp>
 #include <mizuiro/color/detail/dynamic/make_channels_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <metal/list/size.hpp>
+#include <metal.hpp>
 #include <fcppt/config/external_end.hpp>
 
 

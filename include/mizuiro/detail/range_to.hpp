@@ -7,11 +7,11 @@
 #ifndef MIZUIRO_DETAIL_RANGE_TO_HPP_INCLUDED
 #define MIZUIRO_DETAIL_RANGE_TO_HPP_INCLUDED
 
+#include <fcppt/metal/to_number.hpp>
 #include <mizuiro/integral_size.hpp>
 #include <mizuiro/size_type.hpp>
-#include <fcppt/metal/to_number.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <metal/list/take.hpp>
+#include <metal.hpp>
 #include <fcppt/config/external_end.hpp>
 
 

@@ -9,7 +9,7 @@
 
 #include <mizuiro/color/types/static_channels.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <metal/list/contains.hpp>
+#include <metal.hpp>
 #include <fcppt/config/external_end.hpp>
 
 
