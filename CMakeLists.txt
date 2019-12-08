@@ -703,13 +703,13 @@ set_target_properties(
 target_link_libraries(
 	mizuiro_dummy
 	PRIVATE
+	Metal
 	fcppt_core_interface
 )
 
 target_include_directories(
 	mizuiro_dummy
 	PRIVATE
-	Metal
 	${MIZUIRO_SOURCE_DIR}/include
 )
 
