@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_ITERATOR_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_ITERATOR_DECL_HPP_INCLUDED
 
-#include <fcppt/variant/variadic.hpp>
+#include <fcppt/variant/object_impl.hpp>
 #include <mizuiro/difference_type.hpp>
 #include <mizuiro/image/linear_iterator_decl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
@@ -78,7 +78,7 @@ public:
 	format_store_type;
 
 	typedef
-	fcppt::variant::variadic<
+	fcppt::variant::object<
 		pitch_iterator,
 		linear_iterator
 	>

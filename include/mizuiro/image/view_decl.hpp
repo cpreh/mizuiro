@@ -7,7 +7,7 @@
 #ifndef MIZUIRO_IMAGE_VIEW_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_VIEW_DECL_HPP_INCLUDED
 
-#include <fcppt/variant/variadic.hpp>
+#include <fcppt/variant/object_impl.hpp>
 #include <mizuiro/image/iterator_fwd.hpp>
 #include <mizuiro/image/linear_view_decl.hpp>
 #include <mizuiro/image/pitch_type.hpp>
@@ -82,7 +82,7 @@ public:
 	pitch_view;
 
 	typedef
-	fcppt::variant::variadic<
+	fcppt::variant::object<
 		linear_view,
 		pitch_view
 	>
