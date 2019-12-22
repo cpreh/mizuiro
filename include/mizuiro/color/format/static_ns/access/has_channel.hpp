@@ -12,6 +12,7 @@
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/static_ns/tag.hpp>
 #include <mizuiro/color/format/static_ns/types/static_channels.hpp>
+#include <fcppt/type_traits/to_bool.hpp>
 
 
 namespace mizuiro
@@ -42,9 +43,11 @@ has_channel_adl(
 )
 {
 	return
-		mizuiro::color::format::has_channel_static<
-			Format,
-			Channel
+		fcppt::type_traits::to_bool<
+			mizuiro::color::format::has_channel_static<
+				Format,
+				Channel
+			>
 		>::value;
 }
 
