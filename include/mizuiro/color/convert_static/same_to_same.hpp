@@ -10,6 +10,7 @@
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/conversion/same_to_same.hpp>
 #include <mizuiro/color/format/same_spaces.hpp>
+#include <fcppt/tag_fwd.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
@@ -38,6 +39,9 @@ std::enable_if_t<
 	>
 >
 convert(
+	fcppt::tag<
+		Dest
+	> const &,
 	Src const &_src
 )
 {

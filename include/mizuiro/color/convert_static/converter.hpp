@@ -11,6 +11,7 @@
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/convert_static/is_static.hpp>
 #include <mizuiro/color/format/store.hpp>
+#include <fcppt/tag.hpp>
 
 
 namespace mizuiro
@@ -53,9 +54,10 @@ struct converter
 		);
 
 		return
-			mizuiro::color::convert_static::convert<
-				DestFormat
-			>(
+			mizuiro::color::convert_static::convert(
+				fcppt::tag<
+					DestFormat
+				>{},
 				_source
 			);
 	}

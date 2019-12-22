@@ -11,6 +11,7 @@
 #include <mizuiro/color/conversion/hsv_to_rgb.hpp>
 #include <mizuiro/color/convert_static/is_hsv.hpp>
 #include <mizuiro/color/convert_static/is_rgb.hpp>
+#include <fcppt/tag_fwd.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
@@ -43,6 +44,9 @@ std::enable_if_t<
 	>
 >
 convert(
+	fcppt::tag<
+		Dest
+	> const &,
 	Src const &_source
 )
 {
