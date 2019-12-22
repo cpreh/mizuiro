@@ -29,27 +29,26 @@ template<
 	typename Src
 >
 inline
-typename
-std::enable_if<
-	std::is_same<
-		mizuiro::color::types::space<
-			Dest
+std::enable_if_t<
+	std::conjunction_v<
+		std::is_same<
+			mizuiro::color::types::space<
+				Dest
+			>,
+			mizuiro::color::space::srgb
 		>,
-		mizuiro::color::space::srgb
-	>::value
-	&&
-	std::is_same<
-		mizuiro::color::types::space<
-			typename
-			Src::format
-		>,
-		mizuiro::color::space::rgb
-	>::value
-	,
+		std::is_same<
+			mizuiro::color::types::space<
+				typename
+				Src::format
+			>,
+			mizuiro::color::space::rgb
+		>
+	>,
 	mizuiro::color::object<
 		Dest
 	>
->::type
+>
 convert(
 	Src const &_src
 )

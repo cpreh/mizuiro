@@ -27,8 +27,7 @@ template<
 	typename Src
 >
 inline
-typename
-std::enable_if<
+std::enable_if_t<
 	mizuiro::color::format::same_spaces<
 		Dest,
 		typename
@@ -37,7 +36,7 @@ std::enable_if<
 	mizuiro::color::object<
 		Dest
 	>
->::type
+>
 convert(
 	Src const &_src
 )

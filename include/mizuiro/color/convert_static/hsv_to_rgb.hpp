@@ -27,20 +27,21 @@ template<
 	typename Dest,
 	typename Src
 >
-typename
-std::enable_if<
-	mizuiro::color::convert_static::is_rgb<
-		Dest
-	>::value
-	&&
-	mizuiro::color::convert_static::is_hsv<
-		typename
-		Src::format
-	>::value,
+inline
+std::enable_if_t<
+	std::conjunction_v<
+		mizuiro::color::convert_static::is_rgb<
+			Dest
+		>,
+		mizuiro::color::convert_static::is_hsv<
+			typename
+			Src::format
+		>
+	>,
 	mizuiro::color::object<
 		Dest
 	>
->::type
+>
 convert(
 	Src const &_source
 )
