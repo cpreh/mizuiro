@@ -7,11 +7,11 @@
 #ifndef MIZUIRO_COLOR_FOR_EACH_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_FOR_EACH_CHANNEL_HPP_INCLUDED
 
-#include <fcppt/algorithm/loop.hpp>
-#include <fcppt/algorithm/loop_break_metal.hpp>
 #include <mizuiro/color/get_channel.hpp>
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/make_range.hpp>
+#include <fcppt/algorithm/loop.hpp>
+#include <fcppt/algorithm/loop_break_metal.hpp>
 
 
 // TODO: Where should be put this? ^

@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_COLOR_FOR_SOME_CHANNELS_HPP_INCLUDED
 #define MIZUIRO_COLOR_FOR_SOME_CHANNELS_HPP_INCLUDED
 
-#include <fcppt/algorithm/loop.hpp>
 #include <mizuiro/color/get_channel.hpp>
 #include <mizuiro/color/make_range.hpp>
+#include <fcppt/algorithm/loop.hpp>
 
 
 namespace mizuiro

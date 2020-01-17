@@ -12,8 +12,8 @@
 #include <mizuiro/color/format/homogenous_dynamic_fwd.hpp>
 #include <mizuiro/color/layout/all_possible_channels.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <array>
 #include <metal.hpp>
+#include <array>
 #include <fcppt/config/external_end.hpp>
 
 

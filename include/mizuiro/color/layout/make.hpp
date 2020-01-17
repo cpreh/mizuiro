@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_COLOR_LAYOUT_MAKE_HPP_INCLUDED
 #define MIZUIRO_COLOR_LAYOUT_MAKE_HPP_INCLUDED
 
-#include <fcppt/metal/set/to_list.hpp>
 #include <mizuiro/color/layout/all_possible_channels.hpp>
 #include <mizuiro/color/layout/detail/has_all_channels.hpp>
+#include <fcppt/metal/set/to_list.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <metal.hpp>
 #include <fcppt/config/external_end.hpp>

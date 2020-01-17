@@ -7,15 +7,15 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_ASSIGN_OBJECT_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_ASSIGN_OBJECT_HPP_INCLUDED
 
-#include <fcppt/algorithm/loop.hpp>
-#include <fcppt/algorithm/loop_break_tuple.hpp>
-#include <fcppt/metal/is_set.hpp>
 #include <mizuiro/color/object_fwd.hpp>
 #include <mizuiro/color/init/detail/contains_channel.hpp>
 #include <mizuiro/color/init/detail/set_channel.hpp>
 #include <mizuiro/color/init/detail/to_channel_type.hpp>
 #include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
+#include <fcppt/algorithm/loop.hpp>
+#include <fcppt/algorithm/loop_break_tuple.hpp>
+#include <fcppt/metal/is_set.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <metal.hpp>
 #include <fcppt/config/external_end.hpp>

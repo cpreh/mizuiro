@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_COLOR_DETAIL_DYNAMIC_MAKE_CHANNELS_IMPL_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_DYNAMIC_MAKE_CHANNELS_IMPL_HPP_INCLUDED
 
+#include <mizuiro/color/detail/dynamic/channel_index.hpp>
 #include <fcppt/metal/index_of.hpp>
 #include <fcppt/metal/set/to_list.hpp>
-#include <mizuiro/color/detail/dynamic/channel_index.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <metal.hpp>
 #include <fcppt/config/external_end.hpp>

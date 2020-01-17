@@ -7,11 +7,11 @@
 #ifndef MIZUIRO_COLOR_SPACE_RGB_HPP_INCLUDED
 #define MIZUIRO_COLOR_SPACE_RGB_HPP_INCLUDED
 
-#include <fcppt/metal/set/make.hpp>
 #include <mizuiro/color/channel/blue_fwd.hpp>
 #include <mizuiro/color/channel/green_fwd.hpp>
 #include <mizuiro/color/channel/red_fwd.hpp>
 #include <mizuiro/color/space/rgb_fwd.hpp>
+#include <fcppt/metal/set/make.hpp>
 
 
 namespace mizuiro

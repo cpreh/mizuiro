@@ -7,9 +7,9 @@
 #ifndef MIZUIRO_COLOR_DETAIL_DYNAMIC_MAKE_CHANNELS_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_DYNAMIC_MAKE_CHANNELS_HPP_INCLUDED
 
-#include <fcppt/container/array/init.hpp>
 #include <mizuiro/color/detail/dynamic/channel_array.hpp>
 #include <mizuiro/color/detail/dynamic/make_channels_impl.hpp>
+#include <fcppt/container/array/init.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <metal.hpp>
 #include <fcppt/config/external_end.hpp>

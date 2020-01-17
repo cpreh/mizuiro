@@ -7,9 +7,6 @@
 #ifndef MIZUIRO_IMAGE_STORE_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_STORE_DECL_HPP_INCLUDED
 
-#include <fcppt/preprocessor/disable_vc_warning.hpp>
-#include <fcppt/preprocessor/pop_warning.hpp>
-#include <fcppt/preprocessor/push_warning.hpp>
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/empty_fwd.hpp>
 #include <mizuiro/no_init_fwd.hpp>
@@ -22,6 +19,9 @@
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/store.hpp>
 #include <mizuiro/image/types/value_type.hpp>
+#include <fcppt/preprocessor/disable_vc_warning.hpp>
+#include <fcppt/preprocessor/pop_warning.hpp>
+#include <fcppt/preprocessor/push_warning.hpp>
 
 
 namespace mizuiro

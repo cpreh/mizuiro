@@ -7,10 +7,10 @@
 #ifndef MIZUIRO_COLOR_DETAIL_LEFT_SHIFT_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_LEFT_SHIFT_HPP_INCLUDED
 
+#include <mizuiro/size_type.hpp>
 #include <fcppt/preprocessor/disable_vc_warning.hpp>
 #include <fcppt/preprocessor/pop_warning.hpp>
 #include <fcppt/preprocessor/push_warning.hpp>
-#include <mizuiro/size_type.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <limits>
 #include <type_traits>

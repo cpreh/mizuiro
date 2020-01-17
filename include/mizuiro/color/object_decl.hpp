@@ -7,9 +7,6 @@
 #ifndef MIZUIRO_COLOR_OBJECT_DECL_HPP_INCLUDED
 #define MIZUIRO_COLOR_OBJECT_DECL_HPP_INCLUDED
 
-#include <fcppt/preprocessor/disable_vc_warning.hpp>
-#include <fcppt/preprocessor/pop_warning.hpp>
-#include <fcppt/preprocessor/push_warning.hpp>
 #include <mizuiro/const_tag_fwd.hpp>
 #include <mizuiro/default_init_fwd.hpp>
 #include <mizuiro/no_init_fwd.hpp>
@@ -27,6 +24,9 @@
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/types/store_needs_init.hpp>
+#include <fcppt/preprocessor/disable_vc_warning.hpp>
+#include <fcppt/preprocessor/pop_warning.hpp>
+#include <fcppt/preprocessor/push_warning.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>

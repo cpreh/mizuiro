@@ -7,11 +7,11 @@
 #ifndef MIZUIRO_COLOR_DETAIL_DYNAMIC_STATIC_TO_DYNAMIC_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_DYNAMIC_STATIC_TO_DYNAMIC_CHANNEL_HPP_INCLUDED
 
-#include <fcppt/metal/index_of.hpp>
-#include <fcppt/metal/set/to_list.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/channel/tag.hpp>
 #include <mizuiro/color/detail/dynamic/channel_index.hpp>
+#include <fcppt/metal/index_of.hpp>
+#include <fcppt/metal/set/to_list.hpp>
 
 
 namespace mizuiro

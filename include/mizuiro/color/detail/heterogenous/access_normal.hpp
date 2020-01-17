@@ -7,7 +7,6 @@
 #ifndef MIZUIRO_COLOR_DETAIL_HETEROGENOUS_ACCESS_NORMAL_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_HETEROGENOUS_ACCESS_NORMAL_HPP_INCLUDED
 
-#include <fcppt/metal/index_of.hpp>
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/integral_size.hpp>
 #include <mizuiro/nonconst_tag.hpp>
@@ -22,6 +21,7 @@
 #include <mizuiro/detail/range_to.hpp>
 #include <mizuiro/detail/sum.hpp>
 #include <mizuiro/detail/uint_least.hpp>
+#include <fcppt/metal/index_of.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>

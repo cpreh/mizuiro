@@ -7,13 +7,13 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_ITERATOR_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_ITERATOR_DECL_HPP_INCLUDED
 
-#include <fcppt/variant/object_impl.hpp>
 #include <mizuiro/difference_type.hpp>
 #include <mizuiro/image/linear_iterator_decl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
 #include <mizuiro/image/detail/iterator_fwd.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
+#include <fcppt/variant/object_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
