@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-ARGS=(--library mizuiro --library fcppt)
+LIBS=(--library mizuiro --library fcppt)
+DIRS=(examples include test)
 
-find examples include test \( \( -name '*.hpp' -o -name '*.cpp' \) \) -exec update_headers.sh '{}' "${ARGS[@]}" \;
+prettify_includes "${LIBS[@]}" "${DIRS[@]}"
