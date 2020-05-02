@@ -87,6 +87,19 @@ template<
 	typename Format,
 	typename Constness
 >
+mizuiro::color::proxy<
+	Access,
+	Format,
+	Constness
+>::proxy(
+	proxy &&
+) = default;
+
+template<
+	typename Access,
+	typename Format,
+	typename Constness
+>
 template<
 	typename Other
 >
@@ -133,6 +146,18 @@ mizuiro::color::proxy<
 	return
 		*this;
 }
+
+template<
+	typename Access,
+	typename Format,
+	typename Constness
+>
+mizuiro::color::proxy<
+	Access,
+	Format,
+	Constness
+>::~proxy()
+= default;
 
 template<
 	typename Access,

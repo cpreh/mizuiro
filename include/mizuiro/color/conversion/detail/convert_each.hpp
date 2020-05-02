@@ -45,11 +45,12 @@ convert_each(
 	>::format_store_type const &_format
 )
 {
-	typedef
+	using
+	dest_type
+	=
 	mizuiro::color::object<
 		Dest
-	>
-	dest_type;
+	>;
 
 	dest_type dest(
 		mizuiro::no_init{},

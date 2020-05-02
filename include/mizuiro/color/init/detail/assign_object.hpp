@@ -45,11 +45,12 @@ assign_object(
 	> const &_init
 )
 {
-	typedef
+	using
+	color_types
+	=
 	metal::as_list<
 		Vector
-	>
-	color_types;
+	>;
 
 	static_assert(
 		metal::all_of<

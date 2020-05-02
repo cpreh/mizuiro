@@ -33,32 +33,37 @@ class proxy final
 			Format
 		>
 {
-	typedef
+	using
+	base
+	=
 	mizuiro::color::format::base<
 		Format
-	>
-	base;
+	>;
 public:
-	typedef
-	Access
-	access;
+	using
+	access
+	=
+	Access;
 
-	typedef
-	Format
-	format;
+	using
+	format
+	=
+	Format;
 
-	typedef
+	using
+	format_store_type
+	=
 	typename
-	base::format_store_type
-	format_store_type;
+	base::format_store_type;
 
-	typedef
+	using
+	pointer
+	=
 	mizuiro::color::types::pointer<
 		Access,
 		Format,
 		Constness
-	>
-	pointer;
+	>;
 
 	explicit
 	proxy(
@@ -85,6 +90,10 @@ public:
 		proxy const &
 	);
 
+	proxy(
+		proxy &&
+	);
+
 	template<
 		typename Other
 	>
@@ -103,6 +112,8 @@ public:
 		proxy &&
 	) = delete;
 
+	~proxy();
+
 	template<
 		typename Channel
 	>
@@ -118,6 +129,7 @@ public:
 	template<
 		typename Channel
 	>
+	[[nodiscard]]
 	mizuiro::color::types::channel_reference<
 		Access,
 		Format,
@@ -128,9 +140,11 @@ public:
 		Channel const &
 	) const;
 
+	[[nodiscard]]
 	pointer
 	data() const;
 
+	[[nodiscard]]
 	format_store_type
 	format_store() const;
 private:

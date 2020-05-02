@@ -11,7 +11,6 @@
 #include <mizuiro/default_init_fwd.hpp>
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/nonconst_tag.hpp>
-#include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_decl.hpp>
 #include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/access/init_store.hpp>
@@ -30,25 +29,22 @@
 template<
 	typename Format
 >
-template<
-	typename FormatArg
->
 mizuiro::color::object<
 	Format
 >::object(
 	mizuiro::no_init const &,
-	format_store_type const &_format,
-	std::enable_if_t<
-		!mizuiro::color::types::store_needs_init<
-			FormatArg
-		>::value
-	> *
+	format_store_type const &_format
 )
 :
 	base(
 		_format
 	)
 {
+	static_assert(
+		!mizuiro::color::types::store_needs_init<
+			Format
+		>::value
+	);
 }
 
 template<
@@ -77,72 +73,28 @@ template<
 >
 template<
 	typename Other,
-	typename FormatArg
+	typename
 >
 mizuiro::color::object<
 	Format
 >::object(
-	Other const &_other,
-	std::enable_if_t<
-		mizuiro::color::is_color<
-			Other
-		>::value
-		&&
-		!mizuiro::color::types::store_needs_init<
-			FormatArg
-		>::value
-	> *
+	Other const &_other
 )
 :
-	base(
-		_other.format_store()
-	)
-{
-	this->make_proxy() =
-		_other;
-}
-
-template<
-	typename Format
->
-template<
-	typename Other,
-	typename FormatArg
->
-mizuiro::color::object<
-	Format
->::object(
-	Other const &_other,
-	std::enable_if_t<
-		mizuiro::color::is_color<
-			Other
-		>::value
-		&&
+	object(
+		_other,
 		mizuiro::color::types::store_needs_init<
-			FormatArg
-		>::value
-	> *
-)
-:
-	base(
-		_other.format_store()
-	),
-	data_(
-		mizuiro::color::access::init_store<
 			Format
-		>()
+		>{}
 	)
 {
-	this->make_proxy() =
-		_other;
 }
 
 template<
 	typename Format
 >
 template<
-	typename Vector,
-	typename FormatArg
+	typename Vector
 >
 mizuiro::color::object<
 	Format
@@ -150,58 +102,17 @@ mizuiro::color::object<
 	mizuiro::color::init::detail::values<
 		Vector
 	> const &_init,
-	format_store_type const &_format,
-	std::enable_if_t<
-		!mizuiro::color::types::store_needs_init<
-			FormatArg
-		>::value
-	> *
+	format_store_type const &_format
 )
 :
-	base(
-		_format
-	)
-{
-	mizuiro::color::init::detail::assign_object(
-		*this,
-		_init
-	);
-}
-
-template<
-	typename Format
->
-template<
-	typename Vector,
-	typename FormatArg
->
-mizuiro::color::object<
-	Format
->::object(
-	mizuiro::color::init::detail::values<
-		Vector
-	> const &_init,
-	format_store_type const &_format,
-	std::enable_if_t<
+	object{
+		_init,
 		mizuiro::color::types::store_needs_init<
-			FormatArg
-		>::value
-	> *
-)
-:
-	base(
-		_format
-	),
-	data_(
-		mizuiro::color::access::init_store<
 			Format
-		>()
-	)
+		>{},
+		_format
+	}
 {
-	mizuiro::color::init::detail::assign_object(
-		*this,
-		_init
-	);
 }
 
 template<
@@ -260,7 +171,8 @@ mizuiro::color::object<
 template<
 	typename Format
 >
-typename mizuiro::color::object<
+typename
+mizuiro::color::object<
 	Format
 >::pointer
 mizuiro::color::object<
@@ -274,7 +186,8 @@ mizuiro::color::object<
 template<
 	typename Format
 >
-typename mizuiro::color::object<
+typename
+mizuiro::color::object<
 	Format
 >::const_pointer
 mizuiro::color::object<
@@ -289,7 +202,8 @@ template<
 	typename Format
 >
 constexpr
-typename mizuiro::color::object<
+typename
+mizuiro::color::object<
 	Format
 >::format_store_type
 mizuiro::color::object<
@@ -303,7 +217,8 @@ mizuiro::color::object<
 template<
 	typename Format
 >
-typename mizuiro::color::object<
+typename
+mizuiro::color::object<
 	Format
 >::proxy
 mizuiro::color::object<
@@ -326,7 +241,8 @@ mizuiro::color::object<
 template<
 	typename Format
 >
-typename mizuiro::color::object<
+typename
+mizuiro::color::object<
 	Format
 >::const_proxy
 mizuiro::color::object<
@@ -344,6 +260,110 @@ mizuiro::color::object<
 			),
 			this->format_store()
 		);
+}
+
+template<
+	typename Format
+>
+template<
+	typename Other
+>
+mizuiro::color::object<
+	Format
+>::object(
+	Other const &_other,
+	std::false_type
+)
+:
+	base(
+		_other.format_store()
+	)
+{
+	this->make_proxy() =
+		_other;
+}
+
+template<
+	typename Format
+>
+template<
+	typename Other
+>
+mizuiro::color::object<
+	Format
+>::object(
+	Other const &_other,
+	std::true_type
+)
+:
+	base(
+		_other.format_store()
+	),
+	data_(
+		mizuiro::color::access::init_store<
+			Format
+		>()
+	)
+{
+	this->make_proxy() =
+		_other;
+}
+
+template<
+	typename Format
+>
+template<
+	typename Vector
+>
+mizuiro::color::object<
+	Format
+>::object(
+	mizuiro::color::init::detail::values<
+		Vector
+	> const &_init,
+	std::false_type,
+	format_store_type const &_format
+)
+:
+	base(
+		_format
+	)
+{
+	mizuiro::color::init::detail::assign_object(
+		*this,
+		_init
+	);
+}
+
+template<
+	typename Format
+>
+template<
+	typename Vector
+>
+mizuiro::color::object<
+	Format
+>::object(
+	mizuiro::color::init::detail::values<
+		Vector
+	> const &_init,
+	std::true_type,
+	format_store_type const &_format
+)
+:
+	base(
+		_format
+	),
+	data_(
+		mizuiro::color::access::init_store<
+			Format
+		>()
+	)
+{
+	mizuiro::color::init::detail::assign_object(
+		*this,
+		_init
+	);
 }
 
 #endif

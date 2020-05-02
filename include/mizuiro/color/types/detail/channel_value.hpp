@@ -35,7 +35,9 @@ struct channel_value
 		Channel
 	);
 
-	typedef
+	using
+	type
+	=
 	decltype(
 		channel_value_adl(
 			std::declval<
@@ -48,8 +50,7 @@ struct channel_value
 				Channel
 			>()
 		)
-	)
-	type;
+	);
 };
 
 }

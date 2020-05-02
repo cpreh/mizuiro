@@ -23,7 +23,6 @@
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
-#include <mizuiro/color/types/store_needs_init.hpp>
 #include <fcppt/preprocessor/disable_vc_warning.hpp>
 #include <fcppt/preprocessor/pop_warning.hpp>
 #include <fcppt/preprocessor/push_warning.hpp>
@@ -99,21 +98,13 @@ public:
 	FCPPT_PP_DISABLE_VC_WARNING(4686)
 
 	/// constructs an uninitialized color
-	template<
-		typename FormatArg = Format
-	>
 	explicit
 	object(
 		mizuiro::no_init const &,
 		format_store_type const & =
 			mizuiro::color::format::argument<
 				Format
-			>::get(),
-		std::enable_if_t<
-			!mizuiro::color::types::store_needs_init<
-				FormatArg
-			>::value
-		> * = nullptr
+			>::get()
 	);
 
 	explicit
@@ -130,38 +121,16 @@ public:
 	/// Constructs a color from another color (possibly a view)
 	template<
 		typename Other,
-		typename FormatArg = Format
+		typename =
+			std::enable_if_t<
+				mizuiro::color::is_color<
+					Other
+				>::value
+			>
 	>
 	explicit
 	object(
-		Other const &,
-		std::enable_if_t<
-			mizuiro::color::is_color<
-				Other
-			>::value
-			&&
-			!mizuiro::color::types::store_needs_init<
-				FormatArg
-			>::value
-		> * = nullptr
-	);
-
-	template<
-		typename Other,
-		typename FormatArg = Format
-	>
-	explicit
-	object(
-		Other const &,
-		std::enable_if_t<
-			mizuiro::color::is_color<
-				Other
-			>::value
-			&&
-			mizuiro::color::types::store_needs_init<
-				FormatArg
-			>::value
-		> * = nullptr
+		Other const &
 	);
 
 	FCPPT_PP_PUSH_WARNING
@@ -169,8 +138,7 @@ public:
 
 	/// Constructs a color from a special init expression
 	template<
-		typename Vector,
-		typename FormatArg = Format
+		typename Vector
 	>
 	explicit
 	object(
@@ -180,32 +148,7 @@ public:
 		format_store_type const & =
 			mizuiro::color::format::argument<
 				Format
-			>::get(),
-		std::enable_if_t<
-			!mizuiro::color::types::store_needs_init<
-				FormatArg
-			>::value
-		> * = nullptr
-	);
-
-	template<
-		typename Vector,
-		typename FormatArg = Format
-	>
-	explicit
-	object(
-		mizuiro::color::init::detail::values<
-			Vector
-		> const &,
-		format_store_type const & =
-			mizuiro::color::format::argument<
-				Format
-			>::get(),
-		std::enable_if_t<
-			mizuiro::color::types::store_needs_init<
-				FormatArg
-			>::value
-		> * = nullptr
+			>::get()
 	);
 
 	FCPPT_PP_POP_WARNING
@@ -225,6 +168,7 @@ public:
 	template<
 		typename Channel
 	>
+	[[nodiscard]]
 	mizuiro::color::types::channel_reference<
 		access,
 		format,
@@ -236,17 +180,62 @@ public:
 	) const;
 
 	/// ponter to the internal data
+	[[nodiscard]]
 	pointer
 	data();
 
 	/// const pointer to the internal data
+	[[nodiscard]]
 	const_pointer
 	data() const;
 
+	[[nodiscard]]
 	constexpr
 	format_store_type
 	format_store() const;
 private:
+	template<
+		typename Other
+	>
+	explicit
+	object(
+		Other const &,
+		std::false_type
+	);
+
+	template<
+		typename Other
+	>
+	explicit
+	object(
+		Other const &,
+		std::true_type
+	);
+
+	template<
+		typename Vector
+	>
+	explicit
+	object(
+		mizuiro::color::init::detail::values<
+			Vector
+		> const &,
+		std::false_type,
+		format_store_type const &
+	);
+
+	template<
+		typename Vector
+	>
+	explicit
+	object(
+		mizuiro::color::init::detail::values<
+			Vector
+		> const &,
+		std::true_type,
+		format_store_type const &
+	);
+
 	using
 	proxy
 	=

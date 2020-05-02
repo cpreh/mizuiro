@@ -21,16 +21,12 @@ namespace detail
 
 struct convert_channel_function
 {
-	typedef
-	void
-	result_type;
-
 	template<
 		typename Channel,
 		typename Src,
 		typename Dest
 	>
-	result_type
+	void
 	operator()(
 		Channel const &_channel,
 		Src const &_src,

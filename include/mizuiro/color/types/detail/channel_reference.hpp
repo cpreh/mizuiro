@@ -47,7 +47,9 @@ struct channel_reference
 		Channel
 	);
 
-	typedef
+	using
+	type
+	=
 	decltype(
 		channel_reference_adl(
 			std::declval<
@@ -66,8 +68,7 @@ struct channel_reference
 				Constness
 			>()
 		)
-	)
-	type;
+	);
 };
 
 }
