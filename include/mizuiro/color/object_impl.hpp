@@ -75,24 +75,6 @@ mizuiro::color::object<
 template<
 	typename Format
 >
-mizuiro::color::object<
-	Format
->::object(
-	object const &_other
-)
-:
-	base(
-		_other.format_store()
-	),
-	data_(
-		_other.data_
-	)
-{
-}
-
-template<
-	typename Format
->
 template<
 	typename Other,
 	typename FormatArg
@@ -221,19 +203,6 @@ mizuiro::color::object<
 		_init
 	);
 }
-
-template<
-	typename Format
->
-mizuiro::color::object<
-	Format
-> &
-mizuiro::color::object<
-	Format
->::operator=(
-	object const &
-)
-= default;
 
 template<
 	typename Format

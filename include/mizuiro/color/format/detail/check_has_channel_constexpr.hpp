@@ -25,7 +25,7 @@ namespace format
 namespace detail
 {
 
-// TODO: Get a proper solution for this
+// TODO(philipp): Get a proper solution for this
 #if defined(FCPPT_CONFIG_MSVC_COMPILER)
 template<
 	typename Format,

@@ -31,14 +31,15 @@ tag_of<
 	>
 >
 {
-	typedef
+	using
+	type
+	=
 	mizuiro::color::format::homogenous_static_ns::tag<
 		mizuiro::color::format::homogenous_static<
 			ChannelType,
 			Layout
 		>
-	>
-	type;
+	>;
 };
 
 }

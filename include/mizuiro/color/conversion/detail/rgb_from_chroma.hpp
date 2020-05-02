@@ -67,35 +67,35 @@ rgb_from_chroma(
 				mizuiro::color::channel::green(),
 				mizuiro::color::channel::blue()
 			);
-	case 1:
+	case 1: // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		return
 			set_parts(
 				mizuiro::color::channel::green(),
 				mizuiro::color::channel::red(),
 				mizuiro::color::channel::blue()
 			);
-	case 2:
+	case 2: // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		return
 			set_parts(
 				mizuiro::color::channel::green(),
 				mizuiro::color::channel::blue(),
 				mizuiro::color::channel::red()
 			);
-	case 3:
+	case 3: // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		return
 			set_parts(
 				mizuiro::color::channel::blue(),
 				mizuiro::color::channel::green(),
 				mizuiro::color::channel::red()
 			);
-	case 4:
+	case 4: // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		return
 			set_parts(
 				mizuiro::color::channel::blue(),
 				mizuiro::color::channel::red(),
 				mizuiro::color::channel::green()
 			);
-	case 5:
+	case 5: // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		return
 			set_parts(
 				mizuiro::color::channel::red(),

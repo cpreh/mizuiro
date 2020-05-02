@@ -44,10 +44,10 @@ srgb_to_rgb(
 			Dest
 		>(
 			_source,
-			1.f
+			1.F
 			/
 			mizuiro::color::conversion::detail::srgb_gamma<
-				// TODO: Choose a more appropriate type
+				// TODO(philipp): Choose a more appropriate type
 				float
 			>(),
 			_format

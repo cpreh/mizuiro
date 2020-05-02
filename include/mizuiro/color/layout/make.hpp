@@ -42,13 +42,15 @@ template<
 >
 struct make
 {
-	typedef
-	Space
-	space;
+	using
+	space
+	=
+	Space;
 
-	typedef
-	Channels
-	channels;
+	using
+	channels
+	=
+	Channels;
 
 	static_assert(
 		mizuiro::color::layout::detail::has_all_channels<

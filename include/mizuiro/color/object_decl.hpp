@@ -54,40 +54,46 @@ class object final
 			Format
 		>
 {
-	typedef
+	using
+	base
+	=
 	mizuiro::color::format::base<
 		Format
-	>
-	base;
+	>;
 public:
-	typedef
-	Format
-	format;
+	using
+	format
+	=
+	Format;
 
-	typedef
+	using
+	format_store_type
+	=
 	typename
-	base::format_store_type
-	format_store_type;
+	base::format_store_type;
 
-	typedef
-	mizuiro::access::normal
-	access;
+	using
+	access
+	=
+	mizuiro::access::normal;
 
-	typedef
+	using
+	pointer
+	=
 	mizuiro::color::types::pointer<
 		access,
 		format,
 		mizuiro::nonconst_tag
-	>
-	pointer;
+	>;
 
-	typedef
+	using
+	const_pointer
+	=
 	mizuiro::color::types::pointer<
 		access,
 		format,
 		mizuiro::const_tag
-	>
-	const_pointer;
+	>;
 
 	FCPPT_PP_PUSH_WARNING
 	FCPPT_PP_DISABLE_VC_WARNING(4686)
@@ -120,10 +126,6 @@ public:
 	);
 
 	FCPPT_PP_POP_WARNING
-
-	object(
-		object const &
-	);
 
 	/// Constructs a color from another color (possibly a view)
 	template<
@@ -208,11 +210,6 @@ public:
 
 	FCPPT_PP_POP_WARNING
 
-	object &
-	operator=(
-		object const &
-	);
-
 	template<
 		typename Channel
 	>
@@ -250,21 +247,23 @@ public:
 	format_store_type
 	format_store() const;
 private:
-	typedef
+	using
+	proxy
+	=
 	mizuiro::color::proxy<
 		access,
 		format,
 		mizuiro::nonconst_tag
-	>
-	proxy;
+	>;
 
-	typedef
+	using
+	const_proxy
+	=
 	mizuiro::color::proxy<
 		access,
 		format,
 		mizuiro::const_tag
-	>
-	const_proxy;
+	>;
 
 	proxy
 	make_proxy();
@@ -272,11 +271,12 @@ private:
 	const_proxy
 	make_const_proxy() const;
 
-	typedef
+	using
+	store
+	=
 	mizuiro::color::types::store<
 		format
-	>
-	store;
+	>;
 
 	store data_;
 };

@@ -33,10 +33,11 @@ convert_channel(
 	Dest &_dest
 )
 {
-	// TODO: Create a better version of this
-	typedef
-	float
-	float_type;
+	// TODO(philipp): Create a better version of this
+	using
+	float_type
+	=
+	float;
 
 	_dest.set(
 		_channel,

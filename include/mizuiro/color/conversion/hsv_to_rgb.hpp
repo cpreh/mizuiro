@@ -46,7 +46,10 @@ hsv_to_rgb(
 		>::get()
 )
 {
-	typedef float float_type;
+	using
+	float_type
+	=
+	float;
 
 	float_type const
 		hue(
@@ -110,11 +113,12 @@ hsv_to_rgb(
 				)
 			));
 
-	typedef
+	using
+	dest_type
+	=
 	mizuiro::color::object<
 		Dest
-	>
-	dest_type;
+	>;
 
 	dest_type dest{
 		mizuiro::no_init{},

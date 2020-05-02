@@ -26,13 +26,15 @@ template<
 class channel_value
 {
 public:
-	typedef
-	Value
-	value_type;
+	using
+	value_type
+	=
+	Value;
 
-	typedef
-	Channel
-	channel_type;
+	using
+	channel_type
+	=
+	Channel;
 
 	channel_value(
 		Value const &_value,

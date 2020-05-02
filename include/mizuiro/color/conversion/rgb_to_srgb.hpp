@@ -45,7 +45,7 @@ rgb_to_srgb(
 		>(
 			_source,
 			mizuiro::color::conversion::detail::srgb_gamma<
-				// TODO: Choose a more appropriate type
+				// TODO(philipp): Choose a more appropriate type
 				float
 			>(),
 			_format

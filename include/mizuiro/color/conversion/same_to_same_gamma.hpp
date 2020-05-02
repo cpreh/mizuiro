@@ -67,7 +67,7 @@ same_to_same_gamma(
 						_channel_inner,
 						std::pow(
 							mizuiro::color::normalize<
-								// TODO!
+								// TODO(philipp)!
 								float
 							>(
 								_src_inner,

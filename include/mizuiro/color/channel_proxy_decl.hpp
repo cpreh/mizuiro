@@ -23,11 +23,20 @@ template<
 class channel_proxy
 {
 public:
-	typedef ValueType value_type;
+	using
+	value_type
+	=
+	ValueType;
 
-	typedef Pointer pointer;
+	using
+	pointer
+	=
+	Pointer;
 
-	typedef ChannelAccess channel_access;
+	using
+	channel_access
+	=
+	ChannelAccess;
 
 	explicit
 	channel_proxy(
@@ -42,6 +51,7 @@ public:
 	value_type
 	get() const;
 
+	// NOLINTNEXTLINE(google-explicit-constructor,hicpp-explicit-conversions)
 	operator value_type() const;
 private:
 	pointer data_;

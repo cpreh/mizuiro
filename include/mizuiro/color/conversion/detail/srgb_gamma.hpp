@@ -29,9 +29,9 @@ Type
 srgb_gamma()
 {
 	static_assert(
-		std::is_floating_point<
+		std::is_floating_point_v<
 			Type
-		>::value,
+		>,
 		"Type must be a floating point type"
 	);
 
@@ -39,7 +39,7 @@ srgb_gamma()
 		static_cast<
 			Type
 		>(
-			0.45455
+			0.45455 // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		);
 }
 

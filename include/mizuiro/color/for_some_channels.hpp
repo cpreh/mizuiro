@@ -48,11 +48,13 @@ for_some_channels(
 					)
 				)
 			)
+			{
 				_function(
 					mizuiro::color::get_channel(
 						_channel
 					)
 				);
+			}
 		}
 	);
 }

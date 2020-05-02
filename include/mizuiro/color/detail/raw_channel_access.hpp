@@ -10,6 +10,7 @@
 #include <mizuiro/const_raw_pointer.hpp>
 #include <mizuiro/raw_pointer.hpp>
 #include <mizuiro/detail/copy_n.hpp>
+#include <fcppt/cast/to_char_ptr.hpp>
 
 
 namespace mizuiro
@@ -44,14 +45,15 @@ struct raw_channel_access
 			sizeof(
 				value_type
 			),
-			reinterpret_cast<
+			fcppt::cast::to_char_ptr<
 				mizuiro::raw_pointer
 			>(
 				&ret
 			)
 		);
 
-		return ret;
+		return
+			ret;
 	}
 
 	template<
@@ -65,7 +67,7 @@ struct raw_channel_access
 	)
 	{
 		mizuiro::detail::copy_n(
-			reinterpret_cast<
+			fcppt::cast::to_char_ptr<
 				mizuiro::const_raw_pointer
 			>(
 				&_ref

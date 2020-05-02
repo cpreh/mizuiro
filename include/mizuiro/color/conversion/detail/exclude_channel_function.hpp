@@ -27,11 +27,12 @@ template<
 class exclude_channel_function
 {
 public:
-	typedef
+	using
+	format_store
+	=
 	mizuiro::color::format::store<
 		Format
-	>
-	format_store;
+	>;
 
 	explicit
 	exclude_channel_function(
@@ -43,10 +44,6 @@ public:
 		)
 	{
 	}
-
-	typedef
-	bool
-	result_type;
 
 	template<
 		typename OtherChannel

@@ -20,7 +20,7 @@ namespace color
 namespace access
 {
 
-// TODO: Move this somewhere else
+// TODO(philipp): Move this somewhere else
 template<
 	typename Format,
 	typename Channel
