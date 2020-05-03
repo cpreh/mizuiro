@@ -34,6 +34,13 @@ find_package(
 	REQUIRED
 )
 
+# TODO: Remove default arguments eventually.
+set(
+	FCPPT_UTILS_CLANG_TIDY_ADDITIONAL_CHECKS
+	"-fuchsia-default-arguments-calls"
+	"-fuchsia-default-arguments-declarations"
+)
+
 include(
 	FcpptCMakeUtils
 )
