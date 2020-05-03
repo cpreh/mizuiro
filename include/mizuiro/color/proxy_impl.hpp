@@ -93,8 +93,11 @@ mizuiro::color::proxy<
 	Constness
 >::proxy(
 	proxy &&
-) = default;
+)
+noexcept
+= default;
 
+// NOLINTNEXTLINE(cppcoreguidelines-c-copy-assignment-signature,misc-unconventional-assign-operator)
 template<
 	typename Access,
 	typename Format,
@@ -103,6 +106,7 @@ template<
 template<
 	typename Other
 >
+// NOLINTNEXTLINE(cppcoreguidelines-c-copy-assignment-signature,misc-unconventional-assign-operator)
 mizuiro::color::proxy<
 	Access,
 	Format,

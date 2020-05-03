@@ -37,72 +37,83 @@ class linear_view final
 			Format
 		>
 {
-	typedef
+	using
+	format_base
+	=
 	mizuiro::image::format::base<
 		Format
-	>
-	format_base;
+	>;
 public:
-	typedef
-	Access
-	access;
+	using
+	access
+	=
+	Access;
 
-	typedef
-	Format
-	format;
+	using
+	format
+	=
+	Format;
 
-	typedef
-	Constness
-	constness;
+	using
+	constness
+	=
+	Constness;
 
-	typedef
+	using
+	format_store_type
+	=
 	typename
-	format_base::format_store_type
-	format_store_type;
+	format_base::format_store_type;
 
-	typedef
+	using
+	pointer
+	=
 	mizuiro::image::types::pointer<
 		access,
 		format,
 		constness
-	>
-	pointer;
+	>;
 
-	typedef
+	using
+	reference
+	=
 	mizuiro::image::types::reference<
 		access,
 		format,
 		constness
-	>
-	reference;
+	>;
 
-	typedef
+	using
+	iterator
+	=
 	mizuiro::image::linear_iterator<
 		access,
 		format,
 		constness
-	>
-	iterator;
+	>;
 
-	typedef
+	using
+	dim
+	=
 	typename
-	format::dim
-	dim;
+	format::dim;
 
-	typedef
+	using
+	bound_type
+	=
 	mizuiro::image::bound<
 		dim::static_size,
 		typename
 		dim::value_type
-	>
-	bound_type;
+	>;
 
-	typedef
+	using
+	pitch_type
+	=
 	mizuiro::image::pitch_type<
 		typename
 		format::dim
-	>
-	pitch_type;
+	>;
 
 	FCPPT_PP_PUSH_WARNING
 	FCPPT_PP_DISABLE_VC_WARNING(4686)
@@ -130,26 +141,33 @@ public:
 		> const &
 	);
 
+	[[nodiscard]]
 	dim const &
 	size() const;
 
+	[[nodiscard]]
 	pitch_type
 	pitch() const;
 
+	[[nodiscard]]
 	iterator
 	begin() const;
 
+	[[nodiscard]]
 	iterator
 	end() const;
 
+	[[nodiscard]]
 	reference
 	operator[](
 		dim const &
 	) const;
 
+	[[nodiscard]]
 	pointer
 	data() const;
 
+	[[nodiscard]]
 	format_store_type
 	format_store() const;
 private:

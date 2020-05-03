@@ -19,15 +19,11 @@ namespace detail
 
 struct copy_element
 {
-	typedef
-	void
-	result_type;
-
 	template<
 		typename Src,
 		typename Dest
 	>
-	result_type
+	void
 	operator()(
 		Src const &_src,
 		Dest const &_dest

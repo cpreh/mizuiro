@@ -28,71 +28,83 @@ class basic_iterator final
 		Impl
 {
 public:
-	typedef
-	Impl
-	impl;
+	using
+	impl
+	=
+	Impl;
 
-	typedef
+	using
+	value_type
+	=
 	mizuiro::image::types::value_type<
 		typename
 		Impl::format
-	>
-	value_type;
+	>;
 
 	/**
 	\brief The reference type of the underlying implementation
 
 	This might be a proxy class which is not an lvalue.
 	*/
-	typedef
+	using
+	reference
+	=
 	typename
-	Impl::reference
-	reference;
+	Impl::reference;
 
 	/**
 	\brief The pointer used to refer to data in the underlying implementation
 	*/
-	typedef
+	using
+	pointer
+	=
 	typename
-	Impl::pointer
-	pointer;
+	Impl::pointer;
 
-	typedef
+	using
+	difference_type
+	=
 	typename
-	Impl::difference_type
-	difference_type;
+	Impl::difference_type;
 
-	typedef
-	std::random_access_iterator_tag
-	iterator_category;
+	using
+	iterator_category
+	=
+	std::random_access_iterator_tag;
 
-	typedef
+	using
+	format
+	=
 	typename
-	Impl::format
-	format;
+	Impl::format;
 
-	typedef
+	using
+	format_store_type
+	=
 	typename
-	Impl::format_store_type
-	format_store_type;
+	Impl::format_store_type;
 
 	using
 	Impl::Impl;
 
+	[[nodiscard]]
 	pointer
 	data() const;
 
+	[[nodiscard]]
 	reference
 	operator*() const;
 
 	basic_iterator &
 	operator++();
 
+	[[nodiscard]]
 	bool
 	operator==(
 		basic_iterator const &
 	) const;
 
+	[[nodiscard]]
 	pointer
 	operator->() const;
 
@@ -106,11 +118,13 @@ public:
 		difference_type
 	);
 
+	[[nodiscard]]
 	difference_type
 	operator-(
 		basic_iterator const &
 	) const;
 
+	[[nodiscard]]
 	reference
 	operator[](
 		difference_type

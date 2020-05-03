@@ -79,6 +79,7 @@ store_data_adl(
 			)
 			{
 				return
+					// NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-constant-array-index)
 					_store[
 						_index
 					].data();

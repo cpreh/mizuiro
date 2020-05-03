@@ -29,11 +29,12 @@ class normal_format_store<
 >
 {
 public:
-	typedef
+	using
+	ref
+	=
 	std::reference_wrapper<
 		Format const
-	>
-	ref;
+	>;
 
 	constexpr
 	explicit

@@ -22,12 +22,13 @@ TEST_CASE(
 	"[mizuirp]"
 )
 {
-	typedef
+	using
+	format
+	=
 	mizuiro::color::format::homogenous_static<
 		std::uint8_t,
 		mizuiro::color::layout::l
-	>
-	format;
+	>;
 
 	static_assert(
 		mizuiro::color::format::detail::has_channel_constexpr<
@@ -37,18 +38,19 @@ TEST_CASE(
 		"has_channel should be constexpr"
 	);
 
-	typedef
+	using
+	object
+	=
 	mizuiro::color::object<
 		format
-	>
-	object;
+	>;
 
 	object foo{
 		mizuiro::no_init{}
 	};
 
 	std::uint8_t const test(
-		42u
+		42U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	foo.set(

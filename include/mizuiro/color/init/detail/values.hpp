@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <fcppt/config/external_begin.hpp>
+#include <utility>
 #include <tuple>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
@@ -29,7 +30,10 @@ template<
 class values
 {
 public:
-	typedef Tuple tuple_type;
+	using
+	tuple_type
+	=
+	Tuple;
 
 	values()
 	:
@@ -39,11 +43,13 @@ public:
 
 	explicit
 	values(
-		tuple_type const &_elements
+		tuple_type _elements
 	)
 	:
 		elements_(
-			_elements
+			std::move(
+				_elements
+			)
 		)
 	{
 	}
@@ -51,6 +57,7 @@ public:
 	template<
 		typename NewInit
 	>
+	[[nodiscard]]
 	values<
 		decltype(
 			std::tuple_cat(
@@ -101,6 +108,7 @@ public:
 			);
 	}
 
+	[[nodiscard]]
 	tuple_type const &
 	get() const
 	{

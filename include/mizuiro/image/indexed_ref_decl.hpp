@@ -28,20 +28,23 @@ template<
 class indexed_ref
 {
 public:
-	typedef
+	using
+	dim
+	=
 	mizuiro::image::dimension<
 		Size
-	>
-	dim;
+	>;
 
 	indexed_ref(
 		dim const &,
 		Reference
 	);
 
+	[[nodiscard]]
 	Reference
 	get() const;
 
+	[[nodiscard]]
 	dim const &
 	index() const;
 private:

@@ -10,8 +10,10 @@
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/image/dimension_fwd.hpp>
+#include <fcppt/type_traits/remove_cv_ref_t.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <array>
+#include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -27,47 +29,55 @@ template<
 class dimension
 {
 public:
-	typedef
-	ValueType
-	value_type;
+	using
+	value_type
+	=
+	ValueType;
 
-	typedef
-	mizuiro::size_type
-	size_type;
+	using
+	size_type
+	=
+	mizuiro::size_type;
 
-	typedef
-	value_type &
-	reference;
+	using
+	reference
+	=
+	value_type &;
 
-	typedef
-	value_type const &
-	const_reference;
+	using
+	const_reference
+	=
+	value_type const &;
 
-	typedef
+	using
+	array_type
+	=
 	std::array<
 		value_type,
 		Dim
-	>
-	array_type;
+	>;
 
 	static
 	size_type const static_size
 		= Dim;
 
-	typedef
+	using
+	iterator
+	=
 	typename
-	array_type::iterator
-	iterator;
+	array_type::iterator;
 
-	typedef
+	using
+	const_iterator
+	=
 	typename
-	array_type::const_iterator
-	const_iterator;
+	array_type::const_iterator;
 
-	typedef
+	using
+	difference_type
+	=
 	typename
-	array_type::difference_type
-	difference_type;
+	array_type::difference_type;
 
 	explicit
 	dimension(
@@ -90,54 +100,47 @@ public:
 	);
 
 	template<
-		typename... Args
+		typename... Args,
+		typename =
+			std::enable_if_t<
+				std::conjunction_v<
+					std::is_constructible<
+						value_type,
+						fcppt::type_traits::remove_cv_ref_t<
+							Args
+						>
+					>...
+				>
+			>
 	>
 	explicit
 	dimension(
 		Args && ...
 	);
 
-	dimension(
-		dimension const &
-	) noexcept;
-
-	dimension(
-		dimension &&
-	);
-
-	dimension(
-		dimension const &&
-	);
-
-	dimension &
-	operator=(
-		dimension const &
-	);
-
-	dimension &
-	operator=(
-		dimension &&
-	);
-
-	~dimension();
-
+	[[nodiscard]]
 	iterator
 	begin();
 
+	[[nodiscard]]
 	iterator
 	end();
 
+	[[nodiscard]]
 	const_iterator
 	begin() const;
 
+	[[nodiscard]]
 	const_iterator
 	end() const;
 
+	[[nodiscard]]
 	reference
 	operator[](
 		size_type
 	);
 
+	[[nodiscard]]
 	const_reference
 	operator[](
 		size_type
@@ -146,18 +149,22 @@ public:
 	template<
 		size_type
 	>
+	[[nodiscard]]
 	reference
 	at_c();
 
 	template<
 		size_type
 	>
+	[[nodiscard]]
 	const_reference
 	at_c() const;
 
+	[[nodiscard]]
 	reference
 	back();
 
+	[[nodiscard]]
 	const_reference
 	back() const;
 private:

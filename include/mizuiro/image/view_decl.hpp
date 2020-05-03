@@ -31,88 +31,102 @@ template<
 class view
 {
 public:
-	typedef
-	Access
-	access;
+	using
+	access
+	=
+	Access;
 
-	typedef
-	Format
-	format;
+	using
+	format
+	=
+	Format;
 
-	typedef
-	Constness
-	constness;
+	using
+	constness
+	=
+	Constness;
 
-	typedef
+	using
+	format_store_type
+	=
 	mizuiro::image::format::store<
 		format
-	>
-	format_store_type;
+	>;
 
-	typedef
+	using
+	pointer
+	=
 	mizuiro::image::types::pointer<
 		access,
 		format,
 		constness
-	>
-	pointer;
+	>;
 
-	typedef
+	using
+	reference
+	=
 	mizuiro::image::types::reference<
 		access,
 		format,
 		constness
-	>
-	reference;
+	>;
 
-	typedef
+	using
+	linear_view
+	=
 	mizuiro::image::linear_view<
 		access,
 		format,
 		constness
-	>
-	linear_view;
+	>;
 
-	typedef
+	using
+	pitch_view
+	=
 	mizuiro::image::pitch_view<
 		access,
 		format,
 		constness
-	>
-	pitch_view;
+	>;
 
-	typedef
+	using
+	view_variant
+	=
 	fcppt::variant::object<
 		linear_view,
 		pitch_view
-	>
-	view_variant;
+	>;
 
-	typedef
+	using
+	iterator
+	=
 	mizuiro::image::iterator<
 		access,
 		format,
 		constness
-	>
-	iterator;
+	>;
 
-	typedef
+	using
+	dim
+	=
 	typename
-	format::dim dim;
+	format::dim;
 
-	typedef
+	using
+	bound_type
+	=
 	mizuiro::image::bound<
 		dim::static_size,
 		typename dim::value_type
-	>
-	bound_type;
+	>;
 
-	typedef
+	using
+	pitch_type
+	=
 	mizuiro::image::pitch_type<
 		typename
 		format::dim
-	>
-	pitch_type;
+	>;
 
 	explicit
 	view(
@@ -155,29 +169,37 @@ public:
 		> const &
 	);
 
+	[[nodiscard]]
 	dim
 	size() const;
 
+	[[nodiscard]]
 	pitch_type
 	pitch() const;
 
+	[[nodiscard]]
 	iterator
 	begin() const;
 
+	[[nodiscard]]
 	iterator
 	end() const;
 
+	[[nodiscard]]
 	reference
 	operator[](
 		dim const &
 	) const;
 
+	[[nodiscard]]
 	pointer
 	data() const;
 
+	[[nodiscard]]
 	format_store_type
 	format_store() const;
 
+	[[nodiscard]]
 	view_variant const &
 	impl() const;
 private:

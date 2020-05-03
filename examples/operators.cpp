@@ -24,22 +24,28 @@
 int
 main()
 {
-	typedef std::uint8_t channel_type;
+	using
+	channel_type
+	=
+	std::uint8_t;
 
-	typedef mizuiro::color::object<
+	using
+	rgba_color
+	=
+	mizuiro::color::object<
 		mizuiro::color::format::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::rgb
 		>
-	> rgba_color;
+	>;
 
 	rgba_color test(
 		(mizuiro::color::init::red() %= 1.0)
-		(mizuiro::color::init::green() %= 0.3)
-		(mizuiro::color::init::blue() %= 0.5)
+		(mizuiro::color::init::green() %= 0.3) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::blue() %= 0.5) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
-	test = test * 0.5;
+	test = test * 0.5; // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 
 	std::cout
 		<< test
@@ -52,9 +58,9 @@ main()
 		<< '\n';
 
 	rgba_color const test2(
-		(mizuiro::color::init::red() %= 0.5)
-		(mizuiro::color::init::green() %= 0.15)
-		(mizuiro::color::init::blue() %= 0.25)
+		(mizuiro::color::init::red() %= 0.5) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::green() %= 0.15) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::blue() %= 0.25) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	if(
@@ -73,6 +79,8 @@ main()
 			}
 		)
 	)
+	{
 		std::cout
 			<< "equal\n";
+	}
 }

@@ -33,38 +33,41 @@ int
 main()
 {
 //![format_definition]
-	typedef
-	std::uint8_t
-	channel;
+	using
+	channel
+	=
+	std::uint8_t;
 
-	typedef
+	using
+	r8g8b8
+	=
 	mizuiro::color::format::homogenous_static<
 		channel,
 		mizuiro::color::layout::rgb
-	>
-	r8g8b8;
+	>;
 //![format_definition]
 
 //![object_definition]
-	typedef
+	using
+	r8g8b8_color
+	=
 	mizuiro::color::object<
 		r8g8b8
-	>
-	r8g8b8_color;
+	>;
 //![object_definition]
 
 //![object_init]
 	r8g8b8_color color(
-		(mizuiro::color::init::red() = channel{42})
-		(mizuiro::color::init::green() %= 0.5)
-		(mizuiro::color::init::blue() = channel{100})
+		(mizuiro::color::init::red() = channel{42}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::green() %= 0.5) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::blue() = channel{100}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 //![object_init]
 
 //![object_access]
 	color.set(
 		mizuiro::color::channel::red(),
-		channel{10}
+		channel{10} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	std::cout

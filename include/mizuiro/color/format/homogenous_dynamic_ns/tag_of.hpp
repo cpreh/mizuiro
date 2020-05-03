@@ -34,15 +34,16 @@ tag_of<
 	>
 >
 {
-	typedef
+	using
+	type
+	=
 	mizuiro::color::format::homogenous_dynamic_ns::tag<
 		mizuiro::color::format::homogenous_dynamic<
 			ChannelType,
 			Space,
 			ChannelCount
 		>
-	>
-	type;
+	>;
 };
 
 }

@@ -43,6 +43,7 @@ struct trampoline
 	template<
 		typename Value
 	>
+	// NOLINTNEXTLINE(cppcoreguidelines-c-copy-assignment-signature,misc-unconventional-assign-operator)
 	inline
 	mizuiro::color::init::detail::values<
 		std::tuple<

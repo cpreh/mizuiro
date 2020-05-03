@@ -38,18 +38,21 @@ struct heterogenous_static
 		"Number of channels doesn't match the layout"
 	);
 
-	typedef
-	ChannelBits
-	channel_bits;
+	using
+	channel_bits
+	=
+	ChannelBits;
 
-	typedef
-	Layout
-	layout;
+	using
+	layout
+	=
+	Layout;
 
-	typedef
+	using
+	channels
+	=
 	typename
-	Layout::channels
-	channels;
+	Layout::channels;
 };
 
 }

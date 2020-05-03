@@ -25,6 +25,7 @@
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
+#include <fcppt/cast/to_char_ptr.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <algorithm>
 #include <array>
@@ -36,45 +37,55 @@
 int
 main()
 {
-	typedef mizuiro::image::dimension<
+	using
+	dim_type
+	=
+	mizuiro::image::dimension<
 		2
-	> dim_type;
+	>;
 
-	typedef mizuiro::image::format::interleaved<
+	using
+	format
+	=
+	mizuiro::image::format::interleaved<
 		dim_type,
 		mizuiro::color::format::homogenous_static<
 			float,
 			mizuiro::color::layout::rgba
 		>
-	> format;
+	>;
 
-	mizuiro::size_type const
-		width(
-			3
-		),
-		height(
-			5
-		),
-		channel_bytes(
-			sizeof(float)
-		),
-		element_count(
-			format::color_format::element_count
-		);
+	constexpr mizuiro::size_type const width{
+		3
+	};
 
-	typedef
+	constexpr mizuiro::size_type const height{
+		5
+	};
+
+	constexpr mizuiro::size_type const channel_bytes{
+		sizeof(float)
+	};
+
+	constexpr mizuiro::size_type const element_count{
+		format::color_format::element_count
+	};
+
+	using
+	raw_array
+	=
 	std::array<
 		mizuiro::raw_value,
 		width * height * channel_bytes * element_count
-	> raw_array;
+	>;
 
 	raw_array raw_data = {{ 0 }};
 
 	{
-		float const test{0.5f};
+		float const test{0.5F}; // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 
-		unsigned char const *raw(
-			reinterpret_cast<
+		auto const* const raw(
+			fcppt::cast::to_char_ptr<
 				unsigned char const *
 			>(
 				&test
@@ -82,24 +93,29 @@ main()
 		);
 
 		for(
-			raw_array::iterator dest(
+			auto *dest(
 				raw_data.begin()
 			);
 			dest != raw_data.end();
-			dest += channel_bytes
+			dest += channel_bytes // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
 		)
+		{
 			std::copy(
 				raw,
-				raw + channel_bytes,
+				raw + channel_bytes, // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
 				dest
 			);
+		}
 	}
 
-	typedef mizuiro::image::pitch_view<
+	using
+	view_type
+	=
+	mizuiro::image::pitch_view<
 		mizuiro::access::raw,
 		format,
 		mizuiro::nonconst_tag
-	> view_type;
+	>;
 
 	view_type const view(
 		mizuiro::image::make_raw_view<

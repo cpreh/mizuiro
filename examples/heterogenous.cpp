@@ -22,25 +22,27 @@
 int
 main()
 {
-	typedef
+	using
+	l24_a8_format
+	=
 	mizuiro::color::format::heterogenous_static<
 		mizuiro::size_list<
-			24u,
-			8u
+			24U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+			8U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		>,
 		mizuiro::color::layout::la
-	>
-	l24_a8_format;
+	>;
 
-	typedef
+	using
+	l24_a8_color
+	=
 	mizuiro::color::object<
 		l24_a8_format
-	>
-	l24_a8_color;
+	>;
 
 	l24_a8_color const test1(
-		(mizuiro::color::init::luminance() = std::uint32_t{0x1FF})
-		(mizuiro::color::init::alpha() = std::uint8_t{0xF})
+		(mizuiro::color::init::luminance() = std::uint32_t{0x1FF}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::alpha() = std::uint8_t{0xF}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	std::cout

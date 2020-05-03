@@ -25,7 +25,9 @@
 int
 main()
 {
-	typedef
+	using
+	format
+	=
 	mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
 			3
@@ -34,58 +36,61 @@ main()
 			std::uint8_t,
 			mizuiro::color::layout::rgba
 		>
-	>
-	format;
+	>;
 
-	typedef
+	using
+	store
+	=
 	mizuiro::image::store<
 		format
-	>
-	store;
+	>;
 
-	typedef
-	store::view_type
-	view_type;
+	using
+	view_type
+	=
+	store::view_type;
 
 	store const img{
 		store::dim(
-			3u,
-			2u,
-			1u
+			3U,
+			2U,
+			1U
 		),
 		[](
 			view_type const &_view
 		)
 		{
 			for(
-				auto color
+				auto const &color
 				:
 				_view
 			)
 			{
 				color.set(
 					mizuiro::color::channel::red(),
-					std::uint8_t{10}
+					std::uint8_t{10} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 				);
 			}
 		}
 	};
 
-	typedef
+	using
+	const_view_type
+	=
 	mizuiro::image::const_view<
 		view_type
-	>
-	const_view_type;
+	>;
 
 	const_view_type const_view(
 		img.view()
 	);
 
 	for(
-		auto const color
+		auto const &color
 		:
 		const_view
 	)
+	{
 		std::cout
 			<<
 			static_cast<
@@ -96,6 +101,7 @@ main()
 				)
 			)
 			<< ' ';
+	}
 
 	std::cout << '\n';
 }

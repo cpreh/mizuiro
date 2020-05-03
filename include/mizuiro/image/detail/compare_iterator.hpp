@@ -17,15 +17,11 @@ namespace detail
 
 struct compare_iterator
 {
-	typedef
-	bool
-	result_type;
-
 	template<
 		typename T1,
 		typename T2
 	>
-	result_type
+	bool
 	operator()(
 		T1 const &,
 		T2 const &
@@ -38,7 +34,7 @@ struct compare_iterator
 	template<
 		typename T
 	>
-	result_type
+	bool
 	operator()(
 		T const &_a,
 		T const &_b

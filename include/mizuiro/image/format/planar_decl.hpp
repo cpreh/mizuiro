@@ -34,28 +34,32 @@ class planar final
 			>
 		>
 {
-	typedef
+	using
+	format_base
+	=
 	mizuiro::color::format::base<
 		mizuiro::image::format::detail::planar_color<
 			ColorFormat
 		>
-	>
-	format_base;
+	>;
 public:
-	typedef
+	using
+	color_format
+	=
 	mizuiro::image::format::detail::planar_color<
 		ColorFormat
-	>
-	color_format;
+	>;
 
-	typedef
+	using
+	format_store_type
+	=
 	typename
-	format_base::format_store_type
-	format_store_type;
+	format_base::format_store_type;
 
-	typedef
-	DimType
-	dim;
+	using
+	dim
+	=
+	DimType;
 
 	static
 	mizuiro::size_type const element_count =
@@ -69,10 +73,7 @@ public:
 			>::get()
 	);
 
-	planar(
-		planar const &
-	) noexcept;
-
+	[[nodiscard]]
 	format_store_type
 	format_store() const;
 };

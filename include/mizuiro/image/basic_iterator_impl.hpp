@@ -333,6 +333,7 @@ mizuiro::image::operator-(
 	mizuiro::image::basic_iterator<
 		Impl
 	> _it,
+	// NOLINTNEXTLINE(readability-avoid-const-params-in-decls)
 	typename
 	mizuiro::image::basic_iterator<
 		Impl

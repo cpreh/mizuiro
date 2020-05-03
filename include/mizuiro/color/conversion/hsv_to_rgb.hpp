@@ -51,39 +51,42 @@ hsv_to_rgb(
 	=
 	float;
 
-	float_type const
-		hue(
-			mizuiro::color::normalize<
-				float_type
-			>(
-				_source,
-				mizuiro::color::channel::hue()
-			)
-		),
-		saturation(
-			mizuiro::color::normalize<
-				float_type
-			>(
-				_source,
-				mizuiro::color::channel::saturation()
-			)
-		),
-		value(
-			mizuiro::color::normalize<
-				float_type
-			>(
-				_source,
-				mizuiro::color::channel::value()
-			)
-		),
-		chroma(
-			saturation
-			* value
-		),
-		diff(
-			value
-			- chroma
-		);
+	auto const hue(
+		mizuiro::color::normalize<
+			float_type
+		>(
+			_source,
+			mizuiro::color::channel::hue()
+		)
+	);
+
+	auto const saturation(
+		mizuiro::color::normalize<
+			float_type
+		>(
+			_source,
+			mizuiro::color::channel::saturation()
+		)
+	);
+
+	auto const value(
+		mizuiro::color::normalize<
+			float_type
+		>(
+			_source,
+			mizuiro::color::channel::value()
+		)
+	);
+
+	float_type const chroma(
+		saturation
+		* value
+	);
+
+	float_type const diff(
+		value
+		- chroma
+	);
 
 	float_type const hue_part(
 		hue

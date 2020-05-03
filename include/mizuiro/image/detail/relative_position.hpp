@@ -37,17 +37,20 @@ relative_position(
 	Offset const _offset
 )
 {
-	typedef
+	using
+	dim
+	=
 	mizuiro::image::dimension<
 		Dim,
 		DimValue
-	> dim;
+	>;
 
-	typedef
+	using
+	stacked_dim_array
+	=
 	mizuiro::image::detail::stacked_dim_array<
 		dim
-	>
-	stacked_dim_array;
+	>;
 
 	stacked_dim_array const stacked_dims(
 		mizuiro::image::detail::stacked_dim<
@@ -57,10 +60,11 @@ relative_position(
 		)
 	);
 
-	typedef
+	using
+	size_type
+	=
 	typename
-	dim::size_type
-	size_type;
+	dim::size_type;
 
 	dim ret{
 		mizuiro::no_init{}
@@ -84,10 +88,14 @@ relative_position(
 			m > i;
 			--m
 		)
+		{
 			ret[i] %= stacked_dims[i];
+		}
 
 		if(i > 0)
+		{
 			ret[i] /= stacked_dims[i - 1];
+		}
 	}
 
 	return ret;

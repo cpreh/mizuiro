@@ -40,11 +40,13 @@ operator<<(
 	> const &_dim
 )
 {
-	typedef
+	using
+	dim
+	=
 	mizuiro::image::dimension<
 		Dim,
 		ValueType
-	> dim;
+	>;
 
 	_stream << _stream.widen('(');
 
@@ -59,7 +61,9 @@ operator<<(
 		if(
 			i != dim::static_size - 1
 		)
+		{
 			_stream << _stream.widen(',');
+		}
 	}
 
 	_stream << _stream.widen(')');

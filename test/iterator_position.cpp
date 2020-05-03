@@ -23,7 +23,9 @@
 namespace
 {
 
-typedef
+using
+format_2d
+=
 mizuiro::image::format::interleaved<
 	mizuiro::image::dimension<
 		2
@@ -32,14 +34,15 @@ mizuiro::image::format::interleaved<
 		std::uint8_t,
 		mizuiro::color::layout::l
 	>
->
-format_2d;
+>;
 
-typedef
+using
+store_2d
+=
 mizuiro::image::store<
 	format_2d
->
-store_2d;
+>;
+
 }
 
 TEST_CASE(
@@ -49,8 +52,8 @@ TEST_CASE(
 {
 	store_2d field{
 		store_2d::dim{
-			2u,
-			2u
+			2U,
+			2U
 		},
 		mizuiro::no_init{}
 	};
@@ -70,8 +73,8 @@ TEST_CASE(
 		)
 		==
 		store_2d::dim(
-			0u,
-			0u
+			0U,
+			0U
 		)
 	);
 
@@ -82,8 +85,8 @@ TEST_CASE(
 		)
 		==
 		store_2d::dim(
-			1u,
-			0u
+			1U,
+			0U
 		)
 	);
 
@@ -94,8 +97,8 @@ TEST_CASE(
 		)
 		==
 		store_2d::dim(
-			0u,
-			1u
+			0U,
+			1U
 		)
 	);
 
@@ -106,8 +109,8 @@ TEST_CASE(
 		)
 		==
 		store_2d::dim(
-			1u,
-			1u
+			1U,
+			1U
 		)
 	);
 }

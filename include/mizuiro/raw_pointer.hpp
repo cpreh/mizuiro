@@ -16,7 +16,10 @@ namespace mizuiro
 /**
 \brief A pointer to nonconst raw memory
 */
-typedef mizuiro::raw_value *raw_pointer;
+using
+raw_pointer
+=
+mizuiro::raw_value *;
 
 }
 

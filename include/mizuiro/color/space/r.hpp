@@ -21,11 +21,12 @@ namespace space
 
 struct r
 {
-	typedef
+	using
+	required_channels
+	=
 	fcppt::metal::set::make<
 		mizuiro::color::channel::red
-	>
-	required_channels;
+	>;
 };
 
 }

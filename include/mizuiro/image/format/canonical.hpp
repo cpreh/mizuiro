@@ -24,13 +24,15 @@ template<
 class canonical
 {
 public:
-	typedef
-	DimType
-	dim;
+	using
+	dim
+	=
+	DimType;
 
-	typedef
-	Type
-	element_type;
+	using
+	element_type
+	=
+	Type;
 };
 
 }

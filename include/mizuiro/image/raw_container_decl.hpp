@@ -22,15 +22,33 @@ template<
 class raw_container
 {
 public:
-	typedef T value_type;
+	using
+	value_type
+	=
+	T;
 
-	typedef A allocator_type;
+	using
+	allocator_type
+	=
+	A;
 
-	typedef typename A::pointer pointer;
+	using
+	pointer
+	=
+	typename
+	A::pointer;
 
-	typedef typename A::const_pointer const_pointer;
+	using
+	const_pointer
+	=
+	typename
+	A::const_pointer;
 
-	typedef typename A::size_type size_type;
+	using
+	size_type
+	=
+	typename
+	A::size_type;
 
 	raw_container();
 
@@ -45,7 +63,8 @@ public:
 
 	raw_container(
 		raw_container &&
-	);
+	)
+	noexcept;
 
 	raw_container &
 	operator=(
@@ -55,7 +74,8 @@ public:
 	raw_container &
 	operator=(
 		raw_container &&
-	);
+	)
+	noexcept;
 
 	~raw_container();
 
@@ -64,18 +84,23 @@ public:
 		size_type
 	);
 
+	[[nodiscard]]
 	pointer
 	data();
 
+	[[nodiscard]]
 	const_pointer
 	data() const;
 
+	[[nodiscard]]
 	pointer
 	data_end();
 
+	[[nodiscard]]
 	const_pointer
 	data_end() const;
 
+	[[nodiscard]]
 	size_type
 	size() const;
 private:

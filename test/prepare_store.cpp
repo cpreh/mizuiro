@@ -30,41 +30,45 @@ TEST_CASE(
 	"[mizuiro]"
 )
 {
-	typedef
+	using
+	luminance24_alpha8_format
+	=
 	mizuiro::color::format::heterogenous_static<
 		mizuiro::size_list<
-			24u,
-			8u
+			24U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+			8U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		>,
 		mizuiro::color::layout::la
-	>
-	luminance24_alpha8_format;
+	>;
 
-	typedef
+	using
+	luminance24_alpha8_color
+	=
 	mizuiro::color::object<
 		luminance24_alpha8_format
-	>
-	luminance24_alpha8_color;
+	>;
 
-	typedef
+	using
+	image_format
+	=
 	mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
 			2
 		>,
 		luminance24_alpha8_format
-	>
-	image_format;
+	>;
 
-	typedef
+	using
+	store_type
+	=
 	mizuiro::image::store<
 		image_format
-	>
-	store_type;
+	>;
 
 	store_type const store(
 		store_type::dim{
-			1u,
-			1u
+			1U,
+			1U
 		},
 		[](
 			store_type::view_type const &_view
@@ -73,8 +77,8 @@ TEST_CASE(
 			mizuiro::image::algorithm::fill_c(
 				_view,
 				luminance24_alpha8_color(
-					(mizuiro::color::init::luminance() = std::uint32_t{0x1E1FF})
-					(mizuiro::color::init::alpha() = std::uint8_t{0xF})
+					(mizuiro::color::init::luminance() = std::uint32_t{0x1E1FF}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+					(mizuiro::color::init::alpha() = std::uint8_t{0xF}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 				),
 				mizuiro::image::algorithm::uninitialized::yes
 			);
@@ -84,26 +88,26 @@ TEST_CASE(
 	CHECK(
 		store.view()[
 			store_type::dim(
-				0u,
-				0u
+				0U,
+				0U
 			)
 		].get(
 			mizuiro::color::channel::luminance()
 		)
 		==
-		std::uint32_t{0x1E1FF}
+		std::uint32_t{0x1E1FF} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	CHECK(
 		store.view()[
 			store_type::dim(
-				0u,
-				0u
+				0U,
+				0U
 			)
 		].get(
 			mizuiro::color::channel::alpha()
 		)
 		==
-		std::uint8_t{0xF}
+		std::uint8_t{0xF} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 }

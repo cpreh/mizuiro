@@ -16,7 +16,10 @@ namespace mizuiro
 /**
 \brief A pointer to const raw memory
 */
-typedef mizuiro::raw_value const *const_raw_pointer;
+using
+const_raw_pointer
+=
+mizuiro::raw_value const *;
 
 }
 

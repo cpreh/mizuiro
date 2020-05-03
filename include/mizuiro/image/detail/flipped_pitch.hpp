@@ -23,11 +23,10 @@ namespace detail
 template<
 	typename Pitch
 >
-typename
-std::enable_if<
+std::enable_if_t<
 	Pitch::static_size >= 2,
 	Pitch
->::type
+>
 flipped_pitch(
 	Pitch const &_old_pitch,
 	typename Pitch::value_type _last_value
@@ -42,7 +41,9 @@ flipped_pitch(
 		index < Pitch::static_size - 1;
 		++index
 	)
+	{
 		ret[index] = _old_pitch[index];
+	}
 
 	ret.back() = _last_value;
 
@@ -53,11 +54,10 @@ template<
 	typename Pitch
 >
 inline
-typename
-std::enable_if<
+std::enable_if_t<
 	Pitch::static_size == 1,
 	Pitch
->::type
+>
 flipped_pitch(
 	Pitch const &,
 	typename Pitch::value_type _last_value

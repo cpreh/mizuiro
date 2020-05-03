@@ -48,6 +48,7 @@ extract_channel_adl(
 	> const &_format,
 	Channel const &_channel,
 	Constness const &,
+	// NOLINTNEXTLINE(readability-avoid-const-params-in-decls)
 	mizuiro::color::types::pointer<
 		mizuiro::access::normal,
 		Format,

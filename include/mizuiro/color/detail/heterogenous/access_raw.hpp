@@ -14,6 +14,7 @@
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/copy_n.hpp>
 #include <mizuiro/detail/uint_least.hpp>
+#include <fcppt/cast/to_char_ptr.hpp>
 
 
 namespace mizuiro
@@ -32,27 +33,30 @@ template<
 class access_raw
 {
 private:
-	typedef
+	using
+	access_normal
+	=
 	mizuiro::color::detail::heterogenous::access_normal<
 		Format,
 		Channel
-	>
-	access_normal;
+	>;
 
-	typedef
+	using
+	value_type
+	=
 	mizuiro::color::types::channel_value<
 		Format,
 		Channel
-	>
-	value_type;
+	>;
 
-	typedef
+	using
+	color_uint
+	=
 	mizuiro::detail::uint_least<
 		mizuiro::color::detail::heterogenous::bits<
 			typename Format::channel_bits
 		>
-	>
-	color_uint;
+	>;
 public:
 	static
 	value_type
@@ -65,7 +69,7 @@ public:
 		mizuiro::detail::copy_n(
 			_data,
 			sizeof(color_uint),
-			reinterpret_cast<
+			fcppt::cast::to_char_ptr<
 				mizuiro::raw_pointer
 			>(
 				&temp
@@ -90,7 +94,7 @@ public:
 		mizuiro::detail::copy_n(
 			_data,
 			sizeof(color_uint),
-			reinterpret_cast<
+			fcppt::cast::to_char_ptr<
 				mizuiro::raw_pointer
 			>(
 				&temp
@@ -103,7 +107,7 @@ public:
 		);
 
 		mizuiro::detail::copy_n(
-			reinterpret_cast<
+			fcppt::cast::to_char_ptr<
 				mizuiro::const_raw_pointer
 			>(
 				&temp

@@ -254,9 +254,11 @@ private:
 		mizuiro::const_tag
 	>;
 
+	[[nodiscard]]
 	proxy
 	make_proxy();
 
+	[[nodiscard]]
 	const_proxy
 	make_const_proxy() const;
 

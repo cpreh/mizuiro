@@ -31,12 +31,13 @@ clone(
 	ViewS const &_src
 )
 {
-	typedef
+	using
+	result_type
+	=
 	mizuiro::image::store<
 		typename ViewS::format,
 		typename ViewS::access
-	>
-	result_type;
+	>;
 
 	return
 		result_type{

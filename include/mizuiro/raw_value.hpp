@@ -7,11 +7,15 @@
 #ifndef MIZUIRO_RAW_VALUE_HPP_INCLUDED
 #define MIZUIRO_RAW_VALUE_HPP_INCLUDED
 
+
 namespace mizuiro
 {
 
 /// The value used for raw memory
-typedef unsigned char raw_value;
+using
+raw_value
+=
+unsigned char;
 
 }
 

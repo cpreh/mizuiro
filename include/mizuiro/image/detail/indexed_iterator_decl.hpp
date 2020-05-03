@@ -31,37 +31,38 @@ public:
 		Underlying const &
 	);
 
-	indexed_iterator(
-		indexed_iterator const &
-	) noexcept;
-
-	typedef
+	using
+	reference
+	=
 	mizuiro::image::indexed_ref<
 		Dimension::static_size,
 		typename
 		Underlying::reference
-	>
-	reference;
+	>;
 
-	typedef
+	using
+	pointer
+	=
 	typename
-	Underlying::pointer
-	pointer;
+	Underlying::pointer;
 
-	typedef
+	using
+	difference_type
+	=
 	typename
-	Underlying::difference_type
-	difference_type;
+	Underlying::difference_type;
 
-	typedef
+	using
+	format
+	=
 	typename
-	Underlying::format
-	format;
+	Underlying::format;
 
-	typedef
+	using
+	format_store_type
+	=
 	typename
-	Underlying::format_store_type
-	format_store_type;
+	Underlying::format_store_type;
 
 	void
 	advance(
@@ -74,14 +75,17 @@ public:
 	void
 	decrement();
 
+	[[nodiscard]]
 	difference_type
 	distance_to(
 		indexed_iterator const &
 	) const;
 
+	[[nodiscard]]
 	reference
 	dereference() const;
 
+	[[nodiscard]]
 	bool
 	equal(
 		indexed_iterator const &

@@ -54,12 +54,14 @@ binary_fold(
 		it1 != it1end;
 		++it1, ++it2
 	)
+	{
 		_state =
 			_function(
 				_state,
 				*it1,
 				*it2
 			);
+	}
 
 	return
 		_state;

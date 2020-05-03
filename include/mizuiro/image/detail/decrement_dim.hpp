@@ -39,20 +39,22 @@ decrement_dim(
 	];
 
 	for(
-		mizuiro::size_type i = 0u;
-		i < Size - 1u;
+		mizuiro::size_type i = 0U;
+		i < Size - 1U;
 		++i
 	)
+	{
 		if(
 			_current[i]
 			>
 			_size[i]
 		)
 		{
-			_current[i] = _size[i] - 1u;
+			_current[i] = _size[i] - 1U;
 
 			--_current[i + 1];
 		}
+	}
 
 	return
 		_current;

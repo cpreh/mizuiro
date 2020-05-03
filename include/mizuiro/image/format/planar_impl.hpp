@@ -32,18 +32,6 @@ template<
 	typename DimType,
 	typename ColorFormat
 >
-mizuiro::image::format::planar<
-	DimType,
-	ColorFormat
->::planar(
-	planar const &
-) noexcept
-= default;
-
-template<
-	typename DimType,
-	typename ColorFormat
->
 typename
 mizuiro::image::format::planar<
 	DimType,

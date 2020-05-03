@@ -27,7 +27,11 @@ edge_pos_end(
 	typename Bound::size_type const _index
 )
 {
-	typedef typename Bound::dim dim;
+	using
+	dim
+	=
+	typename
+	Bound::dim;
 
 	dim ret{
 		mizuiro::no_init{}
@@ -38,10 +42,12 @@ edge_pos_end(
 		i < dim::static_size;
 		++i
 	)
+	{
 		ret[i] =
 			i == _index
 			? _bound.size()[i] + _bound.pos()[i]
 			: _bound.pos()[i];
+	}
 
 	return ret;
 }

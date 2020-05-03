@@ -20,11 +20,12 @@ namespace space
 
 struct luminance
 {
-	typedef
+	using
+	required_channels
+	=
 	fcppt::metal::set::make<
 		mizuiro::color::channel::luminance
-	>
-	required_channels;
+	>;
 };
 
 }

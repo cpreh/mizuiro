@@ -35,58 +35,69 @@ class pitch_iterator
 			Format
 		>
 {
-	typedef
+	using
+	format_base
+	=
 	mizuiro::image::format::base<
 		Format
-	>
-	format_base;
+	>;
 public:
-	typedef
-	Access
-	access;
+	using
+	access
+	=
+	Access;
 
-	typedef
-	Format
-	format;
+	using
+	format
+	=
+	Format;
 
-	typedef
-	Constness
-	constness;
+	using
+	constness
+	=
+	Constness;
 
-	typedef
+	using
+	format_store_type
+	=
 	typename
-	format_base::format_store_type
-	format_store_type;
+	format_base::format_store_type;
 
-	typedef
+	using
+	dim
+	=
 	typename
-	format::dim dim;
+	format::dim;
 
-	typedef
+	using
+	pitch_type
+	=
 	mizuiro::image::pitch_type<
 		dim
-	>
-	pitch_type;
+	>;
 
-	typedef
+	using
+	reference
+	=
 	mizuiro::image::types::reference<
 		access,
 		format,
 		constness
-	>
-	reference;
+	>;
 
-	typedef
+	using
+	pointer
+	=
 	mizuiro::image::types::pointer<
 		access,
 		format,
 		constness
-	>
-	pointer;
+	>;
 
-	typedef
-	mizuiro::difference_type
-	difference_type;
+	using
+	difference_type
+	=
+	mizuiro::difference_type;
 
 	pitch_iterator(
 		dim const &,
@@ -95,12 +106,15 @@ public:
 		format_store_type const &
 	);
 
+	[[nodiscard]]
 	dim const &
 	size() const;
 
+	[[nodiscard]]
 	difference_type
 	offset() const;
 
+	[[nodiscard]]
 	pointer
 	data() const;
 
@@ -115,14 +129,17 @@ public:
 	void
 	decrement();
 
+	[[nodiscard]]
 	difference_type
 	distance_to(
 		pitch_iterator const &
 	) const;
 
+	[[nodiscard]]
 	reference
 	dereference() const;
 
+	[[nodiscard]]
 	bool
 	equal(
 		pitch_iterator const &
@@ -139,12 +156,13 @@ private:
 		position_,
 		offset_;
 
-	typedef
+	using
+	stacked_dim_array
+	=
 	mizuiro::image::detail::stacked_dim_array<
 		dim,
 		difference_type
-	>
-	stacked_dim_array;
+	>;
 
 	stacked_dim_array stacked_dim_;
 };

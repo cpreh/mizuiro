@@ -43,14 +43,17 @@ template<
 class access_normal
 {
 private:
-	typedef
+	using
+	value_type
+	=
 	mizuiro::color::types::channel_value<
 		Format,
 		Channel
-	>
-	value_type;
+	>;
 
-	typedef
+	using
+	start_bit
+	=
 	mizuiro::integral_size<
 		mizuiro::detail::sum<
 			mizuiro::detail::range_to<
@@ -63,63 +66,68 @@ private:
 				>::value
 			>
 		>::value
-	>
-	start_bit;
+	>;
 
-	typedef
+	using
+	bit_count
+	=
 	mizuiro::color::detail::heterogenous::channel_bits<
 		Format,
 		Channel
-	>
-	bit_count;
+	>;
 
-	typedef
+	using
+	const_pointer
+	=
 	mizuiro::color::types::pointer<
 		mizuiro::access::normal,
 		Format,
 		mizuiro::const_tag
-	>
-	const_pointer;
+	>;
 
-	typedef
+	using
+	pointer
+	=
 	mizuiro::color::types::pointer<
 		mizuiro::access::normal,
 		Format,
 		mizuiro::nonconst_tag
-	>
-	pointer;
+	>;
 
-	typedef
+	using
+	total_bits
+	=
 	mizuiro::color::detail::heterogenous::bits<
 		typename
 		Format::channel_bits
-	>
-	total_bits;
+	>;
 
-	typedef
+	using
+	real_start_bit
+	=
 	mizuiro::integral_size<
 		total_bits::value
 		-
 		bit_count::value
 		-
 		start_bit::value
-	>
-	real_start_bit;
+	>;
 
-	typedef
+	using
+	color_uint
+	=
 	mizuiro::detail::uint_least<
 		total_bits
-	>
-	color_uint;
+	>;
 
-	typedef
-	typename
-	std::make_unsigned<
+	using
+	promoted_color
+	=
+	std::make_unsigned_t<
 		mizuiro::detail::promote_type<
 			color_uint
 		>
-	>::type
-	promoted_color;
+	>;
 
 	template<
 		mizuiro::size_type Begin,
@@ -158,6 +166,7 @@ public:
 			static_cast<
 				value_type
 			>(
+				// NOLINTNEXTLINE(hicpp-signed-bitwise)
 				(
 					access_normal::bit_mask<
 						real_start_bit::value,
@@ -184,6 +193,7 @@ public:
 			static_cast<
 				color_uint
 			>(
+				// NOLINTNEXTLINE(hicpp-signed-bitwise)
 				*_data
 				&
 				~access_normal::bit_mask<
@@ -197,6 +207,7 @@ public:
 			static_cast<
 				color_uint
 			>(
+				// NOLINTNEXTLINE(hicpp-signed-bitwise)
 				*_data
 				|
 				static_cast<

@@ -34,29 +34,32 @@ test_format(
 	> const _init
 )
 {
-	typedef
+	using
+	store_type
+	=
 	mizuiro::image::store<
 		ImageFormat
-	>
-	store_type;
+	>;
 
-	typedef
+	using
+	dim
+	=
 	typename
-	store_type::dim
-	dim;
+	store_type::dim;
 
 	store_type const store(
 		dim{
-			2u,
-			2u
+			2U,
+			2U
 		},
 		_init
 	);
 
-	typedef
+	using
+	access
+	=
 	typename
-	store_type::access
-	access;
+	store_type::access;
 
 	CHECK(
 		mizuiro::image::access::pointer_difference<
@@ -88,18 +91,20 @@ TEST_CASE(
 	"[mizuiro]"
 )
 {
-	typedef
+	using
+	dimension
+	=
 	mizuiro::image::dimension<
 		2
-	>
-	dimension;
+	>;
 
-	typedef
+	using
+	color_format
+	=
 	mizuiro::color::format::homogenous_static<
 		std::uint8_t,
 		mizuiro::color::layout::rgba
-	>
-	color_format;
+	>;
 
 	test_format<
 		mizuiro::image::format::interleaved<

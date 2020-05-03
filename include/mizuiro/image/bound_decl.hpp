@@ -24,19 +24,23 @@ template<
 class bound
 {
 public:
-	typedef
-	ValueType
-	value_type;
+	using
+	value_type
+	=
+	ValueType;
 
-	typedef
-	mizuiro::size_type
-	size_type;
+	using
+	size_type
+	=
+	mizuiro::size_type;
 
-	typedef
+	using
+	dim
+	=
 	mizuiro::image::dimension<
 		Dim,
 		value_type
-	> dim;
+	>;
 
 	bound(
 		dim const &pos,

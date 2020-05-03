@@ -33,11 +33,12 @@ struct rebind_tag<
 	NewInner
 >
 {
-	typedef
+	using
+	type
+	=
 	Tag<
 		NewInner
-	>
-	type;
+	>;
 };
 
 }

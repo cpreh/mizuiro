@@ -31,33 +31,36 @@ TEST_CASE(
 	"[mizuiro]"
 )
 {
-	typedef
-	float
-	channel_type;
+	using
+	channel_type
+	=
+	float;
 
-	typedef
+	using
+	rgba_color
+	=
 	mizuiro::color::object<
 		mizuiro::color::format::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::rgba
 		>
-	>
-	rgba_color;
+	>;
 
-	typedef
+	using
+	srgba_color
+	=
 	mizuiro::color::object<
 		mizuiro::color::format::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::s_rgba
 		>
-	>
-	srgba_color;
+	>;
 
 	rgba_color const rgba(
-		(mizuiro::color::init::red() %= 0.3)
-		(mizuiro::color::init::blue() %= 0.2)
-		(mizuiro::color::init::green() %= 0.5)
-		(mizuiro::color::init::alpha() %= 0.9)
+		(mizuiro::color::init::red() %= 0.3) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::blue() %= 0.2) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::green() %= 0.5) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::alpha() %= 0.9) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	srgba_color const srgba(
@@ -94,7 +97,7 @@ TEST_CASE(
 						_val2
 					)
 					<
-					0.001f;
+					0.001f; // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 			}
 		)
 	);

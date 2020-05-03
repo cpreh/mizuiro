@@ -27,10 +27,10 @@ metal::front<
 	metal::copy_if<
 		metal::list<
 			unsigned char,
-			unsigned short,
+			unsigned short, // NOLINT(google-runtime-int)
 			unsigned int,
-			unsigned long,
-			unsigned long long
+			unsigned long, // NOLINT(google-runtime-int)
+			unsigned long long // NOLINT(google-runtime-int)
 		>,
 		metal::bind<
 			metal::trait<

@@ -43,10 +43,10 @@ binary_op(
 )
 {
 	static_assert(
-		std::is_same<
+		std::is_same_v<
 			typename Color1::format,
 			typename Color2::format
-		>::value,
+		>,
 		"Color1 and Color2 must use the same color format"
 	);
 
@@ -64,11 +64,12 @@ binary_op(
 		"Color2 must be a color type"
 	);
 
-	typedef
+	using
+	result_type
+	=
 	mizuiro::color::object<
 		typename Color1::format
-	>
-	result_type;
+	>;
 
 	result_type result(
 		_color1
@@ -84,7 +85,9 @@ binary_op(
 			auto const &_channel_inner
 		)
 		{
-			typedef
+			using
+			channel_value
+			=
 			mizuiro::color::types::channel_value<
 				mizuiro::color::format::get<
 					Color1
@@ -92,8 +95,7 @@ binary_op(
 				MIZUIRO_DECLTYPE(
 					_channel_inner
 				)
-			>
-			channel_value;
+			>;
 
 			result.set(
 				_channel_inner,

@@ -27,11 +27,14 @@
 namespace
 {
 
-typedef
-std::uint8_t
-channel_type;
+using
+channel_type
+=
+std::uint8_t;
 
-typedef
+using
+format
+=
 mizuiro::image::format::interleaved<
 	mizuiro::image::dimension<
 		2
@@ -40,22 +43,23 @@ mizuiro::image::format::interleaved<
 		channel_type,
 		mizuiro::color::layout::r
 	>
->
-format;
+>;
 
-typedef
+using
+store_type
+=
 mizuiro::image::store<
 	format
->
-store_type;
+>;
 
-typedef
+using
+view_type
+=
 mizuiro::image::view<
 	store_type::access,
 	store_type::format,
 	mizuiro::nonconst_tag
->
-view_type;
+>;
 
 }
 
@@ -66,8 +70,8 @@ TEST_CASE(
 {
 	store_type store(
 		store_type::dim{
-			1u,
-			1u
+			1U,
+			1U
 		},
 		mizuiro::no_init{}
 	);
@@ -78,28 +82,28 @@ TEST_CASE(
 
 	view[
 		view_type::dim{
-			0u,
-			0u
+			0U,
+			0U
 		}
 	] =
 		mizuiro::color::object<
 			format::color_format
 		>(
 			mizuiro::color::init::red() =
-				 channel_type{42}
+				 channel_type{42} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		);
 
 	CHECK(
 		view[
 			view_type::dim(
-				0u,
-				0u
+				0U,
+				0U
 			)
 		].get(
 			mizuiro::color::channel::red()
 		)
 		==
-		channel_type{42}
+		channel_type{42} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	{
@@ -156,8 +160,8 @@ TEST_CASE(
 {
 	store_type const store(
 		store_type::dim{
-			1u,
-			1u
+			1U,
+			1U
 		},
 		[](
 			store_type::view_type const &_view
@@ -171,7 +175,7 @@ TEST_CASE(
 					format::color_format
 				>(
 					mizuiro::color::init::red() =
-						channel_type{42}
+						channel_type{42} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 				),
 				mizuiro::image::algorithm::uninitialized::yes
 			);
@@ -181,13 +185,13 @@ TEST_CASE(
 	CHECK(
 		store.view()[
 			store_type::dim(
-				0u,
-				0u
+				0U,
+				0U
 			)
 		].get(
 			mizuiro::color::channel::red()
 		)
 		==
-		channel_type{42}
+		channel_type{42} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 }

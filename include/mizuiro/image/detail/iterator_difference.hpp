@@ -24,15 +24,12 @@ template<
 >
 struct iterator_difference
 {
-	typedef
-	DifferenceType
-	result_type;
 
 	template<
 		typename T1,
 		typename T2
 	>
-	result_type
+	DifferenceType
 	operator()(
 		T1 const &,
 		T2 const &
@@ -44,7 +41,7 @@ struct iterator_difference
 	template<
 		typename T
 	>
-	result_type
+	DifferenceType
 	operator()(
 		T const &_a,
 		T const &_b

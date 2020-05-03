@@ -83,7 +83,8 @@ template<
 	typename ValueType
 >
 template<
-	typename ...Args
+	typename ...Args,
+	typename
 >
 mizuiro::image::dimension<
 	Dim,
@@ -109,89 +110,6 @@ mizuiro::image::dimension<
 		"Invalid parameter count"
 	);
 }
-
-template<
-	mizuiro::size_type Dim,
-	typename ValueType
->
-mizuiro::image::dimension<
-	Dim,
-	ValueType
->::dimension(
-	dimension const &
-) noexcept
-= default;
-
-template<
-	mizuiro::size_type Dim,
-	typename ValueType
->
-mizuiro::image::dimension<
-	Dim,
-	ValueType
->::dimension(
-	dimension &&
-)
-= default;
-
-template<
-	mizuiro::size_type Dim,
-	typename ValueType
->
-mizuiro::image::dimension<
-	Dim,
-	ValueType
->::dimension(
-	dimension const &&_other
-)
-:
-	data_(
-		_other.data_
-	)
-{
-}
-
-template<
-	mizuiro::size_type Dim,
-	typename ValueType
->
-mizuiro::image::dimension<
-	Dim,
-	ValueType
-> &
-mizuiro::image::dimension<
-	Dim,
-	ValueType
->::operator=(
-	dimension const &
-)
-= default;
-
-template<
-	mizuiro::size_type Dim,
-	typename ValueType
->
-mizuiro::image::dimension<
-	Dim,
-	ValueType
-> &
-mizuiro::image::dimension<
-	Dim,
-	ValueType
->::operator=(
-	dimension &&
-)
-= default;
-
-template<
-	mizuiro::size_type Dim,
-	typename ValueType
->
-mizuiro::image::dimension<
-	Dim,
-	ValueType
->::~dimension()
-= default;
 
 template<
 	mizuiro::size_type Dim,

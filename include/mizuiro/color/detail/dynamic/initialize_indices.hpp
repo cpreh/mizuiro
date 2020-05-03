@@ -28,7 +28,7 @@ initialize_indices(
 	Layout const &_layout
 )
 {
-	ChannelIndexArray ret;
+	ChannelIndexArray ret{};
 
 	ret.fill(
 		mizuiro::color::detail::dynamic::invalid_index()
@@ -41,16 +41,20 @@ initialize_indices(
 		index < _layout.size();
 		++index
 	)
+	{
+		// NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-constant-array-index)
 		ret[
 			static_cast<
 				typename ChannelIndexArray::size_type
 			>(
+				// NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-constant-array-index)
 				_layout[
 					index
 				].get()
 			)
 		] =
 			index;
+	}
 
 	return
 		ret;

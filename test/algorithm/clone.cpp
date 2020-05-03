@@ -26,38 +26,42 @@ TEST_CASE(
 	"[mizuiro]"
 )
 {
-	typedef
+	using
+	homogenous_gray8
+	=
 	mizuiro::color::format::homogenous_static<
 		std::uint8_t,
 		mizuiro::color::layout::l
-	>
-	homogenous_gray8;
+	>;
 
-	typedef
+	using
+	homogenous_gray8_color
+	=
 	mizuiro::color::object<
 		homogenous_gray8
-	>
-	homogenous_gray8_color;
+	>;
 
-	typedef
+	using
+	format_2d_gray8
+	=
 	mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
 			2
 		>,
 		homogenous_gray8
-	>
-	format_2d_gray8;
+	>;
 
-	typedef
+	using
+	store_2d_gray8
+	=
 	mizuiro::image::store<
 		format_2d_gray8
-	>
-	store_2d_gray8;
+	>;
 
 	store_2d_gray8 store(
 		store_2d_gray8::dim(
-			5u,
-			5u
+			5U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+			5U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		),
 		homogenous_gray8_color(
 			mizuiro::color::init::luminance() %= 1.0

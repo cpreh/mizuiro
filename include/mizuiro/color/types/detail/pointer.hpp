@@ -40,7 +40,9 @@ struct pointer
 		Constness
 	);
 
-	typedef
+	using
+	type
+	=
 	decltype(
 		pointer_adl(
 			std::declval<
@@ -56,8 +58,7 @@ struct pointer
 				Constness
 			>()
 		)
-	)
-	type;
+	);
 };
 
 }

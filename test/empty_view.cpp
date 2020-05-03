@@ -23,7 +23,10 @@ TEST_CASE(
 	"[mizuiro]"
 )
 {
-	typedef mizuiro::image::format::interleaved<
+	using
+	format_3d_rgba8
+	=
+	mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
 			3
 		>,
@@ -31,17 +34,23 @@ TEST_CASE(
 			std::uint8_t,
 			mizuiro::color::layout::rgba
 		>
-	> format_3d_rgba8;
+	>;
 
-	typedef mizuiro::image::store<
+	using
+	store_3d_rgba8
+	=
+	mizuiro::image::store<
 		format_3d_rgba8
-	> store_3d_rgba8;
+	>;
 
 	store_3d_rgba8 store{
 		mizuiro::empty{}
 	};
 
-	typedef store_3d_rgba8::view_type view_3d_rgba8;
+	using
+	view_3d_rgba8
+	=
+	store_3d_rgba8::view_type;
 
 	{
 		view_3d_rgba8 const view(

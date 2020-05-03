@@ -34,31 +34,33 @@ TEST_CASE(
 	"[mizuiro]"
 )
 {
-	typedef
+	using
+	luminance24_alpha8_format
+	=
 	mizuiro::color::format::heterogenous_static<
 		mizuiro::size_list<
-			24u,
-			8u
+			24U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+			8U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		>,
 		mizuiro::color::layout::la
-	>
-	luminance24_alpha8_format;
+	>;
 
-	typedef
+	using
+	luminance24_alpha8_color
+	=
 	mizuiro::color::object<
 		luminance24_alpha8_format
-	>
-	luminance24_alpha8_color;
+	>;
 
 	luminance24_alpha8_color const test1(
-		(mizuiro::color::init::luminance() = std::uint32_t{0x1E1FF})
-		(mizuiro::color::init::alpha() = std::uint8_t{0xF})
+		(mizuiro::color::init::luminance() = std::uint32_t{0x1E1FF}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::alpha() = std::uint8_t{0xF}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	CHECK(
 		*test1.data()
 		==
-		std::uint32_t{0x1E1FF0F}
+		std::uint32_t{0x1E1FF0F} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	CHECK(
@@ -66,7 +68,7 @@ TEST_CASE(
 			mizuiro::color::channel::luminance()
 		)
 		==
-		std::uint32_t{0x1E1FF}
+		std::uint32_t{0x1E1FF} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	CHECK(
@@ -74,7 +76,7 @@ TEST_CASE(
 			mizuiro::color::channel::alpha()
 		)
 		==
-		std::uint8_t{0xF}
+		std::uint8_t{0xF} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 }
 
@@ -83,23 +85,29 @@ TEST_CASE(
 	"[mizuiro]"
 )
 {
-	typedef mizuiro::color::format::heterogenous_static<
+	using
+	rgb565_format
+	=
+	mizuiro::color::format::heterogenous_static<
 		mizuiro::size_list<
-			5u,
-			6u,
-			5u
+			5U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+			6U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+			5U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		>,
 		mizuiro::color::layout::rgb
-	> rgb565_format;
+	>;
 
-	typedef mizuiro::color::object<
+	using
+	rgb565_color
+	=
+	mizuiro::color::object<
 		rgb565_format
-	> rgb565_color;
+	>;
 
 	rgb565_color const test1(
-		(mizuiro::color::init::red() = std::uint8_t{0x18})
-		(mizuiro::color::init::green() = std::uint8_t{0x35})
-		(mizuiro::color::init::blue() = std::uint8_t{0x15})
+		(mizuiro::color::init::red() = std::uint8_t{0x18}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::green() = std::uint8_t{0x35}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::blue() = std::uint8_t{0x15}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	CHECK(
@@ -107,7 +115,7 @@ TEST_CASE(
 			mizuiro::color::channel::red()
 		)
 		==
-		std::uint8_t{0x18}
+		std::uint8_t{0x18} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	CHECK(
@@ -115,7 +123,7 @@ TEST_CASE(
 			mizuiro::color::channel::green()
 		)
 		==
-		std::uint8_t{0x35}
+		std::uint8_t{0x35} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	CHECK(
@@ -123,7 +131,7 @@ TEST_CASE(
 			mizuiro::color::channel::blue()
 		)
 		==
-		std::uint8_t{0x15}
+		std::uint8_t{0x15} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 }
 
@@ -132,26 +140,29 @@ TEST_CASE(
 	"[mizuiro]"
 )
 {
-	typedef mizuiro::color::format::heterogenous_static<
+	using
+	rgb565_format
+	=
+	mizuiro::color::format::heterogenous_static<
 		mizuiro::size_list<
-			5u,
-			6u,
-			5u
+			5U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+			6U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+			5U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		>,
 		mizuiro::color::layout::rgb
-	>
-	rgb565_format;
+	>;
 
-	typedef
+	using
+	rgb565_color
+	=
 	mizuiro::color::object<
 		rgb565_format
-	>
-	rgb565_color;
+	>;
 
 	rgb565_color const color(
-		(mizuiro::color::init::red() = std::uint8_t{0x18})
-		(mizuiro::color::init::green() = std::uint8_t{0x35})
-		(mizuiro::color::init::blue() = std::uint8_t{0x15})
+		(mizuiro::color::init::red() = std::uint8_t{0x18}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::green() = std::uint8_t{0x35}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::blue() = std::uint8_t{0x15}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	CHECK(
@@ -159,7 +170,7 @@ TEST_CASE(
 			mizuiro::color::channel::red()
 		)
 		==
-		std::uint8_t{0x18}
+		std::uint8_t{0x18} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	CHECK(
@@ -167,7 +178,7 @@ TEST_CASE(
 			mizuiro::color::channel::green()
 		)
 		==
-		std::uint8_t{0x35}
+		std::uint8_t{0x35} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	CHECK(
@@ -175,6 +186,6 @@ TEST_CASE(
 			mizuiro::color::channel::blue()
 		)
 		==
-		std::uint8_t{0x15}
+		std::uint8_t{0x15} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 }

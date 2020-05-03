@@ -17,7 +17,7 @@
 inline \
 mizuiro::color::init::detail::trampoline<\
 	ns::name\
-> const \
+> \
 name() \
 { \
 	return \

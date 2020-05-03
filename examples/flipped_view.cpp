@@ -33,11 +33,14 @@
 int
 main()
 {
-	typedef
-	float
-	channel_type;
+	using
+	channel_type
+	=
+	float;
 
-	typedef
+	using
+	format
+	=
 	mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
 			2
@@ -46,23 +49,24 @@ main()
 			channel_type,
 			mizuiro::color::layout::rgba
 		>
-	>
-	format;
+	>;
 
-	typedef
+	using
+	store
+	=
 	mizuiro::image::store<
 		format
-	>
-	store;
+	>;
 
-	typedef
-	store::view_type
-	view_type;
+	using
+	view_type
+	=
+	store::view_type;
 
 	store img{
 		store::dim(
-			4u,
-			6u
+			4U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+			6U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		),
 		[](
 			view_type const &_view
@@ -82,8 +86,8 @@ main()
 								= static_cast<channel_type>(_index.at_c<0>()))
 							(mizuiro::color::init::green()
 								= static_cast<channel_type>(_index.at_c<1>()))
-							(mizuiro::color::init::blue() = channel_type{255})
-							(mizuiro::color::init::alpha() = channel_type{255})
+							(mizuiro::color::init::blue() = channel_type{255}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+							(mizuiro::color::init::alpha() = channel_type{255}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 						);
 				},
 				mizuiro::image::algorithm::uninitialized::yes
@@ -91,23 +95,29 @@ main()
 		}
 	};
 
-	typedef view_type::bound_type bound_type;
+	using
+	bound_type
+	=
+	view_type::bound_type;
 
-	typedef mizuiro::image::to_pitch_view<
+	using
+	pitch_view
+	=
+	mizuiro::image::to_pitch_view<
 		view_type
-	> pitch_view;
+	>;
 
 	pitch_view const sub_view(
 		mizuiro::image::sub_view(
 			img.view(),
 			bound_type(
 				bound_type::dim(
-					1u,
-					1u
+					1U,
+					1U
 				),
 				bound_type::dim(
-					3u,
-					4u
+					3U,
+					4U
 				)
 			)
 		)

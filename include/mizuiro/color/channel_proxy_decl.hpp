@@ -48,6 +48,7 @@ public:
 		value_type
 	);
 
+	[[nodiscard]]
 	value_type
 	get() const;
 

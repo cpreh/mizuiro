@@ -23,13 +23,14 @@ namespace space
 
 struct srgb
 {
-	typedef
+	using
+	required_channels
+	=
 	fcppt::metal::set::make<
 		mizuiro::color::channel::red,
 		mizuiro::color::channel::green,
 		mizuiro::color::channel::blue
-	>
-	required_channels;
+	>;
 };
 
 }

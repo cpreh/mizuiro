@@ -20,9 +20,10 @@ namespace space
 
 struct empty
 {
-	typedef
-	fcppt::metal::set::make<>
-	required_channels;
+	using
+	required_channels
+	=
+	fcppt::metal::set::make<>;
 };
 
 }

@@ -26,27 +26,30 @@
 int
 main()
 {
-	typedef
-	std::uint8_t
-	channel_type;
+	using
+	channel_type
+	=
+	std::uint8_t;
 
-	typedef
+	using
+	rgba_color
+	=
 	mizuiro::color::object<
 		mizuiro::color::format::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::rgba
 		>
-	>
-	rgba_color;
+	>;
 
-	typedef
+	using
+	rgb_color
+	=
 	mizuiro::color::object<
 		mizuiro::color::format::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::rgb
 		>
-	>
-	rgb_color;
+	>;
 
 	rgba_color const test_rgba(
 		(mizuiro::color::init::red() = channel_type{42})
@@ -71,14 +74,15 @@ main()
 		<< test_rgb
 		<< '\n';
 
-	typedef
+	using
+	rgba_float_color
+	=
 	mizuiro::color::object<
 		mizuiro::color::format::homogenous_static<
 			float,
 			mizuiro::color::layout::rgba
 		>
-	>
-	rgba_float_color;
+	>;
 
 	rgba_float_color const test_rgba_float(
 		mizuiro::color::convert<

@@ -40,14 +40,10 @@ public:
 	{
 	}
 
-	typedef
-	mizuiro::image::algorithm::detail::dummy_state
-	result_type;
-
 	template<
 		typename... Args
 	>
-	result_type
+	mizuiro::image::algorithm::detail::dummy_state
 	operator()(
 		mizuiro::image::algorithm::detail::dummy_state,
 		Args && ..._args

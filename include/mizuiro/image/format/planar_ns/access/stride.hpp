@@ -44,7 +44,7 @@ stride_adl(
 	return
 		mizuiro::access::stride<
 			mizuiro::integral_size<
-				1u
+				1U
 			>,
 			mizuiro::integral_size<
 				sizeof(

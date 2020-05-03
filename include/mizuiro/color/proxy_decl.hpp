@@ -92,11 +92,13 @@ public:
 
 	proxy(
 		proxy &&
-	);
+	)
+	noexcept;
 
 	template<
 		typename Other
 	>
+	// NOLINTNEXTLINE(cppcoreguidelines-c-copy-assignment-signature,misc-unconventional-assign-operator)
 	proxy const &
 	operator=(
 		Other const &

@@ -31,14 +31,15 @@ tag_of<
 	>
 >
 {
-	typedef
+	using
+	type
+	=
 	mizuiro::image::format::canonical_ns::tag<
 		mizuiro::image::format::canonical<
 			DimType,
 			Type
 		>
-	>
-	type;
+	>;
 };
 
 }

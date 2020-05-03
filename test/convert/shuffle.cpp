@@ -30,33 +30,36 @@ TEST_CASE(
 	"[mizuiro]"
 )
 {
-	typedef
-	std::uint8_t
-	channel_type;
+	using
+	channel_type
+	=
+	std::uint8_t;
 
-	typedef
+	using
+	rgba_color
+	=
 	mizuiro::color::object<
 		mizuiro::color::format::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::rgba
 		>
-	>
-	rgba_color;
+	>;
 
-	typedef
+	using
+	bgra_color
+	=
 	mizuiro::color::object<
 		mizuiro::color::format::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::bgra
 		>
-	>
-	bgra_color;
+	>;
 
 	rgba_color const rgba(
-		(mizuiro::color::init::red() = channel_type{23})
-		(mizuiro::color::init::blue() = channel_type{42})
-		(mizuiro::color::init::green() = channel_type{100})
-		(mizuiro::color::init::alpha() = channel_type{150})
+		(mizuiro::color::init::red() = channel_type{23}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::blue() = channel_type{42}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::green() = channel_type{100}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::alpha() = channel_type{150}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	bgra_color const bgra(

@@ -22,11 +22,12 @@ template<
 class empty_format_base
 {
 protected:
-	typedef
+	using
+	format_store_type
+	=
 	mizuiro::detail::empty_format_store<
 		Store
-	>
-	format_store_type;
+	>;
 
 	constexpr
 	explicit
@@ -34,6 +35,7 @@ protected:
 		format_store_type const &
 	);
 
+	[[nodiscard]]
 	constexpr
 	format_store_type
 	format_store_base() const;

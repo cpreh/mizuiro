@@ -23,14 +23,20 @@
 int
 main()
 {
-	typedef std::uint8_t channel;
+	using
+	channel
+	=
+	std::uint8_t;
 
-	typedef mizuiro::color::object<
+	using
+	rgba_color
+	=
+	mizuiro::color::object<
 		mizuiro::color::format::homogenous_static<
 			channel,
 			mizuiro::color::layout::rgba
 		>
-	> rgba_color;
+	>;
 
 	rgba_color const testcolor(
 		(mizuiro::color::init::red() = channel{42})

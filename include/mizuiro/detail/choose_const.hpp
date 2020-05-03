@@ -28,7 +28,10 @@ struct choose_const<
 	T *
 >
 {
-	typedef mizuiro::nonconst_tag type;
+	using
+	type
+	=
+	mizuiro::nonconst_tag;
 };
 
 template<
@@ -38,7 +41,10 @@ struct choose_const<
 	T const *
 >
 {
-	typedef mizuiro::const_tag type;
+	using
+	type
+	=
+	mizuiro::const_tag;
 };
 
 }

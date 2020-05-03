@@ -39,7 +39,7 @@ stride_adl(
 )
 {
 	return
-		1u;
+		1U;
 }
 
 }

@@ -22,14 +22,15 @@ namespace color
 namespace layout
 {
 
-typedef
+using
+l
+=
 mizuiro::color::layout::make<
 	mizuiro::color::space::luminance,
 	metal::list<
 		mizuiro::color::channel::luminance
 	>
->
-l;
+>;
 
 }
 }

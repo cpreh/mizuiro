@@ -26,9 +26,10 @@ struct planar_color
 :
 Format
 {
-	typedef
-	Format
-	base;
+	using
+	base
+	=
+	Format;
 };
 
 }

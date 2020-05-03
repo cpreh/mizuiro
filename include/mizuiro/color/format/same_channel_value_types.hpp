@@ -9,6 +9,7 @@
 
 #include <mizuiro/color/format/detail/same_channel_value_type.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
+#include <fcppt/type_traits/to_bool.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <metal.hpp>
 #include <fcppt/config/external_end.hpp>
@@ -30,21 +31,23 @@ template<
 >
 using same_channel_value_types
 =
-metal::all_of<
-	mizuiro::color::types::static_channels<
-		Format1
-	>,
-	metal::bind<
-		metal::trait<
-			mizuiro::color::format::detail::same_channel_value_type
-		>,
-		metal::always<
+fcppt::type_traits::to_bool<
+	metal::all_of<
+		mizuiro::color::types::static_channels<
 			Format1
 		>,
-		metal::always<
-			Format2
-		>,
-		metal::_1
+		metal::bind<
+			metal::trait<
+				mizuiro::color::format::detail::same_channel_value_type
+			>,
+			metal::always<
+				Format1
+			>,
+			metal::always<
+				Format2
+			>,
+			metal::_1
+		>
 	>
 >;
 

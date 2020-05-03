@@ -34,7 +34,9 @@ flipped_start(
 		index < Dim::static_size - 1;
 		++index
 	)
+	{
 		ret[index] = 0;
+	}
 
 	ret.back() = _last_dim;
 

@@ -32,14 +32,15 @@ stacked_dim(
 	Dim const &_dim
 )
 {
-	typedef
+	using
+	stacked_type
+	=
 	mizuiro::image::detail::stacked_dim_array<
 		mizuiro::image::dimension<
 			Dim::static_size,
 			RetValue
 		>
-	>
-	stacked_type;
+	>;
 
 	stacked_type ret = {{}};
 

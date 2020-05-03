@@ -156,6 +156,7 @@ mizuiro::image::detail::pitch_iterator<
 	difference_type const _diff
 )
 {
+	// NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay)
 	assert(
 		offset_ >= 0
 	);
@@ -202,6 +203,7 @@ mizuiro::image::detail::pitch_iterator<
 		i < pitch_type::static_size;
 		++i
 	)
+	{
 		add +=
 			(
 				(
@@ -212,6 +214,7 @@ mizuiro::image::detail::pitch_iterator<
 				/ stacked_dim_[i]
 			)
 			* pitch_[i];
+	}
 
 	offset_ += _diff;
 
@@ -238,6 +241,7 @@ mizuiro::image::detail::pitch_iterator<
 			line_advance_ == -1
 		)
 	)
+	{
 		line_advance_ =
 			static_cast<
 				difference_type
@@ -246,6 +250,7 @@ mizuiro::image::detail::pitch_iterator<
 					*this
 				)[0]
 			);
+	}
 
 	++line_advance_;
 

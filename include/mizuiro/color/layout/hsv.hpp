@@ -24,7 +24,9 @@ namespace color
 namespace layout
 {
 
-typedef
+using
+hsv
+=
 mizuiro::color::layout::make<
 	mizuiro::color::space::hsv,
 	metal::list<
@@ -32,8 +34,7 @@ mizuiro::color::layout::make<
 		mizuiro::color::channel::saturation,
 		mizuiro::color::channel::value
 	>
->
-hsv;
+>;
 
 }
 }

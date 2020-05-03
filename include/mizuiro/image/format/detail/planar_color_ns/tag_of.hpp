@@ -29,13 +29,14 @@ tag_of<
 	>
 >
 {
-	typedef
+	using
+	type
+	=
 	mizuiro::image::format::detail::planar_color_ns::tag<
 		mizuiro::image::format::detail::planar_color<
 			Format
 		>
-	>
-	type;
+	>;
 };
 
 }

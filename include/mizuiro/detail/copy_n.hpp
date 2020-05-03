@@ -27,9 +27,9 @@ template<
 inline
 void
 copy_n(
-	Source const *const _src,
-	Size const _size,
-	Dest *const _dest
+	Source const *const _src, // NOLINT(readability-avoid-const-params-in-decls)
+	Size const _size, // NOLINT(readability-avoid-const-params-in-decls)
+	Dest *const _dest // NOLINT(readability-avoid-const-params-in-decls)
 )
 noexcept
 {

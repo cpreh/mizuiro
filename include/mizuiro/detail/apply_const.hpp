@@ -38,7 +38,10 @@ struct apply_const<
 	mizuiro::const_tag
 >
 {
-	typedef BaseType const &type;
+	using
+	type
+	=
+	BaseType const &;
 };
 
 template<
@@ -49,7 +52,10 @@ struct apply_const<
 	mizuiro::const_tag
 >
 {
-	typedef BaseType const *type;
+	using
+	type
+	=
+	BaseType const *;
 };
 
 template<
@@ -60,7 +66,10 @@ struct apply_const<
 	mizuiro::nonconst_tag
 >
 {
-	typedef BaseType type;
+	using
+	type
+	=
+	BaseType;
 };
 
 }

@@ -23,34 +23,50 @@
 #include <fcppt/config/external_end.hpp>
 
 
-int main()
+int
+main()
 {
-	typedef std::uint8_t channel_type;
+	using
+	channel_type
+	=
+	std::uint8_t;
 
-	typedef mizuiro::color::format::homogenous_static<
+	using
+	hsva_format
+	=
+	mizuiro::color::format::homogenous_static<
 		channel_type,
 		mizuiro::color::layout::hsva
-	> hsva_format;
+	>;
 
-	typedef mizuiro::color::object<
+	using
+	hsva_object
+	=
+	mizuiro::color::object<
 		hsva_format
-	> hsva_object;
+	>;
 
 	hsva_object const source(
-		(mizuiro::color::init::hue() %= 0.5)
-		(mizuiro::color::init::saturation() %= 0.6)
-		(mizuiro::color::init::value() %= 0.4)
-		(mizuiro::color::init::alpha() %= 1.0)
+		(mizuiro::color::init::hue() %= 0.5) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::saturation() %= 0.6) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::value() %= 0.4) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::alpha() %= 1.0) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
-	typedef mizuiro::color::format::homogenous_static<
+	using
+	rgba_format
+	=
+	mizuiro::color::format::homogenous_static<
 		channel_type,
 		mizuiro::color::layout::rgba
-	> rgba_format;
+	>;
 
-	typedef mizuiro::color::object<
+	using
+	rgba_object
+	=
+	mizuiro::color::object<
 		rgba_format
-	> rgba_object;
+	>;
 
 	rgba_object const converted(
 		mizuiro::color::convert<

@@ -25,13 +25,14 @@ template<
 >
 struct format_argument
 {
-	typedef
+	using
+	result_type
+	=
 	mizuiro::detail::format_store<
 		Format,
 		FormatNeedsStore,
 		Copy
-	>
-	result_type;
+	>;
 
 	static
 	result_type

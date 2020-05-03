@@ -31,13 +31,14 @@ TEST_CASE(
 	"[mizuiro]"
 )
 {
-	typedef
+	using
+	color_uint8_4_format
+	=
 	mizuiro::color::format::homogenous_dynamic<
 		std::uint8_t,
 		mizuiro::color::space::rgb,
 		4
-	>
-	color_uint8_4_format;
+	>;
 
 	static_assert(
 		!mizuiro::color::format::detail::has_channel_constexpr<
@@ -51,17 +52,19 @@ TEST_CASE(
 		mizuiro::color::layout::rgba{}
 	};
 
-	typedef
+	using
+	color_uint8_4
+	=
 	mizuiro::color::object<
 		color_uint8_4_format
-	>
-	color_uint8_4;
+	>;
 
-	typedef
+	using
+	color_format_store
+	=
 	mizuiro::color::format::store<
 		color_uint8_4_format
-	>
-	color_format_store;
+	>;
 
 	color_format_store const rgba_format_store(
 		std::cref(

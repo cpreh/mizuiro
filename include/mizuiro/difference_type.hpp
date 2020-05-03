@@ -18,7 +18,10 @@ namespace mizuiro
 /**
 \brief The difference type used by mizuiro
 */
-typedef std::ptrdiff_t difference_type;
+using
+difference_type
+=
+std::ptrdiff_t;
 
 }
 

@@ -45,14 +45,10 @@ public:
 	{
 	}
 
-	typedef
-	void
-	result_type;
-
 	template<
 		typename Dest
 	>
-	result_type
+	void
 	operator()(
 		Dest const &_dest
 	) const
@@ -74,7 +70,7 @@ public:
 		typename Src,
 		typename Dest
 	>
-	result_type
+	void
 	operator()(
 		Src const &_src,
 		Dest const &_dest

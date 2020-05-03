@@ -24,7 +24,10 @@
 namespace
 {
 
-typedef mizuiro::image::format::interleaved<
+using
+format_3d_rgba8
+=
+mizuiro::image::format::interleaved<
 	mizuiro::image::dimension<
 		3
 	>,
@@ -32,9 +35,12 @@ typedef mizuiro::image::format::interleaved<
 		std::uint8_t,
 		mizuiro::color::layout::rgba
 	>
-> format_3d_rgba8;
+>;
 
-typedef mizuiro::image::format::interleaved<
+using
+format_3d_bgra8
+=
+mizuiro::image::format::interleaved<
 	mizuiro::image::dimension<
 		3
 	>,
@@ -42,9 +48,12 @@ typedef mizuiro::image::format::interleaved<
 		std::uint8_t,
 		mizuiro::color::layout::bgra
 	>
-> format_3d_bgra8;
+>;
 
-typedef mizuiro::image::format::interleaved<
+using
+format_2d_bgra8
+=
+mizuiro::image::format::interleaved<
 	mizuiro::image::dimension<
 		2
 	>,
@@ -52,9 +61,12 @@ typedef mizuiro::image::format::interleaved<
 		std::uint8_t,
 		mizuiro::color::layout::bgra
 	>
-> format_2d_bgra8;
+>;
 
-typedef mizuiro::image::format::interleaved<
+using
+format_2d_bgra_f
+=
+mizuiro::image::format::interleaved<
 	mizuiro::image::dimension<
 		2
 	>,
@@ -62,9 +74,12 @@ typedef mizuiro::image::format::interleaved<
 		float,
 		mizuiro::color::layout::bgra
 	>
-> format_2d_bgra_f;
+>;
 
-typedef mizuiro::image::format::interleaved<
+using
+format_2d_rgb8
+=
+mizuiro::image::format::interleaved<
 	mizuiro::image::dimension<
 		2
 	>,
@@ -72,67 +87,79 @@ typedef mizuiro::image::format::interleaved<
 		float,
 		mizuiro::color::layout::rgb
 	>
-> format_2d_rgb8;
+>;
 
 }
 
 int
 main()
 {
-	typedef ::mizuiro::image::linear_view<
+	using
+	view_3d_bgra8
+	=
+	::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
 		::format_3d_bgra8,
 		::mizuiro::nonconst_tag
-	> view_3d_bgra8;
+	>;
 
-	typedef ::mizuiro::image::linear_view<
+	using
+	view_3d_rgba8
+	=
+	::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
 		::format_3d_rgba8,
 		::mizuiro::nonconst_tag
-	> view_3d_rgba8;
+	>;
 
 	// bgra8 and rgba8 should be compatible to each other
 	static_assert(
 		::mizuiro::image::algorithm::can_copy<
 			view_3d_bgra8,
 			view_3d_rgba8
-		>::value,
-		""
+		>::value
 	);
 
-	typedef ::mizuiro::image::linear_view<
+	using
+	view_2d_bgra8
+	=
+	::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
 		::format_2d_bgra8,
 		::mizuiro::nonconst_tag
-	> view_2d_bgra8;
+	>;
 
-	typedef ::mizuiro::image::linear_view<
+	using
+	view_2d_bgra_f
+	=
+	::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
 		::format_2d_bgra_f,
 		::mizuiro::nonconst_tag
-	> view_2d_bgra_f;
+	>;
 
 	// bgra8 and bgra float should not be compatible
 	static_assert(
 		!::mizuiro::image::algorithm::can_copy<
 			view_2d_bgra8,
 			view_2d_bgra_f
-		>::value,
-		""
+		>::value
 	);
 
-	typedef ::mizuiro::image::linear_view<
+	using
+	view_2d_rgb8
+	=
+	::mizuiro::image::linear_view<
 		::mizuiro::access::normal,
 		::format_2d_rgb8,
 		::mizuiro::nonconst_tag
-	> view_2d_rgb8;
+	>;
 
 	// bgra8 and rgb8 should not be compatible
 	static_assert(
 		!::mizuiro::image::algorithm::can_copy<
 			view_2d_bgra8,
 			view_2d_rgb8
-		>::value,
-		""
+		>::value
 	);
 }

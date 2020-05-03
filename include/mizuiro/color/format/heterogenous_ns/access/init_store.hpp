@@ -38,7 +38,7 @@ init_store_adl(
 		mizuiro::color::types::store<
 			Format
 		>{
-			0u
+			0U
 		};
 }
 

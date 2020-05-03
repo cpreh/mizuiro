@@ -80,6 +80,7 @@ mizuiro::image::raw_container<
 >::raw_container(
 	raw_container &&_other
 )
+noexcept
 :
 	allocator(),
 	data_(
@@ -103,10 +104,20 @@ mizuiro::image::raw_container<
 mizuiro::image::raw_container<
 	T,
 	A
->::operator=(
+>::operator=( // NOLINT(cert-oop54-cpp)
 	raw_container const &_other
 )
 {
+	if(
+		this
+		==
+		&_other
+	)
+	{
+		return
+			*this;
+	}
+
 	this->destroy();
 
 	this->copy(
@@ -131,7 +142,18 @@ mizuiro::image::raw_container<
 >::operator=(
 	raw_container &&_other
 )
+noexcept
 {
+	if(
+		this
+		==
+		&_other
+	)
+	{
+		return
+			*this;
+	}
+
 	this->destroy();
 
 	data_ =
@@ -311,11 +333,13 @@ mizuiro::image::raw_container<
 	if(
 		_other.data()
 	)
+	{
 		std::uninitialized_copy(
 			_other.data(),
 			_other.data_end(),
 			this->data()
 		);
+	}
 }
 
 template<
@@ -331,10 +355,12 @@ mizuiro::image::raw_container<
 	if(
 		data_
 	)
+	{
 		allocator.deallocate(
 			data_,
 			this->size()
 		);
+	}
 }
 
 template<

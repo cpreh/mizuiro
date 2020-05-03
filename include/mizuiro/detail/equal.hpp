@@ -15,15 +15,11 @@ namespace detail
 
 struct equal
 {
-	typedef
-	bool
-	result_type;
-
 	template<
 		typename Element1,
 		typename Element2
 	>
-	result_type
+	bool
 	operator()(
 		Element1 const &_element1,
 		Element2 const &_element2

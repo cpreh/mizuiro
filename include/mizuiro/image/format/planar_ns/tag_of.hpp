@@ -31,14 +31,15 @@ tag_of<
 	>
 >
 {
-	typedef
+	using
+	type
+	=
 	mizuiro::image::format::planar_ns::tag<
 		mizuiro::image::format::planar<
 			DimType,
 			ColorFormat
 		>
-	>
-	type;
+	>;
 };
 
 }

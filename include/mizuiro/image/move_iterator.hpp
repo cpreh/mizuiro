@@ -23,24 +23,34 @@ move_iterator(
 	typename View::dim const _pos
 )
 {
-	typename View::iterator ret(
+	typename
+	View::iterator ret(
 		_view.begin()
 	);
 
-	typedef typename View::dim dim;
+	using
+	dim
+	=
+	typename
+	View::dim;
 
 	dim const size(
 		_view.size()
 	);
 
-	typedef
-	typename
-	View::iterator::difference_type
-	difference_type;
-
+	using
 	difference_type
-		add = 0,
-		multiplier = 1;
+	=
+	typename
+	View::iterator::difference_type;
+
+	difference_type add{
+		0
+	};
+
+	difference_type multiplier{
+		1
+	};
 
 	for(
 		typename dim::size_type i = 0;

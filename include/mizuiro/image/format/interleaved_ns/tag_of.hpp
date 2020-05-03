@@ -31,14 +31,15 @@ tag_of<
 	>
 >
 {
-	typedef
+	using
+	type
+	=
 	mizuiro::image::format::interleaved_ns::tag<
 		mizuiro::image::format::interleaved<
 			DimType,
 			ColorFormat
 		>
-	>
-	type;
+	>;
 };
 
 }

@@ -40,66 +40,77 @@ class store
 			Format
 		>
 {
-	typedef
+	using
+	format_base
+	=
 	mizuiro::image::format::base<
 		Format
-	>
-	format_base;
+	>;
 public:
-	typedef
-	Access
-	access;
+	using
+	access
+	=
+	Access;
 
-	typedef
-	Format
-	format;
+	using
+	format
+	=
+	Format;
 
-	typedef
+	using
+	format_store_type
+	=
 	typename
-	format_base::format_store_type
-	format_store_type;
+	format_base::format_store_type;
 
-	typedef
+	using
+	pointer
+	=
 	mizuiro::image::types::pointer<
 		access,
 		format,
 		mizuiro::nonconst_tag
-	>
-	pointer;
+	>;
 
-	typedef
+	using
+	const_pointer
+	=
 	mizuiro::image::types::pointer<
 		access,
 		format,
 		mizuiro::const_tag
-	>
-	const_pointer;
+	>;
 
-	typedef
+	using
+	dim
+	=
 	typename
-	format::dim dim;
+	format::dim;
 
-	typedef
+	using
+	value_type
+	=
 	mizuiro::image::types::value_type<
 		format
-	>
-	value_type;
+	>;
 
-	typedef
+	using
+	view_type
+	=
 	mizuiro::image::linear_view<
 		access,
 		format,
 		mizuiro::nonconst_tag
-	>
-	view_type;
+	>;
 
-	typedef
+	using
+	const_view_type
+	=
 	mizuiro::image::linear_view<
 		access,
 		format,
 		mizuiro::const_tag
-	>
-	const_view_type;
+	>;
 
 	FCPPT_PP_PUSH_WARNING
 	FCPPT_PP_DISABLE_VC_WARNING(4686)
@@ -145,32 +156,39 @@ public:
 
 	FCPPT_PP_POP_WARNING
 
+	[[nodiscard]]
 	pointer
 	data();
 
+	[[nodiscard]]
 	const_pointer
 	data() const;
 
+	[[nodiscard]]
 	view_type
 	view();
 
+	[[nodiscard]]
 	const_view_type
 	view() const;
 
+	[[nodiscard]]
 	dim const &
 	size() const;
 
+	[[nodiscard]]
 	format_store_type
 	format_store() const;
 private:
 	dim size_;
 
-	typedef
+	using
+	container
+	=
 	mizuiro::image::types::store<
 		access,
 		format
-	>
-	container;
+	>;
 
 	container data_;
 };

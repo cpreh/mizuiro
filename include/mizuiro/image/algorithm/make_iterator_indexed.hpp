@@ -33,12 +33,13 @@ struct make_iterator_indexed
 		View const &_view
 	)
 	{
-		typedef
+		using
+		result_type
+		=
 		mizuiro::image::indexed_iterator<
 			typename View::dim,
 			typename View::iterator
-		>
-		result_type;
+		>;
 
 		return
 			result_type(
@@ -63,12 +64,13 @@ struct make_iterator_indexed
 		View const &_view
 	)
 	{
-		typedef
+		using
+		result_type
+		=
 		mizuiro::image::indexed_iterator<
 			typename View::dim,
 			typename View::iterator
-		>
-		result_type;
+		>;
 
 		return
 			result_type(

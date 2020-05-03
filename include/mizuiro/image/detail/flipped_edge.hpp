@@ -34,7 +34,9 @@ flipped_edge(
 		index < Dim::static_size - 1;
 		++index
 	)
+	{
 		ret[index] = _view_dim[index];
+	}
 
 	ret.back() = 1;
 

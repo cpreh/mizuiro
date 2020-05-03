@@ -34,84 +34,96 @@ template<
 class iterator
 {
 public:
-	typedef
-	Access
-	access;
+	using
+	access
+	=
+	Access;
 
-	typedef
-	Format
-	format;
+	using
+	format
+	=
+	Format;
 
-	typedef
-	Constness
-	constness;
+	using
+	constness
+	=
+	Constness;
 
-	typedef
+	using
+	pitch_iterator
+	=
 	mizuiro::image::pitch_iterator<
 		access,
 		format,
 		constness
-	>
-	pitch_iterator;
+	>;
 
-	typedef
+	using
+	linear_iterator
+	=
 	mizuiro::image::linear_iterator<
 		access,
 		format,
 		constness
-	>
-	linear_iterator;
+	>;
 
 	static_assert(
-		std::is_same<
+		std::is_same_v<
 			typename
 			pitch_iterator::format_store_type,
 			typename
 			linear_iterator::format_store_type
-		>::value,
+		>,
 		"pitch_iterator and linear_iterator need the same format store"
 	);
 
-	typedef
+	using
+	format_store_type
+	=
 	typename
-	pitch_iterator::format_store_type
-	format_store_type;
+	pitch_iterator::format_store_type;
 
-	typedef
+	using
+	internal_type
+	=
 	fcppt::variant::object<
 		pitch_iterator,
 		linear_iterator
-	>
-	internal_type;
+	>;
 
-	typedef
+	using
+	reference
+	=
 	mizuiro::image::types::reference<
 		access,
 		format,
 		constness
-	>
-	reference;
+	>;
 
-	typedef
+	using
+	pointer
+	=
 	mizuiro::image::types::pointer<
 		access,
 		format,
 		constness
-	>
-	pointer;
+	>;
 
-	typedef
-	mizuiro::difference_type
-	difference_type;
+	using
+	difference_type
+	=
+	mizuiro::difference_type;
 
 	explicit
 	iterator(
 		internal_type const &
 	);
 
+	[[nodiscard]]
 	internal_type const &
 	internal() const;
 
+	[[nodiscard]]
 	pointer
 	data() const;
 
@@ -126,14 +138,17 @@ public:
 	void
 	decrement();
 
+	[[nodiscard]]
 	difference_type
 	distance_to(
 		iterator const &
 	) const;
 
+	[[nodiscard]]
 	reference
 	dereference() const;
 
+	[[nodiscard]]
 	bool
 	equal(
 		iterator const &

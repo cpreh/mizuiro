@@ -23,15 +23,16 @@ namespace color
 namespace layout
 {
 
-typedef
+using
+la
+=
 mizuiro::color::layout::make<
 	mizuiro::color::space::luminance,
 	metal::list<
 		mizuiro::color::channel::luminance,
 		mizuiro::color::channel::alpha
 	>
->
-la;
+>;
 
 }
 }

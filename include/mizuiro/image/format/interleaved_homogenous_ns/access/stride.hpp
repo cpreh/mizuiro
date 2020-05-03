@@ -43,7 +43,7 @@ stride_adl(
 )
 {
 	return
-		// TODO: Can we combine this implementation with heterogenous?
+		// TODO(philipp): Can we combine this implementation with heterogenous?
 		mizuiro::access::stride<
 			mizuiro::integral_size<
 				Format::color_format::element_count

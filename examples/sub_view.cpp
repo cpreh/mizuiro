@@ -33,11 +33,18 @@
 #include <fcppt/config/external_end.hpp>
 
 
-int main()
+int
+main()
 {
-	typedef float channel_type;
+	using
+	channel_type
+	=
+	float;
 
-	typedef mizuiro::image::format::interleaved<
+	using
+	format
+	=
+	mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
 			3
 		>,
@@ -45,21 +52,30 @@ int main()
 			channel_type,
 			mizuiro::color::layout::rgba
 		>
-	> format;
+	>;
 
-	typedef mizuiro::image::store<
+	using
+	store
+	=
+	mizuiro::image::store<
 		format
-	> store;
+	>;
 
-	typedef store::view_type view_type;
+	using
+	view_type
+	=
+	store::view_type;
 
-	typedef view_type::bound_type bound_type;
+	using
+	bound_type
+	=
+	view_type::bound_type;
 
 	store const img{
 		store::dim(
-			100u,
-			100u,
-			100u
+			100U,
+			100U,
+			100U
 		),
 		[](
 			view_type const &_view
@@ -78,7 +94,7 @@ int main()
 							(mizuiro::color::init::red() = static_cast<channel_type>(_index.at_c<0>()))
 							(mizuiro::color::init::green() = static_cast<channel_type>(_index.at_c<1>()))
 							(mizuiro::color::init::blue() = static_cast<channel_type>(_index.at_c<2>()))
-							(mizuiro::color::init::alpha() = channel_type{255})
+							(mizuiro::color::init::alpha() = channel_type{255}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 						);
 				},
 				mizuiro::image::algorithm::uninitialized::yes
@@ -88,28 +104,29 @@ int main()
 
 	std::cout << '\n';
 
-	typedef
+	using
+	pitch_view
+	=
 	mizuiro::image::to_pitch_view<
 		typename
 		mizuiro::image::const_view<
 			view_type
 		>
-	>
-	pitch_view;
+	>;
 
 	pitch_view const sub_view(
 		mizuiro::image::sub_view(
 			img.view(),
 			bound_type(
 				bound_type::dim(
-					1u,
-					1u,
-					1u
+					1U,
+					1U,
+					1U
 				),
 				bound_type::dim(
-					3u,
-					4u,
-					3u
+					3U,
+					4U,
+					3U
 				)
 			)
 		)
@@ -126,14 +143,14 @@ int main()
 			sub_view,
 			bound_type(
 				bound_type::dim(
-					1u,
-					1u,
-					1u
+					1U,
+					1U,
+					1U
 				),
 				bound_type::dim(
-					2u,
-					3u,
-					2u
+					2U,
+					3U,
+					2U
 				)
 			)
 		)
@@ -152,9 +169,12 @@ int main()
 	std::cout << '\n';
 
 	{
-		typedef std::reverse_iterator<
+		using
+		reverse_iterator
+		=
+		std::reverse_iterator<
 			pitch_view::iterator
-		> reverse_iterator;
+		>;
 
 		for(
 			reverse_iterator it(
@@ -165,7 +185,9 @@ int main()
 			);
 			++it
 		)
+		{
 			std::cout << *it << ' ';
+		}
 	}
 
 	std::cout << '\n';

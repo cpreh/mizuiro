@@ -22,14 +22,15 @@ namespace color
 namespace layout
 {
 
-typedef
+using
+r
+=
 mizuiro::color::layout::make<
 	mizuiro::color::space::r,
 	metal::list<
 		mizuiro::color::channel::red
 	>
->
-r;
+>;
 
 }
 }

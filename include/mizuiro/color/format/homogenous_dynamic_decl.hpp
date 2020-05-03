@@ -32,35 +32,40 @@ template<
 struct homogenous_dynamic
 {
 public:
-	typedef
-	ChannelType
-	channel_type;
+	using
+	channel_type
+	=
+	ChannelType;
 
-	typedef
-	Space
-	space;
+	using
+	space
+	=
+	Space;
 
-	typedef
+	using
+	channel_array
+	=
 	mizuiro::color::detail::dynamic::channel_array<
 		ChannelCount
-	>
-	channel_array;
+	>;
 
-	typedef
+	using
+	all_possible_channels
+	=
 	mizuiro::color::layout::all_possible_channels<
 		typename
 		Space::required_channels
-	>
-	all_possible_channels;
+	>;
 
-	typedef
+	using
+	channel_index_array
+	=
 	std::array<
 		mizuiro::size_type,
 		metal::size<
 			all_possible_channels
 		>::value
-	>
-	channel_index_array;
+	>;
 
 	template<
 		typename Layout

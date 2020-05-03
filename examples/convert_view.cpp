@@ -35,7 +35,8 @@ namespace
 template<
 	typename Format
 >
-using make_2d_format
+using
+make_2d_format
 =
 mizuiro::image::format::interleaved<
 	mizuiro::image::dimension<
@@ -49,45 +50,59 @@ mizuiro::image::format::interleaved<
 int
 main()
 {
-	typedef std::uint8_t base_type;
+	using
+	base_type
+	=
+	std::uint8_t;
 
-	typedef make_2d_format<
+	using
+	rgba_format
+	=
+	make_2d_format<
 		mizuiro::color::format::homogenous_static<
 			base_type,
 			mizuiro::color::layout::rgba
 		>
-	> rgba_format;
+	>;
 
-	typedef make_2d_format<
+	using
+	rgb_format
+	=
+	make_2d_format<
 		mizuiro::color::format::homogenous_static<
 			base_type,
 			mizuiro::color::layout::rgb
 		>
-	> rgb_format;
+	>;
 
-	typedef make_2d_format<
+	using
+	rgba_format
+	=
+	make_2d_format<
 		mizuiro::color::format::homogenous_static<
 			base_type,
 			mizuiro::color::layout::rgba
 		>
-	> rgba_format;
+	>;
 
-	mizuiro::size_type const
-		width(
-			3
-		),
-		height(
-			4
-		);
+	constexpr mizuiro::size_type const width{
+		3
+	};
 
-	typedef
+	constexpr mizuiro::size_type const height{
+		4
+	};
+
+	using
+	raw_array
+	=
 	std::array<
 		unsigned char,
 		width
 		* height
 		* sizeof(base_type)
 		* rgb_format::color_format::element_count
-	> raw_array;
+	>;
 
 	raw_array const data = {{
 		152, 34, 0,
@@ -104,9 +119,12 @@ main()
 		0, 39, 4
 	}};
 
-	typedef mizuiro::image::store<
+	using
+	rgba_store
+	=
+	mizuiro::image::store<
 		rgba_format
-	> rgba_store;
+	>;
 
 	rgba_store::dim const dim(
 		width,

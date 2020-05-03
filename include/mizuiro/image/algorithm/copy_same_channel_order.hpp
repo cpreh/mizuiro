@@ -34,7 +34,7 @@ copy_same_channel_order(
 	ViewS const &_src,
 	ViewD const &_dest,
 	mizuiro::image::algorithm::may_overlap,
-	mizuiro::image::algorithm::uninitialized const _uninitialized
+	mizuiro::image::algorithm::uninitialized const _uninitialized // NOLINT(readability-avoid-const-params-in-decls)
 )
 {
 	mizuiro::image::algorithm::transform(

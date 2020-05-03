@@ -41,13 +41,14 @@ operator*(
 		"Color must be a color type"
 	);
 
-	typedef
+	using
+	result_type
+	=
 	mizuiro::color::object<
 		mizuiro::color::format::get<
 			Color
 		>
-	>
-	result_type;
+	>;
 
 	result_type result(
 		_color

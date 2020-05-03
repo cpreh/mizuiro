@@ -20,14 +20,15 @@
 int
 main()
 {
-	typedef
+	using
+	format
+	=
 	mizuiro::image::format::canonical<
 		mizuiro::image::dimension<
 			2
 		>,
 		std::string
-	>
-	format;
+	>;
 
 	std::array<
 		std::string,
@@ -45,8 +46,8 @@ main()
 		mizuiro::const_tag
 	> const view(
 		format::dim{
-			2u,
-			2u
+			2U,
+			2U
 		},
 		string_matrix.data()
 	);

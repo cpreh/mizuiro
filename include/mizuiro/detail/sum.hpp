@@ -33,7 +33,7 @@ fcppt::metal::from_number<
 			metal::add
 		>,
 		metal::number<
-			0u
+			0U
 		>,
 		fcppt::metal::to_number_list<
 			List

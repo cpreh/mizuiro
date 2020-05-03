@@ -34,10 +34,13 @@ struct pitch_type<
 	>
 >
 {
-	typedef mizuiro::image::dimension<
+	using
+	type
+	=
+	mizuiro::image::dimension<
 		Dim - 1,
 		mizuiro::difference_type
-	> type;
+	>;
 };
 
 template<

@@ -50,6 +50,7 @@ public:
 	{
 	}
 
+	[[nodiscard]]
 	Value const &
 	value() const
 	{
@@ -57,6 +58,7 @@ public:
 			value_;
 	}
 
+	[[nodiscard]]
 	Channel const &
 	channel() const
 	{

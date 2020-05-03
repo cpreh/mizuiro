@@ -34,54 +34,63 @@ class linear_iterator
 		>
 {
 public:
-	typedef
+	using
+	format_base
+	=
 	mizuiro::image::format::base<
 		Format
-	>
-	format_base;
+	>;
 
-	typedef
+	using
+	format_store_type
+	=
 	typename
-	format_base::format_store_type
-	format_store_type;
+	format_base::format_store_type;
 
-	typedef
-	Access
-	access;
+	using
+	access
+	=
+	Access;
 
-	typedef
-	Format
-	format;
+	using
+	format
+	=
+	Format;
 
-	typedef
-	Constness
-	constness;
+	using
+	constness
+	=
+	Constness;
 
-	typedef
+	using
+	reference
+	=
 	mizuiro::image::types::reference<
 		access,
 		format,
 		constness
-	>
-	reference;
+	>;
 
-	typedef
+	using
+	pointer
+	=
 	mizuiro::image::types::pointer<
 		access,
 		format,
 		constness
-	>
-	pointer;
+	>;
 
-	typedef
-	mizuiro::difference_type
-	difference_type;
+	using
+	difference_type
+	=
+	mizuiro::difference_type;
 
 	linear_iterator(
 		pointer,
 		format_store_type const &
 	);
 
+	[[nodiscard]]
 	pointer
 	data() const;
 
@@ -96,14 +105,17 @@ public:
 	void
 	decrement();
 
+	[[nodiscard]]
 	difference_type
 	distance_to(
 		linear_iterator const &
 	) const;
 
+	[[nodiscard]]
 	reference
 	dereference() const;
 
+	[[nodiscard]]
 	bool
 	equal(
 		linear_iterator const &

@@ -22,7 +22,9 @@
 int
 main()
 {
-	typedef
+	using
+	format
+	=
 	mizuiro::image::format::planar<
 		mizuiro::image::dimension<
 			2
@@ -31,19 +33,19 @@ main()
 			std::uint8_t,
 			mizuiro::color::layout::rgba
 		>
-	>
-	format;
+	>;
 
-	typedef
+	using
+	store
+	=
 	mizuiro::image::store<
 		format
-	>
-	store;
+	>;
 
 	store const img{
 		store::dim{
-			3u,
-			2u
+			3U,
+			2U
 		},
 		store::value_type(
 			mizuiro::default_init()
@@ -51,11 +53,13 @@ main()
 	};
 
 	for(
-		auto const color
+		auto const &color
 		:
 		img.view()
 	)
+	{
 		std::cout << color << ' ';
+	}
 
 	std::cout << '\n';
 }

@@ -60,43 +60,48 @@ mizuiro::image::format::interleaved<
 int
 main()
 {
-	typedef
-	std::uint8_t
-	channel_type;
+	using
+	channel_type
+	=
+	std::uint8_t;
 
-	typedef
+	using
+	format1
+	=
 	d2_format<
 		mizuiro::color::format::homogenous_static<
 			channel_type,
 			mizuiro::color::layout::rgba
 		>
-	>
-	format1;
+	>;
 
-	typedef
+	using
+	format2
+	=
 	d2_format<
 		mizuiro::color::format::homogenous_static<
 			float,
 			mizuiro::color::layout::argb
 		>
-	>
-	format2;
+	>;
 
-	typedef
+	using
+	store1
+	=
 	mizuiro::image::store<
 		format1
-	>
-	store1;
+	>;
 
-	typedef
+	using
+	store2
+	=
 	mizuiro::image::store<
 		format2
-	>
-	store2;
+	>;
 
 	store1::dim const dim(
-		4u,
-		2u
+		4U,
+		2U
 	);
 
 	store1 img1{
@@ -104,10 +109,10 @@ main()
 		mizuiro::color::object<
 			format1::color_format
 		>(
-			(mizuiro::color::init::red() = channel_type{42})
-			(mizuiro::color::init::blue() = channel_type{150})
-			(mizuiro::color::init::green() = channel_type{80})
-			(mizuiro::color::init::alpha() = channel_type{255})
+			(mizuiro::color::init::red() = channel_type{42}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+			(mizuiro::color::init::blue() = channel_type{150}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+			(mizuiro::color::init::green() = channel_type{80}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+			(mizuiro::color::init::alpha() = channel_type{255}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		)
 	};
 

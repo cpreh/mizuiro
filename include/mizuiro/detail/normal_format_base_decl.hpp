@@ -23,12 +23,13 @@ template<
 class normal_format_base
 {
 protected:
-	typedef
+	using
+	format_store_type
+	=
 	mizuiro::detail::normal_format_store<
 		Format,
 		Copy
-	>
-	format_store_type;
+	>;
 
 	explicit
 	normal_format_base(

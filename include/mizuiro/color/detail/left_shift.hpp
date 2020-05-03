@@ -77,14 +77,14 @@ left_shift()
 	return
 		(
 			Type{
-				1u
+				1U
 			}
 			<<
 			Count
 		)
 		-
 		Type{
-			1u
+			1U
 		};
 	FCPPT_PP_POP_WARNING
 }

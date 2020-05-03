@@ -30,7 +30,9 @@ dimension_null()
 		:
 		ret
 	)
+	{
 		elem = 0;
+	}
 
 	return
 		ret;

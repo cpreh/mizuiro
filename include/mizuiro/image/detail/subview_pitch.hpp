@@ -33,7 +33,11 @@ subview_pitch(
 	typename View::bound_type const &_bound
 )
 {
-	typedef typename View::pitch_type pitch_type;
+	using
+	pitch_type
+	=
+	typename
+	View::pitch_type;
 
 	pitch_type ret{
 		mizuiro::no_init{}
@@ -87,6 +91,7 @@ subview_pitch(
 				index
 			]
 		)
+		{
 			ret[
 				index
 			]
@@ -94,6 +99,7 @@ subview_pitch(
 				_view.pitch()[
 					index
 				];
+		}
 	}
 
 	return ret;

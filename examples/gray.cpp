@@ -25,8 +25,9 @@
 int
 main()
 {
-
-	typedef
+	using
+	format
+	=
 	mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
 			2
@@ -35,23 +36,24 @@ main()
 			std::uint8_t,
 			mizuiro::color::layout::l
 		>
-	>
-	format;
+	>;
 
-	typedef
+	using
+	store
+	=
 	mizuiro::image::store<
 		format
-	>
-	store;
+	>;
 
-	typedef
-	store::view_type
-	view_type;
+	using
+	view_type
+	=
+	store::view_type;
 
 	store const img{
 		store::dim(
-			32u,
-			64u
+			32U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+			64U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		),
 		[](
 			view_type const &_view
@@ -65,7 +67,7 @@ main()
 				{
 					_color.set(
 						mizuiro::color::channel::luminance(),
-						42
+						42 // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 					);
 				},
 				mizuiro::image::algorithm::make_iterator_identity{},

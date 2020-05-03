@@ -25,7 +25,9 @@ namespace color
 namespace layout
 {
 
-typedef
+using
+argb
+=
 mizuiro::color::layout::make<
 	mizuiro::color::space::rgb,
 	metal::list<
@@ -34,8 +36,7 @@ mizuiro::color::layout::make<
 		mizuiro::color::channel::green,
 		mizuiro::color::channel::blue
 	>
->
-argb;
+>;
 
 }
 }

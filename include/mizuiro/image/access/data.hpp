@@ -21,7 +21,7 @@ namespace image
 namespace access
 {
 
-// TODO: This is only used for prepare_store and that doesn't work for planar images
+// TODO(philipp): This is only used for prepare_store and that doesn't work for planar images
 template<
 	typename Access,
 	typename Constness,

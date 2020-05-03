@@ -57,25 +57,23 @@ template<
 struct native_format
 {
 	// Typedefs for mizuiro
-	typedef Dim dim;
+	using
+	dim
+	=
+	Dim;
 
-	typedef
+	using
+	pitch
+	=
 	mizuiro::image::pitch_type<
 		dim
-	>
-	pitch;
+	>;
 
 	// Own typedefs
-	typedef Type type;
-
-	native_format()
-	{
-	}
-
-	native_format(
-		native_format const &
-	) noexcept
-	= default;
+	using
+	type
+	=
+	Type;
 };
 
 template<
@@ -86,9 +84,7 @@ class proxy;
 }
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 namespace format
 {
@@ -104,14 +100,15 @@ struct tag_of<
 	>
 >
 {
-	typedef
+	using
+	type
+	=
 	mylib::tag<
 		mylib::native_format<
 			Dim,
 			Type
 		>
-	>
-	type;
+	>;
 };
 
 }
@@ -399,7 +396,6 @@ dereference_adl(
 }
 }
 }
-}
 
 namespace mylib
 {
@@ -410,9 +406,10 @@ template<
 class proxy
 {
 public:
-	typedef
-	mizuiro::raw_pointer
-	pointer;
+	using
+	pointer
+	=
+	mizuiro::raw_pointer;
 
 	explicit
 	proxy(
@@ -425,10 +422,12 @@ public:
 	{
 	}
 
-	typedef
-	Type
-	value_type;
+	using
+	value_type
+	=
+	Type;
 
+	// NOLINTNEXTLINE(google-explicit-constructor,hicpp-explicit-conversions)
 	operator
 	value_type() const
 	{
@@ -470,17 +469,21 @@ private:
 int
 main()
 {
-	typedef
-	unsigned
-	value_type;
+	using
+	value_type
+	=
+	unsigned;
 
-	typedef
+	using
+	dim2
+	=
 	mizuiro::image::dimension<
 		2
-	>
-	dim2;
+	>;
 
-	typedef
+	using
+	native_view
+	=
 	mizuiro::image::linear_view<
 		::mizuiro::access::raw,
 		mylib::native_format<
@@ -488,18 +491,18 @@ main()
 			value_type
 		>,
 		mizuiro::nonconst_tag
-	>
-	native_view;
+	>;
 
-	typedef
+	using
+	raw_vector
+	=
 	std::vector<
 		mizuiro::raw_value
-	>
-	raw_vector;
+	>;
 
 	dim2 const size(
-		100u,
-		50u
+		100U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		50U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 
 	raw_vector data(
@@ -524,6 +527,7 @@ main()
 		it != view.end();
 		++it
 	)
+	{
 		*it =
 			static_cast<
 				value_type
@@ -533,6 +537,7 @@ main()
 					it
 				)
 			);
+	}
 
 	mizuiro::image::algorithm::print(
 		std::cout,

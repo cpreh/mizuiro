@@ -40,13 +40,14 @@ struct const_view<
 	>
 >
 {
-	typedef
+	using
+	type
+	=
 	Outer<
 		Access,
 		Format,
 		mizuiro::const_tag
-	>
-	type;
+	>;
 };
 
 }

@@ -28,24 +28,28 @@ namespace image
 template<
 	typename View
 >
-typename
-std::enable_if<
+std::enable_if_t<
 	View::dim::static_size >= 2,
 	mizuiro::image::to_pitch_view<
 		View
 	>
->::type
+>
 flipped_view(
 	View const &_view
 )
 {
-	typedef
+	using
+	result_type
+	=
 	mizuiro::image::to_pitch_view<
 		View
-	>
-	result_type;
+	>;
 
-	typedef typename View::dim dim;
+	using
+	dim
+	=
+	typename
+	View::dim;
 
 	typename dim::value_type const last_dim(
 		_view.size().back()

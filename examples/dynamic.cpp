@@ -33,28 +33,32 @@
 int
 main()
 {
-	typedef mizuiro::color::format::homogenous_dynamic<
+	using
+	color_uint8_3_format
+	=
+	mizuiro::color::format::homogenous_dynamic<
 		std::uint8_t,
 		mizuiro::color::space::rgb,
 		3
-	>
-	color_uint8_3_format;
+	>;
 
 	color_uint8_3_format const rgb_format{
 		mizuiro::color::layout::rgb{}
 	};
 
-	typedef
+	using
+	color_uint8_3
+	=
 	mizuiro::color::object<
 		color_uint8_3_format
-	>
-	color_uint8_3;
+	>;
 
-	typedef
+	using
+	color_format_store
+	=
 	mizuiro::color::format::store<
 		color_uint8_3_format
-	>
-	color_format_store;
+	>;
 
 	color_format_store const rgb_format_store(
 		std::cref(
@@ -63,9 +67,9 @@ main()
 	);
 
 	color_uint8_3 const test1(
-		(mizuiro::color::init::red() %= 0.5)
-		(mizuiro::color::init::green() %= 0.2)
-		(mizuiro::color::init::blue() %= 0.1),
+		(mizuiro::color::init::red() %= 0.5) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::green() %= 0.2) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+		(mizuiro::color::init::blue() %= 0.1), // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 		rgb_format_store
 	);
 
@@ -80,25 +84,27 @@ main()
 		<< test1
 		<< '\n';
 
-	typedef
+	using
+	image_uint8_3_format
+	=
 	mizuiro::image::format::interleaved<
 		mizuiro::image::dimension<
 			2
 		>,
 		color_uint8_3_format
-	>
-	image_uint8_3_format;
+	>;
 
-	typedef
+	using
+	uint8_3_store
+	=
 	mizuiro::image::store<
 		image_uint8_3_format
-	>
-	uint8_3_store;
+	>;
 
 	uint8_3_store const store(
 		uint8_3_store::dim(
-			5u,
-			3u
+			5U,
+			3U
 		),
 		test1,
 		uint8_3_store::format_store_type(

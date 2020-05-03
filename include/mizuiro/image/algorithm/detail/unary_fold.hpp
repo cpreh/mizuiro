@@ -46,11 +46,13 @@ unary_fold(
 		it != itend;
 		++it
 	)
+	{
 		_state =
 			_function(
 				_state,
 				*it
 			);
+	}
 
 	return
 		_state;

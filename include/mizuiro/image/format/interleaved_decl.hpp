@@ -30,24 +30,28 @@ class interleaved final
 			ColorFormat
 		>
 {
-	typedef
+	using
+	format_base
+	=
 	mizuiro::color::format::base<
 		ColorFormat
-	>
-	format_base;
+	>;
 public:
-	typedef
-	ColorFormat
-	color_format;
+	using
+	color_format
+	=
+	ColorFormat;
 
-	typedef
+	using
+	format_store_type
+	=
 	typename
-	format_base::format_store_type
-	format_store_type;
+	format_base::format_store_type;
 
-	typedef
-	DimType
-	dim;
+	using
+	dim
+	=
+	DimType;
 
 	explicit
 	interleaved(
@@ -57,6 +61,7 @@ public:
 			>::get()
 	);
 
+	[[nodiscard]]
 	format_store_type
 	format_store() const;
 };

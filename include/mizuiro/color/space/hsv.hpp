@@ -23,13 +23,14 @@ namespace space
 
 struct hsv
 {
-	typedef
+	using
+	required_channels
+	=
 	fcppt::metal::set::make<
 		mizuiro::color::channel::hue,
 		mizuiro::color::channel::saturation,
 		mizuiro::color::channel::value
-	>
-	required_channels;
+	>;
 };
 
 }
