@@ -93,7 +93,7 @@ main()
 		);
 
 		for(
-			auto dest(
+			auto dest( // NOLINT(llvm-qualified-auto,readability-qualified-auto)
 				raw_data.begin()
 			);
 			dest != raw_data.end();
