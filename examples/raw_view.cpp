@@ -93,7 +93,7 @@ main()
 		);
 
 		for(
-			auto *dest(
+			auto dest(
 				raw_data.begin()
 			);
 			dest != raw_data.end();
