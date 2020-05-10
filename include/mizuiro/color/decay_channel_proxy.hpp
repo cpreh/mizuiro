@@ -40,7 +40,7 @@ template<
 inline
 T
 decay_channel_proxy(
-	T const _value
+	T _value
 )
 {
 	return
