@@ -9,9 +9,9 @@
 
 #include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <utility>
 #include <tuple>
 #include <type_traits>
+#include <utility>
 #include <fcppt/config/external_end.hpp>
 
 
