@@ -7,8 +7,8 @@
 #ifndef MIZUIRO_DETAIL_CHOOSE_CONST_HPP_INCLUDED
 #define MIZUIRO_DETAIL_CHOOSE_CONST_HPP_INCLUDED
 
-#include <mizuiro/const_tag.hpp>
-#include <mizuiro/nonconst_tag.hpp>
+#include <mizuiro/const_tag_fwd.hpp>
+#include <mizuiro/nonconst_tag_fwd.hpp>
 
 
 namespace mizuiro
@@ -17,34 +17,42 @@ namespace detail
 {
 
 template<
-	typename T
+	typename Constness,
+	typename NonConst,
+	typename Const
 >
 struct choose_const;
 
 template<
-	typename T
+	typename NonConst,
+	typename Const
 >
 struct choose_const<
-	T *
+	mizuiro::const_tag,
+	NonConst,
+	Const
 >
 {
 	using
 	type
 	=
-	mizuiro::nonconst_tag;
+	Const;
 };
 
 template<
-	typename T
+	typename NonConst,
+	typename Const
 >
 struct choose_const<
-	T const *
+	mizuiro::nonconst_tag,
+	NonConst,
+	Const
 >
 {
 	using
 	type
 	=
-	mizuiro::const_tag;
+	NonConst;
 };
 
 }

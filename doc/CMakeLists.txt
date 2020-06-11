@@ -62,6 +62,7 @@ set(
 	include/mizuiro/access/store_unit.hpp
 	include/mizuiro/access/stride.hpp
 	include/mizuiro/apply_const.hpp
+	include/mizuiro/choose_const.hpp
 	include/mizuiro/color/access/channel_index.hpp
 	include/mizuiro/color/access/channel_index_ns/tag.hpp
 	include/mizuiro/color/access/channel_max.hpp
@@ -352,6 +353,7 @@ set(
 	include/mizuiro/detail/bit_count.hpp
 	include/mizuiro/detail/bit_count_at_least.hpp
 	include/mizuiro/detail/choose_const.hpp
+	include/mizuiro/detail/const_from_pointer.hpp
 	include/mizuiro/detail/copy.hpp
 	include/mizuiro/detail/copy_n.hpp
 	include/mizuiro/detail/copy_n_base.hpp

@@ -8,7 +8,7 @@
 #define MIZUIRO_IMAGE_DETAIL_RAW_VIEW_FROM_POINTER_HPP_INCLUDED
 
 #include <mizuiro/access/raw.hpp>
-#include <mizuiro/detail/choose_const.hpp>
+#include <mizuiro/detail/const_from_pointer.hpp>
 #include <mizuiro/image/pitch_view_impl.hpp>
 
 
@@ -28,7 +28,7 @@ using raw_view_from_pointer
 mizuiro::image::pitch_view<
 	mizuiro::access::raw,
 	Format,
-	typename mizuiro::detail::choose_const<
+	typename mizuiro::detail::const_from_pointer<
 		Pointer
 	>::type
 >;
