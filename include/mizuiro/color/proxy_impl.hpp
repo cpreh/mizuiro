@@ -160,7 +160,11 @@ mizuiro::color::proxy<
 	Access,
 	Format,
 	Constness
->::~proxy()
+>::~proxy<
+	Access,
+	Format,
+	Constness
+>()
 = default;
 
 template<

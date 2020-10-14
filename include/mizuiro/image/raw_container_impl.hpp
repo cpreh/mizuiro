@@ -175,7 +175,10 @@ template<
 mizuiro::image::raw_container<
 	T,
 	A
->::~raw_container()
+>::~raw_container<
+	T,
+	A
+>()
 {
 	this->destroy();
 }
@@ -307,8 +310,7 @@ mizuiro::image::raw_container<
 {
 	data_ =
 		allocator.allocate(
-			_size,
-			nullptr
+			_size
 		);
 
 	data_end_ = data_ + _size;
