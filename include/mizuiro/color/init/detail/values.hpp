@@ -8,8 +8,9 @@
 #define MIZUIRO_COLOR_INIT_DETAIL_VALUES_HPP_INCLUDED
 
 #include <mizuiro/color/init/detail/values_fwd.hpp>
+#include <fcppt/tuple/concat.hpp>
+#include <fcppt/tuple/object_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <tuple>
 #include <type_traits>
 #include <utility>
 #include <fcppt/config/external_end.hpp>
@@ -60,12 +61,12 @@ public:
 	[[nodiscard]]
 	values<
 		decltype(
-			std::tuple_cat(
+			fcppt::tuple::concat(
 				std::declval<
 					tuple_type
 				>(),
 				std::declval<
-					std::tuple<
+					fcppt::tuple::object<
 						NewInit
 					>
 				>()
@@ -74,7 +75,7 @@ public:
 	>
 	operator()(
 		values<
-			std::tuple<
+			fcppt::tuple::object<
 				NewInit
 			>
 		> const &_newinit
@@ -83,23 +84,23 @@ public:
 		return
 			values<
 				decltype(
-					std::tuple_cat(
+					fcppt::tuple::concat(
 						std::declval<
 							tuple_type
 						>(),
 						std::declval<
-							std::tuple<
+							fcppt::tuple::object<
 								NewInit
 							>
 						>()
 					)
 				)
 			>(
-				std::tuple_cat(
+				fcppt::tuple::concat(
 					tuple_type{
 						elements_
 					},
-					std::tuple<
+					fcppt::tuple::object<
 						NewInit
 					>{
 						_newinit.get()

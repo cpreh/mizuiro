@@ -12,8 +12,9 @@
 #include <mizuiro/color/init/detail/channel_value.hpp>
 #include <mizuiro/color/init/detail/make_values.hpp>
 #include <mizuiro/color/init/detail/values.hpp>
+#include <fcppt/tuple/make.hpp>
+#include <fcppt/tuple/object_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <tuple>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
@@ -33,10 +34,10 @@ template<
 struct trampoline
 {
 	static_assert(
-		!std::is_same<
+		!std::is_same_v<
 			Channel,
 			mizuiro::color::channel::undefined
-		>::value,
+		>,
 		"Can't initialize undefined channels"
 	);
 
@@ -46,7 +47,7 @@ struct trampoline
 	// NOLINTNEXTLINE(cppcoreguidelines-c-copy-assignment-signature,misc-unconventional-assign-operator)
 	inline
 	mizuiro::color::init::detail::values<
-		std::tuple<
+		fcppt::tuple::object<
 			mizuiro::color::init::detail::channel_value<
 				Value,
 				Channel
@@ -59,7 +60,7 @@ struct trampoline
 	{
 		return
 			mizuiro::color::init::detail::make_values(
-				std::make_tuple(
+				fcppt::tuple::make(
 					mizuiro::color::init::detail::channel_value<
 						Value,
 						Channel
@@ -76,7 +77,7 @@ struct trampoline
 	>
 	inline
 	mizuiro::color::init::detail::values<
-		std::tuple<
+		fcppt::tuple::object<
 			mizuiro::color::init::detail::channel_percentage<
 				Value,
 				Channel
@@ -88,15 +89,15 @@ struct trampoline
 	) const
 	{
 		static_assert(
-			std::is_floating_point<
+			std::is_floating_point_v<
 				Value
-			>::value,
+			>,
 			"Arguments must be of floating point type for '%=' initialization"
 		);
 
 		return
 			mizuiro::color::init::detail::make_values(
-				std::make_tuple(
+				fcppt::tuple::make(
 					mizuiro::color::init::detail::channel_percentage<
 						Value,
 						Channel
