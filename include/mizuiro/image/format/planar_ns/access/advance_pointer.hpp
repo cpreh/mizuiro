@@ -14,10 +14,8 @@
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/format/planar_ns/tag.hpp>
 #include <mizuiro/image/types/pointer.hpp>
-#include <fcppt/container/array/init.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <array>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/array/init.hpp>
+#include <fcppt/array/object_impl.hpp>
 
 
 namespace mizuiro
@@ -58,8 +56,8 @@ advance_pointer_adl(
 )
 {
 	return
-		fcppt::container::array::init<
-			std::array<
+		fcppt::array::init<
+			fcppt::array::object<
 				typename
 				mizuiro::image::types::pointer<
 					Access,
@@ -77,9 +75,9 @@ advance_pointer_adl(
 			)
 			{
 				return
-					_data[
+					_data.get_unsafe(
 						_index
-					]
+					)
 					+
 					_diff;
 			}

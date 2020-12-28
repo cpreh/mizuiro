@@ -13,6 +13,7 @@
 #include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/detail/linear_iterator_decl.hpp>
 #include <mizuiro/image/format/base_impl.hpp>
+#include <fcppt/array/comparison.hpp>
 
 
 template<

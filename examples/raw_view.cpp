@@ -25,10 +25,11 @@
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
+#include <fcppt/array/init.hpp>
+#include <fcppt/array/object_impl.hpp>
 #include <fcppt/cast/to_char_ptr.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <algorithm>
-#include <array>
 #include <iostream>
 #include <ostream>
 #include <fcppt/config/external_end.hpp>
@@ -74,12 +75,22 @@ main()
 	using
 	raw_array
 	=
-	std::array<
+	fcppt::array::object<
 		mizuiro::raw_value,
 		width * height * channel_bytes * element_count
 	>;
 
-	raw_array raw_data = {{ 0 }};
+	raw_array raw_data{
+		fcppt::array::init<
+			raw_array
+		>(
+			[](auto)
+			{
+				return
+					mizuiro::raw_value{0};
+			}
+		)
+	};
 
 	{
 		float const test{0.5F}; // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)

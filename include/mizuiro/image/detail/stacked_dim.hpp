@@ -9,6 +9,7 @@
 
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/detail/stacked_dim_array.hpp>
+#include <fcppt/no_init.hpp>
 
 
 namespace mizuiro
@@ -42,7 +43,9 @@ stacked_dim(
 		>
 	>;
 
-	stacked_type ret = {{}};
+	stacked_type ret{
+		fcppt::no_init{}
+	};
 
 	typename Dim::value_type cur = 1;
 
@@ -54,7 +57,7 @@ stacked_dim(
 	{
 		cur *= _dim[i];
 
-		ret[i] =
+		ret.get_unsafe(i) =
 			static_cast<
 				typename stacked_type::value_type
 			>(

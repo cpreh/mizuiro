@@ -9,9 +9,7 @@
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/detail/dynamic/channel_index.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <array>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/array/object_impl.hpp>
 
 
 namespace mizuiro
@@ -29,7 +27,7 @@ template<
 using
 channel_array
 =
-std::array<
+fcppt::array::object<
 	mizuiro::color::detail::dynamic::channel_index,
 	Size
 >;

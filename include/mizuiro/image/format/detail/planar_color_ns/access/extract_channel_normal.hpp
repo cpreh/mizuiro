@@ -55,14 +55,14 @@ extract_channel_adl(
 )
 {
 	return
-		*_data[
+		*_data.get_unsafe(
 			mizuiro::color::access::channel_index<
 				Format
 			>(
 				_format,
 				_channel
 			)
-		];
+		);
 }
 
 }

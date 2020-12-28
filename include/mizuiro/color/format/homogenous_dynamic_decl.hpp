@@ -11,9 +11,9 @@
 #include <mizuiro/color/detail/dynamic/channel_array.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_fwd.hpp>
 #include <mizuiro/color/layout/all_possible_channels.hpp>
+#include <fcppt/array/object_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <metal.hpp>
-#include <array>
 #include <fcppt/config/external_end.hpp>
 
 
@@ -60,7 +60,7 @@ public:
 	using
 	channel_index_array
 	=
-	std::array<
+	fcppt::array::object<
 		mizuiro::size_type,
 		metal::size<
 			all_possible_channels

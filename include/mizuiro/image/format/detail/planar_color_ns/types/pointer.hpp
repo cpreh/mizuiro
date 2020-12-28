@@ -10,9 +10,7 @@
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/pointer_ns/tag.hpp>
 #include <mizuiro/image/format/detail/planar_color_ns/tag.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <array>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/array/object_impl.hpp>
 
 
 namespace mizuiro
@@ -29,7 +27,7 @@ template<
 	typename Format,
 	typename Constness
 >
-std::array<
+fcppt::array::object<
 	mizuiro::color::types::pointer<
 		Access,
 		typename

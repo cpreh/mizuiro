@@ -21,6 +21,7 @@
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/store_needs_init.hpp>
+#include <fcppt/no_init.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
@@ -38,7 +39,10 @@ mizuiro::color::object<
 :
 	base(
 		_format
-	)
+	),
+	data_{
+		fcppt::no_init{}
+	}
 {
 	static_assert(
 		!mizuiro::color::types::store_needs_init<
@@ -277,6 +281,9 @@ mizuiro::color::object<
 :
 	base(
 		_other.format_store()
+	),
+	data_(
+		fcppt::no_init{}
 	)
 {
 	this->make_proxy() =
@@ -327,7 +334,10 @@ mizuiro::color::object<
 :
 	base(
 		_format
-	)
+	),
+	data_{
+		fcppt::no_init{}
+	}
 {
 	mizuiro::color::init::detail::assign_object(
 		*this,

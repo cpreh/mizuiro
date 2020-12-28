@@ -11,6 +11,7 @@
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/format/canonical.hpp>
 #include <mizuiro/image/format/include/canonical.hpp>
+#include <fcppt/array/object_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <iostream>
 #include <string>
@@ -30,15 +31,15 @@ main()
 		std::string
 	>;
 
-	std::array<
+	fcppt::array::object<
 		std::string,
 		4
-	> const string_matrix{{
+	> const string_matrix{
 		std::string("test1"),
 		std::string("test2"),
 		std::string("test3"),
 		std::string("test4")
-	}};
+	};
 
 	mizuiro::image::linear_view<
 		mizuiro::access::normal,

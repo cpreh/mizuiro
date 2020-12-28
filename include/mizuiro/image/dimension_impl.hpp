@@ -10,6 +10,7 @@
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/image/dimension_decl.hpp>
+#include <fcppt/no_init.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <iterator>
 #include <utility>
@@ -26,6 +27,10 @@ mizuiro::image::dimension<
 >::dimension(
 	mizuiro::no_init const &
 )
+:
+	data_{
+		fcppt::no_init{}
+	}
 {
 }
 
@@ -39,6 +44,10 @@ mizuiro::image::dimension<
 >::dimension(
 	mizuiro::no_init &&
 )
+:
+	data_{
+		fcppt::no_init{}
+	}
 {
 }
 
@@ -199,9 +208,9 @@ mizuiro::image::dimension<
 )
 {
 	return
-		data_[
+		data_.get_unsafe(
 			_index
-		];
+		);
 }
 
 template<
@@ -221,9 +230,9 @@ mizuiro::image::dimension<
 ) const
 {
 	return
-		data_[
+		data_.get_unsafe(
 			_index
-		];
+		);
 }
 
 template<

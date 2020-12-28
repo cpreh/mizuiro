@@ -89,12 +89,12 @@ relative_position(
 			--m
 		)
 		{
-			ret[i] %= stacked_dims[i];
+			ret[i] %= stacked_dims.get_unsafe(i);
 		}
 
 		if(i > 0)
 		{
-			ret[i] /= stacked_dims[i - 1];
+			ret[i] /= stacked_dims.get_unsafe(i - 1);
 		}
 	}
 

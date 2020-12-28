@@ -209,9 +209,9 @@ mizuiro::image::detail::pitch_iterator<
 				(
 				_diff +
 					offset_
-					% stacked_dim_[i]
+					% stacked_dim_.get_unsafe(i)
 				)
-				/ stacked_dim_[i]
+				/ stacked_dim_.get_unsafe(i)
 			)
 			* pitch_[i];
 	}

@@ -27,8 +27,9 @@
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
+#include <fcppt/no_init.hpp>
+#include <fcppt/array/object_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <array>
 #include <iostream>
 #include <ostream>
 #include <fcppt/config/external_end.hpp>
@@ -72,15 +73,16 @@ main()
 		4
 	};
 
-	// NOLINTNEXTLINE(cppcoreguidelines-pro-type-member-init,hicpp-member-init)
-	std::array<
+	fcppt::array::object<
 		unsigned char,
 		width
 		* height
 		* depth
 		* sizeof(float)
 		* format::color_format::element_count
-	> raw_data;
+	> raw_data{
+		fcppt::no_init{}
+	};
 
 	using
 	view_type

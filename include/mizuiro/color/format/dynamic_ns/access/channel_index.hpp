@@ -41,13 +41,13 @@ channel_index_adl(
 )
 {
 	return
-		_format.get().indices[
+		_format.get().indices.get_unsafe(
 			mizuiro::color::detail::dynamic::channel_to_pos<
 				Format
 			>(
 				_channel
 			)
-		];
+		);
 }
 
 }

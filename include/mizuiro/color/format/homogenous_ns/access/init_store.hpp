@@ -10,6 +10,8 @@
 #include <mizuiro/color/access/init_store_ns/tag.hpp>
 #include <mizuiro/color/format/homogenous_ns/tag.hpp>
 #include <mizuiro/color/types/store.hpp>
+#include <fcppt/array/init.hpp>
+#include <fcppt/array/value_type.hpp>
 
 
 namespace mizuiro
@@ -35,9 +37,21 @@ init_store_adl(
 )
 {
 	return
-		mizuiro::color::types::store<
-			Format
-		>();
+		fcppt::array::init<
+			mizuiro::color::types::store<
+				Format
+			>
+		>(
+			[](auto)
+			{
+				return
+					fcppt::array::value_type<
+						mizuiro::color::types::store<
+							Format
+						>
+					>{};
+			}
+		);
 }
 
 }

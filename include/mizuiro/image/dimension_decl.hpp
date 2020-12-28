@@ -10,9 +10,9 @@
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/image/dimension_fwd.hpp>
+#include <fcppt/array/object_impl.hpp>
 #include <fcppt/type_traits/remove_cv_ref_t.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <array>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
@@ -52,7 +52,7 @@ public:
 	using
 	array_type
 	=
-	std::array<
+	fcppt::array::object<
 		value_type,
 		Dim
 	>;
@@ -76,8 +76,10 @@ public:
 	using
 	difference_type
 	=
-	typename
-	array_type::difference_type;
+	std::make_signed_t<
+		typename
+		array_type::size_type
+	>;
 
 	explicit
 	dimension(

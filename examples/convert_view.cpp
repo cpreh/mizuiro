@@ -21,8 +21,8 @@
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp>
+#include <fcppt/array/object_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <array>
 #include <cstdint>
 #include <iostream>
 #include <ostream>
@@ -96,7 +96,7 @@ main()
 	using
 	raw_array
 	=
-	std::array<
+	fcppt::array::object<
 		unsigned char,
 		width
 		* height
@@ -104,20 +104,34 @@ main()
 		* rgb_format::color_format::element_count
 	>;
 
-	raw_array const data = {{
-		152, 34, 0,
-		232, 52, 0,
-		232, 52, 0,
-		232, 52, 0,
-		232, 52, 0,
-		232, 52, 0,
-		232, 52, 0,
-		232, 52, 0,
-		232, 52, 0,
-		229, 59, 0,
-		151, 228, 15,
-		0, 39, 4
-	}};
+	auto const uc(
+		[](
+			int const _v
+		)
+		{
+			return
+				static_cast<
+					unsigned char
+				>(
+					_v
+				);
+		}
+	);
+
+	raw_array const data{
+		uc(152), uc(34), uc(0),
+		uc(232), uc(52), uc(0),
+		uc(232), uc(52), uc(0),
+		uc(232), uc(52), uc(0),
+		uc(232), uc(52), uc(0),
+		uc(232), uc(52), uc(0),
+		uc(232), uc(52), uc(0),
+		uc(232), uc(52), uc(0),
+		uc(232), uc(52), uc(0),
+		uc(229), uc(59), uc(0),
+		uc(151), uc(228), uc(15),
+		uc(0), uc(39), uc(4)
+	};
 
 	using
 	rgba_store
