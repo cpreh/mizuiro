@@ -102,13 +102,13 @@ mizuiro::image::dimension<
 	Args &&... _args
 )
 :
-	data_{{
+	data_{
 		std::forward<
 			Args
 		>(
 			_args
 		)...
-	}}
+	}
 {
 	static_assert(
 		sizeof...(
