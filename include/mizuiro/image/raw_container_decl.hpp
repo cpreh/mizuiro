@@ -8,6 +8,9 @@
 #define MIZUIRO_IMAGE_RAW_CONTAINER_DECL_HPP_INCLUDED
 
 #include <mizuiro/image/raw_container_fwd.hpp>
+#include <fcppt/config/external_begin.hpp>
+#include <memory>
+#include <fcppt/config/external_end.hpp>
 
 
 namespace mizuiro
@@ -36,19 +39,25 @@ public:
 	pointer
 	=
 	typename
-	A::pointer;
+	std::allocator_traits<
+		A
+	>::pointer;
 
 	using
 	const_pointer
 	=
 	typename
-	A::const_pointer;
+	std::allocator_traits<
+		A
+	>::const_pointer;
 
 	using
 	size_type
 	=
 	typename
-	A::size_type;
+	std::allocator_traits<
+		A
+	>::size_type;
 
 	raw_container();
 
