@@ -168,19 +168,19 @@ noexcept
 		*this;
 }
 
+namespace mizuiro::image
+{
 template<
 	typename T,
 	typename A
 >
-mizuiro::image::raw_container<
+raw_container<
 	T,
 	A
->::~raw_container<
-	T,
-	A
->()
+>::~raw_container()
 {
 	this->destroy();
+}
 }
 
 template<

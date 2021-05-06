@@ -151,21 +151,20 @@ mizuiro::color::proxy<
 		*this;
 }
 
+namespace mizuiro::color
+{
 template<
 	typename Access,
 	typename Format,
 	typename Constness
 >
-mizuiro::color::proxy<
+proxy<
 	Access,
 	Format,
 	Constness
->::~proxy<
-	Access,
-	Format,
-	Constness
->()
+>::~proxy()
 = default;
+}
 
 template<
 	typename Access,
