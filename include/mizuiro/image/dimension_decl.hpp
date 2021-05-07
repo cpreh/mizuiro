@@ -11,7 +11,6 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/image/dimension_fwd.hpp>
 #include <fcppt/array/object_impl.hpp>
-#include <fcppt/type_traits/remove_cv_ref_t.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
@@ -108,7 +107,7 @@ public:
 				std::conjunction_v<
 					std::is_constructible<
 						value_type,
-						fcppt::type_traits::remove_cv_ref_t<
+						std::remove_cvref_t<
 							Args
 						>
 					>...
