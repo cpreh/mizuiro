@@ -14,7 +14,7 @@
 #include <mizuiro/color/format/compatible.hpp>
 #include <mizuiro/color/format/get.hpp>
 #include <fcppt/algorithm/all_of.hpp>
-#include <fcppt/algorithm/loop_break_metal.hpp>
+#include <fcppt/algorithm/loop_break_mpl.hpp>
 
 
 // TODO(philipp): Where do we put this? ^

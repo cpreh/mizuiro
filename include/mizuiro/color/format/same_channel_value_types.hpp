@@ -9,10 +9,11 @@
 
 #include <mizuiro/color/format/detail/same_channel_value_type.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
-#include <fcppt/type_traits/to_bool.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/arg.hpp>
+#include <fcppt/mpl/bind.hpp>
+#include <fcppt/mpl/constant.hpp>
+#include <fcppt/mpl/lambda.hpp>
+#include <fcppt/mpl/list/all_of.hpp>
 
 
 namespace mizuiro
@@ -31,23 +32,21 @@ template<
 >
 using same_channel_value_types
 =
-fcppt::type_traits::to_bool<
-	metal::all_of<
-		mizuiro::color::types::static_channels<
+fcppt::mpl::list::all_of<
+	mizuiro::color::types::static_channels<
+		Format1
+	>,
+	fcppt::mpl::bind<
+		fcppt::mpl::lambda<
+			mizuiro::color::format::detail::same_channel_value_type
+		>,
+		fcppt::mpl::constant<
 			Format1
 		>,
-		metal::bind<
-			metal::trait<
-				mizuiro::color::format::detail::same_channel_value_type
-			>,
-			metal::always<
-				Format1
-			>,
-			metal::always<
-				Format2
-			>,
-			metal::_1
-		>
+		fcppt::mpl::constant<
+			Format2
+		>,
+		fcppt::mpl::arg<1>
 	>
 >;
 

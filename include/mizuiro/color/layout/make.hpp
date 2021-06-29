@@ -9,10 +9,8 @@
 
 #include <mizuiro/color/layout/all_possible_channels.hpp>
 #include <mizuiro/color/layout/detail/has_all_channels.hpp>
-#include <fcppt/metal/set/to_list.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/list/size.hpp>
+#include <fcppt/mpl/set/to_list.hpp>
 
 
 namespace mizuiro
@@ -33,7 +31,7 @@ contribute 'color' while undefined channels will be ignored.
 
 \tparam Space A color space
 
-\tparam Channels A metal::list consisting of \link color_channel Color
+\tparam Channels An mpl::list::object consisting of \link color_channel Color
 Channels\endlink
 */
 template<
@@ -55,7 +53,7 @@ struct make
 	static_assert(
 		mizuiro::color::layout::detail::has_all_channels<
 			channels,
-			fcppt::metal::set::to_list<
+			fcppt::mpl::set::to_list<
 				mizuiro::color::layout::all_possible_channels<
 					typename
 					Space::required_channels
@@ -66,8 +64,8 @@ struct make
 	);
 
 	static_assert(
-		metal::size<
-			fcppt::metal::set::to_list<
+		fcppt::mpl::list::size<
+			fcppt::mpl::set::to_list<
 				typename
 				Space::required_channels
 			>
@@ -79,7 +77,7 @@ struct make
 
 	static_assert(
 		mizuiro::color::layout::detail::has_all_channels<
-			fcppt::metal::set::to_list<
+			fcppt::mpl::set::to_list<
 				typename
 				Space::required_channels
 			>,

@@ -10,9 +10,7 @@
 #include <mizuiro/color/detail/dynamic/channel_array.hpp>
 #include <mizuiro/color/detail/dynamic/make_channels_impl.hpp>
 #include <fcppt/array/init.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/list/size.hpp>
 
 
 namespace mizuiro
@@ -30,7 +28,7 @@ template<
 >
 inline
 mizuiro::color::detail::dynamic::channel_array<
-	metal::size<
+	fcppt::mpl::list::size<
 		Channels
 	>::value
 >
@@ -39,7 +37,7 @@ make_channels()
 	return
 		fcppt::array::init<
 			mizuiro::color::detail::dynamic::channel_array<
-				metal::size<
+				fcppt::mpl::list::size<
 					Channels
 				>::value
 			>

@@ -15,10 +15,14 @@
 #include <mizuiro/color/types/static_channels.hpp>
 #include <fcppt/algorithm/loop.hpp>
 #include <fcppt/algorithm/loop_break_tuple.hpp>
-#include <fcppt/metal/is_set.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/arg.hpp>
+#include <fcppt/mpl/bind.hpp>
+#include <fcppt/mpl/constant.hpp>
+#include <fcppt/mpl/lambda.hpp>
+#include <fcppt/mpl/list/all_of.hpp>
+#include <fcppt/mpl/list/from.hpp>
+#include <fcppt/mpl/list/map.hpp>
+#include <fcppt/mpl/list/is_set.hpp>
 
 
 namespace mizuiro
@@ -48,35 +52,35 @@ assign_object(
 	using
 	color_types
 	=
-	metal::as_list<
+	fcppt::mpl::list::from<
 		Vector
 	>;
 
 	static_assert(
-		metal::all_of<
+		fcppt::mpl::list::all_of<
 			mizuiro::color::types::static_channels<
 				Format
 			>,
-			metal::bind<
-				metal::trait<
+			fcppt::mpl::bind<
+				fcppt::mpl::lambda<
 					mizuiro::color::init::detail::contains_channel
 				>,
-				metal::always<
+				fcppt::mpl::constant<
 					color_types
 				>,
-				metal::_1
+				fcppt::mpl::arg<1>
 			>
 		>::value,
 		"Forgotten channel in initialization"
 	);
 
 	static_assert(
-		fcppt::metal::is_set<
-			metal::transform<
-				metal::lambda<
+		fcppt::mpl::list::is_set<
+			fcppt::mpl::list::map<
+				color_types,
+				fcppt::mpl::lambda<
 					mizuiro::color::init::detail::to_channel_type
-				>,
-				color_types
+				>
 			>
 		>::value,
 		"Duplicate channel initialization"

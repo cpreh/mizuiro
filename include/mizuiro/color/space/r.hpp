@@ -9,7 +9,7 @@
 
 #include <mizuiro/color/channel/red_fwd.hpp>
 #include <mizuiro/color/space/r_fwd.hpp>
-#include <fcppt/metal/set/make.hpp>
+#include <fcppt/mpl/set/object.hpp>
 
 
 namespace mizuiro
@@ -24,7 +24,7 @@ struct r
 	using
 	required_channels
 	=
-	fcppt::metal::set::make<
+	fcppt::mpl::set::object<
 		mizuiro::color::channel::red
 	>;
 };

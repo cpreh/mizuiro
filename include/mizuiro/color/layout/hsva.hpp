@@ -13,9 +13,7 @@
 #include <mizuiro/color/channel/value.hpp>
 #include <mizuiro/color/layout/make.hpp>
 #include <mizuiro/color/space/hsv.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/list/object.hpp>
 
 
 namespace mizuiro
@@ -30,7 +28,7 @@ hsva
 =
 mizuiro::color::layout::make<
 	mizuiro::color::space::hsv,
-	metal::list<
+	fcppt::mpl::list::object<
 		mizuiro::color::channel::hue,
 		mizuiro::color::channel::saturation,
 		mizuiro::color::channel::value,

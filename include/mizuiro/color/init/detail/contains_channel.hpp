@@ -8,9 +8,11 @@
 #define MIZUIRO_COLOR_INIT_DETAIL_CONTAINS_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/init/detail/is_channel_init.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/arg.hpp>
+#include <fcppt/mpl/bind.hpp>
+#include <fcppt/mpl/constant.hpp>
+#include <fcppt/mpl/lambda.hpp>
+#include <fcppt/mpl/list/any_of.hpp>
 
 
 namespace mizuiro
@@ -29,16 +31,16 @@ template<
 using
 contains_channel
 =
-metal::any_of<
+fcppt::mpl::list::any_of<
 	Types,
-	metal::bind<
-		metal::trait<
+	fcppt::mpl::bind<
+		fcppt::mpl::lambda<
 			mizuiro::color::init::detail::is_channel_init
 		>,
-		metal::always<
+		fcppt::mpl::constant<
 			Channel
 		>,
-		metal::_1
+		fcppt::mpl::arg<1>
 	>
 >;
 

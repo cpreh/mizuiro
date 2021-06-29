@@ -9,9 +9,7 @@
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/format/homogenous_static_fwd.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/list/size.hpp>
 
 
 namespace mizuiro
@@ -45,7 +43,7 @@ struct homogenous_static
 
 	static constexpr mizuiro::size_type const element_count
 		=
-		metal::size<
+		fcppt::mpl::list::size<
 			channels
 		>::value;
 };

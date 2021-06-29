@@ -8,9 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_HAS_CHANNEL_STATIC_HPP_INCLUDED
 
 #include <mizuiro/color/types/static_channels.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/list/contains.hpp>
 
 
 namespace mizuiro
@@ -27,7 +25,7 @@ template<
 using
 has_channel_static
 =
-metal::contains<
+fcppt::mpl::list::contains<
 	mizuiro::color::types::static_channels<
 		Format
 	>,

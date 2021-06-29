@@ -29,11 +29,6 @@ find_package(
 	REQUIRED
 )
 
-find_package(
-	Metal
-	REQUIRED
-)
-
 # TODO: Remove default arguments eventually.
 set(
 	FCPPT_UTILS_CLANG_TIDY_ADDITIONAL_CHECKS
@@ -712,7 +707,6 @@ set_target_properties(
 target_link_libraries(
 	mizuiro_dummy
 	PRIVATE
-	Metal
 	fcppt_core_interface
 )
 
@@ -739,7 +733,6 @@ target_link_libraries(
 	mizuiro_interface
 	INTERFACE
 	fcppt_core_interface
-	Metal
 )
 
 target_include_directories(

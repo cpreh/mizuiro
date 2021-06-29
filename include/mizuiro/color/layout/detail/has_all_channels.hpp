@@ -8,10 +8,11 @@
 #define MIZUIRO_COLOR_LAYOUT_DETAIL_HAS_ALL_CHANNELS_HPP_INCLUDED
 
 #include <mizuiro/color/layout/detail/has_channel.hpp>
-#include <fcppt/type_traits/to_bool.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/arg.hpp>
+#include <fcppt/mpl/bind.hpp>
+#include <fcppt/mpl/constant.hpp>
+#include <fcppt/mpl/lambda.hpp>
+#include <fcppt/mpl/list/all_of.hpp>
 
 
 namespace mizuiro
@@ -29,18 +30,16 @@ template<
 >
 using has_all_channels
 =
-fcppt::type_traits::to_bool<
-	metal::all_of<
-		Order1,
-		metal::bind<
-			metal::trait<
-				mizuiro::color::layout::detail::has_channel
-			>,
-			metal::always<
-				Order2
-			>,
-			metal::_1
-		>
+fcppt::mpl::list::all_of<
+	Order1,
+	fcppt::mpl::bind<
+		fcppt::mpl::lambda<
+			mizuiro::color::layout::detail::has_channel
+		>,
+		fcppt::mpl::constant<
+			Order2
+		>,
+		fcppt::mpl::arg<1>
 	>
 >;
 

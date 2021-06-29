@@ -8,9 +8,13 @@
 #define MIZUIRO_DETAIL_UINT_LEAST_HPP_INCLUDED
 
 #include <mizuiro/detail/bit_count_at_least.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/arg.hpp>
+#include <fcppt/mpl/bind.hpp>
+#include <fcppt/mpl/constant.hpp>
+#include <fcppt/mpl/lambda.hpp>
+#include <fcppt/mpl/list/front.hpp>
+#include <fcppt/mpl/list/keep_if.hpp>
+#include <fcppt/mpl/list/object.hpp>
 
 
 namespace mizuiro
@@ -23,23 +27,23 @@ template<
 >
 using uint_least
 =
-metal::front<
-	metal::copy_if<
-		metal::list<
+fcppt::mpl::list::front<
+	fcppt::mpl::list::keep_if<
+		fcppt::mpl::list::object<
 			unsigned char,
 			unsigned short, // NOLINT(google-runtime-int)
 			unsigned int,
 			unsigned long, // NOLINT(google-runtime-int)
 			unsigned long long // NOLINT(google-runtime-int)
 		>,
-		metal::bind<
-			metal::trait<
+		fcppt::mpl::bind<
+			fcppt::mpl::lambda<
 				mizuiro::detail::bit_count_at_least
 			>,
-			metal::always<
+			fcppt::mpl::constant<
 				Bits
 			>,
-			metal::_1
+			fcppt::mpl::arg<1>
 		>
 	>
 >;

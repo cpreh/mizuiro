@@ -10,8 +10,8 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/channel/tag.hpp>
 #include <mizuiro/color/detail/dynamic/channel_index.hpp>
-#include <fcppt/metal/index_of.hpp>
-#include <fcppt/metal/set/to_list.hpp>
+#include <fcppt/mpl/list/index_of.hpp>
+#include <fcppt/mpl/set/to_list.hpp>
 
 
 namespace mizuiro
@@ -38,8 +38,8 @@ static_to_dynamic_channel(
 {
 	return
 		mizuiro::color::detail::dynamic::channel_index{
-			fcppt::metal::index_of<
-				fcppt::metal::set::to_list<
+			fcppt::mpl::list::index_of<
+				fcppt::mpl::set::to_list<
 					typename
 					Format::all_possible_channels
 				>,

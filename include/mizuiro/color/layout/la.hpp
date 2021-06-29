@@ -11,9 +11,7 @@
 #include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/layout/make.hpp>
 #include <mizuiro/color/space/luminance.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/list/object.hpp>
 
 
 namespace mizuiro
@@ -28,7 +26,7 @@ la
 =
 mizuiro::color::layout::make<
 	mizuiro::color::space::luminance,
-	metal::list<
+	fcppt::mpl::list::object<
 		mizuiro::color::channel::luminance,
 		mizuiro::color::channel::alpha
 	>

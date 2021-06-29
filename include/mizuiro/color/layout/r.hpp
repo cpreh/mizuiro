@@ -10,9 +10,7 @@
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/layout/make.hpp>
 #include <mizuiro/color/space/r.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/list/object.hpp>
 
 
 namespace mizuiro
@@ -27,7 +25,7 @@ r
 =
 mizuiro::color::layout::make<
 	mizuiro::color::space::r,
-	metal::list<
+	fcppt::mpl::list::object<
 		mizuiro::color::channel::red
 	>
 >;

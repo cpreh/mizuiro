@@ -7,9 +7,7 @@
 #ifndef MIZUIRO_COLOR_LAYOUT_DETAIL_HAS_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_LAYOUT_DETAIL_HAS_CHANNEL_HPP_INCLUDED
 
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/list/contains.hpp>
 
 
 namespace mizuiro
@@ -28,7 +26,7 @@ template<
 using
 has_channel
 =
-metal::contains<
+fcppt::mpl::list::contains<
 	Order,
 	Channel
 >;

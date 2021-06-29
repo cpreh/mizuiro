@@ -21,7 +21,7 @@
 #include <mizuiro/detail/range_to.hpp>
 #include <mizuiro/detail/sum.hpp>
 #include <mizuiro/detail/uint_least.hpp>
-#include <fcppt/metal/index_of.hpp>
+#include <fcppt/mpl/list/index_of.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
@@ -59,7 +59,7 @@ private:
 			mizuiro::detail::range_to<
 				typename
 				Format::channel_bits,
-				fcppt::metal::index_of<
+				fcppt::mpl::list::index_of<
 					typename
 					Format::layout::channels,
 					Channel

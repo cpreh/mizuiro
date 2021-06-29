@@ -9,10 +9,7 @@
 
 #include <mizuiro/integral_size.hpp>
 #include <mizuiro/size_type.hpp>
-#include <fcppt/metal/to_number.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/list/take.hpp>
 
 
 namespace mizuiro
@@ -27,12 +24,10 @@ template<
 using
 range_to
 =
-metal::take<
+fcppt::mpl::list::take<
 	List,
-	fcppt::metal::to_number<
-		mizuiro::integral_size<
-			Size
-		>
+	mizuiro::integral_size<
+		Size
 	>
 >;
 

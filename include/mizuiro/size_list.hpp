@@ -9,9 +9,7 @@
 
 #include <mizuiro/integral_size.hpp>
 #include <mizuiro/size_type.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/list/object.hpp>
 
 
 namespace mizuiro
@@ -23,7 +21,7 @@ template<
 using
 size_list
 =
-metal::list<
+fcppt::mpl::list::object<
 	mizuiro::integral_size<
 		Sizes
 	>...

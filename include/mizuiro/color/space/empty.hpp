@@ -8,7 +8,7 @@
 #define MIZUIRO_COLOR_SPACE_EMPTY_HPP_INCLUDED
 
 #include <mizuiro/color/space/empty_fwd.hpp>
-#include <fcppt/metal/set/make.hpp>
+#include <fcppt/mpl/set/object.hpp>
 
 
 namespace mizuiro
@@ -23,7 +23,7 @@ struct empty
 	using
 	required_channels
 	=
-	fcppt::metal::set::make<>;
+	fcppt::mpl::set::object<>;
 };
 
 }

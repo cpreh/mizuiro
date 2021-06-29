@@ -9,8 +9,8 @@
 
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/channel/undefined.hpp>
-#include <fcppt/metal/set/make.hpp>
-#include <fcppt/metal/set/union.hpp>
+#include <fcppt/mpl/set/object.hpp>
+#include <fcppt/mpl/set/union.hpp>
 
 
 namespace mizuiro
@@ -26,8 +26,8 @@ template<
 using
 all_possible_channels
 =
-fcppt::metal::set::union_<
-	fcppt::metal::set::make<
+fcppt::mpl::set::union_<
+	fcppt::mpl::set::object<
 		mizuiro::color::channel::alpha,
 		mizuiro::color::channel::undefined
 	>,

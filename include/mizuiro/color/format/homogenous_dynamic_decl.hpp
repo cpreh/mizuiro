@@ -12,9 +12,7 @@
 #include <mizuiro/color/format/homogenous_dynamic_fwd.hpp>
 #include <mizuiro/color/layout/all_possible_channels.hpp>
 #include <fcppt/array/object_impl.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/set/size.hpp>
 
 
 namespace mizuiro
@@ -62,7 +60,7 @@ public:
 	=
 	fcppt::array::object<
 		mizuiro::size_type,
-		metal::size<
+		fcppt::mpl::set::size<
 			all_possible_channels
 		>::value
 	>;

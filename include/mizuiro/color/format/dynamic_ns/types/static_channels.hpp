@@ -9,9 +9,7 @@
 
 #include <mizuiro/color/format/dynamic_ns/tag.hpp>
 #include <mizuiro/color/types/static_channels_ns/tag.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/list/object.hpp>
 
 
 namespace mizuiro
@@ -26,7 +24,7 @@ namespace static_channels_ns
 template<
 	typename Format
 >
-metal::list<>
+fcppt::mpl::list::object<>
 static_channels_adl(
 	mizuiro::color::types::static_channels_ns::tag,
 	mizuiro::color::format::dynamic_ns::tag<

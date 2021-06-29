@@ -12,9 +12,7 @@
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/layout/make.hpp>
 #include <mizuiro/color/space/rgb.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/list/object.hpp>
 
 
 namespace mizuiro
@@ -29,7 +27,7 @@ rgb
 =
 mizuiro::color::layout::make<
 	mizuiro::color::space::rgb,
-	metal::list<
+	fcppt::mpl::list::object<
 		mizuiro::color::channel::red,
 		mizuiro::color::channel::green,
 		mizuiro::color::channel::blue

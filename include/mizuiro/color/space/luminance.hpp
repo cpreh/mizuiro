@@ -8,7 +8,7 @@
 #define MIZUIRO_COLOR_SPACE_LUMINANCE_HPP_INCLUDED
 
 #include <mizuiro/color/channel/luminance_fwd.hpp>
-#include <fcppt/metal/set/make.hpp>
+#include <fcppt/mpl/set/object.hpp>
 
 
 namespace mizuiro
@@ -23,7 +23,7 @@ struct luminance
 	using
 	required_channels
 	=
-	fcppt::metal::set::make<
+	fcppt::mpl::set::object<
 		mizuiro::color::channel::luminance
 	>;
 };

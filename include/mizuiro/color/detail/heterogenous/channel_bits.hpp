@@ -7,10 +7,8 @@
 #ifndef MIZUIRO_COLOR_DETAIL_HETEROGENOUS_CHANNEL_BITS_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_HETEROGENOUS_CHANNEL_BITS_HPP_INCLUDED
 
-#include <fcppt/metal/index_of.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/list/at.hpp>
+#include <fcppt/mpl/list/index_of.hpp>
 
 
 namespace mizuiro
@@ -28,10 +26,10 @@ template<
 >
 using channel_bits
 =
-metal::at<
+fcppt::mpl::list::at<
 	typename
 	Format::channel_bits,
-	fcppt::metal::index_of<
+	fcppt::mpl::list::index_of<
 		typename Format::layout::channels,
 		Channel
 	>

@@ -8,9 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_HETEROGENOUS_STATIC_HPP_INCLUDED
 
 #include <mizuiro/color/format/heterogenous_static_fwd.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <fcppt/mpl/list/size.hpp>
 
 
 namespace mizuiro
@@ -27,11 +25,11 @@ template<
 struct heterogenous_static
 {
 	static_assert(
-		metal::size<
+		fcppt::mpl::list::size<
 			ChannelBits
 		>::value
 		==
-		metal::size<
+		fcppt::mpl::list::size<
 			typename
 			Layout::channels
 		>::value,

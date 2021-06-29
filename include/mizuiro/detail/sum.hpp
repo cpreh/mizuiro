@@ -7,12 +7,10 @@
 #ifndef MIZUIRO_DETAIL_SUM_HPP_INCLUDED
 #define MIZUIRO_DETAIL_SUM_HPP_INCLUDED
 
-#include <mizuiro/size_type.hpp>
-#include <fcppt/metal/from_number.hpp>
-#include <fcppt/metal/to_number_list.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <metal.hpp>
-#include <fcppt/config/external_end.hpp>
+#include <mizuiro/integral_size.hpp>
+#include <fcppt/mpl/add.hpp>
+#include <fcppt/mpl/lambda.hpp>
+#include <fcppt/mpl/list/fold.hpp>
 
 
 namespace mizuiro
@@ -26,18 +24,13 @@ template<
 using
 sum
 =
-fcppt::metal::from_number<
-	mizuiro::size_type,
-	metal::accumulate<
-		metal::lambda<
-			metal::add
-		>,
-		metal::number<
-			0U
-		>,
-		fcppt::metal::to_number_list<
-			List
-		>
+fcppt::mpl::list::fold<
+	List,
+	fcppt::mpl::lambda<
+		fcppt::mpl::add
+	>,
+	mizuiro::integral_size<
+		0U
 	>
 >;
 
