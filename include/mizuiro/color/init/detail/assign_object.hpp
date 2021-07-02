@@ -21,8 +21,8 @@
 #include <fcppt/mpl/lambda.hpp>
 #include <fcppt/mpl/list/all_of.hpp>
 #include <fcppt/mpl/list/from.hpp>
-#include <fcppt/mpl/list/map.hpp>
 #include <fcppt/mpl/list/is_set.hpp>
+#include <fcppt/mpl/list/map.hpp>
 
 
 namespace mizuiro
