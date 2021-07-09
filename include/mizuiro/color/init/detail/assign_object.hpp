@@ -20,8 +20,8 @@
 #include <fcppt/mpl/constant.hpp>
 #include <fcppt/mpl/lambda.hpp>
 #include <fcppt/mpl/list/all_of.hpp>
+#include <fcppt/mpl/list/distinct.hpp>
 #include <fcppt/mpl/list/from.hpp>
-#include <fcppt/mpl/list/is_set.hpp>
 #include <fcppt/mpl/list/map.hpp>
 
 
@@ -75,7 +75,7 @@ assign_object(
 	);
 
 	static_assert(
-		fcppt::mpl::list::is_set<
+		fcppt::mpl::list::distinct<
 			fcppt::mpl::list::map<
 				color_types,
 				fcppt::mpl::lambda<
