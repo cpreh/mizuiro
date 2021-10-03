@@ -16,9 +16,7 @@
 #include <mizuiro/color/types/pointer.hpp>
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 template<
@@ -153,7 +151,6 @@ private:
 	pointer data_;
 };
 
-}
 }
 
 #endif

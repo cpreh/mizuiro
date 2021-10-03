@@ -11,9 +11,7 @@
 #include <mizuiro/detail/empty_format_store_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -41,7 +39,6 @@ protected:
 	format_store_base() const;
 };
 
-}
 }
 
 #endif

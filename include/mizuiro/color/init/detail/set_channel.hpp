@@ -16,13 +16,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace init
-{
-namespace detail
+namespace mizuiro::color::init::detail
 {
 
 template<
@@ -80,9 +74,6 @@ set_channel(
 	);
 }
 
-}
-}
-}
 }
 
 #endif

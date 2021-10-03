@@ -14,11 +14,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace types
+namespace mizuiro::image::types
 {
 
 template<
@@ -46,8 +42,6 @@ decltype(
 	)
 );
 
-}
-}
 }
 
 #endif

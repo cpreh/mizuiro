@@ -10,9 +10,7 @@
 #include <mizuiro/detail/empty_format_store_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -22,7 +20,6 @@ class empty_format_store
 {
 };
 
-}
 }
 
 #endif

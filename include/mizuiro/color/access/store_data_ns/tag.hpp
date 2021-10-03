@@ -8,22 +8,13 @@
 #define MIZUIRO_COLOR_ACCESS_STORE_DATA_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
-{
-namespace store_data_ns
+namespace mizuiro::color::access::store_data_ns
 {
 
 struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

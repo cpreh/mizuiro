@@ -16,13 +16,7 @@
 #include <mizuiro/image/types/reference.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
-{
-namespace data_ns
+namespace mizuiro::image::access::data_ns
 {
 
 template<
@@ -56,9 +50,6 @@ data_adl(
 		_ref.data();
 }
 
-}
-}
-}
 }
 
 #endif

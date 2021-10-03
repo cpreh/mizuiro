@@ -10,13 +10,7 @@
 #include <fcppt/mpl/list/contains.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace layout
-{
-namespace detail
+namespace mizuiro::color::layout::detail
 {
 
 template<
@@ -31,9 +25,6 @@ fcppt::mpl::list::contains<
 	Channel
 >;
 
-}
-}
-}
 }
 
 #endif

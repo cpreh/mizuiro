@@ -14,11 +14,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
+namespace mizuiro::color::types
 {
 
 template<
@@ -37,8 +33,6 @@ decltype(
 	)
 );
 
-}
-}
 }
 
 #endif

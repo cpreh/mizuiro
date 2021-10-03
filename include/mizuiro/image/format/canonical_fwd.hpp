@@ -8,11 +8,7 @@
 #define MIZUIRO_IMAGE_FORMAT_CANONICAL_FWD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
+namespace mizuiro::image::format
 {
 
 template<
@@ -21,8 +17,6 @@ template<
 >
 class canonical;
 
-}
-}
 }
 
 #endif

@@ -8,11 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_TAG_OF_FWD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
+namespace mizuiro::color::format
 {
 
 template<
@@ -20,8 +16,6 @@ template<
 >
 struct tag_of;
 
-}
-}
 }
 
 #endif

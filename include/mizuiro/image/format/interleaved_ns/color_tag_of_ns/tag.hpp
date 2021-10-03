@@ -8,25 +8,13 @@
 #define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_COLOR_TAG_OF_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
-{
-namespace interleaved_ns
-{
-namespace color_tag_of_ns
+namespace mizuiro::image::format::interleaved_ns::color_tag_of_ns
 {
 
 struct tag
 {
 };
 
-}
-}
-}
-}
 }
 
 #endif

@@ -13,13 +13,7 @@
 #include <fcppt/mpl/list/size.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace detail
-{
-namespace dynamic
+namespace mizuiro::color::detail::dynamic
 {
 
 template<
@@ -49,9 +43,6 @@ make_channels()
 		);
 }
 
-}
-}
-}
 }
 
 #endif

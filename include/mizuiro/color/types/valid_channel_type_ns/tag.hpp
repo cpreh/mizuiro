@@ -8,22 +8,13 @@
 #define MIZUIRO_COLOR_TYPES_VALID_CHANNEL_TYPE_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
-{
-namespace valid_channel_type_ns
+namespace mizuiro::color::types::valid_channel_type_ns
 {
 
 struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

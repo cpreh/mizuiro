@@ -10,11 +10,7 @@
 #include <mizuiro/no_init.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -43,8 +39,6 @@ flipped_start(
 	return ret;
 }
 
-}
-}
 }
 
 #endif

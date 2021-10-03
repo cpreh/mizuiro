@@ -10,11 +10,7 @@
 #include <mizuiro/color/types/detail/channel_value.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
+namespace mizuiro::color::types
 {
 
 template<
@@ -30,8 +26,6 @@ mizuiro::color::types::detail::channel_value<
 	Channel
 >::type;
 
-}
-}
 }
 
 #endif

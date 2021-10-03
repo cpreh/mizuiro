@@ -10,11 +10,7 @@
 #include <mizuiro/color/types/detail/pointer.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
+namespace mizuiro::color::types
 {
 
 template<
@@ -32,8 +28,6 @@ mizuiro::color::types::detail::pointer<
 	Constness
 >::type;
 
-}
-}
 }
 
 #endif

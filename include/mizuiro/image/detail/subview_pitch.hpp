@@ -16,11 +16,7 @@
 #include <mizuiro/image/detail/pitch_difference.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -105,8 +101,6 @@ subview_pitch(
 	return ret;
 }
 
-}
-}
 }
 
 #endif

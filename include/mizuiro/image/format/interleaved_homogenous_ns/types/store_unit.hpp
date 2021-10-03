@@ -11,13 +11,7 @@
 #include <mizuiro/image/types/store_unit_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace types
-{
-namespace store_unit_ns
+namespace mizuiro::image::types::store_unit_ns
 {
 
 template<
@@ -32,9 +26,6 @@ store_unit_adl(
 	>
 );
 
-}
-}
-}
 }
 
 #endif

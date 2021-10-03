@@ -8,22 +8,13 @@
 #define MIZUIRO_IMAGE_TYPES_CAN_COPY_IN_PLACE_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace types
-{
-namespace can_copy_in_place_ns
+namespace mizuiro::image::types::can_copy_in_place_ns
 {
 
 struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

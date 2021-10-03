@@ -15,13 +15,7 @@
 #include <mizuiro/image/types/pointer.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
-{
-namespace pointer_difference_ns
+namespace mizuiro::image::access::pointer_difference_ns
 {
 
 template<
@@ -58,9 +52,6 @@ pointer_difference_adl(
 		_pointer2;
 }
 
-}
-}
-}
 }
 
 #endif

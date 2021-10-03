@@ -14,9 +14,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace access
+namespace mizuiro::access
 {
 
 template<
@@ -36,7 +34,6 @@ std::conditional<
 	Normal
 >::type;
 
-}
 }
 
 #endif

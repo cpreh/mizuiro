@@ -14,11 +14,7 @@
 #include <mizuiro/image/types/reference.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
+namespace mizuiro::image::access
 {
 
 // TODO(philipp): This is only used for prepare_store and that doesn't work for planar images
@@ -56,8 +52,6 @@ data(
 		);
 }
 
-}
-}
 }
 
 #endif

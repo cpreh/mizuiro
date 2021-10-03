@@ -15,13 +15,7 @@
 #include <fcppt/mpl/list/all_of.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace layout
-{
-namespace detail
+namespace mizuiro::color::layout::detail
 {
 
 template<
@@ -43,9 +37,6 @@ fcppt::mpl::list::all_of<
 	>
 >;
 
-}
-}
-}
 }
 
 #endif

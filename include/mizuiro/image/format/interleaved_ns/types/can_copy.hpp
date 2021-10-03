@@ -12,13 +12,7 @@
 #include <mizuiro/image/types/can_copy_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace types
-{
-namespace can_copy_ns
+namespace mizuiro::image::types::can_copy_ns
 {
 
 template<
@@ -41,9 +35,6 @@ can_copy_adl(
 	>
 );
 
-}
-}
-}
 }
 
 #endif

@@ -11,13 +11,7 @@
 #include <mizuiro/detail/ref_store.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
-{
-namespace detail
+namespace mizuiro::color::format::detail
 {
 
 template<
@@ -39,9 +33,6 @@ Inner<
 	mizuiro::detail::ref_store
 >;
 
-}
-}
-}
 }
 
 #endif

@@ -14,13 +14,7 @@
 #include <mizuiro/color/types/channel_value.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
-{
-namespace channel_min_ns
+namespace mizuiro::color::access::channel_min_ns
 {
 
 template<
@@ -49,9 +43,6 @@ channel_min_adl(
 		>();
 }
 
-}
-}
-}
 }
 
 #endif

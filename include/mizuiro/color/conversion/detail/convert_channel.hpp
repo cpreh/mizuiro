@@ -11,13 +11,7 @@
 #include <mizuiro/color/normalize.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace conversion
-{
-namespace detail
+namespace mizuiro::color::conversion::detail
 {
 
 template<
@@ -56,9 +50,6 @@ convert_channel(
 	);
 }
 
-}
-}
-}
 }
 
 #endif

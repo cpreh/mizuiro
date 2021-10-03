@@ -12,11 +12,7 @@
 #include <mizuiro/image/algorithm/detail/wrap_prepare.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 template<
@@ -62,8 +58,6 @@ for_each(
 	}
 }
 
-}
-}
 }
 
 #endif

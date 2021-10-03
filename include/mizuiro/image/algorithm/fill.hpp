@@ -12,11 +12,7 @@
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 template<
@@ -47,8 +43,6 @@ fill(
 	);
 }
 
-}
-}
 }
 
 #endif

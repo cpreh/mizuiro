@@ -8,9 +8,7 @@
 #define MIZUIRO_DETAIL_EQUAL_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 struct equal
@@ -32,7 +30,6 @@ struct equal
 	}
 };
 
-}
 }
 
 #endif

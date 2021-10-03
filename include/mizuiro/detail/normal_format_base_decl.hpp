@@ -11,9 +11,7 @@
 #include <mizuiro/detail/normal_format_store_decl.hpp>
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -42,7 +40,6 @@ private:
 	format_store_type format_;
 };
 
-}
 }
 
 #endif

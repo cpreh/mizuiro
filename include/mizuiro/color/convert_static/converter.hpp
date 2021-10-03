@@ -14,11 +14,7 @@
 #include <fcppt/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace convert_static
+namespace mizuiro::color::convert_static
 {
 
 struct converter
@@ -63,8 +59,6 @@ struct converter
 	}
 };
 
-}
-}
 }
 
 #endif

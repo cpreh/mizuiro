@@ -10,11 +10,7 @@
 #include <mizuiro/color/format/tag_of_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
+namespace mizuiro::color::format
 {
 
 template<
@@ -28,8 +24,6 @@ mizuiro::color::format::tag_of<
 	Type
 >::type;
 
-}
-}
 }
 
 #endif

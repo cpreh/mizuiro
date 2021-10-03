@@ -8,20 +8,11 @@
 #define MIZUIRO_COLOR_DETAIL_DYNAMIC_CHANNEL_INDEX_FWD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace detail
-{
-namespace dynamic
+namespace mizuiro::color::detail::dynamic
 {
 
 class channel_index;
 
-}
-}
-}
 }
 
 #endif

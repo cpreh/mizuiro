@@ -8,11 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_GET_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
+namespace mizuiro::color::format
 {
 
 template<
@@ -24,8 +20,6 @@ get
 typename
 Color::format;
 
-}
-}
 }
 
 #endif

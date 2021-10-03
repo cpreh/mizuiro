@@ -15,9 +15,7 @@
 #include <fcppt/preprocessor/push_warning.hpp>
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 FCPPT_PP_PUSH_WARNING
@@ -60,7 +58,6 @@ convert(
 
 FCPPT_PP_POP_WARNING
 
-}
 }
 
 #endif

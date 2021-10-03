@@ -10,11 +10,7 @@
 #include <mizuiro/image/format/tag_of_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
+namespace mizuiro::image::format
 {
 
 template<
@@ -28,8 +24,6 @@ mizuiro::image::format::tag_of<
 	Type
 >::type;
 
-}
-}
 }
 
 #endif

@@ -10,13 +10,7 @@
 #include <mizuiro/color/init/detail/values.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace init
-{
-namespace detail
+namespace mizuiro::color::init::detail
 {
 
 template<
@@ -38,9 +32,6 @@ make_values(
 		);
 }
 
-}
-}
-}
 }
 
 #endif

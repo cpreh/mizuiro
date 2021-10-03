@@ -16,13 +16,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
-{
-namespace detail
+namespace mizuiro::color::format::detail
 {
 
 // TODO(philipp): Get a proper solution for this
@@ -79,9 +73,6 @@ check_has_channel_constexpr(
 	...
 );
 
-}
-}
-}
 }
 
 #endif

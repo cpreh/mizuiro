@@ -15,13 +15,7 @@
 #include <fcppt/type_traits/to_bool.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
-{
-namespace has_channel_ns
+namespace mizuiro::color::access::has_channel_ns
 {
 
 template<
@@ -51,9 +45,6 @@ has_channel_adl(
 		>::value;
 }
 
-}
-}
-}
 }
 
 #endif

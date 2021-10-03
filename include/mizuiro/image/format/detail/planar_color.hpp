@@ -10,13 +10,7 @@
 #include <mizuiro/image/format/detail/planar_color_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
-{
-namespace detail
+namespace mizuiro::image::format::detail
 {
 
 template<
@@ -32,9 +26,6 @@ Format
 	Format;
 };
 
-}
-}
-}
 }
 
 #endif

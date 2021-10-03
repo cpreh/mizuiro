@@ -11,13 +11,7 @@
 #include <fcppt/array/init.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace detail
-{
-namespace dynamic
+namespace mizuiro::color::detail::dynamic
 {
 
 template<
@@ -68,9 +62,6 @@ initialize_indices(
 		ret;
 }
 
-}
-}
-}
 }
 
 #endif

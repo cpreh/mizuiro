@@ -8,9 +8,7 @@
 #define MIZUIRO_COLOR_CHANNEL_PROXY_FWD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 template<
@@ -20,7 +18,6 @@ template<
 >
 class channel_proxy;
 
-}
 }
 
 #endif

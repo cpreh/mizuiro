@@ -14,13 +14,7 @@
 #include <fcppt/mpl/set/to_list.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace detail
-{
-namespace dynamic
+namespace mizuiro::color::detail::dynamic
 {
 
 template<
@@ -48,9 +42,6 @@ static_to_dynamic_channel(
 		};
 }
 
-}
-}
-}
 }
 
 #endif

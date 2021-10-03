@@ -12,11 +12,7 @@
 #include <mizuiro/color/format/heterogenous_static_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
+namespace mizuiro::color::format
 {
 
 template<
@@ -42,8 +38,6 @@ tag_of<
 	>;
 };
 
-}
-}
 }
 
 #endif

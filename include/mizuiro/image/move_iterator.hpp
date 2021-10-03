@@ -8,9 +8,7 @@
 #define MIZUIRO_IMAGE_MOVE_ITERATOR_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -79,7 +77,6 @@ move_iterator(
 	return ret;
 }
 
-}
 }
 
 #endif

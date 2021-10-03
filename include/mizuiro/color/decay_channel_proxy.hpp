@@ -10,9 +10,7 @@
 #include <mizuiro/color/channel_proxy_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 template<
@@ -47,7 +45,6 @@ decay_channel_proxy(
 		_value;
 }
 
-}
 }
 
 #endif

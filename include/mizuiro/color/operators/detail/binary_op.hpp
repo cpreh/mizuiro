@@ -18,13 +18,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace operators
-{
-namespace detail
+namespace mizuiro::color::operators::detail
 {
 
 template<
@@ -122,9 +116,6 @@ binary_op(
 		result;
 }
 
-}
-}
-}
 }
 
 #endif

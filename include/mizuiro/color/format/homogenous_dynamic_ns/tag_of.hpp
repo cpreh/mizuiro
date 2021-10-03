@@ -13,11 +13,7 @@
 #include <mizuiro/color/format/homogenous_dynamic_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
+namespace mizuiro::color::format
 {
 
 template<
@@ -46,8 +42,6 @@ tag_of<
 	>;
 };
 
-}
-}
 }
 
 #endif

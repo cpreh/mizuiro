@@ -12,11 +12,7 @@
 #include <mizuiro/image/detail/relative_position.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -49,8 +45,6 @@ linear_iterator_position(
 		);
 }
 
-}
-}
 }
 
 #endif

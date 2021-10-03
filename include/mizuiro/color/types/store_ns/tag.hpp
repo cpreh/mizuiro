@@ -8,22 +8,13 @@
 #define MIZUIRO_COLOR_TYPES_STORE_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
-{
-namespace store_ns
+namespace mizuiro::color::types::store_ns
 {
 
 struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

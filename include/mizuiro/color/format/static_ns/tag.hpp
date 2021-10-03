@@ -8,13 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_STATIC_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
-{
-namespace static_ns
+namespace mizuiro::color::format::static_ns
 {
 
 template<
@@ -24,9 +18,6 @@ struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

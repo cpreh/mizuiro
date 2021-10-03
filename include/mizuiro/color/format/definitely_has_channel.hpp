@@ -10,11 +10,7 @@
 #include <mizuiro/color/format/has_channel_static.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
+namespace mizuiro::color::format
 {
 
 template<
@@ -29,8 +25,6 @@ mizuiro::color::format::has_channel_static<
 	Channel
 >;
 
-}
-}
 }
 
 #endif

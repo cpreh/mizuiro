@@ -10,13 +10,7 @@
 #include <mizuiro/color/format/detail/check_has_channel_constexpr.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
-{
-namespace detail
+namespace mizuiro::color::format::detail
 {
 
 template<
@@ -35,9 +29,6 @@ decltype(
 	)
 );
 
-}
-}
-}
 }
 
 #endif

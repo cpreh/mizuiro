@@ -10,11 +10,7 @@
 #include <mizuiro/image/algorithm/may_overlap_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 enum class may_overlap
@@ -23,8 +19,6 @@ enum class may_overlap
 	no
 };
 
-}
-}
 }
 
 #endif

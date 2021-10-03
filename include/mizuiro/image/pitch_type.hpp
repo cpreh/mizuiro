@@ -10,9 +10,7 @@
 #include <mizuiro/image/detail/pitch_type.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -26,7 +24,6 @@ mizuiro::image::detail::pitch_type<
 	DimType
 >::type;
 
-}
 }
 
 #endif

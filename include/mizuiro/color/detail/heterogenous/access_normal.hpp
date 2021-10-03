@@ -27,13 +27,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace detail
-{
-namespace heterogenous
+namespace mizuiro::color::detail::heterogenous
 {
 
 template<
@@ -223,9 +217,6 @@ public:
 	}
 };
 
-}
-}
-}
 }
 
 #endif

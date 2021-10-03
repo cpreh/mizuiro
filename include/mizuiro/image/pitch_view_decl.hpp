@@ -20,9 +20,7 @@
 #include <fcppt/preprocessor/push_warning.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -178,7 +176,6 @@ private:
 	pitch_type pitch_;
 };
 
-}
 }
 
 #endif

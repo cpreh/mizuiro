@@ -11,13 +11,7 @@
 #include <mizuiro/image/types/needs_format_store.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
-{
-namespace detail
+namespace mizuiro::image::format::detail
 {
 
 template<
@@ -39,9 +33,6 @@ Inner<
 	mizuiro::detail::copy_store
 >;
 
-}
-}
-}
 }
 
 #endif

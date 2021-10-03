@@ -11,9 +11,7 @@
 #include <mizuiro/image/detail/raw_view_from_pointer.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -56,7 +54,6 @@ make_raw_view(
 		);
 }
 
-}
 }
 
 #endif

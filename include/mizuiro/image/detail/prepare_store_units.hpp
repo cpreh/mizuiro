@@ -19,11 +19,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -94,8 +90,6 @@ prepare_store_units(
 {
 }
 
-}
-}
 }
 
 #endif

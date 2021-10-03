@@ -11,13 +11,7 @@
 #include <mizuiro/color/format/store.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace conversion
-{
-namespace detail
+namespace mizuiro::color::conversion::detail
 {
 
 template<
@@ -66,9 +60,6 @@ private:
 	format_store format_;
 };
 
-}
-}
-}
 }
 
 #endif

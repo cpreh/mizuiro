@@ -16,13 +16,7 @@
 #include <mizuiro/image/format/detail/planar_color_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
-{
-namespace extract_channel_ns
+namespace mizuiro::color::access::extract_channel_ns
 {
 
 template<
@@ -65,9 +59,6 @@ extract_channel_adl(
 		);
 }
 
-}
-}
-}
 }
 
 #endif

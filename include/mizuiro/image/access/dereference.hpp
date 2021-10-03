@@ -14,11 +14,7 @@
 #include <mizuiro/image/types/reference.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
+namespace mizuiro::image::access
 {
 
 template<
@@ -55,8 +51,6 @@ dereference(
 		);
 }
 
-}
-}
 }
 
 #endif

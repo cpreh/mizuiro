@@ -7,13 +7,7 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_CHANNEL_VALUE_FWD_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_CHANNEL_VALUE_FWD_HPP_INCLUDED
 
-namespace mizuiro
-{
-namespace color
-{
-namespace init
-{
-namespace detail
+namespace mizuiro::color::init::detail
 {
 
 template<
@@ -22,9 +16,6 @@ template<
 >
 class channel_value;
 
-}
-}
-}
 }
 
 #endif

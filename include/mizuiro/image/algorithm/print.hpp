@@ -11,11 +11,7 @@
 #include <mizuiro/image/algorithm/unary_iteration.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 template<
@@ -44,8 +40,6 @@ print(
 	);
 }
 
-}
-}
 }
 
 #endif

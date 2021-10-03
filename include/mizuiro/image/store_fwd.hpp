@@ -10,9 +10,7 @@
 #include <mizuiro/access/normal.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -22,7 +20,6 @@ template<
 >
 class store;
 
-}
 }
 
 #endif

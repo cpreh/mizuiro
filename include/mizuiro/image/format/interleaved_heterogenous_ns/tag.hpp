@@ -8,13 +8,7 @@
 #define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_HETEROGENOUS_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
-{
-namespace interleaved_heterogenous_ns
+namespace mizuiro::image::format::interleaved_heterogenous_ns
 {
 
 template<
@@ -24,9 +18,6 @@ struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

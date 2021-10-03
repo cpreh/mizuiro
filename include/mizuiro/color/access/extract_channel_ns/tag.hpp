@@ -8,22 +8,13 @@
 #define MIZUIRO_COLOR_ACCESS_EXTRACT_CHANNEL_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
-{
-namespace extract_channel_ns
+namespace mizuiro::color::access::extract_channel_ns
 {
 
 struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

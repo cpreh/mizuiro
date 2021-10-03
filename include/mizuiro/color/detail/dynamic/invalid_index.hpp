@@ -10,13 +10,7 @@
 #include <mizuiro/size_type.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace detail
-{
-namespace dynamic
+namespace mizuiro::color::detail::dynamic
 {
 
 inline
@@ -31,9 +25,6 @@ invalid_index()
 		);
 }
 
-}
-}
-}
 }
 
 #endif

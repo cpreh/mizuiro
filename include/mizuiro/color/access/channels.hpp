@@ -16,11 +16,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
+namespace mizuiro::color::access
 {
 
 template<
@@ -59,8 +55,6 @@ channels(
 		);
 }
 
-}
-}
 }
 
 #endif

@@ -11,13 +11,7 @@
 #include <mizuiro/color/types/space_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
-{
-namespace space_ns
+namespace mizuiro::color::types::space_ns
 {
 template<
 	typename Format
@@ -31,9 +25,6 @@ space_adl(
 	>
 );
 
-}
-}
-}
 }
 
 #endif

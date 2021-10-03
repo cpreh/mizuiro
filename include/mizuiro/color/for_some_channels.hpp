@@ -12,9 +12,7 @@
 #include <fcppt/algorithm/loop.hpp>
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 template<
@@ -59,7 +57,6 @@ for_some_channels(
 	);
 }
 
-}
 }
 
 #endif

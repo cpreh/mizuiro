@@ -13,13 +13,7 @@
 #include <mizuiro/color/detail/dynamic/static_to_dynamic_channel.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace detail
-{
-namespace dynamic
+namespace mizuiro::color::detail::dynamic
 {
 
 template<
@@ -59,9 +53,6 @@ channel_to_pos(
 		);
 }
 
-}
-}
-}
 }
 
 #endif

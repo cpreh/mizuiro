@@ -14,11 +14,7 @@
 #include <mizuiro/image/types/reference.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -124,8 +120,6 @@ private:
 	pointer data_;
 };
 
-}
-}
 }
 
 #endif

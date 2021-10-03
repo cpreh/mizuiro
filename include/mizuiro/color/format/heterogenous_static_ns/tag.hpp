@@ -11,13 +11,7 @@
 #include <mizuiro/color/format/static_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
-{
-namespace heterogenous_static_ns
+namespace mizuiro::color::format::heterogenous_static_ns
 {
 
 template<
@@ -34,9 +28,6 @@ struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

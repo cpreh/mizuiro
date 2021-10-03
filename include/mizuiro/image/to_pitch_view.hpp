@@ -10,9 +10,7 @@
 #include <mizuiro/image/pitch_view_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -27,7 +25,6 @@ mizuiro::image::pitch_view<
 	typename View::constness
 >;
 
-}
 }
 
 #endif

@@ -11,13 +11,7 @@
 #include <mizuiro/image/format/store_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
-{
-namespace detail
+namespace mizuiro::image::algorithm::detail
 {
 
 template<
@@ -49,9 +43,6 @@ wrap_prepare(
 		);
 }
 
-}
-}
-}
 }
 
 #endif

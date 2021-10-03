@@ -15,13 +15,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
-{
-namespace interleaved_ns
+namespace mizuiro::image::format::interleaved_ns
 {
 
 template<
@@ -47,9 +41,6 @@ mizuiro::rebind_tag<
 	Type
 >;
 
-}
-}
-}
 }
 
 #endif

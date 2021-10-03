@@ -12,11 +12,7 @@
 #include <mizuiro/image/format/planar_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
+namespace mizuiro::image::format
 {
 
 template<
@@ -42,8 +38,6 @@ tag_of<
 	>;
 };
 
-}
-}
 }
 
 #endif

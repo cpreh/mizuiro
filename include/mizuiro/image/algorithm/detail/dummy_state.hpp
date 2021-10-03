@@ -8,22 +8,13 @@
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_DUMMY_STATE_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
-{
-namespace detail
+namespace mizuiro::image::algorithm::detail
 {
 
 struct dummy_state
 {
 };
 
-}
-}
-}
 }
 
 #endif

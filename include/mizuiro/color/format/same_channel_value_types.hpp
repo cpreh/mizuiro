@@ -16,11 +16,7 @@
 #include <fcppt/mpl/list/all_of.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
+namespace mizuiro::color::format
 {
 
 /**
@@ -50,8 +46,6 @@ fcppt::mpl::list::all_of<
 	>
 >;
 
-}
-}
 }
 
 #endif

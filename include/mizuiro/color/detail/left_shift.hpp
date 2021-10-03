@@ -17,11 +17,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace detail
+namespace mizuiro::color::detail
 {
 
 template<
@@ -89,8 +85,6 @@ left_shift()
 	FCPPT_PP_POP_WARNING
 }
 
-}
-}
 }
 
 #endif

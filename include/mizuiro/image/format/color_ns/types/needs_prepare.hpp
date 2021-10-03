@@ -12,13 +12,7 @@
 #include <mizuiro/image/types/needs_prepare_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace types
-{
-namespace needs_prepare_ns
+namespace mizuiro::image::types::needs_prepare_ns
 {
 
 template<
@@ -35,9 +29,6 @@ needs_prepare_adl(
 	>
 );
 
-}
-}
-}
 }
 
 #endif

@@ -12,13 +12,7 @@
 #include <fcppt/mpl/list/object.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
-{
-namespace static_channels_ns
+namespace mizuiro::color::types::static_channels_ns
 {
 
 template<
@@ -32,9 +26,6 @@ static_channels_adl(
 	>
 );
 
-}
-}
-}
 }
 
 #endif

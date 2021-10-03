@@ -12,9 +12,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -49,7 +47,6 @@ format_argument_impl()
 		Result{};
 }
 
-}
 }
 
 #endif

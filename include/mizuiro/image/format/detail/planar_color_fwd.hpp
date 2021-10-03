@@ -8,13 +8,7 @@
 #define MIZUIRO_IMAGE_FORMAT_DETAIL_PLANAR_COLOR_FWD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
-{
-namespace detail
+namespace mizuiro::image::format::detail
 {
 
 template<
@@ -22,9 +16,6 @@ template<
 >
 struct planar_color;
 
-}
-}
-}
 }
 
 #endif

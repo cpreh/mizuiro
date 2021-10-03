@@ -8,22 +8,13 @@
 #define MIZUIRO_IMAGE_ACCESS_DEREFERENCE_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
-{
-namespace dereference_ns
+namespace mizuiro::image::access::dereference_ns
 {
 
 struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

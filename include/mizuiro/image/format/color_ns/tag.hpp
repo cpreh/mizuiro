@@ -8,13 +8,7 @@
 #define MIZUIRO_IMAGE_FORMAT_COLOR_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
-{
-namespace color_ns
+namespace mizuiro::image::format::color_ns
 {
 
 template<
@@ -24,9 +18,6 @@ struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

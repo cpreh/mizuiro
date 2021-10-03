@@ -8,22 +8,13 @@
 #define MIZUIRO_IMAGE_ACCESS_POINTER_DIFFERENCE_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
-{
-namespace pointer_difference_ns
+namespace mizuiro::image::access::pointer_difference_ns
 {
 
 struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

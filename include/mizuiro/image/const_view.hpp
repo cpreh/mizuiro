@@ -10,9 +10,7 @@
 #include <mizuiro/image/detail/const_view.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -26,7 +24,6 @@ mizuiro::image::detail::const_view<
 	View
 >::type;
 
-}
 }
 
 #endif

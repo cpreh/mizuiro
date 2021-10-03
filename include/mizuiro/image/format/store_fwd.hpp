@@ -11,11 +11,7 @@
 #include <mizuiro/image/format/detail/make.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
+namespace mizuiro::image::format
 {
 
 template<
@@ -29,8 +25,6 @@ mizuiro::image::format::detail::make<
 	mizuiro::detail::format_store
 >;
 
-}
-}
 }
 
 #endif

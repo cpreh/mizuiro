@@ -25,13 +25,7 @@
 #include <fcppt/mpl/list/map.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace init
-{
-namespace detail
+namespace mizuiro::color::init::detail
 {
 
 template<
@@ -102,9 +96,6 @@ assign_object(
 	);
 }
 
-}
-}
-}
 }
 
 #endif

@@ -11,19 +11,13 @@
 #include <mizuiro/color/init/detail/make.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace init
+namespace mizuiro::color::init
 {
 
 MIZUIRO_COLOR_INIT_DETAIL_MAKE(
 	hue
 )
 
-}
-}
 }
 
 #endif

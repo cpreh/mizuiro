@@ -14,13 +14,7 @@
 #include <fcppt/array/value_type.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
-{
-namespace init_store_ns
+namespace mizuiro::color::access::init_store_ns
 {
 
 template<
@@ -54,9 +48,6 @@ init_store_adl(
 		);
 }
 
-}
-}
-}
 }
 
 #endif

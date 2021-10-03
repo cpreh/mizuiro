@@ -17,9 +17,7 @@
 // TODO(philipp): Where should be put this? ^
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 template<
@@ -60,7 +58,6 @@ for_each_channel(
 	);
 }
 
-}
 }
 
 #endif

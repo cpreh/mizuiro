@@ -21,11 +21,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 template<
@@ -104,8 +100,6 @@ copy_and_convert(
 	);
 }
 
-}
-}
 }
 
 #endif

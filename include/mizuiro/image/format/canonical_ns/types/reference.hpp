@@ -14,13 +14,7 @@
 #include <mizuiro/image/types/reference_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace types
-{
-namespace reference_ns
+namespace mizuiro::image::types::reference_ns
 {
 
 template<
@@ -41,9 +35,6 @@ reference_adl(
 	Constness
 );
 
-}
-}
-}
 }
 
 #endif

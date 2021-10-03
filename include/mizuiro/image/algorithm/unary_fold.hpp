@@ -12,11 +12,7 @@
 #include <fcppt/variant/apply.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 template<
@@ -86,8 +82,6 @@ unary_fold(
 		);
 }
 
-}
-}
 }
 
 #endif

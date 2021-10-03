@@ -11,9 +11,7 @@
 #include <mizuiro/nonconst_tag.hpp>
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -47,7 +45,6 @@ struct const_from_pointer<
 	mizuiro::const_tag;
 };
 
-}
 }
 
 #endif

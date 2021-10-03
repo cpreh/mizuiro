@@ -17,13 +17,7 @@
 #include <fcppt/cast/to_char_ptr.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace detail
-{
-namespace heterogenous
+namespace mizuiro::color::detail::heterogenous
 {
 
 template<
@@ -118,9 +112,6 @@ public:
 	}
 };
 
-}
-}
-}
 }
 
 #endif

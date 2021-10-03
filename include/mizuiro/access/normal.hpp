@@ -10,16 +10,13 @@
 #include <mizuiro/access/normal_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace access
+namespace mizuiro::access
 {
 
 struct normal
 {
 };
 
-}
 }
 
 #endif

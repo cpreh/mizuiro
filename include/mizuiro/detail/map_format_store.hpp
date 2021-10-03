@@ -11,9 +11,7 @@
 #include <mizuiro/detail/normal_format_store_impl.hpp>
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -66,7 +64,6 @@ decltype(
 		);
 }
 
-}
 }
 
 #endif

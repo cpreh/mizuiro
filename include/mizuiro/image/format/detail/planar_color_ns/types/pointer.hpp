@@ -13,13 +13,7 @@
 #include <fcppt/array/object_impl.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
-{
-namespace pointer_ns
+namespace mizuiro::color::types::pointer_ns
 {
 
 template<
@@ -45,9 +39,6 @@ pointer_adl(
 	Constness
 );
 
-}
-}
-}
 }
 
 #endif

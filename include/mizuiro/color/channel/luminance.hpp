@@ -10,11 +10,7 @@
 #include <mizuiro/color/channel/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace channel
+namespace mizuiro::color::channel
 {
 
 struct luminance
@@ -25,8 +21,6 @@ mizuiro::color::channel::tag<
 {
 };
 
-}
-}
 }
 
 #endif

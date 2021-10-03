@@ -14,9 +14,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -63,7 +61,6 @@ operator!=(
 		!(_a == _b);
 }
 
-}
 }
 
 #endif

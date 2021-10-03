@@ -13,9 +13,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -34,7 +32,6 @@ std::integral_constant<
 	Bits::value
 >;
 
-}
 }
 
 #endif

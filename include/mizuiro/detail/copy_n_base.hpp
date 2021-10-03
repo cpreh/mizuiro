@@ -13,9 +13,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -72,7 +70,6 @@ noexcept
 	);
 }
 
-}
 }
 
 #endif

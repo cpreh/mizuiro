@@ -8,22 +8,13 @@
 #define MIZUIRO_IMAGE_ACCESS_STRIDE_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
-{
-namespace stride_ns
+namespace mizuiro::image::access::stride_ns
 {
 
 struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

@@ -13,11 +13,7 @@
 #include <mizuiro/color/format/argument.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace conversion
+namespace mizuiro::color::conversion
 {
 
 template<
@@ -49,8 +45,6 @@ same_to_same(
 		);
 }
 
-}
-}
 }
 
 #endif

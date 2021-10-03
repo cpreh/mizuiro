@@ -17,9 +17,7 @@
 #include <fcppt/mpl/list/object.hpp>
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -48,7 +46,6 @@ fcppt::mpl::list::front<
 	>
 >;
 
-}
 }
 
 #endif

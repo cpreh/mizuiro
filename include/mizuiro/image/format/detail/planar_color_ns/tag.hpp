@@ -11,15 +11,7 @@
 #include <mizuiro/color/format/make_tag_of.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
-{
-namespace detail
-{
-namespace planar_color_ns
+namespace mizuiro::image::format::detail::planar_color_ns
 {
 
 template<
@@ -37,10 +29,6 @@ mizuiro::rebind_tag<
 {
 };
 
-}
-}
-}
-}
 }
 
 #endif

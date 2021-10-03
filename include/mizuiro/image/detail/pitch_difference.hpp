@@ -12,11 +12,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -35,8 +31,6 @@ pitch_difference(
 		);
 }
 
-}
-}
 }
 
 #endif

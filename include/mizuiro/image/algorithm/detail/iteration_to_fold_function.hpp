@@ -14,13 +14,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
-{
-namespace detail
+namespace mizuiro::image::algorithm::detail
 {
 
 template<
@@ -58,7 +52,7 @@ public:
 		);
 
 		return
-			mizuiro::image::algorithm::detail::dummy_state();
+			{};
 	}
 private:
 	fcppt::reference<
@@ -66,9 +60,6 @@ private:
 	> function_;
 };
 
-}
-}
-}
 }
 
 #endif

@@ -10,11 +10,7 @@
 #include <mizuiro/image/types/can_copy.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 /**
@@ -31,8 +27,6 @@ mizuiro::image::types::can_copy<
 	typename View2::format
 >;
 
-}
-}
 }
 
 #endif

@@ -12,11 +12,7 @@
 #include <mizuiro/image/format/interleaved_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
+namespace mizuiro::image::format
 {
 
 template<
@@ -66,8 +62,6 @@ public:
 	format_store() const;
 };
 
-}
-}
 }
 
 #endif

@@ -15,13 +15,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
-{
-namespace compare_channels_ns
+namespace mizuiro::color::access::compare_channels_ns
 {
 
 template<
@@ -51,9 +45,6 @@ compare_channels_adl(
 		>::value;
 }
 
-}
-}
-}
 }
 
 #endif

@@ -8,13 +8,7 @@
 #define MIZUIRO_IMAGE_FORMAT_CANONICAL_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
-{
-namespace canonical_ns
+namespace mizuiro::image::format::canonical_ns
 {
 
 template<
@@ -24,9 +18,6 @@ struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

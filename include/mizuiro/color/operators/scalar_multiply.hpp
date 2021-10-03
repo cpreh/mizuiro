@@ -15,9 +15,7 @@
 #include <mizuiro/color/types/channel_value.hpp>
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 template<
@@ -119,7 +117,6 @@ operator*(
 		_color * _scalar;
 }
 
-}
 }
 
 #endif

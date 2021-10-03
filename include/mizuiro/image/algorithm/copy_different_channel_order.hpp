@@ -15,11 +15,7 @@
 #include <mizuiro/image/types/value_type.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 template<
@@ -75,8 +71,6 @@ copy_different_channel_order(
 	}
 }
 
-}
-}
 }
 
 #endif

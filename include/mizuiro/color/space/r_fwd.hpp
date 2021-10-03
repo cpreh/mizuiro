@@ -8,17 +8,11 @@
 #define MIZUIRO_COLOR_SPACE_R_FWD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace space
+namespace mizuiro::color::space
 {
 
 struct r;
 
-}
-}
 }
 
 #endif

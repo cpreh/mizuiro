@@ -10,11 +10,7 @@
 #include <mizuiro/color/types/detail/channel_reference.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
+namespace mizuiro::color::types
 {
 
 template<
@@ -33,8 +29,6 @@ mizuiro::color::types::detail::channel_reference<
 	Constness
 >::type;
 
-}
-}
 }
 
 #endif

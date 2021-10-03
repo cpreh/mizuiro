@@ -16,13 +16,7 @@
 #include <mizuiro/color/types/pointer.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
-{
-namespace extract_channel_ns
+namespace mizuiro::color::access::extract_channel_ns
 {
 
 template<
@@ -76,9 +70,6 @@ extract_channel_adl(
 		);
 }
 
-}
-}
-}
 }
 
 #endif

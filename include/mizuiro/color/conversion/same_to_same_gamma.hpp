@@ -16,11 +16,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace conversion
+namespace mizuiro::color::conversion
 {
 
 template<
@@ -82,8 +78,6 @@ same_to_same_gamma(
 		);
 }
 
-}
-}
 }
 
 #endif

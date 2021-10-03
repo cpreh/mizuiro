@@ -24,9 +24,7 @@
 #include <fcppt/preprocessor/push_warning.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -193,7 +191,6 @@ private:
 	container data_;
 };
 
-}
 }
 
 #endif

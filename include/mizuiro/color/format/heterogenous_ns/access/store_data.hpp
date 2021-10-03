@@ -18,13 +18,7 @@
 #include <mizuiro/color/types/store.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
-{
-namespace store_data_ns
+namespace mizuiro::color::access::store_data_ns
 {
 
 template<
@@ -58,9 +52,6 @@ store_data_adl(
 		&_store;
 }
 
-}
-}
-}
 }
 
 #endif

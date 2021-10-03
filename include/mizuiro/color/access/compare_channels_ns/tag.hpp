@@ -8,22 +8,13 @@
 #define MIZUIRO_COLOR_ACCESS_COMPARE_CHANNELS_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
-{
-namespace compare_channels_ns
+namespace mizuiro::color::access::compare_channels_ns
 {
 
 struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

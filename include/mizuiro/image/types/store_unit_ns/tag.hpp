@@ -8,22 +8,13 @@
 #define MIZUIRO_IMAGE_TYPES_STORE_UNIT_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace types
-{
-namespace store_unit_ns
+namespace mizuiro::image::types::store_unit_ns
 {
 
 struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

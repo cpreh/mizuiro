@@ -8,9 +8,7 @@
 #define MIZUIRO_DETAIL_DECLTYPE_USE_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -21,7 +19,6 @@ decltype_use(
 	T const &
 );
 
-}
 }
 
 #endif

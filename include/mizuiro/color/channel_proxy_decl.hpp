@@ -10,9 +10,7 @@
 #include <mizuiro/color/channel_proxy_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 template<
@@ -58,7 +56,6 @@ private:
 	pointer data_;
 };
 
-}
 }
 
 #endif

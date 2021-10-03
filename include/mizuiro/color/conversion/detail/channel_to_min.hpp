@@ -10,13 +10,7 @@
 #include <mizuiro/color/access/channel_min.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace conversion
-{
-namespace detail
+namespace mizuiro::color::conversion::detail
 {
 
 template<
@@ -42,9 +36,6 @@ channel_to_min(
 	);
 }
 
-}
-}
-}
 }
 
 #endif

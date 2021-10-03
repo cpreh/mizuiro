@@ -13,11 +13,7 @@
 #include <mizuiro/color/format/argument.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace conversion
+namespace mizuiro::color::conversion
 {
 
 template<
@@ -52,8 +48,6 @@ rgb_to_srgb(
 		);
 }
 
-}
-}
 }
 
 #endif

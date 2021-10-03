@@ -12,13 +12,7 @@
 #include <mizuiro/image/types/needs_format_store_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace types
-{
-namespace needs_format_store_ns
+namespace mizuiro::image::types::needs_format_store_ns
 {
 
 template<
@@ -35,9 +29,6 @@ needs_format_store_adl(
 	>
 );
 
-}
-}
-}
 }
 
 #endif

@@ -12,13 +12,7 @@
 #include <mizuiro/color/format/dynamic_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
-{
-namespace channels_ns
+namespace mizuiro::color::access::channels_ns
 {
 
 template<
@@ -41,9 +35,6 @@ channels_adl(
 		_format.get().channels;
 }
 
-}
-}
-}
 }
 
 #endif

@@ -12,11 +12,7 @@
 #include <mizuiro/image/dimension_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -55,8 +51,6 @@ struct pitch_type<
 {
 };
 
-}
-}
 }
 
 #endif

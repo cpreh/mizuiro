@@ -11,9 +11,7 @@
 #include <mizuiro/image/detail/pitch_iterator_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -32,7 +30,6 @@ mizuiro::image::basic_iterator<
 	>
 >;
 
-}
 }
 
 #endif

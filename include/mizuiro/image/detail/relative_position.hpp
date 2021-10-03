@@ -13,11 +13,7 @@
 #include <mizuiro/image/detail/stacked_dim_array.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -101,8 +97,6 @@ relative_position(
 	return ret;
 }
 
-}
-}
 }
 
 #endif

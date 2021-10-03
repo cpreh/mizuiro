@@ -10,11 +10,7 @@
 #include <mizuiro/color/channel/tag_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace channel
+namespace mizuiro::color::channel
 {
 
 template<
@@ -24,8 +20,6 @@ struct tag
 {
 };
 
-}
-}
 }
 
 #endif

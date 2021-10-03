@@ -12,13 +12,7 @@
 #include <fcppt/array/object_impl.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace detail
-{
-namespace dynamic
+namespace mizuiro::color::detail::dynamic
 {
 
 template<
@@ -32,9 +26,6 @@ fcppt::array::object<
 	Size
 >;
 
-}
-}
-}
 }
 
 #endif

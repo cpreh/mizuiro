@@ -11,11 +11,7 @@
 #include <mizuiro/detail/format_base_decl.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
+namespace mizuiro::color::format
 {
 
 template<
@@ -28,8 +24,6 @@ mizuiro::color::format::detail::make<
 	mizuiro::detail::format_base
 >;
 
-}
-}
 }
 
 #endif

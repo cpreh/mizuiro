@@ -13,13 +13,7 @@
 #include <mizuiro/detail/uint_least.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
-{
-namespace store_ns
+namespace mizuiro::color::types::store_ns
 {
 
 template<
@@ -38,9 +32,6 @@ store_adl(
 	>
 );
 
-}
-}
-}
 }
 
 #endif

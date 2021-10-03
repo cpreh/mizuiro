@@ -15,9 +15,7 @@
 #include <mizuiro/image/detail/pitch_iterator_position.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -75,7 +73,6 @@ iterator_position(
 		);
 }
 
-}
 }
 
 #endif

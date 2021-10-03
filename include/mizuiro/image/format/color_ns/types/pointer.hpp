@@ -12,13 +12,7 @@
 #include <mizuiro/image/types/pointer_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace types
-{
-namespace pointer_ns
+namespace mizuiro::image::types::pointer_ns
 {
 
 template<
@@ -41,9 +35,6 @@ pointer_adl(
 	Constness
 );
 
-}
-}
-}
 }
 
 #endif

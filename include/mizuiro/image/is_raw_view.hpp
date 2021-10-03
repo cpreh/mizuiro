@@ -13,9 +13,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -29,7 +27,6 @@ std::is_same<
 	::mizuiro::access::raw
 >;
 
-}
 }
 
 #endif

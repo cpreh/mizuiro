@@ -9,13 +9,7 @@
 
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace conversion
-{
-namespace detail
+namespace mizuiro::color::conversion::detail
 {
 
 template<
@@ -50,9 +44,6 @@ make_logical_and(
 		};
 }
 
-}
-}
-}
 }
 
 #endif

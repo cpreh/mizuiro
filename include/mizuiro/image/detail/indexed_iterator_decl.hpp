@@ -11,11 +11,7 @@
 #include <mizuiro/image/detail/indexed_iterator_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -98,8 +94,6 @@ private:
 	Underlying underlying_;
 };
 
-}
-}
 }
 
 #endif

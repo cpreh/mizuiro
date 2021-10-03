@@ -11,11 +11,7 @@
 #include <mizuiro/detail/format_store_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
+namespace mizuiro::color::format
 {
 
 template<
@@ -29,8 +25,6 @@ mizuiro::color::format::detail::make<
 	mizuiro::detail::format_store
 >;
 
-}
-}
 }
 
 #endif

@@ -10,11 +10,7 @@
 #include <mizuiro/image/algorithm/uninitialized_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 enum class uninitialized
@@ -23,8 +19,6 @@ enum class uninitialized
 	no
 };
 
-}
-}
 }
 
 #endif

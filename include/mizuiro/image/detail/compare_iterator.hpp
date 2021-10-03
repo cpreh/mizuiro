@@ -8,11 +8,7 @@
 #define MIZUIRO_IMAGE_DETAIL_COMPARE_ITERATOR_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 struct compare_iterator
@@ -47,8 +43,6 @@ struct compare_iterator
 	}
 };
 
-}
-}
 }
 
 #endif

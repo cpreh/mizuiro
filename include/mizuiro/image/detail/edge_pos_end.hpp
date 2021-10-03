@@ -10,11 +10,7 @@
 #include <mizuiro/no_init.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -52,8 +48,6 @@ edge_pos_end(
 	return ret;
 }
 
-}
-}
 }
 
 #endif

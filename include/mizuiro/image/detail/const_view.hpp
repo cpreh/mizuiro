@@ -10,11 +10,7 @@
 #include <mizuiro/const_tag_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -50,8 +46,6 @@ struct const_view<
 	>;
 };
 
-}
-}
 }
 
 #endif

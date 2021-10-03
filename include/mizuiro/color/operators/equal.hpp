@@ -12,9 +12,7 @@
 #include <mizuiro/detail/equal.hpp>
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 template<
@@ -49,7 +47,6 @@ operator==(
 		);
 }
 
-}
 }
 
 #endif

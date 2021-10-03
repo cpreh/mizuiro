@@ -8,9 +8,7 @@
 #define MIZUIRO_DETAIL_NORMAL_FORMAT_BASE_FWD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -19,7 +17,6 @@ template<
 >
 class normal_format_base;
 
-}
 }
 
 #endif

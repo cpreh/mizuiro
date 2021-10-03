@@ -11,13 +11,7 @@
 #include <fcppt/reference_impl.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace conversion
-{
-namespace detail
+namespace mizuiro::color::conversion::detail
 {
 
 template<
@@ -91,9 +85,6 @@ private:
 	Float diff_;
 };
 
-}
-}
-}
 }
 
 #endif

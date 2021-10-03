@@ -12,11 +12,7 @@
 #include <fcppt/mpl/list/size.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
+namespace mizuiro::color::format
 {
 
 template<
@@ -48,8 +44,6 @@ struct homogenous_static
 		>::value;
 };
 
-}
-}
 }
 
 #endif

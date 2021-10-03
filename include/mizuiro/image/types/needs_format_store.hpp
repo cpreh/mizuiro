@@ -11,11 +11,7 @@
 #include <mizuiro/image/types/needs_format_store_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace types
+namespace mizuiro::image::types
 {
 
 template<
@@ -33,8 +29,6 @@ decltype(
 	)
 );
 
-}
-}
 }
 
 #endif

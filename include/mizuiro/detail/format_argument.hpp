@@ -11,9 +11,7 @@
 #include <mizuiro/detail/format_store_impl.hpp>
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -48,7 +46,6 @@ struct format_argument
 	}
 };
 
-}
 }
 
 #endif

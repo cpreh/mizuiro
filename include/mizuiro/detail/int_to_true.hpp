@@ -12,9 +12,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -26,7 +24,6 @@ std::true_type
 {
 };
 
-}
 }
 
 #endif

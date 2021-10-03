@@ -13,11 +13,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
+namespace mizuiro::color::format
 {
 
 template<
@@ -35,8 +31,6 @@ std::is_same<
 	>
 >;
 
-}
-}
 }
 
 #endif

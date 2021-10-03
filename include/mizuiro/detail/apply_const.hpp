@@ -11,9 +11,7 @@
 #include <mizuiro/nonconst_tag_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -72,7 +70,6 @@ struct apply_const<
 	BaseType;
 };
 
-}
 }
 
 #endif

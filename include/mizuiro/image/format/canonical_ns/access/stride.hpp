@@ -14,13 +14,7 @@
 #include <mizuiro/image/format/canonical_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
-{
-namespace stride_ns
+namespace mizuiro::image::access::stride_ns
 {
 
 template<
@@ -42,9 +36,6 @@ stride_adl(
 		1U;
 }
 
-}
-}
-}
 }
 
 #endif

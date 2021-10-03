@@ -16,13 +16,7 @@
 #include <mizuiro/image/types/store_unit.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
-{
-namespace stride_ns
+namespace mizuiro::image::access::stride_ns
 {
 
 template<
@@ -58,9 +52,6 @@ stride_adl(
 		);
 }
 
-}
-}
-}
 }
 
 #endif

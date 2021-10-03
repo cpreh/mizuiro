@@ -10,11 +10,7 @@
 #include <mizuiro/image/types/can_copy_in_place.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 template<
@@ -30,8 +26,6 @@ mizuiro::image::types::can_copy_in_place<
 	View2::format
 >;
 
-}
-}
 }
 
 #endif

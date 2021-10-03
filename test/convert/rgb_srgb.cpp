@@ -97,7 +97,7 @@ TEST_CASE(
 						_val2
 					)
 					<
-					0.001f; // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+					0.001F; // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 			}
 		)
 	);

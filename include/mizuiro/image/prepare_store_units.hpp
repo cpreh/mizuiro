@@ -12,9 +12,7 @@
 #include <mizuiro/image/format/store_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -47,7 +45,6 @@ prepare_store_units(
 	);
 }
 
-}
 }
 
 #endif

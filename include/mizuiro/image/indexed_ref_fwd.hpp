@@ -10,9 +10,7 @@
 #include <mizuiro/size_type.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -21,7 +19,6 @@ template<
 >
 class indexed_ref;
 
-}
 }
 
 #endif

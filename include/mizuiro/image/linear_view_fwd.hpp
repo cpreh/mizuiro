@@ -8,9 +8,7 @@
 #define MIZUIRO_IMAGE_LINEAR_VIEW_FWD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -20,7 +18,6 @@ template<
 >
 class linear_view;
 
-}
 }
 
 #endif

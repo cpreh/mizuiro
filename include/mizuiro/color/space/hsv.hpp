@@ -14,11 +14,7 @@
 #include <fcppt/mpl/set/object.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace space
+namespace mizuiro::color::space
 {
 
 struct hsv
@@ -33,8 +29,6 @@ struct hsv
 	>;
 };
 
-}
-}
 }
 
 #endif

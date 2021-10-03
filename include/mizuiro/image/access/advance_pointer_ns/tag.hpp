@@ -8,22 +8,13 @@
 #define MIZUIRO_IMAGE_ACCESS_ADVANCE_POINTER_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
-{
-namespace advance_pointer_ns
+namespace mizuiro::image::access::advance_pointer_ns
 {
 
 struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

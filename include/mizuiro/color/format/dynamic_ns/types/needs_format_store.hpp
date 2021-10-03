@@ -14,13 +14,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
-{
-namespace needs_format_store_ns
+namespace mizuiro::color::types::needs_format_store_ns
 {
 
 template<
@@ -34,9 +28,6 @@ needs_format_store_adl(
 	>
 );
 
-}
-}
-}
 }
 
 #endif

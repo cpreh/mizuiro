@@ -12,15 +12,7 @@
 #include <mizuiro/image/format/interleaved_ns/color_tag_of_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
-{
-namespace interleaved_ns
-{
-namespace color_tag_of_ns
+namespace mizuiro::image::format::interleaved_ns::color_tag_of_ns
 {
 
 template<
@@ -36,10 +28,6 @@ color_tag_of_adl(
 	>
 );
 
-}
-}
-}
-}
 }
 
 #endif

@@ -11,11 +11,7 @@
 #include <fcppt/array/object_impl.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -29,8 +25,6 @@ fcppt::array::object<
 	Dim::static_size - 1
 >;
 
-}
-}
 }
 
 #endif

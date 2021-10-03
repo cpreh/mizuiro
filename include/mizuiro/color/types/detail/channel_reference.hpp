@@ -17,13 +17,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
-{
-namespace detail
+namespace mizuiro::color::types::detail
 {
 
 template<
@@ -71,9 +65,6 @@ struct channel_reference
 	);
 };
 
-}
-}
-}
 }
 
 #endif

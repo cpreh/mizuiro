@@ -16,13 +16,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace conversion
-{
-namespace detail
+namespace mizuiro::color::conversion::detail
 {
 
 template<
@@ -107,9 +101,6 @@ rgb_from_chroma(
 	std::terminate();
 }
 
-}
-}
-}
 }
 
 #endif

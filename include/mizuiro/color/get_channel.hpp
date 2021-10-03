@@ -10,9 +10,7 @@
 #include <fcppt/tag_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 template<
@@ -43,7 +41,6 @@ get_channel(
 		Type{};
 }
 
-}
 }
 
 #endif

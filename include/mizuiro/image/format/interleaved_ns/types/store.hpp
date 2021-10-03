@@ -14,13 +14,7 @@
 #include <mizuiro/image/types/store_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace types
-{
-namespace store_ns
+namespace mizuiro::image::types::store_ns
 {
 
 template<
@@ -43,9 +37,6 @@ store_adl(
 	>
 );
 
-}
-}
-}
 }
 
 #endif

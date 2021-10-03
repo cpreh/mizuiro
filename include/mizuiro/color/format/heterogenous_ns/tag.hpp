@@ -8,13 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_HETEROGENOUS_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
-{
-namespace heterogenous_ns
+namespace mizuiro::color::format::heterogenous_ns
 {
 
 template<
@@ -24,9 +18,6 @@ struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

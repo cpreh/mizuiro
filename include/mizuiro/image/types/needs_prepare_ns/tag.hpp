@@ -8,22 +8,13 @@
 #define MIZUIRO_IMAGE_TYPES_NEEDS_PREPARE_NS_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace types
-{
-namespace needs_prepare_ns
+namespace mizuiro::image::types::needs_prepare_ns
 {
 
 struct tag
 {
 };
 
-}
-}
-}
 }
 
 #endif

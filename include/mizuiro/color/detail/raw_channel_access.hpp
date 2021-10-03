@@ -13,11 +13,7 @@
 #include <fcppt/cast/to_char_ptr.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace detail
+namespace mizuiro::color::detail
 {
 
 template<
@@ -81,8 +77,6 @@ struct raw_channel_access
 	}
 };
 
-}
-}
 }
 
 #endif

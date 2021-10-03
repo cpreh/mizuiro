@@ -18,13 +18,7 @@
 #include <fcppt/array/object_impl.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
-{
-namespace advance_pointer_ns
+namespace mizuiro::image::access::advance_pointer_ns
 {
 
 template<
@@ -84,9 +78,6 @@ advance_pointer_adl(
 		);
 }
 
-}
-}
-}
 }
 
 #endif

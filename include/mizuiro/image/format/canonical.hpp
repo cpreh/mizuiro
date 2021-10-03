@@ -10,11 +10,7 @@
 #include <mizuiro/image/format/canonical_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
+namespace mizuiro::image::format
 {
 
 template<
@@ -35,8 +31,6 @@ public:
 	Type;
 };
 
-}
-}
 }
 
 #endif

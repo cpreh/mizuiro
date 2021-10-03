@@ -13,11 +13,7 @@
 #include <fcppt/mpl/set/to_list.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace layout
+namespace mizuiro::color::layout
 {
 
 /**
@@ -87,8 +83,6 @@ struct make
 	);
 };
 
-}
-}
 }
 
 #endif

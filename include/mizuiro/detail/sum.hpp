@@ -13,9 +13,7 @@
 #include <fcppt/mpl/list/fold.hpp>
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -34,7 +32,6 @@ fcppt::mpl::list::fold<
 	>
 >;
 
-}
 }
 
 #endif

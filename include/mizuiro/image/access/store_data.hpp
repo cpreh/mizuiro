@@ -15,11 +15,7 @@
 #include <mizuiro/image/types/store.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
+namespace mizuiro::image::access
 {
 
 template<
@@ -59,8 +55,6 @@ store_data(
 		);
 }
 
-}
-}
 }
 
 #endif

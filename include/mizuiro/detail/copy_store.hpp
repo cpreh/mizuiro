@@ -8,16 +8,13 @@
 #define MIZUIRO_DETAIL_COPY_STORE_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 struct copy_store
 {
 };
 
-}
 }
 
 #endif

@@ -12,9 +12,7 @@
 #include <fcppt/mpl/list/take.hpp>
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -31,7 +29,6 @@ fcppt::mpl::list::take<
 	>
 >;
 
-}
 }
 
 #endif

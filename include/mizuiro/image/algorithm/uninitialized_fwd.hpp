@@ -8,17 +8,11 @@
 #define MIZUIRO_IMAGE_ALGORITHM_UNINITIALIZED_FWD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 enum class uninitialized;
 
-}
-}
 }
 
 #endif

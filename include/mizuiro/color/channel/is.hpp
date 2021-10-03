@@ -13,11 +13,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace channel
+namespace mizuiro::color::channel
 {
 
 template<
@@ -32,8 +28,6 @@ std::is_base_of<
 	T
 >;
 
-}
-}
 }
 
 #endif

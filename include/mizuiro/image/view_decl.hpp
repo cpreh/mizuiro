@@ -18,9 +18,7 @@
 #include <fcppt/variant/object_impl.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -206,7 +204,6 @@ private:
 	view_variant impl_;
 };
 
-}
 }
 
 #endif

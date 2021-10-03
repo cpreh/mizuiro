@@ -18,9 +18,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 template<
@@ -91,7 +89,6 @@ operator<<(
 		_stream;
 }
 
-}
 }
 
 #endif

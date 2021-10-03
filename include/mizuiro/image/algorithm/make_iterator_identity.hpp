@@ -8,11 +8,7 @@
 #define MIZUIRO_IMAGE_ALGORITHM_MAKE_ITERATOR_IDENTITY_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 struct make_iterator_identity
@@ -46,8 +42,6 @@ struct make_iterator_identity
 	}
 };
 
-}
-}
 }
 
 #endif

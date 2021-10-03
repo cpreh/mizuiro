@@ -8,11 +8,7 @@
 #define MIZUIRO_COLOR_CHANNEL_TAG_FWD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace channel
+namespace mizuiro::color::channel
 {
 
 template<
@@ -20,8 +16,6 @@ template<
 >
 struct tag;
 
-}
-}
 }
 
 #endif

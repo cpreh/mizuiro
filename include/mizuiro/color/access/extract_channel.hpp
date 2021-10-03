@@ -16,11 +16,7 @@
 #include <mizuiro/detail/assert_constness.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
+namespace mizuiro::color::access
 {
 
 template<
@@ -69,8 +65,6 @@ extract_channel(
 		);
 }
 
-}
-}
 }
 
 #endif

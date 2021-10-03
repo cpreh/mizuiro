@@ -8,13 +8,7 @@
 #define MIZUIRO_COLOR_INIT_DETAIL_TO_CHANNEL_TYPE_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace init
-{
-namespace detail
+namespace mizuiro::color::init::detail
 {
 
 template<
@@ -26,9 +20,6 @@ to_channel_type
 typename
 Type::channel_type;
 
-}
-}
-}
 }
 
 #endif

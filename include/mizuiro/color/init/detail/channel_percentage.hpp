@@ -10,13 +10,7 @@
 #include <mizuiro/color/init/detail/channel_percentage_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace init
-{
-namespace detail
+namespace mizuiro::color::init::detail
 {
 
 template<
@@ -71,9 +65,6 @@ private:
 	Channel channel_;
 };
 
-}
-}
-}
 }
 
 #endif

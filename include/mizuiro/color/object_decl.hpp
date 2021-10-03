@@ -31,9 +31,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 /**
@@ -272,7 +270,6 @@ private:
 	store data_;
 };
 
-}
 }
 
 #endif

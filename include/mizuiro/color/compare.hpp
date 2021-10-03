@@ -20,9 +20,7 @@
 // TODO(philipp): Where do we put this? ^
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 template<
@@ -101,7 +99,6 @@ compare(
 		);
 }
 
-}
 }
 
 #endif

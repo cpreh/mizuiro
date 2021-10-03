@@ -16,13 +16,7 @@
 #include <mizuiro/image/types/store.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
-{
-namespace store_data_ns
+namespace mizuiro::image::access::store_data_ns
 {
 
 template<
@@ -58,9 +52,6 @@ store_data_adl(
 		_store.data();
 }
 
-}
-}
-}
 }
 
 #endif

@@ -13,13 +13,7 @@
 #include <mizuiro/detail/uint_least.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
-{
-namespace channel_value_ns
+namespace mizuiro::color::types::channel_value_ns
 {
 
 template<
@@ -40,9 +34,6 @@ channel_value_adl(
 	Channel const &
 );
 
-}
-}
-}
 }
 
 #endif

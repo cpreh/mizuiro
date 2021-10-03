@@ -13,11 +13,7 @@
 #include <mizuiro/image/algorithm/detail/copy_impl.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 template<
@@ -49,8 +45,6 @@ copy(
 	);
 }
 
-}
-}
 }
 
 #endif

@@ -13,11 +13,7 @@
 #include <mizuiro/color/format/store_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
+namespace mizuiro::color::access
 {
 
 // TODO(philipp): Move this somewhere else
@@ -45,8 +41,6 @@ channel_index(
 		);
 }
 
-}
-}
 }
 
 #endif

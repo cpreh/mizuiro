@@ -14,11 +14,7 @@
 #include <mizuiro/image/format/detail/planar_color.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
+namespace mizuiro::image::format
 {
 
 template<
@@ -78,8 +74,6 @@ public:
 	format_store() const;
 };
 
-}
-}
 }
 
 #endif

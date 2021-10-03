@@ -11,13 +11,7 @@
 #include <mizuiro/color/conversion/detail/copy_or_default_channel.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace conversion
-{
-namespace detail
+namespace mizuiro::color::conversion::detail
 {
 
 template<
@@ -54,9 +48,6 @@ copy_or_min_channel(
 	);
 }
 
-}
-}
-}
 }
 
 #endif

@@ -12,11 +12,7 @@
 #include <mizuiro/image/format/store_impl.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
+namespace mizuiro::image::format
 {
 
 template<
@@ -52,8 +48,6 @@ to_color_store(
 		);
 }
 
-}
-}
 }
 
 #endif

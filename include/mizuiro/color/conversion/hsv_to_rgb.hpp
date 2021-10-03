@@ -21,11 +21,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace conversion
+namespace mizuiro::color::conversion
 {
 
 template<
@@ -145,8 +141,6 @@ hsv_to_rgb(
 		dest;
 }
 
-}
-}
 }
 
 #endif

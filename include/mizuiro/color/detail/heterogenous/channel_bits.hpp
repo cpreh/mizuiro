@@ -11,13 +11,7 @@
 #include <fcppt/mpl/list/index_of.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace detail
-{
-namespace heterogenous
+namespace mizuiro::color::detail::heterogenous
 {
 
 template<
@@ -35,9 +29,6 @@ fcppt::mpl::list::at<
 	>
 >;
 
-}
-}
-}
 }
 
 #endif

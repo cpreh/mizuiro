@@ -11,11 +11,7 @@
 #include <mizuiro/image/dimension_impl.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -60,8 +56,6 @@ decrement_dim(
 		_current;
 }
 
-}
-}
 }
 
 #endif

@@ -12,11 +12,7 @@
 #include <mizuiro/image/pitch_view_impl.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -33,8 +29,6 @@ mizuiro::image::pitch_view<
 	>::type
 >;
 
-}
-}
 }
 
 #endif

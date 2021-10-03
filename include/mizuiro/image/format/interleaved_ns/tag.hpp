@@ -11,13 +11,7 @@
 #include <mizuiro/image/format/interleaved_ns/make_color_tag_of.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
-{
-namespace interleaved_ns
+namespace mizuiro::image::format::interleaved_ns
 {
 
 template<
@@ -34,9 +28,6 @@ mizuiro::image::format::color_ns::tag<
 {
 };
 
-}
-}
-}
 }
 
 #endif

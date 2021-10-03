@@ -12,13 +12,7 @@
 #include <fcppt/array/object_impl.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
-{
-namespace store_ns
+namespace mizuiro::color::types::store_ns
 {
 
 template<
@@ -36,9 +30,6 @@ store_adl(
 	>
 );
 
-}
-}
-}
 }
 
 #endif

@@ -13,11 +13,7 @@
 #include <mizuiro/image/format/store_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
+namespace mizuiro::image::access
 {
 
 template<
@@ -42,8 +38,6 @@ stride(
 		);
 }
 
-}
-}
 }
 
 #endif

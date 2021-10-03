@@ -8,13 +8,7 @@
 #define MIZUIRO_COLOR_INIT_DETAIL_VALUES_FWD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace init
-{
-namespace detail
+namespace mizuiro::color::init::detail
 {
 
 template<
@@ -22,9 +16,6 @@ template<
 >
 class values;
 
-}
-}
-}
 }
 
 #endif

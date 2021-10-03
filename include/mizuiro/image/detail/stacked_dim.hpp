@@ -12,11 +12,7 @@
 #include <fcppt/no_init.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -68,8 +64,6 @@ stacked_dim(
 	return ret;
 }
 
-}
-}
 }
 
 #endif

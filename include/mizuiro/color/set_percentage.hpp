@@ -10,9 +10,7 @@
 #include <mizuiro/color/denormalize.hpp>
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 template<
@@ -40,7 +38,6 @@ set_percentage(
 	);
 }
 
-}
 }
 
 #endif

@@ -11,11 +11,7 @@
 #include <mizuiro/image/algorithm/compare.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 template<
@@ -36,8 +32,6 @@ equal(
 		);
 }
 
-}
-}
 }
 
 #endif

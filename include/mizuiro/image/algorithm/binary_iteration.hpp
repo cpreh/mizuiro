@@ -12,11 +12,7 @@
 #include <mizuiro/image/algorithm/detail/iteration_to_fold_function.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 template<
@@ -47,8 +43,6 @@ binary_iteration(
 	);
 }
 
-}
-}
 }
 
 #endif

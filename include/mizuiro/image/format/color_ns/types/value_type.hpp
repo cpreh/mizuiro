@@ -12,13 +12,7 @@
 #include <mizuiro/image/types/value_type_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace types
-{
-namespace value_type_ns
+namespace mizuiro::image::types::value_type_ns
 {
 
 template<
@@ -35,9 +29,6 @@ value_type_adl(
 	>
 );
 
-}
-}
-}
 }
 
 #endif

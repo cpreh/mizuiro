@@ -13,11 +13,7 @@
 #include <mizuiro/image/types/store.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
+namespace mizuiro::image::access
 {
 
 template<
@@ -48,8 +44,6 @@ make_store(
 		);
 }
 
-}
-}
 }
 
 #endif

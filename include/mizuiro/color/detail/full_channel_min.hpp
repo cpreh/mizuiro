@@ -13,11 +13,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace detail
+namespace mizuiro::color::detail
 {
 
 template<
@@ -58,8 +54,6 @@ full_channel_min()
 		);
 }
 
-}
-}
 }
 
 #endif

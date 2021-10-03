@@ -13,13 +13,7 @@
 #include <mizuiro/color/types/pointer_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
-{
-namespace pointer_ns
+namespace mizuiro::color::types::pointer_ns
 {
 
 template<
@@ -44,9 +38,6 @@ pointer_adl(
 	Constness
 );
 
-}
-}
-}
 }
 
 #endif

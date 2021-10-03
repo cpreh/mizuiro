@@ -13,13 +13,7 @@
 #include <mizuiro/color/types/channel_reference_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
-{
-namespace channel_reference_ns
+namespace mizuiro::color::types::channel_reference_ns
 {
 
 template<
@@ -42,9 +36,6 @@ channel_reference_adl(
 	Constness
 );
 
-}
-}
-}
 }
 
 #endif

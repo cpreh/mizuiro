@@ -11,11 +11,7 @@
 #include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 template<
@@ -56,8 +52,6 @@ compare(
 		);
 }
 
-}
-}
 }
 
 #endif

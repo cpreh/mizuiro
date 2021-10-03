@@ -11,11 +11,7 @@
 #include <mizuiro/color/types/needs_format_store_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
+namespace mizuiro::color::types
 {
 
 template<
@@ -33,8 +29,6 @@ decltype(
 	)
 );
 
-}
-}
 }
 
 #endif

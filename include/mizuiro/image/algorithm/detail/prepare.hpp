@@ -12,13 +12,7 @@
 #include <fcppt/reference_impl.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
-{
-namespace detail
+namespace mizuiro::image::algorithm::detail
 {
 
 template<
@@ -101,9 +95,6 @@ private:
 	> function_;
 };
 
-}
-}
-}
 }
 
 #endif

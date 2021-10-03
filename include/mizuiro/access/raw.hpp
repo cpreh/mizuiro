@@ -10,16 +10,13 @@
 #include <mizuiro/access/raw_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace access
+namespace mizuiro::access
 {
 
 struct raw
 {
 };
 
-}
 }
 
 #endif

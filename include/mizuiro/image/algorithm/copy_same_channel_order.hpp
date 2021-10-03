@@ -17,11 +17,7 @@
 #include <mizuiro/image/algorithm/detail/copy_element.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 template<
@@ -92,8 +88,6 @@ copy_same_channel_order(
 	}
 }
 
-}
-}
 }
 
 #endif

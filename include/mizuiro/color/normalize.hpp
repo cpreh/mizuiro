@@ -15,9 +15,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 template<
@@ -99,7 +97,6 @@ normalize(
 		);
 }
 
-}
 }
 
 #endif

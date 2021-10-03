@@ -8,13 +8,7 @@
 #define MIZUIRO_IMAGE_ALGORITHM_DETAIL_UNARY_FOLD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
-{
-namespace detail
+namespace mizuiro::image::algorithm::detail
 {
 
 template<
@@ -58,9 +52,6 @@ unary_fold(
 		_state;
 }
 
-}
-}
-}
 }
 
 #endif

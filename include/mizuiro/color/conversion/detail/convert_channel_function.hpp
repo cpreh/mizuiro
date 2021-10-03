@@ -10,13 +10,7 @@
 #include <mizuiro/color/conversion/detail/convert_channel.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace conversion
-{
-namespace detail
+namespace mizuiro::color::conversion::detail
 {
 
 struct convert_channel_function
@@ -41,9 +35,6 @@ struct convert_channel_function
 	}
 };
 
-}
-}
-}
 }
 
 #endif

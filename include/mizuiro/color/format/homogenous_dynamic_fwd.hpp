@@ -10,11 +10,7 @@
 #include <mizuiro/size_type.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
+namespace mizuiro::color::format
 {
 
 template<
@@ -24,8 +20,6 @@ template<
 >
 struct homogenous_dynamic;
 
-}
-}
 }
 
 #endif

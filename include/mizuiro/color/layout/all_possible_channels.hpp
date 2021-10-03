@@ -13,11 +13,7 @@
 #include <fcppt/mpl/set/union.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace layout
+namespace mizuiro::color::layout
 {
 
 template<
@@ -34,8 +30,6 @@ fcppt::mpl::set::union_<
 	Channels
 >;
 
-}
-}
 }
 
 #endif

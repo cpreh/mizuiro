@@ -14,9 +14,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace access
+namespace mizuiro::access
 {
 
 template<
@@ -46,7 +44,6 @@ std::true_type
 {
 };
 
-}
 }
 
 #endif

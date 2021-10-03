@@ -11,13 +11,7 @@
 #include <mizuiro/color/detail/dynamic/channel_index_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace detail
-{
-namespace dynamic
+namespace mizuiro::color::detail::dynamic
 {
 
 class channel_index
@@ -60,9 +54,6 @@ operator==(
 		_right.get();
 }
 
-}
-}
-}
 }
 
 #endif

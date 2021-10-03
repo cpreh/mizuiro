@@ -14,11 +14,7 @@
 #include <mizuiro/color/format/detail/assert_channel.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
+namespace mizuiro::color::access
 {
 
 template<
@@ -57,8 +53,6 @@ compare_channels(
 		);
 }
 
-}
-}
 }
 
 #endif

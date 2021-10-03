@@ -8,11 +8,7 @@
 #define MIZUIRO_IMAGE_FORMAT_TAG_OF_FWD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
+namespace mizuiro::image::format
 {
 
 template<
@@ -20,8 +16,6 @@ template<
 >
 struct tag_of;
 
-}
-}
 }
 
 #endif

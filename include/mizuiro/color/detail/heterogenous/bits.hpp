@@ -11,13 +11,7 @@
 #include <mizuiro/detail/sum.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace detail
-{
-namespace heterogenous
+namespace mizuiro::color::detail::heterogenous
 {
 
 template<
@@ -31,9 +25,6 @@ mizuiro::integral_size<
 	>::value
 >;
 
-}
-}
-}
 }
 
 #endif

@@ -11,11 +11,7 @@
 #include <fcppt/mpl/list/size.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
+namespace mizuiro::color::format
 {
 
 template<
@@ -53,8 +49,6 @@ struct heterogenous_static
 	Layout::channels;
 };
 
-}
-}
 }
 
 #endif

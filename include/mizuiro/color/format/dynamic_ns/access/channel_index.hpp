@@ -14,13 +14,7 @@
 #include <mizuiro/color/format/dynamic_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
-{
-namespace channel_index_ns
+namespace mizuiro::color::access::channel_index_ns
 {
 
 template<
@@ -50,9 +44,6 @@ channel_index_adl(
 		);
 }
 
-}
-}
-}
 }
 
 #endif

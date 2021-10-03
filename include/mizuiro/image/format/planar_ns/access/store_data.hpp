@@ -20,13 +20,7 @@
 #include <fcppt/array/object_impl.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
-{
-namespace store_data_ns
+namespace mizuiro::image::access::store_data_ns
 {
 
 template<
@@ -84,9 +78,6 @@ store_data_adl(
 		);
 }
 
-}
-}
-}
 }
 
 #endif

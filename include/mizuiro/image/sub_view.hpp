@@ -14,9 +14,7 @@
 #include <mizuiro/image/detail/subview_pitch.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -46,7 +44,6 @@ sub_view(
 		);
 }
 
-}
 }
 
 #endif

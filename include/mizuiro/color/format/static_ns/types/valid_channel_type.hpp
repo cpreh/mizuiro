@@ -14,13 +14,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace types
-{
-namespace valid_channel_type_ns
+namespace mizuiro::color::types::valid_channel_type_ns
 {
 
 template<
@@ -36,9 +30,6 @@ valid_channel_type_adl(
 	Type
 );
 
-}
-}
-}
 }
 
 #endif

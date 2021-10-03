@@ -14,13 +14,7 @@
 #include <mizuiro/color/types/channel_value.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
-{
-namespace channel_max_ns
+namespace mizuiro::color::access::channel_max_ns
 {
 
 template<
@@ -48,9 +42,6 @@ channel_max_adl(
 		>();
 }
 
-}
-}
-}
 }
 
 #endif

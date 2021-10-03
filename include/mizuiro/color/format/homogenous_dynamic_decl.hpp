@@ -15,11 +15,7 @@
 #include <fcppt/mpl/set/size.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
+namespace mizuiro::color::format
 {
 
 template<
@@ -81,8 +77,6 @@ public:
 	channel_index_array indices;
 };
 
-}
-}
 }
 
 #endif

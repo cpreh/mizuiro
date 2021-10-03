@@ -8,17 +8,11 @@
 #define MIZUIRO_COLOR_CHANNEL_HUE_FWD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace channel
+namespace mizuiro::color::channel
 {
 
 struct hue;
 
-}
-}
 }
 
 #endif

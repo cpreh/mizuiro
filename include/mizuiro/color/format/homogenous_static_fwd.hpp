@@ -8,11 +8,7 @@
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_STATIC_FWD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace format
+namespace mizuiro::color::format
 {
 
 template<
@@ -21,8 +17,6 @@ template<
 >
 struct homogenous_static;
 
-}
-}
 }
 
 #endif

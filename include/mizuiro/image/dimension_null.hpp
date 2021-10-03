@@ -10,9 +10,7 @@
 #include <mizuiro/no_init.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -38,7 +36,6 @@ dimension_null()
 		ret;
 }
 
-}
 }
 
 #endif

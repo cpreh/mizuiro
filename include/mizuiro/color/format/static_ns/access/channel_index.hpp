@@ -16,13 +16,7 @@
 #include <fcppt/mpl/list/index_of.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace access
-{
-namespace channel_index_ns
+namespace mizuiro::color::access::channel_index_ns
 {
 
 template<
@@ -50,9 +44,6 @@ channel_index_adl(
 		>::value;
 }
 
-}
-}
-}
 }
 
 #endif

@@ -10,13 +10,7 @@
 #include <mizuiro/image/format/color_ns/tag.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace format
-{
-namespace planar_ns
+namespace mizuiro::image::format::planar_ns
 {
 
 template<
@@ -30,9 +24,6 @@ mizuiro::image::format::color_ns::tag<
 {
 };
 
-}
-}
-}
 }
 
 #endif

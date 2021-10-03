@@ -14,13 +14,7 @@
 #include <fcppt/config/external_end.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace types
-{
-namespace can_copy_in_place_ns
+namespace mizuiro::image::types::can_copy_in_place_ns
 {
 
 template<
@@ -38,9 +32,6 @@ can_copy_in_place_adl(
 	>
 );
 
-}
-}
-}
 }
 
 #endif

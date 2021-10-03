@@ -8,9 +8,7 @@
 #define MIZUIRO_DETAIL_REBIND_TAG_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -41,7 +39,6 @@ struct rebind_tag<
 	>;
 };
 
-}
 }
 
 #endif

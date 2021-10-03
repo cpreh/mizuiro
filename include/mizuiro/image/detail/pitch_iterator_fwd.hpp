@@ -8,11 +8,7 @@
 #define MIZUIRO_IMAGE_DETAIL_PITCH_ITERATOR_FWD_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace detail
+namespace mizuiro::image::detail
 {
 
 template<
@@ -22,8 +18,6 @@ template<
 >
 class pitch_iterator;
 
-}
-}
 }
 
 #endif

@@ -18,13 +18,7 @@
 #include <mizuiro/color/conversion/detail/make_logical_and.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace conversion
-{
-namespace detail
+namespace mizuiro::color::conversion::detail
 {
 
 template<
@@ -101,9 +95,6 @@ convert_each(
 		dest;
 }
 
-}
-}
-}
 }
 
 #endif

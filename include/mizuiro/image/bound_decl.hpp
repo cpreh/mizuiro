@@ -12,9 +12,7 @@
 #include <mizuiro/image/dimension_decl.hpp>
 
 
-namespace mizuiro
-{
-namespace image
+namespace mizuiro::image
 {
 
 template<
@@ -58,7 +56,6 @@ private:
 		size_;
 };
 
-}
 }
 
 #endif

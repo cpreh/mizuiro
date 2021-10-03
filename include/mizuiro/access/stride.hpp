@@ -12,9 +12,7 @@
 #include <mizuiro/access/raw.hpp>
 
 
-namespace mizuiro
-{
-namespace access
+namespace mizuiro::access
 {
 
 template<
@@ -52,7 +50,6 @@ stride(
 		Multiplier::value;
 }
 
-}
 }
 
 #endif

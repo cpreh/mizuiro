@@ -12,11 +12,7 @@
 #include <mizuiro/image/iterator_position.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace algorithm
+namespace mizuiro::image::algorithm
 {
 
 struct make_iterator_indexed
@@ -84,8 +80,6 @@ struct make_iterator_indexed
 	}
 };
 
-}
-}
 }
 
 #endif

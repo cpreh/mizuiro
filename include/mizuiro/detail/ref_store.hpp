@@ -8,16 +8,13 @@
 #define MIZUIRO_DETAIL_REF_STORE_HPP_INCLUDED
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 struct ref_store
 {
 };
 
-}
 }
 
 #endif

@@ -17,13 +17,7 @@
 #include <mizuiro/image/types/reference.hpp>
 
 
-namespace mizuiro
-{
-namespace image
-{
-namespace access
-{
-namespace dereference_ns
+namespace mizuiro::image::access::dereference_ns
 {
 
 template<
@@ -68,9 +62,6 @@ dereference_adl(
 		);
 }
 
-}
-}
-}
 }
 
 #endif
