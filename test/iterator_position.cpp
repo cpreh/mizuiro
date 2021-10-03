@@ -4,6 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <fcppt/catch/begin.hpp>
+#include <fcppt/catch/end.hpp>
 #include <mizuiro/no_init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
@@ -44,6 +46,8 @@ mizuiro::image::store<
 >;
 
 }
+
+FCPPT_CATCH_BEGIN
 
 TEST_CASE(
 	"iterator position",
@@ -114,3 +118,5 @@ TEST_CASE(
 		)
 	);
 }
+
+FCPPT_CATCH_END

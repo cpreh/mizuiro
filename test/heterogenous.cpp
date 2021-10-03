@@ -4,6 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <fcppt/catch/begin.hpp>
+#include <fcppt/catch/end.hpp>
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/size_list.hpp>
@@ -28,6 +30,8 @@
 #include <cstdint>
 #include <fcppt/config/external_end.hpp>
 
+
+FCPPT_CATCH_BEGIN
 
 TEST_CASE(
 	"heterogenous luminance_alpha",
@@ -189,3 +193,5 @@ TEST_CASE(
 		std::uint8_t{0x15} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 }
+
+FCPPT_CATCH_END

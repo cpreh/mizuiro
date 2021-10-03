@@ -4,6 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <fcppt/catch/begin.hpp>
+#include <fcppt/catch/end.hpp>
 #include <mizuiro/no_init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/channel/red.hpp>
@@ -62,6 +64,8 @@ mizuiro::image::view<
 >;
 
 }
+
+FCPPT_CATCH_BEGIN
 
 TEST_CASE(
 	"view operations",
@@ -195,3 +199,5 @@ TEST_CASE(
 		channel_type{42} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 	);
 }
+
+FCPPT_CATCH_END

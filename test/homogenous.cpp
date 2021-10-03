@@ -4,6 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <fcppt/catch/begin.hpp>
+#include <fcppt/catch/end.hpp>
 #include <mizuiro/no_init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/channel/luminance.hpp>
@@ -16,6 +18,8 @@
 #include <cstdint>
 #include <fcppt/config/external_end.hpp>
 
+
+FCPPT_CATCH_BEGIN
 
 TEST_CASE(
 	"homogenous static",
@@ -66,3 +70,5 @@ TEST_CASE(
 		test
 	);
 }
+
+FCPPT_CATCH_END

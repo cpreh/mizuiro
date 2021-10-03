@@ -4,6 +4,8 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
+#include <fcppt/catch/begin.hpp>
+#include <fcppt/catch/end.hpp>
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/default_init.hpp>
 #include <mizuiro/color/object.hpp>
@@ -86,6 +88,8 @@ test_format(
 
 }
 
+FCPPT_CATCH_BEGIN
+
 TEST_CASE(
 	"image interleaved",
 	"[mizuiro]"
@@ -119,3 +123,5 @@ TEST_CASE(
 		)
 	);
 }
+
+FCPPT_CATCH_END
