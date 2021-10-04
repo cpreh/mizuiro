@@ -11,9 +11,7 @@
 #include <mizuiro/nonconst_tag_fwd.hpp>
 
 
-namespace mizuiro
-{
-namespace detail
+namespace mizuiro::detail
 {
 
 template<
@@ -55,7 +53,6 @@ struct choose_const<
 	NonConst;
 };
 
-}
 }
 
 #endif

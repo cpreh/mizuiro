@@ -11,11 +11,7 @@
 #include <fcppt/mpl/set/object.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace space
+namespace mizuiro::color::space
 {
 
 struct empty
@@ -26,8 +22,6 @@ struct empty
 	fcppt::mpl::set::object<>;
 };
 
-}
-}
 }
 
 #endif

@@ -10,9 +10,7 @@
 #include <mizuiro/color/compare.hpp>
 
 
-namespace mizuiro
-{
-namespace color
+namespace mizuiro::color
 {
 
 template<
@@ -42,7 +40,6 @@ make_compare_function(
 		};
 }
 
-}
 }
 
 #endif

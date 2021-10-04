@@ -32,18 +32,29 @@ rgb_from_chroma(
 	FloatType const _diff
 )
 {
+	using
+	set_chroma_parts_type
+	=
 	mizuiro::color::conversion::detail::set_chroma_parts<
 		Dest,
 		FloatType
-	>  const set_parts{
+	>;
+
+	set_chroma_parts_type const set_parts{
 		_dest,
-		_chroma
-		+
-		_diff,
-		_largest_part
-		+
-		_diff,
-		_diff
+		typename set_chroma_parts_type::chroma_diff{
+			_chroma
+			+
+			_diff
+		},
+		typename set_chroma_parts_type::largest_diff{
+			_largest_part
+			+
+			_diff
+		},
+		typename set_chroma_parts_type::diff{
+			_diff
+		}
 	};
 
 	switch(

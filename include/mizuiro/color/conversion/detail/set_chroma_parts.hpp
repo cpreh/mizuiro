@@ -8,6 +8,8 @@
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_SET_CHROMA_PARTS_HPP_INCLUDED
 
 #include <mizuiro/color/set_percentage.hpp>
+#include <fcppt/make_strong_typedef.hpp>
+#include <fcppt/strong_typedef_impl.hpp>
 #include <fcppt/reference_impl.hpp>
 
 
@@ -21,24 +23,39 @@ template<
 class set_chroma_parts
 {
 public:
+	FCPPT_MAKE_STRONG_TYPEDEF(
+		Float,
+		chroma_diff
+	);
+
+	FCPPT_MAKE_STRONG_TYPEDEF(
+		Float,
+		largest_diff
+	);
+
+	FCPPT_MAKE_STRONG_TYPEDEF(
+		Float,
+		diff
+	);
+
 	set_chroma_parts(
 		Dest &_dest,
-		Float const _chroma_diff,
-		Float const _largest_diff,
-		Float const _diff
+		chroma_diff const _chroma_diff,
+		largest_diff const _largest_diff,
+		diff const _diff
 	)
 	:
 		dest_(
 			_dest
 		),
 		chroma_diff_{
-			_chroma_diff
+			_chroma_diff.get()
 		},
 		largest_diff_{
-			_largest_diff
+			_largest_diff.get()
 		},
 		diff_{
-			_diff
+			_diff.get()
 		}
 	{
 	}

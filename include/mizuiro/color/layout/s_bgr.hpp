@@ -15,11 +15,7 @@
 #include <fcppt/mpl/list/object.hpp>
 
 
-namespace mizuiro
-{
-namespace color
-{
-namespace layout
+namespace mizuiro::color::layout
 {
 
 using
@@ -34,8 +30,6 @@ mizuiro::color::layout::make<
 	>
 >;
 
-}
-}
 }
 
 #endif
