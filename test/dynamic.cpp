@@ -4,8 +4,6 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <fcppt/catch/begin.hpp>
-#include <fcppt/catch/end.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/channel/blue.hpp>
@@ -21,6 +19,8 @@
 #include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/color/space/rgb.hpp>
+#include <fcppt/catch/begin.hpp>
+#include <fcppt/catch/end.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <catch2/catch.hpp>
 #include <cstdint>

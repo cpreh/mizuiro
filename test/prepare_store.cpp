@@ -4,8 +4,6 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <fcppt/catch/begin.hpp>
-#include <fcppt/catch/end.hpp>
 #include <mizuiro/size_list.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
@@ -21,6 +19,8 @@
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_heterogenous.hpp>
+#include <fcppt/catch/begin.hpp>
+#include <fcppt/catch/end.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <catch2/catch.hpp>
 #include <cstdint>
