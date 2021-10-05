@@ -12,6 +12,7 @@
 #include <mizuiro/image/detail/increment_dim.hpp>
 #include <mizuiro/image/detail/indexed_iterator_decl.hpp>
 #include <mizuiro/image/detail/relative_position.hpp>
+#include <fcppt/strong_typedef_impl.hpp>
 
 
 template<
@@ -22,16 +23,16 @@ mizuiro::image::detail::indexed_iterator<
 	Dimension,
 	Underlying
 >::indexed_iterator(
-	Dimension const &_size,
-	Dimension const &_current,
+	total_size const &_size,
+	current const &_current,
 	Underlying const &_underlying
 )
 :
 	size_(
-		_size
+		_size.get()
 	),
 	current_(
-		_current
+		_current.get()
 	),
 	underlying_(
 		_underlying

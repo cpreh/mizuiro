@@ -9,6 +9,7 @@
 
 #include <mizuiro/image/indexed_ref_fwd.hpp>
 #include <mizuiro/image/detail/indexed_iterator_fwd.hpp>
+#include <fcppt/declare_strong_typedef.hpp>
 
 
 namespace mizuiro::image::detail
@@ -21,9 +22,19 @@ template<
 class indexed_iterator
 {
 public:
+	FCPPT_DECLARE_STRONG_TYPEDEF(
+		Dimension,
+		total_size
+	);
+
+	FCPPT_DECLARE_STRONG_TYPEDEF(
+		Dimension,
+		current
+	);
+
 	indexed_iterator(
-		Dimension const &_total_size,
-		Dimension const &_current,
+		total_size const &,
+		current const &,
 		Underlying const &
 	);
 

@@ -39,11 +39,15 @@ struct make_iterator_indexed
 
 		return
 			result_type(
-				_view.size(),
-				mizuiro::image::dimension_null<
-					typename
-					View::dim
-				>(),
+				typename result_type::total_size{
+					_view.size()
+				},
+				typename result_type::current{
+					mizuiro::image::dimension_null<
+						typename
+						View::dim
+					>()
+				},
 				_view.begin()
 			);
 	}
@@ -70,11 +74,15 @@ struct make_iterator_indexed
 
 		return
 			result_type(
-				_view.size(),
-				mizuiro::image::iterator_position(
-					_view,
-					_view.end()
-				),
+				typename result_type::total_size{
+					_view.size()
+				},
+				typename result_type::current{
+					mizuiro::image::iterator_position(
+						_view,
+						_view.end()
+					)
+				},
 				_view.end()
 			);
 	}
