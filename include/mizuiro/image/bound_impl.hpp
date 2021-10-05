@@ -9,6 +9,7 @@
 
 #include <mizuiro/image/bound_decl.hpp>
 #include <mizuiro/image/dimension_impl.hpp>
+#include <fcppt/strong_typedef_impl.hpp>
 
 
 template<
@@ -19,15 +20,15 @@ mizuiro::image::bound<
 	Dim,
 	ValueType
 >::bound(
-	dim const &_pos,
-	dim const &_size
+	pos_t const &_pos,
+	size_t const &_size
 )
 :
 	pos_(
-		_pos
+		_pos.get()
 	),
 	size_(
-		_size
+		_size.get()
 	)
 {
 }

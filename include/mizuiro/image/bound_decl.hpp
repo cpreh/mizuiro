@@ -10,6 +10,7 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/image/bound_fwd.hpp>
 #include <mizuiro/image/dimension_decl.hpp>
+#include <fcppt/declare_strong_typedef.hpp>
 
 
 namespace mizuiro::image
@@ -40,9 +41,19 @@ public:
 		value_type
 	>;
 
+	FCPPT_DECLARE_STRONG_TYPEDEF(
+		dim,
+		pos_t
+	);
+
+	FCPPT_DECLARE_STRONG_TYPEDEF(
+		dim,
+		size_t
+	);
+
 	bound(
-		dim const &pos,
-		dim const &size
+		pos_t const &,
+		size_t const &
 	);
 
 	dim const &

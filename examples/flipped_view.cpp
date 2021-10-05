@@ -111,13 +111,17 @@ main()
 		mizuiro::image::sub_view(
 			img.view(),
 			bound_type(
-				bound_type::dim(
-					1U,
-					1U
+				bound_type::pos_t(
+					bound_type::dim(
+						1U,
+						1U
+					)
 				),
-				bound_type::dim(
-					3U,
-					4U
+				bound_type::size_t(
+					bound_type::dim(
+						3U,
+						4U
+					)
 				)
 			)
 		)
