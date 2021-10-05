@@ -10,7 +10,12 @@
 #include <mizuiro/color/channel/blue.hpp>
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/red.hpp>
+#include <mizuiro/color/conversion/detail/chroma_tag.hpp>
+#include <mizuiro/color/conversion/detail/diff_tag.hpp>
+#include <mizuiro/color/conversion/detail/hue_part_tag.hpp>
+#include <mizuiro/color/conversion/detail/largest_part_tag.hpp>
 #include <mizuiro/color/conversion/detail/set_chroma_parts.hpp>
+#include <fcppt/strong_typedef_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <exception>
 #include <fcppt/config/external_end.hpp>
@@ -26,10 +31,22 @@ template<
 void
 rgb_from_chroma(
 	Dest &_dest,
-	FloatType const _chroma,
-	FloatType const _hue_part,
-	FloatType const _largest_part,
-	FloatType const _diff
+	fcppt::strong_typedef<
+		FloatType,
+		mizuiro::color::conversion::detail::chroma_tag
+	> const _chroma,
+	fcppt::strong_typedef<
+		FloatType,
+		mizuiro::color::conversion::detail::hue_part_tag
+	> const _hue_part,
+	fcppt::strong_typedef<
+		FloatType,
+		mizuiro::color::conversion::detail::largest_part_tag
+	> const _largest_part,
+	fcppt::strong_typedef<
+		FloatType,
+		mizuiro::color::conversion::detail::diff_tag
+	> const _diff
 )
 {
 	using
@@ -43,17 +60,17 @@ rgb_from_chroma(
 	set_chroma_parts_type const set_parts{
 		_dest,
 		typename set_chroma_parts_type::chroma_diff{
-			_chroma
+			_chroma.get()
 			+
-			_diff
+			_diff.get()
 		},
 		typename set_chroma_parts_type::largest_diff{
-			_largest_part
+			_largest_part.get()
 			+
-			_diff
+			_diff.get()
 		},
 		typename set_chroma_parts_type::diff{
-			_diff
+			_diff.get()
 		}
 	};
 
@@ -61,7 +78,7 @@ rgb_from_chroma(
 		static_cast<
 			int
 		>(
-			_hue_part
+			_hue_part.get()
 		)
 	)
 	{

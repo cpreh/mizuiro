@@ -14,8 +14,13 @@
 #include <mizuiro/color/channel/saturation.hpp>
 #include <mizuiro/color/channel/value.hpp>
 #include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
+#include <mizuiro/color/conversion/detail/chroma_tag.hpp>
+#include <mizuiro/color/conversion/detail/diff_tag.hpp>
+#include <mizuiro/color/conversion/detail/hue_part_tag.hpp>
+#include <mizuiro/color/conversion/detail/largest_part_tag.hpp>
 #include <mizuiro/color/conversion/detail/rgb_from_chroma.hpp>
 #include <mizuiro/color/format/argument.hpp>
+#include <fcppt/make_strong_typedef.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <cmath>
 #include <fcppt/config/external_end.hpp>
@@ -126,10 +131,26 @@ hsv_to_rgb(
 
 	mizuiro::color::conversion::detail::rgb_from_chroma(
 		dest,
-		chroma,
-		hue_part,
-		largest_part,
-		diff
+		fcppt::make_strong_typedef<
+			mizuiro::color::conversion::detail::chroma_tag
+		>(
+			chroma
+		),
+		fcppt::make_strong_typedef<
+			mizuiro::color::conversion::detail::hue_part_tag
+		>(
+			hue_part
+		),
+		fcppt::make_strong_typedef<
+			mizuiro::color::conversion::detail::largest_part_tag
+		>(
+			largest_part
+		),
+		fcppt::make_strong_typedef<
+			mizuiro::color::conversion::detail::diff_tag
+		>(
+			diff
+		)
 	);
 
 	mizuiro::color::conversion::detail::copy_or_max_alpha(

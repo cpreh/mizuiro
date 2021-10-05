@@ -109,13 +109,17 @@ set(
 	include/mizuiro/color/compare.hpp
 	include/mizuiro/color/conversion/detail/channel_to_max.hpp
 	include/mizuiro/color/conversion/detail/channel_to_min.hpp
+	include/mizuiro/color/conversion/detail/chroma_tag.hpp
 	include/mizuiro/color/conversion/detail/convert_channel.hpp
 	include/mizuiro/color/conversion/detail/convert_channel_function.hpp
 	include/mizuiro/color/conversion/detail/convert_each.hpp
 	include/mizuiro/color/conversion/detail/copy_or_default_channel.hpp
 	include/mizuiro/color/conversion/detail/copy_or_max_alpha.hpp
 	include/mizuiro/color/conversion/detail/copy_or_min_channel.hpp
+	include/mizuiro/color/conversion/detail/diff_tag.hpp
 	include/mizuiro/color/conversion/detail/exclude_channel_function.hpp
+	include/mizuiro/color/conversion/detail/hue_part_tag.hpp
+	include/mizuiro/color/conversion/detail/largest_part_tag.hpp
 	include/mizuiro/color/conversion/detail/make_logical_and.hpp
 	include/mizuiro/color/conversion/detail/rgb_from_chroma.hpp
 	include/mizuiro/color/conversion/detail/set_chroma_parts.hpp
