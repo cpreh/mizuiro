@@ -13,8 +13,8 @@
 #include <mizuiro/color/channel/hue.hpp>
 #include <mizuiro/color/channel/saturation.hpp>
 #include <mizuiro/color/channel/value.hpp>
-#include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/conversion/detail/chroma_tag.hpp>
+#include <mizuiro/color/conversion/detail/copy_or_max_alpha.hpp>
 #include <mizuiro/color/conversion/detail/diff_tag.hpp>
 #include <mizuiro/color/conversion/detail/hue_part_tag.hpp>
 #include <mizuiro/color/conversion/detail/largest_part_tag.hpp>
