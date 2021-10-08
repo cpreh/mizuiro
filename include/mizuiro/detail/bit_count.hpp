@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_DETAIL_BIT_COUNT_HPP_INCLUDED
 #define MIZUIRO_DETAIL_BIT_COUNT_HPP_INCLUDED
 
@@ -13,27 +12,13 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::detail
 {
 
-template<
-	typename IntType
->
-struct bit_count
-:
-mizuiro::integral_size<
-	std::numeric_limits<
-		IntType
-	>::digits
->
+template <typename IntType>
+struct bit_count : mizuiro::integral_size<std::numeric_limits<IntType>::digits>
 {
-	static_assert(
-		std::is_unsigned<
-			IntType
-		>::value,
-		"IntType must be unsigned"
-	);
+  static_assert(std::is_unsigned<IntType>::value, "IntType must be unsigned");
 };
 
 }

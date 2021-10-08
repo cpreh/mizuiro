@@ -3,13 +3,11 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_VIEW_HPP_INCLUDED
 #define MIZUIRO_IMAGE_VIEW_HPP_INCLUDED
 
 #include <mizuiro/image/view_decl.hpp>
 #include <mizuiro/image/view_fwd.hpp>
 #include <mizuiro/image/view_impl.hpp>
-
 
 #endif

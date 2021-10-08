@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/empty.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/include/homogenous_static.hpp>
@@ -19,54 +18,25 @@
 #include <cstdint>
 #include <fcppt/config/external_end.hpp>
 
-
 FCPPT_CATCH_BEGIN
 
-TEST_CASE(
-	"empty view",
-	"[mizuiro]"
-)
+TEST_CASE("empty view", "[mizuiro]")
 {
-	using
-	format_3d_rgba8
-	=
-	mizuiro::image::format::interleaved<
-		mizuiro::image::dimension<
-			3
-		>,
-		mizuiro::color::format::homogenous_static<
-			std::uint8_t,
-			mizuiro::color::layout::rgba
-		>
-	>;
+  using format_3d_rgba8 = mizuiro::image::format::interleaved<
+      mizuiro::image::dimension<3>,
+      mizuiro::color::format::homogenous_static<std::uint8_t, mizuiro::color::layout::rgba>>;
 
-	using
-	store_3d_rgba8
-	=
-	mizuiro::image::store<
-		format_3d_rgba8
-	>;
+  using store_3d_rgba8 = mizuiro::image::store<format_3d_rgba8>;
 
-	store_3d_rgba8 store{
-		mizuiro::empty{}
-	};
+  store_3d_rgba8 store{mizuiro::empty{}};
 
-	using
-	view_3d_rgba8
-	=
-	store_3d_rgba8::view_type;
+  using view_3d_rgba8 = store_3d_rgba8::view_type;
 
-	{
-		view_3d_rgba8 const view(
-			store.view()
-		);
+  {
+    view_3d_rgba8 const view(store.view());
 
-		CHECK(
-			view.begin()
-			==
-			view.end()
-		);
-	}
+    CHECK(view.begin() == view.end());
+  }
 }
 
 FCPPT_CATCH_END

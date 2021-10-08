@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_HOMOGENOUS_NS_ACCESS_STRIDE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_HOMOGENOUS_NS_ACCESS_STRIDE_HPP_INCLUDED
 
@@ -15,43 +14,21 @@
 #include <mizuiro/image/format/interleaved_homogenous_ns/tag.hpp>
 #include <mizuiro/image/types/store_unit.hpp>
 
-
 namespace mizuiro::image::access::stride_ns
 {
 
-template<
-	typename Access,
-	typename Format
->
-inline
-mizuiro::size_type
-stride_adl(
-	mizuiro::image::access::stride_ns::tag,
-	Access const _access,
-	mizuiro::image::format::interleaved_homogenous_ns::tag<
-		Format
-	>,
-	mizuiro::image::format::store<
-		Format
-	> const &
-)
+template <typename Access, typename Format>
+inline mizuiro::size_type stride_adl(
+    mizuiro::image::access::stride_ns::tag,
+    Access const _access,
+    mizuiro::image::format::interleaved_homogenous_ns::tag<Format>,
+    mizuiro::image::format::store<Format> const &)
 {
-	return
-		// TODO(philipp): Can we combine this implementation with heterogenous?
-		mizuiro::access::stride<
-			mizuiro::integral_size<
-				Format::color_format::element_count
-			>,
-			mizuiro::integral_size<
-				sizeof(
-					mizuiro::image::types::store_unit<
-						Format
-					>
-				)
-			>
-		>(
-			_access
-		);
+  return
+      // TODO(philipp): Can we combine this implementation with heterogenous?
+      mizuiro::access::stride<
+          mizuiro::integral_size<Format::color_format::element_count>,
+          mizuiro::integral_size<sizeof(mizuiro::image::types::store_unit<Format>)>>(_access);
 }
 
 }

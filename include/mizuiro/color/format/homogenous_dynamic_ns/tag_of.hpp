@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_NS_TAG_OF_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_NS_TAG_OF_HPP_INCLUDED
 
@@ -12,34 +11,14 @@
 #include <mizuiro/color/format/tag_of_fwd.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_ns/tag.hpp>
 
-
 namespace mizuiro::color::format
 {
 
-template<
-	typename ChannelType,
-	typename Space,
-	mizuiro::size_type ChannelCount
->
-struct
-tag_of<
-	mizuiro::color::format::homogenous_dynamic<
-		ChannelType,
-		Space,
-		ChannelCount
-	>
->
+template <typename ChannelType, typename Space, mizuiro::size_type ChannelCount>
+struct tag_of<mizuiro::color::format::homogenous_dynamic<ChannelType, Space, ChannelCount>>
 {
-	using
-	type
-	=
-	mizuiro::color::format::homogenous_dynamic_ns::tag<
-		mizuiro::color::format::homogenous_dynamic<
-			ChannelType,
-			Space,
-			ChannelCount
-		>
-	>;
+  using type = mizuiro::color::format::homogenous_dynamic_ns::tag<
+      mizuiro::color::format::homogenous_dynamic<ChannelType, Space, ChannelCount>>;
 };
 
 }

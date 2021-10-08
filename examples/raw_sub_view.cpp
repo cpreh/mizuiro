@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/access/raw.hpp>
@@ -34,136 +33,60 @@
 #include <ostream>
 #include <fcppt/config/external_end.hpp>
 
-
-int
-main()
+int main()
 {
-	using
-	channel_type
-	=
-	float;
+  using channel_type = float;
 
-	using
-	dim
-	=
-	mizuiro::image::dimension<
-		3
-	>;
+  using dim = mizuiro::image::dimension<3>;
 
-	using
-	format
-	=
-	mizuiro::image::format::interleaved<
-		dim,
-		mizuiro::color::format::homogenous_static<
-			channel_type,
-			mizuiro::color::layout::rgba
-		>
-	>;
+  using format = mizuiro::image::format::interleaved<
+      dim,
+      mizuiro::color::format::homogenous_static<channel_type, mizuiro::color::layout::rgba>>;
 
-	constexpr mizuiro::size_type const width{
-		4
-	};
+  constexpr mizuiro::size_type const width{4};
 
-	constexpr mizuiro::size_type const height{
-		4
-	};
+  constexpr mizuiro::size_type const height{4};
 
-	constexpr mizuiro::size_type const depth{
-		4
-	};
+  constexpr mizuiro::size_type const depth{4};
 
-	fcppt::array::object<
-		unsigned char,
-		width
-		* height
-		* depth
-		* sizeof(float)
-		* format::color_format::element_count
-	> raw_data{
-		fcppt::no_init{}
-	};
+  fcppt::array::object<
+      unsigned char,
+      width * height * depth * sizeof(float) * format::color_format::element_count>
+      raw_data{fcppt::no_init{}};
 
-	using
-	view_type
-	=
-	mizuiro::image::pitch_view<
-		mizuiro::access::raw,
-		format,
-		mizuiro::nonconst_tag
-	>;
+  using view_type = mizuiro::image::pitch_view<mizuiro::access::raw, format, mizuiro::nonconst_tag>;
 
-	using
-	bound_type
-	=
-	view_type::bound_type;
+  using bound_type = view_type::bound_type;
 
-	view_type const view(
-		mizuiro::image::make_raw_view<
-			format
-		>(
-			raw_data.data(),
-			dim(
-				width,
-				height,
-				depth
-			),
-			mizuiro::image::dimension_null<
-				view_type::pitch_type
-			>()
-		)
-	);
+  view_type const view(mizuiro::image::make_raw_view<format>(
+      raw_data.data(),
+      dim(width, height, depth),
+      mizuiro::image::dimension_null<view_type::pitch_type>()));
 
-	mizuiro::image::algorithm::fill_indexed(
-		view,
-		[](
-			view_type::dim const _index
-		)
-		{
-			return
-				mizuiro::color::object<
-					format::color_format
-				>(
-					(mizuiro::color::init::red() = static_cast<channel_type>(_index.at_c<0>()))
-					(mizuiro::color::init::green() = static_cast<channel_type>(_index.at_c<1>()))
-					(mizuiro::color::init::blue() = static_cast<channel_type>(_index.at_c<2>()))
-					(mizuiro::color::init::alpha() = channel_type{255}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-				);
-		},
-		mizuiro::image::algorithm::uninitialized::yes
-	);
+  mizuiro::image::algorithm::fill_indexed(
+      view,
+      [](view_type::dim const _index)
+      {
+        return mizuiro::color::object<format::color_format>((
+            mizuiro::color::init::red() = static_cast<channel_type>(_index.at_c<0>()))(
+            mizuiro::color::init::green() = static_cast<channel_type>(_index.at_c<1>()))(
+            mizuiro::color::init::blue() = static_cast<channel_type>(_index.at_c<2>()))(
+            mizuiro::color::init::alpha() =
+                channel_type{
+                    255}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+        );
+      },
+      mizuiro::image::algorithm::uninitialized::yes);
 
-	view_type const sub_view(
-		mizuiro::image::sub_view(
-			view,
-			bound_type(
-				bound_type::pos_t(
-					bound_type::dim(
-						1U,
-						1U,
-						0U
-					)
-				),
-				bound_type::size_t(
-					bound_type::dim(
-						2U,
-						3U,
-						2U
-					)
-				)
-			)
-		)
-	);
+  view_type const sub_view(mizuiro::image::sub_view(
+      view,
+      bound_type(
+          bound_type::pos_t(bound_type::dim(1U, 1U, 0U)),
+          bound_type::size_t(bound_type::dim(2U, 3U, 2U)))));
 
-	std::cout
-		<< "sub_view.pitch(): "
-		<< sub_view.pitch()
-		<< '\n';
+  std::cout << "sub_view.pitch(): " << sub_view.pitch() << '\n';
 
-	mizuiro::image::algorithm::print(
-		std::cout,
-		sub_view
-	);
+  mizuiro::image::algorithm::print(std::cout, sub_view);
 
-	std::cout << '\n';
+  std::cout << '\n';
 }

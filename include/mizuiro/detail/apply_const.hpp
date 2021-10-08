@@ -3,71 +3,37 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_DETAIL_APPLY_CONST_HPP_INCLUDED
 #define MIZUIRO_DETAIL_APPLY_CONST_HPP_INCLUDED
 
 #include <mizuiro/const_tag_fwd.hpp>
 #include <mizuiro/nonconst_tag_fwd.hpp>
 
-
 namespace mizuiro::detail
 {
 
-template<
-	typename BaseType,
-	typename Constness
->
+template <typename BaseType, typename Constness>
 struct apply_const;
 
-template<
-	typename BaseType
->
-struct apply_const<
-	BaseType,
-	mizuiro::const_tag
->;
+template <typename BaseType>
+struct apply_const<BaseType, mizuiro::const_tag>;
 
-template<
-	typename BaseType
->
-struct apply_const<
-	BaseType &,
-	mizuiro::const_tag
->
+template <typename BaseType>
+struct apply_const<BaseType &, mizuiro::const_tag>
 {
-	using
-	type
-	=
-	BaseType const &;
+  using type = BaseType const &;
 };
 
-template<
-	typename BaseType
->
-struct apply_const<
-	BaseType *,
-	mizuiro::const_tag
->
+template <typename BaseType>
+struct apply_const<BaseType *, mizuiro::const_tag>
 {
-	using
-	type
-	=
-	BaseType const *;
+  using type = BaseType const *;
 };
 
-template<
-	typename BaseType
->
-struct apply_const<
-	BaseType,
-	mizuiro::nonconst_tag
->
+template <typename BaseType>
+struct apply_const<BaseType, mizuiro::nonconst_tag>
 {
-	using
-	type
-	=
-	BaseType;
+  using type = BaseType;
 };
 
 }

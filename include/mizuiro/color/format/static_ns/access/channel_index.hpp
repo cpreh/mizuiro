@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_FORMAT_STATIC_NS_ACCESS_CHANNEL_INDEX_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_STATIC_NS_ACCESS_CHANNEL_INDEX_HPP_INCLUDED
 
@@ -15,33 +14,17 @@
 #include <mizuiro/color/types/static_channels.hpp>
 #include <fcppt/mpl/list/index_of.hpp>
 
-
 namespace mizuiro::color::access::channel_index_ns
 {
 
-template<
-	typename Format,
-	typename Channel
->
-mizuiro::size_type
-channel_index_adl(
-	mizuiro::color::access::channel_index_ns::tag,
-	mizuiro::color::format::static_ns::tag<
-		Format
-	>,
-	mizuiro::color::format::store<
-		Format
-	> const &,
-	Channel const &
-)
+template <typename Format, typename Channel>
+mizuiro::size_type channel_index_adl(
+    mizuiro::color::access::channel_index_ns::tag,
+    mizuiro::color::format::static_ns::tag<Format>,
+    mizuiro::color::format::store<Format> const &,
+    Channel const &)
 {
-	return
-		fcppt::mpl::list::index_of<
-			mizuiro::color::types::static_channels<
-				Format
-			>,
-			Channel
-		>::value;
+  return fcppt::mpl::list::index_of<mizuiro::color::types::static_channels<Format>, Channel>::value;
 }
 
 }

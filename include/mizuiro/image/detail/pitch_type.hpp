@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_DETAIL_PITCH_TYPE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_PITCH_TYPE_HPP_INCLUDED
 
@@ -11,43 +10,20 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/image/dimension_fwd.hpp>
 
-
 namespace mizuiro::image::detail
 {
 
-template<
-	typename Type
->
+template <typename Type>
 struct pitch_type;
 
-template<
-	mizuiro::size_type Dim
->
-struct pitch_type<
-	mizuiro::image::dimension<
-		Dim,
-		mizuiro::size_type
-	>
->
+template <mizuiro::size_type Dim>
+struct pitch_type<mizuiro::image::dimension<Dim, mizuiro::size_type>>
 {
-	using
-	type
-	=
-	mizuiro::image::dimension<
-		Dim - 1,
-		mizuiro::difference_type
-	>;
+  using type = mizuiro::image::dimension<Dim - 1, mizuiro::difference_type>;
 };
 
-template<
-	typename Type
->
-struct pitch_type<
-	mizuiro::image::dimension<
-		0,
-		Type
-	>
->
+template <typename Type>
+struct pitch_type<mizuiro::image::dimension<0, Type>>
 {
 };
 

@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_RAW_CONTAINER_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_RAW_CONTAINER_IMPL_HPP_INCLUDED
 
@@ -12,374 +11,156 @@
 #include <memory>
 #include <fcppt/config/external_end.hpp>
 
-
-template<
-	typename T,
-	typename A
->
-mizuiro::image::raw_container<
-	T,
-	A
->::raw_container()
-:
-	allocator(),
-	data_(
-		nullptr
-	),
-	data_end_(
-		nullptr
-	)
+template <typename T, typename A>
+mizuiro::image::raw_container<T, A>::raw_container()
+    : allocator(), data_(nullptr), data_end_(nullptr)
 {
 }
 
-template<
-	typename T,
-	typename A
->
-mizuiro::image::raw_container<
-	T,
-	A
->::raw_container(
-	size_type const _size
-)
-:
-	allocator()
-	// Dont' initialize data_ and data_end_
+template <typename T, typename A>
+mizuiro::image::raw_container<T, A>::raw_container(size_type const _size) : allocator()
+// Dont' initialize data_ and data_end_
 {
-	this->allocate(
-		_size
-	);
+  this->allocate(_size);
 }
 
-template<
-	typename T,
-	typename A
->
-mizuiro::image::raw_container<
-	T,
-	A
->::raw_container(
-	raw_container const &_other
-)
-:
-	allocator()
-	// Dont' initialize data_ and data_end_
+template <typename T, typename A>
+mizuiro::image::raw_container<T, A>::raw_container(raw_container const &_other) : allocator()
+// Dont' initialize data_ and data_end_
 {
-	this->copy(
-		_other
-	);
+  this->copy(_other);
 }
 
-template<
-	typename T,
-	typename A
->
-mizuiro::image::raw_container<
-	T,
-	A
->::raw_container(
-	raw_container &&_other
-)
-noexcept
-:
-	allocator(),
-	data_(
-		_other.data_
-	),
-	data_end_(
-		_other.data_end_
-	)
+template <typename T, typename A>
+mizuiro::image::raw_container<T, A>::raw_container(raw_container &&_other) noexcept
+    : allocator(), data_(_other.data_), data_end_(_other.data_end_)
 {
-	_other.after_move();
+  _other.after_move();
 }
 
-template<
-	typename T,
-	typename A
->
-mizuiro::image::raw_container<
-	T,
-	A
-> &
-mizuiro::image::raw_container<
-	T,
-	A
->::operator=( // NOLINT(cert-oop54-cpp)
-	raw_container const &_other
-)
+template <typename T, typename A>
+mizuiro::image::raw_container<T, A> &mizuiro::image::raw_container<
+    T,
+    A>::operator=( // NOLINT(cert-oop54-cpp)
+    raw_container const &_other)
 {
-	if(
-		this
-		==
-		&_other
-	)
-	{
-		return
-			*this;
-	}
+  if (this == &_other)
+  {
+    return *this;
+  }
 
-	this->destroy();
+  this->destroy();
 
-	this->copy(
-		_other
-	);
+  this->copy(_other);
 
-	return
-		*this;
+  return *this;
 }
 
-template<
-	typename T,
-	typename A
->
-mizuiro::image::raw_container<
-	T,
-	A
-> &
-mizuiro::image::raw_container<
-	T,
-	A
->::operator=(
-	raw_container &&_other
-)
-noexcept
+template <typename T, typename A>
+mizuiro::image::raw_container<T, A> &
+mizuiro::image::raw_container<T, A>::operator=(raw_container &&_other) noexcept
 {
-	if(
-		this
-		==
-		&_other
-	)
-	{
-		return
-			*this;
-	}
+  if (this == &_other)
+  {
+    return *this;
+  }
 
-	this->destroy();
+  this->destroy();
 
-	data_ =
-		_other.data_;
+  data_ = _other.data_;
 
-	data_end_ =
-		_other.data_end_;
+  data_end_ = _other.data_end_;
 
-	_other.after_move();
+  _other.after_move();
 
-	return
-		*this;
+  return *this;
 }
 
 namespace mizuiro::image
 {
-template<
-	typename T,
-	typename A
->
-raw_container<
-	T,
-	A
->::~raw_container()
+template <typename T, typename A>
+raw_container<T, A>::~raw_container()
 {
-	this->destroy();
+  this->destroy();
 }
 }
 
-template<
-	typename T,
-	typename A
->
-void
-mizuiro::image::raw_container<
-	T,
-	A
->::resize(
-	size_type const _size
-)
+template <typename T, typename A>
+void mizuiro::image::raw_container<T, A>::resize(size_type const _size)
 {
-	this->destroy();
+  this->destroy();
 
-	this->allocate(
-		_size
-	);
+  this->allocate(_size);
 }
 
-template<
-	typename T,
-	typename A
->
-typename
-mizuiro::image::raw_container<
-	T,
-	A
->::pointer
-mizuiro::image::raw_container<
-	T,
-	A
->::data()
+template <typename T, typename A>
+typename mizuiro::image::raw_container<T, A>::pointer mizuiro::image::raw_container<T, A>::data()
 {
-	return
-		data_;
+  return data_;
 }
 
-template<
-	typename T,
-	typename A
->
-typename
-mizuiro::image::raw_container<
-	T,
-	A
->::const_pointer
-mizuiro::image::raw_container<
-	T,
-	A
->::data() const
+template <typename T, typename A>
+typename mizuiro::image::raw_container<T, A>::const_pointer
+mizuiro::image::raw_container<T, A>::data() const
 {
-	return
-		data_;
+  return data_;
 }
 
-template<
-	typename T,
-	typename A
->
-typename
-mizuiro::image::raw_container<
-	T,
-	A
->::pointer
-mizuiro::image::raw_container<
-	T,
-	A
->::data_end()
+template <typename T, typename A>
+typename mizuiro::image::raw_container<T, A>::pointer
+mizuiro::image::raw_container<T, A>::data_end()
 {
-	return
-		data_end_;
+  return data_end_;
 }
 
-template<
-	typename T,
-	typename A
->
-typename
-mizuiro::image::raw_container<
-	T,
-	A
->::const_pointer
-mizuiro::image::raw_container<
-	T,
-	A
->::data_end() const
+template <typename T, typename A>
+typename mizuiro::image::raw_container<T, A>::const_pointer
+mizuiro::image::raw_container<T, A>::data_end() const
 {
-	return
-		data_end_;
+  return data_end_;
 }
 
-template<
-	typename T,
-	typename A
->
-typename
-mizuiro::image::raw_container<
-	T,
-	A
->::size_type
-mizuiro::image::raw_container<
-	T,
-	A
->::size() const
+template <typename T, typename A>
+typename mizuiro::image::raw_container<T, A>::size_type
+mizuiro::image::raw_container<T, A>::size() const
 {
-	return
-		static_cast<
-			size_type
-		>(
-			data_end_ - data_
-		);
+  return static_cast<size_type>(data_end_ - data_);
 }
 
-template<
-	typename T,
-	typename A
->
-void
-mizuiro::image::raw_container<
-	T,
-	A
->::allocate(
-	size_type const _size
-)
+template <typename T, typename A>
+void mizuiro::image::raw_container<T, A>::allocate(size_type const _size)
 {
-	data_ =
-		allocator.allocate(
-			_size
-		);
+  data_ = allocator.allocate(_size);
 
-	data_end_ = data_ + _size;
+  data_end_ = data_ + _size;
 }
 
-template<
-	typename T,
-	typename A
->
-void
-mizuiro::image::raw_container<
-	T,
-	A
->::copy(
-	raw_container const &_other
-)
+template <typename T, typename A>
+void mizuiro::image::raw_container<T, A>::copy(raw_container const &_other)
 {
-	this->allocate(
-		_other.size()
-	);
+  this->allocate(_other.size());
 
-	if(
-		_other.data()
-	)
-	{
-		std::uninitialized_copy(
-			_other.data(),
-			_other.data_end(),
-			this->data()
-		);
-	}
+  if (_other.data())
+  {
+    std::uninitialized_copy(_other.data(), _other.data_end(), this->data());
+  }
 }
 
-template<
-	typename T,
-	typename A
->
-void
-mizuiro::image::raw_container<
-	T,
-	A
->::destroy()
+template <typename T, typename A>
+void mizuiro::image::raw_container<T, A>::destroy()
 {
-	if(
-		data_
-	)
-	{
-		allocator.deallocate(
-			data_,
-			this->size()
-		);
-	}
+  if (data_)
+  {
+    allocator.deallocate(data_, this->size());
+  }
 }
 
-template<
-	typename T,
-	typename A
->
-void
-mizuiro::image::raw_container<
-	T,
-	A
->::after_move()
+template <typename T, typename A>
+void mizuiro::image::raw_container<T, A>::after_move()
 {
-	data_ =
-		nullptr;
+  data_ = nullptr;
 
-	data_end_ =
-		nullptr;
+  data_end_ = nullptr;
 }
 
 #endif

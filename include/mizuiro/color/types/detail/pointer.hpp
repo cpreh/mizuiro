@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_TYPES_DETAIL_POINTER_HPP_INCLUDED
 #define MIZUIRO_COLOR_TYPES_DETAIL_POINTER_HPP_INCLUDED
 
@@ -15,44 +14,21 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::color::types::detail
 {
 
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
+template <typename Access, typename Format, typename Constness>
 struct pointer
 {
-	MIZUIRO_DETAIL_ASSERT_ACCESS(
-		Access
-	);
+  MIZUIRO_DETAIL_ASSERT_ACCESS(Access);
 
-	MIZUIRO_DETAIL_ASSERT_CONSTNESS(
-		Constness
-	);
+  MIZUIRO_DETAIL_ASSERT_CONSTNESS(Constness);
 
-	using
-	type
-	=
-	decltype(
-		pointer_adl(
-			std::declval<
-				mizuiro::color::types::pointer_ns::tag
-			>(),
-			std::declval<
-				Access
-			>(),
-			mizuiro::color::format::make_tag_of<
-				Format
-			>(),
-			std::declval<
-				Constness
-			>()
-		)
-	);
+  using type = decltype(pointer_adl(
+      std::declval<mizuiro::color::types::pointer_ns::tag>(),
+      std::declval<Access>(),
+      mizuiro::color::format::make_tag_of<Format>(),
+      std::declval<Constness>()));
 };
 
 }

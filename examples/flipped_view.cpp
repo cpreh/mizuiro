@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
@@ -29,114 +28,56 @@
 #include <ostream>
 #include <fcppt/config/external_end.hpp>
 
-
-int
-main()
+int main()
 {
-	using
-	channel_type
-	=
-	float;
+  using channel_type = float;
 
-	using
-	format
-	=
-	mizuiro::image::format::interleaved<
-		mizuiro::image::dimension<
-			2
-		>,
-		mizuiro::color::format::homogenous_static<
-			channel_type,
-			mizuiro::color::layout::rgba
-		>
-	>;
+  using format = mizuiro::image::format::interleaved<
+      mizuiro::image::dimension<2>,
+      mizuiro::color::format::homogenous_static<channel_type, mizuiro::color::layout::rgba>>;
 
-	using
-	store
-	=
-	mizuiro::image::store<
-		format
-	>;
+  using store = mizuiro::image::store<format>;
 
-	using
-	view_type
-	=
-	store::view_type;
+  using view_type = store::view_type;
 
-	store img{
-		store::dim(
-			4U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-			6U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-		),
-		[](
-			view_type const &_view
-		)
-		{
-			mizuiro::image::algorithm::fill_indexed(
-				_view,
-				[](
-					view_type::dim const _index
-				)
-				{
-					return
-						mizuiro::color::object<
-							format::color_format
-						>(
-							(mizuiro::color::init::red()
-								= static_cast<channel_type>(_index.at_c<0>()))
-							(mizuiro::color::init::green()
-								= static_cast<channel_type>(_index.at_c<1>()))
-							(mizuiro::color::init::blue() = channel_type{255}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-							(mizuiro::color::init::alpha() = channel_type{255}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-						);
-				},
-				mizuiro::image::algorithm::uninitialized::yes
-			);
-		}
-	};
+  store img{
+      store::dim(
+          4U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+          6U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+          ),
+      [](view_type const &_view)
+      {
+        mizuiro::image::algorithm::fill_indexed(
+            _view,
+            [](view_type::dim const _index)
+            {
+              return mizuiro::color::object<format::color_format>(
+                  (mizuiro::color::init::red() = static_cast<channel_type>(_index.at_c<0>()))(
+                      mizuiro::color::init::green() = static_cast<channel_type>(_index.at_c<1>()))(
+                      mizuiro::color::init::blue() =
+                          channel_type{
+                              255}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+                  (mizuiro::color::init::alpha() =
+                       channel_type{
+                           255}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+              );
+            },
+            mizuiro::image::algorithm::uninitialized::yes);
+      }};
 
-	using
-	bound_type
-	=
-	view_type::bound_type;
+  using bound_type = view_type::bound_type;
 
-	using
-	pitch_view
-	=
-	mizuiro::image::to_pitch_view<
-		view_type
-	>;
+  using pitch_view = mizuiro::image::to_pitch_view<view_type>;
 
-	pitch_view const sub_view(
-		mizuiro::image::sub_view(
-			img.view(),
-			bound_type(
-				bound_type::pos_t(
-					bound_type::dim(
-						1U,
-						1U
-					)
-				),
-				bound_type::size_t(
-					bound_type::dim(
-						3U,
-						4U
-					)
-				)
-			)
-		)
-	);
+  pitch_view const sub_view(mizuiro::image::sub_view(
+      img.view(),
+      bound_type(
+          bound_type::pos_t(bound_type::dim(1U, 1U)),
+          bound_type::size_t(bound_type::dim(3U, 4U)))));
 
-	pitch_view const flipped_view(
-		mizuiro::image::flipped_view(
-			sub_view
-		)
-	);
+  pitch_view const flipped_view(mizuiro::image::flipped_view(sub_view));
 
-	mizuiro::image::algorithm::print(
-		std::cout,
-		flipped_view
-	);
+  mizuiro::image::algorithm::print(std::cout, flipped_view);
 
-	std::cout << '\n';
+  std::cout << '\n';
 }

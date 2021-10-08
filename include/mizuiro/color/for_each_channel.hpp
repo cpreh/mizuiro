@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_FOR_EACH_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_FOR_EACH_CHANNEL_HPP_INCLUDED
 
@@ -13,49 +12,20 @@
 #include <fcppt/algorithm/loop.hpp>
 #include <fcppt/algorithm/loop_break_mpl.hpp>
 
-
 // TODO(philipp): Where should be put this? ^
-
 
 namespace mizuiro::color
 {
 
-template<
-	typename Color,
-	typename Function
->
-inline
-void
-for_each_channel(
-	Color const &_color,
-	Function const &_function
-)
+template <typename Color, typename Function>
+inline void for_each_channel(Color const &_color, Function const &_function)
 {
-	static_assert(
-		mizuiro::color::is_color<
-			Color
-		>::value,
-		"Color must be a color type"
-	);
+  static_assert(mizuiro::color::is_color<Color>::value, "Color must be a color type");
 
-	fcppt::algorithm::loop(
-		mizuiro::color::make_range(
-			_color
-		),
-		[
-			&_function
-		](
-			auto const _channel
-		)
-		{
-			return
-				_function(
-					mizuiro::color::get_channel(
-						_channel
-					)
-				);
-		}
-	);
+  fcppt::algorithm::loop(
+      mizuiro::color::make_range(_color),
+      [&_function](auto const _channel)
+      { return _function(mizuiro::color::get_channel(_channel)); });
 }
 
 }

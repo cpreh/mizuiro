@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_FORMAT_HOMOGENOUS_NS_ACCESS_CHANNEL_MIN_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_NS_ACCESS_CHANNEL_MIN_HPP_INCLUDED
 
@@ -13,34 +12,17 @@
 #include <mizuiro/color/format/homogenous_ns/tag.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 
-
 namespace mizuiro::color::access::channel_min_ns
 {
 
-template<
-	typename Format,
-	typename Channel
->
-mizuiro::color::types::channel_value<
-	Format,
-	Channel
->
-channel_min_adl(
-	mizuiro::color::access::channel_min_ns::tag,
-	mizuiro::color::format::homogenous_ns::tag<
-		Format
-	>,
-	mizuiro::color::format::store<
-		Format
-	> const &,
-	Channel const &
-)
+template <typename Format, typename Channel>
+mizuiro::color::types::channel_value<Format, Channel> channel_min_adl(
+    mizuiro::color::access::channel_min_ns::tag,
+    mizuiro::color::format::homogenous_ns::tag<Format>,
+    mizuiro::color::format::store<Format> const &,
+    Channel const &)
 {
-	return
-		mizuiro::color::detail::full_channel_min<
-			typename
-			Format::channel_type
-		>();
+  return mizuiro::color::detail::full_channel_min<typename Format::channel_type>();
 }
 
 }

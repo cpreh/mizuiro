@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_ACCESS_DATA_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ACCESS_DATA_HPP_INCLUDED
 
@@ -13,43 +12,22 @@
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
 
-
 namespace mizuiro::image::access
 {
 
 // TODO(philipp): This is only used for prepare_store and that doesn't work for planar images
-template<
-	typename Access,
-	typename Constness,
-	typename ImageFormat
->
-mizuiro::image::types::pointer<
-	Access,
-	ImageFormat,
-	Constness
->
-data(
-	mizuiro::image::format::store<
-		ImageFormat
-	> const &_format,
-	mizuiro::image::types::reference<
-		Access,
-		ImageFormat,
-		Constness
-	> const &_ref
-)
+template <typename Access, typename Constness, typename ImageFormat>
+mizuiro::image::types::pointer<Access, ImageFormat, Constness> data(
+    mizuiro::image::format::store<ImageFormat> const &_format,
+    mizuiro::image::types::reference<Access, ImageFormat, Constness> const &_ref)
 {
-	return
-		data_adl(
-			mizuiro::image::access::data_ns::tag(),
-			Access(),
-			mizuiro::image::format::make_tag_of<
-				ImageFormat
-			>(),
-			Constness(),
-			_format,
-			_ref
-		);
+  return data_adl(
+      mizuiro::image::access::data_ns::tag(),
+      Access(),
+      mizuiro::image::format::make_tag_of<ImageFormat>(),
+      Constness(),
+      _format,
+      _ref);
 }
 
 }

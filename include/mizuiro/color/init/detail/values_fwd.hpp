@@ -3,17 +3,13 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_VALUES_FWD_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_VALUES_FWD_HPP_INCLUDED
-
 
 namespace mizuiro::color::init::detail
 {
 
-template<
-	typename Vector
->
+template <typename Vector>
 class values;
 
 }

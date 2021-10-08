@@ -3,19 +3,13 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_DETAIL_PITCH_ITERATOR_FWD_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_PITCH_ITERATOR_FWD_HPP_INCLUDED
-
 
 namespace mizuiro::image::detail
 {
 
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
+template <typename Access, typename Format, typename Constness>
 class pitch_iterator;
 
 }

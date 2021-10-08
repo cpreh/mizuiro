@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_SPACE_HSV_HPP_INCLUDED
 #define MIZUIRO_COLOR_SPACE_HSV_HPP_INCLUDED
 
@@ -13,20 +12,15 @@
 #include <mizuiro/color/space/hsv_fwd.hpp>
 #include <fcppt/mpl/set/object.hpp>
 
-
 namespace mizuiro::color::space
 {
 
 struct hsv
 {
-	using
-	required_channels
-	=
-	fcppt::mpl::set::object<
-		mizuiro::color::channel::hue,
-		mizuiro::color::channel::saturation,
-		mizuiro::color::channel::value
-	>;
+  using required_channels = fcppt::mpl::set::object<
+      mizuiro::color::channel::hue,
+      mizuiro::color::channel::saturation,
+      mizuiro::color::channel::value>;
 };
 
 }

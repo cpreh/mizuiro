@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_CONVERSION_RGB_TO_SRGB_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_RGB_TO_SRGB_HPP_INCLUDED
 
@@ -12,40 +11,21 @@
 #include <mizuiro/color/conversion/detail/srgb_gamma.hpp>
 #include <mizuiro/color/format/argument.hpp>
 
-
 namespace mizuiro::color::conversion
 {
 
-template<
-	typename Dest,
-	typename Src
->
-inline
-mizuiro::color::object<
-	Dest
->
-rgb_to_srgb(
-	Src const &_source,
-	typename
-	mizuiro::color::object<
-		Dest
-	>::format_store_type const &_format
-		= mizuiro::color::format::argument<
-			Dest
-		>::get()
-)
+template <typename Dest, typename Src>
+inline mizuiro::color::object<Dest> rgb_to_srgb(
+    Src const &_source,
+    typename mizuiro::color::object<Dest>::format_store_type const &_format =
+        mizuiro::color::format::argument<Dest>::get())
 {
-	return
-		mizuiro::color::conversion::same_to_same_gamma<
-			Dest
-		>(
-			_source,
-			mizuiro::color::conversion::detail::srgb_gamma<
-				// TODO(philipp): Choose a more appropriate type
-				float
-			>(),
-			_format
-		);
+  return mizuiro::color::conversion::same_to_same_gamma<Dest>(
+      _source,
+      mizuiro::color::conversion::detail::srgb_gamma<
+          // TODO(philipp): Choose a more appropriate type
+          float>(),
+      _format);
 }
 
 }

@@ -3,27 +3,17 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_DETAIL_HETEROGENOUS_BITS_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_HETEROGENOUS_BITS_HPP_INCLUDED
 
 #include <mizuiro/integral_size.hpp>
 #include <mizuiro/detail/sum.hpp>
 
-
 namespace mizuiro::color::detail::heterogenous
 {
 
-template<
-	typename Bits
->
-using bits
-=
-mizuiro::integral_size<
-	mizuiro::detail::sum<
-		Bits
-	>::value
->;
+template <typename Bits>
+using bits = mizuiro::integral_size<mizuiro::detail::sum<Bits>::value>;
 
 }
 

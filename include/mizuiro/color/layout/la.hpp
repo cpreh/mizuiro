@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_LAYOUT_LA_HPP_INCLUDED
 #define MIZUIRO_COLOR_LAYOUT_LA_HPP_INCLUDED
 
@@ -13,20 +12,12 @@
 #include <mizuiro/color/space/luminance.hpp>
 #include <fcppt/mpl/list/object.hpp>
 
-
 namespace mizuiro::color::layout
 {
 
-using
-la
-=
-mizuiro::color::layout::make<
-	mizuiro::color::space::luminance,
-	fcppt::mpl::list::object<
-		mizuiro::color::channel::luminance,
-		mizuiro::color::channel::alpha
-	>
->;
+using la = mizuiro::color::layout::make<
+    mizuiro::color::space::luminance,
+    fcppt::mpl::list::object<mizuiro::color::channel::luminance, mizuiro::color::channel::alpha>>;
 
 }
 

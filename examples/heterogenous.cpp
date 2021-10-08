@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/size_list.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
@@ -18,35 +17,25 @@
 #include <ostream>
 #include <fcppt/config/external_end.hpp>
 
-
-int
-main()
+int main()
 {
-	using
-	l24_a8_format
-	=
-	mizuiro::color::format::heterogenous_static<
-		mizuiro::size_list<
-			24U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-			8U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-		>,
-		mizuiro::color::layout::la
-	>;
+  using l24_a8_format = mizuiro::color::format::heterogenous_static<
+      mizuiro::size_list<
+          24U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+          8U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+          >,
+      mizuiro::color::layout::la>;
 
-	using
-	l24_a8_color
-	=
-	mizuiro::color::object<
-		l24_a8_format
-	>;
+  using l24_a8_color = mizuiro::color::object<l24_a8_format>;
 
-	l24_a8_color const test1(
-		(mizuiro::color::init::luminance() = std::uint32_t{0x1FF}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-		(mizuiro::color::init::alpha() = std::uint8_t{0xF}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-	);
+  l24_a8_color const test1(
+      (mizuiro::color::init::luminance() =
+           std::uint32_t{
+               0x1FF}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      (mizuiro::color::init::alpha() =
+           std::uint8_t{
+               0xF}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+  );
 
-	std::cout
-		<< std::hex
-		<< test1
-		<< '\n';
+  std::cout << std::hex << test1 << '\n';
 }

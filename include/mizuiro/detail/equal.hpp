@@ -3,31 +3,19 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_DETAIL_EQUAL_HPP_INCLUDED
 #define MIZUIRO_DETAIL_EQUAL_HPP_INCLUDED
-
 
 namespace mizuiro::detail
 {
 
 struct equal
 {
-	template<
-		typename Element1,
-		typename Element2
-	>
-	bool
-	operator()(
-		Element1 const &_element1,
-		Element2 const &_element2
-	) const
-	{
-		return
-			_element1
-			==
-			_element2;
-	}
+  template <typename Element1, typename Element2>
+  bool operator()(Element1 const &_element1, Element2 const &_element2) const
+  {
+    return _element1 == _element2;
+  }
 };
 
 }

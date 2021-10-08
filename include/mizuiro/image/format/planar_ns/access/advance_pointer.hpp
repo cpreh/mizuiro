@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_FORMAT_PLANAR_NS_ACCESS_ADVANCE_POINTER_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_PLANAR_NS_ACCESS_ADVANCE_POINTER_HPP_INCLUDED
 
@@ -17,65 +16,23 @@
 #include <fcppt/array/init.hpp>
 #include <fcppt/array/object_impl.hpp>
 
-
 namespace mizuiro::image::access::advance_pointer_ns
 {
 
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
-mizuiro::image::types::pointer<
-	Access,
-	Format,
-	Constness
->
-advance_pointer_adl(
-	mizuiro::image::access::advance_pointer_ns::tag,
-	mizuiro::image::format::planar_ns::tag<
-		Format
-	>,
-	Access,
-	Constness,
-	mizuiro::image::format::store<
-		Format
-	> const &,
-	mizuiro::image::types::pointer<
-		Access,
-		Format,
-		Constness
-	> const _data,
-	mizuiro::difference_type const _diff
-)
+template <typename Access, typename Format, typename Constness>
+mizuiro::image::types::pointer<Access, Format, Constness> advance_pointer_adl(
+    mizuiro::image::access::advance_pointer_ns::tag,
+    mizuiro::image::format::planar_ns::tag<Format>,
+    Access,
+    Constness,
+    mizuiro::image::format::store<Format> const &,
+    mizuiro::image::types::pointer<Access, Format, Constness> const _data,
+    mizuiro::difference_type const _diff)
 {
-	return
-		fcppt::array::init<
-			fcppt::array::object<
-				typename
-				mizuiro::image::types::pointer<
-					Access,
-					Format,
-					Constness
-				>::value_type,
-				Format::element_count
-			>
-		>(
-			[
-				&_data,
-				_diff
-			](
-				mizuiro::size_type const _index
-			)
-			{
-				return
-					_data.get_unsafe(
-						_index
-					)
-					+
-					_diff;
-			}
-		);
+  return fcppt::array::init<fcppt::array::object<
+      typename mizuiro::image::types::pointer<Access, Format, Constness>::value_type,
+      Format::element_count>>([&_data, _diff](mizuiro::size_type const _index)
+                              { return _data.get_unsafe(_index) + _diff; });
 }
 
 }

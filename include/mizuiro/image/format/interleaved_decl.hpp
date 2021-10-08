@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_DECL_HPP_INCLUDED
 
@@ -11,55 +10,25 @@
 #include <mizuiro/color/format/base_decl.hpp>
 #include <mizuiro/image/format/interleaved_fwd.hpp>
 
-
 namespace mizuiro::image::format
 {
 
-template<
-	typename DimType,
-	typename ColorFormat
->
-class interleaved final
-:
-	private
-		mizuiro::color::format::base<
-			ColorFormat
-		>
+template <typename DimType, typename ColorFormat>
+class interleaved final : private mizuiro::color::format::base<ColorFormat>
 {
-	using
-	format_base
-	=
-	mizuiro::color::format::base<
-		ColorFormat
-	>;
+  using format_base = mizuiro::color::format::base<ColorFormat>;
+
 public:
-	using
-	color_format
-	=
-	ColorFormat;
+  using color_format = ColorFormat;
 
-	using
-	format_store_type
-	=
-	typename
-	format_base::format_store_type;
+  using format_store_type = typename format_base::format_store_type;
 
-	using
-	dim
-	=
-	DimType;
+  using dim = DimType;
 
-	explicit
-	interleaved(
-		format_store_type const & =
-			mizuiro::color::format::argument<
-				color_format
-			>::get()
-	);
+  explicit interleaved(
+      format_store_type const & = mizuiro::color::format::argument<color_format>::get());
 
-	[[nodiscard]]
-	format_store_type
-	format_store() const;
+  [[nodiscard]] format_store_type format_store() const;
 };
 
 }

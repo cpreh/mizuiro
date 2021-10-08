@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_IS_COLOR_HPP_INCLUDED
 #define MIZUIRO_COLOR_IS_COLOR_HPP_INCLUDED
 
@@ -13,46 +12,21 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::color
 {
 
-template<
-	typename T
->
-struct is_color
-:
-std::false_type
+template <typename T>
+struct is_color : std::false_type
 {
 };
 
-template<
-	typename Format
->
-struct is_color<
-	mizuiro::color::object<
-		Format
-	>
->
-:
-std::true_type
+template <typename Format>
+struct is_color<mizuiro::color::object<Format>> : std::true_type
 {
 };
 
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
-struct is_color<
-	mizuiro::color::proxy<
-		Access,
-		Format,
-		Constness
-	>
->
-:
-std::true_type
+template <typename Access, typename Format, typename Constness>
+struct is_color<mizuiro::color::proxy<Access, Format, Constness>> : std::true_type
 {
 };
 

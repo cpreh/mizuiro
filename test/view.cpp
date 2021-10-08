@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/no_init.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/channel/red.hpp>
@@ -25,179 +24,78 @@
 #include <cstdint>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace
 {
 
-using
-channel_type
-=
-std::uint8_t;
+using channel_type = std::uint8_t;
 
-using
-format
-=
-mizuiro::image::format::interleaved<
-	mizuiro::image::dimension<
-		2
-	>,
-	mizuiro::color::format::homogenous_static<
-		channel_type,
-		mizuiro::color::layout::r
-	>
->;
+using format = mizuiro::image::format::interleaved<
+    mizuiro::image::dimension<2>,
+    mizuiro::color::format::homogenous_static<channel_type, mizuiro::color::layout::r>>;
 
-using
-store_type
-=
-mizuiro::image::store<
-	format
->;
+using store_type = mizuiro::image::store<format>;
 
-using
-view_type
-=
-mizuiro::image::view<
-	store_type::access,
-	store_type::format,
-	mizuiro::nonconst_tag
->;
+using view_type =
+    mizuiro::image::view<store_type::access, store_type::format, mizuiro::nonconst_tag>;
 
 }
 
 FCPPT_CATCH_BEGIN
 
-TEST_CASE(
-	"view operations",
-	"[mizuiro]"
-)
+TEST_CASE("view operations", "[mizuiro]")
 {
-	store_type store(
-		store_type::dim{
-			1U,
-			1U
-		},
-		mizuiro::no_init{}
-	);
+  store_type store(store_type::dim{1U, 1U}, mizuiro::no_init{});
 
-	view_type view(
-		store.view()
-	);
+  view_type view(store.view());
 
-	view[
-		view_type::dim{
-			0U,
-			0U
-		}
-	] =
-		mizuiro::color::object<
-			format::color_format
-		>(
-			mizuiro::color::init::red() =
-				 channel_type{42} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-		);
+  view[view_type::dim{0U, 0U}] = mizuiro::color::object<format::color_format>(
+      // NOLINTNEXTLINE(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      mizuiro::color::init::red() = channel_type{42}
+  );
 
-	CHECK(
-		view[
-			view_type::dim(
-				0U,
-				0U
-			)
-		].get(
-			mizuiro::color::channel::red()
-		)
-		==
-		channel_type{42} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-	);
+  CHECK(
+      // NOLINTNEXTLINE(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      view[view_type::dim(0U, 0U)].get(mizuiro::color::channel::red()) == channel_type{42}
+  );
 
-	{
-		auto it(
-			view.begin()
-		);
+  {
+    auto it(view.begin());
 
-		CHECK(
-			(*it).get(
-				mizuiro::color::channel::red()
-			)
-			==
-			channel_type{42}
-		);
+    CHECK((*it).get(mizuiro::color::channel::red()) == channel_type{42});
 
-		++it;
+    ++it;
 
-		CHECK(
-			it
-			==
-			view.end()
-		);
+    CHECK(it == view.end());
 
-		--it;
+    --it;
 
-		CHECK(
-			it
-			==
-			view.begin()
-		);
-	}
+    CHECK(it == view.begin());
+  }
 
-	CHECK(
-		view.begin()
-		+
-		1
-		==
-		view.end()
-	);
+  CHECK(view.begin() + 1 == view.end());
 
-	CHECK(
-		view.end()
-		-
-		view.begin()
-		==
-		1
-	);
+  CHECK(view.end() - view.begin() == 1);
 }
 
-TEST_CASE(
-	"view fill",
-	"[mizuiro]"
-)
+TEST_CASE("view fill", "[mizuiro]")
 {
-	store_type const store(
-		store_type::dim{
-			1U,
-			1U
-		},
-		[](
-			store_type::view_type const &_view
-		)
-		{
-			mizuiro::image::algorithm::fill_c(
-				view_type(
-					_view
-				),
-				mizuiro::color::object<
-					format::color_format
-				>(
-					mizuiro::color::init::red() =
-						channel_type{42} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-				),
-				mizuiro::image::algorithm::uninitialized::yes
-			);
-		}
-	);
+  store_type const store(
+      store_type::dim{1U, 1U},
+      [](store_type::view_type const &_view)
+      {
+        mizuiro::image::algorithm::fill_c(
+            view_type(_view),
+            mizuiro::color::object<format::color_format>(
+                // NOLINTNEXTLINE(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+                mizuiro::color::init::red() = channel_type{42}
+                ),
+            mizuiro::image::algorithm::uninitialized::yes);
+      });
 
-	CHECK(
-		store.view()[
-			store_type::dim(
-				0U,
-				0U
-			)
-		].get(
-			mizuiro::color::channel::red()
-		)
-		==
-		channel_type{42} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-	);
+  CHECK(
+      // NOLINTNEXTLINE(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      store.view()[store_type::dim(0U, 0U)].get(mizuiro::color::channel::red()) == channel_type{42}
+  );
 }
 
 FCPPT_CATCH_END

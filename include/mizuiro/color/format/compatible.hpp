@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_FORMAT_COMPATIBLE_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_COMPATIBLE_HPP_INCLUDED
 
@@ -13,7 +12,6 @@
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
-
 
 namespace mizuiro::color::format
 {
@@ -31,26 +29,11 @@ Two sformats are compatible iff
 Intuitively, colors of two compatible formats can be converted into each other
 by copying each channel individually.
 */
-template<
-	typename Format1,
-	typename Format2
->
-using compatible
-=
-std::conjunction<
-	mizuiro::color::format::same_spaces<
-		Format1,
-		Format2
-	>,
-	mizuiro::color::format::same_channels<
-		Format1,
-		Format2
-	>,
-	mizuiro::color::format::same_channel_value_types<
-		Format1,
-		Format2
-	>
->;
+template <typename Format1, typename Format2>
+using compatible = std::conjunction<
+    mizuiro::color::format::same_spaces<Format1, Format2>,
+    mizuiro::color::format::same_channels<Format1, Format2>,
+    mizuiro::color::format::same_channel_value_types<Format1, Format2>>;
 
 }
 

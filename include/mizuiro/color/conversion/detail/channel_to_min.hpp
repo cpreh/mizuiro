@@ -3,37 +3,20 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MIN_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_CHANNEL_TO_MIN_HPP_INCLUDED
 
 #include <mizuiro/color/access/channel_min.hpp>
 
-
 namespace mizuiro::color::conversion::detail
 {
 
-template<
-	typename Channel,
-	typename Color
->
-inline
-void
-channel_to_min(
-	Color &_color,
-	Channel const &_channel
-)
+template <typename Channel, typename Color>
+inline void channel_to_min(Color &_color, Channel const &_channel)
 {
-	_color.set(
-		_channel,
-		mizuiro::color::access::channel_min<
-			typename
-			Color::format
-		>(
-			_color.format_store(),
-			_channel
-		)
-	);
+  _color.set(
+      _channel,
+      mizuiro::color::access::channel_min<typename Color::format>(_color.format_store(), _channel));
 }
 
 }

@@ -3,21 +3,15 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_CHANNEL_LUMINANCE_HPP_INCLUDED
 #define MIZUIRO_COLOR_CHANNEL_LUMINANCE_HPP_INCLUDED
 
 #include <mizuiro/color/channel/tag.hpp>
 
-
 namespace mizuiro::color::channel
 {
 
-struct luminance
-:
-mizuiro::color::channel::tag<
-	luminance
->
+struct luminance : mizuiro::color::channel::tag<luminance>
 {
 };
 

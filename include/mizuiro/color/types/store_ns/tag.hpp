@@ -3,10 +3,8 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_TYPES_STORE_NS_TAG_HPP_INCLUDED
 #define MIZUIRO_COLOR_TYPES_STORE_NS_TAG_HPP_INCLUDED
-
 
 namespace mizuiro::color::types::store_ns
 {

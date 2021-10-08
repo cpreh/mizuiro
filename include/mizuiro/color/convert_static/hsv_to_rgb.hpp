@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_CONVERT_STATIC_HSV_TO_RGB_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_STATIC_HSV_TO_RGB_HPP_INCLUDED
 
@@ -16,42 +15,18 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::color::convert_static
 {
 
-template<
-	typename Dest,
-	typename Src
->
-inline
-std::enable_if_t<
-	std::conjunction_v<
-		mizuiro::color::convert_static::is_rgb<
-			Dest
-		>,
-		mizuiro::color::convert_static::is_hsv<
-			typename
-			Src::format
-		>
-	>,
-	mizuiro::color::object<
-		Dest
-	>
->
-convert(
-	fcppt::tag<
-		Dest
-	> const &,
-	Src const &_source
-)
+template <typename Dest, typename Src>
+inline std::enable_if_t<
+    std::conjunction_v<
+        mizuiro::color::convert_static::is_rgb<Dest>,
+        mizuiro::color::convert_static::is_hsv<typename Src::format>>,
+    mizuiro::color::object<Dest>>
+convert(fcppt::tag<Dest> const &, Src const &_source)
 {
-	return
-		mizuiro::color::conversion::hsv_to_rgb<
-			Dest
-		>(
-			_source
-		);
+  return mizuiro::color::conversion::hsv_to_rgb<Dest>(_source);
 }
 
 }

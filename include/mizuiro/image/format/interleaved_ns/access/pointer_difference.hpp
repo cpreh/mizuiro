@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_ACCESS_POINTER_DIFFERENCE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_ACCESS_POINTER_DIFFERENCE_HPP_INCLUDED
 
@@ -14,42 +13,20 @@
 #include <mizuiro/image/format/interleaved_ns/tag.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 
-
 namespace mizuiro::image::access::pointer_difference_ns
 {
 
-template<
-	typename Access,
-	typename ImageFormat,
-	typename Constness
->
-mizuiro::difference_type
-pointer_difference_adl(
-	mizuiro::image::access::pointer_difference_ns::tag,
-	mizuiro::image::format::interleaved_ns::tag<
-		ImageFormat
-	>,
-	Access,
-	Constness,
-	mizuiro::image::format::store<
-		ImageFormat
-	> const &,
-	mizuiro::image::types::pointer<
-		Access,
-		ImageFormat,
-		Constness
-	> const _pointer1,
-	mizuiro::image::types::pointer<
-		Access,
-		ImageFormat,
-		Constness
-	> const _pointer2
-)
+template <typename Access, typename ImageFormat, typename Constness>
+mizuiro::difference_type pointer_difference_adl(
+    mizuiro::image::access::pointer_difference_ns::tag,
+    mizuiro::image::format::interleaved_ns::tag<ImageFormat>,
+    Access,
+    Constness,
+    mizuiro::image::format::store<ImageFormat> const &,
+    mizuiro::image::types::pointer<Access, ImageFormat, Constness> const _pointer1,
+    mizuiro::image::types::pointer<Access, ImageFormat, Constness> const _pointer2)
 {
-	return
-		_pointer1
-		-
-		_pointer2;
+  return _pointer1 - _pointer2;
 }
 
 }

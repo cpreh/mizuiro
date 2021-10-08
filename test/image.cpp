@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/default_init.hpp>
 #include <mizuiro/color/object.hpp>
@@ -22,106 +21,41 @@
 #include <cstdint>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace
 {
 
-template<
-	typename ImageFormat
->
-void
-test_format(
-	mizuiro::image::types::value_type<
-		ImageFormat
-	> const _init
-)
+template <typename ImageFormat>
+void test_format(mizuiro::image::types::value_type<ImageFormat> const _init)
 {
-	using
-	store_type
-	=
-	mizuiro::image::store<
-		ImageFormat
-	>;
+  using store_type = mizuiro::image::store<ImageFormat>;
 
-	using
-	dim
-	=
-	typename
-	store_type::dim;
+  using dim = typename store_type::dim;
 
-	store_type const store(
-		dim{
-			2U,
-			2U
-		},
-		_init
-	);
+  store_type const store(dim{2U, 2U}, _init);
 
-	using
-	access
-	=
-	typename
-	store_type::access;
+  using access = typename store_type::access;
 
-	CHECK(
-		mizuiro::image::access::pointer_difference<
-			access,
-			mizuiro::const_tag,
-			ImageFormat
-		>(
-			store.format_store(),
-			mizuiro::image::access::advance_pointer<
-				access,
-				mizuiro::const_tag,
-				ImageFormat
-			>(
-				store.format_store(),
-				store.data(),
-				3
-			),
-			store.data()
-		)
-		==
-		3
-	);
+  CHECK(
+      mizuiro::image::access::pointer_difference<access, mizuiro::const_tag, ImageFormat>(
+          store.format_store(),
+          mizuiro::image::access::advance_pointer<access, mizuiro::const_tag, ImageFormat>(
+              store.format_store(), store.data(), 3),
+          store.data()) == 3);
 }
 
 }
 
 FCPPT_CATCH_BEGIN
 
-TEST_CASE(
-	"image interleaved",
-	"[mizuiro]"
-)
+TEST_CASE("image interleaved", "[mizuiro]")
 {
-	using
-	dimension
-	=
-	mizuiro::image::dimension<
-		2
-	>;
+  using dimension = mizuiro::image::dimension<2>;
 
-	using
-	color_format
-	=
-	mizuiro::color::format::homogenous_static<
-		std::uint8_t,
-		mizuiro::color::layout::rgba
-	>;
+  using color_format =
+      mizuiro::color::format::homogenous_static<std::uint8_t, mizuiro::color::layout::rgba>;
 
-	test_format<
-		mizuiro::image::format::interleaved<
-			dimension,
-			color_format
-		>
-	>(
-		mizuiro::color::object<
-			color_format
-		>(
-			mizuiro::default_init()
-		)
-	);
+  test_format<mizuiro::image::format::interleaved<dimension, color_format>>(
+      mizuiro::color::object<color_format>(mizuiro::default_init()));
 }
 
 FCPPT_CATCH_END

@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_ALGORITHM_COPY_DIFFERENT_CHANNEL_ORDER_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_COPY_DIFFERENT_CHANNEL_ORDER_HPP_INCLUDED
 
@@ -14,61 +13,42 @@
 #include <mizuiro/image/algorithm/detail/copy_element.hpp>
 #include <mizuiro/image/types/value_type.hpp>
 
-
 namespace mizuiro::image::algorithm
 {
 
-template<
-	typename ViewS,
-	typename ViewD
->
-void
-copy_different_channel_order(
-	ViewS const &_src,
-	ViewD const &_dest,
-	mizuiro::image::algorithm::may_overlap const _overlap,
-	mizuiro::image::algorithm::uninitialized const _uninitialized
-)
+template <typename ViewS, typename ViewD>
+void copy_different_channel_order(
+    ViewS const &_src,
+    ViewD const &_dest,
+    mizuiro::image::algorithm::may_overlap const _overlap,
+    mizuiro::image::algorithm::uninitialized const _uninitialized)
 {
-	mizuiro::image::algorithm::make_iterator_identity const make_iterator{};
+  mizuiro::image::algorithm::make_iterator_identity const make_iterator{};
 
-	switch(
-		_overlap
-	)
-	{
-	case mizuiro::image::algorithm::may_overlap::yes:
-		mizuiro::image::algorithm::transform(
-			_src,
-			_dest,
-			[](
-				auto const &_src_inner,
-				auto const &_dest_inner
-			)
-			{
-				mizuiro::image::types::value_type<
-					typename
-					ViewS::format
-				> const temp(
-					_src_inner
-				);
+  switch (_overlap)
+  {
+  case mizuiro::image::algorithm::may_overlap::yes:
+    mizuiro::image::algorithm::transform(
+        _src,
+        _dest,
+        [](auto const &_src_inner, auto const &_dest_inner)
+        {
+          mizuiro::image::types::value_type<typename ViewS::format> const temp(_src_inner);
 
-				_dest_inner =
-					temp;
-			},
-			make_iterator,
-			_uninitialized
-		);
-		return;
-	case mizuiro::image::algorithm::may_overlap::no:
-		mizuiro::image::algorithm::transform(
-			_src,
-			_dest,
-			mizuiro::image::algorithm::detail::copy_element{},
-			make_iterator,
-			_uninitialized
-		);
-		return;
-	}
+          _dest_inner = temp;
+        },
+        make_iterator,
+        _uninitialized);
+    return;
+  case mizuiro::image::algorithm::may_overlap::no:
+    mizuiro::image::algorithm::transform(
+        _src,
+        _dest,
+        mizuiro::image::algorithm::detail::copy_element{},
+        make_iterator,
+        _uninitialized);
+    return;
+  }
 }
 
 }

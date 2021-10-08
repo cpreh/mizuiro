@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_LAYOUT_R_HPP_INCLUDED
 #define MIZUIRO_COLOR_LAYOUT_R_HPP_INCLUDED
 
@@ -12,19 +11,11 @@
 #include <mizuiro/color/space/r.hpp>
 #include <fcppt/mpl/list/object.hpp>
 
-
 namespace mizuiro::color::layout
 {
 
-using
-r
-=
-mizuiro::color::layout::make<
-	mizuiro::color::space::r,
-	fcppt::mpl::list::object<
-		mizuiro::color::channel::red
-	>
->;
+using r = mizuiro::color::layout::
+    make<mizuiro::color::space::r, fcppt::mpl::list::object<mizuiro::color::channel::red>>;
 
 }
 

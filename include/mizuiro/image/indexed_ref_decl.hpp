@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_INDEXED_REF_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_INDEXED_REF_DECL_HPP_INCLUDED
 
@@ -15,44 +14,25 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::image
 {
 
-template<
-	mizuiro::size_type Size,
-	typename Reference
->
+template <mizuiro::size_type Size, typename Reference>
 class indexed_ref
 {
 public:
-	using
-	dim
-	=
-	mizuiro::image::dimension<
-		Size
-	>;
+  using dim = mizuiro::image::dimension<Size>;
 
-	indexed_ref(
-		dim const &,
-		Reference
-	);
+  indexed_ref(dim const &, Reference);
 
-	[[nodiscard]]
-	Reference
-	get() const;
+  [[nodiscard]] Reference get() const;
 
-	[[nodiscard]]
-	dim const &
-	index() const;
+  [[nodiscard]] dim const &index() const;
+
 private:
-	dim index_;
+  dim index_;
 
-	fcppt::reference<
-		std::remove_reference_t<
-			Reference
-		>
-	> reference_;
+  fcppt::reference<std::remove_reference_t<Reference>> reference_;
 };
 
 }

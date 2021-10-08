@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_ACCESS_STORE_UNIT_HPP_INCLUDED
 #define MIZUIRO_ACCESS_STORE_UNIT_HPP_INCLUDED
 
@@ -13,26 +12,14 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::access
 {
 
-template<
-	typename Access,
-	typename Normal
->
-using
-store_unit
-=
-typename
-std::conditional<
-	std::is_same<
-		Access,
-		mizuiro::access::raw
-	>::value,
-	mizuiro::raw_value,
-	Normal
->::type;
+template <typename Access, typename Normal>
+using store_unit = typename std::conditional<
+    std::is_same<Access, mizuiro::access::raw>::value,
+    mizuiro::raw_value,
+    Normal>::type;
 
 }
 

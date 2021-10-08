@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_ALGORITHM_COPY_AND_CONVERT_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_COPY_AND_CONVERT_HPP_INCLUDED
 
@@ -20,84 +19,40 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::image::algorithm
 {
 
-template<
-	typename Converter,
-	typename ViewS,
-	typename ViewD
->
+template <typename Converter, typename ViewS, typename ViewD>
 inline
-typename
-std::enable_if<
-	!mizuiro::image::algorithm::can_copy<
-		ViewS,
-		ViewD
-	>::value,
-	void
->::type
-copy_and_convert(
-	ViewS const &_src,
-	ViewD const &_dest,
-	mizuiro::image::algorithm::may_overlap,
-	mizuiro::image::algorithm::uninitialized const _uninitialized
-)
+    typename std::enable_if<!mizuiro::image::algorithm::can_copy<ViewS, ViewD>::value, void>::type
+    copy_and_convert(
+        ViewS const &_src,
+        ViewD const &_dest,
+        mizuiro::image::algorithm::may_overlap,
+        mizuiro::image::algorithm::uninitialized const _uninitialized)
 {
-	mizuiro::image::algorithm::transform(
-		_src,
-		_dest,
-		[](
-			auto const &_src_inner,
-			auto const &_dest_inner
-		)
-		{
-			_dest_inner =
-				mizuiro::color::convert<
-					Converter,
-					mizuiro::color::format::get<
-						MIZUIRO_DECLTYPE(
-							_dest_inner
-						)
-					>
-				>(
-					_src_inner,
-					_dest_inner.format_store()
-				);
-		},
-		mizuiro::image::algorithm::make_iterator_identity{},
-		_uninitialized
-	);
+  mizuiro::image::algorithm::transform(
+      _src,
+      _dest,
+      [](auto const &_src_inner, auto const &_dest_inner)
+      {
+        _dest_inner = mizuiro::color::
+            convert<Converter, mizuiro::color::format::get<MIZUIRO_DECLTYPE(_dest_inner)>>(
+                _src_inner, _dest_inner.format_store());
+      },
+      mizuiro::image::algorithm::make_iterator_identity{},
+      _uninitialized);
 }
 
-template<
-	typename Converter,
-	typename ViewS,
-	typename ViewD
->
-inline
-typename
-std::enable_if<
-	mizuiro::image::algorithm::can_copy<
-		ViewS,
-		ViewD
-	>::value,
-	void
->::type
+template <typename Converter, typename ViewS, typename ViewD>
+inline typename std::enable_if<mizuiro::image::algorithm::can_copy<ViewS, ViewD>::value, void>::type
 copy_and_convert(
-	ViewS const &_src,
-	ViewD const &_dest,
-	mizuiro::image::algorithm::may_overlap const _overlap,
-	mizuiro::image::algorithm::uninitialized const _uninitialized
-)
+    ViewS const &_src,
+    ViewD const &_dest,
+    mizuiro::image::algorithm::may_overlap const _overlap,
+    mizuiro::image::algorithm::uninitialized const _uninitialized)
 {
-	mizuiro::image::algorithm::copy(
-		_src,
-		_dest,
-		_overlap,
-		_uninitialized
-	);
+  mizuiro::image::algorithm::copy(_src, _dest, _overlap, _uninitialized);
 }
 
 }

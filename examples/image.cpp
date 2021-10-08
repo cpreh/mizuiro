@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/proxy.hpp>
@@ -21,87 +20,37 @@
 #include <ostream>
 #include <fcppt/config/external_end.hpp>
 
-
-int
-main()
+int main()
 {
-	using
-	format
-	=
-	mizuiro::image::format::interleaved<
-		mizuiro::image::dimension<
-			3
-		>,
-		mizuiro::color::format::homogenous_static<
-			std::uint8_t,
-			mizuiro::color::layout::rgba
-		>
-	>;
+  using format = mizuiro::image::format::interleaved<
+      mizuiro::image::dimension<3>,
+      mizuiro::color::format::homogenous_static<std::uint8_t, mizuiro::color::layout::rgba>>;
 
-	using
-	store
-	=
-	mizuiro::image::store<
-		format
-	>;
+  using store = mizuiro::image::store<format>;
 
-	using
-	view_type
-	=
-	store::view_type;
+  using view_type = store::view_type;
 
-	store const img{
-		store::dim(
-			3U,
-			2U,
-			1U
-		),
-		[](
-			view_type const &_view
-		)
-		{
-			for(
-				auto const &color
-				:
-				_view
-			)
-			{
-				color.set(
-					mizuiro::color::channel::red(),
-					std::uint8_t{10} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-				);
-			}
-		}
-	};
+  store const img{
+      store::dim(3U, 2U, 1U),
+      [](view_type const &_view)
+      {
+        for (auto const &color : _view)
+        {
+          color.set(
+              // NOLINTNEXTLINE(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+              mizuiro::color::channel::red(), std::uint8_t{10}
+          );
+        }
+      }};
 
-	using
-	const_view_type
-	=
-	mizuiro::image::const_view<
-		view_type
-	>;
+  using const_view_type = mizuiro::image::const_view<view_type>;
 
-	const_view_type const_view(
-		img.view()
-	);
+  const_view_type const_view(img.view());
 
-	for(
-		auto const &color
-		:
-		const_view
-	)
-	{
-		std::cout
-			<<
-			static_cast<
-				int
-			>(
-				color.get(
-					mizuiro::color::channel::red()
-				)
-			)
-			<< ' ';
-	}
+  for (auto const &color : const_view)
+  {
+    std::cout << static_cast<int>(color.get(mizuiro::color::channel::red())) << ' ';
+  }
 
-	std::cout << '\n';
+  std::cout << '\n';
 }

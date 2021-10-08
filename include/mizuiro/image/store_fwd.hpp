@@ -3,21 +3,15 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_STORE_FWD_HPP_INCLUDED
 #define MIZUIRO_IMAGE_STORE_FWD_HPP_INCLUDED
 
 #include <mizuiro/access/normal.hpp>
 
-
 namespace mizuiro::image
 {
 
-template<
-	typename Format,
-	typename Access
-		= mizuiro::access::normal
->
+template <typename Format, typename Access = mizuiro::access::normal>
 class store;
 
 }

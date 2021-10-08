@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_LAYOUT_MAKE_HPP_INCLUDED
 #define MIZUIRO_COLOR_LAYOUT_MAKE_HPP_INCLUDED
 
@@ -11,7 +10,6 @@
 #include <mizuiro/color/layout/detail/has_all_channels.hpp>
 #include <fcppt/mpl/list/size.hpp>
 #include <fcppt/mpl/set/to_list.hpp>
-
 
 namespace mizuiro::color::layout
 {
@@ -30,57 +28,30 @@ contribute 'color' while undefined channels will be ignored.
 \tparam Channels An mpl::list::object consisting of \link color_channel Color
 Channels\endlink
 */
-template<
-	typename Space,
-	typename Channels
->
+template <typename Space, typename Channels>
 struct make
 {
-	using
-	space
-	=
-	Space;
+  using space = Space;
 
-	using
-	channels
-	=
-	Channels;
+  using channels = Channels;
 
-	static_assert(
-		mizuiro::color::layout::detail::has_all_channels<
-			channels,
-			fcppt::mpl::set::to_list<
-				mizuiro::color::layout::all_possible_channels<
-					typename
-					Space::required_channels
-				>
-			>
-		>::value,
-		"Invalid color channel which is not part of the color space"
-	);
+  static_assert(
+      mizuiro::color::layout::detail::has_all_channels<
+          channels,
+          fcppt::mpl::set::to_list<mizuiro::color::layout::all_possible_channels<
+              typename Space::required_channels>>>::value,
+      "Invalid color channel which is not part of the color space");
 
-	static_assert(
-		fcppt::mpl::list::size<
-			fcppt::mpl::set::to_list<
-				typename
-				Space::required_channels
-			>
-		>::value
-		<=
-		3,
-		"A color space shouldn't have more than three channels"
-	);
+  static_assert(
+      fcppt::mpl::list::size<fcppt::mpl::set::to_list<typename Space::required_channels>>::value <=
+          3,
+      "A color space shouldn't have more than three channels");
 
-	static_assert(
-		mizuiro::color::layout::detail::has_all_channels<
-			fcppt::mpl::set::to_list<
-				typename
-				Space::required_channels
-			>,
-			channels
-		>::value,
-		"Missing color channel in color space"
-	);
+  static_assert(
+      mizuiro::color::layout::detail::has_all_channels<
+          fcppt::mpl::set::to_list<typename Space::required_channels>,
+          channels>::value,
+      "Missing color channel in color space");
 };
 
 }

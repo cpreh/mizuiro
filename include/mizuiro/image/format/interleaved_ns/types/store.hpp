@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_TYPES_STORE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_NS_TYPES_STORE_HPP_INCLUDED
 
@@ -13,29 +12,16 @@
 #include <mizuiro/image/types/store_unit.hpp>
 #include <mizuiro/image/types/store_ns/tag.hpp>
 
-
 namespace mizuiro::image::types::store_ns
 {
 
-template<
-	typename Access,
-	typename ImageFormat
->
+template <typename Access, typename ImageFormat>
 mizuiro::image::raw_container<
-	mizuiro::access::store_unit<
-		Access,
-		mizuiro::image::types::store_unit<
-			ImageFormat
-		>
-	>
->
-store_adl(
-	mizuiro::image::types::store_ns::tag,
-	Access,
-	mizuiro::image::format::interleaved_ns::tag<
-		ImageFormat
-	>
-);
+    mizuiro::access::store_unit<Access, mizuiro::image::types::store_unit<ImageFormat>>>
+    store_adl(
+        mizuiro::image::types::store_ns::tag,
+        Access,
+        mizuiro::image::format::interleaved_ns::tag<ImageFormat>);
 
 }
 

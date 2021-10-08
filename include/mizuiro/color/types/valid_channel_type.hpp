@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_TYPES_VALID_CHANNEL_TYPE_HPP_INCLUDED
 #define MIZUIRO_COLOR_TYPES_VALID_CHANNEL_TYPE_HPP_INCLUDED
 
@@ -13,30 +12,14 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::color::types
 {
 
-template<
-	typename Format,
-	typename Type
->
-using
-valid_channel_type
-=
-decltype(
-	valid_channel_type_adl(
-		std::declval<
-			mizuiro::color::types::valid_channel_type_ns::tag
-		>(),
-		mizuiro::color::format::make_tag_of<
-			Format
-		>(),
-		std::declval<
-			Type
-		>()
-	)
-);
+template <typename Format, typename Type>
+using valid_channel_type = decltype(valid_channel_type_adl(
+    std::declval<mizuiro::color::types::valid_channel_type_ns::tag>(),
+    mizuiro::color::format::make_tag_of<Format>(),
+    std::declval<Type>()));
 
 }
 

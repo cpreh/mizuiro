@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_TYPES_REFERENCE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_TYPES_REFERENCE_HPP_INCLUDED
 
@@ -13,34 +12,15 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::image::types
 {
 
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
-using
-reference
-=
-decltype(
-	reference_adl(
-		std::declval<
-			mizuiro::image::types::reference_ns::tag
-		>(),
-		std::declval<
-			Access
-		>(),
-		mizuiro::image::format::make_tag_of<
-			Format
-		>(),
-		std::declval<
-			Constness
-		>()
-	)
-);
+template <typename Access, typename Format, typename Constness>
+using reference = decltype(reference_adl(
+    std::declval<mizuiro::image::types::reference_ns::tag>(),
+    std::declval<Access>(),
+    mizuiro::image::format::make_tag_of<Format>(),
+    std::declval<Constness>()));
 
 }
 

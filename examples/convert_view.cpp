@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/convert_static/converter.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
@@ -28,155 +27,61 @@
 #include <ostream>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace
 {
 
-template<
-	typename Format
->
-using
-make_2d_format
-=
-mizuiro::image::format::interleaved<
-	mizuiro::image::dimension<
-		2
-	>,
-	Format
->;
+template <typename Format>
+using make_2d_format = mizuiro::image::format::interleaved<mizuiro::image::dimension<2>, Format>;
 
 }
 
-int
-main()
+int main()
 {
-	using
-	base_type
-	=
-	std::uint8_t;
+  using base_type = std::uint8_t;
 
-	using
-	rgba_format
-	=
-	make_2d_format<
-		mizuiro::color::format::homogenous_static<
-			base_type,
-			mizuiro::color::layout::rgba
-		>
-	>;
+  using rgba_format = make_2d_format<
+      mizuiro::color::format::homogenous_static<base_type, mizuiro::color::layout::rgba>>;
 
-	using
-	rgb_format
-	=
-	make_2d_format<
-		mizuiro::color::format::homogenous_static<
-			base_type,
-			mizuiro::color::layout::rgb
-		>
-	>;
+  using rgb_format = make_2d_format<
+      mizuiro::color::format::homogenous_static<base_type, mizuiro::color::layout::rgb>>;
 
-	using
-	rgba_format
-	=
-	make_2d_format<
-		mizuiro::color::format::homogenous_static<
-			base_type,
-			mizuiro::color::layout::rgba
-		>
-	>;
+  using rgba_format = make_2d_format<
+      mizuiro::color::format::homogenous_static<base_type, mizuiro::color::layout::rgba>>;
 
-	constexpr mizuiro::size_type const width{
-		3
-	};
+  constexpr mizuiro::size_type const width{3};
 
-	constexpr mizuiro::size_type const height{
-		4
-	};
+  constexpr mizuiro::size_type const height{4};
 
-	using
-	raw_array
-	=
-	fcppt::array::object<
-		unsigned char,
-		width
-		* height
-		* sizeof(base_type)
-		* rgb_format::color_format::element_count
-	>;
+  using raw_array = fcppt::array::object<
+      unsigned char,
+      width * height * sizeof(base_type) * rgb_format::color_format::element_count>;
 
-	auto const uc(
-		[](
-			int const _v
-		)
-		{
-			return
-				static_cast<
-					unsigned char
-				>(
-					_v
-				);
-		}
-	);
+  auto const uc([](int const _v) { return static_cast<unsigned char>(_v); });
 
-	raw_array const data{
-		uc(152), uc(34), uc(0),
-		uc(232), uc(52), uc(0),
-		uc(232), uc(52), uc(0),
-		uc(232), uc(52), uc(0),
-		uc(232), uc(52), uc(0),
-		uc(232), uc(52), uc(0),
-		uc(232), uc(52), uc(0),
-		uc(232), uc(52), uc(0),
-		uc(232), uc(52), uc(0),
-		uc(229), uc(59), uc(0),
-		uc(151), uc(228), uc(15),
-		uc(0), uc(39), uc(4)
-	};
+  raw_array const data{uc(152), uc(34), uc(0), uc(232), uc(52),  uc(0),  uc(232), uc(52), uc(0),
+                       uc(232), uc(52), uc(0), uc(232), uc(52),  uc(0),  uc(232), uc(52), uc(0),
+                       uc(232), uc(52), uc(0), uc(232), uc(52),  uc(0),  uc(232), uc(52), uc(0),
+                       uc(229), uc(59), uc(0), uc(151), uc(228), uc(15), uc(0),   uc(39), uc(4)};
 
-	using
-	rgba_store
-	=
-	mizuiro::image::store<
-		rgba_format
-	>;
+  using rgba_store = mizuiro::image::store<rgba_format>;
 
-	rgba_store::dim const dim(
-		width,
-		height
-	);
+  rgba_store::dim const dim(width, height);
 
-	rgba_store store(
-		dim,
-		[
-			dim,
-			&data
-		](
-			rgba_store::view_type const &_dest
-		)
-		{
-			mizuiro::image::algorithm::copy_and_convert<
-				mizuiro::color::convert_static::converter
-			>(
-				mizuiro::image::make_raw_view<
-					rgb_format
-				>(
-					data.data(),
-					dim,
-					mizuiro::image::dimension_null<
-						rgba_store::view_type::pitch_type
-					>()
-				),
-				_dest,
-				mizuiro::image::algorithm::may_overlap::no,
-				mizuiro::image::algorithm::uninitialized::yes
-			);
-		}
-	);
+  rgba_store store(
+      dim,
+      [dim, &data](rgba_store::view_type const &_dest)
+      {
+        mizuiro::image::algorithm::copy_and_convert<mizuiro::color::convert_static::converter>(
+            mizuiro::image::make_raw_view<rgb_format>(
+                data.data(),
+                dim,
+                mizuiro::image::dimension_null<rgba_store::view_type::pitch_type>()),
+            _dest,
+            mizuiro::image::algorithm::may_overlap::no,
+            mizuiro::image::algorithm::uninitialized::yes);
+      });
 
-	mizuiro::image::algorithm::print(
-		std::cout,
-		store.view()
-	);
+  mizuiro::image::algorithm::print(std::cout, store.view());
 
-	std::cout<< '\n';
+  std::cout << '\n';
 }

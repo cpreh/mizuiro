@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/color/compare.hpp>
 #include <mizuiro/color/convert.hpp>
 #include <mizuiro/color/object.hpp>
@@ -27,84 +26,45 @@
 #include <cmath>
 #include <fcppt/config/external_end.hpp>
 
-
 FCPPT_CATCH_BEGIN
 
-TEST_CASE(
-	"convert rgb_srgb",
-	"[mizuiro]"
-)
+TEST_CASE("convert rgb_srgb", "[mizuiro]")
 {
-	using
-	channel_type
-	=
-	float;
+  using channel_type = float;
 
-	using
-	rgba_color
-	=
-	mizuiro::color::object<
-		mizuiro::color::format::homogenous_static<
-			channel_type,
-			mizuiro::color::layout::rgba
-		>
-	>;
+  using rgba_color = mizuiro::color::object<
+      mizuiro::color::format::homogenous_static<channel_type, mizuiro::color::layout::rgba>>;
 
-	using
-	srgba_color
-	=
-	mizuiro::color::object<
-		mizuiro::color::format::homogenous_static<
-			channel_type,
-			mizuiro::color::layout::s_rgba
-		>
-	>;
+  using srgba_color = mizuiro::color::object<
+      mizuiro::color::format::homogenous_static<channel_type, mizuiro::color::layout::s_rgba>>;
 
-	rgba_color const rgba(
-		(mizuiro::color::init::red() %= 0.3) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-		(mizuiro::color::init::blue() %= 0.2) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-		(mizuiro::color::init::green() %= 0.5) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-		(mizuiro::color::init::alpha() %= 0.9) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-	);
+  rgba_color const rgba(
+      (mizuiro::color::init::red() %=
+       0.3) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      (mizuiro::color::init::blue() %=
+       0.2) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      (mizuiro::color::init::green() %=
+       0.5) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      (mizuiro::color::init::alpha() %=
+       0.9) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+  );
 
-	srgba_color const srgba(
-		mizuiro::color::convert<
-			mizuiro::color::convert_static::converter,
-			srgba_color::format
-		>(
-			rgba
-		)
-	);
+  srgba_color const srgba(
+      mizuiro::color::convert<mizuiro::color::convert_static::converter, srgba_color::format>(
+          rgba));
 
-	rgba_color const rgba2(
-		mizuiro::color::convert<
-			mizuiro::color::convert_static::converter,
-			rgba_color::format
-		>(
-			srgba
-		)
-	);
+  rgba_color const rgba2(
+      mizuiro::color::convert<mizuiro::color::convert_static::converter, rgba_color::format>(
+          srgba));
 
-	CHECK(
-		mizuiro::color::compare(
-			rgba,
-			rgba2,
-			[](
-				channel_type const _val1,
-				channel_type const _val2
-			)
-			{
-				return
-					std::abs(
-						_val1
-						-
-						_val2
-					)
-					<
-					0.001F; // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-			}
-		)
-	);
+  CHECK(mizuiro::color::compare(
+      rgba,
+      rgba2,
+      [](channel_type const _val1, channel_type const _val2)
+      {
+        return std::abs(_val1 - _val2) <
+               0.001F; // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      }));
 }
 
 FCPPT_CATCH_END

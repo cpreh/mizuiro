@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_ACCESS_CHANNEL_MIN_HPP_INCLUDED
 #define MIZUIRO_COLOR_ACCESS_CHANNEL_MIN_HPP_INCLUDED
 
@@ -13,39 +12,20 @@
 #include <mizuiro/color/format/detail/assert_channel.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 
-
 namespace mizuiro::color::access
 {
 
-template<
-	typename Format,
-	typename Channel
->
-mizuiro::color::types::channel_value<
-	Format,
-	Channel
->
-channel_min(
-	mizuiro::color::format::store<
-		Format
-	> const &_format,
-	Channel const &_channel
-)
+template <typename Format, typename Channel>
+mizuiro::color::types::channel_value<Format, Channel>
+channel_min(mizuiro::color::format::store<Format> const &_format, Channel const &_channel)
 {
-	MIZUIRO_COLOR_FORMAT_DETAIL_ASSERT_CHANNEL(
-		Format,
-		Channel
-	);
+  MIZUIRO_COLOR_FORMAT_DETAIL_ASSERT_CHANNEL(Format, Channel);
 
-	return
-		channel_min_adl(
-			mizuiro::color::access::channel_min_ns::tag(),
-			mizuiro::color::format::make_tag_of<
-				Format
-			>(),
-			_format,
-			_channel
-		);
+  return channel_min_adl(
+      mizuiro::color::access::channel_min_ns::tag(),
+      mizuiro::color::format::make_tag_of<Format>(),
+      _format,
+      _channel);
 }
 
 }

@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_SUB_VIEW_HPP_INCLUDED
 #define MIZUIRO_IMAGE_SUB_VIEW_HPP_INCLUDED
 
@@ -13,35 +12,17 @@
 #include <mizuiro/image/to_pitch_view.hpp>
 #include <mizuiro/image/detail/subview_pitch.hpp>
 
-
 namespace mizuiro::image
 {
 
-template<
-	typename View
->
-mizuiro::image::to_pitch_view<
-	View
->
-sub_view(
-	View const &_view,
-	typename View::bound_type const &_bound
-)
+template <typename View>
+mizuiro::image::to_pitch_view<View>
+sub_view(View const &_view, typename View::bound_type const &_bound)
 {
-	return
-		mizuiro::image::to_pitch_view<
-			View
-		>(
-			_bound.size(),
-			mizuiro::image::move_iterator(
-				_view,
-				_bound.pos()
-			).data(),
-			mizuiro::image::detail::subview_pitch(
-				_view,
-				_bound
-			)
-		);
+  return mizuiro::image::to_pitch_view<View>(
+      _bound.size(),
+      mizuiro::image::move_iterator(_view, _bound.pos()).data(),
+      mizuiro::image::detail::subview_pitch(_view, _bound));
 }
 
 }

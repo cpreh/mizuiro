@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/proxy.hpp>
 #include <mizuiro/color/channel/luminance.hpp>
@@ -21,58 +20,33 @@
 #include <cstdint>
 #include <fcppt/config/external_end.hpp>
 
-
-int
-main()
+int main()
 {
-	using
-	format
-	=
-	mizuiro::image::format::interleaved<
-		mizuiro::image::dimension<
-			2
-		>,
-		mizuiro::color::format::homogenous_static<
-			std::uint8_t,
-			mizuiro::color::layout::l
-		>
-	>;
+  using format = mizuiro::image::format::interleaved<
+      mizuiro::image::dimension<2>,
+      mizuiro::color::format::homogenous_static<std::uint8_t, mizuiro::color::layout::l>>;
 
-	using
-	store
-	=
-	mizuiro::image::store<
-		format
-	>;
+  using store = mizuiro::image::store<format>;
 
-	using
-	view_type
-	=
-	store::view_type;
+  using view_type = store::view_type;
 
-	store const img{
-		store::dim(
-			32U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-			64U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-		),
-		[](
-			view_type const &_view
-		)
-		{
-			mizuiro::image::algorithm::for_each(
-				_view,
-				[](
-					auto const &_color
-				)
-				{
-					_color.set(
-						mizuiro::color::channel::luminance(),
-						42 // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-					);
-				},
-				mizuiro::image::algorithm::make_iterator_identity{},
-				mizuiro::image::algorithm::uninitialized::yes
-			);
-		}
-	};
+  store const img{
+      store::dim(
+          32U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+          64U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+          ),
+      [](view_type const &_view)
+      {
+        mizuiro::image::algorithm::for_each(
+            _view,
+            [](auto const &_color)
+            {
+              _color.set(
+                  mizuiro::color::channel::luminance(),
+                  42 // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+              );
+            },
+            mizuiro::image::algorithm::make_iterator_identity{},
+            mizuiro::image::algorithm::uninitialized::yes);
+      }};
 }

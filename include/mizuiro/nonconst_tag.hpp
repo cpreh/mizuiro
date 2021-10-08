@@ -3,12 +3,10 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_NONCONST_TAG_HPP_INCLUDED
 #define MIZUIRO_NONCONST_TAG_HPP_INCLUDED
 
 #include <mizuiro/nonconst_tag_fwd.hpp>
-
 
 namespace mizuiro
 {

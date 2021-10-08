@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_DETAIL_PITCH_ITERATOR_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_PITCH_ITERATOR_DECL_HPP_INCLUDED
 
@@ -15,152 +14,65 @@
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
 
-
 namespace mizuiro::image::detail
 {
 
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
-class pitch_iterator
-:
-	private
-		mizuiro::image::format::base<
-			Format
-		>
+template <typename Access, typename Format, typename Constness>
+class pitch_iterator : private mizuiro::image::format::base<Format>
 {
-	using
-	format_base
-	=
-	mizuiro::image::format::base<
-		Format
-	>;
+  using format_base = mizuiro::image::format::base<Format>;
+
 public:
-	using
-	access
-	=
-	Access;
+  using access = Access;
 
-	using
-	format
-	=
-	Format;
+  using format = Format;
 
-	using
-	constness
-	=
-	Constness;
+  using constness = Constness;
 
-	using
-	format_store_type
-	=
-	typename
-	format_base::format_store_type;
+  using format_store_type = typename format_base::format_store_type;
 
-	using
-	dim
-	=
-	typename
-	format::dim;
+  using dim = typename format::dim;
 
-	using
-	pitch_type
-	=
-	mizuiro::image::pitch_type<
-		dim
-	>;
+  using pitch_type = mizuiro::image::pitch_type<dim>;
 
-	using
-	reference
-	=
-	mizuiro::image::types::reference<
-		access,
-		format,
-		constness
-	>;
+  using reference = mizuiro::image::types::reference<access, format, constness>;
 
-	using
-	pointer
-	=
-	mizuiro::image::types::pointer<
-		access,
-		format,
-		constness
-	>;
+  using pointer = mizuiro::image::types::pointer<access, format, constness>;
 
-	using
-	difference_type
-	=
-	mizuiro::difference_type;
+  using difference_type = mizuiro::difference_type;
 
-	pitch_iterator(
-		dim const &,
-		pointer data,
-		pitch_type const &,
-		format_store_type const &
-	);
+  pitch_iterator(dim const &, pointer data, pitch_type const &, format_store_type const &);
 
-	[[nodiscard]]
-	dim const &
-	size() const;
+  [[nodiscard]] dim const &size() const;
 
-	[[nodiscard]]
-	difference_type
-	offset() const;
+  [[nodiscard]] difference_type offset() const;
 
-	[[nodiscard]]
-	pointer
-	data() const;
+  [[nodiscard]] pointer data() const;
 
-	pitch_iterator &
-	advance(
-		difference_type
-	);
+  pitch_iterator &advance(difference_type);
 
-	void
-	increment();
+  void increment();
 
-	void
-	decrement();
+  void decrement();
 
-	[[nodiscard]]
-	difference_type
-	distance_to(
-		pitch_iterator const &
-	) const;
+  [[nodiscard]] difference_type distance_to(pitch_iterator const &) const;
 
-	[[nodiscard]]
-	reference
-	dereference() const;
+  [[nodiscard]] reference dereference() const;
 
-	[[nodiscard]]
-	bool
-	equal(
-		pitch_iterator const &
-	) const;
+  [[nodiscard]] bool equal(pitch_iterator const &) const;
+
 private:
-	dim size_;
+  dim size_;
 
-	pointer root_data_;
+  pointer root_data_;
 
-	pitch_type pitch_;
+  pitch_type pitch_;
 
-	difference_type
-		line_advance_,
-		position_,
-		offset_;
+  difference_type line_advance_, position_, offset_;
 
-	using
-	stacked_dim_array
-	=
-	mizuiro::image::detail::stacked_dim_array<
-		dim,
-		difference_type
-	>;
+  using stacked_dim_array = mizuiro::image::detail::stacked_dim_array<dim, difference_type>;
 
-	stacked_dim_array stacked_dim_;
+  stacked_dim_array stacked_dim_;
 };
 
 }

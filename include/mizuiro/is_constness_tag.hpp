@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IS_CONSTNESS_TAG_HPP_INCLUDED
 #define MIZUIRO_IS_CONSTNESS_TAG_HPP_INCLUDED
 
@@ -13,34 +12,21 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro
 {
 
-template<
-	typename T
->
-struct is_constness_tag
-:
-std::false_type
+template <typename T>
+struct is_constness_tag : std::false_type
 {
 };
 
-template<>
-struct is_constness_tag<
-	mizuiro::const_tag
->
-:
-std::true_type
+template <>
+struct is_constness_tag<mizuiro::const_tag> : std::true_type
 {
 };
 
-template<>
-struct is_constness_tag<
-	mizuiro::nonconst_tag
->
-:
-std::true_type
+template <>
+struct is_constness_tag<mizuiro::nonconst_tag> : std::true_type
 {
 };
 

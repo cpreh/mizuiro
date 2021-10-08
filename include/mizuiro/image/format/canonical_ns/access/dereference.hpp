@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_FORMAT_CANONICAL_NS_ACCESS_DEREFERENCE_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_CANONICAL_NS_ACCESS_DEREFERENCE_HPP_INCLUDED
 
@@ -16,38 +15,19 @@
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
 
-
 namespace mizuiro::image::access::dereference_ns
 {
 
-template<
-	typename ImageFormat,
-	typename Constness
->
-mizuiro::image::types::reference<
-	mizuiro::access::normal,
-	ImageFormat,
-	Constness
->
-dereference_adl(
-	mizuiro::image::access::dereference_ns::tag,
-	mizuiro::access::normal,
-	mizuiro::image::format::canonical_ns::tag<
-		ImageFormat
-	>,
-	Constness,
-	mizuiro::image::format::store<
-		ImageFormat
-	> const &,
-	mizuiro::image::types::pointer<
-		mizuiro::access::normal,
-		ImageFormat,
-		Constness
-	> const _data
-)
+template <typename ImageFormat, typename Constness>
+mizuiro::image::types::reference<mizuiro::access::normal, ImageFormat, Constness> dereference_adl(
+    mizuiro::image::access::dereference_ns::tag,
+    mizuiro::access::normal,
+    mizuiro::image::format::canonical_ns::tag<ImageFormat>,
+    Constness,
+    mizuiro::image::format::store<ImageFormat> const &,
+    mizuiro::image::types::pointer<mizuiro::access::normal, ImageFormat, Constness> const _data)
 {
-	return
-		*_data;
+  return *_data;
 }
 
 }

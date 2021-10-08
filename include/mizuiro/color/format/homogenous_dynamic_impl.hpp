@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_IMPL_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_IMPL_HPP_INCLUDED
 
@@ -14,46 +13,15 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
-template<
-	typename ChannelType,
-	typename Space,
-	mizuiro::size_type ChannelCount
->
-template<
-	typename Layout
->
-mizuiro::color::format::homogenous_dynamic<
-	ChannelType,
-	Space,
-	ChannelCount
->::homogenous_dynamic(
-	Layout const &
-)
-:
-	channels(
-		mizuiro::color::detail::dynamic::make_channels<
-			all_possible_channels,
-			typename
-			Layout::channels
-		>()
-	),
-	indices(
-		mizuiro::color::detail::dynamic::initialize_indices<
-			channel_index_array
-		>(
-			channels
-		)
-	)
+template <typename ChannelType, typename Space, mizuiro::size_type ChannelCount>
+template <typename Layout>
+mizuiro::color::format::homogenous_dynamic<ChannelType, Space, ChannelCount>::homogenous_dynamic(
+    Layout const &)
+    : channels(mizuiro::color::detail::dynamic::
+                   make_channels<all_possible_channels, typename Layout::channels>()),
+      indices(mizuiro::color::detail::dynamic::initialize_indices<channel_index_array>(channels))
 {
-	static_assert(
-		std::is_same<
-			Space,
-			typename
-			Layout::space
-		>::value,
-		"Color spaces must match"
-	);
+  static_assert(std::is_same<Space, typename Layout::space>::value, "Color spaces must match");
 }
 
 #endif

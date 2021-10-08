@@ -3,20 +3,18 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_ALGORITHM_UNINITIALIZED_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_UNINITIALIZED_HPP_INCLUDED
 
 #include <mizuiro/image/algorithm/uninitialized_fwd.hpp>
-
 
 namespace mizuiro::image::algorithm
 {
 
 enum class uninitialized
 {
-	yes,
-	no
+  yes,
+  no
 };
 
 }

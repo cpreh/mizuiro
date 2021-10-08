@@ -3,12 +3,10 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_APPLY_CONST_HPP_INCLUDED
 #define MIZUIRO_APPLY_CONST_HPP_INCLUDED
 
 #include <mizuiro/detail/apply_const.hpp>
-
 
 namespace mizuiro
 {
@@ -23,18 +21,8 @@ Constness is mizuiro::const_tag.
 
 \tparam BaseType Can be any type
 */
-template<
-	typename BaseType,
-	typename Constness
->
-using
-apply_const
-=
-typename
-mizuiro::detail::apply_const<
-	BaseType,
-	Constness
->::type;
+template <typename BaseType, typename Constness>
+using apply_const = typename mizuiro::detail::apply_const<BaseType, Constness>::type;
 
 }
 

@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_CONVERT_STATIC_IS_RGB_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_STATIC_IS_RGB_HPP_INCLUDED
 
@@ -15,29 +14,14 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::color::convert_static
 {
 
-template<
-	typename Format
->
-using is_rgb
-=
-std::disjunction<
-	mizuiro::color::format::has_channel_static<
-		Format,
-		mizuiro::color::channel::red
-	>,
-	mizuiro::color::format::has_channel_static<
-		Format,
-		mizuiro::color::channel::green
-	>,
-	mizuiro::color::format::has_channel_static<
-		Format,
-		mizuiro::color::channel::blue
-	>
->;
+template <typename Format>
+using is_rgb = std::disjunction<
+    mizuiro::color::format::has_channel_static<Format, mizuiro::color::channel::red>,
+    mizuiro::color::format::has_channel_static<Format, mizuiro::color::channel::green>,
+    mizuiro::color::format::has_channel_static<Format, mizuiro::color::channel::blue>>;
 
 }
 

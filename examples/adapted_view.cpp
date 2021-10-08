@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/apply_const.hpp>
 #include <mizuiro/difference_type.hpp>
 #include <mizuiro/nonconst_tag.hpp>
@@ -39,76 +38,40 @@
 #include <vector>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mylib
 {
 
-template<
-	typename Format
->
+template <typename Format>
 struct tag
 {
 };
 
-template<
-	typename Dim,
-	typename Type
->
+template <typename Dim, typename Type>
 struct native_format
 {
-	// Typedefs for mizuiro
-	using
-	dim
-	=
-	Dim;
+  // Typedefs for mizuiro
+  using dim = Dim;
 
-	using
-	pitch
-	=
-	mizuiro::image::pitch_type<
-		dim
-	>;
+  using pitch = mizuiro::image::pitch_type<dim>;
 
-	// Own typedefs
-	using
-	type
-	=
-	Type;
+  // Own typedefs
+  using type = Type;
 };
 
-template<
-	typename Type
->
+template <typename Type>
 class proxy;
 
 }
-
 
 namespace mizuiro::image
 {
 namespace format
 {
 
-template<
-	typename Dim,
-	typename Type
->
-struct tag_of<
-	mylib::native_format<
-		Dim,
-		Type
-	>
->
+template <typename Dim, typename Type>
+struct tag_of<mylib::native_format<Dim, Type>>
 {
-	using
-	type
-	=
-	mylib::tag<
-		mylib::native_format<
-			Dim,
-			Type
-		>
-	>;
+  using type = mylib::tag<mylib::native_format<Dim, Type>>;
 };
 
 }
@@ -118,90 +81,42 @@ namespace types
 namespace needs_format_store_ns
 {
 
-template<
-	typename Dim,
-	typename Type
->
-std::false_type
-needs_format_store_adl(
-	mizuiro::image::types::needs_format_store_ns::tag,
-	mylib::tag<
-		mylib::native_format<
-			Dim,
-			Type
-		>
-	>
-);
+template <typename Dim, typename Type>
+std::false_type needs_format_store_adl(
+    mizuiro::image::types::needs_format_store_ns::tag, mylib::tag<mylib::native_format<Dim, Type>>);
 
 }
 
 namespace pointer_ns
 {
 
-template<
-	typename Dim,
-	typename Type,
-	typename Constness
->
-mizuiro::apply_const<
-	mizuiro::raw_pointer,
-	Constness
->
-pointer_adl(
-	mizuiro::image::types::pointer_ns::tag,
-	mizuiro::access::raw,
-	mylib::tag<
-		mylib::native_format<
-			Dim,
-			Type
-		>
-	>,
-	Constness
-);
+template <typename Dim, typename Type, typename Constness>
+mizuiro::apply_const<mizuiro::raw_pointer, Constness> pointer_adl(
+    mizuiro::image::types::pointer_ns::tag,
+    mizuiro::access::raw,
+    mylib::tag<mylib::native_format<Dim, Type>>,
+    Constness);
 
 }
 
 namespace reference_ns
 {
 
-template<
-	typename Dim,
-	typename Type
->
-mylib::proxy<
-	Type
->
-reference_adl(
-	mizuiro::image::types::reference_ns::tag,
-	mizuiro::access::raw,
-	mylib::tag<
-		mylib::native_format<
-			Dim,
-			Type
-		>
-	>,
-	mizuiro::nonconst_tag
-);
+template <typename Dim, typename Type>
+mylib::proxy<Type> reference_adl(
+    mizuiro::image::types::reference_ns::tag,
+    mizuiro::access::raw,
+    mylib::tag<mylib::native_format<Dim, Type>>,
+    mizuiro::nonconst_tag);
 
 }
 
 namespace value_type_ns
 {
 
-template<
-	typename Dim,
-	typename Type
->
-Type
-value_type_adl(
-	mizuiro::image::types::value_type_ns::tag,
-	mylib::tag<
-		mylib::native_format<
-			Dim,
-			Type
-		>
-	>
-);
+template <typename Dim, typename Type>
+Type value_type_adl(
+    mizuiro::image::types::value_type_ns::tag, mylib::tag<mylib::native_format<Dim, Type>>);
 
 }
 }
@@ -211,99 +126,37 @@ namespace access
 namespace advance_pointer_ns
 {
 
-template<
-	typename Dim,
-	typename Type,
-	typename Constness
->
-mizuiro::image::types::pointer<
-	mizuiro::access::raw,
-	mylib::native_format<
-		Dim,
-		Type
-	>,
-	Constness
->
+template <typename Dim, typename Type, typename Constness>
+mizuiro::image::types::pointer<mizuiro::access::raw, mylib::native_format<Dim, Type>, Constness>
 advance_pointer_adl(
-	mizuiro::image::access::advance_pointer_ns::tag,
-	mylib::tag<
-		mylib::native_format<
-			Dim,
-			Type
-		>
-	>,
-	mizuiro::access::raw,
-	Constness,
-	mizuiro::image::format::store<
-		mylib::native_format<
-			Dim,
-			Type
-		>
-	> const &,
-	mizuiro::image::types::pointer<
-		mizuiro::access::raw,
-		mylib::native_format<
-			Dim,
-			Type
-		>,
-		Constness
-	> const _pointer,
-	mizuiro::difference_type const _diff
-)
+    mizuiro::image::access::advance_pointer_ns::tag,
+    mylib::tag<mylib::native_format<Dim, Type>>,
+    mizuiro::access::raw,
+    Constness,
+    mizuiro::image::format::store<mylib::native_format<Dim, Type>> const &,
+    mizuiro::image::types::
+        pointer<mizuiro::access::raw, mylib::native_format<Dim, Type>, Constness> const _pointer,
+    mizuiro::difference_type const _diff)
 {
-	return
-		_pointer
-		+
-		_diff;
+  return _pointer + _diff;
 }
 }
 
 namespace pointer_difference_ns
 {
-template<
-	typename Dim,
-	typename Type,
-	typename Constness
->
-mizuiro::difference_type
-pointer_difference_adl(
-	mizuiro::image::access::pointer_difference_ns::tag,
-	mylib::tag<
-		mylib::native_format<
-			Dim,
-			Type
-		>
-	>,
-	mizuiro::access::raw,
-	Constness,
-	mizuiro::image::format::store<
-		mylib::native_format<
-			Dim,
-			Type
-		>
-	> const &,
-	mizuiro::image::types::pointer<
-		mizuiro::access::raw,
-		mylib::native_format<
-			Dim,
-			Type
-		>,
-		Constness
-	> const _pointer1,
-	mizuiro::image::types::pointer<
-		mizuiro::access::raw,
-		mylib::native_format<
-			Dim,
-			Type
-		>,
-		Constness
-	> const _pointer2
-)
+template <typename Dim, typename Type, typename Constness>
+mizuiro::difference_type pointer_difference_adl(
+    mizuiro::image::access::pointer_difference_ns::tag,
+    mylib::tag<mylib::native_format<Dim, Type>>,
+    mizuiro::access::raw,
+    Constness,
+    mizuiro::image::format::store<mylib::native_format<Dim, Type>> const &,
+    mizuiro::image::types::
+        pointer<mizuiro::access::raw, mylib::native_format<Dim, Type>, Constness> const _pointer1,
+    mizuiro::image::types::
+        pointer<mizuiro::access::raw, mylib::native_format<Dim, Type>, Constness> const _pointer2)
 {
-	return
-		_pointer1
-		-
-		_pointer2;
+  return _pointer1 - _pointer2;
 }
 
 }
@@ -311,30 +164,14 @@ pointer_difference_adl(
 namespace stride_ns
 {
 
-template<
-	typename Dim,
-	typename Type
->
-mizuiro::size_type
-stride_adl(
-	mizuiro::image::access::stride_ns::tag,
-	mizuiro::access::raw const &,
-	mylib::tag<
-		mylib::native_format<
-			Dim,
-			Type
-		>
-	>,
-	mizuiro::image::format::store<
-		mylib::native_format<
-			Dim,
-			Type
-		>
-	> const &
-)
+template <typename Dim, typename Type>
+mizuiro::size_type stride_adl(
+    mizuiro::image::access::stride_ns::tag,
+    mizuiro::access::raw const &,
+    mylib::tag<mylib::native_format<Dim, Type>>,
+    mizuiro::image::format::store<mylib::native_format<Dim, Type>> const &)
 {
-	return
-		sizeof(Type);
+  return sizeof(Type);
 }
 
 }
@@ -342,55 +179,23 @@ stride_adl(
 namespace dereference_ns
 {
 
-template<
-	typename Dim,
-	typename Type
->
-mizuiro::image::types::reference<
-	mizuiro::access::raw,
-	mylib::native_format<
-		Dim,
-		Type
-	>,
-	mizuiro::nonconst_tag
->
-dereference_adl(
-	mizuiro::image::access::dereference_ns::tag,
-	mizuiro::access::raw,
-	mylib::tag<
-		mylib::native_format<
-			Dim,
-			Type
-		>
-	>,
-	mizuiro::nonconst_tag,
-	mizuiro::image::format::store<
-		mylib::native_format<
-			Dim,
-			Type
-		>
-	> const &,
-	mizuiro::image::types::pointer<
-		mizuiro::access::raw,
-		mylib::native_format<
-			Dim,
-			Type
-		>,
-		mizuiro::nonconst_tag
-	> const _data
-)
+template <typename Dim, typename Type>
+mizuiro::image::types::
+    reference<mizuiro::access::raw, mylib::native_format<Dim, Type>, mizuiro::nonconst_tag>
+    dereference_adl(
+        mizuiro::image::access::dereference_ns::tag,
+        mizuiro::access::raw,
+        mylib::tag<mylib::native_format<Dim, Type>>,
+        mizuiro::nonconst_tag,
+        mizuiro::image::format::store<mylib::native_format<Dim, Type>> const &,
+        mizuiro::image::types::pointer<
+            mizuiro::access::raw,
+            mylib::native_format<Dim, Type>,
+            mizuiro::nonconst_tag> const _data)
 {
-	return
-		mizuiro::image::types::reference<
-			mizuiro::access::raw,
-			mylib::native_format<
-				Dim,
-				Type
-			>,
-			mizuiro::nonconst_tag
-		>(
-			_data
-		);
+  return mizuiro::image::types::
+      reference<mizuiro::access::raw, mylib::native_format<Dim, Type>, mizuiro::nonconst_tag>(
+          _data);
 }
 
 }
@@ -400,150 +205,67 @@ dereference_adl(
 namespace mylib
 {
 
-template<
-	typename Type
->
+template <typename Type>
 class proxy
 {
 public:
-	using
-	pointer
-	=
-	mizuiro::raw_pointer;
+  using pointer = mizuiro::raw_pointer;
 
-	explicit
-	proxy(
-		pointer const _data
-	)
-	:
-		data_(
-			_data
-		)
-	{
-	}
+  explicit proxy(pointer const _data) : data_(_data) {}
 
-	using
-	value_type
-	=
-	Type;
+  using value_type = Type;
 
-	// NOLINTNEXTLINE(google-explicit-constructor,hicpp-explicit-conversions)
-	operator
-	value_type() const
-	{
-		value_type result;
+  // NOLINTNEXTLINE(google-explicit-constructor,hicpp-explicit-conversions)
+  operator value_type() const
+  {
+    value_type result;
 
-		std::memcpy(
-			&result,
-			data_,
-			sizeof(
-				value_type
-			)
-		);
+    std::memcpy(&result, data_, sizeof(value_type));
 
-		return result;
-	}
+    return result;
+  }
 
-	proxy &
-	operator=(
-		value_type const &_value
-	)
-	{
-		std::memcpy(
-			data_,
-			&_value,
-			sizeof(
-				value_type
-			)
-		);
+  proxy &operator=(value_type const &_value)
+  {
+    std::memcpy(data_, &_value, sizeof(value_type));
 
-		return
-			*this;
-	}
+    return *this;
+  }
+
 private:
-	pointer data_;
+  pointer data_;
 };
 
 }
 
-int
-main()
+int main()
 {
-	using
-	value_type
-	=
-	unsigned;
+  using value_type = unsigned;
 
-	using
-	dim2
-	=
-	mizuiro::image::dimension<
-		2
-	>;
+  using dim2 = mizuiro::image::dimension<2>;
 
-	using
-	native_view
-	=
-	mizuiro::image::linear_view<
-		::mizuiro::access::raw,
-		mylib::native_format<
-			dim2,
-			value_type
-		>,
-		mizuiro::nonconst_tag
-	>;
+  using native_view = mizuiro::image::linear_view<
+      ::mizuiro::access::raw,
+      mylib::native_format<dim2, value_type>,
+      mizuiro::nonconst_tag>;
 
-	using
-	raw_vector
-	=
-	std::vector<
-		mizuiro::raw_value
-	>;
+  using raw_vector = std::vector<mizuiro::raw_value>;
 
-	dim2 const size(
-		100U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-		50U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-	);
+  dim2 const size(
+      100U, // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      50U // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+  );
 
-	raw_vector data(
-		sizeof(
-			value_type
-		)
-		*
-		mizuiro::image::dimension_content(
-			size
-		)
-	);
+  raw_vector data(sizeof(value_type) * mizuiro::image::dimension_content(size));
 
-	native_view const view(
-		size,
-		data.data()
-	);
+  native_view const view(size, data.data());
 
-	for(
-		native_view::iterator it(
-			view.begin()
-		);
-		it != view.end();
-		++it
-	)
-	{
-		*it =
-			static_cast<
-				value_type
-			>(
-				std::distance(
-					view.begin(),
-					it
-				)
-			);
-	}
+  for (native_view::iterator it(view.begin()); it != view.end(); ++it)
+  {
+    *it = static_cast<value_type>(std::distance(view.begin(), it));
+  }
 
-	mizuiro::image::algorithm::print(
-		std::cout,
-		view
-	);
+  mizuiro::image::algorithm::print(std::cout, view);
 
-	std::cout
-		<< '\n';
+  std::cout << '\n';
 }

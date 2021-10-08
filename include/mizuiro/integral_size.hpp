@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_INTEGRAL_SIZE_HPP_INCLUDED
 #define MIZUIRO_INTEGRAL_SIZE_HPP_INCLUDED
 
@@ -12,20 +11,11 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro
 {
 
-template<
-	mizuiro::size_type Size
->
-using
-integral_size
-=
-std::integral_constant<
-	mizuiro::size_type,
-	Size
->;
+template <mizuiro::size_type Size>
+using integral_size = std::integral_constant<mizuiro::size_type, Size>;
 
 }
 

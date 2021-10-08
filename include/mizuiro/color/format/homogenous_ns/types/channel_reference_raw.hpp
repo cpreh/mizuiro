@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_FORMAT_HOMOGENOUS_NS_TYPES_CHANNEL_REFERENCE_RAW_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_NS_TYPES_CHANNEL_REFERENCE_RAW_HPP_INCLUDED
 
@@ -15,41 +14,21 @@
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/channel_reference_ns/tag.hpp>
 
-
 namespace mizuiro::color::types::channel_reference_ns
 {
 
-template<
-	typename Format,
-	typename Channel,
-	typename Constness
->
+template <typename Format, typename Channel, typename Constness>
 mizuiro::color::channel_proxy<
-	mizuiro::color::types::pointer<
-		::mizuiro::access::raw,
-		Format,
-		Constness
-	>,
-	mizuiro::color::types::channel_value<
-		Format,
-		Channel
-	>,
-	mizuiro::color::detail::raw_channel_access<
-		mizuiro::color::types::channel_value<
-			Format,
-			Channel
-		>
-	>
->
-channel_reference_adl(
-	mizuiro::color::types::channel_reference_ns::tag,
-	mizuiro::access::raw,
-	mizuiro::color::format::homogenous_ns::tag<
-		Format
-	>,
-	Channel,
-	Constness
-);
+    mizuiro::color::types::pointer<::mizuiro::access::raw, Format, Constness>,
+    mizuiro::color::types::channel_value<Format, Channel>,
+    mizuiro::color::detail::raw_channel_access<
+        mizuiro::color::types::channel_value<Format, Channel>>>
+    channel_reference_adl(
+        mizuiro::color::types::channel_reference_ns::tag,
+        mizuiro::access::raw,
+        mizuiro::color::format::homogenous_ns::tag<Format>,
+        Channel,
+        Constness);
 
 }
 

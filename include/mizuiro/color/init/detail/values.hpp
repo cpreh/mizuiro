@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_VALUES_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_VALUES_HPP_INCLUDED
 
@@ -15,103 +14,33 @@
 #include <utility>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::color::init::detail
 {
 
-template<
-	typename Tuple
->
+template <typename Tuple>
 class values
 {
 public:
-	using
-	tuple_type
-	=
-	Tuple;
+  using tuple_type = Tuple;
 
-	values()
-	:
-		elements_()
-	{
-	}
+  values() : elements_() {}
 
-	explicit
-	values(
-		tuple_type _elements
-	)
-	:
-		elements_(
-			std::move(
-				_elements
-			)
-		)
-	{
-	}
+  explicit values(tuple_type _elements) : elements_(std::move(_elements)) {}
 
-	template<
-		typename NewInit
-	>
-	[[nodiscard]]
-	values<
-		decltype(
-			fcppt::tuple::concat(
-				std::declval<
-					tuple_type
-				>(),
-				std::declval<
-					fcppt::tuple::object<
-						NewInit
-					>
-				>()
-			)
-		)
-	>
-	operator()(
-		values<
-			fcppt::tuple::object<
-				NewInit
-			>
-		> const &_newinit
-	) const
-	{
-		return
-			values<
-				decltype(
-					fcppt::tuple::concat(
-						std::declval<
-							tuple_type
-						>(),
-						std::declval<
-							fcppt::tuple::object<
-								NewInit
-							>
-						>()
-					)
-				)
-			>(
-				fcppt::tuple::concat(
-					tuple_type{
-						elements_
-					},
-					fcppt::tuple::object<
-						NewInit
-					>{
-						_newinit.get()
-					}
-				)
-			);
-	}
+  template <typename NewInit>
+  [[nodiscard]] values<decltype(fcppt::tuple::concat(
+      std::declval<tuple_type>(), std::declval<fcppt::tuple::object<NewInit>>()))>
+  operator()(values<fcppt::tuple::object<NewInit>> const &_newinit) const
+  {
+    return values<decltype(fcppt::tuple::concat(
+        std::declval<tuple_type>(), std::declval<fcppt::tuple::object<NewInit>>()))>(
+        fcppt::tuple::concat(tuple_type{elements_}, fcppt::tuple::object<NewInit>{_newinit.get()}));
+  }
 
-	[[nodiscard]]
-	tuple_type const &
-	get() const
-	{
-		return
-			elements_;
-	}
+  [[nodiscard]] tuple_type const &get() const { return elements_; }
+
 private:
-	tuple_type elements_;
+  tuple_type elements_;
 };
 
 }

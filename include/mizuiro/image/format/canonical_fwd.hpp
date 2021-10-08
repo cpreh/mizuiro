@@ -3,18 +3,13 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_FORMAT_CANONICAL_FWD_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_CANONICAL_FWD_HPP_INCLUDED
-
 
 namespace mizuiro::image::format
 {
 
-template<
-	typename DimType,
-	typename Type
->
+template <typename DimType, typename Type>
 class canonical;
 
 }

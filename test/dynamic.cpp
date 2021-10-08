@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/channel/blue.hpp>
@@ -27,100 +26,40 @@
 #include <functional>
 #include <fcppt/config/external_end.hpp>
 
-
 FCPPT_CATCH_BEGIN
 
-TEST_CASE(
-	"dynamic heterogenous",
-	"[mizuiro]"
-)
+TEST_CASE("dynamic heterogenous", "[mizuiro]")
 {
-	using
-	color_uint8_4_format
-	=
-	mizuiro::color::format::homogenous_dynamic<
-		std::uint8_t,
-		mizuiro::color::space::rgb,
-		4
-	>;
+  using color_uint8_4_format =
+      mizuiro::color::format::homogenous_dynamic<std::uint8_t, mizuiro::color::space::rgb, 4>;
 
-	static_assert(
-		!mizuiro::color::format::detail::has_channel_constexpr<
-			color_uint8_4_format,
-			mizuiro::color::channel::red
-		>::value,
-		"has_channel should not be constexpr"
-	);
+  static_assert(
+      !mizuiro::color::format::detail::
+          has_channel_constexpr<color_uint8_4_format, mizuiro::color::channel::red>::value,
+      "has_channel should not be constexpr");
 
-	color_uint8_4_format const rgba_format{
-		mizuiro::color::layout::rgba{}
-	};
+  color_uint8_4_format const rgba_format{mizuiro::color::layout::rgba{}};
 
-	using
-	color_uint8_4
-	=
-	mizuiro::color::object<
-		color_uint8_4_format
-	>;
+  using color_uint8_4 = mizuiro::color::object<color_uint8_4_format>;
 
-	using
-	color_format_store
-	=
-	mizuiro::color::format::store<
-		color_uint8_4_format
-	>;
+  using color_format_store = mizuiro::color::format::store<color_uint8_4_format>;
 
-	color_format_store const rgba_format_store(
-		std::cref(
-			rgba_format
-		)
-	);
+  color_format_store const rgba_format_store(std::cref(rgba_format));
 
-	color_uint8_4 const test1(
-		(
-			mizuiro::color::init::red() = std::uint8_t{4}
-		)(
-			mizuiro::color::init::green() = std::uint8_t{10}
-		)(
-			mizuiro::color::init::blue() = std::uint8_t{20}
-		)(
-			mizuiro::color::init::alpha() = std::uint8_t{45}
-		)
-		,
-		rgba_format_store
-	);
+  color_uint8_4 const test1(
+      (mizuiro::color::init::red() =
+           std::uint8_t{4})(mizuiro::color::init::green() = std::uint8_t{10})(
+          mizuiro::color::init::blue() =
+              std::uint8_t{20})(mizuiro::color::init::alpha() = std::uint8_t{45}),
+      rgba_format_store);
 
-	CHECK(
-		test1.get(
-			mizuiro::color::channel::red()
-		)
-		==
-		std::uint8_t{4}
-	);
+  CHECK(test1.get(mizuiro::color::channel::red()) == std::uint8_t{4});
 
-	CHECK(
-		test1.get(
-			mizuiro::color::channel::green()
-		)
-		==
-		std::uint8_t{10}
-	);
+  CHECK(test1.get(mizuiro::color::channel::green()) == std::uint8_t{10});
 
-	CHECK(
-		test1.get(
-			mizuiro::color::channel::blue()
-		)
-		==
-		std::uint8_t{20}
-	);
+  CHECK(test1.get(mizuiro::color::channel::blue()) == std::uint8_t{20});
 
-	CHECK(
-		test1.get(
-			mizuiro::color::channel::alpha()
-		)
-		==
-		std::uint8_t{45}
-	);
+  CHECK(test1.get(mizuiro::color::channel::alpha()) == std::uint8_t{45});
 }
 
 FCPPT_CATCH_END

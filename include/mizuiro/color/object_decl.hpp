@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_OBJECT_DECL_HPP_INCLUDED
 #define MIZUIRO_COLOR_OBJECT_DECL_HPP_INCLUDED
 
@@ -30,7 +29,6 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::color
 {
 
@@ -41,233 +39,97 @@ mizuiro::color::object is a class that can be used to store a color by value.
 
 \tparam Format specifies the color format
 */
-template<
-	typename Format
->
-class object final
-:
-	private
-		mizuiro::color::format::base<
-			Format
-		>
+template <typename Format>
+class object final : private mizuiro::color::format::base<Format>
 {
-	using
-	base
-	=
-	mizuiro::color::format::base<
-		Format
-	>;
+  using base = mizuiro::color::format::base<Format>;
+
 public:
-	using
-	format
-	=
-	Format;
+  using format = Format;
 
-	using
-	format_store_type
-	=
-	typename
-	base::format_store_type;
+  using format_store_type = typename base::format_store_type;
 
-	using
-	access
-	=
-	mizuiro::access::normal;
+  using access = mizuiro::access::normal;
 
-	using
-	pointer
-	=
-	mizuiro::color::types::pointer<
-		access,
-		format,
-		mizuiro::nonconst_tag
-	>;
+  using pointer = mizuiro::color::types::pointer<access, format, mizuiro::nonconst_tag>;
 
-	using
-	const_pointer
-	=
-	mizuiro::color::types::pointer<
-		access,
-		format,
-		mizuiro::const_tag
-	>;
+  using const_pointer = mizuiro::color::types::pointer<access, format, mizuiro::const_tag>;
 
-	FCPPT_PP_PUSH_WARNING
-	FCPPT_PP_DISABLE_VC_WARNING(4686)
+  FCPPT_PP_PUSH_WARNING
+  FCPPT_PP_DISABLE_VC_WARNING(4686)
 
-	/// constructs an uninitialized color
-	explicit
-	object(
-		mizuiro::no_init const &,
-		format_store_type const & =
-			mizuiro::color::format::argument<
-				Format
-			>::get()
-	);
+  /// constructs an uninitialized color
+  explicit object(
+      mizuiro::no_init const &,
+      format_store_type const & = mizuiro::color::format::argument<Format>::get());
 
-	explicit
-	object(
-		mizuiro::default_init const &,
-		format_store_type const & =
-			mizuiro::color::format::argument<
-				Format
-			>::get()
-	);
+  explicit object(
+      mizuiro::default_init const &,
+      format_store_type const & = mizuiro::color::format::argument<Format>::get());
 
-	FCPPT_PP_POP_WARNING
+  FCPPT_PP_POP_WARNING
 
-	/// Constructs a color from another color (possibly a view)
-	template<
-		typename Other,
-		typename =
-			std::enable_if_t<
-				mizuiro::color::is_color<
-					Other
-				>::value
-			>
-	>
-	explicit
-	object(
-		Other const &
-	);
+  /// Constructs a color from another color (possibly a view)
+  template <typename Other, typename = std::enable_if_t<mizuiro::color::is_color<Other>::value>>
+  explicit object(Other const &);
 
-	FCPPT_PP_PUSH_WARNING
-	FCPPT_PP_DISABLE_VC_WARNING(4686)
+  FCPPT_PP_PUSH_WARNING
+  FCPPT_PP_DISABLE_VC_WARNING(4686)
 
-	/// Constructs a color from a special init expression
-	template<
-		typename Vector
-	>
-	explicit
-	object(
-		mizuiro::color::init::detail::values<
-			Vector
-		> const &,
-		format_store_type const & =
-			mizuiro::color::format::argument<
-				Format
-			>::get()
-	);
+  /// Constructs a color from a special init expression
+  template <typename Vector>
+  explicit object(
+      mizuiro::color::init::detail::values<Vector> const &,
+      format_store_type const & = mizuiro::color::format::argument<Format>::get());
 
-	FCPPT_PP_POP_WARNING
+  FCPPT_PP_POP_WARNING
 
-	template<
-		typename Channel
-	>
-	void
-	set(
-		Channel const &,
-		mizuiro::color::types::channel_value<
-			format,
-			Channel
-		> const &
-	);
+  template <typename Channel>
+  void set(Channel const &, mizuiro::color::types::channel_value<format, Channel> const &);
 
-	template<
-		typename Channel
-	>
-	[[nodiscard]]
-	mizuiro::color::types::channel_reference<
-		access,
-		format,
-		Channel,
-		mizuiro::const_tag
-	>
-	get(
-		Channel const &
-	) const;
+  template <typename Channel>
+  [[nodiscard]] mizuiro::color::types::
+      channel_reference<access, format, Channel, mizuiro::const_tag>
+      get(Channel const &) const;
 
-	/// ponter to the internal data
-	[[nodiscard]]
-	pointer
-	data();
+  /// ponter to the internal data
+  [[nodiscard]] pointer data();
 
-	/// const pointer to the internal data
-	[[nodiscard]]
-	const_pointer
-	data() const;
+  /// const pointer to the internal data
+  [[nodiscard]] const_pointer data() const;
 
-	[[nodiscard]]
-	constexpr
-	format_store_type
-	format_store() const;
+  [[nodiscard]] constexpr format_store_type format_store() const;
+
 private:
-	template<
-		typename Other
-	>
-	explicit
-	object(
-		Other const &,
-		std::false_type
-	);
+  template <typename Other>
+  explicit object(Other const &, std::false_type);
 
-	template<
-		typename Other
-	>
-	explicit
-	object(
-		Other const &,
-		std::true_type
-	);
+  template <typename Other>
+  explicit object(Other const &, std::true_type);
 
-	template<
-		typename Vector
-	>
-	explicit
-	object(
-		mizuiro::color::init::detail::values<
-			Vector
-		> const &,
-		std::false_type,
-		format_store_type const &
-	);
+  template <typename Vector>
+  explicit object(
+      mizuiro::color::init::detail::values<Vector> const &,
+      std::false_type,
+      format_store_type const &);
 
-	template<
-		typename Vector
-	>
-	explicit
-	object(
-		mizuiro::color::init::detail::values<
-			Vector
-		> const &,
-		std::true_type,
-		format_store_type const &
-	);
+  template <typename Vector>
+  explicit object(
+      mizuiro::color::init::detail::values<Vector> const &,
+      std::true_type,
+      format_store_type const &);
 
-	using
-	proxy
-	=
-	mizuiro::color::proxy<
-		access,
-		format,
-		mizuiro::nonconst_tag
-	>;
+  using proxy = mizuiro::color::proxy<access, format, mizuiro::nonconst_tag>;
 
-	using
-	const_proxy
-	=
-	mizuiro::color::proxy<
-		access,
-		format,
-		mizuiro::const_tag
-	>;
+  using const_proxy = mizuiro::color::proxy<access, format, mizuiro::const_tag>;
 
-	[[nodiscard]]
-	proxy
-	make_proxy();
+  [[nodiscard]] proxy make_proxy();
 
-	[[nodiscard]]
-	const_proxy
-	make_const_proxy() const;
+  [[nodiscard]] const_proxy make_const_proxy() const;
 
-	using
-	store
-	=
-	mizuiro::color::types::store<
-		format
-	>;
+  using store = mizuiro::color::types::store<format>;
 
-	store data_;
+  store data_;
 };
 
 }

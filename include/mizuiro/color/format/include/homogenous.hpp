@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_FORMAT_INCLUDE_HOMOGENOUS_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_INCLUDE_HOMOGENOUS_HPP_INCLUDED
 
@@ -19,6 +18,5 @@
 #include <mizuiro/color/format/homogenous_ns/types/pointer.hpp>
 #include <mizuiro/color/format/homogenous_ns/types/store.hpp>
 #include <mizuiro/color/format/homogenous_ns/types/store_needs_init.hpp>
-
 
 #endif

@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_DETAIL_PREPARE_STORE_UNITS_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_PREPARE_STORE_UNITS_HPP_INCLUDED
 
@@ -18,75 +17,25 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::image::detail
 {
 
-template<
-	typename Access,
-	typename ImageFormat,
-	typename Dest
->
-typename
-std::enable_if<
-	mizuiro::image::types::needs_prepare<
-		ImageFormat
-	>::value,
-	void
->::type
-inline
-prepare_store_units(
-	mizuiro::image::format::store<
-		ImageFormat
-	> const &_format,
-	Dest const &_dest
-)
+template <typename Access, typename ImageFormat, typename Dest>
+typename std::enable_if<mizuiro::image::types::needs_prepare<ImageFormat>::value, void>::
+    type inline prepare_store_units(
+        mizuiro::image::format::store<ImageFormat> const &_format, Dest const &_dest)
 {
-	std::uninitialized_fill_n(
-		mizuiro::image::access::data<
-			Access,
-			mizuiro::nonconst_tag,
-			ImageFormat
-		>(
-			_format,
-			_dest
-		),
-		mizuiro::image::access::stride<
-			Access,
-			ImageFormat
-		>(
-			_format
-		),
-		typename
-		std::remove_pointer<
-			mizuiro::image::types::pointer<
-				Access,
-				ImageFormat,
-				mizuiro::nonconst_tag
-			>
-		>::type{}
-	);
+  std::uninitialized_fill_n(
+      mizuiro::image::access::data<Access, mizuiro::nonconst_tag, ImageFormat>(_format, _dest),
+      mizuiro::image::access::stride<Access, ImageFormat>(_format),
+      typename std::remove_pointer<
+          mizuiro::image::types::pointer<Access, ImageFormat, mizuiro::nonconst_tag>>::type{});
 }
 
-template<
-	typename Access,
-	typename ImageFormat,
-	typename Dest
->
-typename
-std::enable_if<
-	!mizuiro::image::types::needs_prepare<
-		ImageFormat
-	>::value,
-	void
->::type
-inline
-prepare_store_units(
-	mizuiro::image::format::store<
-		ImageFormat
-	> const &,
-	Dest const &
-)
+template <typename Access, typename ImageFormat, typename Dest>
+typename std::enable_if<!mizuiro::image::types::needs_prepare<ImageFormat>::value, void>::
+    type inline prepare_store_units(
+        mizuiro::image::format::store<ImageFormat> const &, Dest const &)
 {
 }
 

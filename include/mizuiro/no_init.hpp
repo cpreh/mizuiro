@@ -3,12 +3,10 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_NO_INIT_HPP_INCLUDED
 #define MIZUIRO_NO_INIT_HPP_INCLUDED
 
 #include <mizuiro/no_init_fwd.hpp>
-
 
 namespace mizuiro
 {

@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_TYPES_STORE_UNIT_HPP_INCLUDED
 #define MIZUIRO_IMAGE_TYPES_STORE_UNIT_HPP_INCLUDED
 
@@ -13,25 +12,13 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::image::types
 {
 
-template<
-	typename Format
->
-using store_unit
-=
-decltype(
-	store_unit_adl(
-		std::declval<
-			mizuiro::image::types::store_unit_ns::tag
-		>(),
-		mizuiro::image::format::make_tag_of<
-			Format
-		>()
-	)
-);
+template <typename Format>
+using store_unit = decltype(store_unit_adl(
+    std::declval<mizuiro::image::types::store_unit_ns::tag>(),
+    mizuiro::image::format::make_tag_of<Format>()));
 
 }
 

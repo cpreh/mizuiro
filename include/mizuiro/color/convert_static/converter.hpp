@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_CONVERT_STATIC_CONVERTER_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_STATIC_CONVERTER_HPP_INCLUDED
 
@@ -13,50 +12,25 @@
 #include <mizuiro/color/format/store.hpp>
 #include <fcppt/tag.hpp>
 
-
 namespace mizuiro::color::convert_static
 {
 
 struct converter
 {
-	template<
-		typename DestFormat,
-		typename Source
-	>
-	static
-	mizuiro::color::object<
-		DestFormat
-	>
-	execute(
-		Source const &_source,
-		mizuiro::color::format::store<
-			DestFormat
-		> const &
-	)
-	{
-		static_assert(
-			mizuiro::color::convert_static::is_static<
-				typename
-				Source::format
-			>::value,
-			"The source format must be static"
-		);
+  template <typename DestFormat, typename Source>
+  static mizuiro::color::object<DestFormat>
+  execute(Source const &_source, mizuiro::color::format::store<DestFormat> const &)
+  {
+    static_assert(
+        mizuiro::color::convert_static::is_static<typename Source::format>::value,
+        "The source format must be static");
 
-		static_assert(
-			mizuiro::color::convert_static::is_static<
-				DestFormat
-			>::value,
-			"The destination format must be static"
-		);
+    static_assert(
+        mizuiro::color::convert_static::is_static<DestFormat>::value,
+        "The destination format must be static");
 
-		return
-			mizuiro::color::convert_static::convert(
-				fcppt::tag<
-					DestFormat
-				>{},
-				_source
-			);
-	}
+    return mizuiro::color::convert_static::convert(fcppt::tag<DestFormat>{}, _source);
+  }
 };
 
 }

@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/color/convert.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
@@ -22,79 +21,33 @@
 #include <ostream>
 #include <fcppt/config/external_end.hpp>
 
-
-int
-main()
+int main()
 {
-	using
-	channel_type
-	=
-	std::uint8_t;
+  using channel_type = std::uint8_t;
 
-	using
-	rgba_color
-	=
-	mizuiro::color::object<
-		mizuiro::color::format::homogenous_static<
-			channel_type,
-			mizuiro::color::layout::rgba
-		>
-	>;
+  using rgba_color = mizuiro::color::object<
+      mizuiro::color::format::homogenous_static<channel_type, mizuiro::color::layout::rgba>>;
 
-	using
-	rgb_color
-	=
-	mizuiro::color::object<
-		mizuiro::color::format::homogenous_static<
-			channel_type,
-			mizuiro::color::layout::rgb
-		>
-	>;
+  using rgb_color = mizuiro::color::object<
+      mizuiro::color::format::homogenous_static<channel_type, mizuiro::color::layout::rgb>>;
 
-	rgba_color const test_rgba(
-		(mizuiro::color::init::red() = channel_type{42})
-		(mizuiro::color::init::blue() = channel_type{10})
-		(mizuiro::color::init::green() = channel_type{99})
-		(mizuiro::color::init::alpha() = channel_type{50})
-	);
+  rgba_color const test_rgba((mizuiro::color::init::red() = channel_type{42})(
+      mizuiro::color::init::blue() =
+          channel_type{10})(mizuiro::color::init::green() = channel_type{99})(
+      mizuiro::color::init::alpha() = channel_type{50}));
 
-	rgb_color const test_rgb(
-		mizuiro::color::convert<
-			mizuiro::color::convert_static::converter,
-			rgb_color::format
-		>(
-			test_rgba
-		)
-	);
+  rgb_color const test_rgb(
+      mizuiro::color::convert<mizuiro::color::convert_static::converter, rgb_color::format>(
+          test_rgba));
 
-	std::cout
-		<< "rgba value was: "
-		<< test_rgba
-		<< " and was converted to rgb: "
-		<< test_rgb
-		<< '\n';
+  std::cout << "rgba value was: " << test_rgba << " and was converted to rgb: " << test_rgb << '\n';
 
-	using
-	rgba_float_color
-	=
-	mizuiro::color::object<
-		mizuiro::color::format::homogenous_static<
-			float,
-			mizuiro::color::layout::rgba
-		>
-	>;
+  using rgba_float_color = mizuiro::color::object<
+      mizuiro::color::format::homogenous_static<float, mizuiro::color::layout::rgba>>;
 
-	rgba_float_color const test_rgba_float(
-		mizuiro::color::convert<
-			mizuiro::color::convert_static::converter,
-			rgba_float_color::format
-		>(
-			test_rgb
-		)
-	);
+  rgba_float_color const test_rgba_float(
+      mizuiro::color::convert<mizuiro::color::convert_static::converter, rgba_float_color::format>(
+          test_rgb));
 
-	std::cout
-		<< "converted the rgb value to rgba floats: "
-		<< test_rgba_float
-		<< '\n';
+  std::cout << "converted the rgb value to rgba floats: " << test_rgba_float << '\n';
 }

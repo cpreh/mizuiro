@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_NORMALIZE_HPP_INCLUDED
 #define MIZUIRO_COLOR_NORMALIZE_HPP_INCLUDED
 
@@ -14,87 +13,23 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::color
 {
 
-template<
-	typename Float,
-	typename Channel,
-	typename Color
->
-Float
-normalize(
-	Color const &_color,
-	Channel const &_channel
-)
+template <typename Float, typename Channel, typename Color>
+Float normalize(Color const &_color, Channel const &_channel)
 {
-	static_assert(
-		mizuiro::color::is_color<
-			Color
-		>::value,
-		"Color must be a color type"
-	);
+  static_assert(mizuiro::color::is_color<Color>::value, "Color must be a color type");
 
-	static_assert(
-		std::is_floating_point<
-			Float
-		>::value,
-		"Floating must be a floating point type"
-	);
+  static_assert(std::is_floating_point<Float>::value, "Floating must be a floating point type");
 
-	return
-		(
-			static_cast<
-				Float
-			>
-			(
-				_color.get(
-					_channel
-				)
-			)
-			-
-			static_cast<
-				Float
-			>
-			(
-				mizuiro::color::access::channel_min<
-					typename
-					Color::format
-				>(
-					_color.format_store(),
-					_channel
-				)
-			)
-		)
-		/
-		(
-			static_cast<
-				Float
-			>
-			(
-				mizuiro::color::access::channel_max<
-					typename
-					Color::format
-				>(
-					_color.format_store(),
-					_channel
-				)
-			)
-			-
-			static_cast<
-				Float
-			>
-			(
-				mizuiro::color::access::channel_min<
-					typename
-					Color::format
-				>(
-					_color.format_store(),
-					_channel
-				)
-			)
-		);
+  return (static_cast<Float>(_color.get(_channel)) -
+          static_cast<Float>(mizuiro::color::access::channel_min<typename Color::format>(
+              _color.format_store(), _channel))) /
+         (static_cast<Float>(mizuiro::color::access::channel_max<typename Color::format>(
+              _color.format_store(), _channel)) -
+          static_cast<Float>(mizuiro::color::access::channel_min<typename Color::format>(
+              _color.format_store(), _channel)));
 }
 
 }

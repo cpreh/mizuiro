@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/color/convert.hpp>
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/channel/alpha.hpp>
@@ -26,86 +25,43 @@
 #include <cstdint>
 #include <fcppt/config/external_end.hpp>
 
-
 FCPPT_CATCH_BEGIN
 
-TEST_CASE(
-	"convert shuffle",
-	"[mizuiro]"
-)
+TEST_CASE("convert shuffle", "[mizuiro]")
 {
-	using
-	channel_type
-	=
-	std::uint8_t;
+  using channel_type = std::uint8_t;
 
-	using
-	rgba_color
-	=
-	mizuiro::color::object<
-		mizuiro::color::format::homogenous_static<
-			channel_type,
-			mizuiro::color::layout::rgba
-		>
-	>;
+  using rgba_color = mizuiro::color::object<
+      mizuiro::color::format::homogenous_static<channel_type, mizuiro::color::layout::rgba>>;
 
-	using
-	bgra_color
-	=
-	mizuiro::color::object<
-		mizuiro::color::format::homogenous_static<
-			channel_type,
-			mizuiro::color::layout::bgra
-		>
-	>;
+  using bgra_color = mizuiro::color::object<
+      mizuiro::color::format::homogenous_static<channel_type, mizuiro::color::layout::bgra>>;
 
-	rgba_color const rgba(
-		(mizuiro::color::init::red() = channel_type{23}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-		(mizuiro::color::init::blue() = channel_type{42}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-		(mizuiro::color::init::green() = channel_type{100}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-		(mizuiro::color::init::alpha() = channel_type{150}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-	);
+  rgba_color const rgba(
+      (mizuiro::color::init::red() =
+           channel_type{
+               23}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      (mizuiro::color::init::blue() =
+           channel_type{
+               42}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      (mizuiro::color::init::green() =
+           channel_type{
+               100}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      (mizuiro::color::init::alpha() =
+           channel_type{
+               150}) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+  );
 
-	bgra_color const bgra(
-		mizuiro::color::convert<
-			mizuiro::color::convert_static::converter,
-			bgra_color::format
-		>(
-			rgba
-		)
-	);
+  bgra_color const bgra(
+      mizuiro::color::convert<mizuiro::color::convert_static::converter, bgra_color::format>(rgba));
 
-	CHECK(
-		bgra.get(
-			mizuiro::color::channel::red()
-		)
-		==
-		channel_type{23}
-	);
+  CHECK(bgra.get(mizuiro::color::channel::red()) == channel_type{23});
 
-	CHECK(
-		bgra.get(
-			mizuiro::color::channel::green()
-		)
-		==
-		channel_type{100}
-	);
+  CHECK(bgra.get(mizuiro::color::channel::green()) == channel_type{100});
 
-	CHECK(
-		bgra.get(
-			mizuiro::color::channel::blue()
-		)
-		==
-		channel_type{42}
-	);
+  CHECK(bgra.get(mizuiro::color::channel::blue()) == channel_type{42});
 
-	CHECK(
-		bgra.get(
-			mizuiro::color::channel::alpha()
-		)
-		==
-		channel_type{150}
-	);
+  CHECK(bgra.get(mizuiro::color::channel::alpha()) == channel_type{150});
 }
 
 FCPPT_CATCH_END

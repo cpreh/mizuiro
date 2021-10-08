@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/image/dimension.hpp>
@@ -17,46 +16,17 @@
 #include <string>
 #include <fcppt/config/external_end.hpp>
 
-
-int
-main()
+int main()
 {
-	using
-	format
-	=
-	mizuiro::image::format::canonical<
-		mizuiro::image::dimension<
-			2
-		>,
-		std::string
-	>;
+  using format = mizuiro::image::format::canonical<mizuiro::image::dimension<2>, std::string>;
 
-	fcppt::array::object<
-		std::string,
-		4
-	> const string_matrix{
-		std::string("test1"),
-		std::string("test2"),
-		std::string("test3"),
-		std::string("test4")
-	};
+  fcppt::array::object<std::string, 4> const string_matrix{
+      std::string("test1"), std::string("test2"), std::string("test3"), std::string("test4")};
 
-	mizuiro::image::linear_view<
-		mizuiro::access::normal,
-		format,
-		mizuiro::const_tag
-	> const view(
-		format::dim{
-			2U,
-			2U
-		},
-		string_matrix.data()
-	);
+  mizuiro::image::linear_view<mizuiro::access::normal, format, mizuiro::const_tag> const view(
+      format::dim{2U, 2U}, string_matrix.data());
 
-	mizuiro::image::algorithm::print(
-		std::cout,
-		view
-	);
+  mizuiro::image::algorithm::print(std::cout, view);
 
-	std::cout << '\n';
+  std::cout << '\n';
 }

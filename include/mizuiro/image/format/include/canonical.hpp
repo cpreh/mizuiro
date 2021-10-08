@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_FORMAT_INCLUDE_CANONICAL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_INCLUDE_CANONICAL_HPP_INCLUDED
 
@@ -22,6 +21,5 @@
 #include <mizuiro/image/format/canonical_ns/types/reference.hpp>
 #include <mizuiro/image/format/canonical_ns/types/store.hpp>
 #include <mizuiro/image/format/canonical_ns/types/value_type.hpp>
-
 
 #endif

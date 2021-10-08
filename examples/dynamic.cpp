@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/channel/blue.hpp>
@@ -29,95 +28,43 @@
 #include <ostream>
 #include <fcppt/config/external_end.hpp>
 
-
-int
-main()
+int main()
 {
-	using
-	color_uint8_3_format
-	=
-	mizuiro::color::format::homogenous_dynamic<
-		std::uint8_t,
-		mizuiro::color::space::rgb,
-		3
-	>;
+  using color_uint8_3_format =
+      mizuiro::color::format::homogenous_dynamic<std::uint8_t, mizuiro::color::space::rgb, 3>;
 
-	color_uint8_3_format const rgb_format{
-		mizuiro::color::layout::rgb{}
-	};
+  color_uint8_3_format const rgb_format{mizuiro::color::layout::rgb{}};
 
-	using
-	color_uint8_3
-	=
-	mizuiro::color::object<
-		color_uint8_3_format
-	>;
+  using color_uint8_3 = mizuiro::color::object<color_uint8_3_format>;
 
-	using
-	color_format_store
-	=
-	mizuiro::color::format::store<
-		color_uint8_3_format
-	>;
+  using color_format_store = mizuiro::color::format::store<color_uint8_3_format>;
 
-	color_format_store const rgb_format_store(
-		std::cref(
-			rgb_format
-		)
-	);
+  color_format_store const rgb_format_store(std::cref(rgb_format));
 
-	color_uint8_3 const test1(
-		(mizuiro::color::init::red() %= 0.5) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-		(mizuiro::color::init::green() %= 0.2) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-		(mizuiro::color::init::blue() %= 0.1), // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-		rgb_format_store
-	);
+  color_uint8_3 const test1(
+      (mizuiro::color::init::red() %=
+       0.5) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      (mizuiro::color::init::green() %=
+       0.2) // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      (mizuiro::color::init::blue() %=
+       0.1), // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      rgb_format_store);
 
-	std::cout
-		<<
-		test1.get(
-			mizuiro::color::channel::red()
-		)
-		<< '\n';
+  std::cout << test1.get(mizuiro::color::channel::red()) << '\n';
 
-	std::cout
-		<< test1
-		<< '\n';
+  std::cout << test1 << '\n';
 
-	using
-	image_uint8_3_format
-	=
-	mizuiro::image::format::interleaved<
-		mizuiro::image::dimension<
-			2
-		>,
-		color_uint8_3_format
-	>;
+  using image_uint8_3_format =
+      mizuiro::image::format::interleaved<mizuiro::image::dimension<2>, color_uint8_3_format>;
 
-	using
-	uint8_3_store
-	=
-	mizuiro::image::store<
-		image_uint8_3_format
-	>;
+  using uint8_3_store = mizuiro::image::store<image_uint8_3_format>;
 
-	uint8_3_store const store(
-		uint8_3_store::dim(
-			5U,
-			3U
-		),
-		test1,
-		uint8_3_store::format_store_type(
-			image_uint8_3_format{
-				rgb_format_store
-			}
-		)
-	);
+  uint8_3_store const store(
+      uint8_3_store::dim(5U, 3U),
+      test1,
+      uint8_3_store::format_store_type(image_uint8_3_format{rgb_format_store}));
 
-	mizuiro::image::algorithm::print(
-		std::cout,
-		store.view()
-	);
+  mizuiro::image::algorithm::print(std::cout, store.view());
 
-	std::cout << '\n';
+  std::cout << '\n';
 }

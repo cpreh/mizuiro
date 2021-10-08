@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_ACCESS_IS_HPP_INCLUDED
 #define MIZUIRO_ACCESS_IS_HPP_INCLUDED
 
@@ -13,34 +12,21 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::access
 {
 
-template<
-	typename T
->
-struct is
-:
-std::false_type
+template <typename T>
+struct is : std::false_type
 {
 };
 
-template<>
-struct is<
-	mizuiro::access::normal
->
-:
-std::true_type
+template <>
+struct is<mizuiro::access::normal> : std::true_type
 {
 };
 
-template<>
-struct is<
-	mizuiro::access::raw
->
-:
-std::true_type
+template <>
+struct is<mizuiro::access::raw> : std::true_type
 {
 };
 

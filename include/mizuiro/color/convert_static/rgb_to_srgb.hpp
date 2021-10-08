@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_CONVERT_STATIC_RGB_TO_SRGB_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_STATIC_RGB_TO_SRGB_HPP_INCLUDED
 
@@ -17,48 +16,20 @@
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
-
 namespace mizuiro::color::convert_static
 {
 
-template<
-	typename Dest,
-	typename Src
->
-inline
-std::enable_if_t<
-	std::conjunction_v<
-		std::is_same<
-			mizuiro::color::types::space<
-				Dest
-			>,
-			mizuiro::color::space::srgb
-		>,
-		std::is_same<
-			mizuiro::color::types::space<
-				typename
-				Src::format
-			>,
-			mizuiro::color::space::rgb
-		>
-	>,
-	mizuiro::color::object<
-		Dest
-	>
->
-convert(
-	fcppt::tag<
-		Dest
-	> const &,
-	Src const &_src
-)
+template <typename Dest, typename Src>
+inline std::enable_if_t<
+    std::conjunction_v<
+        std::is_same<mizuiro::color::types::space<Dest>, mizuiro::color::space::srgb>,
+        std::is_same<
+            mizuiro::color::types::space<typename Src::format>,
+            mizuiro::color::space::rgb>>,
+    mizuiro::color::object<Dest>>
+convert(fcppt::tag<Dest> const &, Src const &_src)
 {
-	return
-		mizuiro::color::conversion::rgb_to_srgb<
-			Dest
-		>(
-			_src
-		);
+  return mizuiro::color::conversion::rgb_to_srgb<Dest>(_src);
 }
 
 }

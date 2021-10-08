@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_DETAIL_SUM_HPP_INCLUDED
 #define MIZUIRO_DETAIL_SUM_HPP_INCLUDED
 
@@ -12,25 +11,12 @@
 #include <fcppt/mpl/lambda.hpp>
 #include <fcppt/mpl/list/fold.hpp>
 
-
 namespace mizuiro::detail
 {
 
-template<
-	typename List
->
-using
-sum
-=
-fcppt::mpl::list::fold<
-	List,
-	fcppt::mpl::lambda<
-		fcppt::mpl::add
-	>,
-	mizuiro::integral_size<
-		0U
-	>
->;
+template <typename List>
+using sum =
+    fcppt::mpl::list::fold<List, fcppt::mpl::lambda<fcppt::mpl::add>, mizuiro::integral_size<0U>>;
 
 }
 

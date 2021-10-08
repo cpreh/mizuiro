@@ -3,26 +3,16 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_FORMAT_MAKE_TAG_OF_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_MAKE_TAG_OF_HPP_INCLUDED
 
 #include <mizuiro/color/format/tag_of_fwd.hpp>
 
-
 namespace mizuiro::color::format
 {
 
-template<
-	typename Type
->
-using
-make_tag_of
-=
-typename
-mizuiro::color::format::tag_of<
-	Type
->::type;
+template <typename Type>
+using make_tag_of = typename mizuiro::color::format::tag_of<Type>::type;
 
 }
 

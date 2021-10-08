@@ -3,51 +3,25 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_COLOR_CONVERSION_DETAIL_CONVERT_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERSION_DETAIL_CONVERT_CHANNEL_HPP_INCLUDED
 
 #include <mizuiro/color/denormalize.hpp>
 #include <mizuiro/color/normalize.hpp>
 
-
 namespace mizuiro::color::conversion::detail
 {
 
-template<
-	typename Channel,
-	typename Src,
-	typename Dest
->
-inline
-void
-convert_channel(
-	Channel const &_channel,
-	Src const &_src,
-	Dest &_dest
-)
+template <typename Channel, typename Src, typename Dest>
+inline void convert_channel(Channel const &_channel, Src const &_src, Dest &_dest)
 {
-	// TODO(philipp): Create a better version of this
-	using
-	float_type
-	=
-	float;
+  // TODO(philipp): Create a better version of this
+  using float_type = float;
 
-	_dest.set(
-		_channel,
-		mizuiro::color::denormalize<
-			typename Dest::format
-		>(
-			_dest.format_store(),
-			_channel,
-			mizuiro::color::normalize<
-				float_type
-			>(
-				_src,
-				_channel
-			)
-		)
-	);
+  _dest.set(
+      _channel,
+      mizuiro::color::denormalize<typename Dest::format>(
+          _dest.format_store(), _channel, mizuiro::color::normalize<float_type>(_src, _channel)));
 }
 
 }

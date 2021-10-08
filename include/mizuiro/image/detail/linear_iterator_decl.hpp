@@ -3,7 +3,6 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 #ifndef MIZUIRO_IMAGE_DETAIL_LINEAR_ITERATOR_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_LINEAR_ITERATOR_DECL_HPP_INCLUDED
 
@@ -13,111 +12,47 @@
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
 
-
 namespace mizuiro::image::detail
 {
 
-template<
-	typename Access,
-	typename Format,
-	typename Constness
->
-class linear_iterator
-:
-	private
-		mizuiro::image::format::base<
-			Format
-		>
+template <typename Access, typename Format, typename Constness>
+class linear_iterator : private mizuiro::image::format::base<Format>
 {
 public:
-	using
-	format_base
-	=
-	mizuiro::image::format::base<
-		Format
-	>;
+  using format_base = mizuiro::image::format::base<Format>;
 
-	using
-	format_store_type
-	=
-	typename
-	format_base::format_store_type;
+  using format_store_type = typename format_base::format_store_type;
 
-	using
-	access
-	=
-	Access;
+  using access = Access;
 
-	using
-	format
-	=
-	Format;
+  using format = Format;
 
-	using
-	constness
-	=
-	Constness;
+  using constness = Constness;
 
-	using
-	reference
-	=
-	mizuiro::image::types::reference<
-		access,
-		format,
-		constness
-	>;
+  using reference = mizuiro::image::types::reference<access, format, constness>;
 
-	using
-	pointer
-	=
-	mizuiro::image::types::pointer<
-		access,
-		format,
-		constness
-	>;
+  using pointer = mizuiro::image::types::pointer<access, format, constness>;
 
-	using
-	difference_type
-	=
-	mizuiro::difference_type;
+  using difference_type = mizuiro::difference_type;
 
-	linear_iterator(
-		pointer,
-		format_store_type const &
-	);
+  linear_iterator(pointer, format_store_type const &);
 
-	[[nodiscard]]
-	pointer
-	data() const;
+  [[nodiscard]] pointer data() const;
 
-	void
-	advance(
-		difference_type
-	);
+  void advance(difference_type);
 
-	void
-	increment();
+  void increment();
 
-	void
-	decrement();
+  void decrement();
 
-	[[nodiscard]]
-	difference_type
-	distance_to(
-		linear_iterator const &
-	) const;
+  [[nodiscard]] difference_type distance_to(linear_iterator const &) const;
 
-	[[nodiscard]]
-	reference
-	dereference() const;
+  [[nodiscard]] reference dereference() const;
 
-	[[nodiscard]]
-	bool
-	equal(
-		linear_iterator const &
-	) const;
+  [[nodiscard]] bool equal(linear_iterator const &) const;
+
 private:
-	pointer data_;
+  pointer data_;
 };
 
 }
