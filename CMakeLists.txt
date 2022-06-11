@@ -36,6 +36,12 @@ set(
 	"-fuchsia-default-arguments-declarations"
 )
 
+set(
+	FCPPT_UTILS_CLANG_TIDY_WHITELIST
+	"fcppt"
+	"mizuiro"
+)
+
 include(
 	FcpptCMakeUtils
 )
