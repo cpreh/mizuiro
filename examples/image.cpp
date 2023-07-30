@@ -45,7 +45,7 @@ int main()
 
   using const_view_type = mizuiro::image::const_view<view_type>;
 
-  const_view_type const_view(img.view());
+  const_view_type const const_view{img.view()};
 
   for (auto const &color : const_view)
   {

@@ -35,7 +35,7 @@ set(
 	"-cppcoreguidelines-avoid-const-or-ref-data-members"
 	"-fuchsia-default-arguments-calls"
 	"-fuchsia-default-arguments-declarations"
-	"-misc-const-correctness"
+	"-misc-misplaced-const"
 )
 
 set(
