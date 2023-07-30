@@ -12,9 +12,15 @@
 #include <mizuiro/image/format/canonical_ns/tag.hpp>
 #include <mizuiro/image/format/canonical_ns/types/pointer.hpp>
 #include <mizuiro/image/types/pointer.hpp>
+#include <fcppt/preprocessor/ignore_unsafe_buffer_usage.hpp>
+#include <fcppt/preprocessor/pop_warning.hpp>
+#include <fcppt/preprocessor/push_warning.hpp>
 
 namespace mizuiro::image::access::advance_pointer_ns
 {
+
+FCPPT_PP_PUSH_WARNING
+FCPPT_PP_IGNORE_UNSAFE_BUFFER_USAGE
 
 template <typename Access, typename ImageFormat, typename Constness>
 mizuiro::image::types::pointer<Access, ImageFormat, Constness> advance_pointer_adl(
@@ -28,6 +34,8 @@ mizuiro::image::types::pointer<Access, ImageFormat, Constness> advance_pointer_a
 {
   return _data + _diff;
 }
+
+FCPPT_PP_POP_WARNING
 
 }
 

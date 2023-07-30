@@ -27,6 +27,9 @@
 #include <fcppt/array/init.hpp>
 #include <fcppt/array/object_impl.hpp>
 #include <fcppt/cast/to_char_ptr.hpp>
+#include <fcppt/preprocessor/ignore_unsafe_buffer_usage.hpp>
+#include <fcppt/preprocessor/pop_warning.hpp>
+#include <fcppt/preprocessor/push_warning.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <algorithm>
 #include <iostream>
@@ -55,13 +58,17 @@ int main()
   raw_array raw_data{fcppt::array::init<raw_array>([](auto) { return mizuiro::raw_value{0}; })};
 
   {
+
+FCPPT_PP_PUSH_WARNING
+FCPPT_PP_IGNORE_UNSAFE_BUFFER_USAGE
+
     float const test{
         0.5F}; // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 
-    auto const *const raw(fcppt::cast::to_char_ptr<unsigned char const *>(&test));
+    auto const *const raw{fcppt::cast::to_char_ptr<unsigned char const *>(&test)};
 
-    for (auto dest( // NOLINT(llvm-qualified-auto,readability-qualified-auto)
-             raw_data.begin());
+    for (auto dest{ // NOLINT(llvm-qualified-auto,readability-qualified-auto)
+             raw_data.begin()};
          dest != raw_data.end();
          dest += channel_bytes // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
     )
@@ -71,6 +78,9 @@ int main()
           raw + channel_bytes, // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
           dest);
     }
+
+FCPPT_PP_POP_WARNING
+
   }
 
   using view_type = mizuiro::image::pitch_view<mizuiro::access::raw, format, mizuiro::nonconst_tag>;

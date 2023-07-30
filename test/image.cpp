@@ -21,6 +21,9 @@
 #include <cstdint>
 #include <fcppt/config/external_end.hpp>
 
+FCPPT_CATCH_BEGIN
+// NOLINTBEGIN(misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
+
 namespace
 {
 
@@ -45,8 +48,6 @@ void test_format(mizuiro::image::types::value_type<ImageFormat> const _init)
 
 }
 
-FCPPT_CATCH_BEGIN
-
 TEST_CASE("image interleaved", "[mizuiro]")
 {
   using dimension = mizuiro::image::dimension<2>;
@@ -58,4 +59,5 @@ TEST_CASE("image interleaved", "[mizuiro]")
       mizuiro::color::object<color_format>(mizuiro::default_init()));
 }
 
+// NOLINTEND(misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
 FCPPT_CATCH_END

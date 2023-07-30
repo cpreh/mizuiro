@@ -15,9 +15,15 @@
 #include <mizuiro/image/types/pointer.hpp>
 #include <fcppt/array/init.hpp>
 #include <fcppt/array/object_impl.hpp>
+#include <fcppt/preprocessor/ignore_unsafe_buffer_usage.hpp>
+#include <fcppt/preprocessor/pop_warning.hpp>
+#include <fcppt/preprocessor/push_warning.hpp>
 
 namespace mizuiro::image::access::advance_pointer_ns
 {
+
+FCPPT_PP_PUSH_WARNING
+FCPPT_PP_IGNORE_UNSAFE_BUFFER_USAGE
 
 template <typename Access, typename Format, typename Constness>
 mizuiro::image::types::pointer<Access, Format, Constness> advance_pointer_adl(
@@ -34,6 +40,8 @@ mizuiro::image::types::pointer<Access, Format, Constness> advance_pointer_adl(
       Format::element_count>>([&_data, _diff](mizuiro::size_type const _index)
                               { return _data.get_unsafe(_index) + _diff; });
 }
+
+FCPPT_PP_POP_WARNING
 
 }
 

@@ -13,9 +13,15 @@
 #include <mizuiro/color/format/homogenous_ns/tag.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/pointer.hpp>
+#include <fcppt/preprocessor/ignore_unsafe_buffer_usage.hpp>
+#include <fcppt/preprocessor/pop_warning.hpp>
+#include <fcppt/preprocessor/push_warning.hpp>
 
 namespace mizuiro::color::access::extract_channel_ns
 {
+
+FCPPT_PP_PUSH_WARNING
+FCPPT_PP_IGNORE_UNSAFE_BUFFER_USAGE
 
 template <typename Format, typename Channel, typename Constness>
 inline mizuiro::color::types::channel_reference<mizuiro::access::normal, Format, Channel, Constness>
@@ -31,6 +37,8 @@ extract_channel_adl(
 {
   return _data[mizuiro::color::access::channel_index<Format>(_format, _channel)];
 }
+
+FCPPT_PP_POP_WARNING
 
 }
 

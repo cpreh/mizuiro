@@ -27,6 +27,7 @@
 #include <fcppt/config/external_end.hpp>
 
 FCPPT_CATCH_BEGIN
+// NOLINTBEGIN(misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
 
 TEST_CASE("dynamic heterogenous", "[mizuiro]")
 {
@@ -62,4 +63,5 @@ TEST_CASE("dynamic heterogenous", "[mizuiro]")
   CHECK(test1.get(mizuiro::color::channel::alpha()) == std::uint8_t{45});
 }
 
+// NOLINTEND(misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
 FCPPT_CATCH_END

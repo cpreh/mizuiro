@@ -29,6 +29,9 @@
 #include <mizuiro/image/types/pointer_ns/tag.hpp>
 #include <mizuiro/image/types/reference_ns/tag.hpp>
 #include <mizuiro/image/types/value_type_ns/tag.hpp>
+#include <fcppt/preprocessor/ignore_unsafe_buffer_usage.hpp>
+#include <fcppt/preprocessor/pop_warning.hpp>
+#include <fcppt/preprocessor/push_warning.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <cstring>
 #include <iostream>
@@ -126,6 +129,9 @@ namespace access
 namespace advance_pointer_ns
 {
 
+FCPPT_PP_PUSH_WARNING
+FCPPT_PP_IGNORE_UNSAFE_BUFFER_USAGE
+
 template <typename Dim, typename Type, typename Constness>
 mizuiro::image::types::pointer<mizuiro::access::raw, mylib::native_format<Dim, Type>, Constness>
 advance_pointer_adl(
@@ -140,6 +146,9 @@ advance_pointer_adl(
 {
   return _pointer + _diff;
 }
+
+FCPPT_PP_POP_WARNING
+
 }
 
 namespace pointer_difference_ns
