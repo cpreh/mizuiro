@@ -9,7 +9,7 @@
 #include <mizuiro/decltype.hpp>
 #include <mizuiro/color/convert.hpp>
 #include <mizuiro/color/format/get.hpp>
-#include <mizuiro/image/algorithm/can_copy.hpp>
+#include <mizuiro/image/algorithm/can_copy_v.hpp>
 #include <mizuiro/image/algorithm/copy.hpp>
 #include <mizuiro/image/algorithm/make_iterator_identity.hpp>
 #include <mizuiro/image/algorithm/may_overlap.hpp>
@@ -23,13 +23,12 @@ namespace mizuiro::image::algorithm
 {
 
 template <typename Converter, typename ViewS, typename ViewD>
-inline
-    typename std::enable_if<!mizuiro::image::algorithm::can_copy<ViewS, ViewD>::value, void>::type
-    copy_and_convert(
-        ViewS const &_src,
-        ViewD const &_dest,
-        mizuiro::image::algorithm::may_overlap,
-        mizuiro::image::algorithm::uninitialized const _uninitialized)
+inline std::enable_if_t<!mizuiro::image::algorithm::can_copy_v<ViewS, ViewD>, void>
+copy_and_convert(
+    ViewS const &_src,
+    ViewD const &_dest,
+    mizuiro::image::algorithm::may_overlap,
+    mizuiro::image::algorithm::uninitialized const _uninitialized)
 {
   mizuiro::image::algorithm::transform(
       _src,
@@ -45,8 +44,7 @@ inline
 }
 
 template <typename Converter, typename ViewS, typename ViewD>
-inline typename std::enable_if<mizuiro::image::algorithm::can_copy<ViewS, ViewD>::value, void>::type
-copy_and_convert(
+inline std::enable_if_t<mizuiro::image::algorithm::can_copy_v<ViewS, ViewD>, void> copy_and_convert(
     ViewS const &_src,
     ViewD const &_dest,
     mizuiro::image::algorithm::may_overlap const _overlap,
@@ -54,7 +52,6 @@ copy_and_convert(
 {
   mizuiro::image::algorithm::copy(_src, _dest, _overlap, _uninitialized);
 }
-
 }
 
 #endif

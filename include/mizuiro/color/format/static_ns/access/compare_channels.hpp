@@ -24,7 +24,7 @@ inline constexpr bool compare_channels_adl(
     StaticChannel const &,
     OtherChannel const &)
 {
-  return std::is_same<StaticChannel, OtherChannel>::value;
+  return std::is_same_v<StaticChannel, OtherChannel>;
 }
 
 }

@@ -14,8 +14,6 @@
 #include <mizuiro/image/dimension_content.hpp>
 #include <mizuiro/image/linear_view.hpp>
 #include <mizuiro/image/pitch_type.hpp>
-#include <mizuiro/image/access/dereference.hpp>
-#include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/access/advance_pointer_ns/tag.hpp>
 #include <mizuiro/image/access/dereference_ns/tag.hpp>
 #include <mizuiro/image/access/pointer_difference_ns/tag.hpp>

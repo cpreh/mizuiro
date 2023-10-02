@@ -11,7 +11,7 @@
 //![includes_access]
 //![includes_format]
 #include <mizuiro/color/format/homogenous_static.hpp>
-#include <mizuiro/color/format/include/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp> // NOLINT(misc-include-cleaner)
 //![includes_format]
 //![includes_init]
 #include <mizuiro/color/init/blue.hpp>

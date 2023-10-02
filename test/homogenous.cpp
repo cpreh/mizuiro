@@ -8,7 +8,7 @@
 #include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
 #include <mizuiro/color/format/detail/has_channel_constexpr.hpp>
-#include <mizuiro/color/format/include/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/layout/l.hpp>
 #include <fcppt/catch/begin.hpp>
 #include <fcppt/catch/end.hpp>

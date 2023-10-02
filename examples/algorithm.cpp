@@ -5,19 +5,19 @@
 
 #include <mizuiro/decltype.hpp>
 #include <mizuiro/color/for_each_channel.hpp>
-#include <mizuiro/color/output.hpp>
-#include <mizuiro/color/proxy.hpp>
+#include <mizuiro/color/object.hpp>
+#include <mizuiro/color/output.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/convert_static/converter.hpp>
 #include <mizuiro/color/format/get.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
-#include <mizuiro/color/format/include/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/init/alpha.hpp>
 #include <mizuiro/color/init/blue.hpp>
 #include <mizuiro/color/init/green.hpp>
 #include <mizuiro/color/init/red.hpp>
 #include <mizuiro/color/layout/argb.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
-#include <mizuiro/color/operators/equal.hpp>
+#include <mizuiro/color/operators/equal.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/make_const_view.hpp>
@@ -30,7 +30,7 @@
 #include <mizuiro/image/algorithm/transform.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
-#include <mizuiro/image/format/include/interleaved_homogenous.hpp>
+#include <mizuiro/image/format/include/interleaved_homogenous.hpp> // NOLINT(misc-include-cleaner)
 #include <fcppt/config/external_begin.hpp>
 #include <cstdint>
 #include <iostream>

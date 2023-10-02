@@ -9,7 +9,7 @@
 #include <mizuiro/image/dimension_content.hpp>
 #include <mizuiro/image/dimension_null.hpp>
 #include <mizuiro/image/linear_iterator_impl.hpp>
-#include <mizuiro/image/linear_view_decl.hpp>
+#include <mizuiro/image/linear_view_decl.hpp> // IWYU pragma: export
 #include <mizuiro/image/move_iterator.hpp>
 #include <mizuiro/image/format/base_impl.hpp>
 

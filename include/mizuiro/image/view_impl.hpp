@@ -14,7 +14,7 @@
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/move_iterator.hpp>
 #include <mizuiro/image/pitch_view_impl.hpp>
-#include <mizuiro/image/view_decl.hpp>
+#include <mizuiro/image/view_decl.hpp> // IWYU pragma: export
 #include <fcppt/variant/apply.hpp>
 
 template <typename Access, typename Format, typename Constness>

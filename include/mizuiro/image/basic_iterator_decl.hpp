@@ -67,7 +67,7 @@ public:
 };
 
 template <typename Impl>
-void swap(mizuiro::image::basic_iterator<Impl> &, mizuiro::image::basic_iterator<Impl> &);
+void swap(mizuiro::image::basic_iterator<Impl> &, mizuiro::image::basic_iterator<Impl> &) noexcept;
 
 template <typename Impl>
 bool operator!=(

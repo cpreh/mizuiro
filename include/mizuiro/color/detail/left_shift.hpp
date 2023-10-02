@@ -19,17 +19,16 @@ namespace mizuiro::color::detail
 {
 
 template <typename Type, mizuiro::size_type Count>
-inline constexpr typename std::enable_if<
-    Count == static_cast<mizuiro::size_type>(std::numeric_limits<Type>::digits),
-    Type>::type
-left_shift()
+inline constexpr std::
+    enable_if_t<Count == static_cast<mizuiro::size_type>(std::numeric_limits<Type>::digits), Type>
+    left_shift()
 {
   return ~Type{0};
 }
 
 template <typename Type, mizuiro::size_type Count>
-    inline constexpr typename std::enable_if <
-    Count<static_cast<mizuiro::size_type>(std::numeric_limits<Type>::digits), Type>::type
+inline constexpr std::
+    enable_if_t<(Count < static_cast<mizuiro::size_type>(std::numeric_limits<Type>::digits)), Type>
     left_shift()
 {
   FCPPT_PP_PUSH_WARNING
@@ -37,7 +36,6 @@ template <typename Type, mizuiro::size_type Count>
   return (Type{1U} << Count) - Type{1U};
   FCPPT_PP_POP_WARNING
 }
-
 }
 
 #endif

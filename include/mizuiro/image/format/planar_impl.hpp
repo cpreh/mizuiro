@@ -7,7 +7,7 @@
 #define MIZUIRO_IMAGE_FORMAT_PLANAR_IMPL_HPP_INCLUDED
 
 #include <mizuiro/color/format/base_impl.hpp>
-#include <mizuiro/image/format/planar_decl.hpp>
+#include <mizuiro/image/format/planar_decl.hpp> // IWYU pragma: export
 
 template <typename DimType, typename ColorFormat>
 mizuiro::image::format::planar<DimType, ColorFormat>::planar(format_store_type const &_format)

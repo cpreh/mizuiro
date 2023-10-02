@@ -41,7 +41,7 @@ public:
 
   explicit dimension(mizuiro::no_init const &);
 
-  explicit dimension(mizuiro::no_init &&);
+  explicit dimension(mizuiro::no_init &&); // NOLINT(cppcoreguidelines-rvalue-reference-param-not-moved)
 
   explicit dimension(array_type &&);
 

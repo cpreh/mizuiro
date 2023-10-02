@@ -4,17 +4,17 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 #include <mizuiro/nonconst_tag.hpp>
+#include <mizuiro/raw_value.hpp>
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/access/raw.hpp>
-#include <mizuiro/color/output.hpp>
-#include <mizuiro/color/proxy.hpp>
+#include <mizuiro/color/output.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/convert_static/converter.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
-#include <mizuiro/color/format/include/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/dimension_null.hpp>
-#include <mizuiro/image/is_raw_view.hpp>
+#include <mizuiro/image/is_raw_view_v.hpp>
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/make_raw_view.hpp>
 #include <mizuiro/image/pitch_view_impl.hpp>
@@ -23,7 +23,7 @@
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
-#include <mizuiro/image/format/include/interleaved_homogenous.hpp>
+#include <mizuiro/image/format/include/interleaved_homogenous.hpp> // NOLINT(misc-include-cleaner)
 #include <fcppt/array/init.hpp>
 #include <fcppt/array/object_impl.hpp>
 #include <fcppt/cast/to_char_ptr.hpp>
@@ -96,7 +96,7 @@ FCPPT_PP_POP_WARNING
       mizuiro::image::algorithm::may_overlap::yes,
       mizuiro::image::algorithm::uninitialized::no);
 
-  std::cout << std::boolalpha << mizuiro::image::is_raw_view<view_type>::value << '\n';
+  std::cout << std::boolalpha << mizuiro::image::is_raw_view_v<view_type> << '\n';
 
   mizuiro::image::algorithm::print(std::cout, view);
 

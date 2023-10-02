@@ -10,7 +10,7 @@
 #include <mizuiro/image/access/data.hpp>
 #include <mizuiro/image/access/stride.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
-#include <mizuiro/image/types/needs_prepare.hpp>
+#include <mizuiro/image/types/needs_prepare_v.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <memory>
@@ -21,24 +21,21 @@ namespace mizuiro::image::detail
 {
 
 template <typename Access, typename ImageFormat, typename Dest>
-typename std::enable_if<mizuiro::image::types::needs_prepare<ImageFormat>::value, void>::
-    type inline prepare_store_units(
-        mizuiro::image::format::store<ImageFormat> const &_format, Dest const &_dest)
+inline std::enable_if_t<mizuiro::image::types::needs_prepare_v<ImageFormat>, void>
+prepare_store_units(mizuiro::image::format::store<ImageFormat> const &_format, Dest const &_dest)
 {
   std::uninitialized_fill_n(
       mizuiro::image::access::data<Access, mizuiro::nonconst_tag, ImageFormat>(_format, _dest),
       mizuiro::image::access::stride<Access, ImageFormat>(_format),
-      typename std::remove_pointer<
-          mizuiro::image::types::pointer<Access, ImageFormat, mizuiro::nonconst_tag>>::type{});
+      std::remove_pointer_t<
+          mizuiro::image::types::pointer<Access, ImageFormat, mizuiro::nonconst_tag>>{});
 }
 
 template <typename Access, typename ImageFormat, typename Dest>
-typename std::enable_if<!mizuiro::image::types::needs_prepare<ImageFormat>::value, void>::
-    type inline prepare_store_units(
-        mizuiro::image::format::store<ImageFormat> const &, Dest const &)
+inline std::enable_if_t<!mizuiro::image::types::needs_prepare_v<ImageFormat>, void>
+prepare_store_units(mizuiro::image::format::store<ImageFormat> const &, Dest const &)
 {
 }
-
 }
 
 #endif

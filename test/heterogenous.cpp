@@ -3,18 +3,16 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-#include <mizuiro/const_tag.hpp>
-#include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/size_list.hpp>
 #include <mizuiro/color/object.hpp>
-#include <mizuiro/color/output.hpp>
+#include <mizuiro/color/output.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/channel/alpha.hpp>
 #include <mizuiro/color/channel/blue.hpp>
 #include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/luminance.hpp>
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/format/heterogenous_static.hpp>
-#include <mizuiro/color/format/include/heterogenous_static.hpp>
+#include <mizuiro/color/format/include/heterogenous_static.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/init/alpha.hpp>
 #include <mizuiro/color/init/blue.hpp>
 #include <mizuiro/color/init/green.hpp>

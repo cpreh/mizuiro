@@ -16,11 +16,8 @@ namespace mizuiro::access
 {
 
 template <typename Access, typename Normal>
-using store_unit = typename std::conditional<
-    std::is_same<Access, mizuiro::access::raw>::value,
-    mizuiro::raw_value,
-    Normal>::type;
-
+using store_unit =
+    std::conditional_t<std::is_same_v<Access, mizuiro::access::raw>, mizuiro::raw_value, Normal>;
 }
 
 #endif

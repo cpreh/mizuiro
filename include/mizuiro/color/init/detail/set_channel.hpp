@@ -22,8 +22,7 @@ inline void
 set_channel(Color &_color, mizuiro::color::init::detail::channel_value<Value, Channel> const &_init)
 {
   static_assert(
-      std::is_same<mizuiro::color::types::channel_value<typename Color::format, Channel>, Value>::
-          value,
+      std::is_same_v<mizuiro::color::types::channel_value<typename Color::format, Channel>, Value>,
       "Channel types must match exactly for '=' initialization");
 
   _color.set(_init.channel(), _init.value());

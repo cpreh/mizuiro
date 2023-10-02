@@ -7,7 +7,7 @@
 #define MIZUIRO_COLOR_FORMAT_STORE_HPP_INCLUDED
 
 #include <mizuiro/color/format/store_decl.hpp>
-#include <mizuiro/color/format/store_fwd.hpp>
+#include <mizuiro/color/format/store_fwd.hpp> // IWYU pragma: export
 #include <mizuiro/color/format/store_impl.hpp>
 
 #endif

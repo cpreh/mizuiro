@@ -80,7 +80,8 @@ mizuiro::image::basic_iterator<Impl>::operator[](difference_type const _diff) co
 
 template <typename Impl>
 void mizuiro::image::swap(
-    mizuiro::image::basic_iterator<Impl> &_left, mizuiro::image::basic_iterator<Impl> &_right)
+    mizuiro::image::basic_iterator<Impl> &_left,
+    mizuiro::image::basic_iterator<Impl> &_right) noexcept
 {
   std::swap(_left, _right);
 }

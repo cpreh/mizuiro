@@ -7,7 +7,7 @@
 #define MIZUIRO_COLOR_OUTPUT_HPP_INCLUDED
 
 #include <mizuiro/color/for_each_channel.hpp>
-#include <mizuiro/color/is_color.hpp>
+#include <mizuiro/color/is_color_v.hpp>
 #include <mizuiro/color/format/get.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/detail/promote_type.hpp>
@@ -20,9 +20,8 @@ namespace mizuiro::color
 {
 
 template <typename Ch, typename Traits, typename Color>
-typename std::enable_if<mizuiro::color::is_color<Color>::value, std::basic_ostream<Ch, Traits> &>::
-    type
-    operator<<(std::basic_ostream<Ch, Traits> &_stream, Color const &_color)
+std::enable_if_t<mizuiro::color::is_color_v<Color>, std::basic_ostream<Ch, Traits> &>
+operator<<(std::basic_ostream<Ch, Traits> &_stream, Color const &_color)
 {
   _stream << _stream.widen('(');
 
@@ -42,7 +41,6 @@ typename std::enable_if<mizuiro::color::is_color<Color>::value, std::basic_ostre
 
   return _stream;
 }
-
 }
 
 #endif

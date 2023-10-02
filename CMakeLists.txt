@@ -319,6 +319,7 @@ set(
 	include/mizuiro/color/init/saturation.hpp
 	include/mizuiro/color/init/value.hpp
 	include/mizuiro/color/is_color.hpp
+	include/mizuiro/color/is_color_v.hpp
 	include/mizuiro/color/layout/all_possible_channels.hpp
 	include/mizuiro/color/layout/alpha.hpp
 	include/mizuiro/color/layout/argb.hpp
@@ -463,6 +464,8 @@ set(
 	include/mizuiro/image/algorithm/binary_iteration.hpp
 	include/mizuiro/image/algorithm/can_copy.hpp
 	include/mizuiro/image/algorithm/can_copy_in_place.hpp
+	include/mizuiro/image/algorithm/can_copy_in_place_v.hpp
+	include/mizuiro/image/algorithm/can_copy_v.hpp
 	include/mizuiro/image/algorithm/clone.hpp
 	include/mizuiro/image/algorithm/compare.hpp
 	include/mizuiro/image/algorithm/copy.hpp
@@ -632,6 +635,7 @@ set(
 	include/mizuiro/image/indexed_ref_fwd.hpp
 	include/mizuiro/image/indexed_ref_impl.hpp
 	include/mizuiro/image/is_raw_view.hpp
+	include/mizuiro/image/is_raw_view_v.hpp
 	include/mizuiro/image/iterator_decl.hpp
 	include/mizuiro/image/iterator_fwd.hpp
 	include/mizuiro/image/iterator_impl.hpp
@@ -672,6 +676,7 @@ set(
 	include/mizuiro/image/types/needs_format_store_ns/tag.hpp
 	include/mizuiro/image/types/needs_prepare.hpp
 	include/mizuiro/image/types/needs_prepare_ns/tag.hpp
+	include/mizuiro/image/types/needs_prepare_v.hpp
 	include/mizuiro/image/types/pointer.hpp
 	include/mizuiro/image/types/pointer_ns/tag.hpp
 	include/mizuiro/image/types/reference.hpp

@@ -6,15 +6,15 @@
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
-#include <mizuiro/color/format/include/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/layout/bgra.hpp>
 #include <mizuiro/color/layout/rgb.hpp>
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/linear_view_impl.hpp>
-#include <mizuiro/image/algorithm/can_copy.hpp>
+#include <mizuiro/image/algorithm/can_copy_v.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
-#include <mizuiro/image/format/include/interleaved_homogenous.hpp>
+#include <mizuiro/image/format/include/interleaved_homogenous.hpp> // NOLINT(misc-include-cleaner)
 #include <fcppt/config/external_begin.hpp>
 #include <cstdint>
 #include <fcppt/config/external_end.hpp>
@@ -53,7 +53,7 @@ int main()
       linear_view<::mizuiro::access::normal, ::format_3d_rgba8, ::mizuiro::nonconst_tag>;
 
   // bgra8 and rgba8 should be compatible to each other
-  static_assert(::mizuiro::image::algorithm::can_copy<view_3d_bgra8, view_3d_rgba8>::value);
+  static_assert(::mizuiro::image::algorithm::can_copy_v<view_3d_bgra8, view_3d_rgba8>);
 
   using view_2d_bgra8 = ::mizuiro::image::
       linear_view<::mizuiro::access::normal, ::format_2d_bgra8, ::mizuiro::nonconst_tag>;
@@ -62,11 +62,11 @@ int main()
       linear_view<::mizuiro::access::normal, ::format_2d_bgra_f, ::mizuiro::nonconst_tag>;
 
   // bgra8 and bgra float should not be compatible
-  static_assert(!::mizuiro::image::algorithm::can_copy<view_2d_bgra8, view_2d_bgra_f>::value);
+  static_assert(!::mizuiro::image::algorithm::can_copy_v<view_2d_bgra8, view_2d_bgra_f>);
 
   using view_2d_rgb8 = ::mizuiro::image::
       linear_view<::mizuiro::access::normal, ::format_2d_rgb8, ::mizuiro::nonconst_tag>;
 
   // bgra8 and rgb8 should not be compatible
-  static_assert(!::mizuiro::image::algorithm::can_copy<view_2d_bgra8, view_2d_rgb8>::value);
+  static_assert(!::mizuiro::image::algorithm::can_copy_v<view_2d_bgra8, view_2d_rgb8>);
 }

@@ -6,10 +6,10 @@
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/store.hpp>
+#include <mizuiro/image/linear_view.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/format/canonical.hpp>
-#include <mizuiro/image/format/include/canonical.hpp>
+#include <mizuiro/image/format/include/canonical.hpp> // NOLINT(misc-include-cleaner)
 #include <fcppt/array/object_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <iostream>

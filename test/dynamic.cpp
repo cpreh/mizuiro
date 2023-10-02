@@ -11,7 +11,7 @@
 #include <mizuiro/color/format/homogenous_dynamic.hpp>
 #include <mizuiro/color/format/store.hpp>
 #include <mizuiro/color/format/detail/has_channel_constexpr.hpp>
-#include <mizuiro/color/format/include/homogenous_dynamic.hpp>
+#include <mizuiro/color/format/include/homogenous_dynamic.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/init/alpha.hpp>
 #include <mizuiro/color/init/blue.hpp>
 #include <mizuiro/color/init/green.hpp>

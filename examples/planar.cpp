@@ -4,15 +4,14 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 #include <mizuiro/default_init.hpp>
-#include <mizuiro/color/object.hpp>
-#include <mizuiro/color/output.hpp>
+#include <mizuiro/color/output.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/format/homogenous_static.hpp>
-#include <mizuiro/color/format/include/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/layout/rgba.hpp>
 #include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/format/planar.hpp>
-#include <mizuiro/image/format/include/planar.hpp>
+#include <mizuiro/image/format/include/planar.hpp> // NOLINT(misc-include-cleaner)
 #include <fcppt/config/external_begin.hpp>
 #include <cstdint>
 #include <iostream>

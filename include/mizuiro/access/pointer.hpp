@@ -16,11 +16,8 @@ namespace mizuiro::access
 {
 
 template <typename Access, typename Normal>
-using pointer = typename std::conditional<
-    std::is_same<Access, mizuiro::access::raw>::value,
-    mizuiro::raw_pointer,
-    Normal>::type;
-
+using pointer =
+    std::conditional_t<std::is_same_v<Access, mizuiro::access::raw>, mizuiro::raw_pointer, Normal>;
 }
 
 #endif

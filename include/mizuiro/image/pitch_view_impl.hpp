@@ -9,7 +9,7 @@
 #include <mizuiro/image/dimension_content.hpp>
 #include <mizuiro/image/move_iterator.hpp>
 #include <mizuiro/image/pitch_iterator_impl.hpp>
-#include <mizuiro/image/pitch_view_decl.hpp>
+#include <mizuiro/image/pitch_view_decl.hpp> // IWYU pragma: export
 #include <mizuiro/image/format/base_impl.hpp>
 
 template <typename Access, typename Format, typename Constness>

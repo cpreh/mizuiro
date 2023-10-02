@@ -8,7 +8,7 @@
 
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/image/dimension_decl.hpp>
+#include <mizuiro/image/dimension_decl.hpp> // IWYU pragma: export
 #include <fcppt/no_init.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <iterator>
@@ -22,6 +22,7 @@ mizuiro::image::dimension<Dim, ValueType>::dimension(mizuiro::no_init const &)
 }
 
 template <mizuiro::size_type Dim, typename ValueType>
+// NOLINTNEXTLINE(cppcoreguidelines-rvalue-reference-param-not-moved)
 mizuiro::image::dimension<Dim, ValueType>::dimension(mizuiro::no_init &&) : data_{fcppt::no_init{}}
 {
 }

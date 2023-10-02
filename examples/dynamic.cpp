@@ -5,12 +5,10 @@
 
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
-#include <mizuiro/color/channel/blue.hpp>
-#include <mizuiro/color/channel/green.hpp>
 #include <mizuiro/color/channel/red.hpp>
 #include <mizuiro/color/format/homogenous_dynamic.hpp>
 #include <mizuiro/color/format/store.hpp>
-#include <mizuiro/color/format/include/homogenous_dynamic.hpp>
+#include <mizuiro/color/format/include/homogenous_dynamic.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/init/blue.hpp>
 #include <mizuiro/color/init/green.hpp>
 #include <mizuiro/color/init/red.hpp>
@@ -20,7 +18,7 @@
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
-#include <mizuiro/image/format/include/interleaved_homogenous.hpp>
+#include <mizuiro/image/format/include/interleaved_homogenous.hpp> // NOLINT(misc-include-cleaner)
 #include <fcppt/config/external_begin.hpp>
 #include <cstdint>
 #include <functional>

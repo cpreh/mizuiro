@@ -5,15 +5,16 @@
 
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
-#include <mizuiro/color/format/include/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/init/luminance.hpp>
 #include <mizuiro/color/layout/l.hpp>
-#include <mizuiro/color/operators/equal.hpp>
+#include <mizuiro/color/operators/equal.hpp> // NOLINT(misc-include-cleaner)
+#include <mizuiro/image/dimension.hpp>
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/algorithm/clone.hpp>
 #include <mizuiro/image/algorithm/equal.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
-#include <mizuiro/image/format/include/interleaved_homogenous.hpp>
+#include <mizuiro/image/format/include/interleaved_homogenous.hpp> // NOLINT(misc-include-cleaner)
 #include <fcppt/catch/begin.hpp>
 #include <fcppt/catch/end.hpp>
 #include <fcppt/config/external_begin.hpp>

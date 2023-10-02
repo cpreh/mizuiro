@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_IMAGE_BOUND_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_BOUND_IMPL_HPP_INCLUDED
 
-#include <mizuiro/image/bound_decl.hpp>
+#include <mizuiro/image/bound_decl.hpp> // IWYU pragma: export
 #include <mizuiro/image/dimension_impl.hpp>
 #include <fcppt/strong_typedef_impl.hpp>
 

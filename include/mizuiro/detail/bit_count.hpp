@@ -18,7 +18,7 @@ namespace mizuiro::detail
 template <typename IntType>
 struct bit_count : mizuiro::integral_size<std::numeric_limits<IntType>::digits>
 {
-  static_assert(std::is_unsigned<IntType>::value, "IntType must be unsigned");
+  static_assert(std::is_unsigned_v<IntType>, "IntType must be unsigned");
 };
 
 }

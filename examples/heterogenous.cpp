@@ -7,7 +7,7 @@
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/format/heterogenous_static.hpp>
-#include <mizuiro/color/format/include/heterogenous_static.hpp>
+#include <mizuiro/color/format/include/heterogenous_static.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/init/alpha.hpp>
 #include <mizuiro/color/init/luminance.hpp>
 #include <mizuiro/color/layout/la.hpp>

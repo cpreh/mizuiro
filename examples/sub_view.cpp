@@ -6,7 +6,7 @@
 #include <mizuiro/color/object.hpp>
 #include <mizuiro/color/output.hpp>
 #include <mizuiro/color/format/homogenous_static.hpp>
-#include <mizuiro/color/format/include/homogenous_static.hpp>
+#include <mizuiro/color/format/include/homogenous_static.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/color/init/alpha.hpp>
 #include <mizuiro/color/init/blue.hpp>
 #include <mizuiro/color/init/green.hpp>
@@ -15,16 +15,15 @@
 #include <mizuiro/image/bound.hpp>
 #include <mizuiro/image/const_view.hpp>
 #include <mizuiro/image/dimension.hpp>
-#include <mizuiro/image/pitch_view_impl.hpp>
+#include <mizuiro/image/pitch_view_impl.hpp> // NOLINT(misc-include-cleaner)
 #include <mizuiro/image/store.hpp>
 #include <mizuiro/image/sub_view.hpp>
 #include <mizuiro/image/to_pitch_view.hpp>
-#include <mizuiro/image/algorithm/copy.hpp>
 #include <mizuiro/image/algorithm/fill_indexed.hpp>
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
-#include <mizuiro/image/format/include/interleaved_homogenous.hpp>
+#include <mizuiro/image/format/include/interleaved_homogenous.hpp> // NOLINT(misc-include-cleaner)
 #include <fcppt/config/external_begin.hpp>
 #include <iostream>
 #include <iterator>

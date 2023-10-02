@@ -23,7 +23,7 @@ mizuiro::color::types::channel_value<Format, Channel> denormalize(
     Channel const &_channel,
     Float const _src)
 {
-  static_assert(std::is_floating_point<Float>::value, "Float must be a floating point type");
+  static_assert(std::is_floating_point_v<Float>, "Float must be a floating point type");
 
   return static_cast<mizuiro::color::types::channel_value<Format, Channel>>(
       static_cast<Float>(mizuiro::color::access::channel_min<Format>(_format_store, _channel)) +

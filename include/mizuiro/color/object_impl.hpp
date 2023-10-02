@@ -10,7 +10,7 @@
 #include <mizuiro/default_init_fwd.hpp>
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/nonconst_tag.hpp>
-#include <mizuiro/color/object_decl.hpp>
+#include <mizuiro/color/object_decl.hpp> // IWYU pragma: export
 #include <mizuiro/color/proxy_impl.hpp>
 #include <mizuiro/color/access/init_store.hpp>
 #include <mizuiro/color/access/store_data.hpp>

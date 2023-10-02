@@ -14,13 +14,13 @@ namespace mizuiro::detail
 {
 
 template <typename Result, bool NeedsStore>
-typename std::enable_if<NeedsStore, Result>::type format_argument_impl()
+std::enable_if_t<NeedsStore, Result> format_argument_impl()
 {
   static_assert(sizeof(Result) == 0, "This color format requires a store!");
 }
 
 template <typename Result, bool NeedsStore>
-typename std::enable_if<!NeedsStore, Result>::type format_argument_impl()
+std::enable_if_t<!NeedsStore, Result> format_argument_impl()
 {
   return Result{};
 }

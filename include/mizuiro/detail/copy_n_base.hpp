@@ -22,7 +22,7 @@ inline void copy_n_base(
     Dest *const _dest) noexcept
 {
   static_assert(
-      std::is_fundamental<Source>::value && std::is_fundamental<Dest>::value,
+      std::is_fundamental_v<Source> && std::is_fundamental_v<Dest>,
       "Source and Dest must be fundamental types");
 
   _function(

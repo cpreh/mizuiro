@@ -13,7 +13,7 @@
 #include <mizuiro/image/dimension_impl.hpp>
 #include <mizuiro/image/dimension_null.hpp>
 #include <mizuiro/image/linear_view_impl.hpp>
-#include <mizuiro/image/store_decl.hpp>
+#include <mizuiro/image/store_decl.hpp> // IWYU pragma: export
 #include <mizuiro/image/access/make_store.hpp>
 #include <mizuiro/image/access/store_data.hpp>
 #include <mizuiro/image/algorithm/fill_c.hpp>

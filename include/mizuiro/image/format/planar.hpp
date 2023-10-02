@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_PLANAR_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_PLANAR_HPP_INCLUDED
 
-#include <mizuiro/image/format/planar_decl.hpp>
+#include <mizuiro/image/format/planar_decl.hpp> // IWYU pragma: export
 #include <mizuiro/image/format/planar_fwd.hpp>
 #include <mizuiro/image/format/planar_impl.hpp>
 

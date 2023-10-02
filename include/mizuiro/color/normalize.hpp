@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_COLOR_NORMALIZE_HPP_INCLUDED
 #define MIZUIRO_COLOR_NORMALIZE_HPP_INCLUDED
 
-#include <mizuiro/color/is_color.hpp>
+#include <mizuiro/color/is_color_v.hpp>
 #include <mizuiro/color/access/channel_max.hpp>
 #include <mizuiro/color/access/channel_min.hpp>
 #include <fcppt/config/external_begin.hpp>
@@ -19,9 +19,9 @@ namespace mizuiro::color
 template <typename Float, typename Channel, typename Color>
 Float normalize(Color const &_color, Channel const &_channel)
 {
-  static_assert(mizuiro::color::is_color<Color>::value, "Color must be a color type");
+  static_assert(mizuiro::color::is_color_v<Color>, "Color must be a color type");
 
-  static_assert(std::is_floating_point<Float>::value, "Floating must be a floating point type");
+  static_assert(std::is_floating_point_v<Float>, "Floating must be a floating point type");
 
   return (static_cast<Float>(_color.get(_channel)) -
           static_cast<Float>(mizuiro::color::access::channel_min<typename Color::format>(
