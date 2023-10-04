@@ -68,11 +68,11 @@ private:
 
   pitch_type pitch_;
 
-  difference_type line_advance_; // NOLINT(cppcoreguidelines-use-default-member-init)
+  difference_type line_advance_; // NOLINT(cppcoreguidelines-use-default-member-init,modernize-use-default-member-init)
 
-  difference_type position_; // NOLINT(cppcoreguidelines-use-default-member-init)
+  difference_type position_; // NOLINT(cppcoreguidelines-use-default-member-init,modernize-use-default-member-init)
 
-  difference_type offset_; // NOLINT(cppcoreguidelines-use-default-member-init)
+  difference_type offset_; // NOLINT(cppcoreguidelines-use-default-member-init,modernize-use-default-member-init)
 
   using stacked_dim_array = mizuiro::image::detail::stacked_dim_array<dim, difference_type>;
 
