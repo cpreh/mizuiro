@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_MAY_OVERLAP_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_MAY_OVERLAP_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/may_overlap_fwd.hpp>
+#include <mizuiro/image/algorithm/may_overlap_fwd.hpp> // IWYU pragma: keep
 
 namespace mizuiro::image::algorithm
 {

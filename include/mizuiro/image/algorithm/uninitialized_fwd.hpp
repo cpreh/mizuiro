@@ -9,7 +9,7 @@
 namespace mizuiro::image::algorithm
 {
 
-enum class uninitialized;
+enum class uninitialized; // IWYU pragma: export
 
 }
 

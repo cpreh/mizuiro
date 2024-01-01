@@ -13,7 +13,7 @@
 #include <mizuiro/color/format/compatible.hpp>
 #include <mizuiro/color/format/get.hpp>
 #include <fcppt/algorithm/all_of.hpp>
-#include <fcppt/algorithm/loop_break_mpl.hpp>
+#include <fcppt/algorithm/loop_break_mpl.hpp> // IWYU pragma: keep
 
 // TODO(philipp): Where do we put this? ^
 

@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_COLOR_SPACE_LUMINANCE_HPP_INCLUDED
 #define MIZUIRO_COLOR_SPACE_LUMINANCE_HPP_INCLUDED
 
-#include <mizuiro/color/channel/luminance_fwd.hpp>
+#include <mizuiro/color/channel/luminance_fwd.hpp> // IWYU pragma: keep
 #include <fcppt/mpl/set/object.hpp>
 
 namespace mizuiro::color::space

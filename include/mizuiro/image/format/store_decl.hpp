@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_STORE_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_STORE_DECL_HPP_INCLUDED
 
-#include <mizuiro/detail/format_store_decl.hpp>
-#include <mizuiro/image/format/store_fwd.hpp>
+#include <mizuiro/detail/format_store_decl.hpp> // IWYU pragma: keep
+#include <mizuiro/image/format/store_fwd.hpp> // IWYU pragma: export
 
 #endif

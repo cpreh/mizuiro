@@ -9,7 +9,7 @@
 #include <mizuiro/difference_type.hpp>
 #include <mizuiro/image/access/advance_pointer_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
-#include <mizuiro/image/format/color_ns/types/pointer.hpp>
+#include <mizuiro/image/format/color_ns/types/pointer.hpp> // IWYU pragma: keep
 #include <mizuiro/image/format/interleaved_ns/tag.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <fcppt/preprocessor/ignore_unsafe_buffer_usage.hpp>

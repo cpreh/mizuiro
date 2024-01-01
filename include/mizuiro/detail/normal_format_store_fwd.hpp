@@ -10,7 +10,7 @@ namespace mizuiro::detail
 {
 
 template <typename Format, typename Copy>
-class normal_format_store;
+class normal_format_store; // IWYU pragma: export
 
 }
 

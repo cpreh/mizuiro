@@ -8,7 +8,7 @@
 
 #include <mizuiro/apply_const.hpp>
 #include <mizuiro/access/normal.hpp>
-#include <mizuiro/color/proxy_impl.hpp>
+#include <mizuiro/color/proxy_impl.hpp> // IWYU pragma: keep
 #include <mizuiro/image/format/canonical_ns/tag.hpp>
 #include <mizuiro/image/types/reference_ns/tag.hpp>
 

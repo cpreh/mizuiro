@@ -10,7 +10,7 @@
 #include <mizuiro/color/format/detail/assert_channel.hpp>
 #include <mizuiro/color/types/channel_value_ns/tag.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <type_traits>
+#include <utility>
 #include <fcppt/config/external_end.hpp>
 
 namespace mizuiro::color::types::detail

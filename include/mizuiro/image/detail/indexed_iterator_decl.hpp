@@ -7,7 +7,7 @@
 #define MIZUIRO_IMAGE_DETAIL_INDEXED_ITERATOR_DECL_HPP_INCLUDED
 
 #include <mizuiro/image/indexed_ref_fwd.hpp>
-#include <mizuiro/image/detail/indexed_iterator_fwd.hpp>
+#include <mizuiro/image/detail/indexed_iterator_fwd.hpp> // IWYU pragma: keep
 #include <fcppt/declare_strong_typedef.hpp>
 
 namespace mizuiro::image::detail

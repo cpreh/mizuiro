@@ -7,7 +7,7 @@
 #define MIZUIRO_IMAGE_LINEAR_VIEW_HPP_INCLUDED
 
 #include <mizuiro/image/linear_view_decl.hpp> // IWYU pragma: export
-#include <mizuiro/image/linear_view_fwd.hpp>
-#include <mizuiro/image/linear_view_impl.hpp>
+#include <mizuiro/image/linear_view_fwd.hpp> // IWYU pragma: keep
+#include <mizuiro/image/linear_view_impl.hpp> // IWYU pragma: keep
 
 #endif

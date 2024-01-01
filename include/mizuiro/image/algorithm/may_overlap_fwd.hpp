@@ -9,7 +9,7 @@
 namespace mizuiro::image::algorithm
 {
 
-enum class may_overlap;
+enum class may_overlap; // IWYU pragma: export
 
 }
 

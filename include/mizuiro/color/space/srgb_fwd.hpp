@@ -9,7 +9,7 @@
 namespace mizuiro::color::space
 {
 
-struct srgb;
+struct srgb; // IWYU pragma: export
 
 }
 

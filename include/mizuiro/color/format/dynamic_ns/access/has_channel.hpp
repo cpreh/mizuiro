@@ -11,7 +11,7 @@
 #include <mizuiro/color/detail/dynamic/invalid_index.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/dynamic_ns/tag.hpp>
-#include <mizuiro/color/format/dynamic_ns/access/channel_index.hpp>
+#include <mizuiro/color/format/dynamic_ns/access/channel_index.hpp> // IWYU pragma: keep
 
 namespace mizuiro::color::access::has_channel_ns
 {

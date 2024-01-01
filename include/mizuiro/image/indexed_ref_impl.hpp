@@ -7,7 +7,7 @@
 #define MIZUIRO_IMAGE_INDEXED_REF_IMPL_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/image/indexed_ref_decl.hpp>
+#include <mizuiro/image/indexed_ref_decl.hpp> // IWYU pragma: export
 
 template <mizuiro::size_type Size, typename Reference>
 mizuiro::image::indexed_ref<Size, Reference>::indexed_ref(dim const &_index, Reference _reference)

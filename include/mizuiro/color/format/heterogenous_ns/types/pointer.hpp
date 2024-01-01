@@ -9,7 +9,7 @@
 #include <mizuiro/apply_const.hpp>
 #include <mizuiro/access/pointer.hpp>
 #include <mizuiro/color/format/heterogenous_ns/tag.hpp>
-#include <mizuiro/color/format/heterogenous_ns/types/store.hpp>
+#include <mizuiro/color/format/heterogenous_ns/types/store.hpp> // IWYU pragma: keep
 #include <mizuiro/color/types/store.hpp>
 #include <mizuiro/color/types/pointer_ns/tag.hpp>
 

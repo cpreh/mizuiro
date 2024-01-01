@@ -10,7 +10,7 @@ namespace mizuiro::color
 {
 
 template <typename Format>
-class object;
+class object; // IWYU pragma: export
 
 }
 

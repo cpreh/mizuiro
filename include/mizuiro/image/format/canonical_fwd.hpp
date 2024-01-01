@@ -10,7 +10,7 @@ namespace mizuiro::image::format
 {
 
 template <typename DimType, typename Type>
-class canonical;
+class canonical; // IWYU pragma: export
 
 }
 

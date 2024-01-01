@@ -6,8 +6,8 @@
 #ifndef MIZUIRO_DETAIL_FORMAT_STORE_DECL_HPP_INCLUDED
 #define MIZUIRO_DETAIL_FORMAT_STORE_DECL_HPP_INCLUDED
 
-#include <mizuiro/detail/empty_format_store_decl.hpp>
-#include <mizuiro/detail/format_store_fwd.hpp>
-#include <mizuiro/detail/normal_format_store_decl.hpp>
+#include <mizuiro/detail/empty_format_store_decl.hpp> // IWYU pragma: keep
+#include <mizuiro/detail/format_store_fwd.hpp> // IWYU pragma: export
+#include <mizuiro/detail/normal_format_store_decl.hpp> // IWYU pragma: keep
 
 #endif

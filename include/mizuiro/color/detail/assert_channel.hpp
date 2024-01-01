@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_COLOR_DETAIL_ASSERT_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_DETAIL_ASSERT_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/color/channel/is.hpp>
+#include <mizuiro/color/channel/is.hpp> // IWYU pragma: keep
 
 #define MIZUIRO_COLOR_DETAIL_ASSERT_CHANNEL(name) \
   static_assert(mizuiro::color::channel::is<name>::value, "Channel must be a channel type")

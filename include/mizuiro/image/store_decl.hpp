@@ -10,9 +10,9 @@
 #include <mizuiro/empty_fwd.hpp>
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/nonconst_tag.hpp>
-#include <mizuiro/image/dimension_decl.hpp>
+#include <mizuiro/image/dimension_decl.hpp> // IWYU pragma: keep
 #include <mizuiro/image/linear_view_fwd.hpp>
-#include <mizuiro/image/store_fwd.hpp>
+#include <mizuiro/image/store_fwd.hpp> // IWYU pragma: keep
 #include <mizuiro/image/format/argument.hpp>
 #include <mizuiro/image/format/base_decl.hpp>
 #include <mizuiro/image/types/pointer.hpp>

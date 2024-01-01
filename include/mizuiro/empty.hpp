@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_EMPTY_HPP_INCLUDED
 #define MIZUIRO_EMPTY_HPP_INCLUDED
 
-#include <mizuiro/empty_fwd.hpp>
+#include <mizuiro/empty_fwd.hpp> // IWYU pragma: keep
 
 namespace mizuiro
 {

@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_COLOR_SPACE_EMPTY_HPP_INCLUDED
 #define MIZUIRO_COLOR_SPACE_EMPTY_HPP_INCLUDED
 
-#include <mizuiro/color/space/empty_fwd.hpp>
+#include <mizuiro/color/space/empty_fwd.hpp> // IWYU pragma: keep
 #include <fcppt/mpl/set/object.hpp>
 
 namespace mizuiro::color::space

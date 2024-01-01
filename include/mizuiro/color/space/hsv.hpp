@@ -9,7 +9,7 @@
 #include <mizuiro/color/channel/hue_fwd.hpp>
 #include <mizuiro/color/channel/saturation_fwd.hpp>
 #include <mizuiro/color/channel/value_fwd.hpp>
-#include <mizuiro/color/space/hsv_fwd.hpp>
+#include <mizuiro/color/space/hsv_fwd.hpp> // IWYU pragma: keep
 #include <fcppt/mpl/set/object.hpp>
 
 namespace mizuiro::color::space

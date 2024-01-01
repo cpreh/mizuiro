@@ -10,7 +10,7 @@ namespace mizuiro::image::format::detail
 {
 
 template <typename Format>
-struct planar_color;
+struct planar_color; // IWYU pragma: export
 
 }
 

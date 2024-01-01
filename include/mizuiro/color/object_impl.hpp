@@ -11,12 +11,13 @@
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/color/object_decl.hpp> // IWYU pragma: export
-#include <mizuiro/color/proxy_impl.hpp>
+#include <mizuiro/color/proxy_impl.hpp> // IWYU pragma: keep
 #include <mizuiro/color/access/init_store.hpp>
 #include <mizuiro/color/access/store_data.hpp>
-#include <mizuiro/color/format/base_impl.hpp>
-#include <mizuiro/color/format/store_impl.hpp>
+#include <mizuiro/color/format/base_impl.hpp> // IWYU pragma: keep
+#include <mizuiro/color/format/store_impl.hpp> // IWYU pragma: keep
 #include <mizuiro/color/init/detail/assign_object.hpp>
+#include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/channel_value.hpp>
 #include <mizuiro/color/types/store_needs_init.hpp>

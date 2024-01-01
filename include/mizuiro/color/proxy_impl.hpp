@@ -9,11 +9,13 @@
 #include <mizuiro/const_tag.hpp>
 #include <mizuiro/nonconst_tag.hpp>
 #include <mizuiro/color/for_each_channel.hpp>
-#include <mizuiro/color/proxy_decl.hpp>
+#include <mizuiro/color/proxy_decl.hpp> // IWYU pragma: export
 #include <mizuiro/color/access/extract_channel.hpp>
-#include <mizuiro/color/format/base_impl.hpp>
+#include <mizuiro/color/format/base_impl.hpp> // IWYU pragma: keep
 #include <mizuiro/color/format/compatible.hpp>
-#include <mizuiro/color/format/store_impl.hpp>
+#include <mizuiro/color/format/store_impl.hpp> // IWYU pragma: keep
+#include <mizuiro/color/types/channel_reference.hpp>
+#include <mizuiro/color/types/channel_value.hpp>
 
 template <typename Access, typename Format, typename Constness>
 mizuiro::color::proxy<Access, Format, Constness>::proxy(

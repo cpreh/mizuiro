@@ -6,8 +6,9 @@
 #ifndef MIZUIRO_IMAGE_LINEAR_ITERATOR_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_LINEAR_ITERATOR_IMPL_HPP_INCLUDED
 
-#include <mizuiro/image/basic_iterator_impl.hpp>
-#include <mizuiro/image/linear_iterator_decl.hpp>
-#include <mizuiro/image/detail/linear_iterator_impl.hpp>
+#include <mizuiro/image/basic_iterator_impl.hpp> // IWYU pragma: keep
+#include <mizuiro/image/linear_iterator_decl.hpp> // IWYU pragma: keep
+#include <mizuiro/image/linear_iterator_fwd.hpp> // IWYU pragma: export
+#include <mizuiro/image/detail/linear_iterator_impl.hpp> // IWYU pragma: keep
 
 #endif

@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_DETAIL_ASSERT_ACCESS_HPP_INCLUDED
 #define MIZUIRO_DETAIL_ASSERT_ACCESS_HPP_INCLUDED
 
-#include <mizuiro/access/is.hpp>
+#include <mizuiro/access/is.hpp> // IWYU pragma: keep
 
 #define MIZUIRO_DETAIL_ASSERT_ACCESS(name) \
   static_assert(mizuiro::access::is<name>::value, "Access must be an access type")

@@ -11,8 +11,8 @@
 #include <mizuiro/color/access/store_data_ns/tag.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/homogenous_ns/tag.hpp>
-#include <mizuiro/color/format/homogenous_ns/types/pointer.hpp>
-#include <mizuiro/color/format/homogenous_ns/types/store.hpp>
+#include <mizuiro/color/format/homogenous_ns/types/pointer.hpp> // IWYU pragma: keep
+#include <mizuiro/color/format/homogenous_ns/types/store.hpp> // IWYU pragma: keep
 #include <mizuiro/color/types/pointer.hpp>
 #include <mizuiro/color/types/store.hpp>
 

@@ -7,7 +7,7 @@
 #define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_HPP_INCLUDED
 
 #include <mizuiro/image/format/interleaved_decl.hpp> // IWYU pragma: export
-#include <mizuiro/image/format/interleaved_fwd.hpp>
-#include <mizuiro/image/format/interleaved_impl.hpp>
+#include <mizuiro/image/format/interleaved_fwd.hpp> // IWYU pragma: keep
+#include <mizuiro/image/format/interleaved_impl.hpp> // IWYU pragma: keep
 
 #endif

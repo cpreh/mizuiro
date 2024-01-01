@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_ACCESS_NORMAL_HPP_INCLUDED
 #define MIZUIRO_ACCESS_NORMAL_HPP_INCLUDED
 
-#include <mizuiro/access/normal_fwd.hpp>
+#include <mizuiro/access/normal_fwd.hpp> // IWYU pragma: keep
 
 namespace mizuiro::access
 {

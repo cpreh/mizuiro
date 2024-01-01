@@ -7,7 +7,7 @@
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_STATIC_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/color/format/homogenous_static_fwd.hpp>
+#include <mizuiro/color/format/homogenous_static_fwd.hpp> // IWYU pragma: keep
 #include <fcppt/mpl/list/size.hpp>
 
 namespace mizuiro::color::format

@@ -7,7 +7,7 @@
 #define MIZUIRO_COLOR_PROXY_DECL_HPP_INCLUDED
 
 #include <mizuiro/const_tag.hpp>
-#include <mizuiro/color/proxy_fwd.hpp>
+#include <mizuiro/color/proxy_fwd.hpp> // IWYU pragma: keep
 #include <mizuiro/color/format/argument.hpp>
 #include <mizuiro/color/format/base_decl.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>

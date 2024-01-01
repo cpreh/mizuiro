@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_DETAIL_FORMAT_ARGUMENT_HPP_INCLUDED
 #define MIZUIRO_DETAIL_FORMAT_ARGUMENT_HPP_INCLUDED
 
-#include <mizuiro/detail/format_argument_impl.hpp>
+#include <mizuiro/detail/format_argument_impl.hpp> // IWYU pragma: keep
 #include <mizuiro/detail/format_store_impl.hpp>
 
 namespace mizuiro::detail

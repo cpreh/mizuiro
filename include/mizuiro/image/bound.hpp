@@ -7,7 +7,7 @@
 #define MIZUIRO_IMAGE_BOUND_HPP_INCLUDED
 
 #include <mizuiro/image/bound_decl.hpp> // IWYU pragma: export
-#include <mizuiro/image/bound_fwd.hpp>
-#include <mizuiro/image/bound_impl.hpp>
+#include <mizuiro/image/bound_fwd.hpp> // IWYU pragma: keep
+#include <mizuiro/image/bound_impl.hpp> // IWYU pragma: keep
 
 #endif

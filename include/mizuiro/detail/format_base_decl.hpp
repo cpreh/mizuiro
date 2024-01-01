@@ -6,8 +6,8 @@
 #ifndef MIZUIRO_DETAIL_FORMAT_BASE_DECL_HPP_INCLUDED
 #define MIZUIRO_DETAIL_FORMAT_BASE_DECL_HPP_INCLUDED
 
-#include <mizuiro/detail/empty_format_base_decl.hpp>
-#include <mizuiro/detail/format_base_fwd.hpp>
-#include <mizuiro/detail/normal_format_base_decl.hpp>
+#include <mizuiro/detail/empty_format_base_decl.hpp> // IWYU pragma: keep
+#include <mizuiro/detail/format_base_fwd.hpp> // IWYU pragma: export
+#include <mizuiro/detail/normal_format_base_decl.hpp> // IWYU pragma: keep
 
 #endif

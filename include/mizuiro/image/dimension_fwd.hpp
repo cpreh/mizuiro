@@ -12,7 +12,7 @@ namespace mizuiro::image
 {
 
 template <mizuiro::size_type Dim, typename ValueType = mizuiro::size_type>
-class dimension;
+class dimension; // IWYU pragma: export
 
 }
 

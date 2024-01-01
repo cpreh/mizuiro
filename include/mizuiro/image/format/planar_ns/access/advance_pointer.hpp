@@ -8,7 +8,6 @@
 
 #include <mizuiro/difference_type.hpp>
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/image/access/advance_pointer.hpp>
 #include <mizuiro/image/access/advance_pointer_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/format/planar_ns/tag.hpp>

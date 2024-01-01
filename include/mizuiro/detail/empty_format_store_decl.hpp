@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_DETAIL_EMPTY_FORMAT_STORE_DECL_HPP_INCLUDED
 #define MIZUIRO_DETAIL_EMPTY_FORMAT_STORE_DECL_HPP_INCLUDED
 
-#include <mizuiro/detail/empty_format_store_fwd.hpp>
+#include <mizuiro/detail/empty_format_store_fwd.hpp> // IWYU pragma: keep
 
 namespace mizuiro::detail
 {

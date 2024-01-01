@@ -7,7 +7,7 @@
 #define MIZUIRO_IMAGE_DETAIL_ITERATOR_IMPL_HPP_INCLUDED
 
 #include <mizuiro/image/detail/compare_iterator.hpp>
-#include <mizuiro/image/detail/iterator_decl.hpp>
+#include <mizuiro/image/detail/iterator_decl.hpp> // IWYU pragma: export
 #include <mizuiro/image/detail/iterator_difference.hpp>
 #include <fcppt/variant/apply.hpp>
 

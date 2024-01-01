@@ -10,7 +10,7 @@ namespace mizuiro::color
 {
 
 template <typename Pointer, typename ValueType, typename ChannelAccess>
-class channel_proxy;
+class channel_proxy; // IWYU pragma: export
 
 }
 

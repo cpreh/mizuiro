@@ -9,7 +9,7 @@
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/access/channels.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <type_traits>
+#include <utility>
 #include <fcppt/config/external_end.hpp>
 
 namespace mizuiro::color

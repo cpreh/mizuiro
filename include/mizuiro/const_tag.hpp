@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_CONST_TAG_HPP_INCLUDED
 #define MIZUIRO_CONST_TAG_HPP_INCLUDED
 
-#include <mizuiro/const_tag_fwd.hpp>
+#include <mizuiro/const_tag_fwd.hpp> // IWYU pragma: keep
 
 namespace mizuiro
 {

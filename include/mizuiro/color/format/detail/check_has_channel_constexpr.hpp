@@ -9,7 +9,7 @@
 #include <mizuiro/color/access/has_channel.hpp>
 #include <mizuiro/color/format/store.hpp>
 #include <mizuiro/detail/int_to_true.hpp>
-#include <fcppt/config/compiler.hpp>
+#include <fcppt/config/compiler.hpp> // IWYU pragma: keep
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>
 #include <fcppt/config/external_end.hpp>

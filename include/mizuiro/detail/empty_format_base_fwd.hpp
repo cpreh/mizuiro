@@ -10,7 +10,7 @@ namespace mizuiro::detail
 {
 
 template <typename Store>
-class empty_format_base;
+class empty_format_base; // IWYU pragma: export
 
 }
 

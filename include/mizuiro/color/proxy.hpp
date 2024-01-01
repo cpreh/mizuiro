@@ -6,8 +6,8 @@
 #ifndef MIZUIRO_COLOR_PROXY_HPP_INCLUDED
 #define MIZUIRO_COLOR_PROXY_HPP_INCLUDED
 
-#include <mizuiro/color/proxy_decl.hpp>
-#include <mizuiro/color/proxy_fwd.hpp>
-#include <mizuiro/color/proxy_impl.hpp>
+#include <mizuiro/color/proxy_decl.hpp> // IWYU pragma: export
+#include <mizuiro/color/proxy_fwd.hpp> // IWYU pragma: keep
+#include <mizuiro/color/proxy_impl.hpp> // IWYU pragma: keep
 
 #endif

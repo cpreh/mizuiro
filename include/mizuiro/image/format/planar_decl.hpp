@@ -9,7 +9,7 @@
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/format/argument.hpp>
 #include <mizuiro/color/format/base_decl.hpp>
-#include <mizuiro/image/format/planar_fwd.hpp>
+#include <mizuiro/image/format/planar_fwd.hpp> // IWYU pragma: keep
 #include <mizuiro/image/format/detail/planar_color.hpp>
 
 namespace mizuiro::image::format

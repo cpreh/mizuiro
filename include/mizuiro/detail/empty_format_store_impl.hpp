@@ -6,6 +6,6 @@
 #ifndef MIZUIRO_DETAIL_EMPTY_FORMAT_STORE_IMPL_HPP_INCLUDED
 #define MIZUIRO_DETAIL_EMPTY_FORMAT_STORE_IMPL_HPP_INCLUDED
 
-#include <mizuiro/detail/empty_format_store_decl.hpp>
+#include <mizuiro/detail/empty_format_store_decl.hpp> // IWYU pragma: export
 
 #endif

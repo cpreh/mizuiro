@@ -7,7 +7,7 @@
 #define MIZUIRO_IMAGE_BOUND_DECL_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/image/bound_fwd.hpp>
+#include <mizuiro/image/bound_fwd.hpp> // IWYU pragma: keep
 #include <mizuiro/image/dimension_decl.hpp>
 #include <fcppt/declare_strong_typedef.hpp>
 

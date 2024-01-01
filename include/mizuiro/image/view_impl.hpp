@@ -6,14 +6,14 @@
 #ifndef MIZUIRO_IMAGE_VIEW_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_VIEW_IMPL_HPP_INCLUDED
 
-#include <mizuiro/image/dimension_comparison.hpp>
-#include <mizuiro/image/dimension_impl.hpp>
+#include <mizuiro/image/dimension_comparison.hpp> // IWYU pragma: keep
+#include <mizuiro/image/dimension_impl.hpp> // IWYU pragma: keep
 #include <mizuiro/image/dimension_null.hpp>
-#include <mizuiro/image/iterator_impl.hpp>
-#include <mizuiro/image/linear_view_impl.hpp>
+#include <mizuiro/image/iterator_impl.hpp> // IWYU pragma: keep
+#include <mizuiro/image/linear_view_impl.hpp> // IWYU pragma: keep
 #include <mizuiro/image/make_const_view.hpp>
 #include <mizuiro/image/move_iterator.hpp>
-#include <mizuiro/image/pitch_view_impl.hpp>
+#include <mizuiro/image/pitch_view_impl.hpp> // IWYU pragma: keep
 #include <mizuiro/image/view_decl.hpp> // IWYU pragma: export
 #include <fcppt/variant/apply.hpp>
 

@@ -10,7 +10,7 @@ namespace mizuiro::image
 {
 
 template <typename Access, typename Format, typename Constness>
-class view;
+class view; // IWYU pragma: export
 
 }
 

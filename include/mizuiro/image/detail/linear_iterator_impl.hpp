@@ -10,9 +10,9 @@
 #include <mizuiro/image/access/dereference.hpp>
 #include <mizuiro/image/access/pointer_difference.hpp>
 #include <mizuiro/image/access/stride.hpp>
-#include <mizuiro/image/detail/linear_iterator_decl.hpp>
-#include <mizuiro/image/format/base_impl.hpp>
-#include <fcppt/array/comparison.hpp>
+#include <mizuiro/image/detail/linear_iterator_decl.hpp> // IWYU pragma: export
+#include <mizuiro/image/format/base_impl.hpp> // IWYU pragma: keep
+#include <fcppt/array/comparison.hpp> // IWYU pragma: keep
 
 template <typename Access, typename Format, typename Constness>
 mizuiro::image::detail::linear_iterator<Access, Format, Constness>::linear_iterator(

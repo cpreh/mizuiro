@@ -6,12 +6,13 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 
+#include <mizuiro/size_type.hpp>
 #include <mizuiro/detail/unlikely.hpp>
-#include <mizuiro/image/dimension_impl.hpp>
+#include <mizuiro/image/dimension_impl.hpp> // IWYU pragma: keep
 #include <mizuiro/image/access/advance_pointer.hpp>
 #include <mizuiro/image/access/dereference.hpp>
 #include <mizuiro/image/access/stride.hpp>
-#include <mizuiro/image/detail/pitch_iterator_decl.hpp>
+#include <mizuiro/image/detail/pitch_iterator_decl.hpp> // IWYU pragma: export
 #include <mizuiro/image/detail/pitch_iterator_position.hpp>
 #include <mizuiro/image/detail/stacked_dim.hpp>
 #include <fcppt/config/external_begin.hpp>
@@ -79,7 +80,7 @@ mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::advance(
       _diff * static_cast<difference_type>(
                   mizuiro::image::access::stride<Access, Format>(this->format_store_base()))};
 
-  for (size_type i = 0; i < pitch_type::static_size; ++i)
+  for (mizuiro::size_type i = 0; i < pitch_type::static_size; ++i)
   {
     add +=
         ((_diff + offset_ % stacked_dim_.get_unsafe(i)) / stacked_dim_.get_unsafe(i)) * pitch_[i];

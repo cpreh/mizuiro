@@ -10,7 +10,7 @@ namespace mizuiro::image::detail
 {
 
 template <typename Access, typename Format, typename Constness>
-class iterator;
+class iterator; // IWYU pragma: export
 
 }
 

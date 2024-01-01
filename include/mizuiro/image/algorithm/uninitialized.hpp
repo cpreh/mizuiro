@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_UNINITIALIZED_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_UNINITIALIZED_HPP_INCLUDED
 
-#include <mizuiro/image/algorithm/uninitialized_fwd.hpp>
+#include <mizuiro/image/algorithm/uninitialized_fwd.hpp> // IWYU pragma: keep
 
 namespace mizuiro::image::algorithm
 {

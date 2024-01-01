@@ -9,7 +9,7 @@
 namespace mizuiro
 {
 
-struct empty;
+struct empty; // IWYU pragma: export
 
 }
 

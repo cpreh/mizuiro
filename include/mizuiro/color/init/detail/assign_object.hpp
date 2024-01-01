@@ -13,7 +13,7 @@
 #include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <mizuiro/color/types/static_channels.hpp>
 #include <fcppt/algorithm/loop.hpp>
-#include <fcppt/algorithm/loop_break_tuple.hpp>
+#include <fcppt/algorithm/loop_break_tuple.hpp> // IWYU pragma: keep
 #include <fcppt/mpl/arg.hpp>
 #include <fcppt/mpl/bind.hpp>
 #include <fcppt/mpl/constant.hpp>

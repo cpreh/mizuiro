@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_CANONICAL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_CANONICAL_HPP_INCLUDED
 
-#include <mizuiro/image/format/canonical_fwd.hpp>
+#include <mizuiro/image/format/canonical_fwd.hpp> // IWYU pragma: keep
 
 namespace mizuiro::image::format
 {

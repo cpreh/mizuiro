@@ -12,11 +12,11 @@
 #include <mizuiro/nonconst_tag_fwd.hpp>
 #include <mizuiro/access/normal.hpp>
 #include <mizuiro/color/is_color.hpp>
-#include <mizuiro/color/object_fwd.hpp>
+#include <mizuiro/color/object_fwd.hpp> // IWYU pragma: keep
 #include <mizuiro/color/proxy_fwd.hpp>
 #include <mizuiro/color/format/argument.hpp>
 #include <mizuiro/color/format/base_decl.hpp>
-#include <mizuiro/color/format/store_decl.hpp>
+#include <mizuiro/color/format/store_decl.hpp> // IWYU pragma: keep
 #include <mizuiro/color/init/detail/values_fwd.hpp>
 #include <mizuiro/color/types/channel_reference.hpp>
 #include <mizuiro/color/types/channel_value.hpp>

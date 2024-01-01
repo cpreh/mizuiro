@@ -10,7 +10,7 @@
 #include <mizuiro/color/format/has_channel_static.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/static_ns/tag.hpp>
-#include <mizuiro/color/format/static_ns/types/static_channels.hpp>
+#include <mizuiro/color/format/static_ns/types/static_channels.hpp> // IWYU pragma: keep
 #include <fcppt/type_traits/to_bool.hpp>
 
 namespace mizuiro::color::access::has_channel_ns

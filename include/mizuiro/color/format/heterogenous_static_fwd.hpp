@@ -10,7 +10,7 @@ namespace mizuiro::color::format
 {
 
 template <typename ChannelTypes, typename Layout>
-struct heterogenous_static;
+struct heterogenous_static; // IWYU pragma: export
 
 }
 

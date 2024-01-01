@@ -9,7 +9,7 @@
 namespace mizuiro
 {
 
-struct nonconst_tag;
+struct nonconst_tag; // IWYU pragma: export
 
 }
 

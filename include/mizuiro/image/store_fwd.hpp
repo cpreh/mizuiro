@@ -12,7 +12,7 @@ namespace mizuiro::image
 {
 
 template <typename Format, typename Access = mizuiro::access::normal>
-class store;
+class store; // IWYU pragma: export
 
 }
 

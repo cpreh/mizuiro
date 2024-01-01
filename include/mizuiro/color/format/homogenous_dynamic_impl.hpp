@@ -6,6 +6,7 @@
 #ifndef MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_IMPL_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_HOMOGENOUS_DYNAMIC_IMPL_HPP_INCLUDED
 
+#include <mizuiro/size_type.hpp>
 #include <mizuiro/color/detail/dynamic/initialize_indices.hpp>
 #include <mizuiro/color/detail/dynamic/make_channels.hpp>
 #include <mizuiro/color/format/homogenous_dynamic_decl.hpp> // IWYU pragma: export

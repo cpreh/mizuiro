@@ -9,9 +9,8 @@
 #include <mizuiro/color/access/channels_ns/tag.hpp>
 #include <mizuiro/color/format/make_tag_of.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
-#include <mizuiro/color/format/tag_of_fwd.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <type_traits>
+#include <utility>
 #include <fcppt/config/external_end.hpp>
 
 namespace mizuiro::color::access

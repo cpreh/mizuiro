@@ -8,7 +8,7 @@
 
 #include <mizuiro/color/format/argument.hpp>
 #include <mizuiro/color/format/base_decl.hpp>
-#include <mizuiro/image/format/interleaved_fwd.hpp>
+#include <mizuiro/image/format/interleaved_fwd.hpp> // IWYU pragma: keep
 
 namespace mizuiro::image::format
 {

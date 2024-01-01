@@ -7,8 +7,8 @@
 #define MIZUIRO_IMAGE_DETAIL_SUBVIEW_PITCH_HPP_INCLUDED
 
 #include <mizuiro/no_init.hpp>
-#include <mizuiro/image/bound_impl.hpp>
-#include <mizuiro/image/dimension_impl.hpp>
+#include <mizuiro/image/bound_impl.hpp> // IWYU pragma: keep
+#include <mizuiro/image/dimension_impl.hpp> // IWYU pragma: keep
 #include <mizuiro/image/move_iterator.hpp>
 #include <mizuiro/image/detail/edge_pos_begin.hpp>
 #include <mizuiro/image/detail/edge_pos_end.hpp>

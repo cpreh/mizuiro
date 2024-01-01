@@ -12,7 +12,7 @@ namespace mizuiro::color::format
 {
 
 template <typename ChannelType, typename Channels, mizuiro::size_type ChannelCount>
-struct homogenous_dynamic;
+struct homogenous_dynamic; // IWYU pragma: export
 
 }
 

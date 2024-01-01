@@ -6,8 +6,8 @@
 #ifndef MIZUIRO_COLOR_FORMAT_DETAIL_ASSERT_CHANNEL_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_DETAIL_ASSERT_CHANNEL_HPP_INCLUDED
 
-#include <mizuiro/color/channel/is.hpp>
-#include <mizuiro/color/types/valid_channel_type.hpp>
+#include <mizuiro/color/channel/is.hpp> // IWYU pragma: keep
+#include <mizuiro/color/types/valid_channel_type.hpp> // IWYU pragma: keep
 
 #define MIZUIRO_COLOR_FORMAT_DETAIL_ASSERT_CHANNEL(format, name) \
   static_assert( \

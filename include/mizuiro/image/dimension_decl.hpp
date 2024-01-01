@@ -8,7 +8,7 @@
 
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/image/dimension_fwd.hpp>
+#include <mizuiro/image/dimension_fwd.hpp> // IWYU pragma: keep
 #include <fcppt/array/object_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <type_traits>

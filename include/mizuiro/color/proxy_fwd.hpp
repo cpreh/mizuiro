@@ -10,7 +10,7 @@ namespace mizuiro::color
 {
 
 template <typename Access, typename Format, typename Constness>
-class proxy;
+class proxy; // IWYU pragma: export
 
 }
 

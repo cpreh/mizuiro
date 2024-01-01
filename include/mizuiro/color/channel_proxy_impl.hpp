@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_COLOR_CHANNEL_PROXY_IMPL_HPP_INCLUDED
 #define MIZUIRO_COLOR_CHANNEL_PROXY_IMPL_HPP_INCLUDED
 
-#include <mizuiro/color/channel_proxy_decl.hpp>
+#include <mizuiro/color/channel_proxy_decl.hpp> // IWYU pragma: export
 
 template <typename Pointer, typename ValueType, typename ChannelAccess>
 mizuiro::color::channel_proxy<Pointer, ValueType, ChannelAccess>::channel_proxy(pointer const _data)

@@ -10,7 +10,7 @@
 #include <mizuiro/image/access/pointer_difference_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/format/canonical_ns/tag.hpp>
-#include <mizuiro/image/format/canonical_ns/types/pointer.hpp>
+#include <mizuiro/image/format/canonical_ns/types/pointer.hpp> // IWYU pragma: keep
 #include <mizuiro/image/types/pointer.hpp>
 
 namespace mizuiro::image::access::pointer_difference_ns

@@ -10,7 +10,7 @@ namespace mizuiro::color::init::detail
 {
 
 template <typename Vector>
-class values;
+class values; // IWYU pragma: export
 
 }
 

@@ -9,7 +9,7 @@
 #include <mizuiro/difference_type.hpp>
 #include <mizuiro/image/access/pointer_difference_ns/tag.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
-#include <mizuiro/image/format/color_ns/types/pointer.hpp>
+#include <mizuiro/image/format/color_ns/types/pointer.hpp> // IWYU pragma: keep
 #include <mizuiro/image/format/interleaved_ns/tag.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 

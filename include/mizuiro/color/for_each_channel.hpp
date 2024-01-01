@@ -10,7 +10,7 @@
 #include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/make_range.hpp>
 #include <fcppt/algorithm/loop.hpp>
-#include <fcppt/algorithm/loop_break_mpl.hpp>
+#include <fcppt/algorithm/loop_break_mpl.hpp> // IWYU pragma: keep
 
 // TODO(philipp): Where should be put this? ^
 

@@ -8,7 +8,7 @@
 
 #include <mizuiro/size_type.hpp>
 #include <mizuiro/color/detail/dynamic/channel_array.hpp>
-#include <mizuiro/color/format/homogenous_dynamic_fwd.hpp>
+#include <mizuiro/color/format/homogenous_dynamic_fwd.hpp> // IWYU pragma: export
 #include <mizuiro/color/layout/all_possible_channels.hpp>
 #include <fcppt/array/object_impl.hpp>
 #include <fcppt/mpl/set/size.hpp>

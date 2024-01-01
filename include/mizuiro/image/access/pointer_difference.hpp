@@ -10,7 +10,6 @@
 #include <mizuiro/image/access/pointer_difference_ns/tag.hpp>
 #include <mizuiro/image/format/make_tag_of.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
-#include <mizuiro/image/format/tag_of_fwd.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 
 namespace mizuiro::image::access

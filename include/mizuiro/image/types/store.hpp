@@ -9,7 +9,7 @@
 #include <mizuiro/image/format/make_tag_of.hpp>
 #include <mizuiro/image/types/store_ns/tag.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <type_traits>
+#include <utility>
 #include <fcppt/config/external_end.hpp>
 
 namespace mizuiro::image::types

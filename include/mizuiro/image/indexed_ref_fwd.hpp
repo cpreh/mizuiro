@@ -12,7 +12,7 @@ namespace mizuiro::image
 {
 
 template <mizuiro::size_type, typename Reference>
-class indexed_ref;
+class indexed_ref; // IWYU pragma: export
 
 }
 

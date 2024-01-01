@@ -10,7 +10,7 @@ namespace mizuiro::image::format
 {
 
 template <typename DimType, typename ColorFormat>
-class planar;
+class planar; // IWYU pragma: export
 
 }
 

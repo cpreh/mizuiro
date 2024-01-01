@@ -6,10 +6,10 @@
 #ifndef MIZUIRO_COLOR_FORMAT_INCLUDE_HOMOGENOUS_STATIC_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_INCLUDE_HOMOGENOUS_STATIC_HPP_INCLUDED
 
-#include <mizuiro/color/format/homogenous_static.hpp>
-#include <mizuiro/color/format/homogenous_static_ns/tag.hpp>
-#include <mizuiro/color/format/homogenous_static_ns/tag_of.hpp>
-#include <mizuiro/color/format/include/homogenous.hpp>
-#include <mizuiro/color/format/include/static.hpp>
+#include <mizuiro/color/format/homogenous_static.hpp> // IWYU pragma: export
+#include <mizuiro/color/format/homogenous_static_ns/tag.hpp> // IWYU pragma: export
+#include <mizuiro/color/format/homogenous_static_ns/tag_of.hpp> // IWYU pragma: export
+#include <mizuiro/color/format/include/homogenous.hpp> // IWYU pragma: export
+#include <mizuiro/color/format/include/static.hpp> // IWYU pragma: export
 
 #endif

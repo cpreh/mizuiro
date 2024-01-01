@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_STACKED_DIM_ARRAY_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_STACKED_DIM_ARRAY_HPP_INCLUDED
 
-#include <mizuiro/image/dimension_decl.hpp>
+#include <mizuiro/image/dimension_decl.hpp> // IWYU pragma: keep
 #include <fcppt/array/object_impl.hpp>
 
 namespace mizuiro::image::detail

@@ -8,10 +8,10 @@
 
 #include <mizuiro/image/dimension_content.hpp>
 #include <mizuiro/image/dimension_null.hpp>
-#include <mizuiro/image/linear_iterator_impl.hpp>
+#include <mizuiro/image/linear_iterator_impl.hpp> // IWYU pragma: keep
 #include <mizuiro/image/linear_view_decl.hpp> // IWYU pragma: export
 #include <mizuiro/image/move_iterator.hpp>
-#include <mizuiro/image/format/base_impl.hpp>
+#include <mizuiro/image/format/base_impl.hpp> // IWYU pragma: keep
 
 template <typename Access, typename Format, typename Constness>
 mizuiro::image::linear_view<Access, Format, Constness>::linear_view(

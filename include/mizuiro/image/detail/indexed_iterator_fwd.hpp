@@ -10,7 +10,7 @@ namespace mizuiro::image::detail
 {
 
 template <typename Dimension, typename Underlying>
-class indexed_iterator;
+class indexed_iterator; // IWYU pragma: export
 
 }
 

@@ -9,7 +9,7 @@
 namespace mizuiro
 {
 
-struct const_tag;
+struct const_tag; // IWYU pragma: export
 
 }
 

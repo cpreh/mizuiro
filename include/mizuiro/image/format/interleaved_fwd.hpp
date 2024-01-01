@@ -10,7 +10,7 @@ namespace mizuiro::image::format
 {
 
 template <typename DimType, typename ColorFormat>
-class interleaved;
+class interleaved; // IWYU pragma: export
 
 }
 

@@ -14,7 +14,7 @@ namespace mizuiro::image
 {
 
 template <typename T, typename A = std::allocator<T>>
-class raw_container;
+class raw_container; // IWYU pragma: export
 
 }
 

@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_DECLTYPE_HPP_INCLUDED
 #define MIZUIRO_DECLTYPE_HPP_INCLUDED
 
-#include <mizuiro/detail/decltype_use.hpp>
+#include <mizuiro/detail/decltype_use.hpp> // IWYU pragma: keep
 
 #define MIZUIRO_DECLTYPE(expr) decltype(mizuiro::detail::decltype_use(expr))
 

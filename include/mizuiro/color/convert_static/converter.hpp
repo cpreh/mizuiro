@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_COLOR_CONVERT_STATIC_CONVERTER_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_STATIC_CONVERTER_HPP_INCLUDED
 
-#include <mizuiro/color/convert_static.hpp>
+#include <mizuiro/color/convert_static.hpp> // IWYU pragma: keep
 #include <mizuiro/color/object_impl.hpp>
 #include <mizuiro/color/convert_static/is_static.hpp>
 #include <mizuiro/color/format/store.hpp>

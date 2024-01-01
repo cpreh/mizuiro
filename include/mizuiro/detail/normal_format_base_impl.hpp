@@ -6,8 +6,8 @@
 #ifndef MIZUIRO_DETAIL_NORMAL_FORMAT_BASE_IMPL_HPP_INCLUDED
 #define MIZUIRO_DETAIL_NORMAL_FORMAT_BASE_IMPL_HPP_INCLUDED
 
-#include <mizuiro/detail/format_store_impl.hpp>
-#include <mizuiro/detail/normal_format_base_decl.hpp>
+#include <mizuiro/detail/format_store_impl.hpp> // IWYU pragma: keep
+#include <mizuiro/detail/normal_format_base_decl.hpp> // IWYU pragma: export
 
 template <typename Format, typename Copy>
 mizuiro::detail::normal_format_base<Format, Copy>::normal_format_base(

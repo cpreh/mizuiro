@@ -6,12 +6,12 @@
 #ifndef MIZUIRO_IMAGE_DETAIL_INDEXED_ITERATOR_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_DETAIL_INDEXED_ITERATOR_IMPL_HPP_INCLUDED
 
-#include <mizuiro/image/indexed_ref_impl.hpp>
+#include <mizuiro/image/indexed_ref_impl.hpp> // IWYU pragma: keep
 #include <mizuiro/image/detail/decrement_dim.hpp>
 #include <mizuiro/image/detail/increment_dim.hpp>
-#include <mizuiro/image/detail/indexed_iterator_decl.hpp>
+#include <mizuiro/image/detail/indexed_iterator_decl.hpp> // IWYU pragma: export
 #include <mizuiro/image/detail/relative_position.hpp>
-#include <fcppt/strong_typedef_impl.hpp>
+#include <fcppt/strong_typedef_impl.hpp> // IWYU pragma: keep
 
 template <typename Dimension, typename Underlying>
 mizuiro::image::detail::indexed_iterator<Dimension, Underlying>::indexed_iterator(

@@ -6,11 +6,13 @@
 #ifndef MIZUIRO_IMAGE_VIEW_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_VIEW_DECL_HPP_INCLUDED
 
+#include <mizuiro/image/bound_fwd.hpp>
 #include <mizuiro/image/iterator_fwd.hpp>
 #include <mizuiro/image/linear_view_decl.hpp>
 #include <mizuiro/image/pitch_type.hpp>
 #include <mizuiro/image/pitch_view_decl.hpp>
-#include <mizuiro/image/view_fwd.hpp>
+#include <mizuiro/image/view_fwd.hpp> // IWYU pragma: keep
+#include <mizuiro/image/format/argument.hpp>
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>

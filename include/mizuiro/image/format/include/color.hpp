@@ -6,11 +6,11 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_INCLUDE_COLOR_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_INCLUDE_COLOR_HPP_INCLUDED
 
-#include <mizuiro/image/format/color_ns/access/dereference.hpp>
-#include <mizuiro/image/format/color_ns/types/needs_format_store.hpp>
-#include <mizuiro/image/format/color_ns/types/needs_prepare.hpp>
-#include <mizuiro/image/format/color_ns/types/pointer.hpp>
-#include <mizuiro/image/format/color_ns/types/reference.hpp>
-#include <mizuiro/image/format/color_ns/types/value_type.hpp>
+#include <mizuiro/image/format/color_ns/access/dereference.hpp> // IWYU pragma: export
+#include <mizuiro/image/format/color_ns/types/needs_format_store.hpp> // IWYU pragma: export
+#include <mizuiro/image/format/color_ns/types/needs_prepare.hpp> // IWYU pragma: export
+#include <mizuiro/image/format/color_ns/types/pointer.hpp> // IWYU pragma: export
+#include <mizuiro/image/format/color_ns/types/reference.hpp> // IWYU pragma: export
+#include <mizuiro/image/format/color_ns/types/value_type.hpp> // IWYU pragma: export
 
 #endif

@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_COLOR_INIT_MAKE_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_MAKE_HPP_INCLUDED
 
-#include <mizuiro/color/init/detail/trampoline.hpp>
+#include <mizuiro/color/init/detail/trampoline.hpp> // IWYU pragma: keep
 
 #define MIZUIRO_COLOR_INIT_MAKE(ns, name) \
   inline mizuiro::color::init::detail::trampoline<ns::name> name() \

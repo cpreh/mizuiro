@@ -9,7 +9,7 @@
 #include <mizuiro/image/bound_fwd.hpp>
 #include <mizuiro/image/pitch_iterator_fwd.hpp>
 #include <mizuiro/image/pitch_type.hpp>
-#include <mizuiro/image/pitch_view_fwd.hpp>
+#include <mizuiro/image/pitch_view_fwd.hpp> // IWYU pragma: keep
 #include <mizuiro/image/format/argument.hpp>
 #include <mizuiro/image/format/base_decl.hpp>
 #include <mizuiro/image/types/pointer.hpp>

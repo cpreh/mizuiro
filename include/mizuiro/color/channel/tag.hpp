@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_COLOR_CHANNEL_TAG_HPP_INCLUDED
 #define MIZUIRO_COLOR_CHANNEL_TAG_HPP_INCLUDED
 
-#include <mizuiro/color/channel/tag_fwd.hpp>
+#include <mizuiro/color/channel/tag_fwd.hpp> // IWYU pragma: keep
 
 namespace mizuiro::color::channel
 {

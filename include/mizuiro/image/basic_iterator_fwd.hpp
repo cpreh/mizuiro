@@ -10,7 +10,7 @@ namespace mizuiro::image
 {
 
 template <typename Impl>
-class basic_iterator;
+class basic_iterator; // IWYU pragma: export
 
 }
 

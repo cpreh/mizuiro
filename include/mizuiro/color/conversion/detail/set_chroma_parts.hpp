@@ -9,7 +9,7 @@
 #include <mizuiro/color/set_percentage.hpp>
 #include <fcppt/declare_strong_typedef.hpp>
 #include <fcppt/reference_impl.hpp>
-#include <fcppt/strong_typedef_impl.hpp>
+#include <fcppt/strong_typedef_impl.hpp> // IWYU pragma: keep
 
 namespace mizuiro::color::conversion::detail
 {

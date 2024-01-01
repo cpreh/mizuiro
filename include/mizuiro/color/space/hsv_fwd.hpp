@@ -9,7 +9,7 @@
 namespace mizuiro::color::space
 {
 
-struct hsv;
+struct hsv; // IWYU pragma: export
 
 }
 

@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_BASE_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_BASE_IMPL_HPP_INCLUDED
 
-#include <mizuiro/detail/format_base_impl.hpp>
-#include <mizuiro/image/format/base_decl.hpp>
+#include <mizuiro/detail/format_base_impl.hpp> // IWYU pragma: keep
+#include <mizuiro/image/format/base_decl.hpp> // IWYU pragma: export
 
 #endif

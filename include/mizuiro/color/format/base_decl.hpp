@@ -7,7 +7,7 @@
 #define MIZUIRO_COLOR_FORMAT_BASE_DECL_HPP_INCLUDED
 
 #include <mizuiro/color/format/detail/make.hpp>
-#include <mizuiro/detail/format_base_decl.hpp>
+#include <mizuiro/detail/format_base_decl.hpp> // IWYU pragma: keep
 
 namespace mizuiro::color::format
 {

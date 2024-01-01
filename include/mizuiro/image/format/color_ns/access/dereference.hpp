@@ -10,8 +10,8 @@
 #include <mizuiro/image/format/store_fwd.hpp>
 #include <mizuiro/image/format/to_color_store.hpp>
 #include <mizuiro/image/format/color_ns/tag.hpp>
-#include <mizuiro/image/format/color_ns/types/pointer.hpp>
-#include <mizuiro/image/format/color_ns/types/reference.hpp>
+#include <mizuiro/image/format/color_ns/types/pointer.hpp> // IWYU pragma: keep
+#include <mizuiro/image/format/color_ns/types/reference.hpp> // IWYU pragma: keep
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
 

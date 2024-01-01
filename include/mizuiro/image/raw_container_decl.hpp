@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_IMAGE_RAW_CONTAINER_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_RAW_CONTAINER_DECL_HPP_INCLUDED
 
-#include <mizuiro/image/raw_container_fwd.hpp>
+#include <mizuiro/image/raw_container_fwd.hpp> // IWYU pragma: keep
 #include <fcppt/config/external_begin.hpp>
 #include <memory>
 #include <fcppt/config/external_end.hpp>

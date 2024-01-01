@@ -6,9 +6,9 @@
 #ifndef MIZUIRO_COLOR_CONVERT_STATIC_HPP_INCLUDED
 #define MIZUIRO_COLOR_CONVERT_STATIC_HPP_INCLUDED
 
-#include <mizuiro/color/convert_static/hsv_to_rgb.hpp>
-#include <mizuiro/color/convert_static/rgb_to_srgb.hpp>
-#include <mizuiro/color/convert_static/same_to_same.hpp>
-#include <mizuiro/color/convert_static/srgb_to_rgb.hpp>
+#include <mizuiro/color/convert_static/hsv_to_rgb.hpp> // IWYU pragma: export
+#include <mizuiro/color/convert_static/rgb_to_srgb.hpp> // IWYU pragma: export
+#include <mizuiro/color/convert_static/same_to_same.hpp> // IWYU pragma: export
+#include <mizuiro/color/convert_static/srgb_to_rgb.hpp> // IWYU pragma: export
 
 #endif

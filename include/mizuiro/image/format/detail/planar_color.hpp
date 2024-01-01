@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_DETAIL_PLANAR_COLOR_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_DETAIL_PLANAR_COLOR_HPP_INCLUDED
 
-#include <mizuiro/image/format/detail/planar_color_fwd.hpp>
+#include <mizuiro/image/format/detail/planar_color_fwd.hpp> // IWYU pragma: keep
 
 namespace mizuiro::image::format::detail
 {

@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_DETAIL_NORMAL_FORMAT_BASE_DECL_HPP_INCLUDED
 #define MIZUIRO_DETAIL_NORMAL_FORMAT_BASE_DECL_HPP_INCLUDED
 
-#include <mizuiro/detail/normal_format_base_fwd.hpp>
+#include <mizuiro/detail/normal_format_base_fwd.hpp> // IWYU pragma: keep
 #include <mizuiro/detail/normal_format_store_decl.hpp>
 
 namespace mizuiro::detail

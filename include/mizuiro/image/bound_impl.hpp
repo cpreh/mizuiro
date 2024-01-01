@@ -6,9 +6,10 @@
 #ifndef MIZUIRO_IMAGE_BOUND_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_BOUND_IMPL_HPP_INCLUDED
 
+#include <mizuiro/size_type.hpp>
 #include <mizuiro/image/bound_decl.hpp> // IWYU pragma: export
-#include <mizuiro/image/dimension_impl.hpp>
-#include <fcppt/strong_typedef_impl.hpp>
+#include <mizuiro/image/dimension_impl.hpp> // IWYU pragma: keep
+#include <fcppt/strong_typedef_impl.hpp> // IWYU pragma: keep
 
 template <mizuiro::size_type Dim, typename ValueType>
 mizuiro::image::bound<Dim, ValueType>::bound(pos_t const &_pos, size_t const &_size)

@@ -9,7 +9,7 @@
 namespace mizuiro::access
 {
 
-struct raw;
+struct raw; // IWYU pragma: export
 
 }
 

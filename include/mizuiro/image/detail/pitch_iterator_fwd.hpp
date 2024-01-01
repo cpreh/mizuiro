@@ -10,7 +10,7 @@ namespace mizuiro::image::detail
 {
 
 template <typename Access, typename Format, typename Constness>
-class pitch_iterator;
+class pitch_iterator; // IWYU pragma: export
 
 }
 

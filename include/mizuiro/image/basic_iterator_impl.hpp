@@ -6,9 +6,8 @@
 #ifndef MIZUIRO_IMAGE_BASIC_ITERATOR_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_BASIC_ITERATOR_IMPL_HPP_INCLUDED
 
-#include <mizuiro/image/basic_iterator_decl.hpp>
+#include <mizuiro/image/basic_iterator_decl.hpp> // IWYU pragma: export
 #include <fcppt/config/external_begin.hpp>
-#include <memory>
 #include <utility>
 #include <fcppt/config/external_end.hpp>
 

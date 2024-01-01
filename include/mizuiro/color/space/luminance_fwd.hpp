@@ -6,17 +6,11 @@
 #ifndef MIZUIRO_COLOR_SPACE_LUMINANCE_FWD_HPP_INCLUDED
 #define MIZUIRO_COLOR_SPACE_LUMINANCE_FWD_HPP_INCLUDED
 
-namespace mizuiro
-{
-namespace color
-{
-namespace space
+namespace mizuiro::color::space
 {
 
-struct luminance;
+struct luminance; // IWYU pragma: export
 
-}
-}
 }
 
 #endif

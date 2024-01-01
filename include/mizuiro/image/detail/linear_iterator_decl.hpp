@@ -7,7 +7,7 @@
 #define MIZUIRO_IMAGE_DETAIL_LINEAR_ITERATOR_DECL_HPP_INCLUDED
 
 #include <mizuiro/difference_type.hpp>
-#include <mizuiro/image/detail/linear_iterator_fwd.hpp>
+#include <mizuiro/image/detail/linear_iterator_fwd.hpp> // IWYU pragma: keep
 #include <mizuiro/image/format/base_decl.hpp>
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>

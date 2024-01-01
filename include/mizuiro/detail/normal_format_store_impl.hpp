@@ -7,7 +7,8 @@
 #define MIZUIRO_DETAIL_NORMAL_FORMAT_STORE_IMPL_HPP_INCLUDED
 
 #include <mizuiro/detail/copy_store.hpp>
-#include <mizuiro/detail/normal_format_store_decl.hpp>
+#include <mizuiro/detail/normal_format_store_decl.hpp> // IWYU pragma: export
+#include <mizuiro/detail/normal_format_store_fwd.hpp> // IWYU pragma: export
 #include <mizuiro/detail/ref_store.hpp>
 
 template <typename Format>

@@ -8,7 +8,7 @@
 
 #include <mizuiro/difference_type.hpp>
 #include <mizuiro/image/pitch_type.hpp>
-#include <mizuiro/image/detail/pitch_iterator_fwd.hpp>
+#include <mizuiro/image/detail/pitch_iterator_fwd.hpp> // IWYU pragma: keep
 #include <mizuiro/image/detail/stacked_dim_array.hpp>
 #include <mizuiro/image/format/base_decl.hpp>
 #include <mizuiro/image/types/pointer.hpp>

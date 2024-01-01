@@ -8,7 +8,7 @@
 
 #include <mizuiro/image/bound_fwd.hpp>
 #include <mizuiro/image/linear_iterator_fwd.hpp>
-#include <mizuiro/image/linear_view_fwd.hpp>
+#include <mizuiro/image/linear_view_fwd.hpp> // IWYU pragma: keep
 #include <mizuiro/image/pitch_type.hpp>
 #include <mizuiro/image/format/argument.hpp>
 #include <mizuiro/image/format/base_decl.hpp>

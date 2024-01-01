@@ -6,10 +6,10 @@
 #ifndef MIZUIRO_COLOR_FORMAT_INCLUDE_HOMOGENOUS_DYNAMIC_HPP_INCLUDED
 #define MIZUIRO_COLOR_FORMAT_INCLUDE_HOMOGENOUS_DYNAMIC_HPP_INCLUDED
 
-#include <mizuiro/color/format/homogenous_dynamic.hpp>
-#include <mizuiro/color/format/homogenous_dynamic_ns/tag.hpp>
-#include <mizuiro/color/format/homogenous_dynamic_ns/tag_of.hpp>
-#include <mizuiro/color/format/include/dynamic.hpp>
-#include <mizuiro/color/format/include/homogenous.hpp>
+#include <mizuiro/color/format/homogenous_dynamic.hpp> // IWYU pragma: export
+#include <mizuiro/color/format/homogenous_dynamic_ns/tag.hpp> // IWYU pragma: export
+#include <mizuiro/color/format/homogenous_dynamic_ns/tag_of.hpp> // IWYU pragma: export
+#include <mizuiro/color/format/include/dynamic.hpp> // IWYU pragma: export
+#include <mizuiro/color/format/include/homogenous.hpp> // IWYU pragma: export
 
 #endif

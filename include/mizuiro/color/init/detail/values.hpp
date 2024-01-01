@@ -6,11 +6,10 @@
 #ifndef MIZUIRO_COLOR_INIT_DETAIL_VALUES_HPP_INCLUDED
 #define MIZUIRO_COLOR_INIT_DETAIL_VALUES_HPP_INCLUDED
 
-#include <mizuiro/color/init/detail/values_fwd.hpp>
+#include <mizuiro/color/init/detail/values_fwd.hpp> // IWYU pragma: keep
 #include <fcppt/tuple/concat.hpp>
 #include <fcppt/tuple/object_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
-#include <type_traits>
 #include <utility>
 #include <fcppt/config/external_end.hpp>
 

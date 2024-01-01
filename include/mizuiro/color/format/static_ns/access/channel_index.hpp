@@ -10,7 +10,7 @@
 #include <mizuiro/color/access/channel_index_ns/tag.hpp>
 #include <mizuiro/color/format/store_fwd.hpp>
 #include <mizuiro/color/format/static_ns/tag.hpp>
-#include <mizuiro/color/format/static_ns/types/static_channels.hpp>
+#include <mizuiro/color/format/static_ns/types/static_channels.hpp> // IWYU pragma: keep
 #include <mizuiro/color/types/static_channels.hpp>
 #include <fcppt/mpl/list/index_of.hpp>
 

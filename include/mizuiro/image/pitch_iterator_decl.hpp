@@ -6,8 +6,8 @@
 #ifndef MIZUIRO_IMAGE_PITCH_ITERATOR_DECL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_PITCH_ITERATOR_DECL_HPP_INCLUDED
 
-#include <mizuiro/image/basic_iterator_decl.hpp>
-#include <mizuiro/image/pitch_iterator_fwd.hpp>
-#include <mizuiro/image/detail/pitch_iterator_decl.hpp>
+#include <mizuiro/image/basic_iterator_decl.hpp> // IWYU pragma: keep
+#include <mizuiro/image/pitch_iterator_fwd.hpp> // IWYU pragma: export
+#include <mizuiro/image/detail/pitch_iterator_decl.hpp> // IWYU pragma: keep
 
 #endif

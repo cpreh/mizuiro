@@ -9,7 +9,7 @@
 #include <mizuiro/color/channel/blue_fwd.hpp>
 #include <mizuiro/color/channel/green_fwd.hpp>
 #include <mizuiro/color/channel/red_fwd.hpp>
-#include <mizuiro/color/space/rgb_fwd.hpp>
+#include <mizuiro/color/space/rgb_fwd.hpp> // IWYU pragma: keep
 #include <fcppt/mpl/set/object.hpp>
 
 namespace mizuiro::color::space

@@ -9,7 +9,7 @@
 #include <mizuiro/difference_type.hpp>
 #include <mizuiro/image/linear_iterator_decl.hpp>
 #include <mizuiro/image/pitch_iterator_decl.hpp>
-#include <mizuiro/image/detail/iterator_fwd.hpp>
+#include <mizuiro/image/detail/iterator_fwd.hpp> // IWYU pragma: keep
 #include <mizuiro/image/types/pointer.hpp>
 #include <mizuiro/image/types/reference.hpp>
 #include <fcppt/variant/object_impl.hpp>

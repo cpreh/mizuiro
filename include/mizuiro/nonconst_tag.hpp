@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_NONCONST_TAG_HPP_INCLUDED
 #define MIZUIRO_NONCONST_TAG_HPP_INCLUDED
 
-#include <mizuiro/nonconst_tag_fwd.hpp>
+#include <mizuiro/nonconst_tag_fwd.hpp> // IWYU pragma: keep
 
 namespace mizuiro
 {

@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_IMAGE_FORMAT_INTERLEAVED_IMPL_HPP_INCLUDED
 #define MIZUIRO_IMAGE_FORMAT_INTERLEAVED_IMPL_HPP_INCLUDED
 
-#include <mizuiro/color/format/base_impl.hpp>
+#include <mizuiro/color/format/base_impl.hpp> // IWYU pragma: keep
 #include <mizuiro/image/format/interleaved_decl.hpp> // IWYU pragma: export
 
 template <typename DimType, typename ColorFormat>

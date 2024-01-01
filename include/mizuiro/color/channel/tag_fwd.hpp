@@ -10,7 +10,7 @@ namespace mizuiro::color::channel
 {
 
 template <typename Channel>
-struct tag;
+struct tag; // IWYU pragma: export
 
 }
 

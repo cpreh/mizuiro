@@ -7,7 +7,7 @@
 #define MIZUIRO_COLOR_OBJECT_HPP_INCLUDED
 
 #include <mizuiro/color/object_decl.hpp> // IWYU pragma: export
-#include <mizuiro/color/object_fwd.hpp>
-#include <mizuiro/color/object_impl.hpp>
+#include <mizuiro/color/object_fwd.hpp> // IWYU pragma: keep
+#include <mizuiro/color/object_impl.hpp> // IWYU pragma: keep
 
 #endif
