@@ -13,11 +13,7 @@
 #include <mizuiro/color/space/hsv.hpp>
 #include <fcppt/mpl/list/object.hpp>
 
-namespace mizuiro
-{
-namespace color
-{
-namespace layout
+namespace mizuiro::color::layout
 {
 
 using hsv = mizuiro::color::layout::make<
@@ -27,8 +23,6 @@ using hsv = mizuiro::color::layout::make<
         mizuiro::color::channel::saturation,
         mizuiro::color::channel::value>>;
 
-}
-}
 }
 
 #endif

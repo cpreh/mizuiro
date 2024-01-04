@@ -207,7 +207,6 @@ set(
 	include/mizuiro/color/detail/heterogenous/channel_bits.hpp
 	include/mizuiro/color/detail/left_shift.hpp
 	include/mizuiro/color/detail/raw_channel_access.hpp
-	include/mizuiro/color/detail/unwrap_channel.hpp
 	include/mizuiro/color/for_each_channel.hpp
 	include/mizuiro/color/for_some_channels.hpp
 	include/mizuiro/color/format/argument.hpp
