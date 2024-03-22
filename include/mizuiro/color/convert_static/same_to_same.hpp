@@ -10,22 +10,16 @@
 #include <mizuiro/color/conversion/same_to_same.hpp>
 #include <mizuiro/color/format/same_spaces.hpp>
 #include <fcppt/tag_fwd.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <type_traits>
-#include <fcppt/config/external_end.hpp>
 
 namespace mizuiro::color::convert_static
 {
 
 template <typename Dest, typename Src>
-inline std::enable_if_t<
-    mizuiro::color::format::same_spaces<Dest, typename Src::format>::value,
-    mizuiro::color::object<Dest>>
-convert(fcppt::tag<Dest> const &, Src const &_src)
+inline mizuiro::color::object<Dest> convert(fcppt::tag<Dest> const &, Src const &_src)
+  requires(mizuiro::color::format::same_spaces<Dest, typename Src::format>::value)
 {
   return mizuiro::color::conversion::same_to_same<Dest>(_src);
 }
-
 }
 
 #endif

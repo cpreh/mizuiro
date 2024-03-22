@@ -73,6 +73,8 @@ void rgb_from_chroma(
         mizuiro::color::channel::red(),
         mizuiro::color::channel::blue(),
         mizuiro::color::channel::green());
+  default:
+     break;
   }
 
   std::terminate();

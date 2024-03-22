@@ -9,6 +9,9 @@
 #include <mizuiro/image/algorithm/unary_iteration.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/algorithm/detail/wrap_prepare.hpp>
+#include <fcppt/preprocessor/disable_gcc_warning.hpp>
+#include <fcppt/preprocessor/pop_warning.hpp>
+#include <fcppt/preprocessor/push_warning.hpp>
 
 namespace mizuiro::image::algorithm
 {
@@ -20,6 +23,8 @@ inline void for_each(
     MakeIterator const _make_iterator,
     mizuiro::image::algorithm::uninitialized const _uninitialized)
 {
+  FCPPT_PP_PUSH_WARNING
+  FCPPT_PP_DISABLE_GCC_WARNING(-Wswitch-default)
   switch (_uninitialized)
   {
   case mizuiro::image::algorithm::uninitialized::yes:
@@ -34,6 +39,7 @@ inline void for_each(
     mizuiro::image::algorithm::unary_iteration(_function, _view, _make_iterator);
     return;
   }
+  FCPPT_PP_POP_WARNING
 }
 
 }

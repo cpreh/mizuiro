@@ -15,17 +15,18 @@ namespace mizuiro::color::detail
 {
 
 template <typename Type>
-inline std::enable_if_t<std::is_integral_v<Type>, Type> full_channel_max()
+inline Type full_channel_max()
+  requires(std::is_integral_v<Type>)
 {
   return std::numeric_limits<Type>::max();
 }
 
 template <typename Type>
-inline std::enable_if_t<std::is_floating_point_v<Type>, Type> full_channel_max()
+inline Type full_channel_max()
+  requires(std::is_floating_point_v<Type>)
 {
   return static_cast<Type>(1.0);
 }
-
 }
 
 #endif

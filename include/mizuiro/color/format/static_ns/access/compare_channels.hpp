@@ -17,7 +17,7 @@ namespace mizuiro::color::access::compare_channels_ns
 {
 
 template <typename Format, typename StaticChannel, typename OtherChannel>
-inline constexpr bool compare_channels_adl(
+constexpr bool compare_channels_adl(
     mizuiro::color::access::compare_channels_ns::tag,
     mizuiro::color::format::static_ns::tag<Format>,
     mizuiro::color::format::store<Format> const &,

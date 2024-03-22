@@ -29,7 +29,7 @@ struct trampoline
 
   template <typename Value>
   // NOLINTNEXTLINE(cppcoreguidelines-c-copy-assignment-signature,misc-unconventional-assign-operator)
-  inline mizuiro::color::init::detail::values<
+  mizuiro::color::init::detail::values<
       fcppt::tuple::object<mizuiro::color::init::detail::channel_value<Value, Channel>>>
   operator=(Value const &_value) const
   {
@@ -38,7 +38,7 @@ struct trampoline
   }
 
   template <typename Value>
-  inline mizuiro::color::init::detail::values<
+  mizuiro::color::init::detail::values<
       fcppt::tuple::object<mizuiro::color::init::detail::channel_percentage<Value, Channel>>>
   operator%=(Value const &_value) const
   {

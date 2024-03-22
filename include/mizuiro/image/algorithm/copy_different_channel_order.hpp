@@ -12,6 +12,9 @@
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/algorithm/detail/copy_element.hpp>
 #include <mizuiro/image/types/value_type.hpp>
+#include <fcppt/preprocessor/disable_gcc_warning.hpp>
+#include <fcppt/preprocessor/pop_warning.hpp>
+#include <fcppt/preprocessor/push_warning.hpp>
 
 namespace mizuiro::image::algorithm
 {
@@ -25,6 +28,8 @@ void copy_different_channel_order(
 {
   mizuiro::image::algorithm::make_iterator_identity const make_iterator{};
 
+  FCPPT_PP_PUSH_WARNING
+  FCPPT_PP_DISABLE_GCC_WARNING(-Wswitch-default)
   switch (_overlap)
   {
   case mizuiro::image::algorithm::may_overlap::yes:
@@ -49,6 +54,7 @@ void copy_different_channel_order(
         _uninitialized);
     return;
   }
+  FCPPT_PP_POP_WARNING
 }
 
 }

@@ -20,18 +20,15 @@ namespace mizuiro::color::convert_static
 {
 
 template <typename Dest, typename Src>
-inline std::enable_if_t<
-    std::conjunction_v<
-        std::is_same<mizuiro::color::types::space<Dest>, mizuiro::color::space::srgb>,
-        std::is_same<
-            mizuiro::color::types::space<typename Src::format>,
-            mizuiro::color::space::rgb>>,
-    mizuiro::color::object<Dest>>
-convert(fcppt::tag<Dest> const &, Src const &_src)
+inline mizuiro::color::object<Dest> convert(fcppt::tag<Dest> const &, Src const &_src)
+  requires(std::conjunction_v<
+           std::is_same<mizuiro::color::types::space<Dest>, mizuiro::color::space::srgb>,
+           std::is_same<
+               mizuiro::color::types::space<typename Src::format>,
+               mizuiro::color::space::rgb>>)
 {
   return mizuiro::color::conversion::rgb_to_srgb<Dest>(_src);
 }
-
 }
 
 #endif

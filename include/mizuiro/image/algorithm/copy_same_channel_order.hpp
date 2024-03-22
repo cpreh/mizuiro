@@ -14,6 +14,9 @@
 #include <mizuiro/image/algorithm/transform.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
 #include <mizuiro/image/algorithm/detail/copy_element.hpp>
+#include <fcppt/preprocessor/disable_gcc_warning.hpp>
+#include <fcppt/preprocessor/pop_warning.hpp>
+#include <fcppt/preprocessor/push_warning.hpp>
 
 namespace mizuiro::image::algorithm
 {
@@ -48,6 +51,8 @@ inline void copy_same_channel_order(
     mizuiro::image::algorithm::may_overlap const _overlap,
     mizuiro::image::algorithm::uninitialized)
 {
+  FCPPT_PP_PUSH_WARNING
+  FCPPT_PP_DISABLE_GCC_WARNING(-Wswitch-default)
   switch (_overlap)
   {
   case mizuiro::image::algorithm::may_overlap::yes:
@@ -57,6 +62,7 @@ inline void copy_same_channel_order(
     mizuiro::detail::copy(_src.begin().data(), _src.end().data(), _dest.begin().data());
     return;
   }
+  FCPPT_PP_POP_WARNING
 }
 
 }

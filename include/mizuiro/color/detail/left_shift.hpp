@@ -12,24 +12,21 @@
 #include <fcppt/preprocessor/push_warning.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <limits>
-#include <type_traits>
 #include <fcppt/config/external_end.hpp>
 
 namespace mizuiro::color::detail
 {
 
 template <typename Type, mizuiro::size_type Count>
-inline constexpr std::
-    enable_if_t<Count == static_cast<mizuiro::size_type>(std::numeric_limits<Type>::digits), Type>
-    left_shift()
+constexpr Type left_shift()
+  requires(Count == static_cast<mizuiro::size_type>(std::numeric_limits<Type>::digits))
 {
   return ~Type{0};
 }
 
 template <typename Type, mizuiro::size_type Count>
-inline constexpr std::
-    enable_if_t<(Count < static_cast<mizuiro::size_type>(std::numeric_limits<Type>::digits)), Type>
-    left_shift()
+constexpr Type left_shift()
+  requires(Count < static_cast<mizuiro::size_type>(std::numeric_limits<Type>::digits))
 {
   FCPPT_PP_PUSH_WARNING
   FCPPT_PP_DISABLE_VC_WARNING(4554)

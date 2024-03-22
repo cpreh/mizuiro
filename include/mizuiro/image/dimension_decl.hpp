@@ -47,11 +47,9 @@ public:
 
   explicit dimension(array_type const &);
 
-  template <
-      typename... Args,
-      typename = std::enable_if_t<
-          std::conjunction_v<std::is_constructible<value_type, std::remove_cvref_t<Args>>...>>>
-  explicit dimension(Args &&...);
+  template <typename... Args>
+  explicit dimension(Args &&...)
+    requires(std::conjunction_v<std::is_constructible<value_type, std::remove_cvref_t<Args>>...>);
 
   [[nodiscard]] iterator begin();
 

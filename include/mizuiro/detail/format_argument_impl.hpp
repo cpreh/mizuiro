@@ -6,25 +6,22 @@
 #ifndef MIZUIRO_DETAIL_FORMAT_ARGUMENT_IMPL_HPP_INCLUDED
 #define MIZUIRO_DETAIL_FORMAT_ARGUMENT_IMPL_HPP_INCLUDED
 
-#include <fcppt/config/external_begin.hpp>
-#include <type_traits>
-#include <fcppt/config/external_end.hpp>
-
 namespace mizuiro::detail
 {
 
 template <typename Result, bool NeedsStore>
-std::enable_if_t<NeedsStore, Result> format_argument_impl()
+Result format_argument_impl()
+  requires(NeedsStore)
 {
   static_assert(sizeof(Result) == 0, "This color format requires a store!");
 }
 
 template <typename Result, bool NeedsStore>
-std::enable_if_t<!NeedsStore, Result> format_argument_impl()
+Result format_argument_impl()
+  requires(!NeedsStore)
 {
   return Result{};
 }
-
 }
 
 #endif

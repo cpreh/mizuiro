@@ -6,10 +6,14 @@
 #ifndef MIZUIRO_IMAGE_ALGORITHM_UNINITIALIZED_FWD_HPP_INCLUDED
 #define MIZUIRO_IMAGE_ALGORITHM_UNINITIALIZED_FWD_HPP_INCLUDED
 
+#include <fcppt/config/external_begin.hpp>
+#include <cstdint>
+#include <fcppt/config/external_end.hpp>
+
 namespace mizuiro::image::algorithm
 {
 
-enum class uninitialized; // IWYU pragma: export
+enum class uninitialized : std::uint8_t; // IWYU pragma: export
 
 }
 

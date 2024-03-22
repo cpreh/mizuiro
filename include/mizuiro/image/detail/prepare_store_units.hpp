@@ -21,8 +21,9 @@ namespace mizuiro::image::detail
 {
 
 template <typename Access, typename ImageFormat, typename Dest>
-inline std::enable_if_t<mizuiro::image::types::needs_prepare_v<ImageFormat>, void>
+inline void
 prepare_store_units(mizuiro::image::format::store<ImageFormat> const &_format, Dest const &_dest)
+  requires(mizuiro::image::types::needs_prepare_v<ImageFormat>)
 {
   std::uninitialized_fill_n(
       mizuiro::image::access::data<Access, mizuiro::nonconst_tag, ImageFormat>(_format, _dest),
@@ -32,8 +33,8 @@ prepare_store_units(mizuiro::image::format::store<ImageFormat> const &_format, D
 }
 
 template <typename Access, typename ImageFormat, typename Dest>
-inline std::enable_if_t<!mizuiro::image::types::needs_prepare_v<ImageFormat>, void>
-prepare_store_units(mizuiro::image::format::store<ImageFormat> const &, Dest const &)
+inline void prepare_store_units(mizuiro::image::format::store<ImageFormat> const &, Dest const &)
+  requires(!mizuiro::image::types::needs_prepare_v<ImageFormat>)
 {
 }
 }

@@ -14,16 +14,13 @@
 #include <mizuiro/image/detail/flipped_pitch.hpp>
 #include <mizuiro/image/detail/flipped_start.hpp>
 #include <mizuiro/image/detail/pitch_difference.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <type_traits>
-#include <fcppt/config/external_end.hpp>
 
 namespace mizuiro::image
 {
 
 template <typename View>
-std::enable_if_t<View::dim::static_size >= 2, mizuiro::image::to_pitch_view<View>>
-flipped_view(View const &_view)
+mizuiro::image::to_pitch_view<View> flipped_view(View const &_view)
+  requires(View::dim::static_size >= 2)
 {
   using result_type = mizuiro::image::to_pitch_view<View>;
 
@@ -45,7 +42,6 @@ flipped_view(View const &_view)
                                     _view.pitch().back()))
                       : result_type(_view.size(), _view.data(), _view.pitch());
 }
-
 }
 
 #endif

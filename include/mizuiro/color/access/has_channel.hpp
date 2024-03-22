@@ -15,7 +15,7 @@ namespace mizuiro::color::access
 {
 
 template <typename Format, typename Channel>
-constexpr inline bool
+constexpr bool
 has_channel(mizuiro::color::format::store<Format> const &_format, Channel const &_channel)
 {
   MIZUIRO_COLOR_FORMAT_DETAIL_ASSERT_CHANNEL(Format, Channel);

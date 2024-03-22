@@ -10,54 +10,48 @@
 #include <mizuiro/color/format/definitely_has_channel.hpp>
 #include <mizuiro/color/format/definitely_has_not_channel.hpp>
 #include <mizuiro/color/format/might_have_channel.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <type_traits>
-#include <fcppt/config/external_end.hpp>
 
 namespace mizuiro::color::conversion::detail
 {
 
 template <typename Converter, typename DefaultAction, typename Channel, typename Src, typename Dest>
-inline std::enable_if_t<
-    mizuiro::color::format::definitely_has_channel<typename Src::format, Channel>::value &&
-        mizuiro::color::format::definitely_has_channel<typename Dest::format, Channel>::value,
-    void>
-copy_or_default_channel(
+inline void copy_or_default_channel(
     Converter const &_converter,
     DefaultAction const &,
     Channel const &_channel,
     Src const &_src,
     Dest &_dest)
+  requires(
+      mizuiro::color::format::definitely_has_channel<typename Src::format, Channel>::value &&
+      mizuiro::color::format::definitely_has_channel<typename Dest::format, Channel>::value)
 {
   _converter(_channel, _src, _dest);
 }
 
 template <typename Converter, typename DefaultAction, typename Channel, typename Src, typename Dest>
-inline std::enable_if_t<
-    mizuiro::color::format::definitely_has_not_channel<typename Src::format, Channel>::value &&
-        mizuiro::color::format::definitely_has_channel<typename Dest::format, Channel>::value,
-    void>
-copy_or_default_channel(
+inline void copy_or_default_channel(
     Converter const &,
     DefaultAction const &_default_action,
     Channel const &_channel,
     Src const &,
     Dest &)
+  requires(
+      mizuiro::color::format::definitely_has_not_channel<typename Src::format, Channel>::value &&
+      mizuiro::color::format::definitely_has_channel<typename Dest::format, Channel>::value)
 {
   _default_action(_channel);
 }
 
 template <typename Converter, typename DefaultAction, typename Channel, typename Src, typename Dest>
-inline std::enable_if_t<
-    mizuiro::color::format::might_have_channel<typename Src::format, Channel>::value &&
-        mizuiro::color::format::definitely_has_channel<typename Dest::format, Channel>::value,
-    void>
-copy_or_default_channel(
+inline void copy_or_default_channel(
     Converter const &_converter,
     DefaultAction const &_default_action,
     Channel const &_channel,
     Src const &_src,
     Dest &_dest)
+  requires(
+      mizuiro::color::format::might_have_channel<typename Src::format, Channel>::value &&
+      mizuiro::color::format::definitely_has_channel<typename Dest::format, Channel>::value)
 {
   if (mizuiro::color::access::has_channel<typename Src::format>(_src.format_store(), _channel))
   {
@@ -70,25 +64,23 @@ copy_or_default_channel(
 }
 
 template <typename Converter, typename DefaultAction, typename Channel, typename Src, typename Dest>
-inline std::enable_if_t<
-    mizuiro::color::format::definitely_has_not_channel<typename Dest::format, Channel>::value,
-    void>
-copy_or_default_channel(
+inline void copy_or_default_channel(
     Converter const &, DefaultAction const &, Channel const &, Src const &, Dest &)
+  requires(
+      mizuiro::color::format::definitely_has_not_channel<typename Dest::format, Channel>::value)
 {
 }
 
 template <typename Converter, typename DefaultAction, typename Channel, typename Src, typename Dest>
-inline std::enable_if_t<
-    mizuiro::color::format::definitely_has_channel<typename Src::format, Channel>::value &&
-        mizuiro::color::format::might_have_channel<typename Dest::format, Channel>::value,
-    void>
-copy_or_default_channel(
+inline void copy_or_default_channel(
     Converter const &_converter,
     DefaultAction const &,
     Channel const &_channel,
     Src const &_src,
     Dest &_dest)
+  requires(
+      mizuiro::color::format::definitely_has_channel<typename Src::format, Channel>::value &&
+      mizuiro::color::format::might_have_channel<typename Dest::format, Channel>::value)
 {
   if (mizuiro::color::access::has_channel<typename Dest::format>(_dest.format_store(), _channel))
   {
@@ -97,16 +89,15 @@ copy_or_default_channel(
 }
 
 template <typename Converter, typename DefaultAction, typename Channel, typename Src, typename Dest>
-inline std::enable_if_t<
-    mizuiro::color::format::definitely_has_not_channel<typename Src::format, Channel>::value &&
-        mizuiro::color::format::might_have_channel<typename Dest::format, Channel>::value,
-    void>
-copy_or_default_channel(
+inline void copy_or_default_channel(
     Converter const &,
     DefaultAction const &_default_action,
     Channel const &_channel,
     Src const &,
     Dest &_dest)
+  requires(
+      mizuiro::color::format::definitely_has_not_channel<typename Src::format, Channel>::value &&
+      mizuiro::color::format::might_have_channel<typename Dest::format, Channel>::value)
 {
   if (mizuiro::color::access::has_channel<typename Dest::format>(_dest.format_store(), _channel))
   {
@@ -115,16 +106,15 @@ copy_or_default_channel(
 }
 
 template <typename Converter, typename DefaultAction, typename Channel, typename Src, typename Dest>
-inline std::enable_if_t<
-    mizuiro::color::format::might_have_channel<typename Src::format, Channel>::value &&
-        mizuiro::color::format::might_have_channel<typename Dest::format, Channel>::value,
-    void>
-copy_or_default_channel(
+inline void copy_or_default_channel(
     Converter const &_converter,
     DefaultAction const &_default_action,
     Channel const &_channel,
     Src const &_src,
     Dest &_dest)
+  requires(
+      mizuiro::color::format::might_have_channel<typename Src::format, Channel>::value &&
+      mizuiro::color::format::might_have_channel<typename Dest::format, Channel>::value)
 {
   if (!mizuiro::color::access::has_channel<typename Dest::format>(_dest.format_store(), _channel))
   {
@@ -140,7 +130,6 @@ copy_or_default_channel(
     _default_action(_channel);
   }
 }
-
 }
 
 #endif

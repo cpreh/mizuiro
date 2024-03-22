@@ -17,7 +17,7 @@ namespace mizuiro::color::access::has_channel_ns
 {
 
 template <typename Format, typename Channel>
-inline constexpr bool has_channel_adl(
+constexpr bool has_channel_adl(
     mizuiro::color::access::has_channel_ns::tag,
     mizuiro::color::format::static_ns::tag<Format>,
     mizuiro::color::format::store<Format> const &,

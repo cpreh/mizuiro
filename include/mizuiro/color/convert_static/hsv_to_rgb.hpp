@@ -19,16 +19,13 @@ namespace mizuiro::color::convert_static
 {
 
 template <typename Dest, typename Src>
-inline std::enable_if_t<
-    std::conjunction_v<
-        mizuiro::color::convert_static::is_rgb<Dest>,
-        mizuiro::color::convert_static::is_hsv<typename Src::format>>,
-    mizuiro::color::object<Dest>>
-convert(fcppt::tag<Dest> const &, Src const &_source)
+inline mizuiro::color::object<Dest> convert(fcppt::tag<Dest> const &, Src const &_source)
+  requires(std::conjunction_v<
+           mizuiro::color::convert_static::is_rgb<Dest>,
+           mizuiro::color::convert_static::is_hsv<typename Src::format>>)
 {
   return mizuiro::color::conversion::hsv_to_rgb<Dest>(_source);
 }
-
 }
 
 #endif

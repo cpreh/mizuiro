@@ -12,7 +12,7 @@
 #include <mizuiro/detail/ref_store.hpp>
 
 template <typename Format>
-inline constexpr mizuiro::detail::normal_format_store<Format, mizuiro::detail::ref_store>::
+constexpr mizuiro::detail::normal_format_store<Format, mizuiro::detail::ref_store>::
     normal_format_store(ref const _format)
     : format_{_format}
 {
@@ -26,7 +26,7 @@ mizuiro::detail::normal_format_store<Format, mizuiro::detail::ref_store>::get() 
 }
 
 template <typename Format>
-inline constexpr mizuiro::detail::normal_format_store<Format, mizuiro::detail::copy_store>::
+constexpr mizuiro::detail::normal_format_store<Format, mizuiro::detail::copy_store>::
     normal_format_store(Format const &_format)
     : format_{_format}
 {

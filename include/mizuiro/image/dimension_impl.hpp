@@ -12,6 +12,7 @@
 #include <fcppt/no_init.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <iterator>
+#include <type_traits>
 #include <utility>
 #include <fcppt/config/external_end.hpp>
 
@@ -38,8 +39,9 @@ mizuiro::image::dimension<Dim, ValueType>::dimension(array_type const &_data) : 
 }
 
 template <mizuiro::size_type Dim, typename ValueType>
-template <typename... Args, typename>
+template <typename... Args>
 mizuiro::image::dimension<Dim, ValueType>::dimension(Args &&..._args)
+  requires(std::conjunction_v<std::is_constructible<value_type, std::remove_cvref_t<Args>>...>)
     : data_{std::forward<Args>(_args)...}
 {
   static_assert(sizeof...(Args) == Dim, "Invalid parameter count");

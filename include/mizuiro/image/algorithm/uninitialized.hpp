@@ -7,11 +7,14 @@
 #define MIZUIRO_IMAGE_ALGORITHM_UNINITIALIZED_HPP_INCLUDED
 
 #include <mizuiro/image/algorithm/uninitialized_fwd.hpp> // IWYU pragma: keep
+#include <fcppt/config/external_begin.hpp>
+#include <cstdint>
+#include <fcppt/config/external_end.hpp>
 
 namespace mizuiro::image::algorithm
 {
 
-enum class uninitialized
+enum class uninitialized : std::uint8_t
 {
   yes,
   no

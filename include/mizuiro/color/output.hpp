@@ -20,8 +20,9 @@ namespace mizuiro::color
 {
 
 template <typename Ch, typename Traits, typename Color>
-std::enable_if_t<mizuiro::color::is_color_v<Color>, std::basic_ostream<Ch, Traits> &>
+std::basic_ostream<Ch, Traits> &
 operator<<(std::basic_ostream<Ch, Traits> &_stream, Color const &_color)
+  requires(mizuiro::color::is_color_v<Color>)
 {
   _stream << _stream.widen('(');
 

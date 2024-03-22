@@ -15,20 +15,17 @@
 #include <mizuiro/image/algorithm/may_overlap.hpp>
 #include <mizuiro/image/algorithm/transform.hpp>
 #include <mizuiro/image/algorithm/uninitialized.hpp>
-#include <fcppt/config/external_begin.hpp>
-#include <type_traits>
-#include <fcppt/config/external_end.hpp>
 
 namespace mizuiro::image::algorithm
 {
 
 template <typename Converter, typename ViewS, typename ViewD>
-inline std::enable_if_t<!mizuiro::image::algorithm::can_copy_v<ViewS, ViewD>, void>
-copy_and_convert(
+inline void copy_and_convert(
     ViewS const &_src,
     ViewD const &_dest,
     mizuiro::image::algorithm::may_overlap,
     mizuiro::image::algorithm::uninitialized const _uninitialized)
+  requires(!mizuiro::image::algorithm::can_copy_v<ViewS, ViewD>)
 {
   mizuiro::image::algorithm::transform(
       _src,
@@ -44,11 +41,12 @@ copy_and_convert(
 }
 
 template <typename Converter, typename ViewS, typename ViewD>
-inline std::enable_if_t<mizuiro::image::algorithm::can_copy_v<ViewS, ViewD>, void> copy_and_convert(
+inline void copy_and_convert(
     ViewS const &_src,
     ViewD const &_dest,
     mizuiro::image::algorithm::may_overlap const _overlap,
     mizuiro::image::algorithm::uninitialized const _uninitialized)
+  requires(mizuiro::image::algorithm::can_copy_v<ViewS, ViewD>)
 {
   mizuiro::image::algorithm::copy(_src, _dest, _overlap, _uninitialized);
 }
