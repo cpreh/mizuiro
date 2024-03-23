@@ -70,8 +70,9 @@ public:
   FCPPT_PP_POP_WARNING
 
   /// Constructs a color from another color (possibly a view)
-  template <typename Other, typename = std::enable_if_t<mizuiro::color::is_color<Other>::value>>
-  explicit object(Other const &);
+  template <typename Other>
+  explicit object(Other const &)
+  requires(mizuiro::color::is_color<Other>::value);
 
   FCPPT_PP_PUSH_WARNING
   FCPPT_PP_DISABLE_VC_WARNING(4686)

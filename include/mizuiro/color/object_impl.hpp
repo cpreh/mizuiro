@@ -10,6 +10,7 @@
 #include <mizuiro/default_init_fwd.hpp>
 #include <mizuiro/no_init_fwd.hpp>
 #include <mizuiro/nonconst_tag.hpp>
+#include <mizuiro/color/is_color.hpp>
 #include <mizuiro/color/object_decl.hpp> // IWYU pragma: export
 #include <mizuiro/color/proxy_impl.hpp> // IWYU pragma: keep
 #include <mizuiro/color/access/init_store.hpp>
@@ -41,8 +42,9 @@ mizuiro::color::object<Format>::object(
 }
 
 template <typename Format>
-template <typename Other, typename>
+template <typename Other>
 mizuiro::color::object<Format>::object(Other const &_other)
+  requires(mizuiro::color::is_color<Other>::value)
     : object(_other, mizuiro::color::types::store_needs_init<Format>{})
 {
 }
