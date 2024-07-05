@@ -1,13 +1,6 @@
-function(
-	add_mizuiro_example
-	example
-)
-	fcppt_utils_add_example(
-		${FCPPT_UTILS_PROJECT_SOURCE_DIR}/examples
-		${example}
-		LINK_LIBS
-			mizuiro_interface
-	)
+function(add_mizuiro_example example)
+  fcppt_utils_add_example(${FCPPT_UTILS_PROJECT_SOURCE_DIR}/examples ${example}
+                          LINK_LIBS mizuiro_interface)
 endfunction()
 
 add_mizuiro_example(adapted_view)
