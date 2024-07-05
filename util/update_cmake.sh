@@ -2,15 +2,13 @@
 
 set -e -u
 
-update_cmake \
-	CMakeLists.txt \
-	MIZUIRO_FILES \
+update_cmake.sh \
+	files.txt \
 	include
 
-update_cmake \
-	doc/CMakeLists.txt \
-	MIZUIRO_DOC_FILES \
+update_cmake.sh \
+	doc/all_files.txt \
 	include \
-	examples \
-	-e ".*" \
-	doc
+	examples
+
+FIND_PATTERN="*.*" update_cmake.sh doc/doc_files.txt doc

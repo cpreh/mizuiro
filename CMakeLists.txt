@@ -1,830 +1,103 @@
-cmake_minimum_required(
-	VERSION
-	3.27.0
-)
+cmake_minimum_required(VERSION 3.27.0)
 
-project(
-	mizuiro
-)
+project(mizuiro)
 
-set_property(
-	GLOBAL
-	PROPERTY
-	USE_FOLDERS
-	ON
-)
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-set(
-	MIZUIRO_SOURCE_DIR
-	"${${PROJECT_NAME}_SOURCE_DIR}"
-)
+set(MIZUIRO_SOURCE_DIR "${${PROJECT_NAME}_SOURCE_DIR}")
 
-set(
-	MIZUIRO_BINARY_DIR
-	"${${PROJECT_NAME}_BINARY_DIR}"
-)
+set(MIZUIRO_BINARY_DIR "${${PROJECT_NAME}_BINARY_DIR}")
 
-find_package(
-	fcppt
-	REQUIRED
-)
+find_package(fcppt REQUIRED)
 
 # TODO: Remove default arguments eventually.
 list(
-	APPEND
-	FCPPT_UTILS_CLANG_TIDY_ADDITIONAL_CHECKS
-	"-cppcoreguidelines-avoid-const-or-ref-data-members"
-	"-fuchsia-default-arguments-calls"
-	"-fuchsia-default-arguments-declarations"
-	"-misc-misplaced-const"
-)
+  APPEND
+  FCPPT_UTILS_CLANG_TIDY_ADDITIONAL_CHECKS
+  "-cppcoreguidelines-avoid-const-or-ref-data-members"
+  "-fuchsia-default-arguments-calls"
+  "-fuchsia-default-arguments-declarations"
+  "-misc-misplaced-const")
 
-set(
-	FCPPT_UTILS_CLANG_TIDY_WHITELIST
-	"fcppt"
-	"mizuiro"
-)
+set(FCPPT_UTILS_CLANG_TIDY_WHITELIST "fcppt" "mizuiro")
 
-include(
-	FcpptCMakeUtils
-)
+include(FcpptCMakeUtils)
 
-option(
-	ENABLE_DOC
-	"Build the documentation"
-	OFF
-)
+option(ENABLE_DOC "Build the documentation" OFF)
 
-if(
-	ENABLE_DOC
-)
-	add_subdirectory(
-		doc
-	)
+if(ENABLE_DOC)
+  add_subdirectory(doc)
 endif()
 
-option(
-	ENABLE_EXAMPLES
-	"Build the examples"
-	ON
-)
+option(ENABLE_EXAMPLES "Build the examples" ON)
 
-if(
-	ENABLE_EXAMPLES
-)
-	add_subdirectory(
-		examples
-	)
+if(ENABLE_EXAMPLES)
+  add_subdirectory(examples)
 endif()
 
-find_package(
-	Catch2
-)
+find_package(Catch2)
 
-option(
-	ENABLE_TEST
-	"Build the tests"
-	${Catch2_FOUND}
-)
+option(ENABLE_TEST "Build the tests" ${Catch2_FOUND})
 
-if(
-	ENABLE_TEST
-)
-	fcppt_utils_setup_tests()
+if(ENABLE_TEST)
+  fcppt_utils_setup_tests()
 
-	enable_testing()
+  enable_testing()
 
-	add_subdirectory(
-		test
-	)
+  add_subdirectory(test)
 endif()
 
-set(
-	MIZUIRO_FILES
-	include/mizuiro/access/is.hpp
-	include/mizuiro/access/normal.hpp
-	include/mizuiro/access/normal_fwd.hpp
-	include/mizuiro/access/pointer.hpp
-	include/mizuiro/access/raw.hpp
-	include/mizuiro/access/raw_fwd.hpp
-	include/mizuiro/access/store_unit.hpp
-	include/mizuiro/access/stride.hpp
-	include/mizuiro/apply_const.hpp
-	include/mizuiro/choose_const.hpp
-	include/mizuiro/color/access/channel_index.hpp
-	include/mizuiro/color/access/channel_index_ns/tag.hpp
-	include/mizuiro/color/access/channel_max.hpp
-	include/mizuiro/color/access/channel_max_ns/tag.hpp
-	include/mizuiro/color/access/channel_min.hpp
-	include/mizuiro/color/access/channel_min_ns/tag.hpp
-	include/mizuiro/color/access/channels.hpp
-	include/mizuiro/color/access/channels_ns/tag.hpp
-	include/mizuiro/color/access/compare_channels.hpp
-	include/mizuiro/color/access/compare_channels_ns/tag.hpp
-	include/mizuiro/color/access/extract_channel.hpp
-	include/mizuiro/color/access/extract_channel_ns/tag.hpp
-	include/mizuiro/color/access/has_channel.hpp
-	include/mizuiro/color/access/has_channel_ns/tag.hpp
-	include/mizuiro/color/access/init_store.hpp
-	include/mizuiro/color/access/init_store_ns/tag.hpp
-	include/mizuiro/color/access/store_data.hpp
-	include/mizuiro/color/access/store_data_ns/tag.hpp
-	include/mizuiro/color/channel/alpha.hpp
-	include/mizuiro/color/channel/alpha_fwd.hpp
-	include/mizuiro/color/channel/blue.hpp
-	include/mizuiro/color/channel/blue_fwd.hpp
-	include/mizuiro/color/channel/green.hpp
-	include/mizuiro/color/channel/green_fwd.hpp
-	include/mizuiro/color/channel/hue.hpp
-	include/mizuiro/color/channel/hue_fwd.hpp
-	include/mizuiro/color/channel/is.hpp
-	include/mizuiro/color/channel/luminance.hpp
-	include/mizuiro/color/channel/luminance_fwd.hpp
-	include/mizuiro/color/channel/red.hpp
-	include/mizuiro/color/channel/red_fwd.hpp
-	include/mizuiro/color/channel/saturation.hpp
-	include/mizuiro/color/channel/saturation_fwd.hpp
-	include/mizuiro/color/channel/tag.hpp
-	include/mizuiro/color/channel/tag_fwd.hpp
-	include/mizuiro/color/channel/undefined.hpp
-	include/mizuiro/color/channel/undefined_fwd.hpp
-	include/mizuiro/color/channel/value.hpp
-	include/mizuiro/color/channel/value_fwd.hpp
-	include/mizuiro/color/channel_proxy.hpp
-	include/mizuiro/color/channel_proxy_decl.hpp
-	include/mizuiro/color/channel_proxy_fwd.hpp
-	include/mizuiro/color/channel_proxy_impl.hpp
-	include/mizuiro/color/compare.hpp
-	include/mizuiro/color/conversion/detail/channel_to_max.hpp
-	include/mizuiro/color/conversion/detail/channel_to_min.hpp
-	include/mizuiro/color/conversion/detail/chroma_tag.hpp
-	include/mizuiro/color/conversion/detail/convert_channel.hpp
-	include/mizuiro/color/conversion/detail/convert_channel_function.hpp
-	include/mizuiro/color/conversion/detail/convert_each.hpp
-	include/mizuiro/color/conversion/detail/copy_or_default_channel.hpp
-	include/mizuiro/color/conversion/detail/copy_or_max_alpha.hpp
-	include/mizuiro/color/conversion/detail/copy_or_min_channel.hpp
-	include/mizuiro/color/conversion/detail/diff_tag.hpp
-	include/mizuiro/color/conversion/detail/exclude_channel_function.hpp
-	include/mizuiro/color/conversion/detail/hue_part_tag.hpp
-	include/mizuiro/color/conversion/detail/largest_part_tag.hpp
-	include/mizuiro/color/conversion/detail/make_logical_and.hpp
-	include/mizuiro/color/conversion/detail/rgb_from_chroma.hpp
-	include/mizuiro/color/conversion/detail/set_chroma_parts.hpp
-	include/mizuiro/color/conversion/detail/srgb_gamma.hpp
-	include/mizuiro/color/conversion/hsv_to_rgb.hpp
-	include/mizuiro/color/conversion/rgb_to_srgb.hpp
-	include/mizuiro/color/conversion/same_to_same.hpp
-	include/mizuiro/color/conversion/same_to_same_gamma.hpp
-	include/mizuiro/color/conversion/srgb_to_rgb.hpp
-	include/mizuiro/color/convert.hpp
-	include/mizuiro/color/convert_static.hpp
-	include/mizuiro/color/convert_static/converter.hpp
-	include/mizuiro/color/convert_static/hsv_to_rgb.hpp
-	include/mizuiro/color/convert_static/is_hsv.hpp
-	include/mizuiro/color/convert_static/is_rgb.hpp
-	include/mizuiro/color/convert_static/is_static.hpp
-	include/mizuiro/color/convert_static/rgb_to_srgb.hpp
-	include/mizuiro/color/convert_static/same_to_same.hpp
-	include/mizuiro/color/convert_static/srgb_to_rgb.hpp
-	include/mizuiro/color/decay_channel_proxy.hpp
-	include/mizuiro/color/denormalize.hpp
-	include/mizuiro/color/detail/assert_channel.hpp
-	include/mizuiro/color/detail/dynamic/channel_array.hpp
-	include/mizuiro/color/detail/dynamic/channel_index.hpp
-	include/mizuiro/color/detail/dynamic/channel_index_fwd.hpp
-	include/mizuiro/color/detail/dynamic/channel_to_pos.hpp
-	include/mizuiro/color/detail/dynamic/initialize_indices.hpp
-	include/mizuiro/color/detail/dynamic/invalid_index.hpp
-	include/mizuiro/color/detail/dynamic/make_channels.hpp
-	include/mizuiro/color/detail/dynamic/make_channels_impl.hpp
-	include/mizuiro/color/detail/dynamic/static_to_dynamic_channel.hpp
-	include/mizuiro/color/detail/full_channel_max.hpp
-	include/mizuiro/color/detail/full_channel_min.hpp
-	include/mizuiro/color/detail/heterogenous/access_normal.hpp
-	include/mizuiro/color/detail/heterogenous/access_raw.hpp
-	include/mizuiro/color/detail/heterogenous/bits.hpp
-	include/mizuiro/color/detail/heterogenous/channel_bits.hpp
-	include/mizuiro/color/detail/left_shift.hpp
-	include/mizuiro/color/detail/raw_channel_access.hpp
-	include/mizuiro/color/for_each_channel.hpp
-	include/mizuiro/color/for_some_channels.hpp
-	include/mizuiro/color/format/argument.hpp
-	include/mizuiro/color/format/base_decl.hpp
-	include/mizuiro/color/format/base_impl.hpp
-	include/mizuiro/color/format/compatible.hpp
-	include/mizuiro/color/format/definitely_has_channel.hpp
-	include/mizuiro/color/format/definitely_has_not_channel.hpp
-	include/mizuiro/color/format/detail/assert_channel.hpp
-	include/mizuiro/color/format/detail/check_has_channel_constexpr.hpp
-	include/mizuiro/color/format/detail/has_channel_constexpr.hpp
-	include/mizuiro/color/format/detail/make.hpp
-	include/mizuiro/color/format/detail/same_channel_value_type.hpp
-	include/mizuiro/color/format/dynamic_ns/access/channel_index.hpp
-	include/mizuiro/color/format/dynamic_ns/access/channels.hpp
-	include/mizuiro/color/format/dynamic_ns/access/compare_channels.hpp
-	include/mizuiro/color/format/dynamic_ns/access/has_channel.hpp
-	include/mizuiro/color/format/dynamic_ns/tag.hpp
-	include/mizuiro/color/format/dynamic_ns/types/needs_format_store.hpp
-	include/mizuiro/color/format/dynamic_ns/types/space.hpp
-	include/mizuiro/color/format/dynamic_ns/types/static_channels.hpp
-	include/mizuiro/color/format/dynamic_ns/types/valid_channel_type.hpp
-	include/mizuiro/color/format/get.hpp
-	include/mizuiro/color/format/has_channel_static.hpp
-	include/mizuiro/color/format/heterogenous_ns/access/extract_channel.hpp
-	include/mizuiro/color/format/heterogenous_ns/access/init_store.hpp
-	include/mizuiro/color/format/heterogenous_ns/access/store_data.hpp
-	include/mizuiro/color/format/heterogenous_ns/tag.hpp
-	include/mizuiro/color/format/heterogenous_ns/types/channel_reference_normal.hpp
-	include/mizuiro/color/format/heterogenous_ns/types/channel_reference_raw.hpp
-	include/mizuiro/color/format/heterogenous_ns/types/channel_value.hpp
-	include/mizuiro/color/format/heterogenous_ns/types/pointer.hpp
-	include/mizuiro/color/format/heterogenous_ns/types/store.hpp
-	include/mizuiro/color/format/heterogenous_ns/types/store_needs_init.hpp
-	include/mizuiro/color/format/heterogenous_static.hpp
-	include/mizuiro/color/format/heterogenous_static_fwd.hpp
-	include/mizuiro/color/format/heterogenous_static_ns/tag.hpp
-	include/mizuiro/color/format/heterogenous_static_ns/tag_of.hpp
-	include/mizuiro/color/format/homogenous_dynamic.hpp
-	include/mizuiro/color/format/homogenous_dynamic_decl.hpp
-	include/mizuiro/color/format/homogenous_dynamic_fwd.hpp
-	include/mizuiro/color/format/homogenous_dynamic_impl.hpp
-	include/mizuiro/color/format/homogenous_dynamic_ns/tag.hpp
-	include/mizuiro/color/format/homogenous_dynamic_ns/tag_of.hpp
-	include/mizuiro/color/format/homogenous_ns/access/channel_max.hpp
-	include/mizuiro/color/format/homogenous_ns/access/channel_min.hpp
-	include/mizuiro/color/format/homogenous_ns/access/extract_channel_normal.hpp
-	include/mizuiro/color/format/homogenous_ns/access/extract_channel_raw.hpp
-	include/mizuiro/color/format/homogenous_ns/access/init_store.hpp
-	include/mizuiro/color/format/homogenous_ns/access/store_data.hpp
-	include/mizuiro/color/format/homogenous_ns/tag.hpp
-	include/mizuiro/color/format/homogenous_ns/types/channel_reference_normal.hpp
-	include/mizuiro/color/format/homogenous_ns/types/channel_reference_raw.hpp
-	include/mizuiro/color/format/homogenous_ns/types/channel_value.hpp
-	include/mizuiro/color/format/homogenous_ns/types/pointer.hpp
-	include/mizuiro/color/format/homogenous_ns/types/store.hpp
-	include/mizuiro/color/format/homogenous_ns/types/store_needs_init.hpp
-	include/mizuiro/color/format/homogenous_static.hpp
-	include/mizuiro/color/format/homogenous_static_fwd.hpp
-	include/mizuiro/color/format/homogenous_static_ns/tag.hpp
-	include/mizuiro/color/format/homogenous_static_ns/tag_of.hpp
-	include/mizuiro/color/format/include/dynamic.hpp
-	include/mizuiro/color/format/include/heterogenous.hpp
-	include/mizuiro/color/format/include/heterogenous_static.hpp
-	include/mizuiro/color/format/include/homogenous.hpp
-	include/mizuiro/color/format/include/homogenous_dynamic.hpp
-	include/mizuiro/color/format/include/homogenous_static.hpp
-	include/mizuiro/color/format/include/static.hpp
-	include/mizuiro/color/format/make_tag_of.hpp
-	include/mizuiro/color/format/might_have_channel.hpp
-	include/mizuiro/color/format/same_channel_value_types.hpp
-	include/mizuiro/color/format/same_channels.hpp
-	include/mizuiro/color/format/same_spaces.hpp
-	include/mizuiro/color/format/static_ns/access/channel_index.hpp
-	include/mizuiro/color/format/static_ns/access/channels.hpp
-	include/mizuiro/color/format/static_ns/access/compare_channels.hpp
-	include/mizuiro/color/format/static_ns/access/has_channel.hpp
-	include/mizuiro/color/format/static_ns/tag.hpp
-	include/mizuiro/color/format/static_ns/types/needs_format_store.hpp
-	include/mizuiro/color/format/static_ns/types/space.hpp
-	include/mizuiro/color/format/static_ns/types/static_channels.hpp
-	include/mizuiro/color/format/static_ns/types/valid_channel_type.hpp
-	include/mizuiro/color/format/store.hpp
-	include/mizuiro/color/format/store_decl.hpp
-	include/mizuiro/color/format/store_fwd.hpp
-	include/mizuiro/color/format/store_impl.hpp
-	include/mizuiro/color/format/tag_of_fwd.hpp
-	include/mizuiro/color/get_channel.hpp
-	include/mizuiro/color/init/alpha.hpp
-	include/mizuiro/color/init/blue.hpp
-	include/mizuiro/color/init/detail/assign_object.hpp
-	include/mizuiro/color/init/detail/channel_percentage.hpp
-	include/mizuiro/color/init/detail/channel_percentage_fwd.hpp
-	include/mizuiro/color/init/detail/channel_value.hpp
-	include/mizuiro/color/init/detail/channel_value_fwd.hpp
-	include/mizuiro/color/init/detail/contains_channel.hpp
-	include/mizuiro/color/init/detail/is_channel_init.hpp
-	include/mizuiro/color/init/detail/make.hpp
-	include/mizuiro/color/init/detail/make_values.hpp
-	include/mizuiro/color/init/detail/set_channel.hpp
-	include/mizuiro/color/init/detail/to_channel_type.hpp
-	include/mizuiro/color/init/detail/trampoline.hpp
-	include/mizuiro/color/init/detail/values.hpp
-	include/mizuiro/color/init/detail/values_fwd.hpp
-	include/mizuiro/color/init/green.hpp
-	include/mizuiro/color/init/hue.hpp
-	include/mizuiro/color/init/luminance.hpp
-	include/mizuiro/color/init/make.hpp
-	include/mizuiro/color/init/red.hpp
-	include/mizuiro/color/init/saturation.hpp
-	include/mizuiro/color/init/value.hpp
-	include/mizuiro/color/is_color.hpp
-	include/mizuiro/color/is_color_v.hpp
-	include/mizuiro/color/layout/all_possible_channels.hpp
-	include/mizuiro/color/layout/alpha.hpp
-	include/mizuiro/color/layout/argb.hpp
-	include/mizuiro/color/layout/bgr.hpp
-	include/mizuiro/color/layout/bgra.hpp
-	include/mizuiro/color/layout/bgrx.hpp
-	include/mizuiro/color/layout/detail/has_all_channels.hpp
-	include/mizuiro/color/layout/detail/has_channel.hpp
-	include/mizuiro/color/layout/hsv.hpp
-	include/mizuiro/color/layout/hsva.hpp
-	include/mizuiro/color/layout/l.hpp
-	include/mizuiro/color/layout/la.hpp
-	include/mizuiro/color/layout/make.hpp
-	include/mizuiro/color/layout/r.hpp
-	include/mizuiro/color/layout/rgb.hpp
-	include/mizuiro/color/layout/rgba.hpp
-	include/mizuiro/color/layout/rgbx.hpp
-	include/mizuiro/color/layout/s_bgr.hpp
-	include/mizuiro/color/layout/s_bgra.hpp
-	include/mizuiro/color/layout/s_rgb.hpp
-	include/mizuiro/color/layout/s_rgba.hpp
-	include/mizuiro/color/make_compare_function.hpp
-	include/mizuiro/color/make_range.hpp
-	include/mizuiro/color/normalize.hpp
-	include/mizuiro/color/object.hpp
-	include/mizuiro/color/object_decl.hpp
-	include/mizuiro/color/object_fwd.hpp
-	include/mizuiro/color/object_impl.hpp
-	include/mizuiro/color/operators.hpp
-	include/mizuiro/color/operators/add.hpp
-	include/mizuiro/color/operators/detail/binary_op.hpp
-	include/mizuiro/color/operators/equal.hpp
-	include/mizuiro/color/operators/scalar_multiply.hpp
-	include/mizuiro/color/operators/subtract.hpp
-	include/mizuiro/color/output.hpp
-	include/mizuiro/color/proxy.hpp
-	include/mizuiro/color/proxy_decl.hpp
-	include/mizuiro/color/proxy_fwd.hpp
-	include/mizuiro/color/proxy_impl.hpp
-	include/mizuiro/color/set_percentage.hpp
-	include/mizuiro/color/space/empty.hpp
-	include/mizuiro/color/space/empty_fwd.hpp
-	include/mizuiro/color/space/hsv.hpp
-	include/mizuiro/color/space/hsv_fwd.hpp
-	include/mizuiro/color/space/luminance.hpp
-	include/mizuiro/color/space/luminance_fwd.hpp
-	include/mizuiro/color/space/r.hpp
-	include/mizuiro/color/space/r_fwd.hpp
-	include/mizuiro/color/space/rgb.hpp
-	include/mizuiro/color/space/rgb_fwd.hpp
-	include/mizuiro/color/space/srgb.hpp
-	include/mizuiro/color/space/srgb_fwd.hpp
-	include/mizuiro/color/types/channel_reference.hpp
-	include/mizuiro/color/types/channel_reference_ns/tag.hpp
-	include/mizuiro/color/types/channel_value.hpp
-	include/mizuiro/color/types/channel_value_ns/tag.hpp
-	include/mizuiro/color/types/detail/channel_reference.hpp
-	include/mizuiro/color/types/detail/channel_value.hpp
-	include/mizuiro/color/types/detail/pointer.hpp
-	include/mizuiro/color/types/needs_format_store.hpp
-	include/mizuiro/color/types/needs_format_store_ns/tag.hpp
-	include/mizuiro/color/types/pointer.hpp
-	include/mizuiro/color/types/pointer_ns/tag.hpp
-	include/mizuiro/color/types/space.hpp
-	include/mizuiro/color/types/space_ns/tag.hpp
-	include/mizuiro/color/types/static_channels.hpp
-	include/mizuiro/color/types/static_channels_ns/tag.hpp
-	include/mizuiro/color/types/store.hpp
-	include/mizuiro/color/types/store_needs_init.hpp
-	include/mizuiro/color/types/store_needs_init_ns/tag.hpp
-	include/mizuiro/color/types/store_ns/tag.hpp
-	include/mizuiro/color/types/valid_channel_type.hpp
-	include/mizuiro/color/types/valid_channel_type_ns/tag.hpp
-	include/mizuiro/const_raw_pointer.hpp
-	include/mizuiro/const_tag.hpp
-	include/mizuiro/const_tag_fwd.hpp
-	include/mizuiro/decltype.hpp
-	include/mizuiro/default_init.hpp
-	include/mizuiro/default_init_fwd.hpp
-	include/mizuiro/detail/apply_const.hpp
-	include/mizuiro/detail/assert_access.hpp
-	include/mizuiro/detail/assert_constness.hpp
-	include/mizuiro/detail/bit_count.hpp
-	include/mizuiro/detail/bit_count_at_least.hpp
-	include/mizuiro/detail/choose_const.hpp
-	include/mizuiro/detail/const_from_pointer.hpp
-	include/mizuiro/detail/copy.hpp
-	include/mizuiro/detail/copy_n.hpp
-	include/mizuiro/detail/copy_n_base.hpp
-	include/mizuiro/detail/copy_n_overlap.hpp
-	include/mizuiro/detail/copy_overlap.hpp
-	include/mizuiro/detail/copy_store.hpp
-	include/mizuiro/detail/decltype_use.hpp
-	include/mizuiro/detail/empty_format_base_decl.hpp
-	include/mizuiro/detail/empty_format_base_fwd.hpp
-	include/mizuiro/detail/empty_format_base_impl.hpp
-	include/mizuiro/detail/empty_format_store_decl.hpp
-	include/mizuiro/detail/empty_format_store_fwd.hpp
-	include/mizuiro/detail/empty_format_store_impl.hpp
-	include/mizuiro/detail/equal.hpp
-	include/mizuiro/detail/format_argument.hpp
-	include/mizuiro/detail/format_argument_impl.hpp
-	include/mizuiro/detail/format_base_decl.hpp
-	include/mizuiro/detail/format_base_fwd.hpp
-	include/mizuiro/detail/format_base_impl.hpp
-	include/mizuiro/detail/format_store_decl.hpp
-	include/mizuiro/detail/format_store_fwd.hpp
-	include/mizuiro/detail/format_store_impl.hpp
-	include/mizuiro/detail/int_to_true.hpp
-	include/mizuiro/detail/map_format_store.hpp
-	include/mizuiro/detail/normal_format_base_decl.hpp
-	include/mizuiro/detail/normal_format_base_fwd.hpp
-	include/mizuiro/detail/normal_format_base_impl.hpp
-	include/mizuiro/detail/normal_format_store_decl.hpp
-	include/mizuiro/detail/normal_format_store_fwd.hpp
-	include/mizuiro/detail/normal_format_store_impl.hpp
-	include/mizuiro/detail/promote_type.hpp
-	include/mizuiro/detail/range_to.hpp
-	include/mizuiro/detail/rebind_tag.hpp
-	include/mizuiro/detail/ref_store.hpp
-	include/mizuiro/detail/sum.hpp
-	include/mizuiro/detail/uint_least.hpp
-	include/mizuiro/detail/unlikely.hpp
-	include/mizuiro/difference_type.hpp
-	include/mizuiro/empty.hpp
-	include/mizuiro/empty_fwd.hpp
-	include/mizuiro/image/access/advance_pointer.hpp
-	include/mizuiro/image/access/advance_pointer_ns/tag.hpp
-	include/mizuiro/image/access/data.hpp
-	include/mizuiro/image/access/data_ns/tag.hpp
-	include/mizuiro/image/access/dereference.hpp
-	include/mizuiro/image/access/dereference_ns/tag.hpp
-	include/mizuiro/image/access/make_store.hpp
-	include/mizuiro/image/access/make_store_ns/tag.hpp
-	include/mizuiro/image/access/pointer_difference.hpp
-	include/mizuiro/image/access/pointer_difference_ns/tag.hpp
-	include/mizuiro/image/access/store_data.hpp
-	include/mizuiro/image/access/store_data_ns/tag.hpp
-	include/mizuiro/image/access/stride.hpp
-	include/mizuiro/image/access/stride_ns/tag.hpp
-	include/mizuiro/image/algorithm/binary_fold.hpp
-	include/mizuiro/image/algorithm/binary_iteration.hpp
-	include/mizuiro/image/algorithm/can_copy.hpp
-	include/mizuiro/image/algorithm/can_copy_in_place.hpp
-	include/mizuiro/image/algorithm/can_copy_in_place_v.hpp
-	include/mizuiro/image/algorithm/can_copy_v.hpp
-	include/mizuiro/image/algorithm/clone.hpp
-	include/mizuiro/image/algorithm/compare.hpp
-	include/mizuiro/image/algorithm/copy.hpp
-	include/mizuiro/image/algorithm/copy_and_convert.hpp
-	include/mizuiro/image/algorithm/copy_different_channel_order.hpp
-	include/mizuiro/image/algorithm/copy_same_channel_order.hpp
-	include/mizuiro/image/algorithm/detail/binary_fold.hpp
-	include/mizuiro/image/algorithm/detail/copy_element.hpp
-	include/mizuiro/image/algorithm/detail/copy_impl.hpp
-	include/mizuiro/image/algorithm/detail/dummy_state.hpp
-	include/mizuiro/image/algorithm/detail/iteration_to_fold_function.hpp
-	include/mizuiro/image/algorithm/detail/prepare.hpp
-	include/mizuiro/image/algorithm/detail/unary_fold.hpp
-	include/mizuiro/image/algorithm/detail/wrap_prepare.hpp
-	include/mizuiro/image/algorithm/equal.hpp
-	include/mizuiro/image/algorithm/fill.hpp
-	include/mizuiro/image/algorithm/fill_c.hpp
-	include/mizuiro/image/algorithm/fill_indexed.hpp
-	include/mizuiro/image/algorithm/for_each.hpp
-	include/mizuiro/image/algorithm/make_iterator_identity.hpp
-	include/mizuiro/image/algorithm/make_iterator_indexed.hpp
-	include/mizuiro/image/algorithm/may_overlap.hpp
-	include/mizuiro/image/algorithm/may_overlap_fwd.hpp
-	include/mizuiro/image/algorithm/print.hpp
-	include/mizuiro/image/algorithm/transform.hpp
-	include/mizuiro/image/algorithm/unary_fold.hpp
-	include/mizuiro/image/algorithm/unary_iteration.hpp
-	include/mizuiro/image/algorithm/uninitialized.hpp
-	include/mizuiro/image/algorithm/uninitialized_fwd.hpp
-	include/mizuiro/image/basic_iterator_decl.hpp
-	include/mizuiro/image/basic_iterator_fwd.hpp
-	include/mizuiro/image/basic_iterator_impl.hpp
-	include/mizuiro/image/bound.hpp
-	include/mizuiro/image/bound_decl.hpp
-	include/mizuiro/image/bound_fwd.hpp
-	include/mizuiro/image/bound_impl.hpp
-	include/mizuiro/image/const_view.hpp
-	include/mizuiro/image/detail/compare_iterator.hpp
-	include/mizuiro/image/detail/const_view.hpp
-	include/mizuiro/image/detail/decrement_dim.hpp
-	include/mizuiro/image/detail/edge_pos_begin.hpp
-	include/mizuiro/image/detail/edge_pos_end.hpp
-	include/mizuiro/image/detail/flipped_edge.hpp
-	include/mizuiro/image/detail/flipped_pitch.hpp
-	include/mizuiro/image/detail/flipped_start.hpp
-	include/mizuiro/image/detail/increment_dim.hpp
-	include/mizuiro/image/detail/indexed_iterator_decl.hpp
-	include/mizuiro/image/detail/indexed_iterator_fwd.hpp
-	include/mizuiro/image/detail/indexed_iterator_impl.hpp
-	include/mizuiro/image/detail/iterator_decl.hpp
-	include/mizuiro/image/detail/iterator_difference.hpp
-	include/mizuiro/image/detail/iterator_fwd.hpp
-	include/mizuiro/image/detail/iterator_impl.hpp
-	include/mizuiro/image/detail/linear_iterator_decl.hpp
-	include/mizuiro/image/detail/linear_iterator_fwd.hpp
-	include/mizuiro/image/detail/linear_iterator_impl.hpp
-	include/mizuiro/image/detail/linear_iterator_position.hpp
-	include/mizuiro/image/detail/pitch_difference.hpp
-	include/mizuiro/image/detail/pitch_iterator_decl.hpp
-	include/mizuiro/image/detail/pitch_iterator_fwd.hpp
-	include/mizuiro/image/detail/pitch_iterator_impl.hpp
-	include/mizuiro/image/detail/pitch_iterator_position.hpp
-	include/mizuiro/image/detail/pitch_type.hpp
-	include/mizuiro/image/detail/prepare_store_units.hpp
-	include/mizuiro/image/detail/raw_view_from_pointer.hpp
-	include/mizuiro/image/detail/relative_position.hpp
-	include/mizuiro/image/detail/stacked_dim.hpp
-	include/mizuiro/image/detail/stacked_dim_array.hpp
-	include/mizuiro/image/detail/subview_pitch.hpp
-	include/mizuiro/image/dimension.hpp
-	include/mizuiro/image/dimension_comparison.hpp
-	include/mizuiro/image/dimension_content.hpp
-	include/mizuiro/image/dimension_decl.hpp
-	include/mizuiro/image/dimension_fwd.hpp
-	include/mizuiro/image/dimension_impl.hpp
-	include/mizuiro/image/dimension_null.hpp
-	include/mizuiro/image/dimension_output.hpp
-	include/mizuiro/image/flipped_view.hpp
-	include/mizuiro/image/format/argument.hpp
-	include/mizuiro/image/format/base_decl.hpp
-	include/mizuiro/image/format/base_impl.hpp
-	include/mizuiro/image/format/canonical.hpp
-	include/mizuiro/image/format/canonical_fwd.hpp
-	include/mizuiro/image/format/canonical_ns/access/advance_pointer.hpp
-	include/mizuiro/image/format/canonical_ns/access/dereference.hpp
-	include/mizuiro/image/format/canonical_ns/access/make_store.hpp
-	include/mizuiro/image/format/canonical_ns/access/pointer_difference.hpp
-	include/mizuiro/image/format/canonical_ns/access/store_data.hpp
-	include/mizuiro/image/format/canonical_ns/access/stride.hpp
-	include/mizuiro/image/format/canonical_ns/tag.hpp
-	include/mizuiro/image/format/canonical_ns/tag_of.hpp
-	include/mizuiro/image/format/canonical_ns/types/can_copy.hpp
-	include/mizuiro/image/format/canonical_ns/types/can_copy_in_place.hpp
-	include/mizuiro/image/format/canonical_ns/types/needs_format_store.hpp
-	include/mizuiro/image/format/canonical_ns/types/pointer.hpp
-	include/mizuiro/image/format/canonical_ns/types/reference.hpp
-	include/mizuiro/image/format/canonical_ns/types/store.hpp
-	include/mizuiro/image/format/canonical_ns/types/value_type.hpp
-	include/mizuiro/image/format/color_ns/access/dereference.hpp
-	include/mizuiro/image/format/color_ns/tag.hpp
-	include/mizuiro/image/format/color_ns/types/needs_format_store.hpp
-	include/mizuiro/image/format/color_ns/types/needs_prepare.hpp
-	include/mizuiro/image/format/color_ns/types/pointer.hpp
-	include/mizuiro/image/format/color_ns/types/reference.hpp
-	include/mizuiro/image/format/color_ns/types/value_type.hpp
-	include/mizuiro/image/format/detail/make.hpp
-	include/mizuiro/image/format/detail/planar_color.hpp
-	include/mizuiro/image/format/detail/planar_color_fwd.hpp
-	include/mizuiro/image/format/detail/planar_color_ns/access/extract_channel_normal.hpp
-	include/mizuiro/image/format/detail/planar_color_ns/tag.hpp
-	include/mizuiro/image/format/detail/planar_color_ns/tag_of.hpp
-	include/mizuiro/image/format/detail/planar_color_ns/types/pointer.hpp
-	include/mizuiro/image/format/include/canonical.hpp
-	include/mizuiro/image/format/include/color.hpp
-	include/mizuiro/image/format/include/interleaved.hpp
-	include/mizuiro/image/format/include/interleaved_heterogenous.hpp
-	include/mizuiro/image/format/include/interleaved_homogenous.hpp
-	include/mizuiro/image/format/include/planar.hpp
-	include/mizuiro/image/format/interleaved.hpp
-	include/mizuiro/image/format/interleaved_decl.hpp
-	include/mizuiro/image/format/interleaved_fwd.hpp
-	include/mizuiro/image/format/interleaved_heterogenous_ns/access/stride.hpp
-	include/mizuiro/image/format/interleaved_heterogenous_ns/color_tag_of.hpp
-	include/mizuiro/image/format/interleaved_heterogenous_ns/tag.hpp
-	include/mizuiro/image/format/interleaved_heterogenous_ns/types/store_unit.hpp
-	include/mizuiro/image/format/interleaved_homogenous_ns/access/stride.hpp
-	include/mizuiro/image/format/interleaved_homogenous_ns/color_tag_of.hpp
-	include/mizuiro/image/format/interleaved_homogenous_ns/tag.hpp
-	include/mizuiro/image/format/interleaved_homogenous_ns/types/store_unit.hpp
-	include/mizuiro/image/format/interleaved_impl.hpp
-	include/mizuiro/image/format/interleaved_ns/access/advance_pointer.hpp
-	include/mizuiro/image/format/interleaved_ns/access/data.hpp
-	include/mizuiro/image/format/interleaved_ns/access/make_store.hpp
-	include/mizuiro/image/format/interleaved_ns/access/pointer_difference.hpp
-	include/mizuiro/image/format/interleaved_ns/access/store_data.hpp
-	include/mizuiro/image/format/interleaved_ns/color_tag_of_ns/tag.hpp
-	include/mizuiro/image/format/interleaved_ns/make_color_tag_of.hpp
-	include/mizuiro/image/format/interleaved_ns/tag.hpp
-	include/mizuiro/image/format/interleaved_ns/tag_of.hpp
-	include/mizuiro/image/format/interleaved_ns/types/can_copy.hpp
-	include/mizuiro/image/format/interleaved_ns/types/can_copy_in_place.hpp
-	include/mizuiro/image/format/interleaved_ns/types/store.hpp
-	include/mizuiro/image/format/make_tag_of.hpp
-	include/mizuiro/image/format/planar.hpp
-	include/mizuiro/image/format/planar_decl.hpp
-	include/mizuiro/image/format/planar_fwd.hpp
-	include/mizuiro/image/format/planar_impl.hpp
-	include/mizuiro/image/format/planar_ns/access/advance_pointer.hpp
-	include/mizuiro/image/format/planar_ns/access/make_store.hpp
-	include/mizuiro/image/format/planar_ns/access/store_data.hpp
-	include/mizuiro/image/format/planar_ns/access/stride.hpp
-	include/mizuiro/image/format/planar_ns/tag.hpp
-	include/mizuiro/image/format/planar_ns/tag_of.hpp
-	include/mizuiro/image/format/planar_ns/types/store.hpp
-	include/mizuiro/image/format/planar_ns/types/store_unit.hpp
-	include/mizuiro/image/format/planar_ns/types/value_type.hpp
-	include/mizuiro/image/format/store.hpp
-	include/mizuiro/image/format/store_decl.hpp
-	include/mizuiro/image/format/store_fwd.hpp
-	include/mizuiro/image/format/store_impl.hpp
-	include/mizuiro/image/format/tag_of_fwd.hpp
-	include/mizuiro/image/format/to_color_store.hpp
-	include/mizuiro/image/indexed_iterator_decl.hpp
-	include/mizuiro/image/indexed_iterator_fwd.hpp
-	include/mizuiro/image/indexed_iterator_impl.hpp
-	include/mizuiro/image/indexed_ref_decl.hpp
-	include/mizuiro/image/indexed_ref_fwd.hpp
-	include/mizuiro/image/indexed_ref_impl.hpp
-	include/mizuiro/image/is_raw_view.hpp
-	include/mizuiro/image/is_raw_view_v.hpp
-	include/mizuiro/image/iterator_decl.hpp
-	include/mizuiro/image/iterator_fwd.hpp
-	include/mizuiro/image/iterator_impl.hpp
-	include/mizuiro/image/iterator_position.hpp
-	include/mizuiro/image/linear_iterator_decl.hpp
-	include/mizuiro/image/linear_iterator_fwd.hpp
-	include/mizuiro/image/linear_iterator_impl.hpp
-	include/mizuiro/image/linear_view.hpp
-	include/mizuiro/image/linear_view_decl.hpp
-	include/mizuiro/image/linear_view_fwd.hpp
-	include/mizuiro/image/linear_view_impl.hpp
-	include/mizuiro/image/make_const_view.hpp
-	include/mizuiro/image/make_raw_view.hpp
-	include/mizuiro/image/move_iterator.hpp
-	include/mizuiro/image/pitch_iterator_decl.hpp
-	include/mizuiro/image/pitch_iterator_fwd.hpp
-	include/mizuiro/image/pitch_iterator_impl.hpp
-	include/mizuiro/image/pitch_type.hpp
-	include/mizuiro/image/pitch_view.hpp
-	include/mizuiro/image/pitch_view_decl.hpp
-	include/mizuiro/image/pitch_view_fwd.hpp
-	include/mizuiro/image/pitch_view_impl.hpp
-	include/mizuiro/image/prepare_store_units.hpp
-	include/mizuiro/image/raw_container_decl.hpp
-	include/mizuiro/image/raw_container_fwd.hpp
-	include/mizuiro/image/raw_container_impl.hpp
-	include/mizuiro/image/store.hpp
-	include/mizuiro/image/store_decl.hpp
-	include/mizuiro/image/store_fwd.hpp
-	include/mizuiro/image/store_impl.hpp
-	include/mizuiro/image/sub_view.hpp
-	include/mizuiro/image/to_pitch_view.hpp
-	include/mizuiro/image/types/can_copy.hpp
-	include/mizuiro/image/types/can_copy_in_place.hpp
-	include/mizuiro/image/types/can_copy_in_place_ns/tag.hpp
-	include/mizuiro/image/types/can_copy_ns/tag.hpp
-	include/mizuiro/image/types/needs_format_store.hpp
-	include/mizuiro/image/types/needs_format_store_ns/tag.hpp
-	include/mizuiro/image/types/needs_prepare.hpp
-	include/mizuiro/image/types/needs_prepare_ns/tag.hpp
-	include/mizuiro/image/types/needs_prepare_v.hpp
-	include/mizuiro/image/types/pointer.hpp
-	include/mizuiro/image/types/pointer_ns/tag.hpp
-	include/mizuiro/image/types/reference.hpp
-	include/mizuiro/image/types/reference_ns/tag.hpp
-	include/mizuiro/image/types/store.hpp
-	include/mizuiro/image/types/store_ns/tag.hpp
-	include/mizuiro/image/types/store_unit.hpp
-	include/mizuiro/image/types/store_unit_ns/tag.hpp
-	include/mizuiro/image/types/value_type.hpp
-	include/mizuiro/image/types/value_type_ns/tag.hpp
-	include/mizuiro/image/view.hpp
-	include/mizuiro/image/view_decl.hpp
-	include/mizuiro/image/view_fwd.hpp
-	include/mizuiro/image/view_impl.hpp
-	include/mizuiro/integral_size.hpp
-	include/mizuiro/is_constness_tag.hpp
-	include/mizuiro/is_raw_pointer.hpp
-	include/mizuiro/no_init.hpp
-	include/mizuiro/no_init_fwd.hpp
-	include/mizuiro/nonconst_tag.hpp
-	include/mizuiro/nonconst_tag_fwd.hpp
-	include/mizuiro/raw_pointer.hpp
-	include/mizuiro/raw_value.hpp
-	include/mizuiro/rebind_tag.hpp
-	include/mizuiro/size_list.hpp
-	include/mizuiro/size_type.hpp
-)
+fcppt_utils_load_source_files(files.txt MIZUIRO_FILES)
 
-fcppt_utils_add_source_groups(
-	"${MIZUIRO_FILES}"
-)
+fcppt_utils_add_source_groups("${MIZUIRO_FILES}")
 
-fcppt_utils_add_dummy_target(
-	mizuiro
-	"${MIZUIRO_FILES}"
-)
+fcppt_utils_add_dummy_target(mizuiro "${MIZUIRO_FILES}")
 
-set_target_properties(
-	mizuiro_dummy
-	PROPERTIES
-	FOLDER
-	mizuiro
-)
+set_target_properties(mizuiro_dummy PROPERTIES FOLDER mizuiro)
 
-target_link_libraries(
-	mizuiro_dummy
-	PRIVATE
-	fcppt_core_interface
-)
+target_link_libraries(mizuiro_dummy PRIVATE fcppt_core_interface)
+
+target_include_directories(mizuiro_dummy PRIVATE ${MIZUIRO_SOURCE_DIR}/include)
+
+fcppt_utils_set_target_compiler_flags(mizuiro_dummy)
+
+include(GNUInstallDirs)
+
+add_library(mizuiro_interface INTERFACE)
+
+target_link_libraries(mizuiro_interface INTERFACE fcppt_core_interface)
 
 target_include_directories(
-	mizuiro_dummy
-	PRIVATE
-	${MIZUIRO_SOURCE_DIR}/include
-)
+  mizuiro_interface
+  INTERFACE "$<BUILD_INTERFACE:${MIZUIRO_SOURCE_DIR}/include>"
+            "$<INSTALL_INTERFACE:${CMAKE_INSTALL_FULL_INCLUDEDIR}>")
 
-fcppt_utils_set_target_compiler_flags(
-	mizuiro_dummy
-)
+set(MIZUIRO_EXPORT_NAME mizuiroExport)
 
-include(
-	GNUInstallDirs
-)
+set(MIZUIRO_BUILD_CONFIG ${MIZUIRO_BINARY_DIR}/config)
 
-add_library(
-	mizuiro_interface
-	INTERFACE
-)
-
-target_link_libraries(
-	mizuiro_interface
-	INTERFACE
-	fcppt_core_interface
-)
-
-target_include_directories(
-	mizuiro_interface
-	INTERFACE
-	"$<BUILD_INTERFACE:${MIZUIRO_SOURCE_DIR}/include>"
-	"$<INSTALL_INTERFACE:${CMAKE_INSTALL_FULL_INCLUDEDIR}>"
-)
-
-set(
-	MIZUIRO_EXPORT_NAME
-	mizuiroExport
-)
-
-set(
-	MIZUIRO_BUILD_CONFIG
-	${MIZUIRO_BINARY_DIR}/config
-)
-
-set(
-	MIZUIRO_TARGETS_FILE_NAME
-	mizuiroTargets.cmake
-)
+set(MIZUIRO_TARGETS_FILE_NAME mizuiroTargets.cmake)
 
 install(
-	TARGETS
-	mizuiro_interface
-	DESTINATION
-	${CMAKE_INSTALL_LIBDIR}
-	EXPORT
-	${MIZUIRO_EXPORT_NAME}
-)
+  TARGETS mizuiro_interface
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  EXPORT ${MIZUIRO_EXPORT_NAME})
+
+install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+
+export(EXPORT ${MIZUIRO_EXPORT_NAME}
+       FILE ${MIZUIRO_BUILD_CONFIG}/${MIZUIRO_TARGETS_FILE_NAME})
+
+set(INSTALL_CMAKECONFIG_DIR ${CMAKE_INSTALL_LIBDIR}/cmake/mizuiro)
 
 install(
-	DIRECTORY
-	include/
-	DESTINATION
-	${CMAKE_INSTALL_INCLUDEDIR}
-)
+  EXPORT ${MIZUIRO_EXPORT_NAME}
+  FILE ${MIZUIRO_TARGETS_FILE_NAME}
+  DESTINATION ${INSTALL_CMAKECONFIG_DIR})
 
-export(
-	EXPORT
-	${MIZUIRO_EXPORT_NAME}
-	FILE
-	${MIZUIRO_BUILD_CONFIG}/${MIZUIRO_TARGETS_FILE_NAME}
-)
+set(CONFIG_OUT_FILE ${MIZUIRO_BUILD_CONFIG}/mizuiro-config.cmake)
 
-set(
-	INSTALL_CMAKECONFIG_DIR
-	${CMAKE_INSTALL_LIBDIR}/cmake/mizuiro
-)
+configure_file(${MIZUIRO_SOURCE_DIR}/mizuiro-config.cmake ${CONFIG_OUT_FILE}
+               COPYONLY)
 
-install(
-	EXPORT
-	${MIZUIRO_EXPORT_NAME}
-	FILE
-	${MIZUIRO_TARGETS_FILE_NAME}
-	DESTINATION
-	${INSTALL_CMAKECONFIG_DIR}
-)
-
-set(
-	CONFIG_OUT_FILE
-	${MIZUIRO_BUILD_CONFIG}/mizuiro-config.cmake
-)
-
-configure_file(
-	${MIZUIRO_SOURCE_DIR}/mizuiro-config.cmake
-	${CONFIG_OUT_FILE}
-	COPYONLY
-)
-
-install(
-	FILES
-	${CONFIG_OUT_FILE}
-	DESTINATION
-	${INSTALL_CMAKECONFIG_DIR}
-)
+install(FILES ${CONFIG_OUT_FILE} DESTINATION ${INSTALL_CMAKECONFIG_DIR})
