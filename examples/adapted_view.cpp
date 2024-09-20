@@ -34,11 +34,12 @@
 #include <cstring>
 #include <iostream>
 #include <iterator>
-#include <ostream>
 #include <type_traits>
 #include <vector>
 #include <fcppt/config/external_end.hpp>
 
+namespace
+{
 namespace mylib
 {
 
@@ -63,6 +64,7 @@ template <typename Type>
 class proxy;
 
 }
+}
 
 namespace mizuiro::image
 {
@@ -83,6 +85,7 @@ namespace needs_format_store_ns
 {
 
 template <typename Dim, typename Type>
+// NOLINTNEXTLINE(misc-use-internal-linkage)
 std::false_type needs_format_store_adl(
     mizuiro::image::types::needs_format_store_ns::tag, mylib::tag<mylib::native_format<Dim, Type>>);
 
@@ -92,6 +95,7 @@ namespace pointer_ns
 {
 
 template <typename Dim, typename Type, typename Constness>
+// NOLINTNEXTLINE(misc-use-internal-linkage)
 mizuiro::apply_const<mizuiro::raw_pointer, Constness> pointer_adl(
     mizuiro::image::types::pointer_ns::tag,
     mizuiro::access::raw,
@@ -104,6 +108,7 @@ namespace reference_ns
 {
 
 template <typename Dim, typename Type>
+// NOLINTNEXTLINE(misc-use-internal-linkage)
 mylib::proxy<Type> reference_adl(
     mizuiro::image::types::reference_ns::tag,
     mizuiro::access::raw,
@@ -116,6 +121,7 @@ namespace value_type_ns
 {
 
 template <typename Dim, typename Type>
+// NOLINTNEXTLINE(misc-use-internal-linkage)
 Type value_type_adl(
     mizuiro::image::types::value_type_ns::tag, mylib::tag<mylib::native_format<Dim, Type>>);
 
@@ -132,6 +138,7 @@ FCPPT_PP_IGNORE_UNSAFE_BUFFER_USAGE
 
 template <typename Dim, typename Type, typename Constness>
 mizuiro::image::types::pointer<mizuiro::access::raw, mylib::native_format<Dim, Type>, Constness>
+// NOLINTNEXTLINE(misc-use-internal-linkage)
 advance_pointer_adl(
     mizuiro::image::access::advance_pointer_ns::tag,
     mylib::tag<mylib::native_format<Dim, Type>>,
@@ -152,6 +159,7 @@ FCPPT_PP_POP_WARNING
 namespace pointer_difference_ns
 {
 template <typename Dim, typename Type, typename Constness>
+// NOLINTNEXTLINE(misc-use-internal-linkage)
 mizuiro::difference_type pointer_difference_adl(
     mizuiro::image::access::pointer_difference_ns::tag,
     mylib::tag<mylib::native_format<Dim, Type>>,
@@ -172,6 +180,7 @@ namespace stride_ns
 {
 
 template <typename Dim, typename Type>
+// NOLINTNEXTLINE(misc-use-internal-linkage)
 mizuiro::size_type stride_adl(
     mizuiro::image::access::stride_ns::tag,
     mizuiro::access::raw const &,
@@ -189,6 +198,7 @@ namespace dereference_ns
 template <typename Dim, typename Type>
 mizuiro::image::types::
     reference<mizuiro::access::raw, mylib::native_format<Dim, Type>, mizuiro::nonconst_tag>
+    // NOLINTNEXTLINE(misc-use-internal-linkage)
     dereference_adl(
         mizuiro::image::access::dereference_ns::tag,
         mizuiro::access::raw,
@@ -209,6 +219,8 @@ mizuiro::image::types::
 }
 }
 
+namespace
+{
 namespace mylib
 {
 
@@ -243,6 +255,7 @@ private:
   pointer data_;
 };
 
+}
 }
 
 int main()

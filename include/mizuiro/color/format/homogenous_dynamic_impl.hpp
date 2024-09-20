@@ -22,7 +22,7 @@ mizuiro::color::format::homogenous_dynamic<ChannelType, Space, ChannelCount>::ho
                    make_channels<all_possible_channels, typename Layout::channels>()),
       indices(mizuiro::color::detail::dynamic::initialize_indices<channel_index_array>(channels))
 {
-  static_assert(std::is_same<Space, typename Layout::space>::value, "Color spaces must match");
+  static_assert(std::is_same_v<Space, typename Layout::space>, "Color spaces must match");
 }
 
 #endif

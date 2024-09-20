@@ -27,10 +27,10 @@ mizuiro::color::types::channel_value<Format, Channel> denormalize(
 
   return static_cast<mizuiro::color::types::channel_value<Format, Channel>>(
       static_cast<Float>(mizuiro::color::access::channel_min<Format>(_format_store, _channel)) +
-      _src * (static_cast<Float>(
+      (_src * (static_cast<Float>(
                   mizuiro::color::access::channel_max<Format>(_format_store, _channel)) -
               static_cast<Float>(
-                  mizuiro::color::access::channel_min<Format>(_format_store, _channel))));
+                  mizuiro::color::access::channel_min<Format>(_format_store, _channel)))));
 }
 
 }

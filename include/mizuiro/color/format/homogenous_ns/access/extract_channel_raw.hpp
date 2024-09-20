@@ -35,8 +35,8 @@ extract_channel_adl(
     mizuiro::color::types::pointer<mizuiro::access::raw, Format, Constness> const _data)
 {
   return mizuiro::color::types::channel_reference<mizuiro::access::raw, Format, Channel, Constness>(
-      _data + mizuiro::color::access::channel_index<Format>(_format, _channel) *
-                  sizeof(typename Format::channel_type));
+      _data + (mizuiro::color::access::channel_index<Format>(_format, _channel) *
+                  sizeof(typename Format::channel_type)));
 }
 
 FCPPT_PP_POP_WARNING

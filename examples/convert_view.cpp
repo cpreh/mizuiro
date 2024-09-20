@@ -24,7 +24,6 @@
 #include <fcppt/config/external_begin.hpp>
 #include <cstdint>
 #include <iostream>
-#include <ostream>
 #include <fcppt/config/external_end.hpp>
 
 namespace

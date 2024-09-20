@@ -12,7 +12,7 @@ namespace mizuiro::color::channel
 {
 
 template <typename Channel>
-struct tag
+struct tag // NOLINT(bugprone-crtp-constructor-accessibility)
 {
 };
 

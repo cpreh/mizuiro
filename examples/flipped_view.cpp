@@ -24,7 +24,6 @@
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp> // NOLINT(misc-include-cleaner)
 #include <fcppt/config/external_begin.hpp>
 #include <iostream>
-#include <ostream>
 #include <fcppt/config/external_end.hpp>
 
 int main()
