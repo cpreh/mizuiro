@@ -28,6 +28,7 @@
 #include <mizuiro/image/types/reference_ns/tag.hpp>
 #include <mizuiro/image/types/value_type_ns/tag.hpp>
 #include <fcppt/preprocessor/ignore_unsafe_buffer_usage.hpp>
+#include <fcppt/preprocessor/ignore_unsafe_buffer_usage_in_libc_call.hpp>
 #include <fcppt/preprocessor/pop_warning.hpp>
 #include <fcppt/preprocessor/push_warning.hpp>
 #include <fcppt/config/external_begin.hpp>
@@ -234,6 +235,8 @@ public:
 
   using value_type = Type;
 
+FCPPT_PP_PUSH_WARNING
+FCPPT_PP_IGNORE_UNSAFE_BUFFER_USAGE_IN_LIBC_CALL
   // NOLINTNEXTLINE(google-explicit-constructor,hicpp-explicit-conversions)
   operator value_type() const
   {
@@ -251,6 +254,7 @@ public:
     return *this;
   }
 
+FCPPT_PP_POP_WARNING
 private:
   pointer data_;
 };
