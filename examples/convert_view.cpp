@@ -22,7 +22,9 @@
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp> // NOLINT(misc-include-cleaner)
 #include <fcppt/array/object_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
+#include <cstdlib>
 #include <cstdint>
+#include <exception>
 #include <iostream>
 #include <fcppt/config/external_end.hpp>
 
@@ -35,6 +37,7 @@ using make_2d_format = mizuiro::image::format::interleaved<mizuiro::image::dimen
 }
 
 int main()
+try
 {
   using base_type = std::uint8_t;
 
@@ -83,4 +86,9 @@ int main()
   mizuiro::image::algorithm::print(std::cout, store.view());
 
   std::cout << '\n';
+}
+catch(std::exception const &_error)
+{
+  std::cerr << _error.what() << '\n';
+  return EXIT_FAILURE;
 }

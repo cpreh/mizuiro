@@ -18,7 +18,7 @@ namespace mizuiro::color::format::detail
 {
 
 // TODO(philipp): Get a proper solution for this
-#if defined(FCPPT_CONFIG_MSVC_COMPILER)
+#ifdef FCPPT_CONFIG_MSVC_COMPILER
 template <typename Format, typename Channel>
 std::true_type check_has_channel_constexpr(
     int,

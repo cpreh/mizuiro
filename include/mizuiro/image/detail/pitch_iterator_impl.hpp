@@ -7,7 +7,6 @@
 #define MIZUIRO_IMAGE_DETAIL_PITCH_ITERATOR_IMPL_HPP_INCLUDED
 
 #include <mizuiro/size_type.hpp>
-#include <mizuiro/detail/unlikely.hpp>
 #include <mizuiro/image/dimension_impl.hpp> // IWYU pragma: keep
 #include <mizuiro/image/access/advance_pointer.hpp>
 #include <mizuiro/image/access/dereference.hpp>
@@ -96,7 +95,7 @@ mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::advance(
 template <typename Access, typename Format, typename Constness>
 void mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::increment()
 {
-  if (MIZUIRO_DETAIL_UNLIKELY(line_advance_ == -1))
+  if (line_advance_ == -1) [[unlikely]]
   {
     line_advance_ =
         static_cast<difference_type>(mizuiro::image::detail::pitch_iterator_position(*this)[0]);
@@ -104,7 +103,7 @@ void mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::incremen
 
   ++line_advance_;
 
-  if (MIZUIRO_DETAIL_UNLIKELY(line_advance_ >= static_cast<difference_type>(size_[0])))
+  if (line_advance_ >= static_cast<difference_type>(size_[0])) [[unlikely]]
   {
     this->advance(1);
 

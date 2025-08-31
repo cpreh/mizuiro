@@ -35,6 +35,7 @@ extract_channel_adl(
     // NOLINTNEXTLINE(readability-avoid-const-params-in-decls)
     mizuiro::color::types::pointer<mizuiro::access::normal, Format, Constness> const _data)
 {
+  // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   return _data[mizuiro::color::access::channel_index<Format>(_format, _channel)];
 }
 

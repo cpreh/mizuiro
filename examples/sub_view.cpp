@@ -25,11 +25,14 @@
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp> // NOLINT(misc-include-cleaner)
 #include <fcppt/config/external_begin.hpp>
+#include <cstdlib>
+#include <exception>
 #include <iostream>
 #include <iterator>
 #include <fcppt/config/external_end.hpp>
 
 int main()
+try
 {
   using channel_type = float;
 
@@ -98,4 +101,9 @@ int main()
   }
 
   std::cout << '\n';
+}
+catch(std::exception const &_error)
+{
+  std::cerr << _error.what() << '\n';
+  return EXIT_FAILURE;
 }

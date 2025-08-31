@@ -32,7 +32,9 @@
 #include <fcppt/preprocessor/pop_warning.hpp>
 #include <fcppt/preprocessor/push_warning.hpp>
 #include <fcppt/config/external_begin.hpp>
+#include <cstdlib>
 #include <cstring>
+#include <exception>
 #include <iostream>
 #include <iterator>
 #include <type_traits>
@@ -150,7 +152,7 @@ advance_pointer_adl(
         pointer<mizuiro::access::raw, mylib::native_format<Dim, Type>, Constness> const _pointer,
     mizuiro::difference_type const _diff)
 {
-  return _pointer + _diff;
+  return _pointer + _diff; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
 }
 
 FCPPT_PP_POP_WARNING
@@ -263,6 +265,7 @@ private:
 }
 
 int main()
+try
 {
   using value_type = unsigned;
 
@@ -292,4 +295,9 @@ int main()
   mizuiro::image::algorithm::print(std::cout, view);
 
   std::cout << '\n';
+}
+catch(std::exception const &_error)
+{
+  std::cerr << _error.what() << '\n';
+  return EXIT_FAILURE;
 }

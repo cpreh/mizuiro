@@ -19,13 +19,17 @@
 #include <mizuiro/image/algorithm/print.hpp>
 #include <mizuiro/image/format/interleaved.hpp>
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp> // NOLINT(misc-include-cleaner)
+#include <fcppt/cast/promote_int.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <cstdint>
+#include <cstdlib>
+#include <exception>
 #include <functional>
 #include <iostream>
 #include <fcppt/config/external_end.hpp>
 
 int main()
+try
 {
   using color_uint8_3_format =
       mizuiro::color::format::homogenous_dynamic<std::uint8_t, mizuiro::color::space::rgb, 3>;
@@ -47,7 +51,7 @@ int main()
        0.1), // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
       rgb_format_store);
 
-  std::cout << test1.get(mizuiro::color::channel::red()) << '\n';
+  std::cout << fcppt::cast::promote_int(test1.get(mizuiro::color::channel::red())) << '\n';
 
   std::cout << test1 << '\n';
 
@@ -64,4 +68,9 @@ int main()
   mizuiro::image::algorithm::print(std::cout, store.view());
 
   std::cout << '\n';
+}
+catch(std::exception const &_error)
+{
+  std::cerr << _error.what() << '\n';
+  return EXIT_FAILURE;
 }

@@ -37,6 +37,7 @@ mizuiro::image::types::pointer<Access, Format, Constness> advance_pointer_adl(
   return fcppt::array::init<fcppt::array::object<
       typename mizuiro::image::types::pointer<Access, Format, Constness>::value_type,
       Format::element_count>>([&_data, _diff](mizuiro::size_type const _index)
+      // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-pointer-arithmetic)
                               { return _data.get_unsafe(_index) + _diff; });
 }
 

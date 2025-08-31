@@ -6,7 +6,7 @@
 #ifndef MIZUIRO_DETAIL_UNLIKELY_HPP_INCLUDED
 #define MIZUIRO_DETAIL_UNLIKELY_HPP_INCLUDED
 
-#if defined(__GNUC__)
+#ifdef __GNUC__
 #define MIZUIRO_DETAIL_UNLIKELY(x) __builtin_expect((x), 0)
 #else
 #define MIZUIRO_DETAIL_UNLIKELY(x) (x)

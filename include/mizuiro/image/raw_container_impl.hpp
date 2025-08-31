@@ -138,6 +138,7 @@ void mizuiro::image::raw_container<T, A>::allocate(size_type const _size)
 {
   data_ = allocator.allocate(_size);
 
+  // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   data_end_ = data_ + _size;
 }
 

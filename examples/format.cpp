@@ -21,6 +21,7 @@
 //![includes_layout]
 #include <mizuiro/color/layout/rgb.hpp>
 //![includes_layout]
+#include <fcppt/cast/promote_int.hpp>
 #include <fcppt/config/external_begin.hpp>
 #include <cstdint>
 #include <iostream>
@@ -55,6 +56,6 @@ int main()
       mizuiro::color::channel::red(), channel{10}
   );
 
-  std::cout << color.get(mizuiro::color::channel::red()) << '\n';
+  std::cout << fcppt::cast::promote_int(color.get(mizuiro::color::channel::red())) << '\n';
   //![object_access]
 }

@@ -16,9 +16,13 @@
 #include <mizuiro/image/format/include/interleaved_homogenous.hpp> // NOLINT(misc-include-cleaner)
 #include <fcppt/config/external_begin.hpp>
 #include <cstdint>
+#include <cstdlib>
+#include <exception>
+#include <iostream>
 #include <fcppt/config/external_end.hpp>
 
 int main()
+try
 {
   using format = mizuiro::image::format::interleaved<
       mizuiro::image::dimension<2>,
@@ -47,4 +51,9 @@ int main()
             mizuiro::image::algorithm::make_iterator_identity{},
             mizuiro::image::algorithm::uninitialized::yes);
       }};
+}
+catch(std::exception const &_error)
+{
+  std::cerr << _error.what() << '\n';
+  return EXIT_FAILURE;
 }

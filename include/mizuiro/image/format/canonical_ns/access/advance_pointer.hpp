@@ -32,6 +32,7 @@ mizuiro::image::types::pointer<Access, ImageFormat, Constness> advance_pointer_a
     mizuiro::image::types::pointer<Access, ImageFormat, Constness> const _data,
     mizuiro::difference_type const _diff)
 {
+  // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   return _data + _diff;
 }
 
