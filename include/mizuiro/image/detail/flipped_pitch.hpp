@@ -19,6 +19,7 @@ Pitch flipped_pitch(Pitch const &_old_pitch, typename Pitch::value_type _last_va
 
   for (typename Pitch::size_type index = 0; index < Pitch::static_size - 1; ++index)
   {
+    // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
     ret[index] = _old_pitch[index];
   }
 

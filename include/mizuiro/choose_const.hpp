@@ -12,7 +12,7 @@ namespace mizuiro
 {
 
 template <typename Constness, typename NonConst, typename Const>
-using choose_const = typename mizuiro::detail::choose_const<Constness, NonConst, Const>::type;
+using choose_const = mizuiro::detail::choose_const<Constness, NonConst, Const>::type;
 
 }
 
