@@ -46,7 +46,7 @@ void mizuiro::image::detail::indexed_iterator<Dimension, Underlying>::decrement(
 }
 
 template <typename Dimension, typename Underlying>
-typename mizuiro::image::detail::indexed_iterator<Dimension, Underlying>::difference_type
+mizuiro::image::detail::indexed_iterator<Dimension, Underlying>::difference_type
 mizuiro::image::detail::indexed_iterator<Dimension, Underlying>::distance_to(
     indexed_iterator const &_other) const
 {
@@ -54,7 +54,7 @@ mizuiro::image::detail::indexed_iterator<Dimension, Underlying>::distance_to(
 }
 
 template <typename Dimension, typename Underlying>
-typename mizuiro::image::detail::indexed_iterator<Dimension, Underlying>::reference
+mizuiro::image::detail::indexed_iterator<Dimension, Underlying>::reference
 mizuiro::image::detail::indexed_iterator<Dimension, Underlying>::dereference() const
 {
   return reference(current_, *underlying_);

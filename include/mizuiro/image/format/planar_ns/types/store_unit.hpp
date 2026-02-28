@@ -13,7 +13,7 @@ namespace mizuiro::image::types::store_unit_ns
 {
 
 template <typename Format>
-typename Format::color_format::channel_type store_unit_adl(
+Format::color_format::channel_type store_unit_adl(
     mizuiro::image::types::store_unit_ns::tag, mizuiro::image::format::planar_ns::tag<Format>);
 
 }

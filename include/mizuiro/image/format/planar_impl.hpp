@@ -16,7 +16,7 @@ mizuiro::image::format::planar<DimType, ColorFormat>::planar(format_store_type c
 }
 
 template <typename DimType, typename ColorFormat>
-typename mizuiro::image::format::planar<DimType, ColorFormat>::format_store_type
+mizuiro::image::format::planar<DimType, ColorFormat>::format_store_type
 mizuiro::image::format::planar<DimType, ColorFormat>::format_store() const
 {
   return this->format_store_base();

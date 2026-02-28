@@ -10,7 +10,7 @@ namespace mizuiro::color::init::detail
 {
 
 template <typename Type>
-using to_channel_type = typename Type::channel_type;
+using to_channel_type = Type::channel_type;
 
 }
 

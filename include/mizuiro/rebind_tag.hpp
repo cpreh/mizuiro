@@ -12,7 +12,7 @@ namespace mizuiro
 {
 
 template <typename Tag, typename NewInner>
-using rebind_tag = typename mizuiro::detail::rebind_tag<Tag, NewInner>::type;
+using rebind_tag = mizuiro::detail::rebind_tag<Tag, NewInner>::type;
 
 }
 

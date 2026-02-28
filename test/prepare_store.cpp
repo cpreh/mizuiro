@@ -26,7 +26,7 @@
 #include <fcppt/config/external_end.hpp>
 
 FCPPT_CATCH_BEGIN
-// NOLINTBEGIN(misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
+// NOLINTBEGIN(bugprone-throwing-static-initialization,misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
 
 TEST_CASE("prepare store", "[mizuiro]")
 {
@@ -62,16 +62,18 @@ TEST_CASE("prepare store", "[mizuiro]")
       });
 
   CHECK(
+      // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
       store.view()[store_type::dim(0U, 0U)].get(mizuiro::color::channel::luminance()) ==
       std::uint32_t{0x1E1FF}
       // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
   );
 
   CHECK(
+      // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
       store.view()[store_type::dim(0U, 0U)].get(mizuiro::color::channel::alpha()) ==
       std::uint8_t{0xF} // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
   );
 }
 
-// NOLINTEND(misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
+// NOLINTEND(bugprone-throwing-static-initialization,misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
 FCPPT_CATCH_END

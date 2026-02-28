@@ -12,7 +12,7 @@
 namespace mizuiro::image::detail
 {
 
-template <typename Dim, typename ValueType = typename Dim::value_type>
+template <typename Dim, typename ValueType = Dim::value_type>
 using stacked_dim_array = fcppt::array::object<ValueType, Dim::static_size - 1>;
 
 }

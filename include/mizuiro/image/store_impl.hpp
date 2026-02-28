@@ -54,7 +54,7 @@ mizuiro::image::store<Format, Access>::store(
 }
 
 template <typename Format, typename Access>
-typename mizuiro::image::store<Format, Access>::pointer
+mizuiro::image::store<Format, Access>::pointer
 mizuiro::image::store<Format, Access>::data()
 {
   return mizuiro::image::access::store_data<access, mizuiro::nonconst_tag, Format>(
@@ -62,7 +62,7 @@ mizuiro::image::store<Format, Access>::data()
 }
 
 template <typename Format, typename Access>
-typename mizuiro::image::store<Format, Access>::const_pointer
+mizuiro::image::store<Format, Access>::const_pointer
 mizuiro::image::store<Format, Access>::data() const
 {
   return mizuiro::image::access::store_data<access, mizuiro::const_tag, Format>(
@@ -70,27 +70,27 @@ mizuiro::image::store<Format, Access>::data() const
 }
 
 template <typename Format, typename Access>
-typename mizuiro::image::store<Format, Access>::view_type
+mizuiro::image::store<Format, Access>::view_type
 mizuiro::image::store<Format, Access>::view()
 {
   return view_type(this->size(), this->data(), this->format_store());
 }
 
 template <typename Format, typename Access>
-typename mizuiro::image::store<Format, Access>::const_view_type
+mizuiro::image::store<Format, Access>::const_view_type
 mizuiro::image::store<Format, Access>::view() const
 {
   return const_view_type(this->size(), this->data(), this->format_store());
 }
 template <typename Format, typename Access>
-typename mizuiro::image::store<Format, Access>::dim const &
+mizuiro::image::store<Format, Access>::dim const &
 mizuiro::image::store<Format, Access>::size() const
 {
   return size_;
 }
 
 template <typename Format, typename Access>
-typename mizuiro::image::store<Format, Access>::format_store_type
+mizuiro::image::store<Format, Access>::format_store_type
 mizuiro::image::store<Format, Access>::format_store() const
 {
   return this->format_store_base();

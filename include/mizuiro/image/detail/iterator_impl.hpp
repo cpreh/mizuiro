@@ -19,14 +19,14 @@ mizuiro::image::detail::iterator<Access, Format, Constness>::iterator(
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::detail::iterator<Access, Format, Constness>::internal_type const &
+mizuiro::image::detail::iterator<Access, Format, Constness>::internal_type const &
 mizuiro::image::detail::iterator<Access, Format, Constness>::internal() const
 {
   return internal_;
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::detail::iterator<Access, Format, Constness>::pointer
+mizuiro::image::detail::iterator<Access, Format, Constness>::pointer
 mizuiro::image::detail::iterator<Access, Format, Constness>::data() const
 {
   return fcppt::variant::apply([](auto const &_value) { return _value.data(); }, internal_);
@@ -53,7 +53,7 @@ void mizuiro::image::detail::iterator<Access, Format, Constness>::decrement()
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::detail::iterator<Access, Format, Constness>::difference_type
+mizuiro::image::detail::iterator<Access, Format, Constness>::difference_type
 mizuiro::image::detail::iterator<Access, Format, Constness>::distance_to(
     iterator const &_other) const
 {
@@ -62,7 +62,7 @@ mizuiro::image::detail::iterator<Access, Format, Constness>::distance_to(
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::detail::iterator<Access, Format, Constness>::reference
+mizuiro::image::detail::iterator<Access, Format, Constness>::reference
 mizuiro::image::detail::iterator<Access, Format, Constness>::dereference() const
 {
   return fcppt::variant::apply([](auto const &_it) { return *_it; }, internal_);

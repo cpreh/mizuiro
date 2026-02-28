@@ -12,9 +12,8 @@ namespace mizuiro::color::types
 {
 
 template <typename Access, typename Format, typename Channel, typename Constness>
-using channel_reference = typename mizuiro::color::types::detail::
-    channel_reference<Access, Format, Channel, Constness>::type;
-
+using channel_reference =
+    mizuiro::color::types::detail::channel_reference<Access, Format, Channel, Constness>::type;
 }
 
 #endif

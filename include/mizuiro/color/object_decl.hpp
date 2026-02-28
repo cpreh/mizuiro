@@ -47,7 +47,7 @@ class object final : private mizuiro::color::format::base<Format>
 public:
   using format = Format;
 
-  using format_store_type = typename base::format_store_type;
+  using format_store_type = base::format_store_type;
 
   using access = mizuiro::access::normal;
 

@@ -12,7 +12,7 @@ namespace mizuiro::color::types
 {
 
 template <typename Access, typename Format, typename Constness>
-using pointer = typename mizuiro::color::types::detail::pointer<Access, Format, Constness>::type;
+using pointer = mizuiro::color::types::detail::pointer<Access, Format, Constness>::type;
 
 }
 

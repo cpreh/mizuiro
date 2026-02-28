@@ -26,21 +26,24 @@ relative_position(mizuiro::image::dimension<Dim, DimValue> const &_dim, Offset c
   stacked_dim_array const stacked_dims(
       mizuiro::image::detail::stacked_dim<typename dim::value_type>(_dim));
 
-  using size_type = typename dim::size_type;
+  using size_type = dim::size_type;
 
   dim ret{mizuiro::no_init{}};
 
   for (size_type i = 0; i < dim::static_size; ++i)
   {
-    ret[i] = static_cast<typename dim::value_type>(_offset);
+    // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
+    ret[i] = static_cast<dim::value_type>(_offset);
 
     for (size_type m = dim::static_size - 1; m > i; --m)
     {
+      // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
       ret[i] %= stacked_dims.get_unsafe(i);
     }
 
     if (i > 0)
     {
+      // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
       ret[i] /= stacked_dims.get_unsafe(i - 1);
     }
   }

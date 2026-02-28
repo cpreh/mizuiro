@@ -26,9 +26,10 @@ stacked_dim(Dim const &_dim)
 
   for (typename Dim::size_type i = 0; i < ret.size(); ++i)
   {
+    // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
     cur *= _dim[i];
 
-    ret.get_unsafe(i) = static_cast<typename stacked_type::value_type>(cur);
+    ret.get_unsafe(i) = static_cast<stacked_type::value_type>(cur);
   }
 
   return ret;

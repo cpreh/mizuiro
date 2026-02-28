@@ -13,7 +13,7 @@ namespace mizuiro::color::types::channel_value_ns
 {
 
 template <typename Format, typename Channel>
-typename Format::channel_type channel_value_adl(
+Format::channel_type channel_value_adl(
     mizuiro::color::types::channel_value_ns::tag,
     mizuiro::color::format::homogenous_ns::tag<Format> const &,
     Channel const &);

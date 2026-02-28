@@ -12,7 +12,7 @@ namespace mizuiro::image
 {
 
 template <typename DimType>
-using pitch_type = typename mizuiro::image::detail::pitch_type<DimType>::type;
+using pitch_type = mizuiro::image::detail::pitch_type<DimType>::type;
 
 }
 

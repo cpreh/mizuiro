@@ -12,7 +12,7 @@ namespace mizuiro::image
 {
 
 template <typename View>
-using const_view = typename mizuiro::image::detail::const_view<View>::type;
+using const_view = mizuiro::image::detail::const_view<View>::type;
 
 }
 

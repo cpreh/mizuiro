@@ -21,7 +21,7 @@ class interleaved final : private mizuiro::color::format::base<ColorFormat>
 public:
   using color_format = ColorFormat;
 
-  using format_store_type = typename format_base::format_store_type;
+  using format_store_type = format_base::format_store_type;
 
   using dim = DimType;
 

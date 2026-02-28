@@ -15,7 +15,7 @@ constexpr mizuiro::detail::empty_format_base<Store>::empty_format_base(format_st
 }
 
 template <typename Store>
-constexpr typename mizuiro::detail::empty_format_base<Store>::format_store_type
+constexpr mizuiro::detail::empty_format_base<Store>::format_store_type
 mizuiro::detail::empty_format_base<Store>::format_store_base() const
 {
   return format_store_type{};

@@ -28,20 +28,20 @@ public:
 
 	This might be a proxy class which is not an lvalue.
 	*/
-  using reference = typename Impl::reference;
+  using reference = Impl::reference;
 
   /**
 	\brief The pointer used to refer to data in the underlying implementation
 	*/
-  using pointer = typename Impl::pointer;
+  using pointer = Impl::pointer;
 
-  using difference_type = typename Impl::difference_type;
+  using difference_type = Impl::difference_type;
 
   using iterator_category = std::random_access_iterator_tag;
 
-  using format = typename Impl::format;
+  using format = Impl::format;
 
-  using format_store_type = typename Impl::format_store_type;
+  using format_store_type = Impl::format_store_type;
 
   using Impl::Impl;
 

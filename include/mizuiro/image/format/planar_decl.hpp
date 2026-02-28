@@ -25,7 +25,7 @@ class planar final : private mizuiro::color::format::base<
 public:
   using color_format = mizuiro::image::format::detail::planar_color<ColorFormat>;
 
-  using format_store_type = typename format_base::format_store_type;
+  using format_store_type = format_base::format_store_type;
 
   using dim = DimType;
 

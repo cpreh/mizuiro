@@ -18,6 +18,7 @@ Dim flipped_edge(Dim const &_view_dim)
 
   for (typename Dim::size_type index = 0; index < Dim::static_size - 1; ++index)
   {
+    // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
     ret[index] = _view_dim[index];
   }
 

@@ -10,7 +10,7 @@ namespace mizuiro::color::format
 {
 
 template <typename Color>
-using get = typename Color::format;
+using get = Color::format;
 
 }
 

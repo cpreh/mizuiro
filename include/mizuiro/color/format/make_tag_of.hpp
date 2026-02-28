@@ -12,7 +12,7 @@ namespace mizuiro::color::format
 {
 
 template <typename Type>
-using make_tag_of = typename mizuiro::color::format::tag_of<Type>::type;
+using make_tag_of = mizuiro::color::format::tag_of<Type>::type;
 
 }
 

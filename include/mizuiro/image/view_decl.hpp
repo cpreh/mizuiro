@@ -45,7 +45,7 @@ public:
 
   using iterator = mizuiro::image::iterator<access, format, constness>;
 
-  using dim = typename format::dim;
+  using dim = format::dim;
 
   using bound_type = mizuiro::image::bound<dim::static_size, typename dim::value_type>;
 

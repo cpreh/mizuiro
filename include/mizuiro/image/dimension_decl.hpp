@@ -33,9 +33,9 @@ public:
 
   static size_type const static_size = Dim;
 
-  using iterator = typename array_type::iterator;
+  using iterator = array_type::iterator;
 
-  using const_iterator = typename array_type::const_iterator;
+  using const_iterator = array_type::const_iterator;
 
   using difference_type = std::make_signed_t<typename array_type::size_type>;
 

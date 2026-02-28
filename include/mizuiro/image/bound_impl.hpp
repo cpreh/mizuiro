@@ -18,14 +18,14 @@ mizuiro::image::bound<Dim, ValueType>::bound(pos_t const &_pos, size_t const &_s
 }
 
 template <mizuiro::size_type Dim, typename ValueType>
-typename mizuiro::image::bound<Dim, ValueType>::dim const &
+mizuiro::image::bound<Dim, ValueType>::dim const &
 mizuiro::image::bound<Dim, ValueType>::pos() const
 {
   return pos_;
 }
 
 template <mizuiro::size_type Dim, typename ValueType>
-typename mizuiro::image::bound<Dim, ValueType>::dim const &
+mizuiro::image::bound<Dim, ValueType>::dim const &
 mizuiro::image::bound<Dim, ValueType>::size() const
 {
   return size_;

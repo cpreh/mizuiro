@@ -48,76 +48,78 @@ mizuiro::image::dimension<Dim, ValueType>::dimension(Args &&..._args)
 }
 
 template <mizuiro::size_type Dim, typename ValueType>
-typename mizuiro::image::dimension<Dim, ValueType>::iterator
+mizuiro::image::dimension<Dim, ValueType>::iterator
 mizuiro::image::dimension<Dim, ValueType>::begin()
 {
   return data_.begin();
 }
 
 template <mizuiro::size_type Dim, typename ValueType>
-typename mizuiro::image::dimension<Dim, ValueType>::iterator
+mizuiro::image::dimension<Dim, ValueType>::iterator
 mizuiro::image::dimension<Dim, ValueType>::end()
 {
   return data_.end();
 }
 
 template <mizuiro::size_type Dim, typename ValueType>
-typename mizuiro::image::dimension<Dim, ValueType>::const_iterator
+mizuiro::image::dimension<Dim, ValueType>::const_iterator
 mizuiro::image::dimension<Dim, ValueType>::begin() const
 {
   return data_.begin();
 }
 
 template <mizuiro::size_type Dim, typename ValueType>
-typename mizuiro::image::dimension<Dim, ValueType>::const_iterator
+mizuiro::image::dimension<Dim, ValueType>::const_iterator
 mizuiro::image::dimension<Dim, ValueType>::end() const
 {
   return data_.end();
 }
 
 template <mizuiro::size_type Dim, typename ValueType>
-typename mizuiro::image::dimension<Dim, ValueType>::reference
+mizuiro::image::dimension<Dim, ValueType>::reference
 mizuiro::image::dimension<Dim, ValueType>::operator[](size_type const _index)
 {
   return data_.get_unsafe(_index);
 }
 
 template <mizuiro::size_type Dim, typename ValueType>
-typename mizuiro::image::dimension<Dim, ValueType>::const_reference
+mizuiro::image::dimension<Dim, ValueType>::const_reference
 mizuiro::image::dimension<Dim, ValueType>::operator[](size_type const _index) const
 {
   return data_.get_unsafe(_index);
 }
 
 template <mizuiro::size_type Dim, typename ValueType>
-template <typename mizuiro::image::dimension<Dim, ValueType>::size_type Index>
-typename mizuiro::image::dimension<Dim, ValueType>::reference
+template <mizuiro::image::dimension<Dim, ValueType>::size_type Index>
+mizuiro::image::dimension<Dim, ValueType>::reference
 mizuiro::image::dimension<Dim, ValueType>::at_c()
 {
   static_assert(Index < Dim, "Index out of range");
 
+  // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
   return (*this)[Index];
 }
 
 template <mizuiro::size_type Dim, typename ValueType>
-template <typename mizuiro::image::dimension<Dim, ValueType>::size_type Index>
-typename mizuiro::image::dimension<Dim, ValueType>::const_reference
+template <mizuiro::image::dimension<Dim, ValueType>::size_type Index>
+mizuiro::image::dimension<Dim, ValueType>::const_reference
 mizuiro::image::dimension<Dim, ValueType>::at_c() const
 {
   static_assert(Index < Dim, "Index out of range");
 
+  // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
   return (*this)[Index];
 }
 
 template <mizuiro::size_type Dim, typename ValueType>
-typename mizuiro::image::dimension<Dim, ValueType>::reference
+mizuiro::image::dimension<Dim, ValueType>::reference
 mizuiro::image::dimension<Dim, ValueType>::back()
 {
   return *std::prev(this->end());
 }
 
 template <mizuiro::size_type Dim, typename ValueType>
-typename mizuiro::image::dimension<Dim, ValueType>::const_reference
+mizuiro::image::dimension<Dim, ValueType>::const_reference
 mizuiro::image::dimension<Dim, ValueType>::back() const
 {
   return *std::prev(this->end());

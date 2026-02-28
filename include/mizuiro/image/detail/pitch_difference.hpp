@@ -14,7 +14,7 @@ namespace mizuiro::image::detail
 {
 
 template <typename Iterator>
-typename Iterator::difference_type pitch_difference(Iterator const _begin, Iterator const _end)
+Iterator::difference_type pitch_difference(Iterator const _begin, Iterator const _end)
 {
   return std::distance(_begin.data(), _end.data());
 }

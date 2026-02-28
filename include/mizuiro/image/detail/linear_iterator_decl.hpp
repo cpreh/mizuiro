@@ -21,7 +21,7 @@ class linear_iterator : private mizuiro::image::format::base<Format>
 public:
   using format_base = mizuiro::image::format::base<Format>;
 
-  using format_store_type = typename format_base::format_store_type;
+  using format_store_type = format_base::format_store_type;
 
   using access = Access;
 

@@ -17,7 +17,7 @@ mizuiro::detail::normal_format_base<Format, Copy>::normal_format_base(
 }
 
 template <typename Format, typename Copy>
-typename mizuiro::detail::normal_format_base<Format, Copy>::format_store_type
+mizuiro::detail::normal_format_base<Format, Copy>::format_store_type
 mizuiro::detail::normal_format_base<Format, Copy>::format_store_base() const
 {
   return format_;

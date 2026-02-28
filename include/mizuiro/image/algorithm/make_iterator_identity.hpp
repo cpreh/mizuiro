@@ -12,13 +12,13 @@ namespace mizuiro::image::algorithm
 struct make_iterator_identity
 {
   template <typename View>
-  static typename View::iterator begin(View const &_view)
+  static View::iterator begin(View const &_view)
   {
     return _view.begin();
   }
 
   template <typename View>
-  static typename View::iterator end(View const &_view)
+  static View::iterator end(View const &_view)
   {
     return _view.end();
   }

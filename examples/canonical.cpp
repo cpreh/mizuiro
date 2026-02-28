@@ -12,11 +12,14 @@
 #include <mizuiro/image/format/include/canonical.hpp> // NOLINT(misc-include-cleaner)
 #include <fcppt/array/object_impl.hpp>
 #include <fcppt/config/external_begin.hpp>
+#include <cstdlib>
+#include <exception>
 #include <iostream>
 #include <string>
 #include <fcppt/config/external_end.hpp>
 
 int main()
+try
 {
   using format = mizuiro::image::format::canonical<mizuiro::image::dimension<2>, std::string>;
 
@@ -29,4 +32,11 @@ int main()
   mizuiro::image::algorithm::print(std::cout, view);
 
   std::cout << '\n';
+
+  return EXIT_SUCCESS;
+}
+catch(std::exception const &_error)
+{
+  std::cerr << _error.what() << '\n';
+  return EXIT_FAILURE;
 }

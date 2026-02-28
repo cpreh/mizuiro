@@ -14,7 +14,7 @@ namespace mizuiro::color::access::channels_ns
 {
 
 template <typename Format>
-constexpr typename Format::channels channels_adl(
+constexpr Format::channels channels_adl(
     mizuiro::color::access::channels_ns::tag,
     mizuiro::color::format::static_ns::tag<Format>,
     mizuiro::color::format::store<Format> const &)

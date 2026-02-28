@@ -35,13 +35,13 @@ public:
 
   using format = Format;
 
-  using format_store_type = typename format_base::format_store_type;
+  using format_store_type = format_base::format_store_type;
 
   using pointer = mizuiro::image::types::pointer<access, format, mizuiro::nonconst_tag>;
 
   using const_pointer = mizuiro::image::types::pointer<access, format, mizuiro::const_tag>;
 
-  using dim = typename format::dim;
+  using dim = format::dim;
 
   using value_type = mizuiro::image::types::value_type<format>;
 

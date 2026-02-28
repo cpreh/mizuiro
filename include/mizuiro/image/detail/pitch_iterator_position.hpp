@@ -13,7 +13,7 @@ namespace mizuiro::image::detail
 {
 
 template <typename Access, typename Format, typename Constness>
-inline typename Format::dim pitch_iterator_position(
+inline Format::dim pitch_iterator_position(
     mizuiro::image::detail::pitch_iterator<Access, Format, Constness> const &_it)
 {
   return mizuiro::image::detail::relative_position(_it.size(), _it.offset());

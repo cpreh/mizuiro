@@ -20,7 +20,7 @@ struct homogenous_static
 
   using layout = Layout;
 
-  using channels = typename Layout::channels;
+  using channels = Layout::channels;
 
   static constexpr mizuiro::size_type const element_count = fcppt::mpl::list::size<channels>::value;
 };

@@ -26,13 +26,13 @@ public:
   using reference =
       mizuiro::image::indexed_ref<Dimension::static_size, typename Underlying::reference>;
 
-  using pointer = typename Underlying::pointer;
+  using pointer = Underlying::pointer;
 
-  using difference_type = typename Underlying::difference_type;
+  using difference_type = Underlying::difference_type;
 
-  using format = typename Underlying::format;
+  using format = Underlying::format;
 
-  using format_store_type = typename Underlying::format_store_type;
+  using format_store_type = Underlying::format_store_type;
 
   void advance(difference_type);
 

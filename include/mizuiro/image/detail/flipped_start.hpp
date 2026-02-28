@@ -18,6 +18,7 @@ Dim flipped_start(typename Dim::value_type const _last_dim)
 
   for (typename Dim::size_type index = 0; index < Dim::static_size - 1; ++index)
   {
+    // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
     ret[index] = 0;
   }
 

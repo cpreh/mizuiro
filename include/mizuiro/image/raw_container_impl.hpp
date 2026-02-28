@@ -100,34 +100,34 @@ void mizuiro::image::raw_container<T, A>::resize(size_type const _size)
 }
 
 template <typename T, typename A>
-typename mizuiro::image::raw_container<T, A>::pointer mizuiro::image::raw_container<T, A>::data()
+mizuiro::image::raw_container<T, A>::pointer mizuiro::image::raw_container<T, A>::data()
 {
   return data_;
 }
 
 template <typename T, typename A>
-typename mizuiro::image::raw_container<T, A>::const_pointer
+mizuiro::image::raw_container<T, A>::const_pointer
 mizuiro::image::raw_container<T, A>::data() const
 {
   return data_;
 }
 
 template <typename T, typename A>
-typename mizuiro::image::raw_container<T, A>::pointer
+mizuiro::image::raw_container<T, A>::pointer
 mizuiro::image::raw_container<T, A>::data_end()
 {
   return data_end_;
 }
 
 template <typename T, typename A>
-typename mizuiro::image::raw_container<T, A>::const_pointer
+mizuiro::image::raw_container<T, A>::const_pointer
 mizuiro::image::raw_container<T, A>::data_end() const
 {
   return data_end_;
 }
 
 template <typename T, typename A>
-typename mizuiro::image::raw_container<T, A>::size_type
+mizuiro::image::raw_container<T, A>::size_type
 mizuiro::image::raw_container<T, A>::size() const
 {
   return static_cast<size_type>(data_end_ - data_);

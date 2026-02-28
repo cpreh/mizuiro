@@ -12,7 +12,7 @@ namespace mizuiro::color::types
 {
 
 template <typename Format, typename Channel>
-using channel_value = typename mizuiro::color::types::detail::channel_value<Format, Channel>::type;
+using channel_value = mizuiro::color::types::detail::channel_value<Format, Channel>::type;
 
 }
 

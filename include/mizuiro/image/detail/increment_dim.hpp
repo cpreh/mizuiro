@@ -16,14 +16,18 @@ template <mizuiro::size_type Size>
 inline mizuiro::image::dimension<Size>
 increment_dim(mizuiro::image::dimension<Size> const _size, mizuiro::image::dimension<Size> _current)
 {
+  // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
   ++_current[0];
 
   for (mizuiro::size_type i = 0U; i < Size - 1U; ++i)
   {
+    // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
     if (_current[i] == _size[i])
     {
+      // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
       _current[i] = 0;
 
+      // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
       ++_current[i + 1];
     }
   }

@@ -29,9 +29,9 @@ public:
 
   using constness = Constness;
 
-  using format_store_type = typename format_base::format_store_type;
+  using format_store_type = format_base::format_store_type;
 
-  using dim = typename format::dim;
+  using dim = format::dim;
 
   using pitch_type = mizuiro::image::pitch_type<dim>;
 

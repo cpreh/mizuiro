@@ -12,14 +12,14 @@
 #include <fcppt/config/external_end.hpp>
 
 template <typename Impl>
-typename mizuiro::image::basic_iterator<Impl>::pointer
+mizuiro::image::basic_iterator<Impl>::pointer
 mizuiro::image::basic_iterator<Impl>::data() const
 {
   return Impl::data();
 }
 
 template <typename Impl>
-typename mizuiro::image::basic_iterator<Impl>::reference
+mizuiro::image::basic_iterator<Impl>::reference
 mizuiro::image::basic_iterator<Impl>::operator*() const
 {
   return this->dereference();
@@ -40,7 +40,7 @@ bool mizuiro::image::basic_iterator<Impl>::operator==(basic_iterator const &_oth
 }
 
 template <typename Impl>
-typename mizuiro::image::basic_iterator<Impl>::pointer
+mizuiro::image::basic_iterator<Impl>::pointer
 mizuiro::image::basic_iterator<Impl>::operator->() const
 {
   return this->data();
@@ -64,14 +64,14 @@ mizuiro::image::basic_iterator<Impl>::operator+=(difference_type const _diff)
 }
 
 template <typename Impl>
-typename mizuiro::image::basic_iterator<Impl>::difference_type
+mizuiro::image::basic_iterator<Impl>::difference_type
 mizuiro::image::basic_iterator<Impl>::operator-(basic_iterator const &_other) const
 {
   return _other.distance_to(*this);
 }
 
 template <typename Impl>
-typename mizuiro::image::basic_iterator<Impl>::reference
+mizuiro::image::basic_iterator<Impl>::reference
 mizuiro::image::basic_iterator<Impl>::operator[](difference_type const _diff) const
 {
   return *(*this + _diff);
@@ -118,14 +118,14 @@ mizuiro::image::operator--(mizuiro::image::basic_iterator<Impl> &_it, int)
 template <typename Impl>
 mizuiro::image::basic_iterator<Impl> mizuiro::image::operator+(
     mizuiro::image::basic_iterator<Impl> _it,
-    typename mizuiro::image::basic_iterator<Impl>::difference_type const _diff)
+    mizuiro::image::basic_iterator<Impl>::difference_type const _diff)
 {
   return _it += _diff;
 }
 
 template <typename Impl>
 mizuiro::image::basic_iterator<Impl> mizuiro::image::operator+(
-    typename mizuiro::image::basic_iterator<Impl>::difference_type const _diff,
+    mizuiro::image::basic_iterator<Impl>::difference_type const _diff,
     mizuiro::image::basic_iterator<Impl> const &_it)
 {
   return _it + _diff;
@@ -134,7 +134,7 @@ mizuiro::image::basic_iterator<Impl> mizuiro::image::operator+(
 template <typename Impl>
 mizuiro::image::basic_iterator<Impl> &mizuiro::image::operator-=(
     mizuiro::image::basic_iterator<Impl> &_it,
-    typename mizuiro::image::basic_iterator<Impl>::difference_type const _diff)
+    mizuiro::image::basic_iterator<Impl>::difference_type const _diff)
 {
   return _it += -_diff;
 }
@@ -143,7 +143,7 @@ template <typename Impl>
 mizuiro::image::basic_iterator<Impl> mizuiro::image::operator-(
     mizuiro::image::basic_iterator<Impl> _it,
     // NOLINTNEXTLINE(readability-avoid-const-params-in-decls)
-    typename mizuiro::image::basic_iterator<Impl>::difference_type const _diff)
+    mizuiro::image::basic_iterator<Impl>::difference_type const _diff)
 {
   return _it -= _diff;
 }

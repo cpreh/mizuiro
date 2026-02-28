@@ -14,7 +14,7 @@ namespace mizuiro::color::access::channels_ns
 {
 
 template <typename Format>
-inline typename Format::channel_array const &channels_adl(
+inline Format::channel_array const &channels_adl(
     mizuiro::color::access::channels_ns::tag,
     mizuiro::color::format::dynamic_ns::tag<Format>,
     mizuiro::color::format::store<Format> const &_format)

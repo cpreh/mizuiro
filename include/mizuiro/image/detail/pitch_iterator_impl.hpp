@@ -36,21 +36,21 @@ mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::pitch_iterato
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::dim const &
+mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::dim const &
 mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::size() const
 {
   return size_;
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::difference_type
+mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::difference_type
 mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::offset() const
 {
   return offset_;
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::pointer
+mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::pointer
 mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::data() const
 {
   return mizuiro::image::access::advance_pointer<Access, Constness, Format>(
@@ -82,6 +82,7 @@ mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::advance(
   for (mizuiro::size_type i = 0; i < pitch_type::static_size; ++i)
   {
     add +=
+        // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
         ((_diff + offset_ % stacked_dim_.get_unsafe(i)) / stacked_dim_.get_unsafe(i)) * pitch_[i];
   }
 
@@ -98,11 +99,13 @@ void mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::incremen
   if (line_advance_ == -1) [[unlikely]]
   {
     line_advance_ =
+        // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
         static_cast<difference_type>(mizuiro::image::detail::pitch_iterator_position(*this)[0]);
   }
 
   ++line_advance_;
 
+  // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access,readability-inconsistent-ifelse-braces)
   if (line_advance_ >= static_cast<difference_type>(size_[0])) [[unlikely]]
   {
     this->advance(1);
@@ -125,7 +128,7 @@ void mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::decremen
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::difference_type
+mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::difference_type
 mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::distance_to(
     pitch_iterator const &_other) const
 {
@@ -133,7 +136,7 @@ mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::distance_to(
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::reference
+mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::reference
 mizuiro::image::detail::pitch_iterator<Access, Format, Constness>::dereference() const
 {
   return mizuiro::image::access::dereference<Access, Constness, Format>(

@@ -24,7 +24,7 @@ mizuiro::image::to_pitch_view<View> flipped_view(View const &_view)
 {
   using result_type = mizuiro::image::to_pitch_view<View>;
 
-  using dim = typename View::dim;
+  using dim = View::dim;
 
   typename dim::value_type const last_dim(_view.size().back());
 

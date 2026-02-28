@@ -25,6 +25,7 @@ std::basic_ostream<Ch, Traits> &operator<<(
 
   for (typename dim::size_type i = 0; i < dim::static_size; ++i)
   {
+    // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
     _stream << _dim[i];
 
     if (i != dim::static_size - 1)

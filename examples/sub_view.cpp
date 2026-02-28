@@ -68,7 +68,7 @@ try
 
   std::cout << '\n';
 
-  using pitch_view = mizuiro::image::to_pitch_view<typename mizuiro::image::const_view<view_type>>;
+  using pitch_view = mizuiro::image::to_pitch_view<mizuiro::image::const_view<view_type>>;
 
   pitch_view const sub_view(mizuiro::image::sub_view(
       img.view(),

@@ -58,21 +58,21 @@ mizuiro::image::view<Access, Format, Constness>::view(
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::view<Access, Format, Constness>::dim
+mizuiro::image::view<Access, Format, Constness>::dim
 mizuiro::image::view<Access, Format, Constness>::size() const
 {
   return fcppt::variant::apply([](auto const &_view) { return _view.size(); }, impl_);
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::view<Access, Format, Constness>::pitch_type
+mizuiro::image::view<Access, Format, Constness>::pitch_type
 mizuiro::image::view<Access, Format, Constness>::pitch() const
 {
   return fcppt::variant::apply([](auto const &_view) { return _view.pitch(); }, impl_);
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::view<Access, Format, Constness>::iterator
+mizuiro::image::view<Access, Format, Constness>::iterator
 mizuiro::image::view<Access, Format, Constness>::begin() const
 {
   return fcppt::variant::apply(
@@ -82,7 +82,7 @@ mizuiro::image::view<Access, Format, Constness>::begin() const
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::view<Access, Format, Constness>::iterator
+mizuiro::image::view<Access, Format, Constness>::iterator
 mizuiro::image::view<Access, Format, Constness>::end() const
 {
   return fcppt::variant::apply(
@@ -92,28 +92,28 @@ mizuiro::image::view<Access, Format, Constness>::end() const
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::view<Access, Format, Constness>::reference
+mizuiro::image::view<Access, Format, Constness>::reference
 mizuiro::image::view<Access, Format, Constness>::operator[](dim const &_index) const
 {
   return *mizuiro::image::move_iterator(*this, _index);
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::view<Access, Format, Constness>::pointer
+mizuiro::image::view<Access, Format, Constness>::pointer
 mizuiro::image::view<Access, Format, Constness>::data() const
 {
   return fcppt::variant::apply([](auto const &_view) { return _view.data(); }, impl_);
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::view<Access, Format, Constness>::format_store_type
+mizuiro::image::view<Access, Format, Constness>::format_store_type
 mizuiro::image::view<Access, Format, Constness>::format_store() const
 {
   return fcppt::variant::apply([](auto const &_view) { return _view.format_store(); }, impl_);
 }
 
 template <typename Access, typename Format, typename Constness>
-typename mizuiro::image::view<Access, Format, Constness>::view_variant const &
+mizuiro::image::view<Access, Format, Constness>::view_variant const &
 mizuiro::image::view<Access, Format, Constness>::impl() const
 {
   return impl_;

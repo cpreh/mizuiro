@@ -22,7 +22,7 @@ Reference mizuiro::image::indexed_ref<Size, Reference>::get() const
 }
 
 template <mizuiro::size_type Size, typename Reference>
-typename mizuiro::image::indexed_ref<Size, Reference>::dim const &
+mizuiro::image::indexed_ref<Size, Reference>::dim const &
 mizuiro::image::indexed_ref<Size, Reference>::index() const
 {
   return index_;

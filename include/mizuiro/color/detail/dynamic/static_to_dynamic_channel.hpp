@@ -15,7 +15,7 @@ namespace mizuiro::color::detail::dynamic
 {
 
 template <typename Format, typename StaticChannel>
-inline typename mizuiro::color::detail::dynamic::channel_index
+inline mizuiro::color::detail::dynamic::channel_index
 static_to_dynamic_channel(mizuiro::color::channel::tag<StaticChannel> const &)
 {
   return mizuiro::color::detail::dynamic::channel_index{fcppt::mpl::list::index_of<

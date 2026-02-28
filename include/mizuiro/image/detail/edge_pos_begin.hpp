@@ -12,14 +12,15 @@ namespace mizuiro::image::detail
 {
 
 template <typename Bound>
-typename Bound::dim edge_pos_begin(Bound const &_bound, typename Bound::size_type const _index)
+Bound::dim edge_pos_begin(Bound const &_bound, typename Bound::size_type const _index)
 {
-  using dim = typename Bound::dim;
+  using dim = Bound::dim;
 
   dim ret{mizuiro::no_init{}};
 
   for (typename dim::size_type i = 0; i < dim::static_size; ++i)
   {
+    // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
     ret[i] = (i == _index + 1) ? _bound.pos()[i] + 1 : _bound.pos()[i];
   }
 

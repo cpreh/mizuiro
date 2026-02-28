@@ -17,7 +17,7 @@ namespace mizuiro::image
 {
 
 template <typename Access, typename Format, typename Constness>
-inline typename Format::dim iterator_position(
+inline Format::dim iterator_position(
     mizuiro::image::linear_view<Access, Format, Constness> const &_view,
     mizuiro::image::linear_iterator<Access, Format, Constness> const &_it)
 {
@@ -25,7 +25,7 @@ inline typename Format::dim iterator_position(
 }
 
 template <typename Access, typename Format, typename Constness>
-inline typename Format::dim iterator_position(
+inline Format::dim iterator_position(
     mizuiro::image::pitch_view<Access, Format, Constness> const &,
     mizuiro::image::pitch_iterator<Access, Format, Constness> const &_it)
 {

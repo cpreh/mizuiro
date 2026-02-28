@@ -24,7 +24,7 @@
 #include <fcppt/config/external_end.hpp>
 
 FCPPT_CATCH_BEGIN
-// NOLINTBEGIN(misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
+// NOLINTBEGIN(bugprone-throwing-static-initialization,misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
 
 namespace
 {
@@ -34,11 +34,11 @@ void test_format(mizuiro::image::types::value_type<ImageFormat> const _init)
 {
   using store_type = mizuiro::image::store<ImageFormat>;
 
-  using dim = typename store_type::dim;
+  using dim = store_type::dim;
 
   store_type const store(dim{2U, 2U}, _init);
 
-  using access = typename store_type::access;
+  using access = store_type::access;
 
   CHECK(
       mizuiro::image::access::pointer_difference<access, mizuiro::const_tag, ImageFormat>(
@@ -61,5 +61,5 @@ TEST_CASE("image interleaved", "[mizuiro]")
       mizuiro::color::object<color_format>(mizuiro::default_init()));
 }
 
-// NOLINTEND(misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
+// NOLINTEND(bugprone-throwing-static-initialization,misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
 FCPPT_CATCH_END

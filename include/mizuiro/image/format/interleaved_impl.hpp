@@ -17,7 +17,7 @@ mizuiro::image::format::interleaved<DimType, ColorFormat>::interleaved(
 }
 
 template <typename DimType, typename ColorFormat>
-typename mizuiro::image::format::interleaved<DimType, ColorFormat>::format_store_type
+mizuiro::image::format::interleaved<DimType, ColorFormat>::format_store_type
 mizuiro::image::format::interleaved<DimType, ColorFormat>::format_store() const
 {
   return this->format_store_base();

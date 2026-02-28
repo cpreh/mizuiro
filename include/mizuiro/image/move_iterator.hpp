@@ -10,15 +10,15 @@ namespace mizuiro::image
 {
 
 template <typename View>
-typename View::iterator move_iterator(View const &_view, typename View::dim const _pos)
+View::iterator move_iterator(View const &_view, typename View::dim const _pos)
 {
   typename View::iterator ret(_view.begin());
 
-  using dim = typename View::dim;
+  using dim = View::dim;
 
   dim const size(_view.size());
 
-  using difference_type = typename View::iterator::difference_type;
+  using difference_type = View::iterator::difference_type;
 
   difference_type add{0};
 
@@ -26,8 +26,10 @@ typename View::iterator move_iterator(View const &_view, typename View::dim cons
 
   for (typename dim::size_type i = 0; i < dim::static_size; ++i)
   {
+    // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
     add += static_cast<difference_type>(_pos[i]) * multiplier;
 
+    // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
     multiplier *= static_cast<difference_type>(size[i]);
   }
 

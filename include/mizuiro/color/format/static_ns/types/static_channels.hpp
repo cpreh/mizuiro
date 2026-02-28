@@ -13,7 +13,7 @@ namespace mizuiro::color::types::static_channels_ns
 {
 
 template <typename Format>
-typename Format::channels static_channels_adl(
+Format::channels static_channels_adl(
     mizuiro::color::types::static_channels_ns::tag, mizuiro::color::format::static_ns::tag<Format>);
 
 }

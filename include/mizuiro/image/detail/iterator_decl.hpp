@@ -40,7 +40,7 @@ public:
           typename linear_iterator::format_store_type>,
       "pitch_iterator and linear_iterator need the same format store");
 
-  using format_store_type = typename pitch_iterator::format_store_type;
+  using format_store_type = pitch_iterator::format_store_type;
 
   using internal_type = fcppt::variant::object<pitch_iterator, linear_iterator>;
 

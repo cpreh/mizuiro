@@ -14,10 +14,13 @@
 #include <mizuiro/image/format/include/planar.hpp> // NOLINT(misc-include-cleaner)
 #include <fcppt/config/external_begin.hpp>
 #include <cstdint>
+#include <cstdlib>
+#include <exception>
 #include <iostream>
 #include <fcppt/config/external_end.hpp>
 
 int main()
+try
 {
   using format = mizuiro::image::format::planar<
       mizuiro::image::dimension<2>,
@@ -33,4 +36,11 @@ int main()
   }
 
   std::cout << '\n';
+
+  return EXIT_SUCCESS;
+}
+catch(std::exception const &_error)
+{
+  std::cerr << _error.what() << '\n';
+  return EXIT_FAILURE;
 }

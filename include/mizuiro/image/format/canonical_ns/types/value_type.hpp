@@ -13,7 +13,7 @@ namespace mizuiro::image::types::value_type_ns
 {
 
 template <typename Format>
-typename Format::element_type value_type_adl(
+Format::element_type value_type_adl(
     mizuiro::image::types::value_type_ns::tag, mizuiro::image::format::canonical_ns::tag<Format>);
 
 }

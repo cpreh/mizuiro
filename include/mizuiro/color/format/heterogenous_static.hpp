@@ -24,7 +24,7 @@ struct heterogenous_static
 
   using layout = Layout;
 
-  using channels = typename Layout::channels;
+  using channels = Layout::channels;
 };
 
 }

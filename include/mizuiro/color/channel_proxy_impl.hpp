@@ -24,7 +24,7 @@ mizuiro::color::channel_proxy<Pointer, ValueType, ChannelAccess>::operator=(valu
 }
 
 template <typename Pointer, typename ValueType, typename ChannelAccess>
-typename mizuiro::color::channel_proxy<Pointer, ValueType, ChannelAccess>::value_type
+mizuiro::color::channel_proxy<Pointer, ValueType, ChannelAccess>::value_type
 mizuiro::color::channel_proxy<Pointer, ValueType, ChannelAccess>::get() const
 {
   return ChannelAccess::read(data_);

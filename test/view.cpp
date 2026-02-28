@@ -42,7 +42,7 @@ using view_type =
 }
 
 FCPPT_CATCH_BEGIN
-// NOLINTBEGIN(misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
+// NOLINTBEGIN(bugprone-throwing-static-initialization,misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
 
 TEST_CASE("view operations", "[mizuiro]")
 {
@@ -50,13 +50,14 @@ TEST_CASE("view operations", "[mizuiro]")
 
   view_type view(store.view());
 
+  // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
   view[view_type::dim{0U, 0U}] = mizuiro::color::object<format::color_format>(
       // NOLINTNEXTLINE(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
       mizuiro::color::init::red() = channel_type{42}
   );
 
   CHECK(
-      // NOLINTNEXTLINE(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      // NOLINTNEXTLINE(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers,cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
       view[view_type::dim(0U, 0U)].get(mizuiro::color::channel::red()) == channel_type{42}
   );
 
@@ -95,10 +96,10 @@ TEST_CASE("view fill", "[mizuiro]")
       });
 
   CHECK(
-      // NOLINTNEXTLINE(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
+      // NOLINTNEXTLINE(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers,cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
       store.view()[store_type::dim(0U, 0U)].get(mizuiro::color::channel::red()) == channel_type{42}
   );
 }
 
-// NOLINTEND(misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
+// NOLINTEND(bugprone-throwing-static-initialization,misc-const-correctness,cert-err58-cpp,fuchsia-statically-constructed-objects,misc-use-anonymous-namespace,cppcoreguidelines-avoid-do-while)
 FCPPT_CATCH_END

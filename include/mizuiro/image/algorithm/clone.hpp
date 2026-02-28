@@ -21,7 +21,7 @@ mizuiro::image::store<typename ViewS::format, typename ViewS::access> clone(View
 
   return result_type{
       _src.size(),
-      [&_src](typename result_type::view_type const &_view)
+      [&_src](result_type::view_type const &_view)
       {
         mizuiro::image::algorithm::copy(
             _src,

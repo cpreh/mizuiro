@@ -22,7 +22,7 @@ Constness is mizuiro::const_tag.
 \tparam BaseType Can be any type
 */
 template <typename BaseType, typename Constness>
-using apply_const = typename mizuiro::detail::apply_const<BaseType, Constness>::type;
+using apply_const = mizuiro::detail::apply_const<BaseType, Constness>::type;
 
 }
 

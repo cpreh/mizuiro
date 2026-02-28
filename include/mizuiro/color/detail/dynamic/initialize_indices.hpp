@@ -22,7 +22,7 @@ ChannelIndexArray initialize_indices(Layout const &_layout)
   for (typename Layout::size_type index(0); index < _layout.size(); ++index)
   {
     // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-constant-array-index)
-    ret.get_unsafe(static_cast<typename ChannelIndexArray::size_type>(
+    ret.get_unsafe(static_cast<ChannelIndexArray::size_type>(
         // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-constant-array-index)
         _layout.get_unsafe(index).get())) = index;
   }

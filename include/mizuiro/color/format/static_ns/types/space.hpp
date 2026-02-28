@@ -12,7 +12,7 @@
 namespace mizuiro::color::types::space_ns
 {
 template <typename Format>
-typename Format::layout::space
+Format::layout::space
     space_adl(mizuiro::color::types::space_ns::tag, mizuiro::color::format::static_ns::tag<Format>);
 
 }

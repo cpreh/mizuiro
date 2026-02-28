@@ -11,7 +11,7 @@ namespace mizuiro::detail
 
 template <typename Result, bool NeedsStore>
 Result format_argument_impl()
-  requires(NeedsStore)
+  requires NeedsStore
 {
   static_assert(sizeof(Result) == 0, "This color format requires a store!");
 }

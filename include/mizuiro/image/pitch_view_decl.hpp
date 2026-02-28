@@ -33,7 +33,7 @@ public:
 
   using constness = Constness;
 
-  using format_store_type = typename format_base::format_store_type;
+  using format_store_type = format_base::format_store_type;
 
   using pointer = mizuiro::image::types::pointer<access, format, constness>;
 
@@ -41,7 +41,7 @@ public:
 
   using iterator = mizuiro::image::pitch_iterator<access, format, constness>;
 
-  using dim = typename format::dim;
+  using dim = format::dim;
 
   using bound_type = mizuiro::image::bound<dim::static_size, typename dim::value_type>;
 

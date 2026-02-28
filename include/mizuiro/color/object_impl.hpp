@@ -68,6 +68,7 @@ void mizuiro::color::object<Format>::set(
 template <typename Format>
 template <typename Channel>
 mizuiro::color::types::channel_reference<
+    // NOLINTNEXTLINE(readability-redundant-typename)
     typename mizuiro::color::object<Format>::access,
     typename mizuiro::color::object<Format>::format,
     Channel,
@@ -78,26 +79,26 @@ mizuiro::color::object<Format>::get(Channel const &_channel) const
 }
 
 template <typename Format>
-typename mizuiro::color::object<Format>::pointer mizuiro::color::object<Format>::data()
+mizuiro::color::object<Format>::pointer mizuiro::color::object<Format>::data()
 {
   return this->make_proxy().data();
 }
 
 template <typename Format>
-typename mizuiro::color::object<Format>::const_pointer mizuiro::color::object<Format>::data() const
+mizuiro::color::object<Format>::const_pointer mizuiro::color::object<Format>::data() const
 {
   return this->make_const_proxy().data();
 }
 
 template <typename Format>
-constexpr typename mizuiro::color::object<Format>::format_store_type
+constexpr mizuiro::color::object<Format>::format_store_type
 mizuiro::color::object<Format>::format_store() const
 {
   return this->format_store_base();
 }
 
 template <typename Format>
-typename mizuiro::color::object<Format>::proxy mizuiro::color::object<Format>::make_proxy()
+mizuiro::color::object<Format>::proxy mizuiro::color::object<Format>::make_proxy()
 {
   return proxy(
       mizuiro::color::access::store_data<mizuiro::nonconst_tag, Format>(
@@ -106,7 +107,7 @@ typename mizuiro::color::object<Format>::proxy mizuiro::color::object<Format>::m
 }
 
 template <typename Format>
-typename mizuiro::color::object<Format>::const_proxy
+mizuiro::color::object<Format>::const_proxy
 mizuiro::color::object<Format>::make_const_proxy() const
 {
   return const_proxy(

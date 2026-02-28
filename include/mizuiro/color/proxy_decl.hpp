@@ -27,7 +27,7 @@ public:
 
   using format = Format;
 
-  using format_store_type = typename base::format_store_type;
+  using format_store_type = base::format_store_type;
 
   using pointer = mizuiro::color::types::pointer<Access, Format, Constness>;
 
