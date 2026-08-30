@@ -27,7 +27,7 @@ public:
 
   [[nodiscard]] value_type get() const;
 
-  // NOLINTNEXTLINE(google-explicit-constructor,hicpp-explicit-conversions)
+  // NOLINTNEXTLINE(google-explicit-constructor,hicpp-explicit-conversions,cppcoreguidelines-explicit-constructor,misc-explicit-constructor)
   operator value_type() const;
 
 private:
