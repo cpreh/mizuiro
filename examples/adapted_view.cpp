@@ -239,7 +239,7 @@ public:
 
 FCPPT_PP_PUSH_WARNING
 FCPPT_PP_IGNORE_UNSAFE_BUFFER_USAGE_IN_LIBC_CALL
-  // NOLINTNEXTLINE(google-explicit-constructor,hicpp-explicit-conversions)
+  // NOLINTNEXTLINE(google-explicit-constructor,hicpp-explicit-conversions,cppcoreguidelines-explicit-constructor,misc-explicit-constructor)
   operator value_type() const
   {
     value_type result;
